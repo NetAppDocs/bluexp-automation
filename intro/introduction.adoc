@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: intro/introduction.html
+keywords: introduction, Astra REST API
+summary:
+---
+
+= Introduction to the Cloud Manager platform
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx

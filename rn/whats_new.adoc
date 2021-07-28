@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: rn/whats_new.html
+keywords:
+summary:
+---
+
+= What's new with the Cloud Manager platform
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp periodically updates Cloud Manager platform.

@@ -1,0 +1,19 @@
+---
+sidebar: sidebar
+permalink: rn/known_limitations.html
+keywords:
+summary:
+---
+
+= Known limitations
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with it.
+
+[NOTE]
+You should review these limitations carefully.

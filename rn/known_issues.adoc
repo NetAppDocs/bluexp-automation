@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: rn/known_issues.html
+keywords:
+summary:
+---
+
+= Known issues
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Known issues identify problems that might prevent you from using the REST API included with this release of the product successfully.
