@@ -1,5 +1,8 @@
 sidebar:
-
+  entries:
+    - title: Cloud Manager API docs
+      url: /index.html
+    - section: cm
 
 homepage:
   tiles:
