@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-Known limitations identify features not supported by this release of the product or that do not interoperate correctly with it.
+Known limitations identify features not supported with this release of the product or that do not interoperate correctly with it.
 
 [NOTE]
 You should review these limitations carefully.

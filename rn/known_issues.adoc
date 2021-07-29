@@ -13,4 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-Known issues identify problems that might prevent you from using the REST API included with this release of the product successfully.
+Known issues identify problems that might prevent you from successfully using the REST API included with this release of the product.
