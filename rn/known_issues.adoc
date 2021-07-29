@@ -13,4 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-Known issues identify problems that might prevent you from successfully using the REST API included with this release of the product.
+Known issues identify problems that might prevent you from successfully using the Cloud Manager REST API.

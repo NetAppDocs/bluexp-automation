@@ -13,4 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-NetApp periodically updates Cloud Manager platform and REST API to bring you new features, enhancements, and bug fixes.
+NetApp periodically updates the Cloud Manager platform and REST API to bring you new features, enhancements, and bug fixes.

@@ -13,4 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-WILL ADD BRIEF OVERVIEW OF THE CLOUD MANAGER PLATFORM.
+*Will add a brief overview of the Cloud Manager platform. Might expand to several pages.*
