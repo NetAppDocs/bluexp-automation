@@ -13,4 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-xxx
+WILL ADD BRIEF OVERVIEW OF THE CLOUD MANAGER PLATFORM.

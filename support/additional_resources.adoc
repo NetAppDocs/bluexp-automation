@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/introduction.html
+permalink: support/additional_resources.html
 keywords:
 summary:
 ---
 
-= Introduction
+=
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,3 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
+WILL ADD LINKS TO RESOURCES
