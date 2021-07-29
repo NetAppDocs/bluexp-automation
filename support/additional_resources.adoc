@@ -13,4 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-There are additional resources you can access to get help and find more information about NetApp Cloud Manager service as well as general REST and cloud concepts.
+There are additional resources you can access to get help and find more information about the NetApp Cloud Manager service and REST API as well as general REST and cloud concepts.
