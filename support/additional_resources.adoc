@@ -14,3 +14,6 @@ summary:
 
 [.lead]
 There are additional resources you can access to get help and find more information about the NetApp Cloud Manager service and REST API as well as general REST and cloud concepts.
+
+[IMPORTANT]
+Must add links to resources. This content can be taken from some of the existing NetApp cloud sites, including the main OCCM doc site.

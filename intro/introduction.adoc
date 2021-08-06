@@ -13,4 +13,6 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-*Will add a brief overview of the Cloud Manager platform. Might expand to several pages.*
+
+[IMPORTANT]
+This page will contain an overview of the larger *Cloud Manager platform*. We might expand this to multiple pages in the sidebar. It is expected that David will write this content.
