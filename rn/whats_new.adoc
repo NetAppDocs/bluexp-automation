@@ -1,0 +1,19 @@
+---
+sidebar: sidebar
+permalink: rn/whats_new.html
+keywords:
+summary:
+---
+
+= What's new with the Cloud Manager platform
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp periodically updates the Cloud Manager platform and REST API to bring you new features, enhancements, and bug fixes.
+
+[IMPORTANT]
+We might decided to remove this topic and possibly the entire release notes section. Or maybe keep this page as a record of what's new at this doc site (and not what's new with the APIs themselves).

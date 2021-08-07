@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: intro/introduction.html
+keywords: introduction, Astra REST API
+summary:
+---
+
+= Introduction to the Cloud Manager platform
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+[IMPORTANT]
+This page will contain an overview of the larger *Cloud Manager platform*. We might expand this to multiple pages in the sidebar. It is expected that David will write this content.

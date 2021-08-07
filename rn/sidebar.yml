@@ -1,0 +1,9 @@
+section: rn
+title: Release notes
+entries:
+  - title: What's new
+    url: /rn/whats_new.html
+  - title: Known issues
+    url: /rn/known_issues.html
+  - title: Known limitations
+    url: /rn/known_limitations.html
