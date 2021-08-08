@@ -1,0 +1,163 @@
+---
+sidebar: sidebar
+permalink: workflow_processes.html
+keywords: workflows, processes, cloud, manager, api
+summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
+---
+
+= Understanding the workflow processes
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment.
+
+== Introduction
+
+A *_workflow_* is a sequence of one or more steps needed to accomplish a specific administrative task or goal. With the Cloud Manager workflows, each step can be one of the following:
+
+* REST API call
+* Invocation of another workflow
+* Miscellaneous task such as deciding on the size of a new volume
+
+The workflows provided include the minimum steps and parameters needed to accomplish each task. You can use these workflows as a starting point and customize them for your environment as needed.
+
+[NOTE]
+All the workflow examples are designed to be used with NetApp Cloud Volumes ONTAP.
+
+== High level organization of the workflows
+
+At a high level, the workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar.
+
+==== 1. Cloud provider
+
+Most of the workflows can be performed with one cloud provider. The supported cloud platforms include:
+
+* Amazon Web Services
+* Microsoft Azure
+* Google Cloud Platform
+
+In addition, some workflows are not tied to a specific cloud provider and can be performed in any cloud environment. These workflows are considered to be *common* to all the cloud providers.
+
+==== 2. Functional category
+
+The workflows for each cloud provider are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
+
+Working environments::
+A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and runs. These workflows allow you to create workflows and perform related administration.
+
+Aggregates::
+An aggregate is the low-level structure for Cloud Volumes ONTAP storage. These workflows allow you to create aggregates and perform related administration.
+
+Volumes::
+The storage volumes can be exposed for use by your applications. These workflows allow you to create volumes and perform related administration.
+
+Metadata::
+The metadata workflows allow you to view and administer the basic configuration of your cloud environment.
+
+Miscellaneous::
+Workflows that are not clearly assigned to another functional category are considered miscellaneous.
+
+==== 3. Single node and High Availability workflows
+
+Many of the workflows vary based on the type of the deployment.
+
+Single node::
+The cluster consists of a single Cloud Volumes ONTAP instance or ONTAP node.
+
+HA pair::
+The cluster consists of two linked Cloud Volumes ONTAP instances which together provide the ONTAP high availability (HA) feature.
+
+[NOTE]
+If both versions of a workflow exist for an administrative task they are included on the same page.
+
+== Base URLs and REST endpoint paths
+
+The REST API calls in the workflows use different URLs and URL formats depending on the desired service and resource.
+
+[NOTE]
+Every API call used in the workflows includes the resource path to the REST endpoint. The path is relative and appended to the appropriate *base* URL. Unless otherwise indicated for a specific API call, the base URL addresses the NetApp Cloud Manager service. You should always carefully review the curl examples provided in the workflows before using them.
+
+==== Cloud Manager endpoints
+
+The majority of the workflow REST API calls are made to the *NetApp Cloud Manager* service. The base URL of the SaaS interface is:
+
+`https://cloudmanager.netapp.com/`
+
+==== Auth0 authentication service
+
+Some of the REST API calls used in the identity workflows are made to the *Auth0* token authentication service. The base URL is:
+
+`https://netapp-cloud-account.auth0.com/`
+
+== Common parameters and variables
+
+There are several parameters or variables common among the workflows.
+
+==== Request headers
+
+Nearly all the REST API calls used in the workflows require the following two request headers.
+
+[NOTE]
+Rather than cite these headers as a prerequisite in every REST API call, they are considered a universal requirement. If a workflow does not use these headers or has different prerequisites, the section *Before you begin* is included at the top of the workflow and describes the prerequisites.
+
+Authorization request header::
+To get a bearer token for this header, perform the appropriate workflow at link:wf_common_identity_create_user_token.html[Create user token] and extract the `access_token` value.
+
+x-agent-id request header::
+This header contains the agent ID which is based on the client ID. See link:get_client_id.html[Get client and account identifiers] for information about creating this value.
+
+==== Presentation of common tokens and identifiers
+
+Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead. This has several benefits:
+
+* The curl and JSON samples are simpler and easier to understand.
+* Because all keywords use the same format (including capital letters), you can quickly identify the content to insert or extract.
+* No value is lost because the original values cannot be copied and used with an actual deployment.
+
+A list of the keywords used in the workflow curl examples is presented in the table below.
+
+[cols="25,75",options="header"]
+|===
+|Keyword
+|Description
+|<ACCESS_TOKEN>
+|An access token is a temporary string which establishes identity and access based on the OAuth2 standard.
+|<ID_TOKEN>
+|The ID token contains additional identity information for the user based on OpenID Connect (OIDC).
+|<CLIENT_ID>
+|This value uniquely identifies the user within a specific authorization domain.
+|<AGENT_ID>
+|The agent identifier is based on the client ID and is used to identify the user agent.
+|<ACCOUNT_ID>
+|This value identifies your NetApp account.
+|<NSS_KEY_ID>
+|This value identifies an entitlement key and is used by NetApp support.
+|<WORKING_ENV_ID>
+|This value identifies a working environment for the ONTAP runtime and so is synonymous with a Cloud Volumes ONTAP instance.
+|<SVM_NAME>
+|The name used for an ONTAP storage virtual machine.
+|<VOLUME_NAME>
+|The name used for an ONTAP storage volume.
+|<AGGR_NAME>
+|The aggregate name for a disk operation.
+|<REQUEST_ID>
+|This value is returned to the caller in the HTTP response and uniquely identifies the request.
+|<PROVIDER>
+|Abbreviation for the cloud provider.
+|<CLOUD_ACC_ID>
+|Account ID for the cloud provider.
+|<REFRESH_TOKEN>
+|NetApp refresh token used for federated authentication.
+|===
+
+==== JSON input for curl command
+
+In many cases, a workflow step accepts JSON input in the request body of the REST API call. This input is indicated in the curl command through the `-d` option, with the corresponding sample included in the *JSON input example* section.
+
+== Working environment status requirements
+
+Many of the workflows require the working environment to have a specific status (such as `ON` or `DEGRADED`) before the REST API call can be performed. Review the link:api_reference.html[API reference content] for details about the requirements for each API call.

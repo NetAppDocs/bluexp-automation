@@ -1,0 +1,96 @@
+---
+sidebar: sidebar
+permalink: http_details.html
+keywords: http, details, cloud, manager, rest, api, request headers, status, codes
+summary: 'The Cloud Manager REST API is based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.'
+---
+
+= HTTP details
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The Cloud Manager REST API is based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.
+
+== Request
+
+==== HTTP methods
+
+The HTTP methods supported by the Cloud Manager REST API are shown in the following table. Not all the HTTP methods are available at each of the REST endpoints. See the link:api_reference.html[API reference] documentation for more information.
+
+[cols="20,80",options="header"]
+|===
+|HTTP method
+|Description
+|GET
+|Retrieves object properties for a resource instance or collection of resources.
+|POST
+|Creates a new resource instance based on the supplied input values.
+|PUT
+|Updates an existing resource instance based on the supplied input values.
+|DELETE
+|Deletes an existing resource instance.
+|===
+
+==== Request headers
+
+The common request headers are presented below.
+
+[cols="20,80",options="header"]
+|===
+|Request header
+|Description
+|Authorization
+|This header contains a bearer token used to access the server.
+|x-agent-id
+|The agent identifier is based on the client ID and is used to identify the user agent.
+|Content-Type
+|This representation header is used to indicate the original media type of the resource.
+|Accept
+|The server automatically returns content in JSON format if Accept header is not specified.
+|===
+
+== Response
+
+==== HTTP status codes
+
+The HTTP status codes used by the Cloud Manager REST API are described below.
+
+// reason-phrase is the simple term for each status code
+
+[cols="15,20,65",options="header"]
+|===
+|Status code
+|Reason Phrase
+|Description
+|200
+|OK
+|The request was completed successfully.
+|202
+|Accepted
+|The request was accepted and is currently in process. Cloud Manager returns this code when the API call operates asynchronously. For example, the `/vsa/working-environments` call returns with 202 but the Cloud Volumes ONTAP instance launches up to 25 minutes later.
+|204
+|No Content
+|The operation was completed successfully and the server did not send a response message.
+|400
+|Bad Request
+|The request input is not recognized or is inappropriate. An error response explains the reason.
+|401
+|Unauthorized
+|The user has not authenticated.
+|403
+|Forbidden
+|This operation is not allowed for the current authenticated user.
+|409
+|Conflict
+|The operation failed because another operation is already in progress.
+|420
+|---
+|Cloud Manager has not been set up. You must set up Cloud Manager using the API call /occm/setup/init
+|5xx
+|---
+|An unexpected error occurred within the Cloud Manager server which has prevented it from fulfilling the request.
+|===

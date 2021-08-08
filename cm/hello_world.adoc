@@ -1,0 +1,63 @@
+---
+sidebar: sidebar
+permalink: hello_world.html
+keywords: hello, world, cloud, manager, rest, api
+summary: 'You can issue a curl command to get started using the Cloud Manager REST API and confirm its availability.'
+---
+
+= Hello world
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can issue a curl command to get started using the Cloud Manager REST API and confirm its availability.
+
+[NOTE]
+The example provided below is very simple. The workflow samples later in this guide use a more robust format. As a start, see link:workflow_processes.html[Understanding the workflow processes].
+
+.Before you begin
+
+You must do the following:
+
+* Determine the identifier to use for the `x-agent-id` request header as well as the related client ID. See link:get_client_id.html[Get the client and account identifiers].
+
+* Acquire an access token for the `Authorization` request header. See link:wf_common_identity_create_user_token.html[Create user token].
+
+.Curl example
+
+The following curl command retrieves information about the Cloud Manager server.
+
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+.Output example
+
+Information about the system is provided in the following format.
+
+[source,json]
+{
+  "version": "string",
+  "build": "string",
+  "buildTimestamp": "integer",
+  "systemId": "string",
+  "environment": "string",
+  "siteIdentifier": {
+    "company": "string",
+    "host": "string",
+    "site": "string"
+  },
+  "serverTimeZone": {
+    "timeZoneName": "string",
+    "formattedTimeZone": "string"
+  },
+  "beta": "boolean",
+  "releaseNumber": "integer",
+  "simplicatorUrl": "string",
+  "migrationPerformed": "boolean",
+  "demoMode": "boolean",
+  "usingDockerInfra": "boolean",
+  "privateIp": "string"
+}

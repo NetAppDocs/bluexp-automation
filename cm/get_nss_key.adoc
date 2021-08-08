@@ -1,0 +1,41 @@
+---
+sidebar: sidebar
+permalink: get_nss_key.html
+keywords: nss, credentials, key, cloud, manager, rest, api, nss, credential
+summary: 'You can sign in to the Cloud Manager web user interface to retrieve the NetApp Support Site credentials key.'
+---
+
+= Add NSS credentials key
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can sign in to the Cloud Manager web user interface to create a new NetApp Support Site (NSS) credentials key.
+
+[NOTE]
+You need the NSS key when creating a working environment that uses BYOL ("bring your own") licensing.
+
+== Add the NSS key
+
+You can create an NSS key and use it when creating a working environment.
+
+.Before you begin
+
+You must have a NetApp account (formerly Cloud Central account). You created this account when you first logged in to Cloud Manager and it’s displayed at the top of the Cloud Manager user interface. link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn more about NetApp accounts^].
+
+.Steps
+
+. Navigate to the Cloud Manager web site using a browser:
++
+https://cloudmanager.netapp.com
+
+. Sign in using your NetApp account (formerly Cloud Central account) credentials.
+
+. Click on the ? icon at the top right of the page and select *Support*.
+
+. Navigate to the *NSS Management* tab and click *Add NSS Account*.
+
+. Provide the NSS username and password and click *Register*. After successful registration, an NSS key ID will be generated.
