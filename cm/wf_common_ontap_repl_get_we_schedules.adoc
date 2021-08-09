@@ -1,0 +1,100 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_repl_get_we_schedules.html
+keywords: cloud, manager, rest, api
+summary: "You can use this workflow to retrieve the replication schedules used for a specific working environment."
+---
+
+= Get the replication schedules
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve the replication schedules used for a specific working environment.
+
+[NOTE]
+This workflow varies slightly depending on the cloud provider you are using.
+
+=== 1. Select the working environment
+
+Based on the cloud provider, you need to perform a workflow to get the identifier for the working environment as shown in the following table.
+
+[cols="15,85"*,options="header"]
+|===
+|Provider
+|Workflow
+|AWS
+|Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment path parameter.
+|===
+
+=== 2. Get the schedules
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/replication/schedules/{workingEnvironmentId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/schedules/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id:<AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter <WORKING_ENV_ID> `(workingEnvironment)`
+
+Output::
+
+The JSON output example includes the list of replication schedules.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "10min",
+        "description": "@:00,:10,:20,:30,:40,:50",
+        "cronJobSchedule": {
+            "months": [],
+            "days": [],
+            "weekDays": [],
+            "hours": [],
+            "minutes": [
+                0,
+                10,
+                20,
+                30,
+                40,
+                50
+            ]
+        }
+    },
+    {
+        "name": "5min",
+        "description": "@:00,:05,:10,:15,:20,:25,:30,:35,:40,:45,:50,:55",
+        "cronJobSchedule": {
+            "months": [],
+            "days": [],
+            "weekDays": [],
+            "hours": [],
+            "minutes": [
+                0,
+                5,
+                10,
+                15,
+                20,
+                25,
+                30,
+                35,
+                40,
+                45,
+                50,
+                55
+            ]
+        }
+    }
+]

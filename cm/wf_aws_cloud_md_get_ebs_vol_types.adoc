@@ -1,0 +1,98 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_md_get_ebs_vol_types.html
+keywords: ebs, volume, types, cloud, manager, rest, api
+summary: You can use this workflow to retrieve the supported EBS volume types.
+---
+
+= Get EBS volume types
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve the supported EBS volume types.
+
+=== 1. Get the EBS volume types
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/vsa/metadata/ebs-volume-types
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/ebs-volume-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of EBS volume types.
+
+JSON output example::
+[source,json]
+[
+    {
+        "description": "",
+        "size": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "supportedVolumeTypes": [
+            "standard",
+            "io1",
+            "io2",
+            "gp2"
+        ],
+        "supportedOccmLicenses": [
+            "Explore (hourly)",
+            "Standard (hourly)",
+            "Standard (BYOL)",
+            "Cloud Volumes ONTAP Explore",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Premium",
+            "Cloud Volumes ONTAP BYOL",
+            "Cloud Volumes ONTAP Explore",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Premium",
+            "Cloud Volumes ONTAP BYOL"
+        ],
+        "isDefault": false
+    },
+    {
+        "description": "",
+        "size": {
+            "size": 500.0,
+            "unit": "GB"
+        },
+        "supportedVolumeTypes": [
+            "standard",
+            "io1",
+            "io2",
+            "gp2",
+            "st1"
+        ],
+        "supportedOccmLicenses": [
+            "Explore (hourly)",
+            "Standard (hourly)",
+            "Standard (BYOL)",
+            "Cloud Volumes ONTAP Explore",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Premium",
+            "Cloud Volumes ONTAP BYOL",
+            "Cloud Volumes ONTAP Explore",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Premium",
+            "Cloud Volumes ONTAP BYOL"
+        ],
+        "isDefault": false
+    }
+]

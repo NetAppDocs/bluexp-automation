@@ -1,0 +1,76 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_md_get_permutations.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get permutations
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+
+=== 1. Get the permutations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/vsa/metadata/permutations
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+There are several optional query parameters you can use:
+
+* region
+* version
+* license
+* instance_type
+* default_instance_type
+* feature
+* latest_only
+* ami
+
+Output::
+
+The JSON output example includes the list of Cloud Volumes ONTAP configurations.
+
+JSON output example::
+[source,json]
+[
+   {
+       "ontapVersion": "ONTAP-9.9.0X4.T1",
+       "license": {
+           "type": "cot-explore-paygo",
+           "name": "Cloud Volumes ONTAP Explore",
+           "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying AWS storage.",
+           "subName": "",
+           "subDescription":"Support of tiering to object storage is not included.",
+           "capacity_limit": "2TB",
+           "platformLicenseRequired": false,
+           "default":false,
+           "capacityLimit": {"size":2.0, "unit": "TB"}
+       },
+      "instanceType": "m5.xlarge",
+      "region": {
+         "name": "EU",
+         "code": "eu-central-1",
+         "location": "Frankfurt",
+         "s3Region": "eu-central-1"
+      },
+      "defaultInstance":true,
+      "features": ["ena","kvm","network-utilization"],
+      "upgradeableFrom": ["9.8","9.9.0"]
+   }
+]

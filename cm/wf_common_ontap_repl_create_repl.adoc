@@ -1,0 +1,117 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_repl_create_repl.html
+keywords: cloud, manager, rest, api, lifs, snapmirror
+summary: "You can use this workflow to create a new SnapMirror replication relationship to an ONTAP working environment."
+---
+
+= Create a SnapMirror replication relationship
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create a new SnapMirror replication relationship to an ONTAP working environment. You can replicate data between working environments by choosing a one-time data replication for data transfer, or a recurring schedule for disaster recovery or long-term retention.
+
+[NOTE]
+This workflow varies slightly depending on the cloud provider you are using.
+
+=== 1. Select the working environment
+
+Based on the cloud provider, you need to perform a workflow to get the identifier for the working environment as shown in the following table.
+
+[cols="15,85"*,options="header"]
+|===
+|Provider
+|Workflow
+|AWS
+|Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values for the source and destination.
+|===
+
+=== 2. Select the LIFs
+
+Perform the workflow link:wf_common_ontap_repl_get_ic_lifs.html[Get intercluster LIFs] and choose the `address` value for the source and destination.
+
+=== 3. Select the SnapMirror policy
+
+Perform the workflow link:wf_common_ontap_md_get_snapmirror_policies.html[Get SnapMirror policies] and choose the `name` value for the required schedule.
+
+=== 4. Select the SnapMirror schedule
+
+Perform the workflow link:wf_common_ontap_repl_get_we_schedules.html[Get schedules] and choose the `name` value for the required policy.
+
+=== 5. Select the volume names and related storage parameters
+
+Based on the cloud provider, you need to perform a workflow to get the volume information.
+
+[cols="15,85"*,options="header"]
+|===
+|Provider
+|Workflow
+|AWS
+|Perform the workflow link:wf_aws_ontap_get_volumes.html[Get volumes] and choose the `name` and `svmName` and `aggregateName` values.
+|===
+
+=== 6. Create a quote
+
+Based on the cloud provider, you need to perform a workflow to get the volume information.
+
+[cols="15,85"*,options="header"]
+|===
+|Provider
+|Workflow
+|AWS
+|Perform the workflow link:wf_aws_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
+|===
+
+=== 7. Create the relationship
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/replication/vsa
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/replication/vsa' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters. The `maxTransferRate` is maximum transfer rate limit in KB/s. Specify 0 to indicate no limit or an integer between `1024` and `2,147,482,624`.
+
+JSON input example::
+[source,json]
+{
+  "replicationRequest": {
+    "sourceWorkingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+    "destinationWorkingEnvironmentId": "vsaworkingenvironment-2qkd75xv",
+    "sourceInterclusterLifIps": [
+      "10.138.0.147"
+    ],
+    "destinationInterclusterLifIps": [
+      "10.138.0.154"
+    ],
+    "policyName": "MirrorAllSnapshots",
+    "scheduleName": "daily",
+    "maxTransferRate": 102400
+  },
+  "replicationVolume": {
+    "sourceSvmName": "svm_zivgcp01we02",
+    "sourceVolumeName": "zivagg01vol01",
+    "destinationVolumeName": "zivagg01vol03_copy",
+    "destinationAggregateName": "aggr1",
+    "numOfDisksApprovedToAdd": 0,
+    "advancedMode": false,
+    "destinationProviderVolumeType": "pd-ssd",
+    "destinationSvmName": "svm_zivgcp01we03"
+  }
+}
+
+Output::
+
+None

@@ -1,0 +1,54 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_repl_update_repl.html
+keywords: cloud, manager, rest, api
+summary: "You can use this workflow to update an existing SnapMirror replication relationship."
+---
+
+= Update a SnapMirror replication relationship
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to update an existing SnapMirror replication relationship.
+
+=== 1. Select the working environment and related values
+
+Perform the workflow link:wf_common_ontap_repl_get_rel_status.html[Get relationships status] and choose the `workingEnvironment` and `svmName` and `volumeName` values for the path parameters. All values are for the destination.
+
+=== 2. Update the relationship
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|PUT
+|/occm/api/replication/{workingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/replication/<WORKING_ENV_ID/<SVM_NAME/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <SVM_NAME> `(destinationSvmName)`
+* <VOLUME_NAME> `(destinationVolumeName)`
+
+The JSON input example includes some of the parameters you can update.
+
+JSON input example::
+[source,json]
+{
+  "maxTransferRate": 0
+}
+
+Output::
+
+None

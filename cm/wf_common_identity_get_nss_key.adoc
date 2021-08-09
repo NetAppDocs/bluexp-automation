@@ -1,0 +1,58 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_identity_get_nss_key.html
+keywords: cloud, manager, rest
+summary: "You can retrieve the key for a specific NetApp Support Site account."
+---
+
+= Get an NSS key
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve the key for a specific NetApp Support Site account.
+
+=== 1. Select the account
+
+Perform the workflow link:wf_common_identity_get_supported_srv.html[Get supported services] and choose the `accountId` value for the path parameter.
+
+=== 2. Select the NSS key to retrieve
+
+Perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` value for the `nssKeyId` path parameter.
+
+=== 3. Retrieve the NSS key
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|GET
+|/ipa/account/{accountId}/nss-keys/{nssKeyId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key/<NSS_KEY_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+Path parameters:
+
+* <ACCOUNT_ID> `(accountId)`
+* <NSS_KEY_ID> `(nssKeyId)`
+
+Output::
+
+The NSS key and related information is returned as shown in the JSON output example.
+
+JSON output example::
+[source,json]
+{
+    "id": "d69a5214-7d61-486e-8750-8e1f68601c43",
+    "username": "misterziv",
+    "resources": [],
+    "credentialType": "password"
+}

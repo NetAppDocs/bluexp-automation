@@ -1,0 +1,138 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_repl_get_rel_we_status.html
+keywords: common, ontap, repl, get, working, environment, status
+summary: "You can use this workflow to retrieve the status of all the SnapMirror replication relationships for a specific working environment."
+---
+
+= Get status of the replication relationships for a working environment
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve the status of all the SnapMirror replication relationships for a specific working environment.
+
+[NOTE]
+This workflow varies slightly depending on the cloud provider you are using.
+
+=== 1. Select the working environment
+
+Based on the cloud provider, you need to perform a workflow to get the identifier for the working environment as shown in the following table.
+
+[cols="15,85"*,options="header"]
+|===
+|Provider
+|Workflow
+|AWS
+|Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` query parameter.
+|===
+
+=== 2. Get the status of the relationships
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/replication/status/{workingEnvironmentId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/status/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+
+Output::
+
+The JSON output example includes the list of all the SnapMirror relationships with status for a specific working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "source": {
+            "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+            "workingEnvironmentType": "VSA",
+            "workingEnvironmentStatus": "ON",
+            "clusterName": "zivgcp01we02",
+            "region": "us-west1-b",
+            "availabilityZone": null,
+            "svmName": "svm_zivgcp01we02",
+            "nodeName": null,
+            "volumeName": "zivagg01vol01"
+        },
+        "destination": {
+            "workingEnvironmentId": "vsaworkingenvironment-2qkd75xv",
+            "workingEnvironmentType": "VSA",
+            "workingEnvironmentStatus": "ON",
+            "clusterName": "zivgcp01we03",
+            "region": "us-west1-b",
+            "availabilityZone": null,
+            "svmName": "svm_zivgcp01we03",
+            "nodeName": "zivgcp01we03-01",
+            "volumeName": "zivagg01vol01_copy"
+        },
+        "mirrorState": "snapmirrored",
+        "relationshipType": "extended_data_protection",
+        "relationshipStatus": "idle",
+        "relationshipProgress": null,
+        "policy": "MirrorAllSnapshots",
+        "policyType": "async_mirror",
+        "schedule": "daily",
+        "maxTransferRate": {
+            "size": 102400.0,
+            "unit": "KB"
+        },
+        "networkCompressionRatio": "1:1",
+        "healthy": true,
+        "unhealthyReason": null,
+        "lagTime": {
+            "length": 14886,
+            "unit": "SECONDS"
+        },
+        "newestSnapshotName": "snapmirror.e7179420-5e45-11eb-8f27-d7fea0402bd2_2150573386.2021-01-25_123451",
+        "newestSnapshotCreated": 1611578092,
+        "lastTransferInfo": {
+            "transferType": "update",
+            "transferSize": {
+                "size": 6240.0,
+                "unit": "Byte"
+            },
+            "transferDuration": {
+                "length": 4,
+                "unit": "SECONDS"
+            },
+            "transferEnded": 1611578097,
+            "transferError": null
+        },
+        "currentTransferInfo": {
+            "transferType": null,
+            "transferPriority": null,
+            "transferError": null
+        },
+        "totalTransferTime": {
+            "length": 6,
+            "unit": "SECONDS"
+        },
+        "totalTransferSize": {
+            "size": 23792.0,
+            "unit": "Byte"
+        },
+        "volumeUsedSize": {
+            "size": 1032192.0,
+            "unit": "Byte"
+        },
+        "volumeCapacityTier": {
+            "size": 0.0,
+            "unit": "Byte"
+        }
+    }
+]

@@ -1,0 +1,19 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common.html
+keywords: public, cloud, common, workflow, rest, api, cloud manager
+summary: 'There are several workflows you can use with any of the public cloud providers.'
+---
+
+= Common workflows for all cloud providers
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are several workflows you can use with any of the public cloud providers.
+
+[NOTE]
+Before using any of the Cloud Manager REST API workflows, make sure to first review link:getting_started.html[Getting started].

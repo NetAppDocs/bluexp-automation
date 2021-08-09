@@ -1,0 +1,33 @@
+---
+sidebar: sidebar
+permalink: cm/security.html
+keywords: cloud, manager, rest, api
+summary: "The Cloud Manager REST API provides robust security based on token authentication and authorization."
+---
+
+= Security
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The Cloud Manager REST API provides robust security based on token authentication and authorization.
+
+[NOTE]
+In addition to token authorization, all connections are protected using the Transport Layer Security (TLS) protocol.
+
+All NetApp Cloud Central Services, including Cloud Manager, use OAuth 2.0 for authorization. OAuth 2.0 is an open standard implemented by several authorization providers including *Auth0*. Connecting and communicating with a secure REST endpoint is a two-step process:
+
+. Acquire a JWT (JSON Web Token) access token from the trusted OAuth 2.0 token endpoint
+. Make a REST API call to the target endpoint with the access token in the `Authorization: Bearer` request header
+
+Authorization can be performed in a federated or non-federated environment. The type of authorization environment you have determines which token and procedure to use.
+
+.Authorization
+You must use a valid token to access the API based on the authorization mode.
+
+Users with federated authorization need to create a token using xref:wf_common_identity_create_user_token.adoc#create-a-user-token-with-federated-authentication[Create a user token with federated authentication]. Non-federated user can optionally use this type of token.
+
+Users with non-federated authorization need to create a token using xref:wf_common_identity_create_user_token.adoc#create-a-user-token-with-nonfederated-authentication[Create a user token with nonfederated authentication].

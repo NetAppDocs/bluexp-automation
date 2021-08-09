@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_md_get_snapmirror_svm_pols.html
+keywords:
+summary:
+---
+
+= xxx
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve the SnapMirror policies based on the source and destination Cloud Volume ONTAP instances as well as the SVM name.
