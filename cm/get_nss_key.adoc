@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: get_nss_key.html
+permalink: cm/get_nss_key.html
 keywords: nss, credentials, key, cloud, manager, rest, api, nss, credential
 summary: 'You can sign in to the Cloud Manager web user interface to retrieve the NetApp Support Site credentials key.'
 ---
