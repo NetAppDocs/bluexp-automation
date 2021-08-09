@@ -2,7 +2,6 @@ sidebar:
   entries:
     - title: Cloud Manager API docs
       url: /index.html
-    - section: rn
     - section: intro
     - section: cm
     - section: support
