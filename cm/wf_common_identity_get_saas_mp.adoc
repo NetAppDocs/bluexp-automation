@@ -1,0 +1,87 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_identity_get_saas_mp.html
+keywords: paygo, , get, saas, marketplace
+summary: You can use this workflow to retrieve the current marketplace account and subscriptions.
+---
+
+= Get SaaS marketplace account
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve the current marketplace account and subscriptions.
+
+=== Before you begin
+
+Every cloud account can optionally have a subscription associated with it. The subscription identifies how the various cloud services used by the account are charged. When retrieving the SaaS accounts below, notice that the `subscriptionId` values in the `cloudAccounts` array objects match the `id` values in the associated subscription arrays for the three cloud providers.
+
+[NOTE]
+Each cloud account can have exactly zero or one subscription. You must have a subscription when creating a working environment using PAYGO ("pay as you go") licensing.
+
+=== 1. Get the SaaS accounts
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|GET
+|/occm/api/occm/saas-mp-service/account
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/saas-mp-service/account' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+None
+
+Output::
+
+The JSON output example shows the subscriptions and in each case the account it is associated with.
+
+JSON output example::
+[source,json]
+{
+    "awsSubscriptions": [
+        {
+            "id": "awsid012345",
+            "name": "aws-sub-a2",
+            "provider": "aws",
+            "active": true
+        }
+    ],
+    "azureSubscriptions": [],
+    "gcpSubscriptions": [
+        {
+            "id": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6",
+            "name": "GCP subscription for staging",
+            "provider": "gcp",
+            "active": true
+        }
+    ],
+    "eligibleForFreeTrialAws": false,
+    "eligibleForFreeTrialGcp": false,
+    "eligibleForFreeTrialAzure": false,
+    "cloudAccounts": [
+        {
+            "cloudAccountId": "733004784675",
+            "provider": "aws",
+            "subscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-jFyX7UNDTjB"
+        },
+        {
+            "cloudAccountId": "occm-dev",
+            "provider": "gcp",
+            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+        },
+        {
+            "cloudAccountId": "occm-host",
+            "provider": "gcp",
+            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+        }
+    ]
+}

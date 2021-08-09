@@ -1,0 +1,169 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_identity_get_supported_srv.html
+keywords: cloud, manager, rest, api
+summary: "You can use this workflow to retrieve information about the Cloud Manager supported services including the _client id_ and _account id_ values."
+---
+
+= Get supported services
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve information about the Cloud Manager supported services including the _client id_ and _account id_ values.
+
+[NOTE]
+This workflow describes how to use the REST API to retrieve the two ID values. You can also use the Cloud Manager web UI to get these values. See link:get_client_id.html[Get the client and account identifiers] for more information.
+
+=== 1. Get the supported services
+
+This API returns information about the supported services.
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|GET
+|/occm/api/occm/system/support-services
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/support-services' --header 'Content-Type: application/json' --header 'x-agent-Id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+None
+
+Output::
+
+The JSON output example includes the supported services information. You can locate the `clientId` value under `auth0Information` and the `accountId` value under `tenancyServiceInformation`.
+
+JSON output example::
+[source,json]
+{
+    "asupEnabled": true,
+    "cognitoEnabled": true,
+    "kinesisEnabled": true,
+    "intercomEnabled": true,
+    "liveChatEnabled": true,
+    "volumeViewEnabled": true,
+    "portalService": {
+        "usePortalAuthentication": true,
+        "auth0Information": {
+            "domain": "staging-netapp-cloud-account.auth0.com",
+            "audience": "https://api.cloud.netapp.com",
+            "clientId": "WsefXFuCJJvMKCMppR65jCktHAQBWFs4"
+        },
+        "portalInformation": {
+            "edit_user_url": "https://staging.services.cloud.netapp.com/?userMenuOpen",
+            "portalBackEnd": "https://api.staging.services.cloud.netapp.com",
+            "portalFrontEnd": "https://staging.services.cloud.netapp.com"
+        },
+        "saasFrontEnd": "https://staging.cloudmanager.netapp.com"
+    },
+    "intercomAppId": "brf2h510",
+    "tenancyServiceInformation": {
+        "accountId": "account-owfuJ965",
+        "url": "https://staging.cloudmanager.cloud.netapp.com/tenancy",
+        "accountWidgetUrl": "https://staging.services.cloud.netapp.com/accountWidgetLoader.js",
+        "agentsMgmtUrl": "https://staging.cloudmanager.cloud.netapp.com/agents-mgmt",
+        "forwarderUrlOverride": "https://staging.cloudmanager.cloud.netapp.com"
+    },
+    "saasMpServiceInformation": {
+        "productUrlAws": "http://aws.amazon.com/marketplace/pp/B086BQCW8P",
+        "productUrlGcp": "https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager",
+        "url": "https://staging.cloudmanager.cloud.netapp.com/saas-mp",
+        "productUrlAzure": "https://portal.azure.com/#create/netapp.test-cloud-manager"
+    },
+    "cvsInformation": "https://staging.services.cloud.netapp.com",
+    "backupToS3Information": {
+        "enabled": true,
+        "disableReason": null,
+        "notSubscribedReason": false,
+        "cbsEnabled": true,
+        "onpremSupported": true
+    },
+    "complianceEnabled": false,
+    "ipaServiceInformation": {
+        "url": "https://staging.cloudmanager.cloud.netapp.com/ipa"
+    },
+    "servicesInformation": {
+        "compliance": {
+            "enabled": false,
+            "govSupported": true,
+            "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_compliance/index.html"
+        },
+        "cloudSync": {
+            "iframeUrl": "https://dev.cloudsync.netapp.com",
+            "url": "https://dev.cloudsync.netapp.com",
+            "enabled": false,
+            "apiUrl": "https://api.dev.cloudsync.netapp.com",
+            "govSupported": false
+        },
+        "monitoring": {
+            "enabled": false,
+            "govSupported": true,
+            "iframeUrl": "https://dev-components.cloudmanager.netapp.com/monitoring/index.html",
+            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+        },
+        "astra": {
+            "enabled": true,
+            "govSupported": false,
+            "iframeUrl": "https://engint.astra.netapp.io"
+        },
+        "gfc": {
+            "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_gfc/index.html",
+            "dashboardUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_gfc/index.html",
+            "enabled": false,
+            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com",
+            "govSupported": false
+        },
+        "cloudTiering": {
+            "iframeUrl": "https://staging.tiering.cloud.netapp.com",
+            "url": "https://staging.tiering.cloud.netapp.com",
+            "enabled": false,
+            "apiUrl": "https://staging.tiering.cloud.netapp.com",
+            "govSupported": false
+        },
+        "snapCenter": {
+            "enabled": false,
+            "govSupported": false,
+            "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_snapcenter/index.html",
+            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+        },
+        "k8s": {
+            "enabled": false,
+            "govSupported": false,
+            "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_k8s/index.html",
+            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+        },
+        "spot": {
+            "enabled": true,
+            "govSupported": false,
+            "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_spot/index.html",
+            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+        },
+        "sfr": {
+            "enabled": false,
+            "govSupported": true,
+            "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_sfr/index.html",
+            "dashboardUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_sfr/index.html"
+        },
+        "activeIq": {
+            "enabled": true,
+            "govSupported": false,
+            "iframeUrl": "https://digitaladvisor.aws.techteam.netapp.com"
+        }
+    },
+    "setupInfo": {
+        "isSetup": true,
+        "isPendingConnectivitySet": false,
+        "needCertificate": false,
+        "runningInDocker": false
+    },
+    "useCompliancePrivateIpContainerMode": false
+}

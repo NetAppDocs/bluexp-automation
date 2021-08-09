@@ -1,0 +1,83 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_repl_get_ic_lifs.html
+keywords: cloud, manager, rest, api
+summary: "You can use this workflow to retrieve the intercluster LIFs used in a cluster peering relationship."
+---
+
+= Get the intercluster LIFs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve the intercluster LIFs used in a cluster peering relationship.
+
+[NOTE]
+This workflow varies slightly depending on the cloud provider you are using.
+
+=== 1. Select the working environment
+
+Based on the cloud provider, you need to perform a workflow to get the identifier for the working environment as shown in the following table.
+
+[cols="15,85"*,options="header"]
+|===
+|Provider
+|Workflow
+|AWS
+|Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the working environment query parameters.
+|===
+
+=== 2. Get the intercluster LIFs
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/replication/intercluster-lifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/interclusterlifs?workingEnvironmentId=<WORKING_ENV_ID>&peerWorkingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Query parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <WORKING_ENV_ID> `(peerWorkingEnvironmentId)`
+
+Output::
+
+The JSON output example includes the list of LIFs.
+
+JSON output example::
+[source,json]
+{
+    "interClusterLifs": [
+        {
+            "name": "intercluster",
+            "address": "10.138.0.154",
+            "netmaskLength": 32,
+            "port": "e0a",
+            "node": "zivgcp01we03-01",
+            "status": "up",
+            "isPeered": true
+        }
+    ],
+    "peerInterClusterLifs": [
+        {
+            "name": "intercluster",
+            "address": "10.138.0.147",
+            "netmaskLength": 32,
+            "port": "e0a",
+            "node": "zivgcp01we02-01",
+            "status": "up",
+            "isPeered": true
+        }
+    ]
+}
