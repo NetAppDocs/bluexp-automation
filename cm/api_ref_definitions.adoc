@@ -15,8 +15,6 @@ summary:
 [.lead]
 This section describes existing data format definitions.
 
-== Definitions
-This section describes existing data format definitions.
 
 === ANFSummary
 [options="header"]

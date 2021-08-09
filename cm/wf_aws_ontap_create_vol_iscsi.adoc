@@ -15,8 +15,8 @@ summary: 'You can use this workflow to create a volume accessed through iSCSI. T
 [.lead]
 You can use this workflow to create a volume accessed through iSCSI. There are two workflows available depending on whether a new or existing iGroup is used. You need to select the correct workflow:
 
-<<Create volume using iSCSI with a new iGroup>>
-<<Create volume using iSCSI with an existing iGroup>>
+* <<Create volume using iSCSI with a new iGroup>>
+* <<Create volume using iSCSI with an existing iGroup>>
 
 == Create volume using iSCSI with a new iGroup
 
