@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_cloud_get_wes.html
+permalink: cm/wf_aws_cloud_get_wes.html
 keywords: cloud, manager, rest, api, list, working, environment, occm
 summary: "You can retrieve the Cloud Volumes ONTAP working environments that are visible to the user currently signed in."
 ---

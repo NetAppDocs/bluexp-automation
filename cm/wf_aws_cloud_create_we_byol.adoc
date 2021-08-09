@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_cloud_create_we_byol.html
+permalink: cm/wf_aws_cloud_create_we_byol.html
 keywords: byol, license, cloud, manager, rest, api
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using BYOL licensing.'
 ---

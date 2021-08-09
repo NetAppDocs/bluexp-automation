@@ -1,0 +1,66 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_ontap_modify_volume.html
+keywords: cloud, manager, rest, api, modify, volume,
+summary: "You can modify the configuration of an existing volume."
+---
+
+= Modify volume
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can modify the configuration of an existing volume.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment and `svmName`.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_aws_ontap_get_volumes.html[Get volumes] and choose the `name` for the volume.
+
+=== 3. Modify the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|PUT
+|/occm/api/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <SVM_NAME> `(svmName)`
+* <VOLUME_NAME> `(volumeName)`
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "exportPolicyInfo": {
+    "policyType": "custom",
+    "ips": [
+      "172.31.0.0/16"
+    ],
+    "nfsVersion": [
+      "nfs3"
+    ]
+  }
+}
+
+Output::
+
+None

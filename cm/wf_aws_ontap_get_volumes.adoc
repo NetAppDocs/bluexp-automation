@@ -1,0 +1,129 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_ontap_get_volumes.html
+keywords: cloud, manager, rest, api, aws, workflows, get, volumes
+summary: "You can retrieve the list of volumes."
+---
+
+= Get volumes
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve the list of volumes.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Get the volumes
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/vsa/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Query parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+
+Output::
+
+The JSON output example includes the list of volumes for the working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "ziv02vol01",
+        "uuid": "cb488216-5bd1-11eb-8a9b-615eb82c79d8",
+        "svmName": "svm_ziv01we02",
+        "size": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "usedSize": {
+            "size": 5.18798828125E-4,
+            "unit": "GB"
+        },
+        "junctionPath": "/ziv02vol01",
+        "volumeTotalInodes": 3112959,
+        "volumeUsedInodes": 96,
+        "mountPoint": "172.31.1.199:/ziv02vol01",
+        "compressionSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "deduplicationSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "thinProvisioning": true,
+        "compression": true,
+        "deduplication": true,
+        "snapshotPolicy": "default",
+        "securityStyle": "unix",
+        "exportPolicyInfo": {
+            "name": "export-svm_ziv01we02-ziv02vol01",
+            "policyType": "custom",
+            "ips": [
+                "172.31.0.0/16"
+            ],
+            "nfsVersion": [
+                "nfs3"
+            ]
+        },
+        "shareNames": [],
+        "shareInfo": [],
+        "parentVolumeName": "",
+        "rootVolume": false,
+        "state": "online",
+        "volumeType": "rw",
+        "aggregateName": "aggr1",
+        "parentSnapshot": null,
+        "autoSizeMode": "grow",
+        "maxGrowSize": {
+            "size": 1100.0,
+            "unit": "GB"
+        },
+        "providerVolumeType": "gp2",
+        "cloneNames": [],
+        "moving": false,
+        "primaryNoFailoverMountPoint": null,
+        "secondaryNoFailoverMountPoint": null,
+        "capacityTier": null,
+        "capacityTierUsedSize": null,
+        "cifsShareAccessPoint": null,
+        "primaryCifsShareAccessPoint": null,
+        "secondaryCifsShareAccessPoint": null,
+        "tieringPolicy": "none",
+        "tierInactiveUserData": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "tierInactiveUserDataPercent": 0,
+        "comment": null,
+        "qosPolicyGroupName": null,
+        "snaplockType": "non_snaplock",
+        "constituentsAggregates": [],
+        "snapshotsUsedSize": {
+            "size": 1597440.0,
+            "unit": "Byte"
+        },
+        "cbsBackupsInfo": null,
+        "minimumCoolingDays": null,
+        "targetName": "iqn.1992-08.com.netapp:sn.7d147b755bd011ebb076ef46475a0933:vs.2",
+        "iscsiEnabled": false,
+        "isFlexGroupVolume": false
+    }
+]

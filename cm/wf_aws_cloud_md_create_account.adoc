@@ -1,0 +1,73 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_md_create_account.html
+keywords: aws, cloud, provider, saas, marketplace, account
+summary: "You can use this workflow to create an AWS cloud provider account."
+---
+
+= Create AWS cloud provider account
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create an AWS cloud provider account.
+
+=== Before you begin
+
+You must have AWS credentials.
+
+=== 1. Get the SaaS marketplace account
+
+Perform the workflow link:wf_common_identity_get_saas_mp.html[Get SaaS marketplace account] and choose the `id` value for the required subscription for `subscriptionId` parameter.
+
+=== 2. Create the account
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/ accounts/aws
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/accounts/aws' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <TOKEN>' --header 'Content-Type: application/json' --d JSONinput
+
+Input::
+
+The JSON input example includes the list of parameters.
+
+JSON input example::
+[source,json]
+{
+  "accountName": "zivAccountTest2",
+  "providerKeys": {
+    "awsAccessKeys": {
+      "accessKey": "accesskeystring",
+      "secretKey": "secretkeystring"
+    }
+  },
+  "subscriptionId": "subscriptionIDgoeshere"
+}
+
+Output::
+
+The JSON output provides an example of the cloud provider details.
+
+JSON output example::
+[source,json]
+{
+    "publicId": "CloudProviderAccount-LCwgVOy7",
+    "accountName": "zivAccountTest2",
+    "accountType": "AWS_KEYS",
+    "accountId": "accountIDshownhere",
+    "accessKey": " accesskeyshownhere",
+    "assumeRole": null,
+    "occmRole": null,
+    "vsaList": [],
+    "subscriptionId": "subscriptionIDshownhere"
+}
