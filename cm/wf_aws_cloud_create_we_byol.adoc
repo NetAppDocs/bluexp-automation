@@ -1,0 +1,143 @@
+---
+sidebar: sidebar
+permalink: wf_aws_cloud_create_we_byol.html
+keywords: byol, license, cloud, manager, rest, api
+summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using BYOL licensing.'
+---
+
+= Create a working environment with BYOL licensing
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring your own license (BYOL) licensing.
+
+=== Before you begin
+
+You must have a *Connector* for the cloud environment before beginning the workflow. You can create a Connector using the Cloud Manager web user interface. When you create a Connector, Cloud Manager adds the cloud provider account that you deployed the Connector in to your list of available accounts. See the https://docs.netapp.com/us-en/occm/[Cloud Manager documentation^] for more information.
+
+Also note the following when using BYOL licensing:
+
+* A marketplace subscription is not required.
+* A NetApp Support Site (NSS) key is required to register the system for support.
+//* A new volume cannot be created with the working environment.
+* You can add a volume after creating the working environment.
+
+To optionally create a new volume with the working environment, you must modify the JSON input provided on the REST API call. See link:wf_aws_cloud_create_we_paygo.html[Create a working environment with PAYGO licensing] for an example.
+
+=== 1. Select the region
+
+Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the `region` parameter in step 7.
+
+=== 2. Select the workspace
+
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 7.
+
+=== 3. Select the permutations configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 7.
+
+You will also need to include the `platformSerialNumber` value in `vsaMetadata` parameter in the REST API call.
+
+=== 4. Select the VPC
+
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html[Get VPCs] and choose the `vpcId` value for the `vpcId` parameter in step 7.
+
+=== 5. Select the EBS volume configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVoumeSize` parameter in step 7.
+
+=== 6. Obtain the required NSS key
+
+An NSS key is required when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 7.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the `id`.
+
+* To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 7. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/vsa/working-environments
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumber` is required.
+
+JSON input example::
+[source,json]
+{
+    "name": "ziv02we03",
+    "svmPassword": "user_password",
+    "vpcId": "vpc-b16c90d4",
+    "region": "us-east-1",
+    "tenantId": "tenantIDgoeshere",
+    "subnetId": "subnet-f4da95ac",
+    "dataEncryptionType": "AWS",
+    "vsaMetadata": {
+        "ontapVersion": "ONTAP-9.9.0.T1",
+        "licenseType": "cot-premium-byol",
+        "instanceType": "m5.xlarge",
+        "platformSerialNumber": "90120130000000000026"
+        },
+        "ebsVolumeSize": {
+            "size": 100,
+            "unit": "GB"
+            },
+            "ebsVolumeType": "gp2"
+}
+
+Output::
+
+The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
+
+JSON output example
+[source,json]
+{
+    "publicId": "VsaWorkingEnvironment-wL2MaBJs",
+    "name": "username",
+    "tenantId": "tenantIDgoeshere",
+    "svmName": "svm_ziv02we03",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "awsProperties": null,
+    "reservedSize": null,
+    "encryptionProperties": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "actionsRequired": null,
+    "interClusterLifs": null,
+    "cronJobSchedules": null,
+    "snapshotPolicies": null,
+    "svms": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "cloudProviderName": "Amazon",
+    "isHA": false,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "haProperties": null,
+    "capacityFeatures": null,
+    "cloudSyncProperties": null,
+    "supportedFeatures": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}

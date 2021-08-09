@@ -18,3 +18,33 @@ entries:
         url: /cm/workflow_processes.html
       - title: Typical Cloud Manager deployment
         url: /cm/cloud_manager_deployment.html
+  - title: REST implementation details
+    url: cm/rest_implementation.html
+    entries:
+      - title: Basic concepts
+        url: cm/concepts.html
+      - title: Security
+        url: cm/security.html
+      - title: HTTP details
+        url: cm/http_details.html
+      - title: Additional considerations
+        url: cm/additional_considerations.html
+  - title: AWS workflows
+    url: cm/wf_aws.html
+    entries:
+      - title: Working environments
+        entries:
+          - title: Create working environment with PAYGO
+            url: cm/wf_aws_cloud_create_we_paygo.html
+          - title: Create working environment with BYOL
+            url: cm/wf_aws_cloud_create_we_byol.html
+          - title: Get working environments
+            url: cm/wf_aws_cloud_get_wes.html
+          - title: Delete working environment
+            url: cm/wf_aws_cloud_delete_we.html
+          - title: Create CIFS
+            url: cm/wf_aws_ontap_create_cifs.html
+          - title: Get CIFS
+            url: cm/wf_aws_ontap_get_cifs.html
+          - title: Delete CIFS
+            url: cm/wf_aws_ontap_delete_cifs.html

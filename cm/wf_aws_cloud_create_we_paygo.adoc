@@ -1,0 +1,170 @@
+---
+sidebar: sidebar
+permalink: wf_aws_cloud_create_we_paygo.html
+keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, workspace
+summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
+---
+
+= Create a working environment with PAYGO licensing
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create a new Cloud Volumes ONTAP working environment using pay as you go (PAYGO) licensing. A new volume is also created with the working environment.
+
+=== Before you begin
+
+You must have a *Connector* for the cloud environment before beginning the workflow. You can create a Connector using the Cloud Manager web user interface. When you create a Connector, Cloud Manager adds the cloud provider account that you deployed the Connector in to your list of available accounts. See the https://docs.netapp.com/us-en/occm/[Cloud Manager documentation^] for more information.
+
+Also note the following when using PAYGO licensing:
+
+* A marketplace subscription is required.
+* A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
+//* A new volume can also be created with this working environment.
+* You can add more volumes after creating the working environment.
+
+=== 1. Select the region
+
+Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the `region` parameter in step 8.
+
+=== 2. Select the workspace
+
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 8.
+
+=== 3. Select the permutations configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 8.
+
+=== 4. Select the VPC
+
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html[Get VPCs] and do the following:
+
+* Choose the `vpcId` value for the `vpcId` parameter in step 8.
+* Choose the `cidrBlock` values for the `ips` value of the volume parameter in step 8.
+
+=== 5. Select the EBS volume configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVoumeSize` parameter in step 8.
+
+=== 6. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
+
+=== 7. Optionally obtain an NSS key
+
+An NSS key is optional when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the `id`.
+
+* To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 8. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/vsa/working-environments
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of parameters.
+
+[NOTE]
+This request uses PAYGO licensing as indicated in the `licenseType` parameter.
+
+JSON input example::
+[source,json]
+{
+    "name": "ziv01we02",
+    "svmPassword": "user_password",
+    "vpcId": "vpc-b16c90d4",
+    "region": "us-east-1",
+    "tenantId": "tenantIDgoeshere",
+    "subnetId": "subnet-f4da95ac",
+    "dataEncryptionType": "AWS",
+    "vsaMetadata": {
+        "ontapVersion": "ONTAP-9.9.0.T1",
+        "licenseType": "cot-explore-paygo",
+        "instanceType": "m5.xlarge"
+        },
+    "ebsVolumeSize": {
+        "size": 100,
+        "unit": "GB"
+    },
+    "ebsVolumeType": "gp2",
+    "volume": {
+      "name": "ziv02vol01",
+      "size": {
+        "size": 200,
+        "unit": "GB"
+      },
+      "exportPolicyInfo": {
+        "policyType": "custom",
+        "ips": [
+          "172.31.0.0/16"
+        ],
+       "nfsVersion": [
+          "nfs3",
+          "nfs4"
+        ]
+      },
+      "snapshotPolicyName": "default",
+      "enableThinProvisioning": true,
+      "enableCompression": true,
+      "enableDeduplication": true
+    },
+    "writingSpeedState": "NORMAL"
+}
+
+Output::
+
+The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse`.
+
+JSON output example::
+[source,json]
+{
+    "publicId": "VsaWorkingEnvironment-0NWsb1aX",
+    "name": "ziv01we02",
+    "tenantId": "tenantIDgoeshere",
+    "svmName": "svm_ziv01we02",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "awsProperties": null,
+    "reservedSize": null,
+    "encryptionProperties": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "actionsRequired": null,
+    "interClusterLifs": null,
+    "cronJobSchedules": null,
+    "snapshotPolicies": null,
+    "svms": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "cloudProviderName": "Amazon",
+    "isHA": false,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "haProperties": null,
+    "capacityFeatures": null,
+    "cloudSyncProperties": null,
+    "supportedFeatures": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}
