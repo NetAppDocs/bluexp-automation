@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: intro/introduction.html
+keywords: introduction, Astra REST API
+summary:
+---
+
+= Introduction to the Cloud Manager platform
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The Cloud Manager service is composed of multiple internal components. Each component implements a specific function or capability and typically exposes its own REST API. Collectively these services form a flexible and extensible platform. The Cloud Manager API is the starting place for automation specialists using the Cloud Manager platform.

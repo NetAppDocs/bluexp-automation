@@ -1,0 +1,63 @@
+---
+sidebar: sidebar
+permalink: cm/concepts.html
+keywords: rest, api, cloud, manager, http, endpoints, adminitrative resources, authentication, auditing
+summary: 'Representational State Transfer (REST) is a style for creating distributed web applications.'
+---
+
+= Basic concepts
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The Cloud Manager REST API uses mainstream protocols and standards to provide a flexible foundation for deploying and administering Cloud Volumes ONTAP instances and the associated resources.
+
+=== Overview of the API resources
+
+The REST style of application development begins by identifying the set of server-based resources. The Cloud Manager resources are broadly categorized as follows:
+
+* Administrative resources
++
+Used to set up and configure Cloud Manager
+
+* Auditing resources
++
+Used to view details about Cloud Manager activities and operations
+
+* Authentication resources
++
+Used to authenticate to Cloud Manager so you can make API calls
+
+* Working environment resources
++
+Used to deploy and manage working environments, including: single Cloud Volumes ONTAP systems, Cloud Volumes ONTAP HA configurations, and ONTAP clusters
+
+=== REST endpoints
+
+The REST resources are accessed through endpoints based on the URL path. Each endpoint provides access to one of the following:
+
+* Resource instance
+* Collection of resource instances
+
+See link:api_reference.html[API reference] for more information.
+
+=== Types of input parameters
+
+The Cloud Manager REST API uses several types of parameters in the HTTP request.
+
+[cols="20,80",options="header"]
+|===
+|Type
+|Description
+|Path parameter
+|Identifiers or names for resource instances that are included in the URL path.
+|Query parameter
+|One or more key-value pairs at the end of the URL which qualify and extend the base call.
+|Request header
+|Key-value pairs in the request which carry additional information available to the server.
+|Body parameter
+|Data which is optionally included with a request and formatted using JSON.
+|===

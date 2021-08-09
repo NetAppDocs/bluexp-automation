@@ -1,0 +1,46 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_repl_delete_repl.html
+keywords: cloud, manager, rest, api
+summary: "You can use this workflow to delete an existing SnapMirror replication relationship."
+---
+
+= Delete a SnapMirror replication relationship
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to delete an existing SnapMirror replication relationship.
+
+=== 1. Select the working environment and related values
+
+Perform the workflow link:wf_common_ontap_repl_get_rel_status.html[Get relationships status]. Choose the `workingEnvironmentId` and `svmName` and `volumeName` values for the path parameters. All values are for the destination.
+
+=== 2. Delete the relationship
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|DELETE
+|/occm/api/replication/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/replication/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+There are three path parameters, all of which apply to the destination:
+
+* <WORKING_ENV_ID> `(destinationWorkingEnvironmentId)`
+* <SVM_NAME> `(destinationSvmName)`
+* <VOLUME_NAME> `(destinationVolumeName)`
+
+Output::
+
+None

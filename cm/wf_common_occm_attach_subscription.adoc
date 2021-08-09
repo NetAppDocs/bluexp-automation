@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_occm_attach_subscription.html
+keywords: saas, subscription, cloud, manager, rest, api
+summary: "You can use this workflow to attach a Cloud Manager SaaS subscription to a cloud provider account."
+---
+
+= Attach SaaS subscription
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to attach a Cloud Manager SaaS subscription to a cloud provider account.
+
+=== 1. Select the cloud provider path parameter
+
+Select the cloud provider from the list of allowed values below. You will use this value as the _provider_ path parameter in the Curl example in step 4.
+
+* aws
+* azure
+* gcp
+
+=== 2. Determine the account identifier path parameter
+
+Perform the workflow link:wf_common_identity_get_provider_accounts.html[Get cloud provider accounts] and choose the `accountId` value for the account.
+
+=== 3. Get the SaaS marketplace account
+
+Perform the workflow link:wf_common_identity_get_saas_mp.html[Get SaaS marketplace account] and choose the `id` value for the `subscriptionId` pamater.
+
+=== 4. Attach the subscription
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|POST
+|/occm/api/occm/saas-mp-service/attach-subscription/{provider}/{cloudAccountId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/occm/saas-mp-service/attach-subscription/<PROVIDER>/<CLOUD_ACC_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+
+Input parameters::
+
+The JSON input example includes the input parameter.
+
+JSON input example::
+[source,json]
+{
+  "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+}
+
+Output::
+
+None

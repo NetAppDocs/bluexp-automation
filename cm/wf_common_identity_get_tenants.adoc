@@ -1,0 +1,55 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_identity_get_tenants.html
+keywords: cloud, manager, rest, api, account, id, tenants, cloud, manager, web, ui
+summary: "You can retrieve a list of tenants visible to the user currently signed in through the account workspace."
+---
+
+= Get tenants
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve a list of tenants visible to the user currently signed in through the account workspace.
+
+=== 1. Get the account identifier
+
+Perform the workflow link:wf_common_identity_get_supported_srv.html[Get supported services] to retrieve the account ID.
+
+[NOTE]
+You can also get the account identifier through the Cloud Manager web UI. See link:get_client_id.html[Get the client and account identifers] for more information.
+
+=== 2. Get the account workspace
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|GET
+|/tenancy/account/{account_id}/workspace
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET "https://cloudmanager.cloud.netapp.com/tenancy/account/<ACCOUNT_ID>/workspace" --header 'Content-Type: application/json' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+Path parameter with the account ID.
+
+Output::
+
+The JSON output example shows the list of tenants.
+
+JSON output example::
+[source,json]
+[
+    {
+        "workspacePublicId": "workspace-ced4x9X4",
+        "workspaceName": "Workspace-1",
+        "associatedAgents": []
+    }
+]

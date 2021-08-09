@@ -1,0 +1,63 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_occm_get_task.html
+keywords: http, get, cloud, manager, rest, api
+summary: "All of the requests made to the Cloud Manager REST API are processed asynchronously except those using the HTTP GET method."
+---
+
+= Get active task
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+All of the requests made to the Cloud Manager REST API are processed asynchronously except those using the HTTP GET method. Each of these asynchronous requests is assigned a unique identifier which is returned to the caller in the response. You can use the request ID to retrieve information about the background task including its status.
+
+=== 1. Get the request identifier
+
+After issuing any REST API call, the associated request identifier is returned in the `X-Response_Id` header. You must extract this value and use it in the path variable in the next step.
+
+=== 2. Get the task
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|GET
+|/occm/api/audit/activeTask/{request_id}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/audit/activeTask/<REQUEST_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+Path parameter that contains the request identifier `<REQUEST_ID>` for the original task.
+
+Output::
+
+The JSON output example includes the list of returned values. The `status` contains one of three values indicating the status of the task.
+
+[cols="20,80",options="header"]
+|===
+|Status
+|Description
+|1
+|The asynchronous task completed successfully.
+|0
+|The background task is still running and has not completed.
+|-1
+|The asynchronous task completed but failed.
+|===
+
+JSON output example::
+[source,json]
+{
+    "status": 0,
+    "closeTime": -2147483648,
+    "actionName": "Create Vsa Working Environment",
+    "error": null
+}

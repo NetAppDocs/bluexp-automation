@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_ontap_repl_get_sm_rels.html
+keywords: cloud, manager, rest, api
+summary: You can retrieve all the SnapMirror relationship pairs.
+---
+
+= Get the SnapMirror relationships
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve all the SnapMirror relationship pairs.
+
+=== 1. Retrieve the relationships
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/replication/all-relationships
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/all-relationships' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+None
+
+Output::
+
+An array of relationship pairs is returned as shown in the JSON output example.
+
+JSON output example::
+[source,json]
+{
+    "relationships": [
+        {
+            "source": {
+                "id": "vsaworkingenvironment-sfrf3wvj"
+            },
+            "target": {
+                "id": "vsaworkingenvironment-2qkd75xv"
+            }
+        }
+    ]
+}

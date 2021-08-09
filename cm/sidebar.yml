@@ -1,0 +1,148 @@
+section: cm
+title: Cloud Manager API
+entries:
+  - title: Introduction
+    url: /cm/introduction.html
+  - title: Get started
+    url: /cm/getting_started.html
+    entries:
+      - title: Before you begin
+        url: /cm/getting_started_before.html
+      - title: Get client and account IDs
+        url: /cm/get_client_id.html
+      - title: Add an NSS credentials key
+        url: /cm/get_nss_key.html
+      - title: Hello world
+        url: /cm/hello_world.html
+      - title: Understand the workflow processes
+        url: /cm/workflow_processes.html
+      - title: Typical Cloud Manager deployment
+        url: /cm/cloud_manager_deployment.html
+  - title: REST implementation details
+    url: /cm/rest_implementation.html
+    entries:
+      - title: Basic concepts
+        url: /cm/concepts.html
+      - title: Security
+        url: /cm/security.html
+      - title: HTTP details
+        url: /cm/http_details.html
+      - title: Additional considerations
+        url: /cm/additional_considerations.html
+  - title: AWS workflows
+    url: /cm/wf_aws.html
+    entries:
+      - title: Working environments
+        entries:
+          - title: Create working environment with PAYGO
+            url: /cm/wf_aws_cloud_create_we_paygo.html
+          - title: Create working environment with BYOL
+            url: /cm/wf_aws_cloud_create_we_byol.html
+          - title: Get working environments
+            url: /cm/wf_aws_cloud_get_wes.html
+          - title: Delete working environment
+            url: /cm/wf_aws_cloud_delete_we.html
+          - title: Create CIFS
+            url: /cm/wf_aws_ontap_create_cifs.html
+          - title: Get CIFS
+            url: /cm/wf_aws_ontap_get_cifs.html
+          - title: Delete CIFS
+            url: /cm/wf_aws_ontap_delete_cifs.html
+      - title: Aggregates
+        entries:
+          - title: Get aggregates
+            url: /cm/wf_aws_ontap_get_aggrs.html
+          - title: Create aggregate
+            url: /cm/wf_aws_ontap_create_aggr.html
+          - title: Add disks to aggregate
+            url: /cm/wf_aws_ontap_add_disks_aggr.html
+          - title: Delete aggregate
+            url: /cm/wf_aws_ontap_delete_aggr.html
+      - title: Volumes
+        entries:
+          - title: Create volume using NFS
+            url: /cm/wf_aws_ontap_create_vol_nfs.html
+          - title: Create volume using CIFS
+            url: /cm/wf_aws_ontap_create_vol_cifs.html
+          - title: Create volume using iSCSI
+            url: /cm/wf_aws_ontap_create_vol_iscsi.html
+          - title: Get volumes
+            url: /cm/wf_aws_ontap_get_volumes.html
+          - title: Modify volume
+            url: /cm/wf_aws_ontap_modify_volume.html
+          - title: Delete volume
+            url: /cm/wf_aws_ontap_delete_volume.html
+          - title: Create quote
+            url: /cm/wf_aws_ontap_create_quote.html
+          - title: Get iGroups
+            url: /cm/wf_aws_ontap_get_igroups.html
+      - title: Metadata
+        entries:
+          - title: Get regions
+            url: /cm/wf_aws_cloud_md_get_regions.html
+          - title: Get permutations
+            url: /cm/wf_aws_cloud_md_get_permutations.html
+          - title: Get virtual private clouds
+            url: /cm/wf_aws_cloud_md_get_vpcs.html
+          - title: Get EBS volume types
+            url: /cm/wf_aws_cloud_md_get_ebs_vol_types.html
+      - title: Miscellaneous
+        entries:
+          - title: Create AWS cloud provider account
+            url: /cm/wf_aws_cloud_md_create_account.html
+  - title: Common workflows
+    url: /cm/wf_common.html
+    entries:
+      - title: Identity and access
+        entries:
+          - title: Create user token
+            url: /cm/wf_common_identity_create_user_token.html
+          - title: Get supported services
+            url: /cm/wf_common_identity_get_supported_srv.html
+          - title: Get cloud provider accounts
+            url: /cm/wf_common_identity_get_provider_accounts.html
+          - title: Get tenants
+            url: /cm/wf_common_identity_get_tenants.html
+      - title: SaaS marketplace
+        entries:
+          - title: Get SaaS marketplace account
+            url: /cm/wf_common_identity_get_saas_mp.html
+          - title: Attach subscription
+            url: /cm/wf_common_occm_attach_subscription.html
+      - title: NetApp Support Site
+        entries:
+          - title: Get NSS key
+            url: /cm/wf_common_identity_get_nss_key.html
+          - title: Get NSS keys
+            url: /cm/wf_common_identity_get_nss_keys.html
+          - title: Delete NSS key
+            url: /cm/wf_common_identity_delete_nss_key.html
+      - title: Internal tasks and support
+        entries:
+          - title: Get active task
+            url: /cm/wf_common_occm_get_task.html
+      - title: SnapMirror replication
+        entries:
+          - title: Create relationship
+            url: /cm/wf_common_ontap_repl_create_repl.html
+          - title: Update relationship
+            url: /cm/wf_common_ontap_repl_update_repl.html
+          - title: Delete relationship
+            url: /cm/wf_common_ontap_repl_delete_repl.html
+          - title: Get relationships
+            url: /cm/wf_common_ontap_repl_get_sm_rels.html
+          - title: Get relationships status
+            url: /cm/wf_common_ontap_repl_get_rel_status.html
+          - title: Get relationship status for working environment
+            url: /cm/wf_common_ontap_repl_get_rel_we_status.html
+          - title: Get intercluster LIFs
+            url: /cm/wf_common_ontap_repl_get_ic_lifs.html
+          - title: Get schedules for working environment
+            url: /cm/wf_common_ontap_repl_get_we_schedules.html
+  - title: API reference
+    url: /cm/api_reference.html
+    entries:
+      - title: Resources
+        url: /cm/api_ref_resources.html
+      - title: Definitions
+        url: /cm/api_ref_definitions.html

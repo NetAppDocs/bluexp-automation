@@ -1,0 +1,153 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_get_wes.html
+keywords: cloud, manager, rest, api, list, working, environment, occm
+summary: "You can retrieve the Cloud Volumes ONTAP working environments that are visible to the user currently signed in."
+---
+
+= Get working environments
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve the public identifier, working environment ID and the storage virtual machine name for Cloud Volumes ONTAP working environments (visible to currently logged in user) which would be used in other workflows.
+
+=== 1. Get the list of working environments
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|occm/api/vsa/working-environments
+|===
+
+curl::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Optional query parameters:
+
+* `fields`
+* `tenantId`
+
+Output::
+The JSON output example includes an array of VSA working environments.
+
+JSON output example::
+[source,json]
+[
+    {
+        "publicId": "VsaWorkingEnvironment-79VKenHW",
+        "name": "ziv01we02",
+        "tenantId": "tenantIDshownhere",
+        "svmName": "svm_ziv01we02",
+        "creatorUserEmail": "user_email",
+        "status": null,
+        "awsProperties": null,
+        "reservedSize": null,
+        "encryptionProperties": null,
+        "clusterProperties": null,
+        "ontapClusterProperties": null,
+        "actionsRequired": null,
+        "interClusterLifs": null,
+        "cronJobSchedules": null,
+        "snapshotPolicies": null,
+        "svms": null,
+        "activeActions": null,
+        "replicationProperties": null,
+        "schedules": null,
+        "cloudProviderName": "Amazon",
+        "isHA": false,
+        "workingEnvironmentType": "VSA",
+        "supportRegistrationProperties": null,
+        "supportRegistrationInformation": [],
+        "haProperties": null,
+        "capacityFeatures": null,
+        "cloudSyncProperties": null,
+        "supportedFeatures": null,
+        "k8sProperties": null,
+        "fpolicyProperties": null,
+        "saasProperties": null,
+        "cbsProperties": null,
+        "complianceProperties": null,
+        "monitoringProperties": null
+    },
+    {
+        "publicId": "VsaWorkingEnvironment-61kN4p5P",
+        "name": "ziv01we03",
+        "tenantId": "tenantIDshownhere",
+        "svmName": "svm_ziv01we03",
+        "creatorUserEmail": "user_email",
+        "status": null,
+        "awsProperties": null,
+        "reservedSize": null,
+        "encryptionProperties": null,
+        "clusterProperties": null,
+        "ontapClusterProperties": null,
+        "actionsRequired": null,
+        "interClusterLifs": null,
+        "cronJobSchedules": null,
+        "snapshotPolicies": null,
+        "svms": null,
+        "activeActions": null,
+        "replicationProperties": null,
+        "schedules": null,
+        "cloudProviderName": "Amazon",
+        "isHA": false,
+        "workingEnvironmentType": "VSA",
+        "supportRegistrationProperties": null,
+        "supportRegistrationInformation": [],
+        "haProperties": null,
+        "capacityFeatures": null,
+        "cloudSyncProperties": null,
+        "supportedFeatures": null,
+        "k8sProperties": null,
+        "fpolicyProperties": null,
+        "saasProperties": null,
+        "cbsProperties": null,
+        "complianceProperties": null,
+        "monitoringProperties": null
+    },
+    {
+        "publicId": "VsaWorkingEnvironment-E9WanX81",
+        "name": "ziv01we04",
+        "tenantId": "tenantIDshownhere",
+        "svmName": "svm_ziv01we04",
+        "creatorUserEmail": "user_email",
+        "status": null,
+        "awsProperties": null,
+        "reservedSize": null,
+        "encryptionProperties": null,
+        "clusterProperties": null,
+        "ontapClusterProperties": null,
+        "actionsRequired": null,
+        "interClusterLifs": null,
+        "cronJobSchedules": null,
+        "snapshotPolicies": null,
+        "svms": null,
+        "activeActions": null,
+        "replicationProperties": null,
+        "schedules": null,
+        "cloudProviderName": "Amazon",
+        "isHA": false,
+        "workingEnvironmentType": "VSA",
+        "supportRegistrationProperties": null,
+        "supportRegistrationInformation": [],
+        "haProperties": null,
+        "capacityFeatures": null,
+        "cloudSyncProperties": null,
+        "supportedFeatures": null,
+        "k8sProperties": null,
+        "fpolicyProperties": null,
+        "saasProperties": null,
+        "cbsProperties": null,
+        "complianceProperties": null,
+        "monitoringProperties": null
+    }
+]

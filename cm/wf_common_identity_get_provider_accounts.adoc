@@ -1,0 +1,65 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_identity_get_provider_accounts.html
+keywords: cloud manager, get accounts, cloud, platform, cloud, manager, rest, api
+summary: "You can retrieve a list of the Cloud Manager accounts available for the supported cloud platforms."
+---
+
+= Get cloud provider accounts
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve a list of the Cloud Manager accounts available for the supported cloud platforms.
+
+=== 1. Get the cloud provider accounts
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|GET
+|/occm/api/accounts/cloud-providers
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/accounts/cloud-providers' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+None
+
+Output::
+
+The JSON output example shows the cloud provider accounts returned in separate named arrays.
+
+JSON output example::
+[source,json]
+{
+    "awsAccounts": [
+        {
+            "publicId": "InstanceProfile",
+            "accountName": "Instance Profile",
+            "accountType": "INSTANCE_PROFILE",
+            "accountId": "733004784675",
+            "accessKey": "",
+            "assumeRole": null,
+            "occmRole": "occm",
+            "vsaList": [
+                {
+                    "publicId": "VsaWorkingEnvironment-N6BPfglr",
+                    "name": "ziv04we01ha",
+                    "workingEnvironmentType": "AWSHA"
+                }
+            ],
+            "subscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-jFyX7UNDTjB"
+        }
+    ],
+    "azureAccounts": [],
+    "gcpStorageAccounts": [],
+    "nssAccounts": []
+}

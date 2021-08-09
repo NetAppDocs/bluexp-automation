@@ -1,0 +1,55 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_ontap_create_aggr.html
+keywords: cloud, manager, rest, api, aggregate, publicid, working, environment, aws
+summary: 'You can create a new aggregate within a working environment.'
+---
+
+= Create aggregate
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a new aggregate within a working environment using this workflow.
+
+=== 1. Select the working environment to use
+
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+
+=== 2. Create the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|occm/api/vsa/aggregates
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "name": "ziv01agg04",
+  "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
+  "numberOfDisks": 1,
+  "diskSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "providerVolumeType": "gp2"
+}
+
+Output::
+
+None

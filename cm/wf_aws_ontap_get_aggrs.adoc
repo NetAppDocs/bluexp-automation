@@ -1,0 +1,112 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_ontap_get_aggrs.html
+keywords: cloud, manager, rest, api, get aggregates
+summary: 'You can retrieve a list of available disk aggregates.'
+---
+
+= Get aggregates
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve a list of available disk aggregates.
+
+=== 1. Select the working environment to use
+
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Get the list of aggregates
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/vsa/aggregates/{workingEnvironmentId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+
+Output::
+An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "aggr1",
+        "availableCapacity": {
+            "size": 87.55,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 88.57,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 1.02,
+            "unit": "GB"
+        },
+        "volumes": [
+            {
+                "name": "svm_ziv01we01_root",
+                "totalSize": {
+                    "size": 1.0,
+                    "unit": "GB"
+                },
+                "usedSize": {
+                    "size": 0.00115203857421875,
+                    "unit": "GB"
+                },
+                "thinProvisioned": false,
+                "isClone": false,
+                "rootVolume": true
+            }
+        ],
+        "providerVolumes": [
+            {
+                "id": "vol-066fea889cbc6a65c",
+                "name": "vol-066fea889cbc6a65c",
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/dev/xvdg",
+                "instanceId": "i-0fa9a2879e67a8829",
+                "diskType": "gp2",
+                "encrypted": true,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-1.3",
+                "position": "data",
+                "ownerNode": "ziv01we01-01",
+                "device": "xvdg vol066fea889cbc6a65c",
+                "vmDiskProperties": null
+            }
+        ],
+        "state": "online",
+        "encryptionType": "cloudEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ziv01we01-01",
+        "ownerNode": "ziv01we01-01",
+        "capacityTier": null,
+        "capacityTierUsed": null,
+        "sidlEnabled": true,
+        "snaplockType": "non_snaplock"
+    }
+]
