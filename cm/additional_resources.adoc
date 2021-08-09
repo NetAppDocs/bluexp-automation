@@ -1,0 +1,54 @@
+---
+sidebar: sidebar
+permalink: cm/additional_resources.html
+keywords: netapp, support, cloud, services
+summary: 'There are additional resources you can access to get help and find more information about NetApp cloud services and support, ONTAP 9, and general REST and cloud concepts.'
+---
+
+= Additional resources
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are additional resources you can access to get help and find more information about NetApp cloud services and support, ONTAP 9, and general REST and cloud concepts.
+
+=== NetApp cloud resources
+
+* https://cloud.netapp.com/[NetApp Cloud Solutions^]
++
+Central site for the NetApp cloud solutions.
+
+* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp Cloud Central console^]
++
+NetApp Cloud Central service console with sign in.
+
+* https://mysupport.netapp.com/[NetApp Support^]
++
+Access troubleshooting tools, documentation, and technical support assistance.
+
+=== ONTAP 9 resources
+
+* https://docs.netapp.com/ontap-9/index.jsp[ONTAP 9 Documentation Center^]
++
+Provides all of the documentation for ONTAP 9.
+
+* https://www.netapp.com/us/documentation/ontap-and-oncommand-system-manager.aspx[ONTAP and ONTAP System Manager Resources^]
++
+Provides documentation and other helpful links needed to plan, administer, and support ONTAP 9.
+
+=== REST concepts and cloud technology
+
+* PhD https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm[dissertation^] by Roy Fielding
++
+This publication introduced and established the REST application development model.
+
+* https://auth0.com/[Auth0^]
++
+This is the authentication platform service used by Cloud Manager.
+
+* https://www.rfc-editor.org/[RFC editor^]
++
+Authoritative source for web and Internet standards as a collection of uniquely numbered RFC documents.

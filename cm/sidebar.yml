@@ -139,3 +139,12 @@ entries:
             url: /cm/wf_common_ontap_repl_get_ic_lifs.html
           - title: Get schedules for working environment
             url: /cm/wf_common_ontap_repl_get_we_schedules.html
+  - title: API reference
+    url: /cm/api_reference.html
+    entries:
+      - title: Resources
+        url: /cm/api_ref_resources.html
+      - title: Definitions
+        url: /cm/api_ref_definitions.html
+  - title: Additional resources
+    url: /cm/additional_resources.html
