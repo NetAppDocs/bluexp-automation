@@ -13,6 +13,4 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-
-[IMPORTANT]
-This page will contain an overview of the larger *Cloud Manager platform*. We might expand this to multiple pages in the sidebar. It is expected that David will write this content.
+The Cloud Manager service is composed of multiple internal components. Each component implements a specific function or capability and typically exposes its own REST API. Collectively these services form an flexible and extensible platform. The Cloud Manager API is the starting place for automation specialists using the Cloud Manager platform.
