@@ -15,7 +15,6 @@ summary:
 [.lead]
 This section describes existing data format definitions.
 
-
 === ANFSummary
 [options="header"]
 |===
@@ -169,25 +168,11 @@ This section describes existing data format definitions.
 |port||false|integer (int32)|
 |===
 
-=== AddAwsRegionsRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|newRegions||true|<<Region>> array|
-|===
-
 === AddDisksToAggregateRequest
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
 |numberOfDisks|Number of Disks|true|integer (int32)|
-|===
-
-=== AddInstanceTypesRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|newInstanceTypes||true|string array|
 |===
 
 === AddPortalUserRequest
@@ -1351,14 +1336,6 @@ This section describes existing data format definitions.
 |upgradeableFrom||false|string array|
 |===
 
-=== ConfigureS3Request
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|bucketName||true|string|
-|bucketPrefix||true|string|
-|===
-
 === ConnectRequest
 [options="header"]
 |===
@@ -1554,39 +1531,6 @@ This section describes existing data format definitions.
 |enableAnf||true|boolean|
 |===
 
-=== CreateFilesystemRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|name||true|string|
-|svmPassword||false|string|
-|fsxAdminPassword||true|string|
-|vpcId||true|string|
-|region||true|string|
-|ebsVolumeSize|EBS volume size|true|<<Capacity>>|
-|ebsVolumeType|EBS volume type|true|enum (gp2,  st1,  io1,  io2)|
-|instanceType|Instance Type|true|string|
-|haParams||true|<<HaParameters>>|
-|node1CustomerDataEni||true|<<NetworkInterfaceInfo>>|
-|node2CustomerDataEni||true|<<NetworkInterfaceInfo>>|
-|node1SerialNumber||true|string|
-|node2SerialNumber||true|string|
-|awsEncryptionParameters|Parameters required if using aws encryption - system|false|<<AwsEncryption>>|
-|dataAwsEncryptionParameters|Parameters required if using aws encryption - data|false|<<AwsEncryption>>|
-|securityGroupId||false|string|
-|internalSecurityGroupId||false|string|
-|externalSecurityGroupId||false|string|
-|skipSnapshots|Take snapshot flag|true|boolean|
-|iops|Provisioned IOPS|false|integer (int32)|
-|instanceProfileName|Instance profile name|false|string|
-|tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
-|customOntapVersion|Custom Ontap Version|false|string|
-|svmAdminPassword|SVM admin password|false|string|
-|awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
-|tieringBucketName|Tiering bucket name|false|string|
-|mediatorPassword|Mediator password|false|string|
-|===
-
 === CreateGcpVsaWorkingEnvironmentRequest
 [options="header"]
 |===
@@ -1662,18 +1606,6 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |parameters||false|Map[string,any]|
-|===
-
-=== CreateSvmHaRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|svmName||true|string|
-|svmPassword||false|string|
-|subnet1Cidr||true|string|
-|subnet2Cidr||true|string|
-|dataFloatingIp||false|string|
-|svmMgmtFloatingIp||false|string|
 |===
 
 === CreateSyncRequest
@@ -3205,13 +3137,6 @@ This section describes existing data format definitions.
 |ontapManifests|ONTAP manifests|true|<<CloudOntapManifest>> array|
 |===
 
-=== ModifyMappingRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|newMapping||true|Map[string,string]|
-|===
-
 === ModifyUserTagsRequest
 [options="header"]
 |===
@@ -3273,16 +3198,6 @@ This section describes existing data format definitions.
 |policyType|Export policy type|true|string|
 |ips|Custom export policy list of IPs|true|string array|
 |nfsVersion|Export policy protocol|false|string array|
-|===
-
-=== NetworkInterfaceInfo
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|id||true|string|
-|primaryIpAddress||true|string|
-|secondaryIpAddresses||true|string array|
-|subnetCidrBlock||true|string|
 |===
 
 === NetworkRequirementsResponse
@@ -4285,20 +4200,6 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |scheduleType|Snapshot policy schedule type|true|enum (5min,  8hour,  hourly,  daily,  weekly,  monthly)|
 |retention|Snapshot policy retention|true|integer (int32)|
-|===
-
-=== SoftwareVersionAmisResponse
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|regionToAmi||true|Map[string,string]|
-|===
-
-=== SoftwareVersionsResponse
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|versions||true|string array|
 |===
 
 === SourceOrTargetReplication
