@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/api_ref_definitions.html
+permalink: api_ref_definitions.html
 keywords:
 summary:
 ---
@@ -631,24 +631,6 @@ This section describes existing data format definitions.
 |loadBalancerName||true|string|
 |node1Info||true|<<AzureHaNodeInfo>>|
 |node2Info||true|<<AzureHaNodeInfo>>|
-|===
-
-=== AzureKey
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|keyName|key name|true|string|
-|kid|key id|true|string|
-|===
-
-=== AzureKeyVault
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|name|vault name|true|string|
-|resourceGroup|resource group|true|string|
-|location|location|true|string|
-|vaultUri|vault uri|true|string|
 |===
 
 === AzureKeys
@@ -1504,7 +1486,7 @@ This section describes existing data format definitions.
 |containerName||true|string|
 |===
 
-=== CreateBucketRequest
+=== CreateBucketReq
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
@@ -1512,7 +1494,6 @@ This section describes existing data format definitions.
 |bucketName||true|string|
 |location||true|string|
 |storageClass||true|string|
-|kmsKeyName||false|string|
 |===
 
 === CreateCifsShareInfoRequest
@@ -1552,7 +1533,7 @@ This section describes existing data format definitions.
 |serialNumber|Serial number for BYOL|false|string|
 |skipSnapshots|Take snapshot flag|true|boolean|
 |gcpVolumeSize|GCP volume size|true|<<Capacity>>|
-|gcpVolumeType|GCP volume type|true|enum (pd-standard,  pd-ssd,  pd-balanced)|
+|gcpVolumeType|GCP volume type|true|enum (pd-standard,  pd-ssd)|
 |gcpLabels|Optionally provide up to four key-value pairs with which to all GCP entities created by Cloud Manager|false|<<GcpLabel>> array|
 |writingSpeedState|Writing speed state|false|string|
 |failedToCreateWorkingEnvironmentId|Public ID of failed-to-create working environment|false|string|
@@ -1699,7 +1680,6 @@ This section describes existing data format definitions.
 |subscription||false|<<SaasSubscription>>|
 |freeTrialExpiry||false|integer (int64)|
 |saasEnabled||false|boolean|
-|capacityLicensePackage||false|string|
 |===
 
 === CvsAccountCredentials
@@ -2658,8 +2638,8 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyInstance||true|boolean|
 |legacyOs||true|boolean|
+|legacyInstance||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -2691,8 +2671,8 @@ This section describes existing data format definitions.
 |placementGroup|Placement Group|true|string|
 |keyPairName|Key Pair|true|string|
 |instanceProfileId|Instance profile ID|false|string|
-|vsaInstance||true|boolean|
 |oCCMInstance||true|boolean|
+|vsaInstance||true|boolean|
 |===
 
 === InstanceTypeInfo
@@ -3333,8 +3313,8 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|inactiveDataReportingEnabled||true|boolean|
 |objectStoreAttachEligible||true|boolean|
+|inactiveDataReportingEnabled||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3485,7 +3465,6 @@ This section describes existing data format definitions.
 |systemManagerUrl||true|string|
 |creationTime||true|integer (int64)|
 |licenseType||true|<<VsaLicense>>|
-|licensePackageName||false|string|
 |lastModifiedOffbox||false|integer (int64)|
 |offboxTarget||true|boolean|
 |upgradeVersions||false|<<OntapUpdateImageMetadata>> array|
@@ -3981,8 +3960,8 @@ This section describes existing data format definitions.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|backupTarget||true|boolean|
 |tieringTarget||true|boolean|
+|backupTarget||true|boolean|
 |===
 
 === S3BucketsSummary
@@ -4112,8 +4091,8 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |needCertificate||true|boolean|
 |runningInDocker||true|boolean|
-|setup||true|boolean|
 |pendingConnectivitySet||true|boolean|
+|setup||true|boolean|
 |===
 
 === SgwsCloudBackupSetupRequest
@@ -4921,7 +4900,7 @@ This section describes existing data format definitions.
 |instanceType|Instance Type|true|string|
 |platformSerialNumber|Optional platform Serial Number|false|string|
 |providedLicense|Optional provided License|false|string|
-|capacityPackageName|Optional Capacity Based Package|false|enum (Professional,  Essential,  Freemium)|
+|capacityPackageName|Optional Capacity Based Package|false|enum (Professional)|
 |useLatestVersion|Use Latest Version|false|boolean|
 |===
 
@@ -5133,6 +5112,7 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
+|activationCode|WORM Activation Code|true|string|
 |retentionPeriod|WORM Retention period|true|<<WormRetentionPeriod>>|
 |===
 

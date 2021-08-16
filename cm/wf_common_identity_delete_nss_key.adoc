@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_common_identity_delete_nss_key.html
+permalink: wf_common_identity_delete_nss_key.html
 keywords: nss, cloud, manager, api
 summary: "You can delete an NetApp Support Site key."
 ---

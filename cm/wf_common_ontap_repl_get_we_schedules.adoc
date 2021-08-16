@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_common_ontap_repl_get_we_schedules.html
+permalink: wf_common_ontap_repl_get_we_schedules.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to retrieve the replication schedules used for a specific working environment."
 ---

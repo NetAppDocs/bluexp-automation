@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/api_ref_resources.html
+permalink: api_ref_resources.html
 keywords:
 summary:
 ---
@@ -3545,36 +3545,6 @@ GET /azure/ha/metadata/vnets
 
 * application/json
 
-==== Retrieve all keys in a vault
-----
-GET /azure/ha/metadata/keys-vault
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|subscriptionId||false|string|
-|QueryParameter|cloudProviderAccountId||false|string|
-|QueryParameter|resourceGroupName||true|string|
-|QueryParameter|vaultName||true|string|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|<<AzureKey>> array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
 ==== Retrieves Azure resource groups by region
 ----
 GET /azure/ha/metadata/resource-groups
@@ -3736,35 +3706,6 @@ GET /azure/ha/metadata/permutations
 |===
 |HTTP Code|Description|Schema
 |default|success|<<Configuration>> array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieve all vaults
-----
-GET /azure/ha/metadata/vaults
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|subscriptionId||false|string|
-|QueryParameter|cloudProviderAccountId||false|string|
-|QueryParameter|region||false|string|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|<<AzureKeyVault>> array
 |===
 
 ===== Consumes
@@ -5850,35 +5791,6 @@ GET /azure/vsa/metadata/permutations
 
 * application/json
 
-==== Retrieve all vaults.
-----
-GET /azure/vsa/metadata/vaults
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|subscriptionId||false|string|
-|QueryParameter|cloudProviderAccountId||false|string|
-|QueryParameter|region||false|string|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|<<AzureKeyVault>> array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
 ==== Retrieves Network Extended Info.
 ----
 GET /azure/vsa/metadata/vnets
@@ -6172,36 +6084,6 @@ GET /azure/vsa/metadata/resource-groups
 |===
 |HTTP Code|Description|Schema
 |default|success|<<AzureResourceGroupByRegionResponse>> array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieve all keys in a vault.
-----
-GET /azure/vsa/metadata/keys-vault
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|subscriptionId||false|string|
-|QueryParameter|cloudProviderAccountId||false|string|
-|QueryParameter|resourceGroupName||true|string|
-|QueryParameter|vaultName||true|string|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|<<AzureKey>> array
 |===
 
 ===== Consumes
@@ -8366,7 +8248,7 @@ GET /cvs/credentials
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|<<CvsAccountResponse>>
+|default|success|<<Object>>
 |===
 
 ===== Consumes
@@ -8722,6 +8604,26 @@ GET /gcp/ha/metadata/projects
 
 * application/json
 
+==== Create new bucket
+----
+POST /gcp/ha/metadata/create-bucket
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|BodyParameter|body|Create new bucket request|true|<<CreateBucketReq>>|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Retrieves all cloud storage buckets
 ----
 GET /gcp/ha/metadata/buckets
@@ -8821,7 +8723,7 @@ GET /gcp/ha/metadata/vpcs
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|<<GcpConnectivityResponse>> array
+|default|success|<<Object>> array
 |===
 
 ===== Consumes
@@ -8901,26 +8803,6 @@ GET /gcp/ha/metadata/tag-keys
 |===
 |HTTP Code|Description|Schema
 |default|success|<<TagKeyResponse>> array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Create new bucket
-----
-POST /gcp/ha/metadata/create-bucket
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|BodyParameter|body|Create new bucket request|true|<<CreateBucketRequest>>|
 |===
 
 ===== Consumes
@@ -10725,7 +10607,7 @@ POST /gcp/vsa/metadata/create-bucket
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|BodyParameter|body|Create new bucket request|true|<<CreateBucketRequest>>|
+|BodyParameter|body|Create new bucket request|true|<<CreateBucketReq>>|
 |===
 
 ===== Consumes

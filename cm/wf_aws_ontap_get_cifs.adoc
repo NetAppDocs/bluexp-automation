@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_aws_ontap_get_cifs.html
+permalink: wf_aws_ontap_get_cifs.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to retrieve the CIFS server configurations for an existing Cloud Volumes ONTAP working environment."
 ---

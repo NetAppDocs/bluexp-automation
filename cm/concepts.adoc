@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/concepts.html
+permalink: concepts.html
 keywords: rest, api, cloud, manager, http, endpoints, adminitrative resources, authentication, auditing
 summary: 'Representational State Transfer (REST) is a style for creating distributed web applications.'
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_common_ontap_md_get_snapmirror_svm_pols.html
+permalink: wf_common_ontap_md_get_snapmirror_svm_pols.html
 keywords:
 summary:
 ---

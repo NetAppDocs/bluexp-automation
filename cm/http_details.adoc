@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/http_details.html
+permalink: http_details.html
 keywords: http, details, cloud, manager, rest, api, request headers, status, codes
 summary: 'The Cloud Manager REST API is based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.'
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_common_ontap_repl_get_rel_we_status.html
+permalink: wf_common_ontap_repl_get_rel_we_status.html
 keywords: common, ontap, repl, get, working, environment, status
 summary: "You can use this workflow to retrieve the status of all the SnapMirror replication relationships for a specific working environment."
 ---

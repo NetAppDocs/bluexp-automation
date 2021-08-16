@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_aws_ontap_create_aggr.html
+permalink: wf_aws_ontap_create_aggr.html
 keywords: cloud, manager, rest, api, aggregate, publicid, working, environment, aws
 summary: 'You can create a new aggregate within a working environment.'
 ---
@@ -11,13 +11,20 @@ summary: 'You can create a new aggregate within a working environment.'
 :icons: font
 :linkattrs:
 :imagesdir: ./media/
+:tabs:
 
 [.lead]
-You can create a new aggregate within a working environment using this workflow.
+You can create a new aggregate within a working environment using this workflow. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create aggregate for a single node, Single Node>>
+* <<Create aggregate for high availability pair, HA pair>>
+
+== Create aggregate for a single node
+You can use this workflow to create an aggregate for a single node working environment.
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter.
 
 === 2. Create the aggregate
 
@@ -32,6 +39,48 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "name": "ziv01agg04",
+  "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
+  "numberOfDisks": 1,
+  "diskSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "providerVolumeType": "gp2"
+}
+
+Output::
+
+None
+
+== Create aggregate for high availability pair
+You can use this workflow to create an aggregate for an HA working environment.
+
+=== 1. Select the working environment to use
+
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter.
+
+=== 2. Create the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|occm/api/aws/ha/aggregates
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

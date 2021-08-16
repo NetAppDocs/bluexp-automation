@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_aws_ontap_create_cifs.html
+permalink: wf_aws_ontap_create_cifs.html
 keywords: cloud, manager, rest, api, aws, cifs, server, configuration
 summary: 'You can use this workflow to set up a new CIFS server configuration for an existing Cloud Volumes ONTAP working environment.'
 ---

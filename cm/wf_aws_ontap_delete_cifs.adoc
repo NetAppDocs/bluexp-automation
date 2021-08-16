@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_aws_ontap_delete_cifs.html
+permalink: wf_aws_ontap_delete_cifs.html
 keywords: cifs, server, configuration, occm, aws, working, environment
 summary: You can use this workflow to delete a CIFS server configuration for an existing Cloud Volumes ONTAP working environment.
 ---

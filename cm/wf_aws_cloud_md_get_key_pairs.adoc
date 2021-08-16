@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: wf_aws_cloud_md_get_key_pairs.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the route tables endpoint to retrieve the route tables for each VPC and their subnet information.
+---
+
+= Get key pairs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use the key pairs endpoint to retrieve the AWS key pairs for specific regions.
+
+=== 1. Get the region
+Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value of the required region for the `region` query parameter.
+
+NOTE: Ensure that you choose the path value for the HA pair while performing the Get Regions workflow.
+
+=== 2. Get the key pairs
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/aws/ha/metadata/key-pairs
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/key-pairs?region=<REGION>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameter:
+
+* <REGION> `region`
+
+Optional parameters for filter:
+
+* `roleArn`: String
+* `cloudProviderAccountId`: String
+
+Output::
+
+The output shows the AWS user key pairs for a specific region.
+
+JSON output example::
+[source,json]
+[
+    "Developers_Virginia",
+    "gfcqa",
+    "kubernetes-net6vbp8sd",
+    "kubernetes-netpn77b32",
+    "occm_qa"
+]

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_aws_ontap_add_disks_aggr.html
+permalink: wf_aws_ontap_add_disks_aggr.html
 keywords: disk, aggregate, cloud, manager, ONTAP, get, working, environment
 summary: You can add disks to an existing aggregate.
 ---
@@ -13,15 +13,21 @@ summary: You can add disks to an existing aggregate.
 :imagesdir: ./media/
 
 [.lead]
-You can add disks to an existing aggregate.
+You can add disks to an existing aggregate. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Add disks to an aggregate for a single node, Single Node>>
+* <<Add disks to an aggregate for high availability pair, HA pair>>
+
+== Add disks to an aggregate for single node
+You can use this workflow to add disks to an aggregate for a single node working environment.
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
-=== 2. Select the aggregate to delete
+=== 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html[Get aggregates] and choose the `name` value for the `aggregateName` path parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-a-single-node[Get aggregates] and choose the `name` value for the `aggregateName` path parameter.
 
 === 3. Add the disks
 
@@ -36,6 +42,50 @@ Perform the workflow link:wf_aws_ontap_get_aggrs.html[Get aggregates] and choose
 curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+You must include the following path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <AGGR_NAME> `(aggregateName)`
+
+Also, the JSON input example includes an input parameter as shown.
+
+JSON input example::
+[source, json]
+{
+    "numberOfDisks": "1"
+}
+
+Output::
+
+None
+
+== Add disks to an aggregate for high availability pair
+You can use this workflow to add disks to an aggregate for HA working environment.
+
+=== 1. Select the working environment to use
+
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+
+=== 2. Select the aggregate
+
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value for the `aggregateName` path parameter.
+
+=== 3. Add the disks
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/disks
+|===
+
+curl example::
+[source, curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

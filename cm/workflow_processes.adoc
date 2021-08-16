@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/workflow_processes.html
+permalink: workflow_processes.html
 keywords: workflows, processes, cloud, manager, api
 summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
 ---
@@ -47,7 +47,7 @@ In addition, some workflows are not tied to a specific cloud provider and can be
 The workflows for each cloud provider are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
 Working environments::
-A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and runs. These workflows allow you to create workflows and perform related administration.
+A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administration.
 
 Aggregates::
 An aggregate is the low-level structure for Cloud Volumes ONTAP storage. These workflows allow you to create aggregates and perform related administration.

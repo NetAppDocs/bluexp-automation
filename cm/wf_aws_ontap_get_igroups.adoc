@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_aws_ontap_get_igroups.html
+permalink: wf_aws_ontap_get_igroups.html
 keywords: cloud, manager, rest, api, igroups, cifs, server, configuration
 summary: "You can use this workflow to retrieve all the iGroups."
 ---
@@ -14,6 +14,15 @@ summary: "You can use this workflow to retrieve all the iGroups."
 
 [.lead]
 You can use this workflow to retrieve all the iGroups.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get iGroups for single node, Single Node>>
+* <<Get iGroups for high availability pair, HA pair>>
+
+
+== Get iGroups for single node
+You can use this workflow to retrieve the iGroups for a single node system.
 
 === 1. Select the working environment
 
@@ -32,6 +41,59 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+* Path parameter <WORKING_ENV_ID>
+* Path parameter <SVM_NAME>
+
+Output::
+
+The JSON output example includes a list of iGroups.
+
+JSON output example::
+[source,json]
+[
+    {
+        "igroupName": "zivIgroup1",
+        "osType": "linux",
+        "portsetName": "",
+        "igroupType": "iscsi",
+        "initiators": [
+            "iqn.1994-05.com.redhat:1d9ac633937c"
+        ]
+    },
+    {
+        "igroupName": "zivIgroup2",
+        "osType": "linux",
+        "portsetName": "",
+        "igroupType": "iscsi",
+        "initiators": [
+            "iqn.1994-05.com.redhat:96de86825216"
+        ]
+    }
+]
+
+== Get iGroups for high availability pair
+You can use this workflow to retrieve the iGroups for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values for the working environment `workingEnvironmentId` and `svmName` path parameters.
+
+=== 2. Get the CIFS configurations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/aws/ha/volumes/igroups/{workingEnvironmentId}/{svmName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 
