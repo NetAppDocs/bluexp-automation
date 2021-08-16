@@ -79,13 +79,14 @@ The JSON input example includes the minimum list of parameters. This request use
 JSON input example::
 [source,json]
 {
-    "name": "ziv02we03",
-    "svmPassword": "user_password",
+    "name": "username",
+    "svmPassword": "password",
     "vpcId": "vpc-b16c90d4",
     "region": "us-east-1",
     "tenantId": "tenantIDgoeshere",
     "subnetId": "subnet-f4da95ac",
     "dataEncryptionType": "AWS",
+    "nssAccount": "ab332ce3-aa49-4995-8e09-752a0601c682",
     "vsaMetadata": {
         "ontapVersion": "ONTAP-9.9.0.T1",
         "licenseType": "cot-premium-byol",
@@ -99,6 +100,7 @@ JSON input example::
             "ebsVolumeType": "gp2"
 }
 
+
 Output::
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
@@ -108,7 +110,7 @@ JSON output example
 {
     "publicId": "VsaWorkingEnvironment-wL2MaBJs",
     "name": "username",
-    "tenantId": "tenantIDgoeshere",
+    "tenantId": "tenantIDshownhere",
     "svmName": "svm_ziv02we03",
     "creatorUserEmail": "user_email",
     "status": null,
