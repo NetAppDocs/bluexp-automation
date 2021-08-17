@@ -44,7 +44,7 @@ This API call uses the _Auth0_ authentication service and not the NetApp Cloud M
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput
 
 Input parameters::
 
@@ -83,7 +83,7 @@ Review the parameters in the *JSON input example* for the first workflow step. I
 
 === 1. Generate the user token
 
-This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the Curl example below and adjust for your environment as needed.
+This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the curl example below and adjust for your environment as needed.
 
 [cols="25,75"*,options="header"]
 |===
@@ -95,7 +95,7 @@ This API call uses the _Auth0_ authentication service and not the NetApp Cloud M
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput
 
 Input parameters::
 
