@@ -24,7 +24,7 @@ You can retrieve the client ID and use it with the `x-agent-id` HTTP request hea
 
 .About this task
 
-You need to access the client ID which is unique for each Cloud Volumes ONTAP environment and then use it as the agent identifier.
+You need to access the client ID which is unique for each Cloud Manager Connector and then use it as the agent identifier.
 
 .Before you begin
 
