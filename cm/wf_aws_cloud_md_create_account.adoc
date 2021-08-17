@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_cloud_md_create_account.html
+permalink: cm/wf_aws_cloud_md_create_account.html
 keywords: aws, cloud, provider, saas, marketplace, account
 summary: "You can use this workflow to create an AWS cloud provider account."
 ---
