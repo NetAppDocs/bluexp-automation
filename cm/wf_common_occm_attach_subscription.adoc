@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_occm_attach_subscription.html
+permalink: cm/wf_common_occm_attach_subscription.html
 keywords: saas, subscription, cloud, manager, rest, api
 summary: "You can use this workflow to attach a Cloud Manager SaaS subscription to a cloud provider account."
 ---

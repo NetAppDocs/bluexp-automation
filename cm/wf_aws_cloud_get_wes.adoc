@@ -17,15 +17,15 @@ You can retrieve the public identifier, working environment identifier and the s
 
 Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
 
-* <<Get working environment for single node, Single Node>>
-* <<Get working environment for high availability pair, HA pair>>
+* <<Get working environments for single node, Single Node>>
+* <<Get working environments for high availability pair, HA pair>>
 
 
-== Get working environment for single node
+== Get working environments for single node
 
-You can use this workflow to get a list of working environments for a single node system.
+You can use this workflow to retrieve the working environment details for a single node system.
 
-=== 1. Get the list of working environments
+=== 1. Get the working environments
 
 [cols="25,75"*,options="header"]
 |===
@@ -47,7 +47,7 @@ Optional query parameters:
 * `tenantId`
 
 Output::
-The JSON output example includes an array of VSA working environments.
+The JSON output example includes an array of VSA working environments and their details.
 
 JSON output example::
 [source,json]
@@ -164,12 +164,13 @@ JSON output example::
 
 == Get working environment for high availability pair
 
-You can use this workflow to get the list of working environments for an HA pair.
+You can use this workflow to get the working environment details for an HA pair. You can choose the working environment and retrieve the details.
 
-=== 1. Get working environment
+=== 1. Select the working environment to use
 
 Perform the workflow <<Get working environment for single node>> and choose the `publicId` of the required working environment used for the `workingEnvironmentId` path parameter.
 
+=== 1. Get the working environment
 
 [cols="25,75"*,options="header"]
 |===
@@ -187,14 +188,14 @@ Input::
 
 Path parameter:
 
-WORKING_ENV_ID `workingEnvironmentId`
+* <WORKING_ENV_ID> `workingEnvironmentId`
 
-Optional query parameters:
+Optional query parameter:
 
 * `fields`
 
 Output::
-The JSON output example includes an array of HA Cloud Volumes ONTAP working environments.
+The JSON output example includes an HA Cloud Volumes ONTAP working environment.
 
 JSON output example::
 [source,json]

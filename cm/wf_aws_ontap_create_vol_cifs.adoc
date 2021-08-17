@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_create_vol_cifs.html
+permalink: cm/wf_aws_ontap_create_vol_cifs.html
 keywords: vcloud, manager, rest, api
 summary: 'You can use this workflow to create a volume accessed through CIFS.'
 ---

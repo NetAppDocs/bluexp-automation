@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_identity_create_user_token.html
+permalink: cm/wf_common_identity_create_user_token.html
 keywords: generate, user, token
 summary: 'You must generate a bearer token to authenticate and access the Cloud Manager REST API. There are two workflows available depending on the type of authentication.'
 ---

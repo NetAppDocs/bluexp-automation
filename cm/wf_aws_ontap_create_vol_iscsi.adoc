@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_create_vol_iscsi.html
+permalink: cm/wf_aws_ontap_create_vol_iscsi.html
 keywords: cloud, manager, rest, api
 summary: 'You can use this workflow to create a volume accessed through iSCSI. There are two workflows available depending on whether a new or existing iGroup is used'
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_identity_get_nss_key.html
+permalink: cm/wf_common_identity_get_nss_key.html
 keywords: cloud, manager, rest
 summary: "You can retrieve the key for a specific NetApp Support Site account."
 ---

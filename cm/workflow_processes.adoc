@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: workflow_processes.html
+permalink: cm/workflow_processes.html
 keywords: workflows, processes, cloud, manager, api
 summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
 ---
@@ -32,7 +32,7 @@ All the workflow examples are designed to be used with NetApp Cloud Volumes ONTA
 
 At a high level, the workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar.
 
-==== 1. Cloud provider
+=== 1. Cloud provider
 
 Most of the workflows can be performed with one cloud provider. The supported cloud platforms include:
 
@@ -42,7 +42,7 @@ Most of the workflows can be performed with one cloud provider. The supported cl
 
 In addition, some workflows are not tied to a specific cloud provider and can be performed in any cloud environment. These workflows are considered to be *common* to all the cloud providers.
 
-==== 2. Functional category
+=== 2. Functional category
 
 The workflows for each cloud provider are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
@@ -61,7 +61,7 @@ The metadata workflows allow you to view and administer the basic configuration 
 Miscellaneous::
 Workflows that are not clearly assigned to another functional category are considered miscellaneous.
 
-==== 3. Single node and High Availability workflows
+=== 3. Single node and High Availability workflows
 
 Many of the workflows vary based on the type of the deployment.
 
@@ -81,13 +81,13 @@ The REST API calls in the workflows use different URLs and URL formats depending
 [NOTE]
 Every API call used in the workflows includes the resource path to the REST endpoint. The path is relative and appended to the appropriate *base* URL. Unless otherwise indicated for a specific API call, the base URL addresses the NetApp Cloud Manager service. You should always carefully review the curl examples provided in the workflows before using them.
 
-==== Cloud Manager endpoints
+=== Cloud Manager endpoints
 
 The majority of the workflow REST API calls are made to the *NetApp Cloud Manager* service. The base URL of the SaaS interface is:
 
 `https://cloudmanager.netapp.com/`
 
-==== Auth0 authentication service
+=== Auth0 authentication service
 
 Some of the REST API calls used in the identity workflows are made to the *Auth0* token authentication service. The base URL is:
 
@@ -97,7 +97,7 @@ Some of the REST API calls used in the identity workflows are made to the *Auth0
 
 There are several parameters or variables common among the workflows.
 
-==== Request headers
+=== Request headers
 
 Nearly all the REST API calls used in the workflows require the following two request headers.
 
@@ -110,7 +110,7 @@ To get a bearer token for this header, perform the appropriate workflow at link:
 x-agent-id request header::
 This header contains the agent ID which is based on the client ID. See link:get_client_id.html[Get client and account identifiers] for information about creating this value.
 
-==== Presentation of common tokens and identifiers
+=== Presentation of common tokens and identifiers
 
 Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead. This has several benefits:
 
@@ -154,7 +154,7 @@ A list of the keywords used in the workflow curl examples is presented in the ta
 |NetApp refresh token used for federated authentication.
 |===
 
-==== JSON input for curl command
+=== JSON input for curl command
 
 In many cases, a workflow step accepts JSON input in the request body of the REST API call. This input is indicated in the curl command through the `-d` option, with the corresponding sample included in the *JSON input example* section.
 

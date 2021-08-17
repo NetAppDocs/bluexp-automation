@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_get_igroups.html
+permalink: cm/wf_aws_ontap_get_igroups.html
 keywords: cloud, manager, rest, api, igroups, cifs, server, configuration
 summary: "You can use this workflow to retrieve all the iGroups."
 ---

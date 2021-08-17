@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_identity_get_supported_srv.html
+permalink: cm/wf_common_identity_get_supported_srv.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to retrieve information about the Cloud Manager supported services including the _client id_ and _account id_ values."
 ---

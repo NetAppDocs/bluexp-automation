@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_get_aggrs.html
+permalink: cm/wf_aws_ontap_get_aggrs.html
 keywords: cloud, manager, rest, api, get aggregates
 summary: 'You can retrieve a list of available disk aggregates.'
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_create_quote.html
+permalink: cm/wf_aws_ontap_create_quote.html
 keywords: cloud, manager, rest, api, aggregate, volume quote
 summary: 'You can create a quote for a new volume which returns a resource quote needed to satisfy the request.'
 ---

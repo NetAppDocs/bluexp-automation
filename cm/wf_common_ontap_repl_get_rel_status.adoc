@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_ontap_repl_get_rel_status.html
+permalink: cm/wf_common_ontap_repl_get_rel_status.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to retrieve the status of all the SnapMirror replication relationships."
 ---

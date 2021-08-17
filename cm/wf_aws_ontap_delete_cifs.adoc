@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_delete_cifs.html
+permalink: cm/wf_aws_ontap_delete_cifs.html
 keywords: cifs, server, configuration, occm, aws, working, environment
 summary: You can use this workflow to delete a CIFS server configuration for an existing Cloud Volumes ONTAP working environment.
 ---
@@ -14,6 +14,14 @@ summary: You can use this workflow to delete a CIFS server configuration for an 
 
 [.lead]
 You can use this workflow to delete a CIFS server configuration for an existing Cloud Volumes ONTAP working environment.
+
+Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
+
+* <<Delete CIFS server configuration for single node, Single Node>>
+* <<Delete CIFS server configuration for high availability pair, HA pair>>
+
+== Delete CIFS server configuration for single node
+You can use this workflow to delete a CIFS server configuration for a single node system.
 
 === 1. Select the working environment
 
@@ -32,6 +40,43 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 curl example::
 [source,curl]
 curl --location --request POST 'https://staging.cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+* Path parameter `workingEnvironmentId`
+* Optional JSON body
+
+[source,json]
+{
+  "activeDirectoryUsername": "string",
+  "activeDirectoryPassword": "string",
+  "svmName": "string"
+}
+
+Output::
+
+None.
+
+== Delete CIFS server configuration for high availability pair
+You can use this workflow to delete a CIFS server configuration for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Delete the CIFS configurations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/aws/ha/working-environments/{workingEnvironmentId}/delete-cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://staging.cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

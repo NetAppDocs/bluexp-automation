@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_cloud_md_get_vpcs.html
+permalink: cm/wf_aws_cloud_md_get_vpcs.html
 keywords: aws, workflows, virtual, private, cloud,
 summary: You can use this workflow to retrieve a list of the available virtual private clouds.
 ---

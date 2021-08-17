@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_ontap_repl_update_repl.html
+permalink: cm/wf_common_ontap_repl_update_repl.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to update an existing SnapMirror replication relationship."
 ---

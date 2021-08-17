@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_ontap_repl_get_sm_rels.html
+permalink: cm/wf_common_ontap_repl_get_sm_rels.html
 keywords: cloud, manager, rest, api
 summary: You can retrieve all the SnapMirror relationship pairs.
 ---

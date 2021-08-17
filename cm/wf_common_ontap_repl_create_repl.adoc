@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_ontap_repl_create_repl.html
+permalink: cm/wf_common_ontap_repl_create_repl.html
 keywords: cloud, manager, rest, api, lifs, snapmirror
 summary: "You can use this workflow to create a new SnapMirror replication relationship to an ONTAP working environment."
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_identity_get_saas_mp.html
+permalink: cm/wf_common_identity_get_saas_mp.html
 keywords: paygo, , get, saas, marketplace
 summary: You can use this workflow to retrieve the current marketplace account and subscriptions.
 ---

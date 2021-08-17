@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_ontap_repl_get_ic_lifs.html
+permalink: cm/wf_common_ontap_repl_get_ic_lifs.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to retrieve the intercluster LIFs used in a cluster peering relationship."
 ---

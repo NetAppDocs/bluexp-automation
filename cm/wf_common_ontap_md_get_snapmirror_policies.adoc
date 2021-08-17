@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_ontap_md_get_snapmirror_policies.html
+permalink: cm/wf_common_ontap_md_get_snapmirror_policies.html
 keywords: snapmirror, policies, cloud, manager, rest, api
 summary: "You can use this workflow to retrieve the SnapMirror policies based on the source and destination Cloud Volume ONTAP instances."
 ---

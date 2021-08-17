@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_delete_volume.html
+permalink: cm/wf_aws_ontap_delete_volume.html
 keywords: delete, volume, cloud, manager, rest, api, existing, volume, aws, workflows
 summary: "You can delete an existing volume."
 ---

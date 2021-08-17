@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common.html
+permalink: cm/wf_common.html
 keywords: public, cloud, common, workflow, rest, api, cloud manager
 summary: 'There are several workflows you can use with any of the public cloud providers.'
 ---

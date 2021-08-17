@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_add_disks_aggr.html
+permalink: cm/wf_aws_ontap_add_disks_aggr.html
 keywords: disk, aggregate, cloud, manager, ONTAP, get, working, environment
 summary: You can add disks to an existing aggregate.
 ---

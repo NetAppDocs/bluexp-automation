@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_ontap_repl_delete_repl.html
+permalink: cm/wf_common_ontap_repl_delete_repl.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to delete an existing SnapMirror replication relationship."
 ---

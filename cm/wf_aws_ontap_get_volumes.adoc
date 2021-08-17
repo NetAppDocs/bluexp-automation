@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_get_volumes.html
+permalink: cm/wf_aws_ontap_get_volumes.html
 keywords: cloud, manager, rest, api, aws, workflows, get, volumes
 summary: "You can retrieve the list of volumes."
 ---

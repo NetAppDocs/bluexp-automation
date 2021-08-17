@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_create_aggr.html
+permalink: cm/wf_aws_ontap_create_aggr.html
 keywords: cloud, manager, rest, api, aggregate, publicid, working, environment, aws
 summary: 'You can create a new aggregate within a working environment.'
 ---

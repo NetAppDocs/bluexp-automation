@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_cloud_md_get_permutations.html
+permalink: cm/wf_aws_cloud_md_get_permutations.html
 keywords: permutations, cloud, volumes, ontap, working, environment, occm
 summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
 ---

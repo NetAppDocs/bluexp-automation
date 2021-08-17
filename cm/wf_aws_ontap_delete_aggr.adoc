@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_delete_aggr.html
+permalink: cm/wf_aws_ontap_delete_aggr.html
 keywords: aggregate, delete, working, environment, aws, workflows
 summary: 'You can delete an existing disk aggregate.'
 ---

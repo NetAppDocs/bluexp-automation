@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_ontap_modify_volume.html
+permalink: cm/wf_aws_ontap_modify_volume.html
 keywords: cloud, manager, rest, api, modify, volume,
 summary: "You can modify the configuration of an existing volume."
 ---

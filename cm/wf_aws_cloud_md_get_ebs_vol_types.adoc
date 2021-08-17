@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_cloud_md_get_ebs_vol_types.html
+permalink: cm/wf_aws_cloud_md_get_ebs_vol_types.html
 keywords: ebs, volume, types, cloud, manager, rest, api
 summary: You can use this workflow to retrieve the supported EBS volume types.
 ---

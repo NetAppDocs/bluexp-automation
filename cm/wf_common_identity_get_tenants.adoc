@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_common_identity_get_tenants.html
+permalink: cm/wf_common_identity_get_tenants.html
 keywords: cloud, manager, rest, api, account, id, tenants, cloud, manager, web, ui
 summary: "You can retrieve a list of tenants visible to the user currently signed in through the account workspace."
 ---
