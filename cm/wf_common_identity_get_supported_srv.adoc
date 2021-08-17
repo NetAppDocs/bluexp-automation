@@ -54,24 +54,24 @@ JSON output example::
     "portalService": {
         "usePortalAuthentication": true,
         "auth0Information": {
-            "domain": "staging-netapp-cloud-account.auth0.com",
+            "domain": "netapp-cloud-account.auth0.com",
             "audience": "https://api.cloud.netapp.com",
             "clientId": "WsefXFuCJJvMKCMppR65jCktHAQBWFs4"
         },
         "portalInformation": {
-            "edit_user_url": "https://staging.services.cloud.netapp.com/?userMenuOpen",
+            "edit_user_url": "https://services.cloud.netapp.com/?userMenuOpen",
             "portalBackEnd": "https://api.staging.services.cloud.netapp.com",
-            "portalFrontEnd": "https://staging.services.cloud.netapp.com"
+            "portalFrontEnd": "https://services.cloud.netapp.com"
         },
-        "saasFrontEnd": "https://staging.cloudmanager.netapp.com"
+        "saasFrontEnd": "https://cloudmanager.netapp.com"
     },
     "intercomAppId": "brf2h510",
     "tenancyServiceInformation": {
-        "accountId": "account-owfuJ965",
-        "url": "https://staging.cloudmanager.cloud.netapp.com/tenancy",
-        "accountWidgetUrl": "https://staging.services.cloud.netapp.com/accountWidgetLoader.js",
-        "agentsMgmtUrl": "https://staging.cloudmanager.cloud.netapp.com/agents-mgmt",
-        "forwarderUrlOverride": "https://staging.cloudmanager.cloud.netapp.com"
+        "accountId": "account-xxx1234",
+        "url": "https://cloudmanager.cloud.netapp.com/tenancy",
+        "accountWidgetUrl": "https://services.cloud.netapp.com/accountWidgetLoader.js",
+        "agentsMgmtUrl": "https://cloudmanager.cloud.netapp.com/agents-mgmt",
+        "forwarderUrlOverride": "https://cloudmanager.cloud.netapp.com"
     },
     "saasMpServiceInformation": {
         "productUrlAws": "http://aws.amazon.com/marketplace/pp/B086BQCW8P",
