@@ -86,6 +86,12 @@ entries:
             url: /cm/wf_aws_cloud_md_get_vpcs.html
           - title: Get EBS volume types
             url: /cm/wf_aws_cloud_md_get_ebs_vol_types.html
+          - title: Get packages
+            url: /wf_aws_cloud_md_get_packages.html
+          - title: Get route tables
+            url: /wf_aws_cloud_md_get_route_tables.html
+          - title: Get key pairs
+            url: /wf_aws_cloud_md_get_key_pairs.html
       - title: Miscellaneous
         entries:
           - title: Create AWS cloud provider account
