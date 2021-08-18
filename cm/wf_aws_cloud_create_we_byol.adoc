@@ -15,7 +15,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 [.lead]
 You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring your own license (BYOL) licensing.
 
-=== Before you begin
+.Before you begin
 
 You must have a *Connector* for the cloud environment before beginning the workflow. You can create a Connector using the Cloud Manager web user interface. When you create a Connector, Cloud Manager adds the cloud provider account that you deployed the Connector in to your list of available accounts. See the https://docs.netapp.com/us-en/occm/[Cloud Manager documentation^] for more information.
 
@@ -64,7 +64,7 @@ Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html[Get EBS volume 
 
 An NSS key is required when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 7.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the `id`.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
@@ -90,13 +90,13 @@ JSON input example::
 [source,json]
 {
     "name": "ziv02we03",
-    "svmPassword": "Netapp234",
+    "svmPassword": "password",
     "vpcId": "vpc-b16c90d4",
     "region": "us-east-1",
-    "tenantId": "workspace-ced4x9X4",
+    "tenantId": "workspace-cxxx123",
     "subnetId": "subnet-f4da95ac",
     "dataEncryptionType": "AWS",
-    "nssAccount": "ab332ce3-aa49-4995-8e09-752a0601c682",
+    "nssAccount": "ab332ce3-xxxx-4000-8e03-752a0601c682",
     "vsaMetadata": {
         "ontapVersion": "ONTAP-9.9.0.T1",
         "licenseType": "cot-premium-byol",
@@ -185,9 +185,9 @@ Perform the workflow link:wf_aws_cloud_md_get_vpcs.html[Get VPCs] and do the fol
 * Attach the licenses serial number to `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters.
 * Select the IPs for the `clusterFloatingIP`, `dataFloatingIP`, `dataFloatingIP2` values for the corresponding parameters in step 11.
 
-=== 7. Select route table
+=== 7. Select the route table
 
-Perform the workflow link:wf_aws_cloud_md_get_route_tables.html[Get route tables] and choose the `id` value of the required route table for `haParams:routeTableIds` parameter.
+Perform the workflow link:wf_aws_cloud_md_get_route_tables.html[Get route tables] and choose the `id` value of the required route table for `haParams:routeTableIds` parameter in step 11.
 
 === 8. Select the EBS volume configuration
 
@@ -201,7 +201,7 @@ Perform the link:wf_aws_cloud_md_get_key_pairs.html[Get key pairs] workflow and 
 
 An NSS key is required when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the `id`.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
@@ -260,7 +260,7 @@ JSON input example::
     "failoverMode": "FloatingIP",
     "mediatorAssignPublicIP": true
   },
-  "nssAccount": “54ab5c0d-0e48-433d-bcef-6eeda79e747d”,
+  "nssAccount": “54ab5c0d-xx23-xxxd-bcef-6eeda79e747d”,
   "optimizedNetworkUtilization": false,
   "instanceTenancy": "default",
   "packageName": "aws_ha_poc",

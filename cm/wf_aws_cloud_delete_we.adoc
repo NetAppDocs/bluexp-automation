@@ -45,7 +45,7 @@ curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api
 
 Input::
 
-Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
 
 Optional query parameters:
 
@@ -63,7 +63,7 @@ None
 
 == Delete working environment for high availability pair
 
-You can use this workflow to delete a working environment for an HA working environment.
+You can use this workflow to delete a working environment for an HA pair.
 
 === 1. Select the working environment to use
 
@@ -85,7 +85,7 @@ curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api
 
 Input::
 
-Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
 
 Optional query parameters:
 

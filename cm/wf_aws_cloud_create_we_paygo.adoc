@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can create a new Cloud Volumes ONTAP working environment using pay as you go (PAYGO) licensing. You can add new volumes to the working environment.
+You can create a new Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) licensing. You can add new volumes to the working environment.
 
 === Before you begin
 

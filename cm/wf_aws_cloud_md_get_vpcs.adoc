@@ -21,11 +21,11 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Get VPCs for high availability pair, HA pair>>
 
 == Get VPCs for single node
-You can use this workflow to get VPCs for a single node working environment.
+You can use this workflow to retrieve the VPCs for a single node working environment.
 
 === 1. Select the region to use
 
-Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the region.
+Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the `region` query parameter.
 
 === 2. Get the VPCs
 
@@ -34,18 +34,18 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choo
 |HTTP method
 |Path
 |GET
-|/occm/api/vsa/metadata/vpcs?region=us-east-1
+|/occm/api/vsa/metadata/vpcs?region=<REGION>
 |===
 
 Curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/vpcs?region=us-east-1' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/vpcs?region=<REGION>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
 Query parameters:
 
-* `region`
+* <REGION> `region`
 
 Output::
 
@@ -142,11 +142,11 @@ JSON output example::
 ]
 
 == Get VPCs for high availability pair
-You can use this workflow to get VPCs for an HA working environment.
+You can use this workflow to retrieve the VPCs for an HA working environment.
 
 === 1. Select the region to use
 
-Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the region.
+Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the `region` query parameter.
 
 === 2. Get the VPCs
 
@@ -155,18 +155,18 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choo
 |HTTP method
 |Path
 |GET
-|/occm/api/aws/ha/metadata/vpcs?region=us-east-1
+|/occm/api/aws/ha/metadata/vpcs?region=<REGION>
 |===
 
 Curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/vpcs?region=us-east-1' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/vpcs?region=<REGION>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
 Query parameters:
 
-* `region`
+* <REGION> `region`
 
 Output::
 

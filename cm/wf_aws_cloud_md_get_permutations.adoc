@@ -21,7 +21,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Get permutations for high availability pair, HA pair>>
 
 == Get permutations for single node
-You can use this workflow to get permutations for a single node working environment.
+You can use this workflow to retrieve the configuration information for a single node working environment.
 
 === 1. Get the permutations
 
@@ -84,7 +84,7 @@ JSON output example::
 ]
 
 == Get permutations for high availability pair
-You can use this workflow to get permutations for an HA working environment.
+You can use this workflow to retrieve the configuration information for an HA working environment.
 
 === 1. Get the permutations
 

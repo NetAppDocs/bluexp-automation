@@ -13,9 +13,11 @@ summary: You can add disks to an existing aggregate.
 :imagesdir: ./media/
 
 [.lead]
-You can add disks to an existing aggregate. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+You can add disks to an existing aggregate.
 
-* <<Add disks to an aggregate for a single node, Single Node>>
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Add disks to an aggregate for single node, Single Node>>
 * <<Add disks to an aggregate for high availability pair, HA pair>>
 
 == Add disks to an aggregate for single node

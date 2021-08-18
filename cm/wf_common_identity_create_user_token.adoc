@@ -44,7 +44,7 @@ This API call uses the _Auth0_ authentication service and not the NetApp Cloud M
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput
 
 Input parameters::
 
@@ -95,7 +95,7 @@ This API call uses the _Auth0_ authentication service and not the NetApp Cloud M
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput 
 
 Input parameters::
 

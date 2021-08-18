@@ -21,7 +21,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Get regions for high availability pair, HA pair>>
 
 == Get regions for single node
-You can use this workflow to get regions for a single node working environment.
+You can use this workflow to retrieve the regions for a single node system.
 
 === 1. Get the list of regions
 
@@ -77,7 +77,7 @@ JSON output example::
 ]
 
 == Get regions for high availability pair
-You can use this workflow to get regions for an HA working environment.
+You can use this workflow to retrieve the regions for an HA pair.
 
 === 1. Get the list of regions
 
