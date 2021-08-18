@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: hello_world.html
+permalink: cm/hello_world.html
 keywords: hello, world, cloud, manager, rest, api
 summary: 'You can issue a curl command to get started using the Cloud Manager REST API and confirm its availability.'
 ---

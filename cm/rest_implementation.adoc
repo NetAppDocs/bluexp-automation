@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: rest_implementation.html
+permalink: cm/rest_implementation.html
 keywords: rest, details, cloud, manager, rest, api
 summary: 'While REST establishes a common set of technologies and best practices, the details of each API can vary based on the design choices of the development team.'
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: additional_considerations.html
+permalink: cm/additional_considerations.html
 keywords: cloud, manager, rest, api
 summary: 'There are several additional characteristics of the Cloud Manager REST API affecting its operation and use. You should be aware of these considerations before issuing an API call.'
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: introduction.html
+permalink: cm/introduction.html
 keywords: introduction, introduction rest api
 summary: 'The NetApp Cloud Manager service includes a REST API that you can access programmatically to administer your cloud-based resources. '
 ---

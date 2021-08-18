@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: api_reference.html
+permalink: cm/api_reference.html
 keywords: api, reference, cloud, manager, rest, api, occm
 summary: 'This section contains the details of the Cloud Manager REST API calls, including resources, endpoints, parameters, and status codes. You can use this content as a reference when developing applications for the API.'
 ---

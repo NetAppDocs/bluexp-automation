@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: security.html
+permalink: cm/security.html
 keywords: cloud, manager, rest, api
 summary: "The Cloud Manager REST API provides robust security based on token authentication and authorization."
 ---
