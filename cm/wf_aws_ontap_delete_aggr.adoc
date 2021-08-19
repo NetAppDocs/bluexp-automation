@@ -45,8 +45,10 @@ curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api
 
 Input::
 
-Path parameter <WORKING_ENV_ID> (`workingEnvironmentId`)
-Path parameter <AGGR_NAME> (`aggregateName`)
+Path parameters:
+
+<WORKING_ENV_ID> (`workingEnvironmentId`)
+<AGGR_NAME> (`aggregateName`)
 
 Output::
 
@@ -61,7 +63,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 
 === 2. Select the aggregate to delete
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-a-single-node[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
 
 === 3. Delete the aggregate
 
@@ -79,8 +81,10 @@ curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api
 
 Input::
 
-Path parameter <WORKING_ENV_ID> (`workingEnvironmentId`)
-Path parameter <AGGR_NAME> (`aggregateName`)
+Path parameters:
+
+<WORKING_ENV_ID> (`workingEnvironmentId`)
+<AGGR_NAME> (`aggregateName`)
 
 Output::
 

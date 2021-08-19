@@ -13,7 +13,7 @@ summary: "You can use this workflow to retrieve all the iGroups."
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to retrieve all the iGroups.
+You can use this workflow to retrieve all the initiator groups (iGroups).
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 

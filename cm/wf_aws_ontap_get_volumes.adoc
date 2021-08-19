@@ -13,7 +13,9 @@ summary: "You can retrieve the list of volumes."
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the list of volumes. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+You can retrieve the list of volumes.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get volumes for single node, Single Node>>
 * <<Get volumes for high availability pair, HA pair>>
@@ -23,7 +25,7 @@ You can use this workflow to retrieve a list of volumes for a single node workin
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` query parameter.
 
 === 2. Get the volumes
 
@@ -139,7 +141,7 @@ You can use this workflow to retrieve a list of volumes for an HA working enviro
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` query parameter.
 
 === 2. Get the volumes
 

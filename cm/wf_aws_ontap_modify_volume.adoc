@@ -13,21 +13,23 @@ summary: "You can modify the configuration of an existing volume."
 :imagesdir: ./media/
 
 [.lead]
-You can modify the configuration of an existing volume. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+You can modify the configuration of an existing volume.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
 * <<Modify volume for single node, Single Node>>
 * <<Modify volume for high availability pair, HA pair>>
 
 == Modify volume for single node
-You can use this workflow to modify the configuration of existing volume for a single node working environment.
+You can use this workflow to modify the configuration of an existing volume for a single node working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment and `svmName`.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single-node[Get volumes] and choose the `name` for the volume.
+Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single-node[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
 === 3. Modify the volume
 
@@ -73,15 +75,15 @@ Output::
 None
 
 == Modify volume for high availability pair
-You can use this workflow to modify the configuration of existing volume for an HA working environment.
+You can use this workflow to modify the configuration of an existing volume for an HA working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment and `svmName`.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` for the volume.
+Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
 === 3. Modify the volume
 

@@ -17,19 +17,19 @@ You can delete an existing volume.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Delete volume for a single node, Single Node>>
+* <<Delete volume for single node, Single Node>>
 * <<Delete volume for high availability pair, HA pair>>
 
-== Delete volume for a Single Node
+== Delete volume for a single node
 You can use this workflow to delete a volume for a single node working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment and `svmName` to be used in `workingEnvironmentId` and `svmName` path parameters.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` and `svmName` values of the working environment  for the `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single-node[Get volumes] and choose the `name` for the volume.
+Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single-node[Get volumes] and choose the `name` of the required volume for the `volumeName` path parameter.
 
 === 3. Delete the volume
 
@@ -63,11 +63,11 @@ You can use this workflow to delete a volume for an HA working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment and `svmName` to be used in `workingEnvironmentId` and `svmName` path parameters.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and `svmName` values of the working environment for the `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` for the volume.
+Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` of teh required volume for `volumeName` path parameter.
 
 === 3. Delete the volume
 

@@ -28,7 +28,7 @@ You can use this workflow to create volume using NFS for a single node system.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId`  and the `svmName` (SVM name).
 
 === 2. Select the aggregate
 
