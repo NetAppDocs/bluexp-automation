@@ -18,7 +18,7 @@ You can retrieve the public identifier, working environment identifier and the s
 Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
 
 * <<Get working environments for single node, Single Node>>
-* <<Get working environments for high availability pair, HA pair>>
+* <<Get working environment for high availability pair, HA pair>>
 
 
 == Get working environments for single node

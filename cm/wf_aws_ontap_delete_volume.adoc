@@ -20,7 +20,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Delete volume for single node, Single Node>>
 * <<Delete volume for high availability pair, HA pair>>
 
-== Delete volume for a single node
+== Delete volume for single node
 You can use this workflow to delete a volume for a single node working environment.
 
 === 1. Select the working environment

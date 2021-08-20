@@ -25,7 +25,7 @@ You can use this workflow to retrieve the VPCs for a single node working environ
 
 === 1. Select the region to use
 
-Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the `region` query parameter.
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` query parameter.
 
 === 2. Get the VPCs
 
@@ -146,7 +146,7 @@ You can use this workflow to retrieve the VPCs for an HA working environment.
 
 === 1. Select the region to use
 
-Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the `region` query parameter.
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and choose the `code` value for the `region` query parameter.
 
 === 2. Get the VPCs
 

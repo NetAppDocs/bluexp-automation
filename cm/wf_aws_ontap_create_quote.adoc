@@ -20,7 +20,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Create quote for single Node, Single Node>>
 * <<Create quote for high availability pair, HA pair>>
 
-== Create quote for single Node
+== Create quote for single node
 You can use this workflow to retrieve quote details for a single node working environment.
 
 === 1. Select the working environment
