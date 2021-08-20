@@ -208,7 +208,7 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
 ==== 2. Select the aggregate
 
@@ -298,7 +298,7 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
 ==== 2. Select the aggregate
 

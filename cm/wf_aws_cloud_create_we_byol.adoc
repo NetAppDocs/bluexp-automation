@@ -48,17 +48,17 @@ Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and c
 
 === 3. Select the permutations configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 7.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 7.
 
 You will also need to include the `platformSerialNumber` value in `vsaMetadata` parameter in the REST API call.
 
 === 4. Select the VPC
 
-Perform the workflow link:wf_aws_cloud_md_get_vpcs.html[Get VPCs] and choose the `vpcId` value for the `vpcId` parameter in step 7.
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get VPCs] and choose the `vpcId` value for the `vpcId` parameter in step 7.
 
 === 5. Select the EBS volume configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 7.
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 7.
 
 NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 7.
 
@@ -173,14 +173,14 @@ Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and c
 
 === 4. Select the permutations configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 11.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 11.
 
 === 5. Select the packages configuration
-Perform the link:wf_aws_cloud_md_get_packages.html[Get Packages] and choose the `packageName`, `instanceTenancy` and `writingSpeedState` values for the corresponding parameters in step 11.
+Perform the link:wf_aws_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get Packages] and choose the `packageName`, `instanceTenancy` and `writingSpeedState` values for the corresponding parameters in step 11.
 
 === 6. Select the VPC
 
-Perform the workflow link:wf_aws_cloud_md_get_vpcs.html[Get VPCs] and do the following:
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availability-pair[Get VPCs] and do the following:
 
 * Choose the `vpcId` value for the `vpcId` parameter in step 11.
 * Choose three subnets and choose the `subnetId` value for the `haParams:mediatorSubnetId`, `haParams:node1SubnetId`, `haParams:node2SubnetId`.
@@ -193,13 +193,13 @@ Perform the workflow link:wf_aws_cloud_md_get_route_tables.html[Get route tables
 
 === 8. Select the EBS volume configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 11. 
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-high-availability-pair[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 11.
 
 NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 11.
 
 === 9. Get key pairs
 
-Perform the link:wf_aws_cloud_md_get_key_pairs.html[Get key pairs] workflow and select the required key for `haParam: mediatorKeyPairName` parameter in step 11.
+Perform the link:wf_aws_cloud_md_get_key_pairs.html#get-key-pairs-for-high-availability-pair[Get key pairs] workflow and select the required key for `haParam: mediatorKeyPairName` parameter in step 11.
 
 === 10. Obtain the required NSS key
 

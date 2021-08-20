@@ -33,7 +33,7 @@ Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-a-singl
 
 === 3. Select the permutations configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html[Get permutations] and choose the `size` and `diskType` values for step 4.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get permutations] and choose the `size` and `diskType` values for step 4.
 
 === 4. Generate the volume quote
 
@@ -98,7 +98,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value.
 
 === 3. Select the package
-Perform the link:wf_aws_cloud_md_get_packages.html[Get packages] workflow and select the `size` and `diskType` values of the required package for `diskSize` and `providerVolumeType` values.
+Perform the link:wf_aws_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get packages] workflow and select the `size` and `diskType` values of the required package for `diskSize` and `providerVolumeType` values.
 
 === 4. Generate the volume quote
 

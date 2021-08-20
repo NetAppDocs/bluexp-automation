@@ -168,7 +168,7 @@ You can use this workflow to get the working environment details for an HA pair.
 
 === 1. Select the working environment to use
 
-Perform the workflow <<Get working environment for single node>> and choose the `publicId` of the required working environment used for the `workingEnvironmentId` path parameter.
+Perform the workflow <<Get working environments for single node>> and choose the `publicId` of the required working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Get the working environment
 
