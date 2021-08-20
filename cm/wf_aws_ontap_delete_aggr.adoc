@@ -23,11 +23,11 @@ You can use this workflow to delete an aggregate for a single node working envir
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the working environment path parameter.
 
 === 2. Select the aggregate to delete
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-a-single-node[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
 
 === 3. Delete the aggregate
 
@@ -59,7 +59,7 @@ You can use this workflow to delete an aggregate for an HA working environment.
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
 === 2. Select the aggregate to delete
 

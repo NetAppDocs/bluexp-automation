@@ -19,12 +19,12 @@ You can create a new aggregate within a working environment using this workflow.
 * <<Create aggregate for a single node, Single Node>>
 * <<Create aggregate for high availability pair, HA pair>>
 
-== Create aggregate for a single node
+== Create aggregate for single node
 You can use this workflow to create an aggregate for a single node working environment.
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter.
 
 === 2. Create the aggregate
 
