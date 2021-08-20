@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: wf_aws_cloud_md_get_packages.html
+permalink: cm/wf_aws_cloud_md_get_packages.html
 keywords: packages, cloud, volumes, ontap, working, environment, occm
 summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
 ---

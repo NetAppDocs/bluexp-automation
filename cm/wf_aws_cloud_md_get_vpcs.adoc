@@ -91,14 +91,14 @@ JSON output example::
         ],
         "securityGroups": [
             {
-                "securityGroupId": "sg-000a2be93c8668b1b",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "NetApp OCCM Instance External Security Group",
-                "name": "lilush2000OCCM1590415972561-OCCMSecurityGroup-JDB72N6W90UG"
+                "name": "hguyiuukOCCM1590415972561-OCCMSecurityGroup-yryrytt"
             },
             {
-                "securityGroupId": "sg-0017cf49544fbb31e",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "Enable HTTP and NFS for Cloud Restore Instance",
-                "name": "Cloud-Restore-Instance-account-TgPvchSk-CloudRestoreInstanceSecurityGroup-ZH4GN8E8AU1K"
+                "name": "Cloud-Restore-Instance-account-xxxxxx-CloudRestoreInstanceSecurityGroup-sdweretttrrt"
             }
         ],
         "tenancy": "default"
@@ -127,12 +127,12 @@ JSON output example::
         ],
         "securityGroups": [
             {
-                "securityGroupId": "sg-0ccb5855f56acd419",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "ONTAP Cloud firewall rules for management and data interface",
-                "name": "SG-Version10-duahpJbS-NetAppExternalSecurityGroup-EB0BZTI536LE"
+                "name": "xx-Version10-duahpJbS-NetAppExternalSecurityGroup-rtyunht"
             },
             {
-                "securityGroupId": "sg-1911fa66",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "default VPC security group",
                 "name": "default"
             }
@@ -212,14 +212,14 @@ JSON output example::
         ],
         "securityGroups": [
             {
-                "securityGroupId": "sg-000a2be93c8668b1b",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "NetApp OCCM Instance External Security Group",
                 "name": "lilush2000OCCM1590415972561-OCCMSecurityGroup-JDB72N6W90UG"
             },
             {
-                "securityGroupId": "sg-0017cf49544fbb31e",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "Enable HTTP and NFS for Cloud Restore Instance",
-                "name": "Cloud-Restore-Instance-account-TgPvchSk-CloudRestoreInstanceSecurityGroup-ZH4GN8E8AU1K"
+                "name": "Cloud-Restore-Instance-account-xxxxxx-CloudRestoreInstanceSecurityGroup-sdweretttrrt"
             }
         ],
         "tenancy": "default"
@@ -248,12 +248,12 @@ JSON output example::
         ],
         "securityGroups": [
             {
-                "securityGroupId": "sg-0ccb5855f56acd419",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "ONTAP Cloud firewall rules for management and data interface",
-                "name": "SG-Version10-duahpJbS-NetAppExternalSecurityGroup-EB0BZTI536LE"
+                "name": "XX-Version10-yuiloJbS-NetAppExternalSecurityGroup-TYUOPR"
             },
             {
-                "securityGroupId": "sg-1911fa66",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "default VPC security group",
                 "name": "default"
             }
