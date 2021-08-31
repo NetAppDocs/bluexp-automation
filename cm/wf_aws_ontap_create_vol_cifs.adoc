@@ -35,7 +35,7 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name) parameters.
 
 === 3. Select the aggregate
 
@@ -120,7 +120,7 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name) parameters.
 
 === 3. Select the aggregate
 

@@ -25,11 +25,11 @@ You can use this workflow to retrieve quote details for a single node working en
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment and `svmName`.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` and `svmName` values of the working environment for the `workingEnvironmentId` and `svmName` parameters.
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-a-single-node[Get aggregates] and choose the `name` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-a-single-node[Get aggregates] and choose the `name` value for the `name` parameter.
 
 === 3. Select the permutations configuration
 
@@ -91,11 +91,11 @@ You can use this workflow to retrieve quote details for an HA working environmen
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment and `svmName`.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and `svmName` values of the working environment for the `workingEnvironmentId` and `svmName` parameters.
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value for step 4.
 
 === 3. Select the package
 Perform the link:wf_aws_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get packages] workflow and select the `size` and `diskType` values of the required package for `diskSize` and `providerVolumeType` values.

@@ -23,7 +23,7 @@ You can use this workflow to delete an aggregate for a single node working envir
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
 === 2. Select the aggregate to delete
 

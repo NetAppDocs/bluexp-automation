@@ -129,7 +129,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for
 
 ==== 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` parameter.
 
 ==== 3. Choose the size for the disk
 
@@ -212,7 +212,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for
 
 ==== 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` parameter.
 
 ==== 3. Choose the size for the disk
 
@@ -302,7 +302,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for
 
 ==== 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` parameter.
 
 ==== 3. Choose the size for the disk
 

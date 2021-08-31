@@ -33,7 +33,7 @@ You can configure a CIFS server in a workgroup when the Microsoft Active Directo
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 ==== 2. Create the CIFS configuration
 
@@ -53,7 +53,7 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/v
 
 Input::
 
-* Path parameter `workingEnvironmentId`
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
 
 JSON input example::
 [source,json]
@@ -72,7 +72,7 @@ You can create a CIFS server on the SVM and specify the Active Directory (AD) do
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 ==== 2. Determine the Active Directory configuration
 
@@ -116,7 +116,7 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/v
 
 Input::
 
-* Path parameter `workingEnvironmentId`
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
 
 JSON input example::
 [source,json]
@@ -149,7 +149,7 @@ You can configure a CIFS server in a workgroup when the Microsoft Active Directo
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 ==== 2. Create the CIFS configuration
 
@@ -169,7 +169,7 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/a
 
 Input::
 
-* Path parameter `workingEnvironmentId`
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
 
 JSON input example::
 [source,json]
@@ -188,7 +188,7 @@ You can create a CIFS server on the SVM and specify the Active Directory (AD) do
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 ==== 2. Determine the Active Directory configuration
 
@@ -232,7 +232,7 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/a
 
 Input::
 
-* Path parameter `workingEnvironmentId`
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
 
 JSON input example::
 [source,json]

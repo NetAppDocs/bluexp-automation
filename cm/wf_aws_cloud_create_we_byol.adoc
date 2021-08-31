@@ -199,7 +199,7 @@ NOTE: You need to choose one of the allowed values for the required `ebsVolumeTy
 
 === 9. Get key pairs
 
-Perform the link:wf_aws_cloud_md_get_key_pairs.html#get-key-pairs-for-high-availability-pair[Get key pairs] workflow and select the required key for `haParam: mediatorKeyPairName` parameter in step 11.
+Perform the link:wf_aws_cloud_md_get_key_pairs.html[Get key pairs] workflow and select the required key for `haParam: mediatorKeyPairName` parameter in step 11.
 
 === 10. Obtain the required NSS key
 
