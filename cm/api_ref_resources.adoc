@@ -1,4 +1,18 @@
-== Resources
+---
+sidebar: sidebar
+permalink: cm/api_ref_resources.html
+keywords:
+summary:
+---
+
+= Resources
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
 This section describes the API calls available for each resource.
 
 === Accounts

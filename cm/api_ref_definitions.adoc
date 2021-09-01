@@ -1,4 +1,18 @@
-== Definitions
+---
+sidebar: sidebar
+permalink: cm/api_ref_definitions.html
+keywords:
+summary:
+---
+
+= Definitions
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
 This section describes existing data format definitions.
 
 === ANFSummary
