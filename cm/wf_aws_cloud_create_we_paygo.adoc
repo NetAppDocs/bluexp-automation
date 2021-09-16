@@ -26,6 +26,7 @@ You must have a *Connector* for the cloud environment before beginning the workf
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
 //* A new volume can also be created with this working environment.
 * You can add more volumes after creating the working environment. You can add volumes using the link:wf_aws_ontap_create_vol_nfs.html[NFS], link:wf_aws_ontap_create_vol_cifs.html[CIFS] or the link:wf_aws_ontap_create_vol_iscsi.html[iSCSI] protocol.
+`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\lpxnds\Parameters\Device\NumberOfRequests`
 ====
 
 Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
