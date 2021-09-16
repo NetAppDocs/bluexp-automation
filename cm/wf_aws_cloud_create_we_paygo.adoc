@@ -15,7 +15,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 [.lead]
 You can create a new Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) licensing. You can add new volumes to the working environment.
 
-=== Before you begin
+.Before you begin
 
 You must have a *Connector* for the cloud environment before beginning the workflow. You can create a Connector using the Cloud Manager web user interface. When you create a Connector, Cloud Manager adds the cloud provider account that you deployed the Connector in to your list of available accounts. See the https://docs.netapp.com/us-en/occm/[Cloud Manager documentation^] for more information.
 
@@ -25,7 +25,7 @@ You must have a *Connector* for the cloud environment before beginning the workf
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
 //* A new volume can also be created with this working environment.
-* You can add more volumes after creating the working environment.
+* You can add more volumes after creating the working environment. You can add volumes using the link:wf_aws_ontap_create_vol_nfs.html[NFS], link:wf_aws_ontap_create_vol_cifs.html[CIFS] or the link:wf_aws_ontap_create_vol_iscsi.html[iSCSI] protocol.
 ====
 
 Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
@@ -66,13 +66,20 @@ NOTE: You need to choose one of the allowed values for the required `ebsVolumeTy
 
 Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
 
-=== 7. Optionally obtain an NSS key
+=== 7. (Optional) Obtain an NSS key
 
 An NSS key is optional when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 8. (Optional) Create a new volume
+
+* Choose the `name` and `size`` values for the corresponding `name` and `size:size` input parameters. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
+
+* Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter if you're choosing to create a volume using the NFS porotcol.
+NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
 === 8. Create the working environment
 

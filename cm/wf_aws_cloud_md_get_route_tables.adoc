@@ -15,7 +15,7 @@ summary: You can use the route tables endpoint to retrieve the route tables for 
 [.lead]
 You can use the route tables endpoint to retrieve the route tables labels for each VPC and their subnet association information.
 
-NOTE: We use the Get route tables workflow for high availability pair.
+NOTE: We use the Get route tables workflow only for the high availability pair.
 
 === 1. Get the region
 
