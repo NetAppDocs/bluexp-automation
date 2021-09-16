@@ -22,12 +22,12 @@ This page includes two tasks describing how to use the Cloud Manager web user in
 
 == Get the client identifier
 
-You can retrieve the Connector ID and use it in the `x-agent-id` HTTP request header for each API call. The Connector ID contains the *client identifier* which is used to route each API request to the right location within the Cloud Manager platform.
+The *client identifier* is used to route each API request to the right location within the Cloud Manager platform. You can retrieve the Connector ID which contains the client ID. You can use the Connector ID as the `x-agent-id` HTTP request header in the API workflows.
 //You can retrieve the client ID and use it with the `x-agent-id` HTTP request header.
 
 .About this task
 
-The Connector ID contains the client ID which is unique for each Cloud Manager Connector.
+The client ID is unique for each Cloud Manager Connector and this value can be obtained from the Connector ID.
 
 //You need to access the client ID which is unique for each Cloud Manager Connector and then use it as the agent identifier.
 
