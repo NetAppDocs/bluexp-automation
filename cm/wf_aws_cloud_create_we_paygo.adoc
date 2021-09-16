@@ -79,9 +79,10 @@ An NSS key is optional when using PAYGO licensing. If needed, you can create a k
 * Choose the `name` and `size`` values for the corresponding `name` and `size:size` input parameters. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
 
 * Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter if you're choosing to create a volume using the NFS porotcol.
++
 NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
-=== 8. Create the working environment
+=== 9. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
