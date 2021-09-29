@@ -18,11 +18,11 @@ You can sign in to the Cloud Manager web user interface to retrieve the key iden
 //You can sign into the Cloud Manager web user interface (UI) to retrieve the client and account identifiers to use with the workflows. You can use these identifiers to access the metadata, authentication, and security related information.
 
 [NOTE]
-This page includes two tasks describing how to use the Cloud Manager web user interface to retrieve the ID values. You can also use the Cloud Manager REST API to get the client ID and account ID values. See link:wf_common_identity_get_supported_srv.html[Get supported services] for more information.
+This page includes two tasks describing how to use the Cloud Manager web user interface to retrieve the ID values. You can also use the Cloud Manager REST API to get the ID values. See link:wf_common_identity_get_supported_srv.html[Get supported services] for more information.
 
 == Get the client identifier
 
-The *client identifier* is used to route each API request to the right location within the Cloud Manager platform. You can retrieve the Connector ID which contains the client ID. You can use the Connector ID as the `x-agent-id` HTTP request header in the API workflows.
+The *client identifier* is used to route each API request to the right location within the Cloud Manager platform. You can retrieve the Connector ID which contains the client ID. You can use the Connector ID as the `x-agent-id` HTTP request header for the API calls.
 //You can retrieve the client ID and use it with the `x-agent-id` HTTP request header.
 
 .About this task
@@ -55,7 +55,7 @@ link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
 +
 `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`
 +
-This value includes the unique *client ID*, for example, *client ID*: `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI`.
+This value includes the unique *client ID*, which in the above example is: `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI`.
 
 
 .After you finish
