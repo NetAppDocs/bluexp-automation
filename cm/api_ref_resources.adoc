@@ -15,6 +15,7 @@ summary:
 [.lead]
 This section describes the API calls available for each resource.
 
+
 === Accounts
 ==== Updates vsa list of an existing Nss account.
 ----
