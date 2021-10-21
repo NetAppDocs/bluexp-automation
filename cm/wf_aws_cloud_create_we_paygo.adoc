@@ -77,7 +77,7 @@ An NSS key is optional when using PAYGO licensing. If needed, you can create a k
 
 === 8. (Optional) Create a new volume
 
-You can create a new volume optionally while creating a working environment.
+You can optionally add a new volume while creating a working environment.
 
 * Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 9. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
 
@@ -250,7 +250,7 @@ An NSS key is optional when using PAYGO licensing. If needed, you can create a k
 
 === 11. (Optional) Create a new volume
 
-You can create a new volume optionally while creating a working environment.
+You can optionally add a new volume while creating a working environment.
 
 * Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 12. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
 
