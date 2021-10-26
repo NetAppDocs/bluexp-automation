@@ -1,3 +1,11 @@
+---
+settings:
+  name: Cloud Manager Automation
+  platform: ''
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
 sidebar:
   entries:
     - title: Cloud Manager API docs
