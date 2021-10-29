@@ -1,0 +1,161 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_md_get_packages.html
+keywords: packages, cloud, volumes, ontap, working, environment, occm
+summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
+---
+
+= Get packages
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get packages for single node, Single Node>>
+* <<Get packages for high availability pair, HA pair>>
+
+== Get packages for single node
+You can use this workflow to retrieve the packages information for a single node system.
+
+=== 1. Get the packages
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/vsa/metadata/packages
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of Cloud Volumes ONTAP packages.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "aws_ha_poc",
+        "displayName": "POC and small workloads",
+        "description": "No description yet",
+        "licenseType": "ha-cot-explore-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "m5.xlarge"
+            }
+        ],
+        "diskType": "gp2",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": "default",
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "aws_ha_standard",
+        "displayName": "Database and application data production workloads",
+        "description": "No description yet",
+        "licenseType": "ha-cot-standard-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "m5.2xlarge"
+            }
+        ],
+        "diskType": "gp2",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": "default",
+        "writingSpeedState": "NORMAL"
+    }
+]
+
+== Get packages for high availability pair
+You can use this workflow to retrieve the packages information for an HA working environment.
+
+=== 1. Get the packages
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/aws/ha/metadata/packages
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of Cloud Volumes ONTAP packages.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "aws_ha_poc",
+        "displayName": "POC and small workloads",
+        "description": "No description yet",
+        "licenseType": "ha-cot-explore-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "m5.xlarge"
+            }
+        ],
+        "diskType": "gp2",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": "default",
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "aws_ha_standard",
+        "displayName": "Database and application data production workloads",
+        "description": "No description yet",
+        "licenseType": "ha-cot-standard-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "m5.2xlarge"
+            }
+        ],
+        "diskType": "gp2",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": "default",
+        "writingSpeedState": "NORMAL"
+    }
+]

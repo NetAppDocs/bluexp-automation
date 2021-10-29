@@ -13,15 +13,21 @@ summary: 'You can delete an existing disk aggregate.'
 :imagesdir: ./media/
 
 [.lead]
-You can delete an existing disk aggregate.
+You can delete an existing disk aggregate. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Delete aggregate for single node, Single Node>>
+* <<Delete aggregate for high availability pair, HA pair>>
+
+== Delete aggregate for single node
+You can use this workflow to delete an aggregate for a single node working environment.
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
 === 2. Select the aggregate to delete
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html[Get aggregates] and choose the `name` value for the aggregate path parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
 
 === 3. Delete the aggregate
 
@@ -39,8 +45,46 @@ curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api
 
 Input::
 
-Path parameter <WORKING_ENV_ID> (`workingEnvironmentId`)
-Path parameter <AGGR_NAME> (`aggregateName`)
+Path parameters:
+
+<WORKING_ENV_ID> (`workingEnvironmentId`)
+<AGGR_NAME> (`aggregateName`)
+
+Output::
+
+None
+
+== Delete aggregate for high availability pair
+You can use this workflow to delete an aggregate for an HA working environment.
+
+=== 1. Select the working environment to use
+
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+
+=== 2. Select the aggregate to delete
+
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
+
+=== 3. Delete the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|DELETE
+|/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameters:
+
+<WORKING_ENV_ID> (`workingEnvironmentId`)
+<AGGR_NAME> (`aggregateName`)
 
 Output::
 

@@ -1,0 +1,139 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_md_get_route_tables.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the route tables endpoint to retrieve the route tables for each VPC and their subnet information.
+---
+
+= Get route tables
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use the route tables endpoint to retrieve the route tables labels for each VPC and their subnet association information.
+
+NOTE: We use the Get route tables workflow only for the high availability pair.
+
+=== 1. Get the region
+
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and choose the `code` value of the required region for the `region` query parameter.
+
+=== 2. Get the VPC
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availability-pair[Get VPCs] and choose the `vpcId` value of the required VPC for the `vpcId` query parameter.
+
+=== 3. Get the route tables
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/aws/ha/metadata/route-tables
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/route-tables?region=<REGION>&vpcId=<VPC_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <REGION> `region`
+* <VPCID> `vpcId`
+
+Optional parameters:
+
+* `roleArn`: String
+* `cloudProviderAccountId`: String
+
+
+Output::
+
+The output includes an array of route tables.
+
+
+JSON output example::
+[source,json]
+[
+    {
+        "id": "rtb-3338784b",
+        "main": false,
+        "subnets": [],
+        "tags": [
+            {
+                "key": "Name",
+                "value": "route3"
+            }
+        ]
+    },
+    {
+        "id": "rtb-e13a7a99",
+        "main": false,
+        "subnets": [],
+        "tags": [
+            {
+                "key": "Name",
+                "value": "route2"
+            }
+        ]
+    },
+    {
+        "id": "rtb-7a3b7b02",
+        "main": false,
+        "subnets": [],
+        "tags": [
+            {
+                "key": "Name",
+                "value": "route4"
+            }
+        ]
+    },
+    {
+        "id": "rtb-0a41155f5c924872e",
+        "main": false,
+        "subnets": [],
+        "tags": [
+            {
+                "key": "Name",
+                "value": "long"
+            }
+        ]
+    },
+    {
+        "id": "rtb-d0e847b6",
+        "main": false,
+        "subnets": [],
+        "tags": [
+            {
+                "key": "Name",
+                "value": "IC Route"
+            }
+        ]
+    },
+    {
+        "id": "rtb-3333734b",
+        "main": false,
+        "subnets": [],
+        "tags": [
+            {
+                "key": "Name",
+                "value": "route1"
+            }
+        ]
+    },
+    {
+        "id": "rtb-02a45467",
+        "main": true,
+        "subnets": [],
+        "tags": [
+            {
+                "key": "Name",
+                "value": "main"
+            }
+        ]
+    }
+]

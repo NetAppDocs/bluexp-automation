@@ -15,9 +15,17 @@ summary: "You can use this workflow to retrieve the CIFS server configurations f
 [.lead]
 You can use this workflow to retrieve the CIFS server configurations for an existing Cloud Volumes ONTAP working environment.
 
+Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
+
+* <<Get CIFS server configuration for single node, Single Node>>
+* <<Get CIFS server configuration for high availability pair, HA pair>>
+
+== Get CIFS server configuration for single node
+You can use this workflow to retrieve a CIFS server configuration for a single node system.
+
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Get the CIFS configurations
 
@@ -35,12 +43,57 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vs
 
 Input::
 
-* Path parameter `workingEnvironmentId`
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
 * Optional query parameter `svm`
 
 Output::
 
-The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP ONTAP working environment.
+The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "dnsDomain": "zivh.netapp.com",
+        "activeDirectoryDomain": "zivh.netapp.com",
+        "ipAddresses": [
+            "172.31.5.241"
+        ],
+        "netBIOS": "zivaws02we01",
+        "organizationalUnit": "CN=Computers",
+        "authenticationType": "domain"
+    }
+]
+
+== Get CIFS server configuration for high availability pair
+You can use this workflow to retrieve a CIFS server configuration for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Get the CIFS configurations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/aws/ha/working-environments/{workingEnvironmentId}/cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
+* Optional query parameter `svm`
+
+Output::
+
+The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP working environment.
 
 JSON output example::
 [source,json]

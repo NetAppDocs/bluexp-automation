@@ -13,11 +13,19 @@ summary: You can use this workflow to retrieve a list of the available virtual p
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to retrieve a list of the available virtual private clouds.
+You can use this workflow to retrieve a list of the available virtual private clouds (VPCs).
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get VPCs for single node, Single Node>>
+* <<Get VPCs for high availability pair, HA pair>>
+
+== Get VPCs for single node
+You can use this workflow to retrieve the VPCs for a single node working environment.
 
 === 1. Select the region to use
 
-Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choose the `code` value for the region.
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` query parameter.
 
 === 2. Get the VPCs
 
@@ -26,18 +34,18 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html[Get regions] and choo
 |HTTP method
 |Path
 |GET
-|/occm/api/vsa/metadata/vpcs?region=us-east-1
+|/occm/api/vsa/metadata/vpcs?region=<REGION>
 |===
 
 Curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/vpcs?region=us-east-1' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/vpcs?region=<REGION>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
 Query parameters:
 
-* `region`
+* <REGION> `region`
 
 Output::
 
@@ -83,14 +91,14 @@ JSON output example::
         ],
         "securityGroups": [
             {
-                "securityGroupId": "sg-000a2be93c8668b1b",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "NetApp OCCM Instance External Security Group",
-                "name": "lilush2000OCCM1590415972561-OCCMSecurityGroup-JDB72N6W90UG"
+                "name": "hguyiuukOCCM1590415972561-OCCMSecurityGroup-yryrytt"
             },
             {
-                "securityGroupId": "sg-0017cf49544fbb31e",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "Enable HTTP and NFS for Cloud Restore Instance",
-                "name": "Cloud-Restore-Instance-account-TgPvchSk-CloudRestoreInstanceSecurityGroup-ZH4GN8E8AU1K"
+                "name": "Cloud-Restore-Instance-account-xxxxxx-CloudRestoreInstanceSecurityGroup-sdweretttrrt"
             }
         ],
         "tenancy": "default"
@@ -119,12 +127,133 @@ JSON output example::
         ],
         "securityGroups": [
             {
-                "securityGroupId": "sg-0ccb5855f56acd419",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "ONTAP Cloud firewall rules for management and data interface",
-                "name": "SG-Version10-duahpJbS-NetAppExternalSecurityGroup-EB0BZTI536LE"
+                "name": "xx-Version10-duahpJbS-NetAppExternalSecurityGroup-rtyunht"
             },
             {
-                "securityGroupId": "sg-1911fa66",
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
+                "description": "default VPC security group",
+                "name": "default"
+            }
+        ],
+        "tenancy": "default"
+    }
+]
+
+== Get VPCs for high availability pair
+You can use this workflow to retrieve the VPCs for an HA working environment.
+
+=== 1. Select the region to use
+
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and choose the `code` value for the `region` query parameter.
+
+=== 2. Get the VPCs
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/aws/ha/metadata/vpcs?region=<REGION>
+|===
+
+Curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/vpcs?region=<REGION>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Query parameters:
+
+* <REGION> `region`
+
+Output::
+
+The JSON output example includes the list of virtual private clouds.
+
+JSON output example::
+[source,json]
+[
+    {
+        "vpcId": "vpc-b16c90d4",
+        "state": "available",
+        "cidrBlock": "172.31.0.0/16",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "VPC for VSA"
+            },
+            {
+                "key": "last",
+                "value": "ioio"
+            }
+        ],
+        "default": true,
+        "subnets": [
+            {
+                "subnetId": "subnet-c1d99699",
+                "cidr": "172.31.5.0/24",
+                "subnetName": "subnet5",
+                "availabilityZone": "us-east-1a",
+                "availableIps": 247,
+                "minimumRequiredIps": 8,
+                "outpostArn": null
+            },
+            {
+                "subnetId": "subnet-deebdbe3",
+                "cidr": "172.31.6.0/24",
+                "subnetName": "Proxy Subnet",
+                "availabilityZone": "us-east-1e",
+                "availableIps": 248,
+                "minimumRequiredIps": 8,
+                "outpostArn": null
+            }
+        ],
+        "securityGroups": [
+            {
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
+                "description": "NetApp OCCM Instance External Security Group",
+                "name": "lilush2000OCCM1590415972561-OCCMSecurityGroup-JDB72N6W90UG"
+            },
+            {
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
+                "description": "Enable HTTP and NFS for Cloud Restore Instance",
+                "name": "Cloud-Restore-Instance-account-xxxxxx-CloudRestoreInstanceSecurityGroup-sdweretttrrt"
+            }
+        ],
+        "tenancy": "default"
+    },
+    {
+        "vpcId": "vpc-fe5c1f98",
+        "state": "available",
+        "cidrBlock": "140.30.0.0/16",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "VPCWIthNOS3"
+            }
+        ],
+        "default": false,
+        "subnets": [
+            {
+                "subnetId": "subnet-e84722d4",
+                "cidr": "140.30.5.0/24",
+                "subnetName": "subnet1",
+                "availabilityZone": "us-east-1e",
+                "availableIps": 250,
+                "minimumRequiredIps": 8,
+                "outpostArn": null
+            }
+        ],
+        "securityGroups": [
+            {
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
+                "description": "ONTAP Cloud firewall rules for management and data interface",
+                "name": "XX-Version10-yuiloJbS-NetAppExternalSecurityGroup-TYUOPR"
+            },
+            {
+                "securityGroupId": "xx-xxxa1ne9xxx67xcvf",
                 "description": "default VPC security group",
                 "name": "default"
             }

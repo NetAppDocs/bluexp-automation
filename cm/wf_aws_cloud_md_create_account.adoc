@@ -15,7 +15,7 @@ summary: "You can use this workflow to create an AWS cloud provider account."
 [.lead]
 You can use this workflow to create an AWS cloud provider account.
 
-=== Before you begin
+.Before you begin
 
 You must have AWS credentials.
 
