@@ -13,7 +13,7 @@ summary: "You can delete an NetApp Support Site key."
 :imagesdir: ./media/
 
 [.lead]
-You can delete an NetApp Support Site key.
+You can delete an NetApp Support Site (NSS) key.
 
 === 1. Select the account to use
 

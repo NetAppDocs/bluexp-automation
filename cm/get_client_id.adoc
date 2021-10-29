@@ -13,22 +13,29 @@ summary: 'You can sign in to the Cloud Manager web user interface to retrieve th
 :imagesdir: ./media/
 
 [.lead]
-You can sign into the Cloud Manager web user interface to retrieve the client and account identifiers to use with the workflows. You can use these identifiers to access the metadata, authentication, and security related information.
+You can sign in to the Cloud Manager web user interface to retrieve the key identifiers needed for the workflow API calls. You can use these identifiers to access the metadata as well as authentication and security related information.
+
+//You can sign into the Cloud Manager web user interface (UI) to retrieve the client and account identifiers to use with the workflows. You can use these identifiers to access the metadata, authentication, and security related information.
 
 [NOTE]
-This page includes two tasks describing how to use the Cloud Manager web user interface to retrieve the ID values. You can also use the Cloud Manager REST API to get these values. See link:wf_common_identity_get_supported_srv.html[Get supported services] for more information.
+This page includes two tasks describing how to use the Cloud Manager web user interface to retrieve the ID values. You can also use the Cloud Manager REST API to get the ID values. See link:wf_common_identity_get_supported_srv.html[Get supported services] for more information.
 
 == Get the client identifier
 
-You can retrieve the client ID and use it with the `x-agent-id` HTTP request header.
+The *client identifier* is used to route each API request to the right location within the Cloud Manager platform. You can retrieve the Connector ID which contains the client ID. You can use the Connector ID as the `x-agent-id` HTTP request header for the API calls.
+//You can retrieve the client ID and use it with the `x-agent-id` HTTP request header.
 
 .About this task
 
+
 You need to access the client ID which is unique for each Cloud Manager Connector and then use it as the agent identifier.
+
 
 .Before you begin
 
-You must have a NetApp account (formerly Cloud Central account). You created this account when you first logged in to Cloud Manager and it’s displayed at the top of the Cloud Manager user interface. link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn more about NetApp accounts^].
+You must have a NetApp account (formerly Cloud Central account). You created this account when you first logged in to Cloud Manager and it was displayed at the top of the Cloud Manager user interface. See link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn more about NetApp accounts^] for more information.
+
+//You must have a NetApp account (formerly Cloud Central account). You created this account when you first logged in to Cloud Manager and it’s displayed at the top of the Cloud Manager user interface. link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn more about NetApp accounts^].
 
 .Steps
 
@@ -42,7 +49,16 @@ link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
 
 . On the *Manage Connectors* page, click the ellipses (...) icon.
 
-. Select the *Connector ID*. This value is based on the *client ID*.
+. Select the *Connector ID*.
++
+*Example*
++
+`uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`
++
+This value includes the unique *client ID*, which in the above example is: `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI`.
+
+
+.After you finish
 
 You can use the Connector ID in the `x-agent-id` HTTP request header as shown in the workflow curl examples, for example: `x-agent-id: uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`.
 

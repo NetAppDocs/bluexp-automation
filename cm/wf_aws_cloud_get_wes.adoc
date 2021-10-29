@@ -13,9 +13,19 @@ summary: "You can retrieve the Cloud Volumes ONTAP working environments that are
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the public identifier, working environment ID and the storage virtual machine name for Cloud Volumes ONTAP working environments (visible to currently logged in user) which would be used in other workflows.
+You can retrieve the public identifier, working environment identifier and the storage virtual machine name for Cloud Volumes ONTAP working environments (visible to currently logged in user) which would be used in other workflows.
 
-=== 1. Get the list of working environments
+Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
+
+* <<Get working environments for single node, Single Node>>
+* <<Get working environment for high availability pair, HA pair>>
+
+
+== Get working environments for single node
+
+You can use this workflow to retrieve the working environments' details for a single node system.
+
+=== 1. Get the working environments
 
 [cols="25,75"*,options="header"]
 |===
@@ -25,7 +35,7 @@ You can retrieve the public identifier, working environment ID and the storage v
 |occm/api/vsa/working-environments
 |===
 
-curl::
+curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
@@ -37,7 +47,7 @@ Optional query parameters:
 * `tenantId`
 
 Output::
-The JSON output example includes an array of VSA working environments.
+The JSON output example includes an array of VSA working environments and their details.
 
 JSON output example::
 [source,json]
@@ -151,3 +161,78 @@ JSON output example::
         "monitoringProperties": null
     }
 ]
+
+== Get working environment for high availability pair
+
+You can use this workflow to get the working environment details for an HA pair.
+
+=== 1. Select the working environment to use
+
+Perform the workflow <<Get working environments for single node>> and choose the `publicId` of the required working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Get the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|occm/api/aws/ha/working-environments/<WORKING_ENV_ID>
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter:
+
+<WORKING_ENV_ID> `workingEnvironmentId`
+
+Optional query parameter:
+
+`fields`
+
+Output::
+The JSON output example includes an HA Cloud Volumes ONTAP working environment.
+
+JSON output example::
+[source,json]
+[
+{
+    "publicId": "VsaWorkingEnvironment-N6BPfglr",
+    "name": "ziv04we01ha",
+    "tenantId": "tenantIDshownhere",
+    "svmName": "svm_ziv04we01ha",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "awsProperties": null,
+    "reservedSize": null,
+    "encryptionProperties": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "actionsRequired": null,
+    "interClusterLifs": null,
+    "cronJobSchedules": null,
+    "snapshotPolicies": null,
+    "svms": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "cloudProviderName": "Amazon",
+    "isHA": true,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": [],
+    "haProperties": null,
+    "capacityFeatures": null,
+    "cloudSyncProperties": null,
+    "supportedFeatures": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}

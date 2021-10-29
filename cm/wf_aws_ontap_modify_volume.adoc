@@ -15,13 +15,21 @@ summary: "You can modify the configuration of an existing volume."
 [.lead]
 You can modify the configuration of an existing volume.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Modify volume for single node, Single Node>>
+* <<Modify volume for high availability pair, HA pair>>
+
+== Modify volume for single node
+You can use this workflow to modify the configuration of an existing volume for a single node working environment.
+
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment and `svmName`.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_aws_ontap_get_volumes.html[Get volumes] and choose the `name` for the volume.
+Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single-node[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
 === 3. Modify the volume
 
@@ -33,9 +41,63 @@ Perform the workflow link:wf_aws_ontap_get_volumes.html[Get volumes] and choose 
 |/occm/api/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 |===
 
+
 curl example::
 [source,curl]
 curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <SVM_NAME> `(svmName)`
+* <VOLUME_NAME> `(volumeName)`
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "exportPolicyInfo": {
+    "policyType": "custom",
+    "ips": [
+      "172.31.0.0/16"
+    ],
+    "nfsVersion": [
+      "nfs3"
+    ]
+  }
+}
+
+Output::
+
+None
+
+== Modify volume for high availability pair
+You can use this workflow to modify the configuration of an existing volume for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` for the `volumeName` path parameter.
+
+=== 3. Modify the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|PUT
+|/occm/api/aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

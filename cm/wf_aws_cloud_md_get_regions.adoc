@@ -15,6 +15,14 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 [.lead]
 This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get regions for single node, Single Node>>
+* <<Get regions for high availability pair, HA pair>>
+
+== Get regions for single node
+You can use this workflow to retrieve the regions for a single node system.
+
 === 1. Get the list of regions
 
 [cols="25,75"*,options="header"]
@@ -25,9 +33,11 @@ This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working 
 |/occm/api/vsa/metadata/regions
 |===
 
-Curl example::
+
+curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
 
 Input::
 
@@ -64,4 +74,53 @@ JSON output example::
         "location": "Mumbai",
         "s3Region": "ap-south-1"
     },
+]
+
+== Get regions for high availability pair
+You can use this workflow to retrieve the regions for an HA pair.
+
+=== 1. Get the list of regions
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/aws/ha/metadata/regions
+|===
+
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+Output::
+
+The JSON output provides an example of a list of AWS regions.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "US East",
+        "code": "us-east-1",
+        "location": "N. Virginia",
+        "s3Region": "US"
+    },
+    {
+        "name": "US East",
+        "code": "us-east-2",
+        "location": "Ohio",
+        "s3Region": "us-east-2"
+    },
+    {
+        "name": "US West",
+        "code": "us-west-1",
+        "location": "N. California",
+        "s3Region": "us-west-1"
+    }
 ]

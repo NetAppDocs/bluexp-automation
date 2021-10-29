@@ -15,17 +15,25 @@ summary: 'You can create a quote for a new volume which returns a resource quote
 [.lead]
 You can create a quote for a new volume which returns a resource quote needed to satisfy the request. The resource quote contains aggregate information where the volume will be created and confirms if the space is available. This is a recommended step but is not mandatory.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create quote for single Node, Single Node>>
+* <<Create quote for high availability pair, HA pair>>
+
+== Create quote for single node
+You can use this workflow to retrieve quote details for a single node working environment.
+
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment and `svmName`.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` and `svmName` values of the working environment for the `workingEnvironmentId` and `svmName` parameters.
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html[Get aggregates] and choose the `name` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-a-single-node[Get aggregates] and choose the `name` value for the `name` parameter.
 
 === 3. Select the permutations configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html[Get permutations] and choose the `size` and `diskType` values for step 4.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get permutations] and choose the `size` and `diskType` values for step 4.
 
 === 4. Generate the volume quote
 
@@ -74,6 +82,72 @@ JSON output example
         "unit": "GB"
     },
     "aggregateName": "ziv01agg01",
+    "newAggregate": false,
+    "autoVsaCapacityManagement": true
+}
+
+== Create quote for high availability pair
+You can use this workflow to retrieve quote details for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and `svmName` values of the working environment for the `workingEnvironmentId` and `svmName` parameters.
+
+=== 2. Select the aggregate
+
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value for step 4.
+
+=== 3. Select the package
+Perform the link:wf_aws_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get packages] workflow and select the `size` and `diskType` values of the required package for `diskSize` and `providerVolumeType` values.
+
+=== 4. Generate the volume quote
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/aws/ha/quote
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "workingEnvironmentId": "VsaWorkingEnvironment-N6BPfglr",
+  "svmName": "svm_ziv04we01ha",
+  "aggregateName": "aggr1",
+  "name": "ziv04we01haagg01vol01",
+  "size": {
+    "size": "100",
+    "unit": "GB"
+  },
+  "enableThinProvisioning": "true",
+  "providerVolumeType": "gp2",
+  "verifyNameUniqueness": "true"
+}
+
+
+Output::
+
+The JSON output example includes an example of the quote details.
+
+JSON output example::
+[source,json]
+{
+    "numOfDisks": 0,
+    "diskSize": {
+        "size": 100.0,
+        "unit": "GB"
+    },
+    "aggregateName": "ziv04we01haagg01",
     "newAggregate": false,
     "autoVsaCapacityManagement": true
 }

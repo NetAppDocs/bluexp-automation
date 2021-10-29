@@ -12,7 +12,7 @@ summary: 'The NetApp Cloud Manager service includes a REST API that you can acce
 :linkattrs:
 :imagesdir: ./media/
 
-
+[.lead]
 The NetApp Cloud Manager service includes a REST API you can use programmatically to administer your cloud-based resources. The REST API provides access to a subset of the functionality available in the Cloud Manager platform with a focus on Cloud Volumes ONTAP deployments.
 
 There are several benefits to using the Cloud Manager REST API.

@@ -22,7 +22,7 @@ You must generate a bearer token to authenticate and access the Cloud Manager RE
 
 This workflow describes how to create an access token when using federated authentication.
 
-=== Before you begin
+.Before you begin
 
 Review the parameters in the *JSON input example* for the second workflow step. In particular, you must have the client identifier.
 
@@ -77,7 +77,7 @@ JSON output example::
 
 This workflow describes how to create an access token when using non-federated authentication.
 
-=== Before you begin
+.Before you begin
 
 Review the parameters in the *JSON input example* for the first workflow step. In particular, you must have the account credentials and the client identifier.
 
