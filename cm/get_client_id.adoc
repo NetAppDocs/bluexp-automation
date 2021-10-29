@@ -13,22 +13,19 @@ summary: 'You can sign in to the Cloud Manager web user interface to retrieve th
 :imagesdir: ./media/
 
 [.lead]
-You can sign in to the Cloud Manager web user interface to retrieve the key identifiers needed for the workflow API calls. You can use these identifiers to access the metadata as well as authentication and security related information.
-
-//You can sign into the Cloud Manager web user interface (UI) to retrieve the client and account identifiers to use with the workflows. You can use these identifiers to access the metadata, authentication, and security related information.
+You can sign into the Cloud Manager web user interface to retrieve the client and account identifiers to use with the workflows. You can use these identifiers to access the metadata, authentication, and security related information.
 
 [NOTE]
 This page includes two tasks describing how to use the Cloud Manager web user interface to retrieve the ID values. You can also use the Cloud Manager REST API to get the ID values. See link:wf_common_identity_get_supported_srv.html[Get supported services] for more information.
 
 == Get the client identifier
 
-The *client identifier* is used to route each API request to the right location within the Cloud Manager platform. You can retrieve the Connector ID which contains the client ID. You can use the Connector ID as the `x-agent-id` HTTP request header for the API calls.
-//You can retrieve the client ID and use it with the `x-agent-id` HTTP request header.
+You can retrieve the client ID and use it with the x-agent-id HTTP request header.
 
 .About this task
 
-
 You need to access the client ID which is unique for each Cloud Manager Connector and then use it as the agent identifier.
+
 
 
 .Before you begin
@@ -49,26 +46,10 @@ link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
 
 . On the *Manage Connectors* page, click the ellipses (...) icon.
 
-. Select the *Connector ID*.
+. Select the *Connector ID*. This value is based on the client ID.
 +
-*Example*
-+
-`uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`
-+
-This value includes the unique *client ID*, which in the above example is: `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI`.
+You can use the Connector ID in the x-agent-id HTTP request header as shown in the workflow curl examples, `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`.
 
-
-.After you finish
-
-You can use the Connector ID in the `x-agent-id` HTTP request header as shown in the workflow curl examples, for example: `x-agent-id: uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`.
-
-//. Click *?* at the top right of the page and select *Support*.
-
-//. Click the *Connector* tab at the top and select the *Client ID* value.
-
-//.After you finish
-
-//You should construct the agent ID by adding the suffix "clients" to the client ID. The agent ID can then be used with the `x-agent-id` HTTP request header as shown in the workflow curl examples, for example: `x-agent-id: uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`.
 
 == Get the account identifier
 
