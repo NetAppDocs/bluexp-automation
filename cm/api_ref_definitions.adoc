@@ -15,6 +15,7 @@ summary:
 [.lead]
 This section describes existing data format definitions.
 
+
 === ANFSummary
 [options="header"]
 |===
@@ -1345,7 +1346,6 @@ This section describes existing data format definitions.
 |awsEncryptionParameters|Parameters required if using aws encryption|false|<<AwsEncryption>>|
 |haParams||true|<<HaParameters>>|
 |securityGroupId||false|string|
-|skipSnapshots|Take snapshot flag|true|boolean|
 |awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |optimizedNetworkUtilization|Use optimized network utilization|false|boolean|
@@ -1417,7 +1417,6 @@ This section describes existing data format definitions.
 |securityGroupId||false|string|
 |serialNumber||false|string|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
-|skipSnapshots|Take snapshot flag|true|boolean|
 |diskSize|Disk size|true|<<Capacity>>|
 |storageType|Storage type|true|enum (Standard_LRS,  Premium_LRS ,  StandardSSD_LRS)|
 |azureTags|Optionally provide up to four key-value pairs with which to tag the Resource group created by Cloud Manager|false|<<AzureTag>> array|
@@ -1505,7 +1504,7 @@ This section describes existing data format definitions.
 |securityGroupId||false|string|
 |internalSecurityGroupId||false|string|
 |externalSecurityGroupId||false|string|
-|skipSnapshots|Take snapshot flag|true|boolean|
+
 |iops|Provisioned IOPS|false|integer (int32)|
 |instanceProfileName|Instance profile name|false|string|
 |tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
@@ -1535,7 +1534,6 @@ This section describes existing data format definitions.
 |vsaMetadata||true|<<VsaMetadataRequest>>|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |serialNumber|Serial number for BYOL|false|string|
-|skipSnapshots|Take snapshot flag|true|boolean|
 |gcpVolumeSize|GCP volume size|true|<<Capacity>>|
 |gcpVolumeType|GCP volume type|true|enum (pd-standard,  pd-ssd,  pd-balanced)|
 |gcpLabels|Optionally provide up to four key-value pairs with which to all GCP entities created by Cloud Manager|false|<<GcpLabel>> array|
@@ -1640,7 +1638,6 @@ This section describes existing data format definitions.
 |securityGroupId||false|string|
 |vsaMetadata||true|<<VsaMetadataRequest>>|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
-|skipSnapshots|Take snapshot flag|true|boolean|
 |ebsVolumeSize|EBS volume size|true|<<Capacity>>|
 |ebsVolumeType|EBS volume type|true|enum (gp2,  gp3,  st1,  sc1,  io1)|
 |awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
@@ -2100,6 +2097,7 @@ This section describes existing data format definitions.
 |snapshotPolicyName|Snapshot policy name|true|string|
 |exportPolicyInfo|NFS protocol parameters|false|<<ExportPolicyInfo>>|
 |shareInfo|CIFS protocol parameters|false|<<CreateCifsShareInfoRequest>>|
+
 |enableStorageEfficiency|Storage efficiency|true|boolean|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
 |===
@@ -2111,6 +2109,7 @@ This section describes existing data format definitions.
 |snapshotPolicyName|Snapshot Policy name|false|string|
 |exportPolicyInfo|Export policy info for NFS|false|<<NamedExportPolicyInfo>>|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  backup,  all)|
+
 |===
 
 === FsxVolumeRequest
@@ -2209,6 +2208,7 @@ This section describes existing data format definitions.
 |instanceType||true|string|
 |primaryIp||true|string|
 |instanceStatus||true|string|
+|version||true|string|
 |===
 
 === GcpHaNodeInfo
@@ -2610,8 +2610,8 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyInstance||true|boolean|
 |legacyOs||true|boolean|
+|legacyInstance||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -3011,6 +3011,7 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |wsUrl||true|string|
+
 |===
 
 === NssAccountCredentials
@@ -4556,8 +4557,8 @@ This section describes existing data format definitions.
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
 |minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
-|iscsiEnabled||true|boolean|
 |flexGroupVolume||true|boolean|
+|iscsiEnabled||true|boolean|
 |===
 
 === VolumesListForBackup
