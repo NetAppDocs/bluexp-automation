@@ -210,6 +210,7 @@ This section describes existing data format definitions.
 |name||true|string|
 |default||true|boolean|
 |saasSubscriptionId||false|string|
+|highAvailabilityEnabled||false|boolean|
 |===
 
 === AssumeRole
@@ -591,6 +592,7 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |loadBalancerName||true|string|
+|haEnabledOnLbRules||true|boolean|
 |node1Info||true|<<AzureHaNodeInfo>>|
 |node2Info||true|<<AzureHaNodeInfo>>|
 |===
@@ -1251,6 +1253,7 @@ This section describes existing data format definitions.
 |overrideCifsLocks||true|boolean|
 |usePrivateLink||true|boolean|
 |directApiTraffic||true|boolean|
+|useAccelerationForImageDownload||true|boolean|
 |===
 
 === ConfigValuesUpdateRequest
@@ -1275,6 +1278,7 @@ This section describes existing data format definitions.
 |overrideCifsLocks||false|boolean|
 |usePrivateLink||false|boolean|
 |directApiTraffic||false|boolean|
+|useAccelerationForImageDownload||false|boolean|
 |===
 
 === Configuration
@@ -2000,8 +2004,9 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |policyType|Export policy type|true|string|
-|ips|Custom export policy list of IPs|true|string array|
+|ips|Custom export policy list of IPs|false|string array|
 |nfsVersion|Export policy protocol|false|string array|
+|rules|Export policy rules|false|<<ExportPolicyRule>> array|
 |===
 
 === ExtendedObjectStoreConfigInfo
@@ -2152,6 +2157,17 @@ This section describes existing data format definitions.
 |accessKey|GCP access Key to used by Cloud Backup Service|true|string|
 |secretKey|GCP secret key used by Cloud Backup Service|true|string|
 |ipSpace|Ip Space|false|string|
+|===
+
+=== GcpConnectivityResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name|Virtual Network Name|true|string|
+|vpcPath|Virtual Network path|true|string|
+|subnets|Subnets|true|<<GcpSubnetResponse>> array|
+|firewalls|Firewalls|true|<<GcpFirewallResponse>> array|
+|isShared|isShared|true|boolean|
 |===
 
 === GcpDiskTypeResponse
@@ -4664,6 +4680,7 @@ This section describes existing data format definitions.
 |platformSerialNumber|Optional platform Serial Number|false|string|
 |providedLicense|Optional provided License|false|string|
 |capacityPackageName|Optional Capacity Based Package|false|enum (Professional,  Essential,  Freemium)|
+|keyStoneSubscription|Keystone Subscription Id|false|string|
 |useLatestVersion|Use Latest Version|false|boolean|
 |===
 

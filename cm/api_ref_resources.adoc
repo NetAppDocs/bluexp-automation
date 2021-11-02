@@ -15,7 +15,6 @@ summary:
 [.lead]
 This section describes the API calls available for each resource.
 
-
 === Accounts
 ==== Updates vsa list of an existing Nss account.
 ----
@@ -9079,7 +9078,7 @@ GET /gcp/ha/metadata/vpcs
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#object[Object] array
+|default|success|link:../cm/api_ref_definitions.html#gcpconnectivityresponse[GcpConnectivityResponse] array
 |===
 
 ===== Consumes
@@ -13821,6 +13820,35 @@ POST /occm/setup/validate/connectivity
 * application/json
 
 === Occm:setup-portal
+==== Performs initial standalone setup with local identity provider.
+----
+POST /occm/setup-portal/init-standalone-local-auth
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|HeaderParameter|Authorization||false|string|
+|BodyParameter|body|Setup data|true|link:../cm/api_ref_definitions.html#localauthsetuprequest[LocalAuthSetupRequest]|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|success|link:../cm/api_ref_definitions.html#initialsetupresponse[InitialSetupResponse]
+|400|If setup already performed|No Content
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Complete setup which was pending connectivity.
 ----
 POST /occm/setup-portal/complete-connectivity-pending-setup
@@ -13851,6 +13879,26 @@ POST /occm/setup-portal/proxy/setup
 |===
 |Type|Name|Description|Required|Schema|Default
 |BodyParameter|body|Proxy Url|true|link:../cm/api_ref_definitions.html#setproxyrequest[SetProxyRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Register Cloud Manager in dark site.
+----
+POST /occm/setup-portal/register-in-local-auth
+----
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#registrationresponse[RegistrationResponse]
 |===
 
 ===== Consumes
@@ -13894,35 +13942,6 @@ POST /occm/setup-portal/init
 ----
 POST /occm/setup-portal/validate/connectivity
 ----
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Performs initial standalone setup with local identity provider.
-----
-POST /occm/setup-portal/init-standalone-local-auth
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|HeaderParameter|Authorization||false|string|
-|BodyParameter|body|Setup data|true|link:../cm/api_ref_definitions.html#localauthsetuprequest[LocalAuthSetupRequest]|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|success|link:../cm/api_ref_definitions.html#initialsetupresponse[InitialSetupResponse]
-|400|If setup already performed|No Content
-|===
 
 ===== Consumes
 
