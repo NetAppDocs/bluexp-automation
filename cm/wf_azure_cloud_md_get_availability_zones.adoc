@@ -1,0 +1,55 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_cloud_md_get_availability_zones.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get Azure availability zones
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve the Azure availability zones by region.
+
+NOTE: Ensure that you've the Azure subscription id. You can easily obtain the ID from the Azure portal.
+
+=== 1. Get the availability zones
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/vsa/metadata/availability-zones
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/availability-zones?region=<REGION>&subscriptionId=<SUBSCRIPTION_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <REGION> `region` string
+* (Optional) <SUBSCRIPTION_ID> `subscriptionId` string
+* (Optional) `cloudProviderAccountId` string
+
+Output::
+
+The JSON output example includes the list of Azure  storage account types.
+
+JSON output example::
+[source, json]
+{
+    "region": "eastus2",
+    "zones": [
+        1,
+        3,
+        2
+    ]
+}

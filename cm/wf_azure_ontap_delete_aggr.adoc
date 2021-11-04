@@ -1,0 +1,48 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_ontap_delete_aggr.html
+keywords: aggregate, delete, working, environment, aws, workflows
+summary: 'You can delete an existing disk aggregate.'
+---
+
+= Delete aggregate
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can delete an existing disk aggregate in an Azure working environment.
+
+=== 1. Select the working environment to use
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Select the aggregate to delete
+
+Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2`. Use `aggr2` value for the `aggregateName` path parameter.
+
+=== 3. Delete the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|DELETE
+|/occm/api/azure/vsa/aggregates/{workingEnvironmentId}/{aggregateName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>/aggr2' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameters:
+* <WORKING_ENV_ID> (`workingEnvironmentId`) string
+* <AGGR_NAME> (`aggregateName`) string
+
+Output::
+
+None

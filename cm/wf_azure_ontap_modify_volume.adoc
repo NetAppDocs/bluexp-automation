@@ -1,0 +1,82 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_ontap_modify_volume.html
+keywords: cloud, manager, rest, api, modify, volume,
+summary: "You can modify the configuration of an existing volume."
+---
+
+= Modify volume
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can modify the configuration of an existing volume.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
+
+
+=== 3. Modify the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|PUT
+|/occm/api/azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <VOLUME_NAME> `(volumeName)` string
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "volumeName": "vol5",
+  "svmName": "svm_ShirleyAzureVsa2601",
+  "originalVolumeInfo": {
+    "exportPolicyInfo": {
+      "ips": [
+        "10.0.0.0/16"
+      ],
+      "name": "export-svm_ShirleyAzureVsa2601-vol5",
+      "nfsVersion": [
+        "nfs3",
+        "nfs4"
+      ],
+      "policyType": "custom"
+    },
+    "shareInfo": [],
+    "snapshotPolicyName": "default"
+  },
+  "workingEnvironmentName": "ShirleyAzureVsa2601",
+  "snapshotPolicyName": "default",
+  "exportPolicyInfo": {
+    "ips": [],
+    "policyType": "none"
+  },
+  "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8"
+}
+
+Output::
+
+None

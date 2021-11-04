@@ -1,0 +1,76 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_cloud_md_get_regions.html
+keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
+summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
+---
+
+= Get Azure regions
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This workflow retrieves the Azure regions in which an Cloud Volumes ONTAP working environment may be created.
+
+NOTE: Ensure that you've the Azure subscription id. You can easily obtain the ID from the Azure portal.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+Single Node
+
+HA pair
+
+=== 1. Get the list of regions
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/vsa/metadata/regions
+|===
+
+Curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/regions?subscriptionId=<SUBSCRIPTION_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Query parameters (Optional):
+
+* `fields`, string
+* `subscriptionId`, string
+* `cloudProviderAccountId`, string
+
+
+Output::
+
+The JSON output provides an example of a list of Azure regions.
+
+JSON output example::
+[source,json]
+[
+    {
+        "displayName": "Central US",
+        "name": "centralus",
+        "vnets": null
+    },
+    {
+        "displayName": "East US",
+        "name": "eastus",
+        "vnets": null
+    },
+    {
+        "displayName": "East US 2",
+        "name": "eastus2",
+        "vnets": null
+    },
+    {
+        "displayName": "West US 2",
+        "name": "westus2",
+        "vnets": null
+    }
+]

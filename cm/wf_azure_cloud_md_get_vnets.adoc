@@ -1,0 +1,136 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_cloud_md_get_vnets.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get Azure VNets
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve the network extended information.
+
+NOTE: Ensure that you've the Azure subscription id. You can easily obtain the ID from the Azure portal.
+
+=== 1. Get the vnets
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/vsa/metadata/vnets
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/vnets?region=<REGION>&subscriptionId=<SUBSCRIPTION_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <REGION> `region` string
+* <SUBSCRIPTION_ID> `subscriptionId` string
+* (Optional) `cloudProviderAccountId` string
+
+Output::
+
+The JSON output example includes the list of Azure  storage account types.
+
+JSON output example::
+[source, json]
+{
+    "virtualNetworks": [
+        {
+            "name": "Vnet1",
+            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
+            "cidrs": [
+                {
+                    "cidr": "10.0.0.0/16",
+                    "subnets": [
+                        {
+                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
+                            "cidr": "10.0.0.0/24",
+                            "name": "Subnet1",
+                            "availableIps": 250,
+                            "minimumRequiredIps": 6
+                        },
+                        {
+                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
+                            "cidr": "10.0.1.0/24",
+                            "name": "Subnet2",
+                            "availableIps": 251,
+                            "minimumRequiredIps": 6
+                        },
+                        {
+                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
+                            "cidr": "10.0.2.0/24",
+                            "name": "ProxySubnet",
+                            "availableIps": 245,
+                            "minimumRequiredIps": 6
+                        }
+                    ]
+                }
+            ],
+            "resourceGroup": "occm_group_eastus2",
+            "tags": []
+        },
+        {
+            "name": "Vnet2",
+            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2",
+            "cidrs": [
+                {
+                    "cidr": "10.1.0.0/16",
+                    "subnets": [
+                        {
+                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet1",
+                            "cidr": "10.1.0.0/24",
+                            "name": "Subnet1",
+                            "availableIps": 251,
+                            "minimumRequiredIps": 6
+                        },
+                        {
+                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet2",
+                            "cidr": "10.1.1.0/24",
+                            "name": "Subnet2",
+                            "availableIps": 251,
+                            "minimumRequiredIps": 6
+                        },
+                        {
+                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/ProxySubnet",
+                            "cidr": "10.1.2.0/24",
+                            "name": "ProxySubnet",
+                            "availableIps": 251,
+                            "minimumRequiredIps": 6
+                        }
+                    ]
+                }
+            ],
+            "resourceGroup": "occm_group_eastus2",
+            "tags": []
+        }
+    ],
+    "securityGroups": [
+        {
+            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-467",
+            "name": "OCCM-SG-467",
+            "resourceGroup": "occm_group_eastus2"
+        },
+        {
+            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-491",
+            "name": "OCCM-SG-491",
+            "resourceGroup": "occm_group_eastus2"
+        },
+        {
+            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-589",
+            "name": "OCCM-SG-589",
+            "resourceGroup": "occm_group_eastus2"
+        }
+    ]
+}

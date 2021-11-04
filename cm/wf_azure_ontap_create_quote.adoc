@@ -1,0 +1,82 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_ontap_create_quote.html
+keywords: cloud, manager, rest, api, aggregate, volume quote, azure
+summary: 'You can create a quote for a new volume which returns a resource quote needed to satisfy the request.'
+---
+
+= Create quote
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a quote for a new volume which returns a resource quote needed to satisfy the request. The resource quote contains aggregate information where the volume will be created and confirms if the space is available. This is a recommended step but is not mandatory.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the working environment field in the input parameter.
+
+=== 2. Generate the volume quote
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/vsa/quote
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "providerVolumeType": "Premium_LRS",
+  "verifyNameUniqueness": true,
+  "name": "vol3",
+  "size": {
+    "size": 10,
+    "unit": "GB"
+  },
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "enableThinProvisioning": true,
+  "svmName": "svm_ShirleyAzureVsa2601",
+  "iops": null,
+  "snapshotPolicyName": "default",
+  "autoVsaCapacityManagementEnabled": true,
+  "exportPolicyInfo": {
+    "_ips": "10.0.0.0/16",
+    "ips": [
+      "10.0.0.0/16"
+    ],
+    "policyType": "custom"
+  },
+  "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8"
+}
+
+Output::
+
+The JSON output example includes an example of the quote details.
+
+JSON output example::
+[source,json]
+{
+    "numOfDisks": 0,
+    "diskSize": {
+        "size": 1.0,
+        "unit": "TB"
+    },
+    "aggregateName": "aggr1",
+    "newAggregate": false,
+    "autoVsaCapacityManagement": true
+}
