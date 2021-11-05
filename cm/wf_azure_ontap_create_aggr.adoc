@@ -15,7 +15,15 @@ summary: 'You can create a new aggregate within a working environment.'
 [.lead]
 You can create a new aggregate within an Azure working environment using this workflow.
 
-=== 1. Select the working environment to use
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create aggregate for a single node, Single Node>>
+* <<Create aggregate for high availability pair, HA pair>>
+
+== Create aggregate for single node
+You can use this workflow to create an aggregate for a single node working environment.
+
+=== 1. Create the working environment
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
@@ -58,6 +66,57 @@ JSON input example::
   "providerVolumeType": "Premium_LRS"
 }
 
+Output::
+
+None
+
+== Create aggregate for high availability pair
+You can use this workflow to create an aggregate for an HA working environment.
+
+=== 1. Create the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+
+=== 2. Select the Azure Storage Account Types
+
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Storage Account Types] workflow and choose the desired storage type:
+
+*	Choose the `diskType` of the desired storage type item for the `providerVolumeType` parameter in the JSON input.
+*	Choose the `size` value of the desired disk from the `sizes` -> `size` field for the `size` field inside `diskSize` parameter in the JSON input.
+*	Choose the `unit` value of the desired disk from the `sizes` -> `size` field for the `unit` field inside `diskSize` parameter in the JSON input.
+
+=== 3. Create the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|occm/api/azure/ha/aggregates
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "providerVolumeType": "Premium_LRS",
+  "name": "aggr3",
+  "diskSize": {
+    "size": 1,
+    "unit": "TB"
+  },
+  "homeNode": "ShirleyHa2901-02",
+  "numberOfDisks": 2,
+  "iops": null,
+  "workingEnvironmentId": "VsaWorkingEnvironment-LUeyohBV"
+}
 
 
 Output::

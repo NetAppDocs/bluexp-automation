@@ -15,11 +15,19 @@ summary: You can add disks to an existing aggregate.
 [.lead]
 You can add disks to an existing aggregate.
 
-=== 1. Select the working environment to use
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Add disks to an aggregate for single node, Single Node>>
+* <<Add disks to an aggregate for high availability pair, HA pair>>
+
+== Add disks to an aggregate for single node
+You can use this workflow to add disks to an aggregate for a single node working environment.
+
+=== 1. Create the working environment
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
-=== 2. Select the aggregate
+=== 2. Create the aggregate
 
 Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
 
@@ -50,6 +58,51 @@ JSON input example::
 [source, json]
 {
     "numberOfDisks": "1"
+}
+
+Output::
+
+None
+
+== Add disks to an aggregate for high availability pair
+You can use this workflow to add disks to an aggregate for HA working environment.
+
+
+=== 1. Create the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+
+=== 2. Create the aggregate
+
+Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
+
+=== 3. Add the disks to the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/aggregates/{workingEnvironmentId}/{aggregateName}/disks
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates/<WORKING_ENV_ID>/aggr2/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+You must include the following path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+Also, the JSON input example includes an input parameter as shown.
+
+JSON input example::
+[source, json]
+{
+    "numberOfDisks": "2"
 }
 
 Output::
