@@ -15,6 +15,13 @@ summary: 'You can use this workflow to create a volume accessed through NFS.'
 [.lead]
 You can use this workflow to create a volume accessed through NFS protocol.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create volume using NFS for single node, Single Node>>
+* <<Create volume using NFS for high availability pair, HA pair>>
+
+== Create volume using NFS for single node
+You can use this workflow to create a volume using NFS protocol for a single node working environment.
 
 === 1. Select the working environment
 
@@ -72,6 +79,70 @@ JSON input example::
   "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8"
 }
 
+
+Output::
+
+None
+
+== Create volume using NFS for high availability pair
+
+You can use this workflow to create a volume using NFS protocol for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+
+=== 2. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://staging.cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "providerVolumeType": "Premium_LRS",
+  "verifyNameUniqueness": true,
+  "name": "vol3",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "createAggregateIfNotFound": "true",
+  "enableThinProvisioning": true,
+  "aggregateName": "aggr1",
+  "maxNumOfDisksApprovedToAdd": 0,
+  "svmName": "svm_ShirleyHa2901",
+  "iops": null,
+  "snapshotPolicyName": "default",
+  "autoVsaCapacityManagementEnabled": true,
+  "exportPolicyInfo": {
+    "_ips": "10.0.0.0/16",
+    "ips": [
+      "10.0.0.0/16"
+    ],
+    "nfsVersion": [
+      "nfs3",
+      "nfs4"
+    ],
+    "policyType": "custom"
+  },
+  "workingEnvironmentId": "VsaWorkingEnvironment-LUeyohBV"
+}
 
 Output::
 
