@@ -15,6 +15,14 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can retrieve the supported Azure storage account types.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get Azure storage account types for single node, Single Node>>
+* <<Get Azure storage account types for high availability pair, HA pair>>
+
+== Get Azure storage account types for single node
+You can perform this workflow to retrieve the Azure storage account types for a single node working environment.
+
 === 1. Get the storage account types
 
 [cols="25,75"*,options="header"]
@@ -28,6 +36,774 @@ You can retrieve the supported Azure storage account types.
 curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/storage-account-types' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of Azure  storage account types.
+
+JSON output example::
+[source, json]
+[
+    {
+        "diskType": "Premium",
+        "availabilityTypes": [
+            "Premium_LRS"
+        ],
+        "sizes": [
+            {
+                "size": {
+                    "size": 500.0,
+                    "unit": "GB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": true
+            },
+            {
+                "size": {
+                    "size": 2.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 4.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 8.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 16.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 32.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            }
+        ]
+    },
+    {
+        "diskType": "Standard",
+        "availabilityTypes": [
+            "Standard_LRS"
+        ],
+        "sizes": [
+            {
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 500.0,
+                    "unit": "GB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": true
+            },
+            {
+                "size": {
+                    "size": 2.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 4.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 8.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 16.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 32.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            }
+        ]
+    },
+    {
+        "diskType": "StandardSSD",
+        "availabilityTypes": [
+            "StandardSSD_LRS"
+        ],
+        "sizes": [
+            {
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 500.0,
+                    "unit": "GB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": true
+            },
+            {
+                "size": {
+                    "size": 2.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Explore (hourly)",
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Explore",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 4.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 8.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (hourly)",
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Standard",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 16.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            },
+            {
+                "size": {
+                    "size": 32.0,
+                    "unit": "TB"
+                },
+                "description": "",
+                "supportedOccmLicenses": [
+                    "Standard (BYOL)",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL",
+                    "Cloud Volumes ONTAP Premium",
+                    "Cloud Volumes ONTAP BYOL"
+                ],
+                "isDefault": false
+            }
+        ]
+    }
+]
+
+== Get Azure storage account types for high availability pair
+You can perform this workflow to retrieve the Azure storage account types for an HA working environment.
+
+=== 1. Get the storage account types
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/metadata/storage-account-types
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/storage-account-types' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 
