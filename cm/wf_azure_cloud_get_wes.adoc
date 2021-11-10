@@ -15,6 +15,15 @@ summary: "You can retrieve the Cloud Volumes ONTAP working environments that are
 [.lead]
 You can retrieve the public identifier, working environment ID, the storage virtual machine name for Cloud Volumes ONTAP working environments and other Cloud Volumes ONTAP related details (visible to currently logged in user) which would be used in other workflows.
 
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get working environment for single node, Single Node>>
+* <<Get working environment for high availability pair, HA pair>>
+
+== Get working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
+
 === 1. Select the working environment
 Perform the link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
 
@@ -197,4 +206,834 @@ JSON output example::
         "tenantUrl": null
     },
     "licensesInformation": null
+}
+
+
+== Get working environment for high availability pair
+You can use this workflow to create single node working environment with BYOL licensing.
+
+=== 1. Create an Azure HA working environment
+Perform the link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
+
+=== 2. Get the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/working-environments/{workingEnvironmentId}
+|===
+
+curl::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `workingEnvironmentId` string
+* (Optional) `fields` string
+
+
+Output::
+The JSON output example includes details of a single node Azure working environment.
+
+JSON output example::
+[source,json]
+{
+    "publicId": "VsaWorkingEnvironment-Kms14Nkv",
+    "name": "ShirleyHa2701",
+    "tenantId": "Tenant-c6wmZaze",
+    "svmName": "svm_ShirleyHa2701",
+    "creatorUserEmail": "auth0|5a0094296be939112c29462c",
+    "status": {
+        "status": "ON",
+        "message": "",
+        "failureCauses": {
+            "invalidOntapCredentials": false,
+            "noCloudProviderConnection": false,
+            "invalidCloudProviderCredentials": false
+        },
+        "extendedFailureReason": null
+    },
+    "providerProperties": {
+        "regionName": "eastus2",
+        "resourceGroup": {
+            "name": "ShirleyHa2701-rg",
+            "location": "eastus2",
+            "tags": {}
+        },
+        "vnetCidr": "10.0.0.0/16",
+        "tags": {},
+        "subscriptionId": "d333af45-0d07-4154-943d-c25fbbce1b18",
+        "deploymentId": "",
+        "creationTime": 1611698774849,
+        "instanceType": "Standard_DS4_v2",
+        "numOfNics": 8,
+        "singleNetworkInterface": false,
+        "subscriptionName": "OCCM Dev",
+        "cloudProviderAccountId": null,
+        "availabilityZone": null,
+        "dataDisks": [
+            {
+                "name": "ShirleyHa2701-vm1-disk-nvram",
+                "diskSizeGB": 128,
+                "lun": 1,
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyHa2701-rg/providers/Microsoft.Compute/disks/ShirleyHa2701-vm1-disk-nvram",
+                "caching": "None",
+                "accountType": "Premium_LRS",
+                "managed": true,
+                "encryptionSet": null
+            },
+            {
+                "name": "ShirleyHa2701-vm1-disk-core",
+                "diskSizeGB": 1024,
+                "lun": 2,
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyHa2701-rg/providers/Microsoft.Compute/disks/ShirleyHa2701-vm1-disk-core",
+                "caching": "ReadOnly",
+                "accountType": "Standard_LRS",
+                "managed": true,
+                "encryptionSet": null
+            },
+            {
+                "name": "ShirleyHa2701-vm2-disk-nvram",
+                "diskSizeGB": 128,
+                "lun": 1,
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyHa2701-rg/providers/Microsoft.Compute/disks/ShirleyHa2701-vm2-disk-nvram",
+                "caching": "None",
+                "accountType": "Premium_LRS",
+                "managed": true,
+                "encryptionSet": null
+            },
+            {
+                "name": "ShirleyHa2701-vm2-disk-core",
+                "diskSizeGB": 1024,
+                "lun": 2,
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyHa2701-rg/providers/Microsoft.Compute/disks/ShirleyHa2701-vm2-disk-core",
+                "caching": "ReadOnly",
+                "accountType": "Standard_LRS",
+                "managed": true,
+                "encryptionSet": null
+            }
+        ]
+    },
+    "reservedSize": {
+        "size": 1.0,
+        "unit": "GB"
+    },
+    "clusterProperties": {
+        "lifs": [],
+        "serialNumber": "",
+        "systemId": "",
+        "clusterName": "",
+        "ontapVersion": "",
+        "accountId": "",
+        "productCode": "",
+        "amiId": "",
+        "systemManagerUrl": "",
+        "creationTime": 0,
+        "instanceId": "",
+        "platformLicense": "",
+        "licenseExpiryDate": 0,
+        "instanceType": "",
+        "publicIp": null,
+        "publicDnsName": null,
+        "licenseType": {
+            "name": "",
+            "capacityLimit": {
+                "size": 0.0,
+                "unit": "GB"
+            }
+        },
+        "lastModifiedOffbox": null,
+        "offboxTarget": false,
+        "upgradeVersions": null,
+        "writingSpeedState": null
+    },
+    "ontapClusterProperties": {
+        "nodes": [
+            {
+                "name": "ShirleyHa2701-01",
+                "lifs": [
+                    {
+                        "ip": "10.0.0.29",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Cluster",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-01",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.26",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Node Management",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-01",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.13",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Cluster Management",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-01",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.27",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Intercluster",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-01",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.14",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Data",
+                        "dataProtocols": [
+                            "nfs",
+                            "cifs"
+                        ],
+                        "nodeName": "ShirleyHa2701-01",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.28",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Data",
+                        "dataProtocols": [
+                            "iscsi"
+                        ],
+                        "nodeName": "ShirleyHa2701-01",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.16",
+                        "netmask": "255.255.255.0",
+                        "lifType": "SVM Management",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-01",
+                        "privateIp": true
+                    }
+                ],
+                "serialNumber": "90320140000000000021",
+                "systemId": "2315255834",
+                "platformLicense": null,
+                "platformSerialNumber": null,
+                "cloudProviderId": "",
+                "healthy": true,
+                "inTakeover": false
+            },
+            {
+                "name": "ShirleyHa2701-02",
+                "lifs": [
+                    {
+                        "ip": "10.0.0.24",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Cluster",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-02",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.18",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Node Management",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-02",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.19",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Intercluster",
+                        "dataProtocols": [],
+                        "nodeName": "ShirleyHa2701-02",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.15",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Data",
+                        "dataProtocols": [
+                            "nfs",
+                            "cifs"
+                        ],
+                        "nodeName": "ShirleyHa2701-02",
+                        "privateIp": true
+                    },
+                    {
+                        "ip": "10.0.0.20",
+                        "netmask": "255.255.255.0",
+                        "lifType": "Data",
+                        "dataProtocols": [
+                            "iscsi"
+                        ],
+                        "nodeName": "ShirleyHa2701-02",
+                        "privateIp": true
+                    }
+                ],
+                "serialNumber": "90320140000000000022",
+                "systemId": "2315255826",
+                "platformLicense": null,
+                "platformSerialNumber": null,
+                "cloudProviderId": "",
+                "healthy": true,
+                "inTakeover": false
+            }
+        ],
+        "clusterName": "ShirleyHa2701",
+        "clusterUuid": "1fffb77e-6023-11eb-8eda-0022484b7979",
+        "ontapVersion": "9.9.0X5",
+        "systemManagerUrl": "https://10.0.0.13/sysmgr/SysMgr.html",
+        "creationTime": 1611698774849,
+        "licenseType": {
+            "name": "Cloud Volumes ONTAP BYOL",
+            "capacityLimit": {
+                "size": 368.0,
+                "unit": "TB"
+            }
+        },
+        "lastModifiedOffbox": null,
+        "offboxTarget": true,
+        "upgradeVersions": null,
+        "writingSpeedState": null,
+        "broadcastDomainInfos": [
+            {
+                "broadcastDomain": "Cluster",
+                "ipSpace": "Cluster",
+                "mtu": 1500
+            },
+            {
+                "broadcastDomain": "Default",
+                "ipSpace": "Default",
+                "mtu": 1500
+            }
+        ],
+        "evaluation": false,
+        "capacityTierInfo": {
+            "capacityTierUsedSize": {
+                "size": 0.0,
+                "unit": "GB"
+            },
+            "s3BucketName": "qxtj1b4zpsieeen.blob.core.windows.net",
+            "tierLevel": "normal"
+        },
+        "canConfigureCapacityTier": false,
+        "usedCapacity": {
+            "size": 9.863281247817213E-4,
+            "unit": "TB"
+        },
+        "userName": "admin",
+        "wormEnabled": false
+    },
+    "cloudProviderName": "Azure",
+    "snapshotPolicies": [
+        {
+            "name": "default",
+            "schedules": [
+                {
+                    "frequency": "hourly",
+                    "retention": 6
+                },
+                {
+                    "frequency": "daily",
+                    "retention": 2
+                },
+                {
+                    "frequency": "weekly",
+                    "retention": 2
+                }
+            ],
+            "description": "Default policy with hourly, daily & weekly schedules."
+        },
+        {
+            "name": "default-1weekly",
+            "schedules": [
+                {
+                    "frequency": "hourly",
+                    "retention": 6
+                },
+                {
+                    "frequency": "daily",
+                    "retention": 2
+                },
+                {
+                    "frequency": "weekly",
+                    "retention": 1
+                }
+            ],
+            "description": "Default policy with 6 hourly, 2 daily & 1 weekly schedule."
+        },
+        {
+            "name": "none",
+            "schedules": [],
+            "description": "Policy for no automatic snapshots."
+        }
+    ],
+    "actionsRequired": [
+        {
+            "actionType": "licenseGracePeriod",
+            "parameters": {
+                "aggregateName": "",
+                "numOfDisks": 0,
+                "diskSize": null,
+                "volumeNames": null,
+                "maxCapacity": null,
+                "licenseExpiryDate": 1611698969000,
+                "serialNumber": "90320140000000000021",
+                "volumeMoveParameters": null,
+                "workingEnvironmentId": "",
+                "licenseParameters": null,
+                "resourcesToDelete": null,
+                "instances": [],
+                "moreInfo": null,
+                "providerVolumeType": null,
+                "volumeInfo": null,
+                "currentInstanceType": null
+            },
+            "severity": "error"
+        },
+        {
+            "actionType": "licenseGracePeriod",
+            "parameters": {
+                "aggregateName": "",
+                "numOfDisks": 0,
+                "diskSize": null,
+                "volumeNames": null,
+                "maxCapacity": null,
+                "licenseExpiryDate": 1611699072000,
+                "serialNumber": "90320140000000000022",
+                "volumeMoveParameters": null,
+                "workingEnvironmentId": "",
+                "licenseParameters": null,
+                "resourcesToDelete": null,
+                "instances": [],
+                "moreInfo": null,
+                "providerVolumeType": null,
+                "volumeInfo": null,
+                "currentInstanceType": null
+            },
+            "severity": "error"
+        }
+    ],
+    "activeActions": [],
+    "replicationProperties": {
+        "peers": [],
+        "replicationTargets": []
+    },
+    "schedules": [
+        {
+            "name": "day",
+            "schedule": [
+                {
+                    "stop": {
+                        "day": 0,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 1,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 1,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 2,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 2,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 3,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 3,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 4,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 4,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 5,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 5,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 6,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 6,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 0,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                }
+            ],
+            "enabled": false
+        },
+        {
+            "name": "Weekend",
+            "schedule": [
+                {
+                    "stop": {
+                        "day": 6,
+                        "hour": 8,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 1,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                }
+            ],
+            "enabled": false
+        },
+        {
+            "name": "Weekdays",
+            "schedule": [
+                {
+                    "stop": {
+                        "day": 1,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 2,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 2,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 3,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 3,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 4,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 4,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 5,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                },
+                {
+                    "stop": {
+                        "day": 5,
+                        "hour": 20,
+                        "minute": 0
+                    },
+                    "start": {
+                        "day": 6,
+                        "hour": 8,
+                        "minute": 0
+                    }
+                }
+            ],
+            "enabled": false
+        }
+    ],
+    "svms": [
+        {
+            "name": "svm_ShirleyHa2701",
+            "state": "running",
+            "language": "c.utf_8",
+            "allowedAggregates": [
+                "aggr1"
+            ],
+            "ver3Enabled": true,
+            "ver4Enabled": true
+        }
+    ],
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": {
+        "supportRegistrationStatus": "registered",
+        "licenseExpiryDate": 1604102400000
+    },
+    "supportRegistrationInformation": [
+        {
+            "supportRegistrationStatus": "registered",
+            "serialNumber": "90320140000000000021",
+            "licenseExpiryDate": 1611698969000,
+            "cloudLicenseExists": true,
+            "nssAccountId": "d6f3f954-3399-402f-97de-e2766c4414dc"
+        },
+        {
+            "supportRegistrationStatus": "registered",
+            "serialNumber": "90320140000000000022",
+            "licenseExpiryDate": 1611699072000,
+            "cloudLicenseExists": true,
+            "nssAccountId": "d6f3f954-3399-402f-97de-e2766c4414dc"
+        }
+    ],
+    "capacityFeatures": {
+        "providerVolumesType": [
+            {
+                "size": {
+                    "size": 500.0,
+                    "unit": "GB"
+                },
+                "supportedVolumeTypes": [
+                    "Premium_LRS"
+                ],
+                "maxDisksAllow": {
+                    "numOfDisks": 12,
+                    "reason": null
+                }
+            },
+            {
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "supportedVolumeTypes": [
+                    "Premium_LRS"
+                ],
+                "maxDisksAllow": {
+                    "numOfDisks": 12,
+                    "reason": null
+                }
+            },
+            {
+                "size": {
+                    "size": 2.0,
+                    "unit": "TB"
+                },
+                "supportedVolumeTypes": [
+                    "Premium_LRS"
+                ],
+                "maxDisksAllow": {
+                    "numOfDisks": 12,
+                    "reason": null
+                }
+            },
+            {
+                "size": {
+                    "size": 4.0,
+                    "unit": "TB"
+                },
+                "supportedVolumeTypes": [
+                    "Premium_LRS"
+                ],
+                "maxDisksAllow": {
+                    "numOfDisks": 12,
+                    "reason": null
+                }
+            },
+            {
+                "size": {
+                    "size": 8.0,
+                    "unit": "TB"
+                },
+                "supportedVolumeTypes": [
+                    "Premium_LRS"
+                ],
+                "maxDisksAllow": {
+                    "numOfDisks": 12,
+                    "reason": null
+                }
+            }
+        ],
+        "defaultProviderVolumeType": {
+            "size": {
+                "size": 500.0,
+                "unit": "GB"
+            },
+            "diskType": "Premium_LRS",
+            "capacityTier": "Blob",
+            "iops": null
+        },
+        "supportedCapacityTiers": {
+            "supportedCapacityTiersPerVolumeType": [
+                {
+                    "volumeType": "Premium_LRS",
+                    "supportedCapacityTiers": [
+                        "Blob"
+                    ],
+                    "availableTieringPolicies": [
+                        "none",
+                        "snapshot_only",
+                        "auto",
+                        "all"
+                    ]
+                }
+            ],
+            "capacityTiersDisableReasons": [],
+            "compositeSupported": true,
+            "forceCompositeVersion": true
+        },
+        "maxDisksPerAggregate": 12,
+        "existingIops": []
+    },
+    "encryptionProperties": {
+        "ontapEncryption": false,
+        "awsVolumeEncryption": false,
+        "azureVolumeEncryption": true,
+        "gcpVolumeEncryption": false,
+        "keyManagers": [],
+        "encryptionCertificates": [],
+        "awsEncryptionKey": null
+    },
+    "supportedFeatures": {
+        "supportsMixedAggregates": false,
+        "supportsTieringWithServiceAccount": false
+    },
+    "isHA": true,
+    "haProperties": {
+        "loadBalancerName": "ShirleyHa2701-rg-lb",
+        "node1Info": {
+            "instanceName": "ShirleyHa2701-vm1",
+            "instanceId": null,
+            "primaryIp": "10.0.0.26",
+            "state": "running",
+            "serialNumber": "90320140000000000021",
+            "availabilitySet": {
+                "faultDomain": 0,
+                "updateDomain": 0
+            }
+        },
+        "node2Info": {
+            "instanceName": "ShirleyHa2701-vm2",
+            "instanceId": null,
+            "primaryIp": "10.0.0.18",
+            "state": "running",
+            "serialNumber": "90320140000000000022",
+            "availabilitySet": {
+                "faultDomain": 1,
+                "updateDomain": 1
+            }
+        }
+    },
+    "k8sProperties": {
+        "isConnected": false,
+        "mainClusterIds": [],
+        "connectedClusterIds": []
+    },
+    "fpolicyProperties": {
+        "status": 0,
+        "fPolicyProtocolStatus": {
+            "nfsv3": 0,
+            "nfsv4": 0,
+            "cifs": -1
+        },
+        "fileExtensions": [
+            "micro",
+            "encrypted",
+            "locked",
+            "crypto",
+            "crypt",
+            "crinf",
+            "r5a",
+            "XRNT",
+            "XTBL",
+            "R16M01D05",
+            "pzdc",
+            "good",
+            "LOL!",
+            "OMG!",
+            "RDM",
+            "RRK",
+            "encryptedRS",
+            "crjoker",
+            "EnCiPhErEd",
+            "LeChiffre"
+        ]
+    },
+    "saasProperties": {
+        "subscription": null,
+        "freeTrialExpiry": null,
+        "saasEnabled": false
+    },
+    "cbsProperties": {
+        "cbsBackupStatus": "off",
+        "cbsRules": [],
+        "numberOfBackedUpVolumes": 0,
+        "objectStoreName": null,
+        "providerSpecific": null,
+        "cbsPolicyName": null,
+        "usedCapacity": null,
+        "ipSpace": null,
+        "region": null,
+        "providerAccountName": null,
+        "exclusionReason": null
+    },
+    "complianceProperties": {
+        "scanStatus": "SCAN_DISABLED",
+        "complianceStatus": null,
+        "lastDeploymentError": null,
+        "complianceBackupStatus": null
+    },
+    "monitoringProperties": {
+        "monitoringStatus": "MONITORING_DISABLED",
+        "monitoringInfo": null,
+        "tenantUrl": null
+    }
 }

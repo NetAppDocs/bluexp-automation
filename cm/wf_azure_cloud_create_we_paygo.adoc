@@ -25,6 +25,14 @@ You can use this workflow to create a new Azure Cloud Volumes ONTAP working envi
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
 =====
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create working environment with BYOL for single node, Single Node>>
+* <<Create working environment with BYOL for high availability pair, HA pair>>
+
+== Create a single node working environment with BYOL
+You can use this workflow to create single node working environment with BYOL licensing.
+
 === 1. Select the region
 
 Perform the workflow link:wf_azure_cloud_md_get_regions.html[Get regions] and choose the `name` value of the required region for the `region` parameter in step 11.
