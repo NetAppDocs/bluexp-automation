@@ -17,15 +17,15 @@ You can delete an existing Azure Cloud Volumes ONTAP working environment.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create working environment with BYOL for single node, Single Node>>
-* <<Create working environment with BYOL for high availability pair, HA pair>>
+* <<Delete working environment for single node, Single Node>>
+* <<Delete working environment for high availability pair, HA pair>>
 
 == Delete a single node working environment
 You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Delete the working environment
 
@@ -37,7 +37,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure singl
 |/occm/api/azure/vsa/working-environments/{workingEnvironmentId}
 |===
 
-Curl example::
+curl example::
 [source,curl]
 curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
@@ -64,7 +64,7 @@ You can use this workflow to delete an HA working environment.
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Delete the working environment
 
