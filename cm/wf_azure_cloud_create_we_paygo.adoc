@@ -27,10 +27,10 @@ You can use this workflow to create a new Azure Cloud Volumes ONTAP working envi
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create working environment with BYOL for single node, Single Node>>
-* <<Create working environment with BYOL for high availability pair, HA pair>>
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
 
-== Create a single node working environment with PAYGO
+== Create working environment for single node
 You can use this workflow to create single node working environment with PAYGO licensing.
 
 === 1. Select the region
@@ -197,7 +197,7 @@ JSON output example::
     "monitoringProperties": null
 }
 
-== Create an HA working environment with PAYGO
+== Create working environment for high availability pair
 You can use this workflow to create an HA working environment with PAYGO licensing.
 
 === 1. Select the region
@@ -324,7 +324,7 @@ JSON input example::
    "writingSpeedState":"NORMAL",
    "subnetId":"/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18
 /resourceGroups/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
-   "svmPassword":"Netapp123",
+   "svmPassword":"password",
    "vnetId":"/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups
 /occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1",
    "cidr":"10.0.0.0/16",
@@ -336,9 +336,7 @@ JSON input example::
       "_identifier":"1 TB"
    },
    "storageType":"Premium_LRS",
-   "azureTags":[
-
-   ],
+   "azureTags":[],
    "subscriptionId":"d333af45-0d07-4154-943d-c25fbbce1b18",
    "cloudProviderAccount":"ManagedServiceIdentity",
    "backupVolumesToCbs":true,
@@ -357,9 +355,9 @@ JSON output example::
 {
    "publicId":"VsaWorkingEnvironment-1m76JaRt",
    "name":"ranukazure12",
-   "tenantId":"Tenant-KWNJW8bs",
+   "tenantId":"tenantID",
    "svmName":"svm_ranukazure12",
-   "creatorUserEmail":"auth0|606b6467d0e04300696f3c3d",
+   "creatorUserEmail":"user_email",
    "status":null,
    "providerProperties":null,
    "reservedSize":null,

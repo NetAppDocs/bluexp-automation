@@ -20,7 +20,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Delete working environment for single node, Single Node>>
 * <<Delete working environment for high availability pair, HA pair>>
 
-== Delete a single node working environment
+== Delete single node working environment
 You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Select the working environment to use
@@ -59,7 +59,7 @@ Output::
 
 None
 
-== Delete a  working environment for high availability pair
+== Delete working environment for high availability pair
 You can use this workflow to delete an HA working environment.
 
 === 1. Select the working environment to use

@@ -25,10 +25,10 @@ You can use this workflow to create a new Cloud Volumes ONTAP working environmen
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create working environment with BYOL for single node, Single Node>>
-* <<Create working environment with BYOL for high availability pair, HA pair>>
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
 
-== Create a single node working environment with BYOL
+== Create working environment for single node
 You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Select the region
@@ -119,7 +119,7 @@ JSON input example::
     "instanceType": "Standard_DS3_v2"
   },
   "nssAccount": "d6f3f954-3399-402f-97de-e2766c4414dc",
-  "subnetId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
+  "subnetId": "/subscriptions/x000axx00-0d07-4154-000x-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
   "svmPassword": "password",
   "vnetId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
   "cidr": "10.0.0.0/16",
@@ -176,7 +176,7 @@ JSON output example
     "monitoringProperties": null
 }
 
-== Create working environment with BYOL for high availability pair
+== Create working environment for high availability pair
 You can use this workflow to create an HA working environment with BYOL licensing.
 
 === 1. Select the region

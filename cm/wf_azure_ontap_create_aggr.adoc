@@ -29,7 +29,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure singl
 
 === 2. Select the Azure Storage Account Types
 
-Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Storage Account Types] workflow and choose the desired storage type:
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-single-node[Get Azure Storage Account Types] workflow and choose the desired storage type:
 
 *	Choose the `diskType` of the desired storage type item for the `providerVolumeType` parameter in the JSON input.
 *	Choose the `size` value of the desired disk from the `sizes` -> `size` field for the `size` field inside `diskSize` parameter in the JSON input.
@@ -79,7 +79,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA wo
 
 === 2. Select the Azure Storage Account Types
 
-Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Storage Account Types] workflow and choose the desired storage type:
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-high-availability-pair[Get Azure Storage Account Types] workflow and choose the desired storage type:
 
 *	Choose the `diskType` of the desired storage type item for the `providerVolumeType` parameter in the JSON input.
 *	Choose the `size` value of the desired disk from the `sizes` -> `size` field for the `size` field inside `diskSize` parameter in the JSON input.

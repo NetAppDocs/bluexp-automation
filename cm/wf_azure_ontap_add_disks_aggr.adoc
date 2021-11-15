@@ -29,7 +29,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure singl
 
 === 2. Create the aggregate
 
-Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
+Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-single-node[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
 
 === 3. Add the disks to the aggregate
 
@@ -74,7 +74,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA wo
 
 === 2. Create the aggregate
 
-Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
+Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-high-availability-pair[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
 
 === 3. Add the disks to the aggregate
 

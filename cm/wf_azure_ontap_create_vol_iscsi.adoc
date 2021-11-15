@@ -263,29 +263,34 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 JSON input example::
 [source,json]
 {
-  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
-  "svmName": "svm_zivaws02we01",
-  "aggregateName": "aggr1",
-  "name": "zivaws02we01vol01Iscsi",
-  "size": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "iscsiInfo": {
-    "igroupCreationRequest": {
-        "igroupName": "zivIgroup",
-        "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216",
-            "iqn.1994-05.com.redhat:96de86823426"
-        ]
-    },
-    "osName": "linux"
-  },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0
+   "workingEnvironmentId":"VsaWorkingEnvironment-1m76JaRt",
+   "svmName":"svm_ranukazure12",
+   "snapshotPolicyName":"default",
+   "name":"ranukvoliscsi",
+   "iops":null,
+   "throughput":null,
+   "providerVolumeType":"Premium_LRS",
+   "capacityTier":"Blob",
+   "tieringPolicy":"auto",
+   "verifyNameUniqueness":true,
+   "iscsiInfo":{
+      "igroupCreationRequest":{
+         "igroupName":"ig1",
+         "initiators":[
+            "iqn.1991-05.com.microsoft:pradipm02-pc"
+         ]
+      },
+      "osName":"windows"
+   },
+   "size":{
+      "size":200,
+      "unit":"GB"
+   },
+   "enableThinProvisioning":true,
+   "enableDeduplication":true,
+   "enableCompression":true,
+   "maxNumOfDisksApprovedToAdd":0,
+   "aggregateName":"aggr1"
 }
 
 Output::
