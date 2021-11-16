@@ -25,7 +25,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Create the working environment
-Perform the link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
+Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
 
 === 2. Get the working environment
 
@@ -213,7 +213,7 @@ JSON output example::
 You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Create an Azure HA working environment
-Perform the link:wf_azure_cloud_create_we_paygo.html[Create Azure dual node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
+Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure dual node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
 
 === 2. Get the working environment
 

@@ -20,12 +20,12 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Delete working environment for single node, Single Node>>
 * <<Delete working environment for high availability pair, HA pair>>
 
-== Delete single node working environment
+== Delete working environment for single node
 You can use this workflow to create single node working environment with BYOL licensing.
 
-=== 1. Select the working environment to use
+=== 1. Create the working environment to use
 
-Perform the workflow link:[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Delete the working environment
 
@@ -62,9 +62,9 @@ None
 == Delete working environment for high availability pair
 You can use this workflow to delete an HA working environment.
 
-=== 1. Select the working environment to use
+=== 1. Create the working environment to use
 
-Perform the workflow link:[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Delete the working environment
 

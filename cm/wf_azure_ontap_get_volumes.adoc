@@ -25,7 +25,7 @@ You can use this workflow to get volume for a single node working environment.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
 
 === 2. Get the volumes
 
@@ -143,7 +143,7 @@ You can use this workflow to get volume for an HA working environment.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
 
 === 2. Get the volumes
 

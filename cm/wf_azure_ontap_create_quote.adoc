@@ -18,16 +18,16 @@ You can create a quote for a new volume which returns a resource quote needed to
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create quote for a single node, Single Node>>
+* <<Create quote for single node, Single Node>>
 * <<Create quote for high availability pair, HA pair>>
 
 
-== Create quote for a single node
+== Create quote for single node
 You can perform this workflow to create a volume quote for a single node working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the working environment field in the input parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value for the working environment field in the input parameter.
 
 === 2. Generate the volume quote
 
@@ -97,7 +97,7 @@ You can use this workflow to create quote for an HA working environment.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the working environment field in the input parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value for the working environment field in the input parameter.
 
 === 2. Generate the volume quote
 

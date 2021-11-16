@@ -5,7 +5,7 @@ keywords: cloud, manager, rest, api, aggregate, svm, virtual, private, cloud
 summary: 'You can use this workflow to create a volume accessed through NFS.'
 ---
 
-= Create volume using NFS
+= Create a volume using NFS
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -25,7 +25,7 @@ You can use this workflow to create a volume using NFS protocol for a single nod
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
 === 2. Create the volume
 
@@ -90,7 +90,7 @@ You can use this workflow to create a volume using NFS protocol for an HA workin
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
 === 2. Create the volume
 

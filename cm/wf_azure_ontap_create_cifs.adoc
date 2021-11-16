@@ -33,7 +33,7 @@ You can configure a CIFS server in a workgroup when the Microsoft Active Directo
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 ==== 2. Create the CIFS configuration
 
@@ -72,7 +72,7 @@ You can create a CIFS server on the SVM and specify the Active Directory (AD) do
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 ==== 2. Determine the Active Directory configuration
 
@@ -149,7 +149,7 @@ You can configure a CIFS server in a workgroup when the Microsoft Active Directo
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 ==== 2. Create the CIFS configuration
 
@@ -160,12 +160,12 @@ Create the CIFS server configuration.
 |HTTP method
 |Path
 |POST
-|/occm/api/azure/vsa/working-environments/{workingEnvironmentId}/cifs-workgroup
+|/occm/api/azure/ha/working-environments/{workingEnvironmentId}/cifs-workgroup
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>/cifs-workgroup' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>/cifs-workgroup' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -188,7 +188,7 @@ You can create a CIFS server on the SVM and specify the Active Directory (AD) do
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 ==== 2. Determine the Active Directory configuration
 
@@ -223,12 +223,12 @@ Create the CIFS server configuration.
 |HTTP method
 |Path
 |POST
-|/occm/api/azure/vsa/working-environments/{workingEnvironmentId}/cifs
+|/occm/api/azure/ha/working-environments/{workingEnvironmentId}/cifs
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

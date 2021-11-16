@@ -25,7 +25,7 @@ You can use this workflow to create an aggregate for a single node working envir
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+Perform the workflow link:wf_azure_ontap_create_cifs.html#create-cifs-server-configuration-for-single-node[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
 === 2. Select the Azure Storage Account Types
 
@@ -75,7 +75,7 @@ You can use this workflow to create an aggregate for an HA working environment.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
 === 2. Select the Azure Storage Account Types
 

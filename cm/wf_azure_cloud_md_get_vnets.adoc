@@ -25,7 +25,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 == Get Azure VNets for single node
 You can perform this workflow to retrieve the Azure VNets for a single node working environment.
 
-=== 1. Get the vnets
+=== 1. Get the VNets
 
 [cols="25,75"*,options="header"]
 |===
@@ -146,7 +146,7 @@ JSON output example::
 == Get Azure VNets for high availability pair
 You can perform this workflow to retrieve the Azure VNets for an HA working environment.
 
-=== 1. Get the vnets
+=== 1. Get the VNets
 
 [cols="25,75"*,options="header"]
 |===

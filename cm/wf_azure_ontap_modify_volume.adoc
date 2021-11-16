@@ -25,11 +25,11 @@ You can use this workflow to modify volume for a single node working environment
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
+Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-single-node[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
 
 
 === 3. Modify the volume
@@ -94,11 +94,11 @@ You can use this workflow to modify volume for an HA working environment.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
+Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-high-availability-pair[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
 
 
 === 3. Modify the volume

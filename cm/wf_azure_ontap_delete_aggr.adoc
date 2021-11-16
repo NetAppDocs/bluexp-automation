@@ -26,11 +26,11 @@ You can use this workflow to delete an aggregate for a single node working envir
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Create an aggregate to delete
 
-Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2`. Use `aggr2` value for the `aggregateName` path parameter.
+Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-single-node[Create aggregate] to create an aggregate with the name `aggr2`. Use `aggr2` value for the `aggregateName` path parameter.
 
 === 3. Delete the aggregate
 
@@ -61,11 +61,11 @@ You can use this workflow to delete an aggregate for an HA working environment.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Create an aggregate to delete
 
-Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2`. Use `aggr2` value for the `aggregateName` path parameter.
+Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-high-availability-pair[Create aggregate] to create an aggregate with the name `aggr2`. Use `aggr2` value for the `aggregateName` path parameter.
 
 === 3. Delete the aggregate
 
