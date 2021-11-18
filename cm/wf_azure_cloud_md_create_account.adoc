@@ -13,7 +13,7 @@ summary: "You can use this workflow to create an Azure cloud provider account."
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create an Azure cloud provider account. An Azure Cloud Provider Account holds Azure access keys required to perform actions in the Azure cloud.
+You can use this workflow to create an Azure cloud provider account. An Azure cloud provider account holds Azure access keys required to perform actions in Azure.
 
 
 .Before you begin
