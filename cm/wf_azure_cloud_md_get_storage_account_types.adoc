@@ -36,6 +36,7 @@ None
 Output::
 
 The JSON output example includes the list of Azure storage account types.
+//The `supportedOccmLicenses` field shows the occm licenses for the provisioned disks.
 
 JSON output example::
 [source, json]

@@ -16,7 +16,7 @@ summary: There are several workflows you can use with the Azure public cloud.
 There are several workflows you can use with the Azure public cloud.
 
 [NOTE]
-Review the link:getting_started.html[Get started] section before using any of the Cloud Manager REST API workflows,.
+Review the link:getting_started.html[Get started] section before using any of the Cloud Manager REST API workflows.
 
 The functional categories of the workflows are:
 

@@ -92,7 +92,11 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Stor
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+----
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //1 --header 'Authorization: Bearer <ACCESS_TOKEN>' //2 --header 'Content-Type: application/json' --d @JSONinput
+----
+(1) Replace <AGENT_ID> with your agent ID.
+(2) Replace <ACCESS_TOKEN> with your obtained bearer access token.
 
 Input::
 
