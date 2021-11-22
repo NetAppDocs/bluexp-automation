@@ -1,0 +1,57 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_ontap_add_disks_aggr.html
+keywords: disk, aggregate, cloud, manager, ONTAP, get, working, environment
+summary: You can add disks to an existing aggregate.
+---
+
+= Add disks to aggregate
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can add disks to an existing aggregate.
+
+=== 1. Create the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+
+=== 2. Create the aggregate
+
+Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
+
+=== 3. Add the disks to the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/disks
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>/aggr2/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+You must include the following path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+Also, the JSON input example includes an input parameter as shown.
+
+JSON input example::
+[source, json]
+{
+    "numberOfDisks": "1"
+}
+
+Output::
+
+None
