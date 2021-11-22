@@ -165,8 +165,9 @@ entries:
             - title: Create Azure cloud provider account
               url: /cm/wf_azure_cloud_md_create_account.html
   - title: Common workflows
-    url: /cm/wf_common.html
     entries:
+      - title: Before you begin
+        url: /cm/wf_common.html
       - title: Identity and access
         entries:
           - title: Create user token
