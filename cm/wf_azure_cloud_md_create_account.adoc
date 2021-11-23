@@ -1,0 +1,71 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_cloud_md_create_account.html
+keywords: azure, cloud, provider, saas, marketplace, account
+summary: "You can use this workflow to create an Azure cloud provider account."
+---
+
+= Create Azure cloud provider account
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create an Azure cloud provider account. An Azure cloud provider account holds Azure access keys required to perform actions in Azure.
+
+
+.Before you begin
+
+You must have Azure credentials.
+
+
+=== 1. Get the account
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/accounts?providerType=AZURE
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/accounts?providerType=AZURE' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameter (Optional):
+
+`providerType` string
+
+Output::
+
+The JSON output provides an example of the cloud provider details.
+
+JSON output example::
+[source,json]
+{
+    "awsAccounts": [],
+    "azureAccounts": [
+        {
+            "publicId": "ManagedServiceIdentity",
+            "accountName": "Managed Service Identity",
+            "accountType": "SERVICE_IDENTITY",
+            "tenantId": "",
+            "applicationId": "",
+            "occmRole": "Azure",
+            "vsaList": [
+                {
+                    "publicId": "VsaWorkingEnvironment-uFPaNkrv",
+                    "name": "Azure123",
+                    "workingEnvironmentType": "AZURE"
+                }
+            ]
+        }
+    ],
+    "gcpStorageAccounts": [],
+    "nssAccounts": []
+}

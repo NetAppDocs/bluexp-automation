@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_common.html
-keywords: public, cloud, common, workflow, rest, api, cloud manager
-summary: 'There are several workflows you can use with any of the public cloud providers.'
+permalink: cm/wf_azure_before.html
+keywords: azure, workflows, cloud, manager, rest, api
+summary: There are several workflows you can use with the Azure public cloud.
 ---
 
-= Common workflows for all cloud providers
+= Before you begin
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,19 +13,21 @@ summary: 'There are several workflows you can use with any of the public cloud p
 :imagesdir: ./media/
 
 [.lead]
-There are several workflows you can use with any of the public cloud providers.
+There are several workflows you can use with the Azure public cloud.
 
 [NOTE]
-Before using any of the Cloud Manager REST API workflows, make sure to first review link:getting_started.html[Getting started].
+Review the link:getting_started.html[Get started] section before using any of the Cloud Manager REST API workflows.
 
 == Workflow categories
-The common workflows are organized into the following categories:
+The Azure workflows are organized into the following categories:
 
-* Identity and access
-* SaaS marketplace
-* NetApp support site
-* Internal tasks and support
-* SnapMirror replication
+* Working environments
+* Aggregates
+* Volumes
+* Metadata
+
+== Azure credentials
+Before beginning to use the Azure workflows, you'll need to create an Azure account through the Microsoft Azure portal and obtain the Azure credentials and the  subscription ID.
 
 == Connector setup
 
