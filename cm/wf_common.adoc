@@ -17,3 +17,15 @@ There are several workflows you can use with any of the public cloud providers.
 
 [NOTE]
 Before using any of the Cloud Manager REST API workflows, make sure to first review link:getting_started.html[Getting started].
+
+== Workflow categories
+The common workflows are organized into the following categories:
+
+* Identity and access
+* SaaS marketplace
+* NetApp support site
+* Internal tasks and support
+* SnapMirror replication
+
+== Connector setup
+You must have a Connector for the cloud environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the Cloud Manager web UI. When you create a Connector, Cloud Manager adds the Azure cloud provider account that you deployed the Connector in to your list of available accounts. Your Azure account needs to have the right permissions in order to create a Connector.
