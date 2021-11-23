@@ -61,11 +61,11 @@ entries:
             url: /cm/wf_aws_ontap_delete_aggr.html
       - title: Volumes
         entries:
-          - title: Create volume using NFS
+          - title: Create a volume using NFS
             url: /cm/wf_aws_ontap_create_vol_nfs.html
-          - title: Create volume using CIFS
+          - title: Create a volume using CIFS
             url: /cm/wf_aws_ontap_create_vol_cifs.html
-          - title: Create volume using iSCSI
+          - title: Create a volume using iSCSI
             url: /cm/wf_aws_ontap_create_vol_iscsi.html
           - title: Get volumes
             url: /cm/wf_aws_ontap_get_volumes.html
