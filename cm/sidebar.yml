@@ -30,8 +30,9 @@ entries:
       - title: Additional considerations
         url: /cm/additional_considerations.html
   - title: AWS workflows
-    url: /cm/wf_aws.html
     entries:
+      - title: Before you begin
+        url: /cm/wf_aws.html
       - title: Working environments
         entries:
           - title: Create working environment with PAYGO
@@ -60,11 +61,11 @@ entries:
             url: /cm/wf_aws_ontap_delete_aggr.html
       - title: Volumes
         entries:
-          - title: Create volume using NFS
+          - title: Create a volume using NFS
             url: /cm/wf_aws_ontap_create_vol_nfs.html
-          - title: Create volume using CIFS
+          - title: Create a volume using CIFS
             url: /cm/wf_aws_ontap_create_vol_cifs.html
-          - title: Create volume using iSCSI
+          - title: Create a volume using iSCSI
             url: /cm/wf_aws_ontap_create_vol_iscsi.html
           - title: Get volumes
             url: /cm/wf_aws_ontap_get_volumes.html
@@ -96,9 +97,77 @@ entries:
         entries:
           - title: Create AWS cloud provider account
             url: /cm/wf_aws_cloud_md_create_account.html
-  - title: Common workflows
-    url: /cm/wf_common.html
+  - title: Azure workflows
     entries:
+        - title: Before you begin
+          url: /cm/wf_azure_before.html
+        - title: Working environments
+          entries:
+            - title: Create working environment with PAYGO
+              url: /cm/wf_azure_cloud_create_we_paygo.html
+            - title: Create working environment with BYOL
+              url: /cm/wf_azure_cloud_create_we_byol.html
+            - title: Get working environments
+              url: /cm/wf_azure_cloud_get_wes.html
+            - title: Delete working environment
+              url: /cm/wf_azure_cloud_delete_we.html
+            - title: Create CIFS
+              url: /cm/wf_azure_ontap_create_cifs.html
+            - title: Get CIFS
+              url: /cm/wf_azure_ontap_get_cifs.html
+            - title: Delete CIFS
+              url: /cm/wf_azure_ontap_delete_cifs.html
+
+        - title: Aggregates
+          entries:
+             - title: Get aggregates
+               url: /cm/wf_azure_ontap_get_aggrs.html
+             - title: Create aggregate
+               url: /cm/wf_azure_ontap_create_aggr.html
+             - title: Add disks to aggregate
+               url: /cm/wf_azure_ontap_add_disks_aggr.html
+             - title: Delete aggregate
+               url: /cm/wf_azure_ontap_delete_aggr.html
+        - title: Volumes
+          entries:
+             - title: Create a volume using NFS
+               url: /cm/wf_azure_ontap_create_vol_nfs.html
+             - title: Create a volume using CIFS
+               url: /cm/wf_azure_ontap_create_vol_cifs.html
+             - title: Create a volume using iSCSI
+               url: /cm/wf_azure_ontap_create_vol_iscsi.html
+             - title: Get volumes
+               url: /cm/wf_azure_ontap_get_volumes.html
+             - title: Modify volume
+               url: /cm/wf_azure_ontap_modify_volume.html
+             - title: Delete volume
+               url: /cm/wf_azure_ontap_delete_volume.html
+             - title: Create quote
+               url: /cm/wf_azure_ontap_create_quote.html
+             - title: Get iGroups
+               url: /cm/wf_azure_ontap_get_igroups.html
+        - title: Metadata
+          entries:
+             - title: Get Azure regions
+               url: /cm/wf_azure_cloud_md_get_regions.html
+             - title: Get Azure permutations
+               url: /cm/wf_azure_cloud_md_get_permutations.html
+             - title: Get Azure storage account types
+               url: /cm/wf_azure_cloud_md_get_storage_account_types.html
+             - title: Get Azure VNets
+               url: /cm/wf_azure_cloud_md_get_vnets.html
+             - title: Get Azure availability zones
+               url: /cm/wf_azure_cloud_md_get_availability_zones.html
+             - title: Get Azure packages
+               url: /cm/wf_azure_cloud_md_get_packages.html
+        - title: Miscellaneous
+          entries:
+            - title: Create Azure cloud provider account
+              url: /cm/wf_azure_cloud_md_create_account.html
+  - title: Common workflows
+    entries:
+      - title: Before you begin
+        url: /cm/wf_common.html
       - title: Identity and access
         entries:
           - title: Create user token

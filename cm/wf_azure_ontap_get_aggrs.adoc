@@ -1,0 +1,239 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_ontap_get_aggrs.html
+keywords: cloud, manager, rest, api, get aggregates
+summary: 'You can retrieve a list of available disk aggregates.'
+---
+
+= Get aggregates
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve a list of available disk aggregates of an Azure working environment.
+
+=== 1. Create the working environment 
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Get the list of aggregates
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/vsa/aggregates/{workingEnvironmentId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+
+Output::
+An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
+
+NOTE: The capacity (sizes) in the output are in MB/GB/TB (1000th order) because these are ONTAP aggregates, whereas in Cloud Manager the capacity is specified as MiB, GiB (1024 order).
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "aggr1",
+        "availableCapacity": {
+            "size": 905.27,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 906.29,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 1.02,
+            "unit": "GB"
+        },
+        "volumes": [
+            {
+                "name": "svm_ShirleyAzureVsa2601_root",
+                "totalSize": {
+                    "size": 1.0,
+                    "unit": "GB"
+                },
+                "usedSize": {
+                    "size": 3.62396240234375E-4,
+                    "unit": "GB"
+                },
+                "thinProvisioned": false,
+                "isClone": false,
+                "rootVolume": true
+            }
+        ],
+        "providerVolumes": [
+            {
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk3",
+                "name": "ShirleyAzureVsa2601datadisk3",
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "state": "available",
+                "device": "3",
+                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "diskType": "Premium_LRS",
+                "encrypted": false,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-1.2",
+                "position": "data",
+                "ownerNode": "ShirleyAzureVsa2601-01",
+                "device": "LUN 5.3",
+                "vmDiskProperties": null
+            }
+        ],
+        "state": "online",
+        "encryptionType": "notEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ShirleyAzureVsa2601-01",
+        "ownerNode": "ShirleyAzureVsa2601-01",
+        "capacityTier": null,
+        "capacityTierUsed": null,
+        "sidlEnabled": false,
+        "snaplockType": "non_snaplock"
+    },
+    {
+        "name": "aggr2",
+        "availableCapacity": {
+            "size": 906.29,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 906.29,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 3.48,
+            "unit": "MB"
+        },
+        "volumes": [],
+        "providerVolumes": [
+            {
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk4",
+                "name": "ShirleyAzureVsa2601datadisk4",
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "state": "available",
+                "device": "4",
+                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "diskType": "Premium_LRS",
+                "encrypted": false,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-1.3",
+                "position": "data",
+                "ownerNode": "ShirleyAzureVsa2601-01",
+                "device": "LUN 5.4",
+                "vmDiskProperties": null
+            }
+        ],
+        "state": "online",
+        "encryptionType": "notEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ShirleyAzureVsa2601-01",
+        "ownerNode": "ShirleyAzureVsa2601-01",
+        "capacityTier": null,
+        "capacityTierUsed": null,
+        "sidlEnabled": false,
+        "snaplockType": "non_snaplock"
+    },
+    {
+        "name": "aggr3",
+        "availableCapacity": {
+            "size": 1.77,
+            "unit": "TB"
+        },
+        "totalCapacity": {
+            "size": 1.77,
+            "unit": "TB"
+        },
+        "usedCapacity": {
+            "size": 5.78,
+            "unit": "MB"
+        },
+        "volumes": [],
+        "providerVolumes": [
+            {
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk5",
+                "name": "ShirleyAzureVsa2601datadisk5",
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "state": "available",
+                "device": "5",
+                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "diskType": "Premium_LRS",
+                "encrypted": false,
+                "iops": null
+            },
+            {
+                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk6",
+                "name": "ShirleyAzureVsa2601datadisk6",
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "state": "available",
+                "device": "6",
+                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "diskType": "Premium_LRS",
+                "encrypted": false,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-1.4",
+                "position": "data",
+                "ownerNode": "ShirleyAzureVsa2601-01",
+                "device": "LUN 5.5",
+                "vmDiskProperties": null
+            },
+            {
+                "name": "NET-1.5",
+                "position": "data",
+                "ownerNode": "ShirleyAzureVsa2601-01",
+                "device": "LUN 5.6",
+                "vmDiskProperties": null
+            }
+        ],
+        "state": "online",
+        "encryptionType": "notEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ShirleyAzureVsa2601-01",
+        "ownerNode": "ShirleyAzureVsa2601-01",
+        "capacityTier": null,
+        "capacityTierUsed": null,
+        "sidlEnabled": false,
+        "snaplockType": "non_snaplock"
+    }
+]
