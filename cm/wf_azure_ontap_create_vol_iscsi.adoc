@@ -20,7 +20,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Create volume using iSCSI for single node, Single Node>>
 * <<Create volume using iSCSI for high availability pair, HA pair>>
 
-== Create volume using CIFS for single node
+== Create volume using iSCSI for single node
 You can use this workflow to create a volume using iSCSI protocol for a single node working environment.
 
 There are two workflows available depending on whether a new or existing iGroup is used. You need to select the correct workflow:
@@ -193,8 +193,8 @@ Output::
 
 None
 
-== Create volume using CIFS for high availability
-You can use this workflow to create a volume using iSCSI protocol for a single node working environment.
+== Create volume using iSCSI for high availability
+You can use this workflow to create a volume using iSCSI protocol for a dual node working environment.
 
 There are two workflows available depending on whether a new or existing iGroup is used. You need to select the correct workflow:
 
