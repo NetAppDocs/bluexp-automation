@@ -119,18 +119,18 @@ JSON input example::
     "instanceType": "Standard_DS3_v2"
   },
   "nssAccount": "d6f3f954-3399-402f-97de-e2766c4414dc",
-  "subnetId": "/subscriptions/x000axx00-0d07-4154-000x-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
+  "subnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
   "svmPassword": "password",
-  "vnetId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
+  "vnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
   "cidr": "10.0.0.0/16",
   "diskSize": {
     "size": 1,
     "unit": "TB"
   },
   "storageType": "Premium_LRS",
-  "resourceGroup": "Azure123-rg",
+  "resourceGroup": "Azure000-xx",
   "serialNumber": "90320130000000005001",
-  "subscriptionId": "d333af45-0d07-4154-943d-c25fbbce1b18",
+  "subscriptionId": "x000xx00-0x00-0000-000x",
   "cloudProviderAccount": "ManagedServiceIdentity",
   "availabilityZone": 2
 }
@@ -269,9 +269,9 @@ JSON input example::
   },
   "nssAccount": "d6f3f954-3399-402f-97de-e2766c4414dc",
   "writingSpeedState": "NORMAL",
-  "subnetId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
+  "subnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
   "svmPassword": "Netapp234",
-  "vnetId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
+  "vnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
   "cidr": "10.0.0.0/16",
   "ontapEncryptionParameters": null,
   "skipSnapshots": false,
@@ -283,7 +283,7 @@ JSON input example::
   "storageType": "Premium_LRS",
   "azureTags": [],
   "resourceGroup": "ShirleyHa2701-rg",
-  "subscriptionId": "d333af45-0d07-4154-943d-c25fbbce1b18",
+  "subscriptionId": "x000xx00-0x00-0000-000x,
   "cloudProviderAccount": "ManagedServiceIdentity",
   "backupVolumesToCbs": false,
   "enableCompliance": false,

@@ -15,7 +15,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can perform this workflow to retrieve the network extended information.
 
-NOTE: Ensure that you've the Azure subscription id. You can easily obtain the ID from the Azure portal.
+NOTE: Ensure that you've the Azure subscription ID. You can easily obtain the ID from the Azure portal.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
