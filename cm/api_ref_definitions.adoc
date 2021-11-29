@@ -15,53 +15,6 @@ summary:
 [.lead]
 This section describes existing data format definitions.
 
-
-=== ANFSummary
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|numberOfVolumes||true|integer (int32)|
-|totalUsed||true|integer (int64)|
-|supportable||true|boolean|
-|===
-
-=== ANFVolumePlacement
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|subscriptionId||true|string|
-|account||true|string|
-|pool||true|string|
-|resourceGroup||true|string|
-|location||true|string|
-|poolsize||true|integer (int64)|
-|===
-
-=== ANFVolumeProperties
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|serviceLevel||true|string|
-|usedSize||true|integer (int64)|
-|mountIp||true|string|
-|fileSystemId||true|string|
-|state||true|string|
-|usageThreshold||true|integer (int64)|
-|creationToken||true|string|
-|protocols||true|string array|
-|smbServerFQDN||false|string|
-|activeDirectoryDnsIps||true|string array|
-|===
-
-=== ANFVolumeResponse
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|name||true|string|
-|properties||true|<<ANFVolumeProperties>>|
-|placement||true|<<ANFVolumePlacement>>|
-|===
-
 === About
 [options="header"]
 |===
@@ -306,6 +259,14 @@ This section describes existing data format definitions.
 |domain||true|string|
 |audience||true|string|
 |clientId||true|string|
+|===
+
+=== AuthRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|email||true|string|
+|password||true|string|
 |===
 
 === AvailableIpsResponse
@@ -595,6 +556,7 @@ This section describes existing data format definitions.
 |haEnabledOnLbRules||true|boolean|
 |node1Info||true|<<AzureHaNodeInfo>>|
 |node2Info||true|<<AzureHaNodeInfo>>|
+|applicationSecurityGroupName||false|string|
 |===
 
 === AzureKey
@@ -978,6 +940,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |shareName|Share name|true|string|
 |accessControlList|List of CIFS share permissions|true|<<CifsShareUserPermissions>> array|
+|vscanFileOpPolicy|Vscan file operations profile|false|string|
 |===
 
 === CifsShareUserPermissions
@@ -1254,6 +1217,7 @@ This section describes existing data format definitions.
 |usePrivateLink||true|boolean|
 |directApiTraffic||true|boolean|
 |useAccelerationForImageDownload||true|boolean|
+|maxDownloadSessions||true|integer (int32)|
 |===
 
 === ConfigValuesUpdateRequest
@@ -1279,6 +1243,7 @@ This section describes existing data format definitions.
 |usePrivateLink||false|boolean|
 |directApiTraffic||false|boolean|
 |useAccelerationForImageDownload||false|boolean|
+|maxDownloadSessions||false|integer (int32)|
 |===
 
 === Configuration
@@ -1337,6 +1302,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |svmPassword||true|string|
+|username||false|string|
 |vpcId||true|string|
 |description||false|string|
 |region||true|string|
@@ -1374,41 +1340,13 @@ This section describes existing data format definitions.
 |ontapEncryptionDefined||true|boolean|
 |===
 
-=== CreateAzureNetappFileVolumeDetailsRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|name||true|string|
-|protocol||true|string|
-|exportRuleIp||true|string|
-|size||true|integer (int64)|
-|===
-
-=== CreateAzureNetappFileVolumePlacementRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|subscription||true|string|
-|account||true|string|
-|resourceGroup||true|string|
-|pool||true|string|
-|subnet||true|string|
-|===
-
-=== CreateAzureNetappFileVolumeRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|placement||true|<<CreateAzureNetappFileVolumePlacementRequest>>|
-|details||true|<<CreateAzureNetappFileVolumeDetailsRequest>>|
-|===
-
 === CreateAzureVSAWorkingEnvironmentRequest
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |svmPassword||true|string|
+|username||false|string|
 |vnetId||true|string|
 |cidr||true|string|
 |description||false|string|
@@ -1525,6 +1463,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |svmPassword||true|string|
+|username||false|string|
 |vpcId||true|string|
 |volume|Optionally create a volume with this working environment|false|<<VsaVolumeOnNewVsaCreateRequest>>|
 |region||true|string|
@@ -1630,6 +1569,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |svmPassword||true|string|
+|username||false|string|
 |vpcId||true|string|
 |description||false|string|
 |volume|Optionally create a volume with this working environment|false|<<VsaVolumeOnNewVsaCreateRequest>>|
@@ -3005,6 +2945,7 @@ This section describes existing data format definitions.
 |policyType|Export policy type|true|string|
 |ips|Custom export policy list of IPs|true|string array|
 |nfsVersion|Export policy protocol|false|string array|
+|rules|Export policy rules|false|<<ExportPolicyRule>> array|
 |===
 
 === NetworkInterfaceInfo
@@ -3194,6 +3135,7 @@ This section describes existing data format definitions.
 |enableCompression|Enable compression|true|boolean|
 |enableDeduplication|Enable deduplication|true|boolean|
 |syncToS3|Add Cloud Sync relationship|true|boolean|
+|volumeTags|Optionally provide key-value pairs with which to tag the ONTAP volume using App Template service|false|<<VolumeTags>> array|
 |iscsiInfo||true|<<CreateIscsiInfoRequest>>|
 |===
 
@@ -3294,6 +3236,7 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |userName||true|string|
 |wormEnabled||true|boolean|
+|vscanFileOperationDefaultProfile||true|string|
 |spaceReportingLogical||true|boolean|
 |===
 
@@ -4577,8 +4520,16 @@ This section describes existing data format definitions.
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
 |minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
-|flexGroupVolume||true|boolean|
 |iscsiEnabled||true|boolean|
+|flexGroupVolume||true|boolean|
+|===
+
+=== VolumeTags
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|tagKey||true|string|
+|tagValue||true|string|
 |===
 
 === VolumesListForBackup
@@ -4731,6 +4682,7 @@ This section describes existing data format definitions.
 |junctionPath|Junction path|false|string|
 |qualityOfService|Quality of service|false|<<VolumeQualityOfService>>|
 |minimumCoolingDays|Cooling Days|false|integer (int32)|
+|volumeTags|Optionally provide key-value pairs with which to tag the ONTAP volume using App Template service|false|<<VolumeTags>> array|
 |iscsiInfo||true|<<CreateIscsiInfoRequest>>|
 |===
 
@@ -4840,6 +4792,13 @@ This section describes existing data format definitions.
 |monitoringProperties||false|<<MonitoringStatusResponse>>|
 |licensesInformation||false|<<LicenseInformation>> array|
 |hA||true|boolean|
+|===
+
+=== VscanFileOpRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|vscanFileOp|Vscan file-operation|true|enum (writes_only,  standard)|
 |===
 
 === WeActionRequiredResponse
