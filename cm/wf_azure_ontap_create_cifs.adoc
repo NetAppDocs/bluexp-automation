@@ -237,15 +237,14 @@ Input::
 JSON input example::
 [source,json]
 {
-  "dnsDomain": "zivh.netapp.com",
-  "ipAddresses": [
-    "172.31.5.241"
-  ],
-  "netBIOS": "zivaws02we03",
-  "organizationalUnit": "CN=Computers",
-  "activeDirectoryDomain": "zivh.netapp.com",
-  "activeDirectoryUsername": "administrator",
-  "activeDirectoryPassword": "password"
+   "dnsDomain": "mydomain.com",
+   "activeDirectoryDomain": "mydomain.com",
+   "ipAddresses": ["10.10.10.20", "172.xx.yy.xx"],
+   "netBIOS": "azureHAPayGo",
+   "organizationalUnit": "CN=Computers",
+   "activeDirectoryUsername": "administrator",
+   "activeDirectoryPassword": "password",
+   "svmName": "svm_azureHAPayGo"
 }
 
 Output::
