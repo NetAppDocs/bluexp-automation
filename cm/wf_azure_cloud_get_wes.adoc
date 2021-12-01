@@ -22,7 +22,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Get working environment for high availability pair, HA pair>>
 
 == Get working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to retrieve the working environments' details of a single node system.
 
 === 1. Create the working environment
 Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
@@ -143,7 +143,7 @@ JSON output example::
     "ontapClusterProperties": {
         "nodes": [],
         "clusterName": "",
-        "clusterUuid": "335d50a9-16ce-11ec-b1c5-6045bd885d07",
+        "clusterUuid": "xxxxx0000000000x00x0x00x0x0x0",
         "ontapVersion": "",
         "systemManagerUrl": "https://10.0.1.5/sysmgr/SysMgr.html",
         "creationTime": 1631783479373,
@@ -210,7 +210,7 @@ JSON output example::
 
 
 == Get working environment for high availability pair
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to retrieve the working environments' details of an HA working environment.
 
 === 1. Create an Azure HA working environment
 Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure dual node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.

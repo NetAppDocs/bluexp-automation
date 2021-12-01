@@ -21,7 +21,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Delete CIFS server configuration for high availability pair, HA pair>>
 
 == Delete CIFS server configuration for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to delete CIFS server configuration for a single node system.
 
 === 1. Select the working environment
 
@@ -58,7 +58,7 @@ Output::
 None.
 
 == Delete CIFS server configuration for high availability pair
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to delete CIFS server configuration for an HA working environment.
 
 === 1. Select the working environment
 

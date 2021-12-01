@@ -59,7 +59,7 @@ JSON output example::
         "portsetName": "",
         "igroupType": "iscsi",
         "initiators": [
-            "iqn.1994-05.com.redhat:1d9ac633937c"
+            "iqn.1994-05.com.redhat:0x0xx000000x"
         ]
     },
     {
@@ -68,7 +68,7 @@ JSON output example::
         "portsetName": "",
         "igroupType": "iscsi",
         "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216"
+            "iqn.1994-05.com.redhat:0x0xx000000x"
         ]
     }
 ]
@@ -112,7 +112,7 @@ JSON output example::
         "portsetName": "",
         "igroupType": "iscsi",
         "initiators": [
-            "iqn.1994-05.com.redhat:1d9ac633937c"
+            "iqn.1994-05.com.redhat:0x0xx000000x"
         ]
     },
     {
@@ -121,7 +121,7 @@ JSON output example::
         "portsetName": "",
         "igroupType": "iscsi",
         "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216"
+            "iqn.1994-05.com.redhat:0x0xx000000x"
         ]
     }
 ]

@@ -57,27 +57,27 @@ JSON output example::
     "virtualNetworks": [
         {
             "name": "Vnet1",
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
             "cidrs": [
                 {
                     "cidr": "10.0.0.0/16",
                     "subnets": [
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
                             "cidr": "10.0.0.0/24",
                             "name": "Subnet1",
                             "availableIps": 250,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
                             "cidr": "10.0.1.0/24",
                             "name": "Subnet2",
                             "availableIps": 251,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
                             "cidr": "10.0.2.0/24",
                             "name": "ProxySubnet",
                             "availableIps": 245,
@@ -91,27 +91,27 @@ JSON output example::
         },
         {
             "name": "Vnet2",
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2",
             "cidrs": [
                 {
                     "cidr": "10.1.0.0/16",
                     "subnets": [
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet1",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet1",
                             "cidr": "10.1.0.0/24",
                             "name": "Subnet1",
                             "availableIps": 251,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet2",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet2",
                             "cidr": "10.1.1.0/24",
                             "name": "Subnet2",
                             "availableIps": 251,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/ProxySubnet",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/ProxySubnet",
                             "cidr": "10.1.2.0/24",
                             "name": "ProxySubnet",
                             "availableIps": 251,
@@ -126,17 +126,17 @@ JSON output example::
     ],
     "securityGroups": [
         {
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-467",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-467",
             "name": "OCCM-SG-467",
             "resourceGroup": "occm_group_eastus2"
         },
         {
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-491",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-491",
             "name": "OCCM-SG-491",
             "resourceGroup": "occm_group_eastus2"
         },
         {
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-589",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-589",
             "name": "OCCM-SG-589",
             "resourceGroup": "occm_group_eastus2"
         }
@@ -178,27 +178,27 @@ JSON output example::
     "virtualNetworks": [
         {
             "name": "Vnet1",
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
             "cidrs": [
                 {
                     "cidr": "10.0.0.0/16",
                     "subnets": [
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
                             "cidr": "10.0.0.0/24",
                             "name": "Subnet1",
                             "availableIps": 250,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
                             "cidr": "10.0.1.0/24",
                             "name": "Subnet2",
                             "availableIps": 251,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
                             "cidr": "10.0.2.0/24",
                             "name": "ProxySubnet",
                             "availableIps": 245,
@@ -212,27 +212,27 @@ JSON output example::
         },
         {
             "name": "Vnet2",
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2",
             "cidrs": [
                 {
                     "cidr": "10.1.0.0/16",
                     "subnets": [
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet1",
+                            "id": "/subscriptions/dxxxxxxxx000000000000008/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet1",
                             "cidr": "10.1.0.0/24",
                             "name": "Subnet1",
                             "availableIps": 251,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet2",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/Subnet2",
                             "cidr": "10.1.1.0/24",
                             "name": "Subnet2",
                             "availableIps": 251,
                             "minimumRequiredIps": 6
                         },
                         {
-                            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/ProxySubnet",
+                            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet2/subnets/ProxySubnet",
                             "cidr": "10.1.2.0/24",
                             "name": "ProxySubnet",
                             "availableIps": 251,
@@ -247,17 +247,17 @@ JSON output example::
     ],
     "securityGroups": [
         {
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-467",
+            "id": "/subscriptions/dxxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-467",
             "name": "OCCM-SG-467",
             "resourceGroup": "occm_group_eastus2"
         },
         {
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-491",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-491",
             "name": "OCCM-SG-491",
             "resourceGroup": "occm_group_eastus2"
         },
         {
-            "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-589",
+            "id": "/subscriptions/xxxxxxxx00000000000000/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/networkSecurityGroups/OCCM-SG-589",
             "name": "OCCM-SG-589",
             "resourceGroup": "occm_group_eastus2"
         }

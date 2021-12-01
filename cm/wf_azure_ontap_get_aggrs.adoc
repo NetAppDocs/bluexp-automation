@@ -87,7 +87,7 @@ JSON output example::
         ],
         "providerVolumes": [
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk3",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk3",
                 "name": "ShirleyAzureVsa2601datadisk3",
                 "size": {
                     "size": 1.0,
@@ -95,7 +95,7 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "3",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null
@@ -138,7 +138,7 @@ JSON output example::
         "volumes": [],
         "providerVolumes": [
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk4",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk4",
                 "name": "ShirleyAzureVsa2601datadisk4",
                 "size": {
                     "size": 1.0,
@@ -146,7 +146,7 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "4",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null
@@ -189,7 +189,7 @@ JSON output example::
         "volumes": [],
         "providerVolumes": [
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk5",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk5",
                 "name": "ShirleyAzureVsa2601datadisk5",
                 "size": {
                     "size": 1.0,
@@ -197,13 +197,13 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "5",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null
             },
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk6",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk6",
                 "name": "ShirleyAzureVsa2601datadisk6",
                 "size": {
                     "size": 1.0,
@@ -211,7 +211,7 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "6",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null

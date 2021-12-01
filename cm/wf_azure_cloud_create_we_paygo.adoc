@@ -15,7 +15,6 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 [.lead]
 You can use this workflow to create a new Azure Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) licensing.
 
-
 =====
 *Note the following when using PAYGO licensing*:
 

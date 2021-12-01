@@ -21,7 +21,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Get CIFS server configuration for high availability pair, HA pair>>
 
 == Get CIFS server configuration for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to retrieve CIFS server configuration for a single node system.
 
 === 1. Select the working environment
 
@@ -67,7 +67,7 @@ JSON output example::
 
 == Get CIFS server configuration for high availability pair
 
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to retrieve CIFS server configuration for an HA working environment.
 
 === 1. Select the working environment
 
@@ -94,7 +94,7 @@ Input::
 
 Output::
 
-The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP ONTAP working environment.
+The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP working environment.
 
 JSON output example::
 [source,json]

@@ -118,7 +118,7 @@ JSON input example::
     "licenseType": "azure-cot-premium-byol",
     "instanceType": "Standard_DS3_v2"
   },
-  "nssAccount": "d6f3f954-3399-402f-97de-e2766c4414dc",
+  "nssAccount": "x0x0x000-0000-000x-00xx-x0000cx0000xx",
   "subnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
   "svmPassword": "password",
   "vnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
@@ -129,7 +129,7 @@ JSON input example::
   },
   "storageType": "Premium_LRS",
   "resourceGroup": "Azure000-xx",
-  "serialNumber": "90320130000000005001",
+  "serialNumber": "00000110000000000001",
   "subscriptionId": "x000xx00-0x00-0000-000x",
   "cloudProviderAccount": "ManagedServiceIdentity",
   "availabilityZone": 2
@@ -267,10 +267,10 @@ JSON input example::
     "licenseType": "azure-ha-cot-premium-byol",
     "instanceType": "Standard_DS4_v2"
   },
-  "nssAccount": "d6f3f954-3399-402f-97de-e2766c4414dc",
+  "nssAccount": "x0x0x000-0000-000x-00xx-x0000cx0000xx",
   "writingSpeedState": "NORMAL",
   "subnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
-  "svmPassword": "Netapp234",
+  "svmPassword": "password",
   "vnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
   "cidr": "10.0.0.0/16",
   "ontapEncryptionParameters": null,
@@ -290,7 +290,7 @@ JSON input example::
   "enableMonitoring": false,
   "availabilityZone": null,
   "haParams": {
-    "platformSerialNumberNode1": "90320140000000000021",
-    "platformSerialNumberNode2": "90320140000000000022"
+    "platformSerialNumberNode1": "00000110000000000001",
+    "platformSerialNumberNode2": "00000110000000000002"
   }
 }

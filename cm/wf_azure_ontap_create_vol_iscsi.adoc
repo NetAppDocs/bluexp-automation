@@ -101,8 +101,8 @@ JSON input example::
     "igroupCreationRequest": {
         "igroupName": "zivIgroup",
         "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216",
-            "iqn.1994-05.com.redhat:96de86823426"
+            "iqn.1994-05.com.redhat:00xx00000000",
+            "iqn.1994-05.com.redhat:00xx00000000"
         ]
     },
     "osName": "linux"
