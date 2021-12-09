@@ -5,7 +5,7 @@ keywords: cloud, manager, rest, api
 summary: 'You can use this workflow to create a volume accessed through iSCSI. There are two workflows available depending on whether a new or existing iGroup is used'
 ---
 
-= Create volume using iSCSI
+= Create a volume using iSCSI
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,29 +13,39 @@ summary: 'You can use this workflow to create a volume accessed through iSCSI. T
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a volume accessed through iSCSI. There are two workflows available depending on whether a new or existing iGroup is used. You need to select the correct workflow:
+You can use this workflow to create a volume accessed through iSCSI.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create volume using iSCSI for single node, Single Node>>
+* <<Create volume using iSCSI for high availability pair, HA pair>>
+
+== Create volume using iSCSI for single node
+You can use this workflow to create a volume using iSCSI protocol for a single node working environment.
+
+There are two workflows available depending on whether a new or existing iGroup is used. You need to select the correct workflow:
 
 * <<Create volume using iSCSI with a new iGroup>>
 * <<Create volume using iSCSI with an existing iGroup>>
 
-== Create volume using iSCSI with a new iGroup
+=== Create volume using iSCSI with a new iGroup
 
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-=== 1. Select the working environment
+==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
-=== 2. Select the aggregate
+==== 2. Select the aggregate
 
-Perform the workflow link:wf_azure_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
 
-=== 3. Choose the size for the disk
+==== 3. Choose the size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-=== 4. Choose the iscasiInfo parameters
+==== 4. Choose the iscsiInfo parameters
 
 You must choose the following values for the REST API call:
 
@@ -48,11 +58,11 @@ You must choose the following values for the REST API call:
 ** windows_2008
 ** windows_gpt
 
-=== 5. Create the quote
+==== 5. Create the quote
 
-Perform the workflow link:wf_azure_ontap_create_quote.html[Create quote].This is a recommended step but is not mandatory.
+Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-a-single-node[Create quote].This is a recommended step but is not mandatory.
 
-=== 6. Create the volume
+==== 6. Create the volume
 
 [cols="25,75"*,options="header"]
 |===
@@ -91,8 +101,8 @@ JSON input example::
     "igroupCreationRequest": {
         "igroupName": "zivIgroup",
         "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216",
-            "iqn.1994-05.com.redhat:96de86823426"
+            "iqn.1994-05.com.redhat:00xx00000000",
+            "iqn.1994-05.com.redhat:00xx00000000"
         ]
     },
     "osName": "linux"
@@ -108,32 +118,32 @@ Output::
 
 None
 
-== Create volume using iSCSI with an existing iGroup
+=== Create volume using iSCSI with an existing iGroup
 
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-=== 1. Select the working environment
+==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
-=== 2. Select the aggregate
+==== 2. Select the aggregate
 
-Perform the workflow link:wf_azure_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
 
-=== 3. Choose the size for the disk
+==== 3. Choose the size for the disk
 
-Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `byte`.
 
-=== 4. Choose the iGroup
+==== 4. Choose the iGroup
 
-Perform the workflow link:wf_azure_ontap_get_igroups.html[Get iGroups] and choose the igroups for the `iscasiInfo` -> `igroups` value. Also select the `osType` value for the `iscasiInfo` -> `osName`.
+Perform the workflow link:wf_azure_ontap_get_igroups.html#get-igroups-for-single-node[Get iGroups] and choose the igroups for the `iscasiInfo` -> `igroups` value. Also select the `osType` value for the `iscasiInfo` -> `osName`.
 
-=== 5. Create the quote
+==== 5. Create the quote
 
-Perform the workflow link:wf_azure_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-a-single-node[Create quote]. This is a recommended step but is not mandatory.
 
-=== 6. Create the volume
+==== 6. Create the volume
 
 [cols="25,75"*,options="header"]
 |===
@@ -146,6 +156,185 @@ Perform the workflow link:wf_azure_ontap_create_quote.html[Create quote]. This i
 curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+If an aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
+
+JSON input exmaple::
+[source,json]
+{
+  "workingEnvironmentId": "VsaWorkingEnvironment-UvFmWXoD",
+  "svmName": "svm_zivaws01we01",
+  "aggregateName": "aggr1",
+  "name": "zivaws01we01vol05Iscsi",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "iscsiInfo": {
+    "igroups": ["zivIgroup1"],
+    "osName": "linux"
+  },
+  "snapshotPolicyName": "default",
+  "enableThinProvisioning": true,
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "maxNumOfDisksApprovedToAdd": 0
+}
+
+Output::
+
+None
+
+== Create volume using iSCSI for high availability
+You can use this workflow to create a volume using iSCSI protocol for a dual node working environment.
+
+There are two workflows available depending on whether a new or existing iGroup is used. You need to select the correct workflow:
+
+* <<Create volume using iSCSI with a new iGroup>>
+* <<Create volume using iSCSI with an existing iGroup>>
+
+
+=== Create volume using iSCSI with a new iGroup
+
+[NOTE]
+If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
+
+==== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+
+==== 2. Select the aggregate
+
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+
+==== 3. Choose the size for the disk
+
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `byte`.
+
+==== 4. Choose the iscsiInfo parameters
+
+You must choose the following values for the REST API call:
+
+* A unique igroup name for `igroupCreationRequest` -> `igroupName` parameter
+* The required iqn’s to `igroupCreationRequest` -> `initiators` parameter.
+* The required operating system for the `osName` parameter from one of the following:
+** windows
+** linux
+** vmware
+** windows_2008
+** windows_gpt
+
+==== 5. Create the quote
+
+Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote].This is a recommended step but is not mandatory.
+
+==== 6. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
+
+JSON input example::
+[source,json]
+{
+   "workingEnvironmentId":"VsaWorkingEnvironment-1m76JaRt",
+   "svmName":"svm_ranukazure12",
+   "snapshotPolicyName":"default",
+   "name":"ranukvoliscsi",
+   "iops":null,
+   "throughput":null,
+   "providerVolumeType":"Premium_LRS",
+   "capacityTier":"Blob",
+   "tieringPolicy":"auto",
+   "verifyNameUniqueness":true,
+   "iscsiInfo":{
+      "igroupCreationRequest":{
+         "igroupName":"ig1",
+         "initiators":[
+            "iqn.1991-05.com.microsoft:pradipm02-pc"
+         ]
+      },
+      "osName":"windows"
+   },
+   "size":{
+      "size":200,
+      "unit":"GB"
+   },
+   "enableThinProvisioning":true,
+   "enableDeduplication":true,
+   "enableCompression":true,
+   "maxNumOfDisksApprovedToAdd":0,
+   "aggregateName":"aggr1"
+}
+
+Output::
+
+None
+
+=== Create volume using iSCSI with an existing iGroup
+
+[NOTE]
+If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
+
+==== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+
+==== 2. Select the aggregate
+
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+
+==== 3. Choose the size for the disk
+
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `byte`.
+
+==== 4. Choose the iGroup
+
+Perform the workflow link:wf_azure_ontap_get_igroups.html#get-igroups-for-high-availability-pair[Get iGroups] and choose the igroups for the `iscasiInfo` -> `igroups` value. Also select the `osType` value for the `iscasiInfo` -> `osName`.
+
+==== 5. Create the quote
+
+Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote]. This is a recommended step but is not mandatory.
+
+==== 6. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

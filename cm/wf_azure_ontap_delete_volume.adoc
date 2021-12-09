@@ -15,13 +15,21 @@ summary: "You can delete an existing volume."
 [.lead]
 You can delete an existing volume.
 
-=== 1. Select the working environment
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-Perform the link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] workflow and choose the `publicId` value for the working environment field in the input parameter.
+* <<Delete volume for single node, Single Node>>
+* <<Delete volume for high availability pair, HA pair>>
+
+== Delete volume for single node
+You can use this workflow to delete volume for a single node working environment.
+
+=== 1. Create the working environment
+
+Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] workflow and choose the `publicId` value for the working environment field in the input parameter.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and the `svmName` values of the volume to delete and use them for the `volumeName` and `svmName` path parameters.
+Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-single-node[Get volumes] and choose the `name` and the `svmName` values of the volume to delete and use them for the `volumeName` and `svmName` path parameters.
 
 === 3. Delete the volume
 
@@ -37,6 +45,45 @@ Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choos
 curl example::
 [source,curl]
 curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <VOLUME_NAME> `(volumeName)` string
+
+Output::
+
+None
+
+== Delete volume for high availability pair
+
+You can use this workflow to delete volume for an HA working environment.
+
+=== 1. Create the working environment
+
+Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] workflow and choose the `publicId` value for the working environment field in the input parameter.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-high-availability-pair[Get volumes] and choose the `name` and the `svmName` values of the volume to delete and use them for the `volumeName` and `svmName` path parameters.
+
+=== 3. Delete the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|DELETE
+|/occm/api/azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+
+curl example::
+[source,curl]
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
