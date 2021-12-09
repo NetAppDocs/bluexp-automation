@@ -1,0 +1,65 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_ontap_create_aggr.html
+keywords: cloud, manager, rest, api, aggregate, publicid, working, environment, aws
+summary: 'You can create a new aggregate within a working environment.'
+---
+
+= Create aggregate
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a new aggregate within an Azure working environment using this workflow.
+
+=== 1. Create the working environment 
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+
+=== 2. Select the Azure Storage Account Types
+
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Storage Account Types] workflow and choose the desired storage type:
+
+*	Choose the `diskType` of the desired storage type item for the `providerVolumeType` parameter in the JSON input.
+*	Choose the `size` value of the desired disk from the `sizes` -> `size` field for the `size` field inside `diskSize` parameter in the JSON input.
+*	Choose the `unit` value of the desired disk from the `sizes` -> `size` field for the `unit` field inside `diskSize` parameter in the JSON input.
+
+=== 3. Create the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|occm/api/azure/vsa/aggregates
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "name": "aggr3",
+  "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8",
+  "numberOfDisks": "2",
+  "diskSize": {
+    "size": "1",
+    "unit": "TB"
+  },
+  "providerVolumeType": "Premium_LRS"
+}
+
+
+
+Output::
+
+None
