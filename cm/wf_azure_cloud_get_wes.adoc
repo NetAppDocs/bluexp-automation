@@ -419,7 +419,7 @@ JSON output example::
                         "privateIp": true
                     }
                 ],
-                "serialNumber": "90320140000000000021",
+                "serialNumber": "0000000000000000",
                 "systemId": "2315255834",
                 "platformLicense": null,
                 "platformSerialNumber": null,
@@ -476,7 +476,7 @@ JSON output example::
                         "privateIp": true
                     }
                 ],
-                "serialNumber": "90320140000000000022",
+                "serialNumber": "0000000000000000",
                 "systemId": "2315255826",
                 "platformLicense": null,
                 "platformSerialNumber": null,
@@ -486,7 +486,7 @@ JSON output example::
             }
         ],
         "clusterName": "ShirleyHa2701",
-        "clusterUuid": "1fffb77e-6023-11eb-8eda-0022484b7979",
+        "clusterUuid": "xxx000000e-xxx00-xxx00-xxx00-xxx00xxx00",
         "ontapVersion": "9.9.0X5",
         "systemManagerUrl": "https://10.0.0.13/sysmgr/SysMgr.html",
         "creationTime": 1611698774849,
@@ -584,7 +584,7 @@ JSON output example::
                 "volumeNames": null,
                 "maxCapacity": null,
                 "licenseExpiryDate": 1611698969000,
-                "serialNumber": "90320140000000000021",
+                "serialNumber": "000000000000000000",
                 "volumeMoveParameters": null,
                 "workingEnvironmentId": "",
                 "licenseParameters": null,
@@ -606,7 +606,7 @@ JSON output example::
                 "volumeNames": null,
                 "maxCapacity": null,
                 "licenseExpiryDate": 1611699072000,
-                "serialNumber": "90320140000000000022",
+                "serialNumber": "000000000000000000000",
                 "volumeMoveParameters": null,
                 "workingEnvironmentId": "",
                 "licenseParameters": null,
@@ -824,14 +824,14 @@ JSON output example::
             "serialNumber": "90320140000000000021",
             "licenseExpiryDate": 1611698969000,
             "cloudLicenseExists": true,
-            "nssAccountId": "d6f3f954-3399-402f-97de-e2766c4414dc"
+            "nssAccountId": "x0x0x000-0000-0000x-00de-x000xxxx00000"
         },
         {
             "supportRegistrationStatus": "registered",
             "serialNumber": "90320140000000000022",
             "licenseExpiryDate": 1611699072000,
             "cloudLicenseExists": true,
-            "nssAccountId": "d6f3f954-3399-402f-97de-e2766c4414dc"
+            "nssAccountId": "x0x0x000-0000-0000x-00de-x000xxxx00000"
         }
     ],
     "capacityFeatures": {
@@ -954,7 +954,7 @@ JSON output example::
             "instanceId": null,
             "primaryIp": "10.0.0.26",
             "state": "running",
-            "serialNumber": "90320140000000000021",
+            "serialNumber": "000000000000000",
             "availabilitySet": {
                 "faultDomain": 0,
                 "updateDomain": 0
@@ -965,7 +965,7 @@ JSON output example::
             "instanceId": null,
             "primaryIp": "10.0.0.18",
             "state": "running",
-            "serialNumber": "90320140000000000022",
+            "serialNumber": "000000000000000000000000",
             "availabilitySet": {
                 "faultDomain": 1,
                 "updateDomain": 1

@@ -249,7 +249,7 @@ JSON output example::
         },
         "cbsBackupsInfo": null,
         "minimumCoolingDays": null,
-        "targetName": "iqn.1992-08.com.netapp:sn.fc281f43627611eb8f99000d3ae60645:vs.3",
+        "targetName": "iqn.1992-08.com.netapp:sn.fc000x0000000xx0x000000xae000005:vs.3",
         "iscsiEnabled": false,
         "isFlexGroupVolume": false
     },
@@ -332,7 +332,7 @@ JSON output example::
         },
         "cbsBackupsInfo": null,
         "minimumCoolingDays": null,
-        "targetName": "iqn.1992-08.com.netapp:sn.fc281f43627611eb8f99000d3ae60645:vs.3",
+        "targetName": "iqn.1992-08.com.netapp:sn.fc000x0000000xx0x000000xae000005:vs.3",
         "iscsiEnabled": false,
         "isFlexGroupVolume": false
     }

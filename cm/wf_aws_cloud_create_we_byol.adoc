@@ -15,10 +15,6 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 [.lead]
 You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring your own license (BYOL) licensing.
 
-.Before you begin
-
-You must have a *Connector* for the cloud environment before beginning the workflow. You can create a Connector using the Cloud Manager web user interface. When you create a Connector, Cloud Manager adds the cloud provider account that you deployed the Connector in to your list of available accounts. See the https://docs.netapp.com/us-en/occm/[Cloud Manager documentation^] for more information.
-
 ====
 *Note the following when using BYOL licensing*:
 
