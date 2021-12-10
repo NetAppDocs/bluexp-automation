@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_get_volumes.html
+permalink: cm/wf_gcp_ontap_get_volumes.html
 keywords: cloud, manager, rest, api, aws, workflows, get, volumes
 summary: "You can retrieve the list of volumes."
 ---
@@ -15,9 +15,9 @@ summary: "You can retrieve the list of volumes."
 [.lead]
 You can retrieve the list of volumes of a single node Azure working environment.
 
-=== 1. Create the working environment
+=== 1. Get the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
 
 === 2. Get the volumes
 
@@ -26,12 +26,12 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure singl
 |HTTP method
 |Path
 |GET
-|/occm/api/azure/vsa/volumes
+|/occm/api/gcp/vsa/volumes
 |===
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -45,21 +45,21 @@ JSON output example::
 [source,json]
 [
     {
-        "name": "vol1",
-        "uuid": "f9577a49-6014-11eb-b786-000d3a7e6f7c",
-        "svmName": "svm_ShirleyAzureVsa2601",
+        "name": "zivagg01vol01",
+        "uuid": "0x00000-0xx0-00xx-xx00-00xxxx000",
+        "svmName": "svm_zivgcp01we02",
         "size": {
-            "size": 10.0,
+            "size": 100.0,
             "unit": "GB"
         },
         "usedSize": {
-            "size": 2.74658203125E-4,
+            "size": 2.93731689453125E-4,
             "unit": "GB"
         },
-        "junctionPath": "/vol1",
-        "volumeTotalInodes": 311287,
+        "junctionPath": "/zivagg01vol01",
+        "volumeTotalInodes": 3112959,
         "volumeUsedInodes": 96,
-        "mountPoint": "10.0.0.10:/vol1",
+        "mountPoint": "10.138.0.150:/zivagg01vol01",
         "compressionSpaceSaved": {
             "size": 0.0,
             "unit": "GB"
@@ -74,10 +74,10 @@ JSON output example::
         "snapshotPolicy": "default",
         "securityStyle": "unix",
         "exportPolicyInfo": {
-            "name": "export-svm_ShirleyAzureVsa2601-vol1",
+            "name": "export-svm_zivgcp01we02-zivagg01vol01",
             "policyType": "custom",
             "ips": [
-                "10.0.0.0/16"
+                "10.138.0.0/20"
             ],
             "nfsVersion": [
                 "nfs3",
@@ -90,14 +90,14 @@ JSON output example::
         "rootVolume": false,
         "state": "online",
         "volumeType": "rw",
-        "aggregateName": "aggr1",
+        "aggregateName": "ziv01agg01",
         "parentSnapshot": null,
         "autoSizeMode": "grow",
         "maxGrowSize": {
-            "size": 110.0,
+            "size": 1100.0,
             "unit": "GB"
         },
-        "providerVolumeType": "Premium_LRS",
+        "providerVolumeType": "pd-ssd",
         "cloneNames": [],
         "moving": false,
         "primaryNoFailoverMountPoint": null,
@@ -108,11 +108,8 @@ JSON output example::
         "primaryCifsShareAccessPoint": null,
         "secondaryCifsShareAccessPoint": null,
         "tieringPolicy": "none",
-        "tierInactiveUserData": {
-            "size": 0.0,
-            "unit": "GB"
-        },
-        "tierInactiveUserDataPercent": 0,
+        "tierInactiveUserData": null,
+        "tierInactiveUserDataPercent": null,
         "comment": null,
         "qosPolicyGroupName": null,
         "snaplockType": "non_snaplock",
@@ -123,7 +120,7 @@ JSON output example::
         },
         "cbsBackupsInfo": null,
         "minimumCoolingDays": null,
-        "targetName": "iqn.1992-08.com.netapp:sn.65c7e1cc600d11eb8ca3000d3a7e6f7c:vs.2",
+        "targetName": "iqn.1992-08.com.netapp:sn.986656ab5e3e11eb9cb735a0758d479a:vs.2",
         "iscsiEnabled": false,
         "isFlexGroupVolume": false
     }

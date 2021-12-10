@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_delete_volume.html
+permalink: cm/wf_gcp_ontap_delete_volume.html
 keywords: delete, volume, cloud, manager, rest, api, existing, volume, aws, workflows
 summary: "You can delete an existing volume."
 ---
@@ -17,11 +17,11 @@ You can delete an existing volume.
 
 === 1. Select the working environment
 
-Perform the link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] workflow and choose the `publicId` value for the working environment field in the input parameter.
+Perform the link:wf_gcp_cloud_get_wes.html[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and the `svmName` values of the volume to delete and use them for the `volumeName` and `svmName` path parameters.
+Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
 === 3. Delete the volume
 
@@ -30,7 +30,7 @@ Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choos
 |HTTP method
 |Path
 |DELETE
-|/occm/api/azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|/occm/api/gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 |===
 
 

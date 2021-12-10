@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_create_quote.html
+permalink: cm/wf_gcp_ontap_create_quote.html
 keywords: cloud, manager, rest, api, aggregate, volume quote, azure
 summary: 'You can create a quote for a new volume which returns a resource quote needed to satisfy the request.'
 ---
@@ -15,23 +15,29 @@ summary: 'You can create a quote for a new volume which returns a resource quote
 [.lead]
 You can create a quote for a new volume which returns a resource quote needed to satisfy the request. The resource quote contains aggregate information where the volume will be created and confirms if the space is available. This is a recommended step but is not mandatory.
 
-=== 1. Create the working environment
+=== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the working environment field in the input parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` and ‘svmName’ values of the required working environment for `workingEnvironmentId` and `svmName` parameters in the JSON input.
 
-=== 2. Generate the volume quote
+=== 2. Select the aggregate
+Perform the link:wf_gcp_cloud_get_aggrs.html[Get aggregates] workflow and choose the `name` value of the required aggregate for the `aggregateName` parameter in the JSON input.
 
-[cols="25,75"*,options="header"]
+=== 3. Select the gcp disk type
+Perform the link:wf_gcp_cloud_get_gcp_disk_types.html[Get gcp disk types] workflow and choose the `size` and `supportedDiskType` values of the required disk type for the `diskSize` and `providerVolumeType` parameters in the JSON input.
+
+=== 4. Generate the volume quote
+
+[cols="~,~"*,options="header"]
 |===
 |HTTP method
 |Path
 |POST
-|/occm/api/azure/vsa/quote
+|/occm/api/gcp/vsa/quote
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -40,28 +46,17 @@ The JSON input example includes the list of input parameters.
 JSON input example::
 [source,json]
 {
-  "providerVolumeType": "Premium_LRS",
-  "verifyNameUniqueness": true,
-  "name": "vol3",
+  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+  "svmName": "svm_zivgcp01we02",
+  "aggregateName": "ziv01agg01",
+  "name": "zivagg01vol01",
   "size": {
-    "size": 10,
+    "size": "100",
     "unit": "GB"
   },
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "enableThinProvisioning": true,
-  "svmName": "svm_ShirleyAzureVsa2601",
-  "iops": null,
-  "snapshotPolicyName": "default",
-  "autoVsaCapacityManagementEnabled": true,
-  "exportPolicyInfo": {
-    "_ips": "10.0.0.0/16",
-    "ips": [
-      "10.0.0.0/16"
-    ],
-    "policyType": "custom"
-  },
-  "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8"
+  "enableThinProvisioning": "true",
+  "providerVolumeType": "pd-ssd",
+  "verifyNameUniqueness": "true"
 }
 
 Output::
@@ -73,10 +68,10 @@ JSON output example::
 {
     "numOfDisks": 0,
     "diskSize": {
-        "size": 1.0,
-        "unit": "TB"
+        "size": 100.0,
+        "unit": "GB"
     },
-    "aggregateName": "aggr1",
+    "aggregateName": "ziv01agg01",
     "newAggregate": false,
     "autoVsaCapacityManagement": true
 }

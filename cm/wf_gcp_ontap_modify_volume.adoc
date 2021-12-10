@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_modify_volume.html
+permalink: cm/wf_gcp_ontap_modify_volume.html
 keywords: cloud, manager, rest, api, modify, volume,
 summary: "You can modify the configuration of an existing volume."
 ---
@@ -15,14 +15,13 @@ summary: "You can modify the configuration of an existing volume."
 [.lead]
 You can modify the configuration of an existing volume.
 
-=== 1. Create the working environment
+=== 1. Get the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId`  and `svmName` values of the working environment for used as the `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
-
+Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
 === 3. Modify the volume
 
@@ -51,31 +50,17 @@ The JSON input example includes the minimum list of input parameters.
 JSON input example::
 [source,json]
 {
-  "volumeName": "vol5",
-  "svmName": "svm_ShirleyAzureVsa2601",
-  "originalVolumeInfo": {
-    "exportPolicyInfo": {
-      "ips": [
-        "10.0.0.0/16"
-      ],
-      "name": "export-svm_ShirleyAzureVsa2601-vol5",
-      "nfsVersion": [
-        "nfs3",
-        "nfs4"
-      ],
-      "policyType": "custom"
-    },
-    "shareInfo": [],
-    "snapshotPolicyName": "default"
-  },
-  "workingEnvironmentName": "ShirleyAzureVsa2601",
-  "snapshotPolicyName": "default",
   "exportPolicyInfo": {
-    "ips": [],
-    "policyType": "none"
-  },
-  "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8"
+    "policyType": "custom",
+    "ips": [
+      "10.000.0.0/20"
+    ],
+    "nfsVersion": [
+      "nfs3"
+    ]
+  }
 }
+
 
 Output::
 
