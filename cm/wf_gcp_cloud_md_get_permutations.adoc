@@ -5,7 +5,7 @@ keywords: permutations, cloud, volumes, ontap, working, environment, occm
 summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
 ---
 
-= Get Azure permutations
+= Get GCP permutations
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -22,26 +22,23 @@ You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP config
 |HTTP method
 |Path
 |GET
-|/occm/api/azure/vsa/metadata/permutations
+|/occm/api/gcp/vsa/metadata/permutations
 |===
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 
-There are several optional query parameters you can use:
+There are several *optional* query parameters you can use:
 
 * `region` string
 * `version` string
 * `license` string
-* `instance_type` string
-* `default_instance_type` string
-* `feature` string
+* `machine_type` string
 * `latest_only` string
-* `marketplace_version` string
-* `marketplace_sku` string
+
 
 Output::
 
@@ -51,11 +48,11 @@ JSON output example::
 [source,json]
 [
     {
-        "ontapVersion": "ONTAP-9.9.0X5.T1.azure",
+        "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
         "license": {
-            "type": "azure-cot-explore-paygo",
+            "type": "gcp-cot-explore-paygo",
             "name": "Cloud Volumes ONTAP Explore",
-            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying Azure storage.",
+            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
             "subName": "",
             "subDescription": "Support of tiering to object storage is not included.",
             "capacity_limit": "2TB",
@@ -66,29 +63,28 @@ JSON output example::
                 "unit": "TB"
             }
         },
-        "instanceType": "Standard_DS3_v2",
+        "instanceType": "custom-4-16384",
         "region": {
-            "name": "East US 2",
-            "code": "eastus2",
-            "location": "Virginia",
+            "name": "asia east 1",
+            "code": "asia-east1",
+            "location": "Changhua County, Taiwan",
             "s3Region": null
         },
-        "defaultInstance": true,
+        "defaultInstance": false,
         "features": [
-            "four-nics",
-            "no-sidl"
+            "cpu:Intel Skylake"
         ],
         "upgradeableFrom": [
             "9.8",
-            "9.9"
+            "9.9.0"
         ]
     },
     {
-        "ontapVersion": "ONTAP-9.9.0X5.T1.azure",
+        "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
         "license": {
-            "type": "azure-cot-explore-paygo",
+            "type": "gcp-cot-explore-paygo",
             "name": "Cloud Volumes ONTAP Explore",
-            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying Azure storage.",
+            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
             "subName": "",
             "subDescription": "Support of tiering to object storage is not included.",
             "capacity_limit": "2TB",
@@ -99,21 +95,20 @@ JSON output example::
                 "unit": "TB"
             }
         },
-        "instanceType": "Standard_DS3_v2",
+        "instanceType": "custom-4-16384",
         "region": {
-            "name": "East US 2",
-            "code": "eastus2",
-            "location": "Virginia",
+            "name": "asia east 2",
+            "code": "asia-east2",
+            "location": "Hong Kong",
             "s3Region": null
         },
-        "defaultInstance": true,
+        "defaultInstance": false,
         "features": [
-            "four-nics",
-            "no-sidl"
+            "cpu:Intel Skylake"
         ],
         "upgradeableFrom": [
             "9.8",
-            "9.9"
+            "9.9.0"
         ]
     }
 ]

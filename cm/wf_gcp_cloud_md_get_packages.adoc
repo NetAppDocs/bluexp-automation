@@ -5,7 +5,7 @@ keywords: permutations, cloud, volumes, ontap, working, environment, occm
 summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
 ---
 
-= Get Azure packages
+= Get GCP packages
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -22,12 +22,12 @@ You can perform this workflow to retrieve the pre-defined packages configuration
 |HTTP method
 |Path
 |GET
-|/occm/api/azure/vsa/metadata/packages
+|/occm/api/gcp/vsa/metadata/packages
 |===
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 
@@ -35,23 +35,23 @@ None
 
 Output::
 
-The JSON output example includes the list of Azure  storage account types.
+The JSON output example includes the list of GCP packages.
 
 JSON output example::
 [source, json]
-Output example	[
+[
     {
-        "name": "azure_poc",
+        "name": "gcp_poc",
         "displayName": "POC and small workloads",
         "description": "No description yet",
-        "licenseType": "azure-cot-explore-paygo",
+        "licenseType": "gcp-cot-explore-paygo",
         "instanceTypeMapping": [
             {
                 "region": "default",
-                "instanceType": "Standard_DS3_v2"
+                "instanceType": "custom-4-16384"
             }
         ],
-        "diskType": "Premium_LRS",
+        "diskType": "pd-ssd",
         "diskSize": {
             "size": 100.0,
             "unit": "GB"
@@ -61,62 +61,62 @@ Output example	[
         "writingSpeedState": "NORMAL"
     },
     {
-        "name": "azure_standard",
+        "name": "gcp_standard",
         "displayName": "Database and application data production workloads",
         "description": "No description yet",
-        "licenseType": "azure-cot-standard-paygo",
+        "licenseType": "gcp-cot-standard-paygo",
         "instanceTypeMapping": [
             {
                 "region": "default",
-                "instanceType": "Standard_DS4_v2"
+                "instanceType": "n1-standard-8"
             }
         ],
-        "diskType": "Premium_LRS",
+        "diskType": "pd-ssd",
         "diskSize": {
             "size": 100.0,
             "unit": "GB"
         },
-        "capacityTier": null,
+        "capacityTier": "GCP",
         "instanceTenancy": null,
         "writingSpeedState": "NORMAL"
     },
     {
-        "name": "azure_dr",
+        "name": "gcp_dr",
         "displayName": "Cost effective DR",
         "description": "No description yet",
-        "licenseType": "azure-cot-standard-paygo",
+        "licenseType": "gcp-cot-standard-paygo",
         "instanceTypeMapping": [
             {
                 "region": "default",
-                "instanceType": "Standard_DS4_v2"
+                "instanceType": "n1-standard-8"
             }
         ],
-        "diskType": "Standard_LRS",
+        "diskType": "pd-standard",
         "diskSize": {
             "size": 100.0,
             "unit": "GB"
         },
-        "capacityTier": null,
+        "capacityTier": "GCP",
         "instanceTenancy": null,
         "writingSpeedState": "NORMAL"
     },
     {
-        "name": "azure_fastest",
+        "name": "gcp_fastest",
         "displayName": "Highest performance production workloads",
         "description": "No description yet",
-        "licenseType": "azure-cot-premium-paygo",
+        "licenseType": "gcp-cot-premium-paygo",
         "instanceTypeMapping": [
             {
                 "region": "default",
-                "instanceType": "Standard_DS5_v2"
+                "instanceType": "n1-standard-32"
             }
         ],
-        "diskType": "Premium_LRS",
+        "diskType": "pd-ssd",
         "diskSize": {
             "size": 100.0,
             "unit": "GB"
         },
-        "capacityTier": null,
+        "capacityTier": "GCP",
         "instanceTenancy": null,
         "writingSpeedState": "NORMAL"
     }
