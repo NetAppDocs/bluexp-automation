@@ -5,7 +5,7 @@ keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
 summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
 ---
 
-= Get Azure regions
+= Get GCP regions
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,9 +13,8 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 :imagesdir: ./media/
 
 [.lead]
-This workflow retrieves the Azure regions in which an Cloud Volumes ONTAP working environment may be created.
+This workflow retrieves the GCP regions in which an Cloud Volumes ONTAP working environment might be created.
 
-NOTE: Ensure that you've the Azure subscription ID. You can easily obtain the ID from the Azure portal. 
 
 === 1. Get the list of regions
 
@@ -24,47 +23,123 @@ NOTE: Ensure that you've the Azure subscription ID. You can easily obtain the ID
 |HTTP method
 |Path
 |GET
-|/occm/api/azure/vsa/metadata/regions
+|/occm/api/gcp/vsa/metadata/regions
 |===
 
-Curl example::
+curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/regions?subscriptionId=<SUBSCRIPTION_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
-Query parameters (Optional):
-
-* `fields`, string
-* `subscriptionId`, string
-* `cloudProviderAccountId`, string
+None
 
 
 Output::
 
-The JSON output provides an example of a list of Azure regions.
+The JSON output provides an example of a list of GCP regions.
 
 JSON output example::
 [source,json]
 [
     {
-        "displayName": "Central US",
-        "name": "centralus",
-        "vnets": null
-    },
+        "displayName": "asia-east1",
+        "name": "asia-east1",
+        "zones": [
+            {
+                "name": "asia-east1-a"
+            },
+            {
+                "name": "asia-east1-b"
+            },
+            {
+                "name": "asia-east1-c"
+            }
+        ],
+        "vpcs": [
+            {
+                "name": "default",
+                "subnets": [
+                    {
+                        "ipCidrRange": "10.140.0.0/20",
+                        "name": "default",
+                        "path": "projects/occm-dev/regions/asia-east1/subnetworks/default",
+                        "availableIps": 4090,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "allow-all",
+                        "vpc": "default"
+                    },
+                    {
+                        "name": "allow-ssh-netapp",
+                        "vpc": "default"
+                    }
+               ]
+            },
+           {
+                "name": "eli-vpc",
+                "subnets": [
+                    {
+                        "ipCidrRange": "10.0.0.0/00",
+                        "name": "eli-subnet",
+                        "path": "projects/occm-dev/regions/asia-east1/subnetworks/eli-subnet",
+                        "availableIps": 250,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "eli-vpc-allow-http",
+                        "vpc": "eli-vpc"
+                    },
+                    {
+                        "name": "eli-vpc-allow-https",
+                        "vpc": "eli-vpc"
+                    }
+               ]
+            },
+          ],
+         },
     {
-        "displayName": "East US",
-        "name": "eastus",
-        "vnets": null
-    },
-    {
-        "displayName": "East US 2",
-        "name": "eastus2",
-        "vnets": null
-    },
-    {
-        "displayName": "West US 2",
-        "name": "westus2",
-        "vnets": null
-    }
-]
+        "displayName": "asia-northeast1",
+        "name": "asia-northeast1",
+        "zones": [
+            {
+                "name": "asia-northeast1-a"
+            },
+            {
+                "name": "asia-northeast1-b"
+            },
+            {
+                "name": "asia-northeast1-c"
+            }
+        ],
+        "vpcs": [
+            {
+                "name": "default",
+                "subnets": [
+                    {
+                        "ipCidrRange": "00.000.0.0/20",
+                        "name": "default",
+                        "path": "projects/occm-dev/regions/asia-northeast1/subnetworks/default",
+                        "availableIps": 4090,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "allow-all",
+                        "vpc": "default"
+                    },
+                    {
+                        "name": "allow-ssh-netapp",
+                        "vpc": "default"
+                    }
+                 ]
+            }
+        ]
+   }
+}

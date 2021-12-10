@@ -216,18 +216,28 @@ entries:
                url: /cm/wf_gcp_ontap_get_igroups.html
         - title: Metadata
           entries:
-             - title: Get Azure regions
+             - title: Get GCP regions
                url: /cm/wf_gcp_cloud_md_get_regions.html
-             - title: Get Azure permutations
+             - title: Get permutations
                url: /cm/wf_gcp_cloud_md_get_permutations.html
-             - title: Get Azure storage account types
-               url: /cm/wf_gcp_cloud_md_get_storage_account_types.html
-             - title: Get Azure VNets
-               url: /cm/wf_gcp_cloud_md_get_vnets.html
-             - title: Get Azure availability zones
-               url: /cm/wf_gcp_cloud_md_get_availability_zones.html
-             - title: Get Azure packages
+             - title: Get supported features
+               url: /cm/wf_gcp_cloud_md_get_supported_features.html
+             - title: Get tag keys
+               url: /cm/wf_gcp_cloud_md_get_tag_keys.html
+             - title: Create buckets
+               url: /cm/wf_gcp_cloud_md_create_buckets.html
+             - title: Get GCP packages
                url: /cm/wf_gcp_cloud_md_get_packages.html
+             - title: Get snapshot policies
+               url: /cm/wf_gcp_cloud_md_snapshot_policies.html
+             - title: Get supported features
+               url: /cm/wf_gcp_cloud_md_get_supported_features
+             - title: Get supported capacity tiers
+               url: /cm/wf_gcp_cloud_md_get_supported_tiers.html
+             - title: Get service accounts
+               url: /cm/wf_gcp_cloud_md_get_service_accounts.html
+             - title: Get projects
+               url: /cm/wf_gcp_cloud_md_get_projects.html
         - title: Miscellaneous
           entries:
             - title: Create Azure cloud provider account
