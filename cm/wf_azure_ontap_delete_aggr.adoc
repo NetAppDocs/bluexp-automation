@@ -44,7 +44,7 @@ Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-s
 
 curl example::
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>/aggr2' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -79,7 +79,7 @@ Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-h
 
 curl example::
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates/<WORKING_ENV_ID>/aggr2' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
