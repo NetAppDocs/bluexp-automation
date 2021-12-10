@@ -144,7 +144,7 @@ JSON output example::
 }
 
 == Get Azure VNets for high availability pair
-You can perform this workflow to retrieve the Azure VNets for an HA working environment.
+You can perform this workflow to retrieve the Azure network extended information for an HA working environment.
 
 === 1. Get the VNets
 
