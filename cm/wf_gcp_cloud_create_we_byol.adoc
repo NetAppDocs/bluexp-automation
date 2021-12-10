@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_cloud_create_we_byol.html
+permalink: cm/wf_gcp_cloud_create_we_byol.html
 keywords: byol, license, cloud, manager, rest, api
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using BYOL licensing.'
 ---
@@ -20,7 +20,7 @@ You can use this workflow to create a new Cloud Volumes ONTAP working environmen
 
 * A marketplace subscription is not required.
 * A NetApp Support Site (NSS) key is required to register the system for support.
-* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
+* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
 =====
 
 

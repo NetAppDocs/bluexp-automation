@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_get_aggrs.html
+permalink: cm/wf_gcp_ontap_get_aggrs.html
 keywords: cloud, manager, rest, api, get aggregates
 summary: 'You can retrieve a list of available disk aggregates.'
 ---
@@ -13,11 +13,11 @@ summary: 'You can retrieve a list of available disk aggregates.'
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve a list of available disk aggregates of an Azure working environment.
+You can retrieve a list of available disk aggregates of a Google Cloud working environment.
 
-=== 1. Create the working environment 
+=== 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Get the list of aggregates
 
@@ -26,12 +26,12 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure singl
 |HTTP method
 |Path
 |GET
-|/occm/api/azure/vsa/aggregates/{workingEnvironmentId}
+|/occm/api/gcp/vsa/aggregates/{workingEnvironmentId}
 |===
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -50,11 +50,11 @@ JSON output example::
     {
         "name": "aggr1",
         "availableCapacity": {
-            "size": 905.27,
+            "size": 87.55,
             "unit": "GB"
         },
         "totalCapacity": {
-            "size": 906.29,
+            "size": 88.57,
             "unit": "GB"
         },
         "usedCapacity": {
@@ -63,13 +63,13 @@ JSON output example::
         },
         "volumes": [
             {
-                "name": "svm_ShirleyAzureVsa2601_root",
+                "name": "svm_zivgcp01we02_root",
                 "totalSize": {
                     "size": 1.0,
                     "unit": "GB"
                 },
                 "usedSize": {
-                    "size": 3.62396240234375E-4,
+                    "size": 7.59124755859375E-4,
                     "unit": "GB"
                 },
                 "thinProvisioned": false,
@@ -79,17 +79,17 @@ JSON output example::
         ],
         "providerVolumes": [
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk3",
-                "name": "ShirleyAzureVsa2601datadisk3",
+                "id": "00000000000000000",
+                "name": "zivgcp01we02datadisk1",
                 "size": {
-                    "size": 1.0,
-                    "unit": "TB"
+                    "size": 100.0,
+                    "unit": "GB"
                 },
-                "state": "available",
-                "device": "3",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
-                "diskType": "Premium_LRS",
-                "encrypted": false,
+                "state": "READY",
+                "device": "zivgcp01we02datadisk1",
+                "instanceId": "zivgcp01we02",
+                "diskType": "pd-ssd",
+                "encrypted": true,
                 "iops": null
             }
         ],
@@ -97,143 +97,20 @@ JSON output example::
             {
                 "name": "NET-1.2",
                 "position": "data",
-                "ownerNode": "ShirleyAzureVsa2601-01",
-                "device": "LUN 5.3",
+                "ownerNode": "zivgcp01we02-01",
+                "device": "zivgcp01we02datadisk1",
                 "vmDiskProperties": null
             }
         ],
         "state": "online",
-        "encryptionType": "notEncrypted",
+        "encryptionType": "cloudEncrypted",
         "encryptionKeyId": null,
         "isRoot": false,
-        "homeNode": "ShirleyAzureVsa2601-01",
-        "ownerNode": "ShirleyAzureVsa2601-01",
+        "homeNode": "zivgcp01we02-01",
+        "ownerNode": "zivgcp01we02-01",
         "capacityTier": null,
         "capacityTierUsed": null,
-        "sidlEnabled": false,
-        "snaplockType": "non_snaplock"
-    },
-    {
-        "name": "aggr2",
-        "availableCapacity": {
-            "size": 906.29,
-            "unit": "GB"
-        },
-        "totalCapacity": {
-            "size": 906.29,
-            "unit": "GB"
-        },
-        "usedCapacity": {
-            "size": 3.48,
-            "unit": "MB"
-        },
-        "volumes": [],
-        "providerVolumes": [
-            {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk4",
-                "name": "ShirleyAzureVsa2601datadisk4",
-                "size": {
-                    "size": 1.0,
-                    "unit": "TB"
-                },
-                "state": "available",
-                "device": "4",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
-                "diskType": "Premium_LRS",
-                "encrypted": false,
-                "iops": null
-            }
-        ],
-        "disks": [
-            {
-                "name": "NET-1.3",
-                "position": "data",
-                "ownerNode": "ShirleyAzureVsa2601-01",
-                "device": "LUN 5.4",
-                "vmDiskProperties": null
-            }
-        ],
-        "state": "online",
-        "encryptionType": "notEncrypted",
-        "encryptionKeyId": null,
-        "isRoot": false,
-        "homeNode": "ShirleyAzureVsa2601-01",
-        "ownerNode": "ShirleyAzureVsa2601-01",
-        "capacityTier": null,
-        "capacityTierUsed": null,
-        "sidlEnabled": false,
-        "snaplockType": "non_snaplock"
-    },
-    {
-        "name": "aggr3",
-        "availableCapacity": {
-            "size": 1.77,
-            "unit": "TB"
-        },
-        "totalCapacity": {
-            "size": 1.77,
-            "unit": "TB"
-        },
-        "usedCapacity": {
-            "size": 5.78,
-            "unit": "MB"
-        },
-        "volumes": [],
-        "providerVolumes": [
-            {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk5",
-                "name": "ShirleyAzureVsa2601datadisk5",
-                "size": {
-                    "size": 1.0,
-                    "unit": "TB"
-                },
-                "state": "available",
-                "device": "5",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
-                "diskType": "Premium_LRS",
-                "encrypted": false,
-                "iops": null
-            },
-            {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk6",
-                "name": "ShirleyAzureVsa2601datadisk6",
-                "size": {
-                    "size": 1.0,
-                    "unit": "TB"
-                },
-                "state": "available",
-                "device": "6",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
-                "diskType": "Premium_LRS",
-                "encrypted": false,
-                "iops": null
-            }
-        ],
-        "disks": [
-            {
-                "name": "NET-1.4",
-                "position": "data",
-                "ownerNode": "ShirleyAzureVsa2601-01",
-                "device": "LUN 5.5",
-                "vmDiskProperties": null
-            },
-            {
-                "name": "NET-1.5",
-                "position": "data",
-                "ownerNode": "ShirleyAzureVsa2601-01",
-                "device": "LUN 5.6",
-                "vmDiskProperties": null
-            }
-        ],
-        "state": "online",
-        "encryptionType": "notEncrypted",
-        "encryptionKeyId": null,
-        "isRoot": false,
-        "homeNode": "ShirleyAzureVsa2601-01",
-        "ownerNode": "ShirleyAzureVsa2601-01",
-        "capacityTier": null,
-        "capacityTierUsed": null,
-        "sidlEnabled": false,
+        "sidlEnabled": true,
         "snaplockType": "non_snaplock"
     }
 ]

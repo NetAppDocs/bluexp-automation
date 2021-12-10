@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_add_disks_aggr.html
+permalink: cm/wf_gcp_ontap_add_disks_aggr.html
 keywords: disk, aggregate, cloud, manager, ONTAP, get, working, environment
 summary: You can add disks to an existing aggregate.
 ---
@@ -17,11 +17,11 @@ You can add disks to an existing aggregate.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get GCP single node working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
 === 2. Create the aggregate
 
-Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose `name` of the required aggregate for the `aggregateName` path parameter.
 
 === 3. Add the disks to the aggregate
 
@@ -30,12 +30,12 @@ Perform the workflow link:wf_azure_ontap_create_aggr.html[Create aggregate] to c
 |HTTP method
 |Path
 |POST
-|/occm/api/azure/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/disks
+|/occm/api/gcp/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/disks
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>/aggr2/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
