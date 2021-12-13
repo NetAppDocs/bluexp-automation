@@ -16,19 +16,28 @@ summary: 'There are several workflows you can use with any of the public cloud p
 There are several workflows you can use with any of the public cloud providers.
 
 [NOTE]
-Before using any of the Cloud Manager REST API workflows, make sure to first review link:getting_started.html[Getting started].
+Before using any of the Cloud Manager REST API workflows, review link:getting_started.html[Get started] section.
 
 == Workflow categories
-The common workflows are organized into the following categories:
+The common workflows are organized into the following functional categories:
 
-* Identity and access
-* SaaS marketplace
-* NetApp support site
-* Internal tasks and support
-* SnapMirror replication
+Identity and access::
+These workflows are typically used to obtain an access token to identify the API caller and manage authorized access of resources.
+
+SaaS marketplace::
+These workflows allow you to manage subscription of a cloud provider account. You can perform specific workflows to attach a Cloud Manager SaaS subscription to the cloud provider account or retrieve a list of subscriptions.
+
+NetApp Support site::
+You can perform specific workflows to manage NSS keys in order to register a Cloud Manager REST resource for support. Specific NSS keys or all of the available keys can be retrieved. You can also create or delete an NSS key by using specific workflows.
+
+Internal task::
+You can use these workflows to retrieve the information and status of a background task.
+
+SnapMirror Replication::
+These workflows allow you to manage and monitor SnapMirror relationships to replicate data between source and destination working environments for disaster recovery and backup to optimize data availability.
 
 == Connector setup
 
-You must have a *Connector* for the cloud environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the Cloud Manager web UI. When you create a Connector, Cloud Manager adds the Azure cloud provider account that you deployed the Connector in to your list of available accounts. Your Azure account needs to have the right permissions in order to create a Connector.
+You must have a *Connector* for the cloud environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the Cloud Manager web UI. When you create a Connector, Cloud Manager adds the cloud provider account that you deployed the Connector in to your list of available accounts. Your cloud provider account needs to have the right permissions in order to create a Connector.
 
 Review https://docs.netapp.com/us-en/occm/task_creating_connectors_azure.html[Learn about Azure Connectors] to know how to create and deploy an Azure Connector.
