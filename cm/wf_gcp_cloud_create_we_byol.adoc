@@ -26,7 +26,9 @@ You can use this workflow to create a new Cloud Volumes ONTAP working environmen
 
 === 1. Select the region
 
-Perform the workflow link:wf_azure_cloud_md_get_regions.html[Get regions] and choose the `name` value of the required region for the `region` parameter in step 10.
+Perform the workflow link:wf_azure_cloud_md_get_regions.html[Get regions] and choose the `zone:name` value of the required region for the `region` parameter in step 10.
+
+
 
 === 2. Select the workspace
 
