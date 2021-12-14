@@ -50,7 +50,7 @@ Query parameters:
 
 Output::
 
-The JSON output example includes the list of Azure  storage account types.
+The JSON output example includes the list of Azure availability zones.
 
 JSON output example::
 [source, json]
@@ -91,7 +91,7 @@ Query parameters:
 
 Output::
 
-The JSON output example includes the list of Azure  storage account types.
+The JSON output example includes the list of Azure availability zones.
 
 JSON output example::
 [source, json]

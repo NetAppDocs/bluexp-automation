@@ -821,14 +821,14 @@ JSON output example::
     "supportRegistrationInformation": [
         {
             "supportRegistrationStatus": "registered",
-            "serialNumber": "90320140000000000021",
+            "serialNumber": "00000000000000",
             "licenseExpiryDate": 1611698969000,
             "cloudLicenseExists": true,
             "nssAccountId": "x0x0x000-0000-0000x-00de-x000xxxx00000"
         },
         {
             "supportRegistrationStatus": "registered",
-            "serialNumber": "90320140000000000022",
+            "serialNumber": "0000000001111",
             "licenseExpiryDate": 1611699072000,
             "cloudLicenseExists": true,
             "nssAccountId": "x0x0x000-0000-0000x-00de-x000xxxx00000"

@@ -17,7 +17,7 @@ You can use this workflow to attach a Cloud Manager SaaS subscription to a cloud
 
 === 1. Select the cloud provider path parameter
 
-Select the cloud provider from the list of allowed values below. You will use this value as the _provider_ path parameter in the Curl example in step 4.
+Select the cloud provider from the list of allowed values below. You will use this value as the _provider_ path parameter in the curl example in step 4.
 
 * aws
 * azure
@@ -52,7 +52,7 @@ The JSON input example includes the input parameter.
 JSON input example::
 [source,json]
 {
-  "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+  "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier0"
 }
 
 Output::
