@@ -27,7 +27,7 @@ The AWS workflows are organized into the following functional categories:
 * Metadata
 * Miscellaneous
 
-Review the link:workflow_processes.html#2-functional-category[Workflow processes] for more information on these categories.
+See link:workflow_processes.html[Understanding the workflow processes] for more information on these categories.
 
 == Connector setup
 

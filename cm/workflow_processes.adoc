@@ -40,28 +40,26 @@ Most of the workflows can be performed with one cloud provider. The supported cl
 * Microsoft Azure
 * Google Cloud Platform
 
-In addition, some workflows are not tied to a specific cloud provider and can be performed in any cloud environment. These workflows are considered to be *common* to all the cloud providers. Review the link:wf_common.html[Before you begin] page for more information on each of the Common workflow categories.
+NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:../cm/wf_common.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
 
 === 2. Functional category
 
 The workflows for each cloud provider (AWS, Azure, GCP) are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
 Working environments::
-A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administration. You can perform specific workflows to create a working environment based on your preferred licensing instance (PAYGO or BYOL), remove a working environment, or retrieve working environment details. In addition, you can configure the CIFS server if you want to create volumes using the CIFS protocol while creating a working environment.
+A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administrative tasks. You can perform specific workflows to create a working environment based on your preferred licensing model (PAYGO or BYOL), remove a working environment, and retrieve the details of a working environment. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of creating a working environment.
 
 Aggregates::
-An aggregate is the low-level structure for Cloud Volumes ONTAP storage. These workflows allow you to create aggregates and perform related administration.
+An aggregate is the low-level structure for Cloud Volumes ONTAP storage. These workflows allow you to create aggregates and perform related administrative tasks.
 
 Volumes::
-The storage volumes can be exposed for use by your applications. You can perform specific workflows to create a volume (using NFS, CIFS or ISCSI protocol), delete a volume, retrieve, or modify an existing volume based on your storage requirements.
+You can expose the storage volumes for use by your applications. You can perform these workflows to create a volume (using NFS, CIFS, or iSCSI protocol) as well as delete, retrieve, and modify an existing volume based on your storage requirements.
 
 Metadata::
 The metadata workflows allow you to view and administer the basic configuration of your cloud environment.
 
 Miscellaneous::
-A workflow that is not clearly assigned to another functional category is considered miscellaneous. This specific workflow allows you to create a cloud provider account. This account stores and manages your cloud provider credentials securely and creates an identity for users (for example, InstanceProfile for AWS, ManagedIdentity for Azure). This account provides fine-grained access control of services and resources.
-
-
+A workflow that is not assigned to an existing functional category is considered _Miscellaneous_. For example, there is a workflow to create a cloud provider account. The cloud provider account securely stores and manages your cloud provider credentials and establishes an identity for users (such as InstanceProfile with AWS and ManagedIdentity with Azure). This account provides fine-grained authorization of the services and resources based on multiple critical conditions.
 
 === 3. Single node and High Availability workflows
 
@@ -74,7 +72,7 @@ HA pair::
 The cluster consists of two linked Cloud Volumes ONTAP instances which together provide the ONTAP high availability (HA) feature.
 
 [NOTE]
-If both versions of a workflow exist for an administrative task they are included on the same page.
+If both versions of a workflow exist for an administrative task, they are included on the same page.
 
 == Base URLs and REST endpoint paths
 
