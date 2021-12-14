@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring your own license (BYOL) licensing.
+You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring-your-own-license (BYOL) licensing.
 
 =====
 *Note the following when using BYOL licensing*:
@@ -23,10 +23,17 @@ You can use this workflow to create a new Cloud Volumes ONTAP working environmen
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
 =====
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Select the region
 
-Perform the workflow link:wf_azure_cloud_md_get_regions.html[Get regions] and choose the `name` value of the required region for the `region` parameter in step 10.
+Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-single-node[Get regions] and choose the `name` value of the required region for the `region` parameter in step 10.
 
 === 2. Select the workspace
 
@@ -34,7 +41,7 @@ Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and c
 
 === 3. Select the VNets
 
-Perform the workflow link:wf_azure_cloud_md_get_vnets.html[Get VNets] and do the following:
+Perform the workflow link:wf_azure_cloud_md_get_vnets.html#get-azure-vnets-for-single-node[Get VNets] and do the following:
 
 * Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 10.
 *	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 10.
@@ -44,11 +51,11 @@ Perform the workflow link:wf_azure_cloud_md_get_vnets.html[Get VNets] and do the
 
 === 4. Select the Azure availability zone
 
-Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html[Get Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 10.
+Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html#get-availability-zones-for-single-node[Get Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 10.
 
 === 5. Select Azure packages configuration
 
-Perform the link:wf_azure_cloud_md_get_packages.html[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
+Perform the link:wf_azure_cloud_md_get_packages.html#get-packages-for-single-node[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
 
 
 === 6. Obtain the required NSS key
@@ -65,7 +72,7 @@ Perform the link:wf_azure_cloud_md_create_account.html[Get Azure Cloud Provider 
 
 === 8. Select the Azure permutations
 
-Perform the link:wf_azure_cloud_md_get_permutations.html[Get Azure Permutations] workflow and pick the desired permutation:
+Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-single-node[Get Azure Permutations] workflow and pick the desired permutation:
 
 *	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 10.
 *	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 10.
@@ -73,7 +80,7 @@ Perform the link:wf_azure_cloud_md_get_permutations.html[Get Azure Permutations]
 
 === 9. Select the Azure storage account types
 
-Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Storage Account Types] workflow and pick the desired storage type.
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-single-node[Get Azure Storage Account Types] workflow and pick the desired storage type.
 
 *	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 10.
 *	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 10.
@@ -92,11 +99,7 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Stor
 
 curl example::
 [source,curl]
-----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //1 --header 'Authorization: Bearer <ACCESS_TOKEN>' //2 --header 'Content-Type: application/json' --d @JSONinput
-----
-(1) Replace <AGENT_ID> with your agent ID.
-(2) Replace <ACCESS_TOKEN> with your obtained bearer access token.
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
 
 Input::
 
@@ -115,19 +118,19 @@ JSON input example::
     "licenseType": "azure-cot-premium-byol",
     "instanceType": "Standard_DS3_v2"
   },
-  "nssAccount": "x0x0x000-0000-000x-00xx-xxxxxc0000xx",
-  "subnetId": "/subscriptions/x000xx00-0x00-0000-000x-x00xxxx0x00/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
+  "nssAccount": "x0x0x000-0000-000x-00xx-x0000cx0000xx",
+  "subnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
   "svmPassword": "password",
-  "vnetId": "/subscriptions/x000xx00-0x00-0000-000x-x00xxxx0x00/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
+  "vnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
   "cidr": "10.0.0.0/16",
   "diskSize": {
     "size": 1,
     "unit": "TB"
   },
   "storageType": "Premium_LRS",
-  "resourceGroup": "Azure123-rg",
-  "serialNumber": "90320130000000005001",
-  "subscriptionId": "x000xx00-0x00-0000-000x-x00xxxx0x00",
+  "resourceGroup": "Azure000-xx",
+  "serialNumber": "00000110000000000001",
+  "subscriptionId": "x000xx00-0x00-0000-000x",
   "cloudProviderAccount": "ManagedServiceIdentity",
   "availabilityZone": 2
 }
@@ -171,4 +174,123 @@ JSON output example
     "cbsProperties": null,
     "complianceProperties": null,
     "monitoringProperties": null
+}
+
+== Create working environment for high availability pair
+You can use this workflow to create an HA working environment with BYOL licensing.
+
+=== 1. Select the region
+
+Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-high-availability-pair[Get regions] and choose the `name` value of the required region for the `region` parameter in step 10.
+
+=== 2. Select the workspace
+
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+
+=== 3. Select the VNets
+
+Perform the workflow link:wf_azure_cloud_md_get_vnets.html#get-azure-vnets-for-high-availability-pair[Get VNets] and do the following:
+
+* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 10.
+*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 10.
+* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 10.
+*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 10.
+
+
+=== 4. Select the Azure availability zone
+
+Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html#get-availability-zones-for-high-availability-pair[Get Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 10.
+
+=== 5. Select Azure packages configuration
+
+Perform the link:wf_azure_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
+
+
+=== 6. Obtain the required NSS key
+
+An NSS key is *required* when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 10.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the `id`.
+
+* To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 7. Select Azure cloud provider accounts
+
+Perform the link:wf_azure_cloud_md_create_account.html[Get Azure Cloud Provider Accounts] workflow and choose the `publicId` of the desired cloud provider account item from the `azureAccounts` for the `cloudProviderAccount` parameter.
+
+=== 8. Select the Azure permutations
+
+Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get Azure Permutations] workflow and pick the desired permutation:
+
+*	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 10.
+*	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 10.
+*	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 10.
+
+=== 9. Select the Azure storage account types
+
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-high-availability-pair[Get Azure Storage Account Types] workflow and pick the desired storage type.
+
+*	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 10.
+*	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 10.
+*	Choose the `unit` of the desired disk size from the `sizes` -> `size` field for the `unit` field inside the `diskSize` parameter in step 10.
+
+
+=== 10. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/working-environments
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `serialNumber` is required.
+
+JSON input example::
+[source,json]
+{
+  "name": "ShirleyHa2701",
+  "tenantId": "tenantID",
+  "region": "eastus2",
+  "packageName": "azure_ha_standard",
+  "dataEncryptionType": "AZURE",
+  "capacityTier": "Blob",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.9.0X5.T1.azureha",
+    "licenseType": "azure-ha-cot-premium-byol",
+    "instanceType": "Standard_DS4_v2"
+  },
+  "nssAccount": "x0x0x000-0000-000x-00xx-x0000cx0000xx",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet1",
+  "svmPassword": "password",
+  "vnetId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
+  "cidr": "10.0.0.0/16",
+  "ontapEncryptionParameters": null,
+  "skipSnapshots": false,
+  "diskSize": {
+    "size": 500,
+    "unit": "GB",
+    "_identifier": "500 GB"
+  },
+  "storageType": "Premium_LRS",
+  "azureTags": [],
+  "resourceGroup": "ShirleyHa2701-rg",
+  "subscriptionId": "x000xx00-0x00-0000-000x,
+  "cloudProviderAccount": "ManagedServiceIdentity",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "enableMonitoring": false,
+  "availabilityZone": null,
+  "haParams": {
+    "platformSerialNumberNode1": "00000110000000000001",
+    "platformSerialNumberNode2": "00000110000000000002"
+  }
 }

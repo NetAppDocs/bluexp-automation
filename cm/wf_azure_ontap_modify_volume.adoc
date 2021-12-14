@@ -15,13 +15,21 @@ summary: "You can modify the configuration of an existing volume."
 [.lead]
 You can modify the configuration of an existing volume.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Modify volume for single node, Single Node>>
+* <<Modify volume for high availability pair, HA pair>>
+
+== Modify volume for single node
+You can use this workflow to modify the volume configuration for a single node working environment.
+
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
+Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-single-node[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
 
 
 === 3. Modify the volume
@@ -76,6 +84,81 @@ JSON input example::
   },
   "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8"
 }
+
+Output::
+
+None
+
+== Modify volume for high availability pair
+You can use this workflow to modify the volume configuration for an HA working environment.
+
+=== 1. Create the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-high-availability-pair[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
+
+
+=== 3. Modify the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|PUT
+|/occm/api/azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <VOLUME_NAME> `(volumeName)` string
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "volumeName": "vol2",
+  "svmName": "svm_ShirleyHa2901",
+  "originalVolumeInfo": {
+    "exportPolicyInfo": {
+      "ips": [
+        "10.0.0.0/16"
+      ],
+      "name": "export-svm_ShirleyHa2901-vol2",
+      "nfsVersion": [
+        "nfs3",
+        "nfs4"
+      ],
+      "policyType": "custom"
+    },
+    "shareInfo": [],
+    "snapshotPolicyName": "default"
+  },
+  "workingEnvironmentName": "ShirleyHa2901",
+  "snapshotPolicyName": "default",
+  "exportPolicyInfo": {
+    "ips": [
+      "20.0.0.0/16"
+    ],
+    "nfsVersion": [
+      "nfs4"
+    ],
+    "policyType": "custom"
+  },
+  "workingEnvironmentId": "VsaWorkingEnvironment-LUeyohBV"
+}
+
 
 Output::
 

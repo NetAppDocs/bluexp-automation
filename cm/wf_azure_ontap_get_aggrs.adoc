@@ -15,9 +15,17 @@ summary: 'You can retrieve a list of available disk aggregates.'
 [.lead]
 You can retrieve a list of available disk aggregates of an Azure working environment.
 
-=== 1. Create the working environment 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+* <<Get aggregates for single node, Single Node>>
+* <<Get aggregates for high availability pair, HA pair>>
+
+== Get aggregates for single node
+You can use this workflow to retrieve the aggregates for a single node working environment.
+
+=== 1. Create the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Get the list of aggregates
 
@@ -79,7 +87,7 @@ JSON output example::
         ],
         "providerVolumes": [
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk3",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk3",
                 "name": "ShirleyAzureVsa2601datadisk3",
                 "size": {
                     "size": 1.0,
@@ -87,7 +95,7 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "3",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null
@@ -130,7 +138,7 @@ JSON output example::
         "volumes": [],
         "providerVolumes": [
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk4",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk4",
                 "name": "ShirleyAzureVsa2601datadisk4",
                 "size": {
                     "size": 1.0,
@@ -138,7 +146,7 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "4",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null
@@ -181,7 +189,7 @@ JSON output example::
         "volumes": [],
         "providerVolumes": [
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk5",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk5",
                 "name": "ShirleyAzureVsa2601datadisk5",
                 "size": {
                     "size": 1.0,
@@ -189,13 +197,13 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "5",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null
             },
             {
-                "id": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk6",
+                "id": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/disks/ShirleyAzureVsa2601datadisk6",
                 "name": "ShirleyAzureVsa2601datadisk6",
                 "size": {
                     "size": 1.0,
@@ -203,7 +211,7 @@ JSON output example::
                 },
                 "state": "available",
                 "device": "6",
-                "instanceId": "/subscriptions/d333af45-0d07-4154-943d-c25fbbce1b18/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
+                "instanceId": "/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/ShirleyAzureVsa2601-rg/providers/Microsoft.Compute/virtualMachines/ShirleyAzureVsa2601",
                 "diskType": "Premium_LRS",
                 "encrypted": false,
                 "iops": null
@@ -234,6 +242,174 @@ JSON output example::
         "capacityTier": null,
         "capacityTierUsed": null,
         "sidlEnabled": false,
+        "snaplockType": "non_snaplock"
+    }
+]
+
+== Get aggregates for high availability pair
+You can use this workflow to retrieve the aggregates for an HA working environment.
+
+=== 1. Create the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Get the list of aggregates
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/aggregates/{workingEnvironmentId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+
+Output::
+An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
+
+NOTE: The capacity (sizes) in the output are in MB/GB/TB (1000th order) because these are ONTAP aggregates, whereas in Cloud Manager the capacity is specified as MiB, GiB (1024 order).
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "aggr1",
+        "availableCapacity": {
+            "size": 906.16,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 907.18,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 1.01,
+            "unit": "GB"
+        },
+        "volumes": [
+            {
+                "name": "svm_ShirleyHa2801_root",
+                "totalSize": {
+                    "size": 1.0,
+                    "unit": "GB"
+                },
+                "usedSize": {
+                    "size": 3.24249267578125E-4,
+                    "unit": "GB"
+                },
+                "thinProvisioned": false,
+                "isClone": false,
+                "rootVolume": true
+            }
+        ],
+        "providerVolumes": [
+            {
+                "id": "ki4cw3n3oyha",
+                "name": "ki4cw3n3oyha",
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "state": "available",
+                "device": "",
+                "instanceId": "",
+                "diskType": "Premium_LRS",
+                "encrypted": true,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-1.3",
+                "position": "data",
+                "ownerNode": "ShirleyHa2801-01",
+                "device": "",
+                "vmDiskProperties": {
+                    "objectName": "ki4cw3n3oyha",
+                    "storageAccountName": "rootsacnqfypfg",
+                    "containerName": "blobcontainer"
+                }
+            }
+        ],
+        "state": "online",
+        "encryptionType": "cloudEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ShirleyHa2801-01",
+        "ownerNode": "ShirleyHa2801-01",
+        "capacityTier": "Blob",
+        "capacityTierUsed": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "sidlEnabled": true,
+        "snaplockType": "non_snaplock"
+    },
+    {
+        "name": "aggr2",
+        "availableCapacity": {
+            "size": 907.18,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 907.18,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 500.0,
+            "unit": "KB"
+        },
+        "volumes": [],
+        "providerVolumes": [
+            {
+                "id": "1102qyj51rwt",
+                "name": "1102qyj51rwt",
+                "size": {
+                    "size": 1.0,
+                    "unit": "TB"
+                },
+                "state": "available",
+                "device": "",
+                "instanceId": "",
+                "diskType": "Premium_LRS",
+                "encrypted": true,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-1.4",
+                "position": "data",
+                "ownerNode": "ShirleyHa2801-01",
+                "device": "",
+                "vmDiskProperties": {
+                    "objectName": "1102qyj51rwt",
+                    "storageAccountName": "rootsacnqfypfg",
+                    "containerName": "blobcontainer"
+                }
+            }
+        ],
+        "state": "online",
+        "encryptionType": "cloudEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ShirleyHa2801-01",
+        "ownerNode": "ShirleyHa2801-01",
+        "capacityTier": "Blob",
+        "capacityTierUsed": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "sidlEnabled": true,
         "snaplockType": "non_snaplock"
     }
 ]

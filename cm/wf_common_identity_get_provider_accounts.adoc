@@ -56,7 +56,7 @@ JSON output example::
                     "workingEnvironmentType": "AWSHA"
                 }
             ],
-            "subscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-jFyX7UNDTjB"
+            "subscriptionId": "subsctionIDshownhere"
         }
     ],
     "azureAccounts": [],

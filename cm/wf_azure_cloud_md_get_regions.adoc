@@ -15,7 +15,15 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 [.lead]
 This workflow retrieves the Azure regions in which an Cloud Volumes ONTAP working environment may be created.
 
-NOTE: Ensure that you've the Azure subscription ID. You can easily obtain the ID from the Azure portal. 
+NOTE: Ensure that you've the Azure subscription ID. You can easily obtain the ID from the Azure portal.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get Azure regions for single node, Single Node>>
+* <<Get Azure regions for high availability pair, HA pair>>
+
+== Get Azure regions for single node
+You can perform this workflow to retrieve the Azure regions for a single node working environment.
 
 === 1. Get the list of regions
 
@@ -34,6 +42,62 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/az
 Input::
 
 Query parameters (Optional):
+
+* `fields`, string
+* `subscriptionId`, string
+* `cloudProviderAccountId`, string
+
+
+Output::
+
+The JSON output provides an example of a list of Azure regions.
+
+JSON output example::
+[source,json]
+[
+    {
+        "displayName": "Central US",
+        "name": "centralus",
+        "vnets": null
+    },
+    {
+        "displayName": "East US",
+        "name": "eastus",
+        "vnets": null
+    },
+    {
+        "displayName": "East US 2",
+        "name": "eastus2",
+        "vnets": null
+    },
+    {
+        "displayName": "West US 2",
+        "name": "westus2",
+        "vnets": null
+    }
+]
+
+
+== Get Azure regions for high availability pair
+You can perform this workflow to retrieve the Azure regions for an HA working environment.
+
+=== 1. Get the list of regions
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/metadata/regions
+|===
+
+Curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/regions?subscriptionId=<SUBSCRIPTION_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+(Optional) Query parameters:
 
 * `fields`, string
 * `subscriptionId`, string

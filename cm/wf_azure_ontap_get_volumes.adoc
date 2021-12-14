@@ -13,11 +13,19 @@ summary: "You can retrieve the list of volumes."
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the list of volumes of a single node Azure working environment.
+You can retrieve the list of volumes of an Azure working environment.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get volume for single node, Single Node>>
+* <<Get volume for high availability pair, HA pair>>
+
+== Get volume for single node
+You can use this workflow to retrieve volumes for a single node working environment.
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
 
 === 2. Get the volumes
 
@@ -46,7 +54,7 @@ JSON output example::
 [
     {
         "name": "vol1",
-        "uuid": "f9577a49-6014-11eb-b786-000d3a7e6f7c",
+        "uuid": "x0000x00-0000-xx00-x000-000x0x0xxxxx",
         "svmName": "svm_ShirleyAzureVsa2601",
         "size": {
             "size": 10.0,
@@ -124,6 +132,207 @@ JSON output example::
         "cbsBackupsInfo": null,
         "minimumCoolingDays": null,
         "targetName": "iqn.1992-08.com.netapp:sn.65c7e1cc600d11eb8ca3000d3a7e6f7c:vs.2",
+        "iscsiEnabled": false,
+        "isFlexGroupVolume": false
+    }
+]
+
+== Get volume for high availability pair
+
+You can use this workflow to retrieve volumes for an HA working environment.
+
+=== 1. Create the working environment
+
+Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
+
+=== 2. Get the volumes
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Query parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
+
+Output::
+
+The JSON output example includes the list of volumes for the working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "vol1",
+        "uuid": "x0000x00-0000-xx00-x000-000x0x0xxxxx",
+        "svmName": "svm_ShirleyHa2901",
+        "size": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "usedSize": {
+            "size": 2.93731689453125E-4,
+            "unit": "GB"
+        },
+        "junctionPath": "/vol1",
+        "volumeTotalInodes": 3112959,
+        "volumeUsedInodes": 96,
+        "mountPoint": "10.0.0.9:/vol1",
+        "compressionSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "deduplicationSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "thinProvisioning": true,
+        "compression": true,
+        "deduplication": true,
+        "snapshotPolicy": "default",
+        "securityStyle": "unix",
+        "exportPolicyInfo": {
+            "name": "export-svm_ShirleyHa2901-vol1",
+            "policyType": "custom",
+            "ips": [
+                "10.0.0.0/16"
+            ],
+            "nfsVersion": [
+                "nfs3",
+                "nfs4"
+            ]
+        },
+        "shareNames": [],
+        "shareInfo": [],
+        "parentVolumeName": "",
+        "rootVolume": false,
+        "state": "online",
+        "volumeType": "rw",
+        "aggregateName": "aggr1",
+        "parentSnapshot": null,
+        "autoSizeMode": "grow",
+        "maxGrowSize": {
+            "size": 1100.0,
+            "unit": "GB"
+        },
+        "providerVolumeType": "Premium_LRS",
+        "cloneNames": [],
+        "moving": false,
+        "primaryNoFailoverMountPoint": null,
+        "secondaryNoFailoverMountPoint": null,
+        "capacityTier": null,
+        "capacityTierUsedSize": null,
+        "cifsShareAccessPoint": null,
+        "primaryCifsShareAccessPoint": null,
+        "secondaryCifsShareAccessPoint": null,
+        "tieringPolicy": "none",
+        "tierInactiveUserData": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "tierInactiveUserDataPercent": 0,
+        "comment": null,
+        "qosPolicyGroupName": null,
+        "snaplockType": "non_snaplock",
+        "constituentsAggregates": [],
+        "snapshotsUsedSize": {
+            "size": 0.0,
+            "unit": "Byte"
+        },
+        "cbsBackupsInfo": null,
+        "minimumCoolingDays": null,
+        "targetName": "iqn.1992-08.com.netapp:sn.fc000x0000000xx0x000000xae000005:vs.3",
+        "iscsiEnabled": false,
+        "isFlexGroupVolume": false
+    },
+    {
+        "name": "vol2",
+        "uuid": "x0000x00-0000-xx00-x000-000x0x0xxxxx",
+        "svmName": "svm_ShirleyHa2901",
+        "size": {
+            "size": 30.0,
+            "unit": "GB"
+        },
+        "usedSize": {
+            "size": 2.6702880859375E-4,
+            "unit": "GB"
+        },
+        "junctionPath": "/vol2",
+        "volumeTotalInodes": 933887,
+        "volumeUsedInodes": 96,
+        "mountPoint": "10.0.0.9:/vol2",
+        "compressionSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "deduplicationSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "thinProvisioning": false,
+        "compression": false,
+        "deduplication": false,
+        "snapshotPolicy": "default",
+        "securityStyle": "unix",
+        "exportPolicyInfo": {
+            "name": "export-svm_ShirleyHa2901-vol2",
+            "policyType": "custom",
+            "ips": [
+                "10.0.0.0/16"
+            ],
+            "nfsVersion": [
+                "nfs3",
+                "nfs4"
+            ]
+        },
+        "shareNames": [],
+        "shareInfo": [],
+        "parentVolumeName": "",
+        "rootVolume": false,
+        "state": "online",
+        "volumeType": "rw",
+        "aggregateName": "aggr1",
+        "parentSnapshot": null,
+        "autoSizeMode": "grow",
+        "maxGrowSize": {
+            "size": 330.0,
+            "unit": "GB"
+        },
+        "providerVolumeType": "Premium_LRS",
+        "cloneNames": [],
+        "moving": false,
+        "primaryNoFailoverMountPoint": null,
+        "secondaryNoFailoverMountPoint": null,
+        "capacityTier": null,
+        "capacityTierUsedSize": null,
+        "cifsShareAccessPoint": null,
+        "primaryCifsShareAccessPoint": null,
+        "secondaryCifsShareAccessPoint": null,
+        "tieringPolicy": "none",
+        "tierInactiveUserData": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "tierInactiveUserDataPercent": 0,
+        "comment": null,
+        "qosPolicyGroupName": null,
+        "snaplockType": "non_snaplock",
+        "constituentsAggregates": [],
+        "snapshotsUsedSize": {
+            "size": 0.0,
+            "unit": "Byte"
+        },
+        "cbsBackupsInfo": null,
+        "minimumCoolingDays": null,
+        "targetName": "iqn.1992-08.com.netapp:sn.fc000x0000000xx0x000000xae000005:vs.3",
         "iscsiEnabled": false,
         "isFlexGroupVolume": false
     }
