@@ -15,12 +15,12 @@ summary: You can use this workflow to retrieve the current marketplace account a
 [.lead]
 You can use this workflow to retrieve the current marketplace account and subscriptions.
 
-=== Before you begin
+.Before you begin
 
-Every cloud account can optionally have a subscription associated with it. The subscription identifies how the various cloud services used by the account are charged. When retrieving the SaaS accounts below, notice that the `subscriptionId` values in the `cloudAccounts` array objects match the `id` values in the associated subscription arrays for the three cloud providers.
+Every cloud account can _optionally_ have a subscription associated with it. The subscription identifies how the various cloud services used by the account are charged. When retrieving the following SaaS accounts, notice that the `subscriptionId` values in the `cloudAccounts` array objects match the `id` values in the associated subscription arrays for the three cloud providers.
 
 [NOTE]
-Each cloud account can have exactly zero or one subscription. You must have a subscription when creating a working environment using PAYGO ("pay as you go") licensing.
+Each cloud account can have exactly zero or one subscription. You must have a subscription when creating a working environment using PAYGO ("pay as you go").
 
 === 1. Get the SaaS accounts
 
@@ -49,7 +49,7 @@ JSON output example::
 {
     "awsSubscriptions": [
         {
-            "id": "awsid012345",
+            "id": "awsid00000",
             "name": "aws-sub-a2",
             "provider": "aws",
             "active": true
@@ -58,7 +58,7 @@ JSON output example::
     "azureSubscriptions": [],
     "gcpSubscriptions": [
         {
-            "id": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6",
+            "id": "gcp-xxxx0000",
             "name": "GCP subscription for staging",
             "provider": "gcp",
             "active": true
@@ -69,19 +69,19 @@ JSON output example::
     "eligibleForFreeTrialAzure": false,
     "cloudAccounts": [
         {
-            "cloudAccountId": "733004784675",
+            "cloudAccountId": "000000",
             "provider": "aws",
-            "subscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-jFyX7UNDTjB"
+            "subscriptionId": "aws-xxxxx000000xxxxxxx0000"
         },
         {
             "cloudAccountId": "occm-dev",
             "provider": "gcp",
-            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+            "subscriptionId": "gcp-xxx00000xxx0000"
         },
         {
             "cloudAccountId": "occm-host",
             "provider": "gcp",
-            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+            "subscriptionId": "gcp-xxxx000000xxx00000"
         }
     ]
 }

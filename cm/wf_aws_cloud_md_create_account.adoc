@@ -30,7 +30,7 @@ Perform the workflow link:wf_common_identity_get_saas_mp.html[Get SaaS marketpla
 |HTTP method
 |Path
 |POST
-|/occm/api/ accounts/aws
+|/occm/api/accounts/aws
 |===
 
 curl example::

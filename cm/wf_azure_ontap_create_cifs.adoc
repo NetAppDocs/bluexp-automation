@@ -15,19 +15,27 @@ summary: 'You can use this workflow to set up a new CIFS server configuration fo
 [.lead]
 If you want to create CIFS volumes on your Cloud Volumes ONTAP system, you first need to configure the CIFS server. You can choose to set up the CIFS server in a workgroup or in an Active Directory domain. Review the https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.pow-cifs-cg%2FGUID-362AE62E-EE3A-419B-8195-B96079EEEC5D.html[ONTAP documentation] for more information.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create CIFS server configuration for single node, Single Node>>
+* <<Create CIFS server configuration for high availability pair, HA pair>>
+
+== Create CIFS server configuration for single node
+You can use this workflow to create CIFS server configuration for single node system.
+
 Choose the workflow that is specific to your goal:
 
 * <<Set up a CIFS server in a workgroup>>
 * <<Set up a CIFS server in an Active Directory domain>>
 
-== Set up a CIFS server in a workgroup
+=== Set up a CIFS server in a workgroup
 You can configure a CIFS server in a workgroup when the Microsoft Active Directory domain infrastructure is not available.
 
-=== 1. Select the working environment
+==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
-=== 2. Create the CIFS configuration
+==== 2. Create the CIFS configuration
 
 Create the CIFS server configuration.
 
@@ -59,14 +67,14 @@ Output::
 
 None.
 
-== Set up a CIFS server in an Active Directory domain
+=== Set up a CIFS server in an Active Directory domain
 You can create a CIFS server on the SVM and specify the Active Directory (AD) domain to which it belongs.
 
-=== 1. Select the working environment
+==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
-=== 2. Determine the Active Directory configuration
+==== 2. Determine the Active Directory configuration
 
 You need the following configuration parameters for an Active Directory server.
 
@@ -90,7 +98,7 @@ You need the following configuration parameters for an Active Directory server.
 |The password for the authorized username.
 |===
 
-=== 3. Create the CIFS configuration
+==== 3. Create the CIFS configuration
 
 Create the CIFS server configuration.
 
@@ -122,6 +130,121 @@ JSON input example::
   "activeDirectoryDomain": "zivh.netapp.com",
   "activeDirectoryUsername": "administrator",
   "activeDirectoryPassword": "password"
+}
+
+Output::
+
+None.
+
+== Create CIFS server configuration for high availability pair
+You can use this workflow to create to create CIFS server configuration for an HA working environment.
+
+Choose the workflow that is specific to your goal:
+
+* <<Set up a CIFS server in a workgroup>>
+* <<Set up a CIFS server in an Active Directory domain>>
+
+=== Set up a CIFS server in a workgroup
+You can configure a CIFS server in a workgroup when the Microsoft Active Directory domain infrastructure is not available.
+
+==== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+==== 2. Create the CIFS configuration
+
+Create the CIFS server configuration.
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/working-environments/{workingEnvironmentId}/cifs-workgroup
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>/cifs-workgroup' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+
+JSON input example::
+[source,json]
+{
+  "serverName": "SMB_SERVER02",
+  "workgroupName": "workgroup02",
+  "svmName": "svm_ziv01we01"
+}
+
+Output::
+
+None.
+
+=== Set up a CIFS server in an Active Directory domain
+You can create a CIFS server on the SVM and specify the Active Directory (AD) domain to which it belongs.
+
+==== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+==== 2. Determine the Active Directory configuration
+
+You need the following configuration parameters for an Active Directory server.
+
+[cols="35,65"*,options="header"]
+|===
+|Input parameter
+|Description
+|dnsDomain
+|Use the Active Directory domain as the DNS name.
+|ipAddresses
+|Define the primary DNS IP address and optionally add a secondary IP address.
+|netBIOS
+|Use the CIFS server NetBIOS name.
+|organizationalUnit
+|Include the organizational unit as appropriate.
+|activeDirectoryDomain
+|Set the Active Directory domain to join.
+|activeDirectoryUsername
+|A username with authorization to join the domain.
+|activeDirectoryPassword
+|The password for the authorized username.
+|===
+
+==== 3. Create the CIFS configuration
+
+Create the CIFS server configuration.
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/working-environments/{workingEnvironmentId}/cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+
+JSON input example::
+[source,json]
+{
+   "dnsDomain": "mydomain.com",
+   "activeDirectoryDomain": "mydomain.com",
+   "ipAddresses": ["10.10.10.20", "172.xx.yy.xx"],
+   "netBIOS": "azureHAPayGo",
+   "organizationalUnit": "CN=Computers",
+   "activeDirectoryUsername": "administrator",
+   "activeDirectoryPassword": "password",
+   "svmName": "svm_azureHAPayGo"
 }
 
 Output::

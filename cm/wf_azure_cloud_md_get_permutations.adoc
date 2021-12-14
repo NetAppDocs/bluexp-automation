@@ -15,6 +15,14 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get permutations for single node, Single Node>>
+* <<Get permutations for high availability pair, HA pair>>
+
+== Get permutations for single node
+You can use this workflow to retrieve the Cloud Volumes ONTAP configurations information for a single node working environment.
+
 === 1. Get the permutations
 
 [cols="25,75"*,options="header"]
@@ -111,6 +119,106 @@ JSON output example::
             "four-nics",
             "no-sidl"
         ],
+        "upgradeableFrom": [
+            "9.8",
+            "9.9"
+        ]
+    }
+]
+
+== Get permutations for high availability pair
+You can use this workflow to retrieve the  Cloud Volumes ONTAP configurations information for an HA working environment.
+
+=== 1. Get the permutations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/metadata/permutations
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+There are several optional query parameters you can use:
+
+* `region` string
+* `version` string
+* `license` string
+* `instance_type` string
+* `default_instance_type` string
+* `feature` string
+* `latest_only` string
+* `marketplace_version` string
+* `marketplace_sku` string
+
+Output::
+
+The JSON output example includes the list of Cloud Volumes ONTAP configurations.
+
+JSON output example::
+[source,json]
+[
+    {
+        "ontapVersion": "ONTAP-9.9.0X5.T1.azureha",
+        "license": {
+            "type": "azure-ha-cot-standard-paygo",
+            "name": "Cloud Volumes ONTAP Standard",
+            "description": "Flexible performance and larger capacity for a wider range of applications. Supports up to 10 TB of underlying Azure storage.",
+            "subName": "",
+            "subDescription": "Supports tiering to object storage of replicated volumes and snapshots.",
+            "capacity_limit": "10TB",
+            "platformLicenseRequired": false,
+            "default": true,
+            "capacityLimit": {
+                "size": 10.0,
+                "unit": "TB"
+            }
+        },
+        "instanceType": "Standard_DS4_v2",
+        "region": {
+            "name": "Southeast Asia",
+            "code": "southeastasia",
+            "location": "Singapore",
+            "s3Region": null
+        },
+        "defaultInstance": true,
+        "features": [],
+        "upgradeableFrom": [
+            "9.8",
+            "9.9"
+        ]
+    },
+    {
+        "ontapVersion": "ONTAP-9.9.0X5.T1.azureha",
+        "license": {
+            "type": "azure-ha-cot-standard-paygo",
+            "name": "Cloud Volumes ONTAP Standard",
+            "description": "Flexible performance and larger capacity for a wider range of applications. Supports up to 10 TB of underlying Azure storage.",
+            "subName": "",
+            "subDescription": "Supports tiering to object storage of replicated volumes and snapshots.",
+            "capacity_limit": "10TB",
+            "platformLicenseRequired": false,
+            "default": true,
+            "capacityLimit": {
+                "size": 10.0,
+                "unit": "TB"
+            }
+        },
+        "instanceType": "Standard_DS4_v2",
+        "region": {
+            "name": "Southeast Asia",
+            "code": "southeastasia",
+            "location": "Singapore",
+            "s3Region": null
+        },
+        "defaultInstance": true,
+        "features": [],
         "upgradeableFrom": [
             "9.8",
             "9.9"

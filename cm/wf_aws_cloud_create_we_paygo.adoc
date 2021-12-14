@@ -5,7 +5,7 @@ keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, worksp
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
-= Create a working environment with PAYGO licensing
+= Create a working environment with PAYGO
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,10 +13,10 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can create a new Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) licensing. You can add new volumes to the working environment.
+You can create a new Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) subscription. You can add new volumes when creating the working environment.
 
 ====
-*Note the following when using PAYGO licensing*:
+*Note the following when using PAYGO*:
 
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
@@ -101,7 +101,7 @@ Input::
 The JSON input example includes the minimum list of parameters.
 
 [NOTE]
-This request uses PAYGO licensing as indicated in the `licenseType` parameter.
+This request uses PAYGO subscription as indicated in the `licenseType` parameter.
 
 JSON input example::
 [source,json]

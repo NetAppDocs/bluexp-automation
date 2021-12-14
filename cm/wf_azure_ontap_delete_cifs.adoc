@@ -15,9 +15,17 @@ summary: You can use this workflow to delete a CIFS server configuration for an 
 [.lead]
 You can use this workflow to delete a CIFS server configuration for an existing Cloud Volumes ONTAP working environment.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Delete CIFS server configuration for single node, Single Node>>
+* <<Delete CIFS server configuration for high availability pair, HA pair>>
+
+== Delete CIFS server configuration for single node
+You can use this workflow to delete CIFS server configuration for a single node system.
+
 === 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 === 2. Delete the CIFS configurations
 
@@ -32,6 +40,43 @@ Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] 
 curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+* Optional JSON body
++
+[source,json]
+{
+  "activeDirectoryUsername": "string",
+  "activeDirectoryPassword": "string",
+  "svmName": "string"
+}
+
+Output::
+
+None.
+
+== Delete CIFS server configuration for high availability pair
+You can use this workflow to delete CIFS server configuration for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Delete the CIFS configurations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/working-environments/{workingEnvironmentId}/delete-cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
