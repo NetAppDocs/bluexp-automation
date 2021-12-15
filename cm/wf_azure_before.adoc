@@ -25,9 +25,12 @@ The Azure workflows are organized into the following categories:
 * Aggregates
 * Volumes
 * Metadata
+* Miscellaneous
+
+See link:workflow_processes.html[Understanding the workflow processes] for more information on these categories.
 
 == Azure credentials
-Before beginning to use the Azure workflows, you'll need to create an Azure account through the Microsoft Azure portal and obtain the Azure credentials and the  subscription ID.
+Before beginning to use the Azure workflows, you will need to create an Azure account through the Microsoft Azure portal and obtain the Azure credentials and the  subscription ID.
 
 == Connector setup
 

@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring your own license (BYOL) licensing.
+You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring-your-own-license (BYOL) licensing.
 
 =====
 *Note the following when using BYOL licensing*:

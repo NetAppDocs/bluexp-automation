@@ -13,7 +13,15 @@ summary: "You can retrieve the list of volumes."
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the list of volumes of a single node Azure working environment.
+You can retrieve the list of volumes of an Azure working environment.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get volume for single node, Single Node>>
+* <<Get volume for high availability pair, HA pair>>
+
+== Get volume for single node
+You can use this workflow to retrieve volumes for a single node working environment.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 

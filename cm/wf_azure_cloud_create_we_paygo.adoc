@@ -5,7 +5,7 @@ keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, worksp
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
-= Create a working environment with PAYGO licensing
+= Create a working environment with PAYGO
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,14 +13,13 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a new Azure Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) licensing.
+You can use this workflow to create a new Azure Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) subscription.
 
 =====
-*Note the following when using PAYGO licensing*:
+*Note the following when using PAYGO*:
 
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
-//* A new volume can also be created with this working environment.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
 =====
 
@@ -30,7 +29,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Create working environment for high availability pair, HA pair>>
 
 == Create working environment for single node
-You can use this workflow to create single node working environment with PAYGO licensing.
+You can use this workflow to create single node working environment with PAYGO.
 
 === 1. Select the region
 
@@ -197,7 +196,7 @@ JSON output example::
 }
 
 == Create working environment for high availability pair
-You can use this workflow to create an HA working environment with PAYGO licensing.
+You can use this workflow to create an HA working environment with PAYGO.
 
 === 1. Select the region
 
@@ -310,7 +309,7 @@ JSON input example::
       },
       "tieringPolicy":"auto"
    },
-   "tenantId":"workspaceNqaJyVMz",
+   "tenantId":"tenantIDgoeshere",
    "region":"westeurope",
    "packageName":"azure_ha_standard",
    "dataEncryptionType":"AZURE",
