@@ -23,41 +23,37 @@ You can use this workflow to create a new Cloud Volumes ONTAP working environmen
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
 =====
 
-
 === 1. Select the region
 
-Perform the workflow link:wf_azure_cloud_md_get_regions.html[Get regions] and choose the `zone:name` value of the required region for the `region` parameter in step 10.
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do the following:
 
-
+* Choose the `name` value of the required region for the `region` parameter in step 8.
+* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 8.
 
 === 2. Select the workspace
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 8.
 
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+=== 3. Select the projects
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 8.
 
-=== 3. Select the VNets
+=== 4. Select the permutations
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 8.
 
-Perform the workflow link:wf_azure_cloud_md_get_vnets.html[Get VNets] and do the following:
+=== 5. Select the packages configuration
+Perform the workflow link:wf_gcp_cloud_md_get_packages.html[Get packages] and search the `licenseType` from permutations:
 
-* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 10.
-*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 10.
-* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 10.
-*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 10.
+* Choose the `name` for `packageName` parameter.
+*	Choose the `diskSize` for `gcpVolumeSize`.
+*	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
 
-
-=== 4. Select the Azure availability zone
-
-Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html[Get Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 10.
-
-=== 5. Select Azure packages configuration
-
-Perform the link:wf_azure_cloud_md_get_packages.html[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
-
+=== 6. Select the service account
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 8.
 
 === 6. Obtain the required NSS key
 
 An NSS key is *required* when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 10.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Add NSS credentials key] and choose the `id`.
+* To create a new NSS key, perform the link:wf_common_identity_create_nss_key.html[Create NSS key] workflow and choose the `id` value from the response.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 

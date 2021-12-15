@@ -5,7 +5,7 @@ keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, worksp
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
-= Create a working environment with PAYGO licensing
+= Create a working environment with PAYGO
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,50 +13,47 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a new Azure Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) licensing.
+You can use this workflow to create a new GCP Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) subscription.
 
 =====
-*Note the following when using PAYGO licensing*:
+*Note the following when using PAYGO*:
 
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
-//* A new volume can also be created with this working environment.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
 =====
 
 === 1. Select the region
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do the following:
 
-Perform the workflow link:wf_azure_cloud_md_get_regions.html[Get regions] and choose the `name` value of the required region for the `region` parameter in step 8.
-
-* Choose one of the vpc’s. pick “name” for “vpcId” parameter and “subnets: path” for “subnetId” and “subnetPath” parameters in “create working environment” request.
+* Choose the `name` value of the required region for the `region` parameter in step 8.
+* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 8.
 
 === 2. Select the workspace
 Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 8.
 
-=== 3. Select projects
+=== 3. Select the projects
 Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 8.
 
-=== 4. Select permutations
+=== 4. Select the permutations
 Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 8.
 
-=== 5. Get packages configuration.
+=== 5. Get the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html[Get packages] and search the `licenseType` from permutations:
 
 * Choose the `name` for `packageName` parameter.
 *	Choose the `diskSize` for `gcpVolumeSize`.
 *	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
 
-=== 6. Get service account.
-Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and pick the `email` value of the required service-accounts for `gcpServiceAccount` parameter in step 8.
+=== 6. Get the service account
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 8.
 
 === 7. (Optional) Obtain an NSS key
-An NSS key is *optional* when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
+An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
 
-* Create NSS key
-Perform the ‘create NSS key’ workflow and pick the “id” value from the response.
+* To create a new NSS key, perform the link:wf_common_identity_create_nss_key.html[Create NSS key] workflow and choose the `id` value from the response.
 
-* Get NSS keys
-Perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and pick the `id` value of the required NSS user.
+* To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
 
 === 8. Create the working environment
 
@@ -82,7 +79,7 @@ Input::
 The JSON input example includes the minimum list of parameters.
 
 [NOTE]
-This request uses PAYGO licensing as indicated in the `licenseType` parameter.
+This request uses PAYGO as indicated in the `licenseType` parameter.
 
 JSON input example::
 [source,json]
