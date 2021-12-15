@@ -119,7 +119,7 @@ This request uses PAYGO licensing as indicated in the `licenseType` parameter.
 JSON input example::
 [source,json]
 {
-	 "name":"cvsaws",
+	 "name":"Azure123",
 	 "tenantId":"tenantID",
 	 "region":"westeurope",
 	 "packageName":"azure_poc",

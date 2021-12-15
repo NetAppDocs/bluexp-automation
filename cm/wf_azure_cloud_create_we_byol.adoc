@@ -140,7 +140,7 @@ Output::
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
 
-JSON output example
+JSON output example::
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-uFPaNkrv",
@@ -251,7 +251,7 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/a
 
 Input::
 
-The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `serialNumber` is required.
+The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters are required.
 
 JSON input example::
 [source,json]
@@ -293,4 +293,44 @@ JSON input example::
     "platformSerialNumberNode1": "00000110000000000001",
     "platformSerialNumberNode2": "00000110000000000002"
   }
+}
+
+Output::
+
+The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
+
+JSON output example::
+[source,json]
+{
+    "publicId": "VsaWorkingEnvironment-Kms14Nkv",
+    "name": "ShirleyHa2701",
+    "tenantId": "tenantID",
+    "svmName": "svm_ShirleyHa2701",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "providerProperties": null,
+    "reservedSize": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "cloudProviderName": "Azure",
+    "snapshotPolicies": null,
+    "actionsRequired": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "svms": null,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "capacityFeatures": null,
+    "encryptionProperties": null,
+    "supportedFeatures": null,
+    "isHA": true,
+    "haProperties": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
 }
