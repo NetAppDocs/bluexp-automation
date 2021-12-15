@@ -91,7 +91,7 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html[Get Azure Stor
 curl example::
 [source,curl]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //1 --header 'Authorization: Bearer <ACCESS_TOKEN>' //2 --header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //1 --header 'Authorization: Bearer <ACCESS_TOKEN>' //2 --header 'Content-Type: application/json' --d @JSONinput
 ----
 (1) Replace <AGENT_ID> with your agent ID.
 (2) Replace <ACCESS_TOKEN> with your obtained bearer access token.
@@ -103,33 +103,43 @@ The JSON input example includes the minimum list of parameters. This request use
 JSON input example::
 [source,json]
 {
-  "name": "Azure123",
-  "tenantId": "tenantID",
-  "region": "eastus2",
-  "packageName": "azure_custom",
-  "dataEncryptionType": "AZURE",
-  "vsaMetadata": {
-    "ontapVersion": "ONTAP-9.9.0X5.T1.azure",
-    "licenseType": "azure-cot-premium-byol",
-    "instanceType": "Standard_DS3_v2"
-  },
-  "nssAccount": "x0x0x000-0000-000x-00xx-xxxxxc0000xx",
-  "subnetId": "/subscriptions/x000xx00-0x00-0000-000x-x00xxxx0x00/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/ProxySubnet",
-  "svmPassword": "password",
-  "vnetId": "/subscriptions/x000xx00-0x00-0000-000x-x00xxxx0x00/resourceGroups/occm_group_eastus2/providers/Microsoft.Network/virtualNetworks/Vnet1",
-  "cidr": "10.0.0.0/16",
-  "diskSize": {
-    "size": 1,
-    "unit": "TB"
-  },
-  "storageType": "Premium_LRS",
-  "resourceGroup": "Azure123-rg",
-  "serialNumber": "90320130000000005001",
-  "subscriptionId": "x000xx00-0x00-0000-000x-x00xxxx0x00",
-  "cloudProviderAccount": "ManagedServiceIdentity",
-  "availabilityZone": 2
+name: "gcpwe123"
+backupVolumesToCbs: true
+capacityTier: "cloudStorage"
+dataEncryptionType: "GCP"
+enableCompliance: true
+gcpLabels: []
+gcpServiceAccount: "fabric-pool@occm-dev.iam.gserviceaccount.com"
+gcpVolumeSize: {size: 500, unit: "GB", _identifier: "500 GB"}
+gcpVolumeType: "pd-ssd"
+name: "gcpwe123"
+nssAccount: "6a4d7f6e-6580-4c70-9cee-304f36b74db6"
+packageName: "gcp_poc"
+project: "occm-dev"
+region: "europe-west3-c"
+serialNumber: "90820138071000000005"
+subnetId: "projects/occm-dev/regions/europe-west3/subnetworks/vpc4qa-2-europe-west3"
+subnetPath: "projects/occm-dev/regions/europe-west3/subnetworks/vpc4qa-2-europe-west3"
+svmPassword: "Netapp123"
+tenantId: "workspaceNqaJyVMz"
+tierLevel: "standard"
+volume: {
+  exportPolicyInfo: {
+    policyType: "custom",
+    ips: ["172.22.13.0/24"],
+    nfsVersion: ["nfs3", "nfs4"]
+  }
 }
-
+vpcId: "vpc4qa-2"
+vsaMetadata: {
+  ontapVersion: "ONTAP-9.10.1RC1.T1.gcp",
+  licenseType: "gcp-cot-premium-byol"
+}
+instanceType: "n2-standard-4"
+licenseType: "gcp-cot-premium-byol"
+ontapVersion: "ONTAP-9.10.1RC1.T1.gcp"
+writingSpeedState: "NORMAL"
+}
 
 Output::
 
@@ -138,35 +148,5 @@ The JSON output example includes an example of the `VsaWorkingEnvironmentRrespon
 JSON output example
 [source,json]
 {
-    "publicId": "VsaWorkingEnvironment-uFPaNkrv",
-    "name": "Azure123",
-    "tenantId": "tenantID",
-    "svmName": "svm_Azure123",
-    "creatorUserEmail": "user_mail",
-    "status": null,
-    "providerProperties": null,
-    "reservedSize": null,
-    "clusterProperties": null,
-    "ontapClusterProperties": null,
-    "cloudProviderName": "Azure",
-    "snapshotPolicies": null,
-    "actionsRequired": null,
-    "activeActions": null,
-    "replicationProperties": null,
-    "schedules": null,
-    "svms": null,
-    "workingEnvironmentType": "VSA",
-    "supportRegistrationProperties": null,
-    "supportRegistrationInformation": null,
-    "capacityFeatures": null,
-    "encryptionProperties": null,
-    "supportedFeatures": null,
-    "isHA": false,
-    "haProperties": null,
-    "k8sProperties": null,
-    "fpolicyProperties": null,
-    "saasProperties": null,
-    "cbsProperties": null,
-    "complianceProperties": null,
-    "monitoringProperties": null
+
 }
