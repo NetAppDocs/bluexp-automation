@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_get_igroups.html
+permalink: cm/wf_gcp_ontap_get_igroups.html
 keywords: cloud, manager, rest, api, igroups, cifs, server, configuration
 summary: "You can use this workflow to retrieve all the iGroups."
 ---
@@ -17,7 +17,7 @@ You can use this workflow to retrieve all the initiator groups (iGroups).
 
 === 1. Create the working environment
 
-Perform the workflow link:wf_azure_cloud_create_we_paygo.html[Create Azure single node working environment] and choose the `publicId` and `svmName` values for the working environment `workingEnvironmentId` and `svmName` path parameters.
+Perform the workflow link:wf_gcp_cloud_create_we_paygo.html[Create GCP single node working environment] and choose the `publicId` and `svmName` values for the working environment `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Get the CIFS configurations
 

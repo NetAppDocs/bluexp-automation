@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_create_vol_cifs.html
+permalink: cm/wf_gcp_ontap_create_vol_cifs.html
 keywords: vcloud, manager, rest, api
 summary: 'You can use this workflow to create a volume accessed through CIFS.'
 ---
 
-= Create volume using CIFS
+= Create a volume using CIFS
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -51,12 +51,12 @@ Perform the workflow link:wf_azure_ontap_create_quote.html[Create quote]. This i
 |HTTP method
 |Path
 |POST
-|/occm/api/azure/vsa/volumes
+|/occm/api/gcp/vsa/volumes
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

@@ -238,6 +238,12 @@ entries:
                url: /cm/wf_gcp_cloud_md_get_service_accounts.html
              - title: Get projects
                url: /cm/wf_gcp_cloud_md_get_projects.html
+             - title: Get GCP encryption keys
+               url: /cm/wf_gcp_cloud_md_get_encryption_keys.html
+             - title: Get disk types
+               url: /cm/wf_gcp_cloud_md_get_disk_types.html
+             - title: Get instance types
+               url: /cm/wf_gcp_cloud_md_get_instance_types_nosupport.html
         - title: Miscellaneous
           entries:
             - title: Create Azure cloud provider account

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_cloud_md_get_regions.html
+permalink: cm/wf_gcp_cloud_md_get_regions.html
 keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
 summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
 ---

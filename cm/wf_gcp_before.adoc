@@ -13,7 +13,10 @@ summary: There are several workflows you can use with the Google public cloud.
 :imagesdir: ./media/
 
 [.lead]
-There are several workflows you can use with the Google cloud.
+Cloud Volumes ONTAP requires a Google Cloud service account that needs to authenticate and be authorized to access resources.
+link: https://docs.netapp.com/us-en/occm/task_creating_gcp_service_account.html[Learn more about GCP service account]
+
+There are several workflows you can use with the Google Cloud.
 
 [NOTE]
 Review the link:getting_started.html[Get started] section before using any of the Cloud Manager REST API workflows.

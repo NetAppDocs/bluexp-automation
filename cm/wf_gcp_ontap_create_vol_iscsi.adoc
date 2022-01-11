@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_create_vol_iscsi.html
+permalink: cm/wf_gcp_ontap_create_vol_iscsi.html
 keywords: cloud, manager, rest, api
 summary: 'You can use this workflow to create a volume accessed through iSCSI. There are two workflows available depending on whether a new or existing iGroup is used'
 ---
 
-= Create volume using iSCSI
+= Create a volume using iSCSI
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -59,12 +59,12 @@ Perform the workflow link:wf_azure_ontap_create_quote.html[Create quote].This is
 |HTTP method
 |Path
 |POST
-|/occm/api/azure/vsa/volumes
+|/occm/api/gcp/vsa/volumes
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -140,12 +140,12 @@ Perform the workflow link:wf_azure_ontap_create_quote.html[Create quote]. This i
 |HTTP method
 |Path
 |POST
-|/occm/api/azure/vsa/volumes
+|/occm/api/gcp/vsa/volumes
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_azure_ontap_get_cifs.html
+permalink: cm/wf_gcp_ontap_get_cifs.html
 keywords: cloud, manager, rest, api
 summary: "You can use this workflow to retrieve the CIFS server configurations for an existing Cloud Volumes ONTAP working environment."
 ---
@@ -17,7 +17,7 @@ You can use this workflow to retrieve the CIFS server configurations for an exis
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 === 2. Get the CIFS configurations
 
@@ -26,12 +26,12 @@ Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] 
 |HTTP method
 |Path
 |GET
-|/occm/api/azure/vsa/working-environments/{workingEnvironmentId}/cifs
+|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}/cifs
 |===
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
