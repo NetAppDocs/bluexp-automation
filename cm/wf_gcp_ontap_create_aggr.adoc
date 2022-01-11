@@ -15,7 +15,7 @@ summary: 'You can create a new aggregate within a working environment.'
 [.lead]
 You can create a new aggregate within an Google Cloud working environment using this workflow.
 
-=== 1. Create the working environment
+=== 1. Select the working environment
 
 Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 

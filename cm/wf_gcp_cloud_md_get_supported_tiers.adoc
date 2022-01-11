@@ -17,7 +17,7 @@ You can retrieve the supported capacity tiers for Google Cloud disk types.
 
 === 1. Select the permutations
 
-Perform the workflow [Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType` and `region: code` values of the required permutations for the query parameters of `supported capacity tiers` request.
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported capacity tiers` request.
 
 === 2. Get the supported features
 

@@ -15,11 +15,11 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can perform this workflow to retrieve all the labels in the specified project and zone.
 
-=== 1. Select projects
-Perform the workflow [Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
+=== 1. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
 
-=== 2. Select regions
-Perform the link:wf_azure_cloud_md_get_regions.html[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
+=== 2. Select the region
+Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
 
 === 1. Get the tag keys
 

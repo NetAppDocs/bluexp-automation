@@ -13,7 +13,7 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 :imagesdir: ./media/
 
 [.lead]
-This workflow retrieves the supported disk types.
+This workflow retrieves the GCP supported disk types.
 
 
 === 1. Get the disk types

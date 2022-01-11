@@ -39,8 +39,8 @@ Input::
 
 Required query parameters:
 
-<REGION> `region`: string
-<PROJECT> `project`: string
+* <REGION> `region`: string
+* <PROJECT> `project`: string
 
 Output::
 

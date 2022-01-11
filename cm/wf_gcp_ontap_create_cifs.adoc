@@ -25,7 +25,7 @@ You can configure a CIFS server in a workgroup when the Microsoft Active Directo
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 === 2. Create the CIFS configuration
 
@@ -64,7 +64,7 @@ You can create a CIFS server on the SVM and specify the Active Directory (AD) do
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 === 2. Determine the Active Directory configuration
 

@@ -13,7 +13,7 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 :imagesdir: ./media/
 
 [.lead]
-This workflow retrieves the GCP regions in which an Cloud Volumes ONTAP working environment might be created.
+This workflow retrieves the GCP regions in which a Cloud Volumes ONTAP working environment might be created.
 
 
 === 1. Get the list of regions

@@ -24,7 +24,7 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environement] an
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -38,7 +38,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow
 
 === 5. Create the quote
 
-Perform the workflow link:wf_aws_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
 
 === 6. Create the volume
 
