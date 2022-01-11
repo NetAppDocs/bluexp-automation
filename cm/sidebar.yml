@@ -220,8 +220,6 @@ entries:
                url: /cm/wf_gcp_cloud_md_get_regions.html
              - title: Get permutations
                url: /cm/wf_gcp_cloud_md_get_permutations.html
-             - title: Get supported features
-               url: /cm/wf_gcp_cloud_md_get_supported_features.html
              - title: Get tag keys
                url: /cm/wf_gcp_cloud_md_get_tag_keys.html
              - title: Create buckets
@@ -231,7 +229,7 @@ entries:
              - title: Get snapshot policies
                url: /cm/wf_gcp_cloud_md_snapshot_policies.html
              - title: Get supported features
-               url: /cm/wf_gcp_cloud_md_get_supported_features
+               url: /cm/wf_gcp_cloud_md_get_supported_features.html
              - title: Get supported capacity tiers
                url: /cm/wf_gcp_cloud_md_get_supported_tiers.html
              - title: Get service accounts
@@ -245,9 +243,7 @@ entries:
              - title: Get instance types
                url: /cm/wf_gcp_cloud_md_get_instance_types_nosupport.html
         - title: Miscellaneous
-          entries:
-            - title: Create Azure cloud provider account
-              url: /cm/wf_gcp_cloud_md_create_account.html
+
   - title: Common workflows
     entries:
       - title: Before you begin
@@ -256,8 +252,12 @@ entries:
         entries:
           - title: Create user token
             url: /cm/wf_common_identity_create_user_token.html
+          - title: Create service token
+            url: /cm/wf_common_identity_create_service_token.html
           - title: Get supported services
             url: /cm/wf_common_identity_get_supported_srv.html
+          - title: Get cloud provider accounts
+            url: /cm/wf_common_identity_get_accounts.html
           - title: Get cloud provider accounts
             url: /cm/wf_common_identity_get_provider_accounts.html
           - title: Get tenants

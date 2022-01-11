@@ -16,7 +16,7 @@ summary: "You can retrieve the Cloud Volumes ONTAP working environments that are
 You can retrieve the public identifier, working environment ID, the storage virtual machine name for Cloud Volumes ONTAP working environments and other Cloud Volumes ONTAP related details (visible to currently logged in user) which would be used in other workflows.
 
 
-=== 1. Get the working environment
+=== 1. Get the working environments
 
 [cols="25,75"*,options="header"]
 |===

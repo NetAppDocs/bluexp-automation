@@ -15,7 +15,7 @@ summary: "You can retrieve the list of volumes."
 [.lead]
 You can retrieve the list of volumes of a single node Azure working environment.
 
-=== 1. Get the working environment
+=== 1. Select the working environment
 
 Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
 

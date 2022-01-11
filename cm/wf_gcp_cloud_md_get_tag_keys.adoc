@@ -21,7 +21,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and ch
 === 2. Select the region
 Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
 
-=== 1. Get the tag keys
+=== 3. Get the tag keys
 
 [cols="25,75"*,options="header"]
 |===

@@ -15,7 +15,7 @@ summary: "You can modify the configuration of an existing volume."
 [.lead]
 You can modify the configuration of an existing volume.
 
-=== 1. Get the working environment
+=== 1. Select the working environment
 
 Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId`  and `svmName` values of the working environment for used as the `workingEnvironmentId` and `svmName` path parameters.
 
@@ -30,12 +30,12 @@ Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose 
 |HTTP method
 |Path
 |PUT
-|/occm/api/azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|/occm/api/gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 |===
 
 curl example::
 [source,curl]
-curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
