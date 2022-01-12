@@ -15,7 +15,7 @@ summary: You can perform this workflow to retrieve the S3 buckets.
 [.lead]
 You can perform this workflow to retrieve the default snapshot policies available on the cluster.
 
-=== 1. Get the buckets
+=== 1. Get the snapshot policies
 
 [cols="25,75"*,options="header"]
 |===

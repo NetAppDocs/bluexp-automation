@@ -241,7 +241,7 @@ entries:
              - title: Get disk types
                url: /cm/wf_gcp_cloud_md_get_disk_types.html
              - title: Get instance types
-               url: /cm/wf_gcp_cloud_md_get_instance_types_nosupport.html
+               url: /cm/wf_gcp_cloud_md_get_instance_type_nosupport.html
         - title: Miscellaneous
 
   - title: Common workflows
