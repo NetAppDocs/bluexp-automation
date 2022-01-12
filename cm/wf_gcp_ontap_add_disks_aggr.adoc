@@ -15,11 +15,11 @@ summary: You can add disks to an existing aggregate.
 [.lead]
 You can add disks to an existing aggregate.
 
-=== 1. Create the working environment
+=== 1. Select the working environment
 
 Perform the workflow link:wf_gcp_cloud_get_wes.html[Get GCP single node working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
-=== 2. Create the aggregate
+=== 2. Select the aggregate
 
 Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose `name` of the required aggregate for the `aggregateName` path parameter.
 

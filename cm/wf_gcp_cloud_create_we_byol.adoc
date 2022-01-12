@@ -5,7 +5,7 @@ keywords: byol, license, cloud, manager, rest, api
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using BYOL licensing.'
 ---
 
-= Create a working environment with BYOL 
+= Create a working environment with BYOL
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -38,14 +38,14 @@ Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and ch
 === 4. Select the permutations
 Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 8.
 
-=== 5. Get the packages configuration
+=== 5. Select the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html[Get packages] and search the `licenseType` from permutations:
 
 * Choose the `name` for `packageName` parameter.
 *	Choose the `diskSize` for `gcpVolumeSize`.
 *	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
 
-=== 6. Get the service account
+=== 6. Select the service account
 Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 8.
 
 === 7. (Optional) Obtain an NSS key
