@@ -21,37 +21,25 @@ You must generate a bearer token to authenticate and access the Cloud Manager RE
 --
 This workflow describes how to create an access token when using federated authentication.
 
-Before you begin
-
+.Before you begin
 Review the parameters in the *JSON input example* for the second workflow step. In particular, you must have the client identifier.
 
-.Steps
-
-. Generate a NetApp refresh token
+1. Generate a NetApp refresh token
 Navigate to https://services.cloud.netapp.com/refresh-token[Refresh Token Generator^] and generate a long-lived token. You need to provide this in the `refresh_token` JSON input parameter in the next step.
 
-. Generate the user token
-
+2. Generate the user token
  This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the curl example below and adjust for your environment as needed.
 
- [cols="25,75"*,options="header"]
- |===
- |HTTP method
- |Resource path
- |POST
- |/oauth/token
- |===
+curl example::
+[source,curl]
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput
 
- curl example::
- [source,curl]
- curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token' --header 'Content-Type: application/json' --d @JSONinput
+Input parameters::
 
- Input parameters::
+The JSON input example includes the list of input parameters.
 
- The JSON input example includes the list of input parameters.
-
- JSON input example::
- [source,json]
+JSON input example::
+[source,json]
  {
      "grant_type": "refresh_token",
      "refresh_token": "<REFRESH_TOKEN>",
@@ -62,15 +50,15 @@ Navigate to https://services.cloud.netapp.com/refresh-token[Refresh Token Genera
 
  The JSON output example includes the list of returned values. The `expires_in` value is expressed in seconds.
 
- JSON output example::
- [source,json]
- {
+JSON output example::
+[source,json]
+{
      "access_token": "<USER_TOKEN>",
      "id_token": "<ID_TOKEN>",
      "scope": "openid profile cc:update-password",
      "expires_in": 86400,
      "token_type": "Bearer"
- }
+}
 --
 
 .Non federated
@@ -81,7 +69,7 @@ This workflow describes how to create an access token when using non-federated a
 
 Review the parameters in the *JSON input example* for the first workflow step. In particular, you must have the account credentials and the client identifier.
 
-=== 1. Generate the user token
+1. Generate the user token
 
 This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the curl example below and adjust for your environment as needed.
 
