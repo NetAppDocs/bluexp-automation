@@ -252,8 +252,7 @@ entries:
         entries:
           - title: Create user token
             url: /cm/wf_common_identity_create_user_token.html
-          - title: Create user token example
-            url: /cm/wf_common_identity_create_user_token_ex.html
+          
           - title: Create service token
             url: /cm/wf_common_identity_create_service_token.html
           - title: Get supported services
