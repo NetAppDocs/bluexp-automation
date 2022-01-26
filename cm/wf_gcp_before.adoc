@@ -13,7 +13,6 @@ summary: There are several workflows you can use with the Google public cloud.
 :imagesdir: ./media/
 
 [.lead]
-Cloud Volumes ONTAP requires a Google Cloud service account to run several background automation tasks such as data tiering and backup service. This service account needs to be authenticated and should be authorized to access Cloud Manager APIs. link:https://docs.netapp.com/us-en/occm/task_creating_gcp_service_account.html[Learn more about GCP service accounts].
 
 There are several workflows you can use with the Google Cloud.
 
@@ -31,6 +30,8 @@ The GCP workflows are organized into the following categories:
 
 See link:workflow_processes.html[Understanding the workflow processes] for more information on these categories.
 
+[NOTE]
+Cloud Volumes ONTAP requires a Google Cloud service account to run several background automation tasks such as data tiering and backup service. link:https://docs.netapp.com/us-en/occm/task_creating_gcp_service_account.html[Learn more about GCP service accounts].
 
 == Connector setup
 
