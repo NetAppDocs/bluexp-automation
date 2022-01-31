@@ -242,7 +242,7 @@ entries:
                url: /cm/wf_gcp_cloud_md_get_disk_types.html
              - title: Get instance types
                url: /cm/wf_gcp_cloud_md_get_instance_type_nosupport.html
-        - title: Miscellaneous
+
 
   - title: Common workflows
     entries:
@@ -252,13 +252,12 @@ entries:
         entries:
           - title: Create user token
             url: /cm/wf_common_identity_create_user_token.html
-          
+
           - title: Create service token
             url: /cm/wf_common_identity_create_service_token.html
           - title: Get supported services
             url: /cm/wf_common_identity_get_supported_srv.html
-          - title: Get accounts
-            url: /cm/wf_common_identity_get_accounts.html
+        
           - title: Get cloud provider accounts
             url: /cm/wf_common_identity_get_provider_accounts.html
           - title: Get tenants
