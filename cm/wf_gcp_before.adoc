@@ -26,7 +26,7 @@ The GCP workflows are organized into the following categories:
 * Aggregates
 * Volumes
 * Metadata
-* Miscellaneous
+
 
 See link:workflow_processes.html[Understanding the workflow processes] for more information on these categories.
 
