@@ -126,5 +126,34 @@ The JSON output example includes an example of the `VsaWorkingEnvironmentRrespon
 JSON output example
 [source,json]
 {
-
+ "publicId": "vsaworkingenvironment-9nhkrtu0",
+ "name": "yuvalbyol3101",
+ "tenantId": "tenantIDshownhere",
+ "svmName": "svm_yuvalbyol3101",
+ "creatorUserEmail": "user_email",
+ "status": null,
+ "providerProperties": null,
+ "reservedSize": null,
+ "clusterProperties": null,
+ "ontapClusterProperties": null,
+ "cloudProviderName": "GCP",
+ "snapshotPolicies": null,
+ "actionsRequired": null,
+ "activeActions": null,
+ "replicationProperties": null,
+ "schedules": null,
+ "svms": null,
+ "workingEnvironmentType": "VSA",
+ "supportRegistrationProperties": null, "supportRegistrationInformation": null,
+ "capacityFeatures": null,
+ "encryptionProperties": null,
+ "supportedFeatures": null,
+ "isHA": false,
+ "haProperties": null,
+ "fpolicyProperties": null,
+ "saasProperties": null,
+ "cbsProperties": null,
+ "complianceProperties": null,
+ "monitoringProperties": null,
+ "licensesInformation": null
 }
