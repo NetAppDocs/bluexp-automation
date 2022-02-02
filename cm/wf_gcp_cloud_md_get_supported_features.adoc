@@ -13,7 +13,7 @@ summary: You can retrieve the supported capacity tiers for EBS volume types.
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to retrieve the supported features while provisioning a Cloud Volumes ONTAP instance.
+You can perform this workflow to retrieve the supported features.
 
 === 1. Select the permutations
 
