@@ -13,7 +13,7 @@ summary: You can retrieve the supported capacity tiers for EBS volume types.
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the supported capacity tiers for EBS volume types.
+You can perform this workflow to retrieve the supported features while provisioning a Cloud Volumes ONTAP instance.
 
 === 1. Select the permutations
 
@@ -26,7 +26,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations
 |HTTP method
 |Path
 |GET
-|/occm/api/gcp/vsa/metadata/supported-capacity-tiers
+|/occm/api/gcp/vsa/metadata/supported-features
 |===
 
 curl example::
