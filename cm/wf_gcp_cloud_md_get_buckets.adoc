@@ -5,7 +5,7 @@ keywords: buckets, cloud, volumes, ontap, working, environment, occm
 summary: You can perform this workflow to retrieve the S3 buckets.
 ---
 
-= Get Buckets
+= Get buckets
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can perform this workflow to retrieve the S3 buckets.
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to retrieve the S3 buckets.
+You can perform this workflow to retrieve the S3 buckets. The S3 buckets are the GCP storage buckets (data containers in GCP) required for data tiering and backups.
 
 === 1. Get the buckets
 

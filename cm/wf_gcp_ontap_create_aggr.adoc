@@ -13,7 +13,7 @@ summary: 'You can create a new aggregate within a working environment.'
 :imagesdir: ./media/
 
 [.lead]
-You can create a new aggregate within an Google Cloud working environment using this workflow.
+You can create new aggregate within a Cloud Volumes ONTAP working environment using this workflow.
 
 === 1. Select the working environment
 

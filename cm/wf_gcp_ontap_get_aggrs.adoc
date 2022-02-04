@@ -13,7 +13,7 @@ summary: 'You can retrieve a list of available disk aggregates.'
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve a list of available disk aggregates of a Google Cloud working environment.
+You can retrieve a list of available disk aggregates for Cloud Volumes ONTAP in Google Cloud.
 
 === 1. Select the working environment
 

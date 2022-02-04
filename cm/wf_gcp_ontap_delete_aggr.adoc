@@ -13,7 +13,7 @@ summary: 'You can delete an existing disk aggregate.'
 :imagesdir: ./media/
 
 [.lead]
-You can delete an existing disk aggregate in a Google Cloud working environment.
+You can delete an existing disk aggregate in a Cloud Volumes ONTAP working environment.
 
 === 1. Select the working environment
 

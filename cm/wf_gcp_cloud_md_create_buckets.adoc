@@ -13,7 +13,7 @@ summary: You can perform this workflow to retrieve the S3 buckets.
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to create a new bucket.
+You can perform this workflow to create a new bucket. This is a GCP storage bucket (data container in GCP) required for data tiering and backup.
 
 === 1. Create a bucket
 
@@ -38,7 +38,7 @@ JSON input example::
   "location": "us-west1",
   "storageClass": "standard"
 }
-  
+
 Output::
 
 None

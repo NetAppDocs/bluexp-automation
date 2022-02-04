@@ -13,8 +13,7 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 :imagesdir: ./media/
 
 [.lead]
-This workflow retrieves the instance types not supporting the acceleration and capacity tiering.
-
+This workflow retrieves the GCP instance types which do not support the acceleration and capacity tiering. This means that these kind instance types do not use any sort of hardware accelerator. You can check the instance types  while provisioning the Cloud Volumes ONTAP.
 
 === 1. Get the instance types
 

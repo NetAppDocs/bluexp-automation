@@ -224,6 +224,8 @@ entries:
                url: /cm/wf_gcp_cloud_md_get_tag_keys.html
              - title: Create buckets
                url: /cm/wf_gcp_cloud_md_create_buckets.html
+             - title: Get buckets
+               url: /cm/wf_gcp_cloud_md_get_buckets.html
              - title: Get GCP packages
                url: /cm/wf_gcp_cloud_md_get_packages.html
              - title: Get snapshot policies
