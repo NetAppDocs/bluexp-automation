@@ -1446,6 +1446,7 @@ This section describes existing data format definitions.
 |securityGroupId||false|string|
 |internalSecurityGroupId||false|string|
 |externalSecurityGroupId||false|string|
+
 |iops|Provisioned IOPS|false|integer (int32)|
 |instanceProfileName|Instance profile name|false|string|
 |tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
@@ -2041,7 +2042,9 @@ This section describes existing data format definitions.
 |snapshotPolicyName|Snapshot policy name|true|string|
 |exportPolicyInfo|NFS protocol parameters|false|<<ExportPolicyInfo>>|
 |shareInfo|CIFS protocol parameters|false|<<CreateCifsShareInfoRequest>>|
-|ProtocolIscsiInfo|ISCSI protocol parameters|false|<<CreateIscsiInfoRequest>>|
+
+
+
 |enableStorageEfficiency|Storage efficiency|true|boolean|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
 |===
@@ -2053,7 +2056,9 @@ This section describes existing data format definitions.
 |snapshotPolicyName|Snapshot Policy name|false|string|
 |exportPolicyInfo|Export policy info for NFS|false|<<NamedExportPolicyInfo>>|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  backup,  all)|
-|shareInfo|Share names, permissions and users for CIFS|false|<<CifsShareInfo>>|
+
+
+
 |===
 
 === FsxVolumeRequest
@@ -2967,7 +2972,7 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |wsUrl||true|string|
-|url||true|string|
+
 |===
 
 === NssAccountCredentials
