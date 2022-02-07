@@ -1,0 +1,113 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_get_wes.html
+keywords: cloud, manager, rest, api, list, working, environment, occm
+summary: "You can retrieve the Cloud Volumes ONTAP working environments that are visible to the user currently signed in."
+---
+
+= Get working environment
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve the public identifier, working environment ID, the storage virtual machine name for Cloud Volumes ONTAP working environments and other Cloud Volumes ONTAP related details (visible to currently logged in user) which would be used in other workflows.
+
+
+=== 1. Get the working environments
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}
+|===
+
+curl::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+(Optional) Query parameters:
+
+*  `fields` string
+* `tenantId` string
+
+
+Output::
+The JSON output example includes details of a single node Google Cloud working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "publicId": "vsaworkingenvironment-sfrf3wvj",
+        "name": "zivgcp01we02",
+        "tenantId": "tenantIDshownhere",
+        "svmName": "svm_zivgcp01we02",
+        "creatorUserEmail": "user_email",
+        "status": null,
+        "providerProperties": null,
+        "reservedSize": null,
+        "clusterProperties": null,
+        "ontapClusterProperties": null,
+        "cloudProviderName": "GCP",
+        "snapshotPolicies": null,
+        "actionsRequired": null,
+        "activeActions": null,
+        "replicationProperties": null,
+        "schedules": null,
+        "svms": null,
+        "workingEnvironmentType": "VSA",
+        "supportRegistrationProperties": null,
+        "supportRegistrationInformation": [],
+        "capacityFeatures": null,
+        "encryptionProperties": null,
+        "supportedFeatures": null,
+        "isHA": false,
+        "haProperties": null,
+        "k8sProperties": null,
+        "fpolicyProperties": null,
+        "saasProperties": null,
+        "cbsProperties": null,
+        "complianceProperties": null,
+        "monitoringProperties": null
+    },
+    {
+        "publicId": "vsaworkingenvironment-2qkd75xv",
+        "name": "zivgcp01we03",
+        "tenantId": "tenantIdshownhere",
+        "svmName": "svm_zivgcp01we03",
+        "creatorUserEmail": "user_email",
+        "status": null,
+        "providerProperties": null,
+        "reservedSize": null,
+        "clusterProperties": null,
+        "ontapClusterProperties": null,
+        "cloudProviderName": "GCP",
+        "snapshotPolicies": null,
+        "actionsRequired": null,
+        "activeActions": null,
+        "replicationProperties": null,
+        "schedules": null,
+        "svms": null,
+        "workingEnvironmentType": "VSA",
+        "supportRegistrationProperties": null,
+        "supportRegistrationInformation": [],
+        "capacityFeatures": null,
+        "encryptionProperties": null,
+        "supportedFeatures": null,
+        "isHA": false,
+        "haProperties": null,
+        "k8sProperties": null,
+        "fpolicyProperties": null,
+        "saasProperties": null,
+        "cbsProperties": null,
+        "complianceProperties": null,
+        "monitoringProperties": null
+    }
+]

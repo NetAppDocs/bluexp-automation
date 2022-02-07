@@ -1,0 +1,58 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_get_cifs.html
+keywords: cloud, manager, rest, api
+summary: "You can use this workflow to retrieve the CIFS server configurations for an existing Cloud Volumes ONTAP working environment."
+---
+
+= Get CIFS server configurations
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to retrieve the CIFS server configurations for an existing Cloud Volumes ONTAP working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Get the CIFS configurations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}/cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+* (Optional) Query parameter `svm` string
+
+Output::
+
+The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP ONTAP working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "dnsDomain": "zivh.netapp.com",
+        "activeDirectoryDomain": "zivh.netapp.com",
+        "ipAddresses": [
+            "172.31.5.241"
+        ],
+        "netBIOS": "zivaws02we01",
+        "organizationalUnit": "CN=Computers",
+        "authenticationType": "domain"
+    }
+]

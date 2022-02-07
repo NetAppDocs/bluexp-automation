@@ -1,0 +1,44 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_create_buckets.html
+keywords: buckets, cloud, volumes, ontap, working, environment, occm
+summary: You can perform this workflow to retrieve the S3 buckets.
+---
+
+= Create Buckets
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to create a new bucket. This is a GCP storage bucket (data container in GCP) required for data tiering and backup.
+
+=== 1. Create a bucket
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/metadata/create-bucket
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/create-bucket' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d JSONinput
+
+
+JSON input example::
+[source,json]
+{
+  "projectId": "occm-dev",
+  "bucketName": "zivgcpbucket02",
+  "location": "us-west1",
+  "storageClass": "standard"
+}
+
+Output::
+
+None

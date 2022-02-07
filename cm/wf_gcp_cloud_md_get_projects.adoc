@@ -1,0 +1,85 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_projects.html
+keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
+summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
+---
+
+= Get projects
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This workflow retrieves the list of projects that the caller has permission on.
+
+
+=== 1. Get the list of regions
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/projects
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/projects' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+Output::
+
+The JSON output provides an example of a list of authorized projects.
+
+JSON output example::
+[source,json]
+{
+    "projects": [
+        {
+            "isDefault": false,
+            "projectNumber": "958377592668",
+            "projectId": "occm-host",
+            "lifecycleState": "ACTIVE",
+            "name": "OCCM-host",
+            "createTime": "2019-07-24T14:36:32.472Z",
+            "parent": {
+                "type": "folder",
+                "id": "339830134733"
+            },
+            "subscriptionId": null
+        },
+        {
+            "isDefault": false,
+            "projectNumber": "844924364732",
+            "projectId": "occm-slave",
+            "lifecycleState": "ACTIVE",
+            "name": "OCCM-slave",
+            "createTime": "2019-07-24T14:36:32.405Z",
+            "parent": {
+                "type": "folder",
+                "id": "339830134733"
+            },
+            "subscriptionId": null
+        },
+        {
+            "isDefault": true,
+            "projectNumber": "92083494653",
+            "projectId": "occm-dev",
+            "lifecycleState": "ACTIVE",
+            "name": "OCCM-Dev",
+            "createTime": "2018-05-24T17:23:50.505Z",
+            "parent": {
+                "type": "folder",
+                "id": "339830134733"
+            },
+            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+        }
+    ]
+}

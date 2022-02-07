@@ -53,7 +53,7 @@ Perform the workflow link:wf_azure_cloud_md_get_vnets.html#get-azure-vnets-for-s
 
 Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html#get-availability-zones-for-single-node[Get Azure Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 11.
 
-=== 5. Get Azure packages configuration
+=== 5. Get the Azure packages configuration
 
 Perform the link:wf_azure_cloud_md_get_packages.html#get-packages-for-single-node[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
 
@@ -69,11 +69,11 @@ An NSS key is *optional* when using PAYGO licensing. If needed, you can create a
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 8. Select Azure cloud provider accounts
+=== 8. Select the Azure cloud provider accounts
 
-Perform the link:wf_azure_cloud_md_create_account.html[Create Azure Cloud Provider Accounts] workflow and choose the `publicId` of the desired cloud provider account item from the `azureAccounts` for the `cloudProviderAccount` parameter.
+Perform the link:wf_azure_cloud_md_create_account.html[Create Azure cloud provider accounts] workflow and choose the `publicId` of the desired cloud provider account item from the `azureAccounts` for the `cloudProviderAccount` parameter.
 
-=== 9. Select Azure permutations
+=== 9. Select the Azure permutations
 
 Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-single-node[Get Azure Permutations] workflow and pick the desired permutation:
 
@@ -81,7 +81,7 @@ Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-si
 *	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 11.
 *	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 11.
 
-=== 10. Select Azure storage account types
+=== 10. Select the Azure storage account types
 
 Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-single-node[Get Azure Storage Account Types] workflow and pick the desired storage type.
 

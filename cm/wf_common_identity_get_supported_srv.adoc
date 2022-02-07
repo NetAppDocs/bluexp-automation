@@ -60,7 +60,7 @@ JSON output example::
         },
         "portalInformation": {
             "edit_user_url": "https://services.cloud.netapp.com/?userMenuOpen",
-            "portalBackEnd": "https://api.staging.services.cloud.netapp.com",
+            "portalBackEnd": "https://api.services.cloud.netapp.com",
             "portalFrontEnd": "https://services.cloud.netapp.com"
         },
         "saasFrontEnd": "https://cloudmanager.netapp.com"
@@ -76,10 +76,10 @@ JSON output example::
     "saasMpServiceInformation": {
         "productUrlAws": "http://aws.amazon.com/marketplace/pp/B086BQCW8P",
         "productUrlGcp": "https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager",
-        "url": "https://staging.cloudmanager.cloud.netapp.com/saas-mp",
+        "url": "https://cloudmanager.cloud.netapp.com/saas-mp",
         "productUrlAzure": "https://portal.azure.com/#create/netapp.test-cloud-manager"
     },
-    "cvsInformation": "https://staging.services.cloud.netapp.com",
+    "cvsInformation": "https://services.cloud.netapp.com",
     "backupToS3Information": {
         "enabled": true,
         "disableReason": null,
@@ -89,7 +89,7 @@ JSON output example::
     },
     "complianceEnabled": false,
     "ipaServiceInformation": {
-        "url": "https://staging.cloudmanager.cloud.netapp.com/ipa"
+        "url": "https://cloudmanager.cloud.netapp.com/ipa"
     },
     "servicesInformation": {
         "compliance": {
@@ -108,7 +108,7 @@ JSON output example::
             "enabled": false,
             "govSupported": true,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/monitoring/index.html",
-            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://cloudmanager.cloud.netapp.com"
         },
         "astra": {
             "enabled": true,
@@ -119,33 +119,33 @@ JSON output example::
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_gfc/index.html",
             "dashboardUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_gfc/index.html",
             "enabled": false,
-            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com",
+            "apiUrl": "https://cloudmanager.cloud.netapp.com",
             "govSupported": false
         },
         "cloudTiering": {
-            "iframeUrl": "https://staging.tiering.cloud.netapp.com",
-            "url": "https://staging.tiering.cloud.netapp.com",
+            "iframeUrl": "https://tiering.cloud.netapp.com",
+            "url": "https://tiering.cloud.netapp.com",
             "enabled": false,
-            "apiUrl": "https://staging.tiering.cloud.netapp.com",
+            "apiUrl": "https://tiering.cloud.netapp.com",
             "govSupported": false
         },
         "snapCenter": {
             "enabled": false,
             "govSupported": false,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_snapcenter/index.html",
-            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://cloudmanager.cloud.netapp.com"
         },
         "k8s": {
             "enabled": false,
             "govSupported": false,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_k8s/index.html",
-            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://cloudmanager.cloud.netapp.com"
         },
         "spot": {
             "enabled": true,
             "govSupported": false,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_spot/index.html",
-            "apiUrl": "https://staging.cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://cloudmanager.cloud.netapp.com"
         },
         "sfr": {
             "enabled": false,

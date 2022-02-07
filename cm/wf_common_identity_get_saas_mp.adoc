@@ -59,7 +59,7 @@ JSON output example::
     "gcpSubscriptions": [
         {
             "id": "gcp-xxxx0000",
-            "name": "GCP subscription for staging",
+            "name": "GCP subscription",
             "provider": "gcp",
             "active": true
         }

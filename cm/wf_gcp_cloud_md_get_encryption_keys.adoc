@@ -1,0 +1,64 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_encryption_keys.html
+keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
+summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
+---
+
+= Get GCP encryption keys
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This workflow retrieves the GCP encryption keys for a specific region.
+
+=== 1. Select the region
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and choose the `name` value of the required region for the `region` path parameter.
+
+=== 2. Select the project
+Perform the link:[get projects] workflow and choose the `projectId` value of the required project for the `project` path parameter.
+
+=== 3. Get the encryption keys
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/gcp-encryption-keys
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/gcp-encryption-keys?region=<REGION>&project=<PROJECT>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Required query parameters:
+
+* <REGION> `region`: string
+* <PROJECT> `project`: string
+
+Output::
+
+The JSON output provides an example of a list of GCP encryption keys for a specific region.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "key1",
+        "id": "projects/occm-dev/locations/global/keyRings/test/cryptoKeys/key1",
+        "keyRing": "test",
+        "location": "global"
+    },
+    {
+        "name": "key2",
+        "id": "projects/occm-dev/locations/global/keyRings/test/cryptoKeys/key2",
+        "keyRing": "test",
+        "location": "global"
+    }
+]

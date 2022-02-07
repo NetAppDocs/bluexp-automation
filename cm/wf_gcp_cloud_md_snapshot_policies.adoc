@@ -1,0 +1,66 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_snapshot_policies.html
+keywords: buckets, cloud, volumes, ontap, working, environment, occm
+summary: You can perform this workflow to retrieve the S3 buckets.
+---
+
+= Get Snapshot policies
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve the default snapshot policies available on the cluster.
+
+=== 1. Get the snapshot policies
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/default-snapshot-policies
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/default-snapshot-policies' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of default snapshot policies available on the cluster.
+
+JSON output example::
+[source, json]
+[
+    {
+        "name": "default",
+        "schedules": [
+            {
+                "frequency": "hourly",
+                "retention": 6
+            },
+            {
+                "frequency": "daily",
+                "retention": 2
+            },
+            {
+                "frequency": "weekly",
+                "retention": 2
+            }
+        ],
+        "description": "Default policy with hourly, daily & weekly schedules."
+    },
+    {
+        "name": "none",
+        "schedules": [],
+        "description": "Policy for no automatic snapshots."
+    }
+]

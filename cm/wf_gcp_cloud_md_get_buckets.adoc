@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_buckets.html
+keywords: buckets, cloud, volumes, ontap, working, environment, occm
+summary: You can perform this workflow to retrieve the S3 buckets.
+---
+
+= Get buckets
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve the S3 buckets. The S3 buckets are the GCP storage buckets (data containers in GCP) required for data tiering and backups.
+
+=== 1. Get the buckets
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/vsa/metadata/buckets
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/buckets' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of S3 buckets.
+
+JSON output example::
+[source, json]
+[
+    {
+        "bucketName": "3.9.0.bins.08112020",
+        "region": "us-east-1",
+        "tags": {}
+    },
+    {
+        "bucketName": "0000000000-awsmacietrail-dataevent",
+        "region": "us-east-1",
+        "tags": {}
+    }
+]

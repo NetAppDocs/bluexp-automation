@@ -61,7 +61,7 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://staging.cloudmanager.cloud.netapp.com/occm/api/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -144,7 +144,7 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-a
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://staging.cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

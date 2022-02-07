@@ -1,0 +1,96 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_create_vol_nfs.html
+keywords: cloud, manager, rest, api, aggregate, svm, virtual, private, cloud
+summary: 'You can use this workflow to create a volume accessed through NFS.'
+---
+
+= Create a volume using NFS
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create a volume accessed through NFS protocol.
+
+[NOTE]
+If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+
+=== 2. Select the aggregate
+
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+
+[NOTE]
+If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
+
+=== 3. Choose the size for the disk
+
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+
+=== 4. Select the region
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
+
+=== 5. Create the quote
+
+Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+
+=== 6. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <SVM_NAME> `(svmName)`
+* <AGGR_NAME> `(aggregateName)`
+
+If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
+
+JSON input example::
+[source,json]
+{
+  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+  "svmName": "svm_zivgcp01we02",
+  "aggregateName": "ziv01agg01",
+  "name": "zivagg01vol01",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "snapshotPolicyName": "default",
+  "enableThinProvisioning": true,
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "maxNumOfDisksApprovedToAdd": 0,
+  "exportPolicyInfo": {
+      "ips": [
+          "10.138.0.0/20"
+      ],
+      "nfsVersion": [
+          "nfs3", "nfs4"
+      ],
+      "policyType": "custom"
+  }
+}
+
+Output::
+
+None

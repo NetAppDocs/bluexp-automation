@@ -1,0 +1,77 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_create_quote.html
+keywords: cloud, manager, rest, api, aggregate, volume quote, azure
+summary: 'You can create a quote for a new volume which returns a resource quote needed to satisfy the request.'
+---
+
+= Create quote
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a quote for a new volume which returns a resource quote needed to satisfy the request. The resource quote contains aggregate information where the volume will be created and confirms if the space is available. This is a recommended step but is not mandatory.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` and ‘svmName’ values of the required working environment for `workingEnvironmentId` and `svmName` parameters in the JSON input.
+
+=== 2. Select the aggregate
+Perform the link:wf_gcp_cloud_get_aggrs.html[Get aggregates] workflow and choose the `name` value of the required aggregate for the `aggregateName` parameter in the JSON input.
+
+=== 3. Select the gcp disk type
+Perform the link:wf_gcp_cloud_get_gcp_disk_types.html[Get gcp disk types] workflow and choose the `size` and `supportedDiskType` values of the required disk type for the `diskSize` and `providerVolumeType` parameters in the JSON input.
+
+=== 4. Generate the volume quote
+
+[cols="~,~"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/quote
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+  "svmName": "svm_zivgcp01we02",
+  "aggregateName": "ziv01agg01",
+  "name": "zivagg01vol01",
+  "size": {
+    "size": "100",
+    "unit": "GB"
+  },
+  "enableThinProvisioning": "true",
+  "providerVolumeType": "pd-ssd",
+  "verifyNameUniqueness": "true"
+}
+
+Output::
+
+The JSON output example includes an example of the quote details.
+
+JSON output example::
+[source,json]
+{
+    "numOfDisks": 0,
+    "diskSize": {
+        "size": 100.0,
+        "unit": "GB"
+    },
+    "aggregateName": "ziv01agg01",
+    "newAggregate": false,
+    "autoVsaCapacityManagement": true
+}

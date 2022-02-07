@@ -1,0 +1,57 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_add_disks_aggr.html
+keywords: disk, aggregate, cloud, manager, ONTAP, get, working, environment
+summary: You can add disks to an existing aggregate.
+---
+
+= Add disks to aggregate
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can add disks to an existing aggregate.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get GCP single node working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+
+=== 2. Select the aggregate
+
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose `name` of the required aggregate for the `aggregateName` path parameter.
+
+=== 3. Add the disks to the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/disks
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+You must include the following path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+Also, the JSON input example includes an input parameter as shown.
+
+JSON input example::
+[source, json]
+{
+    "numberOfDisks": "1"
+}
+
+Output::
+
+None

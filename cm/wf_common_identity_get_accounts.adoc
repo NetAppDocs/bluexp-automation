@@ -1,0 +1,66 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_identity_get_accounts.html
+keywords: generate, user, token
+summary: 'You must generate a bearer token to authenticate and access the Cloud Manager REST API. There are two workflows available depending on the type of authentication.'
+---
+
+= Get accounts
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve accounts.
+
+=== 1. Get accounts
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|GET
+|/occm/api/accounts
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/occm/api/accounts' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+* (Optional) Query parameters:
+    `providerType` string
+
+Output::
+
+The JSON output example includes the list of occm accounts.
+
+JSON output example::
+[source,json]
+{
+    "awsAccounts": [
+        {
+            "publicId": "InstanceProfile",
+            "accountName": "Instance Profile",
+            "accountType": "INSTANCE_PROFILE",
+            "accountId": "733004784675",
+            "accessKey": "",
+            "assumeRole": null,
+            "occmRole": "occm",
+            "vsaList": [
+                {
+                    "publicId": "VsaWorkingEnvironment-fay4FNet",
+                    "name": "ziv01we02",
+                    "workingEnvironmentType": "AWS"
+                }
+            ],
+            "subscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-jFyX7UNDTjB"
+        }
+    ],
+    "azureAccounts": [],
+    "gcpStorageAccounts": [],
+    "nssAccounts": []
+}

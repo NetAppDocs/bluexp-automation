@@ -1,0 +1,114 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_permutations.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get GCP permutations
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information such as  `ontapVersion`, `license`, `instanceType`, `region` and more. You can check the possible permutations that can potentially be provided for the GCP workflows while provisioning a Cloud Volumes ONTAP instance.
+
+=== 1. Get the permutations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/permutations
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+There are several *optional* query parameters you can use:
+
+* `region` string
+* `version` string
+* `license` string
+* `machine_type` string
+* `latest_only` string
+
+
+Output::
+
+The JSON output example includes the list of Cloud Volumes ONTAP configurations.
+
+JSON output example::
+[source,json]
+[
+    {
+        "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
+        "license": {
+            "type": "gcp-cot-explore-paygo",
+            "name": "Cloud Volumes ONTAP Explore",
+            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
+            "subName": "",
+            "subDescription": "Support of tiering to object storage is not included.",
+            "capacity_limit": "2TB",
+            "platformLicenseRequired": false,
+            "default": false,
+            "capacityLimit": {
+                "size": 2.0,
+                "unit": "TB"
+            }
+        },
+        "instanceType": "custom-4-16384",
+        "region": {
+            "name": "asia east 1",
+            "code": "asia-east1",
+            "location": "Changhua County, Taiwan",
+            "s3Region": null
+        },
+        "defaultInstance": false,
+        "features": [
+            "cpu:Intel Skylake"
+        ],
+        "upgradeableFrom": [
+            "9.8",
+            "9.9.0"
+        ]
+    },
+    {
+        "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
+        "license": {
+            "type": "gcp-cot-explore-paygo",
+            "name": "Cloud Volumes ONTAP Explore",
+            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
+            "subName": "",
+            "subDescription": "Support of tiering to object storage is not included.",
+            "capacity_limit": "2TB",
+            "platformLicenseRequired": false,
+            "default": false,
+            "capacityLimit": {
+                "size": 2.0,
+                "unit": "TB"
+            }
+        },
+        "instanceType": "custom-4-16384",
+        "region": {
+            "name": "asia east 2",
+            "code": "asia-east2",
+            "location": "Hong Kong",
+            "s3Region": null
+        },
+        "defaultInstance": false,
+        "features": [
+            "cpu:Intel Skylake"
+        ],
+        "upgradeableFrom": [
+            "9.8",
+            "9.9.0"
+        ]
+    }
+]

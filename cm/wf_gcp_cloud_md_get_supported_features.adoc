@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_supported_features.html
+keywords: supported, features, cloud, volumes, ontap, working, environment, occm
+summary: You can retrieve the supported capacity tiers for EBS volume types.
+---
+
+= Get supported features
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve and check the supported features while provisioning a Cloud Volumes ONTAP instance.
+
+=== 1. Select the permutations
+
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported features` request.
+
+=== 2. Get the supported features
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/supported-features
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/supported-features?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <REGION> `region` string
+* <ONTAP_VERSION> `ontapVersion` string
+* <LICENSE_TYPE> `licenseType` string
+* <INST_TYPE> `instanceType` string
+* <ENCRP_TYPE> `dataEncryptionType` string
+
+JSON output example::
+[source, json]
+{
+    "wormSupportedVersion": true,
+    "cbsSupportedVersion": true,
+    "httpsStorageAccountSupportedVersion": false,
+    "tieringWithServiceAccount": true
+}

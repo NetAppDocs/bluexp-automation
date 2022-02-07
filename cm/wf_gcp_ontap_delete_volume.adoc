@@ -1,0 +1,51 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_delete_volume.html
+keywords: delete, volume, cloud, manager, rest, api, existing, volume, aws, workflows
+summary: "You can delete an existing volume."
+---
+
+= Delete volume
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can delete an existing volume.
+
+=== 1. Select the working environment
+
+Perform the link:wf_gcp_cloud_get_wes.html[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` for the `volumeName` path parameter.
+
+=== 3. Delete the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|DELETE
+|/occm/api/gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+
+curl example::
+[source,curl]
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <VOLUME_NAME> `(volumeName)` string
+
+Output::
+
+None

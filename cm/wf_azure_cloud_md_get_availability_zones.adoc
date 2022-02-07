@@ -103,3 +103,44 @@ JSON output example::
         2
     ]
 }
+
+== Get availability zones for high availability pair
+
+You can use this workflow to retrieve the availability zones by region for a high availability pair working environment.
+
+=== 1. Get the availability zones
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/metadata/availability-zones
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/availability-zones?region=<REGION>&subscriptionId=<SUBSCRIPTION_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <REGION> `region` string
+* (Optional) <SUBSCRIPTION_ID> `subscriptionId` string
+* (Optional) `cloudProviderAccountId` string
+
+Output::
+
+The JSON output example includes the list of Azure  storage account types.
+
+JSON output example::
+[source, json]
+{
+    "region": "eastus2",
+    "zones": [
+        1,
+        3,
+        2
+    ]
+}

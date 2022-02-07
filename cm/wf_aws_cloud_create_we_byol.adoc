@@ -94,12 +94,12 @@ JSON input example::
     "tenantId": "workspace-cxxx123",
     "subnetId": "subnet-f4da95ac",
     "dataEncryptionType": "AWS",
-    "nssAccount": "ab332ce3-xxxx-4000-8e03-752a0601c682",
+    "nssAccount": "xxx332ce3-xxxx-4000-xx00-000a0601c682",
     "vsaMetadata": {
         "ontapVersion": "ONTAP-9.9.0.T1",
         "licenseType": "cot-premium-byol",
         "instanceType": "m5.xlarge",
-        "platformSerialNumber": "90120130000000000026"
+        "platformSerialNumber": "00100100000000000020"
         },
         "ebsVolumeSize": {
             "size": 100,

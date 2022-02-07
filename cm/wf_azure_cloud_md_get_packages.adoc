@@ -240,3 +240,114 @@ Output example	[
         "writingSpeedState": "NORMAL"
     }
 ]
+
+== Get packages for high availability pair
+
+You can use this workflow to retrieve the packages for an HA working environment.
+
+=== 1. Get the packages
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/azure/ha/metadata/packages
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of Azure  storage account types.
+
+JSON output example::
+[source, json]
+Output example	[
+    {
+        "name": "azure_poc",
+        "displayName": "POC and small workloads",
+        "description": "No description yet",
+        "licenseType": "azure-cot-explore-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "Standard_DS3_v2"
+            }
+        ],
+        "diskType": "Premium_LRS",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "azure_standard",
+        "displayName": "Database and application data production workloads",
+        "description": "No description yet",
+        "licenseType": "azure-cot-standard-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "Standard_DS4_v2"
+            }
+        ],
+        "diskType": "Premium_LRS",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "azure_dr",
+        "displayName": "Cost effective DR",
+        "description": "No description yet",
+        "licenseType": "azure-cot-standard-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "Standard_DS4_v2"
+            }
+        ],
+        "diskType": "Standard_LRS",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "azure_fastest",
+        "displayName": "Highest performance production workloads",
+        "description": "No description yet",
+        "licenseType": "azure-cot-premium-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "Standard_DS5_v2"
+            }
+        ],
+        "diskType": "Premium_LRS",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    }
+]
