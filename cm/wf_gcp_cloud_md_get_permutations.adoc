@@ -13,7 +13,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 :imagesdir: ./media/
 
 [.lead]
-You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information such as  ontapVersion, license, instanceType, region and more. You can check the possible permutations that can potentially be provided for the GCP workflows while provisioning a Cloud Volumes ONTAP instance.
+You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information such as  `ontapVersion`, `license`, `instanceType`, `region` and more. You can check the possible permutations that can potentially be provided for the GCP workflows while provisioning a Cloud Volumes ONTAP instance.
 
 === 1. Get the permutations
 
