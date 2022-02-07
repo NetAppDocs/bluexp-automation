@@ -1,0 +1,123 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_packages.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get GCP packages
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve the pre-defined packages configuration.
+
+=== 1. Get the packages
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/packages
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+None
+
+Output::
+
+The JSON output example includes the list of GCP packages.
+
+JSON output example::
+[source, json]
+[
+    {
+        "name": "gcp_poc",
+        "displayName": "POC and small workloads",
+        "description": "No description yet",
+        "licenseType": "gcp-cot-explore-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "custom-4-16384"
+            }
+        ],
+        "diskType": "pd-ssd",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": null,
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "gcp_standard",
+        "displayName": "Database and application data production workloads",
+        "description": "No description yet",
+        "licenseType": "gcp-cot-standard-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "n1-standard-8"
+            }
+        ],
+        "diskType": "pd-ssd",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": "GCP",
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "gcp_dr",
+        "displayName": "Cost effective DR",
+        "description": "No description yet",
+        "licenseType": "gcp-cot-standard-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "n1-standard-8"
+            }
+        ],
+        "diskType": "pd-standard",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": "GCP",
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    },
+    {
+        "name": "gcp_fastest",
+        "displayName": "Highest performance production workloads",
+        "description": "No description yet",
+        "licenseType": "gcp-cot-premium-paygo",
+        "instanceTypeMapping": [
+            {
+                "region": "default",
+                "instanceType": "n1-standard-32"
+            }
+        ],
+        "diskType": "pd-ssd",
+        "diskSize": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "capacityTier": "GCP",
+        "instanceTenancy": null,
+        "writingSpeedState": "NORMAL"
+    }
+]

@@ -1,0 +1,108 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_tag_keys.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get tag keys
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve all the labels in the specified project and zone.
+
+=== 1. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
+
+=== 2. Select the region
+Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
+
+=== 3. Get the tag keys
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/tag-keys
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/tag-keys?projectId=<PROJECT_ID>&zone=<ZONE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <PROJECT_ID> `projectId` string
+* <ZONE> `zone` string
+
+
+Output::
+
+The JSON output example includes the list of Azure  storage account types.
+
+JSON output example::
+[source, json]
+[
+    {
+        "key": "working-environment-id",
+        "values": [
+            "vsaworkingenvironment-sfrf3wvj",
+            "vsaworkingenvironment-2qkd75xv"
+        ]
+    },
+    {
+        "key": "count-down",
+        "values": [
+            "3",
+            "0",
+            "2"
+        ]
+    },
+    {
+        "key": "username",
+        "values": [
+            "administrator"
+        ]
+    },
+    {
+        "key": "keepme",
+        "values": [
+            "10"
+        ]
+    },
+    {
+        "key": "cloud-ontap-version",
+        "values": [
+            "9_9_0x4"
+        ]
+    },
+    {
+        "key": "cloud-ontap-dm",
+        "values": [
+            "zivgcp01we02-deployment",
+            "zivgcp01we03-deployment"
+        ]
+    },
+    {
+        "key": "platform-serial-number",
+        "values": [
+            "00000030000000000009",
+            "00000000000000096011"
+        ]
+    }
+]
+    },
+    {
+        "key": "netapp:cloud-compliance:cloudManager:ClientId",
+        "values": [
+            "sNwn2FzHxFrucwz8j1huxNIYI7aRNqTC"
+        ]
+    }
+]

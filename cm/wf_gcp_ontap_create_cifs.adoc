@@ -1,0 +1,129 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_create_cifs.html
+keywords: cloud, manager, rest, api, aws, cifs, server, configuration
+summary: 'You can use this workflow to set up a new CIFS server configuration for an existing Cloud Volumes ONTAP working environment.'
+---
+
+= Create CIFS server configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+If you want to create CIFS volumes on your Cloud Volumes ONTAP system, you first need to configure the CIFS server. You can choose to set up the CIFS server in a workgroup or in an Active Directory domain. Review the https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.pow-cifs-cg%2FGUID-362AE62E-EE3A-419B-8195-B96079EEEC5D.html[ONTAP documentation] for more information.
+
+Choose the workflow that is specific to your goal:
+
+* <<Set up a CIFS server in a workgroup>>
+* <<Set up a CIFS server in an Active Directory domain>>
+
+== Set up a CIFS server in a workgroup
+You can configure a CIFS server in a workgroup when the Microsoft Active Directory domain infrastructure is not available.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Create the CIFS configuration
+
+Create the CIFS server configuration.
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}/cifs-workgroup
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/cifs-workgroup' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+
+JSON input example::
+[source,json]
+{
+  "serverName": "SMB_SERVER02",
+  "workgroupName": "workgroup02",
+  "svmName": "svm_ziv01we01"
+}
+
+Output::
+
+None.
+
+== Set up a CIFS server in an Active Directory domain
+You can create a CIFS server on the SVM and specify the Active Directory (AD) domain to which it belongs.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Determine the Active Directory configuration
+
+You need the following configuration parameters for an Active Directory server.
+
+[cols="35,65"*,options="header"]
+|===
+|Input parameter
+|Description
+|dnsDomain
+|Use the Active Directory domain as the DNS name.
+|ipAddresses
+|Define the primary DNS IP address and optionally add a secondary IP address.
+|netBIOS
+|Use the CIFS server NetBIOS name.
+|organizationalUnit
+|Include the organizational unit as appropriate.
+|activeDirectoryDomain
+|Set the Active Directory domain to join.
+|activeDirectoryUsername
+|A username with authorization to join the domain.
+|activeDirectoryPassword
+|The password for the authorized username.
+|===
+
+=== 3. Create the CIFS configuration
+
+Create the CIFS server configuration.
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}/cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+
+JSON input example::
+[source,json]
+{
+  "dnsDomain": "zivh.netapp.com",
+  "ipAddresses": [
+    "172.31.5.241"
+  ],
+  "netBIOS": "zivaws02we03",
+  "organizationalUnit": "CN=Computers",
+  "activeDirectoryDomain": "zivh.netapp.com",
+  "activeDirectoryUsername": "administrator",
+  "activeDirectoryPassword": "password"
+}
+
+Output::
+
+None.

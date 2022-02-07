@@ -1,0 +1,116 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_get_aggrs.html
+keywords: cloud, manager, rest, api, get aggregates
+summary: 'You can retrieve a list of available disk aggregates.'
+---
+
+= Get aggregates
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve a list of available disk aggregates for Cloud Volumes ONTAP in Google Cloud.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Get the list of aggregates
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/aggregates/{workingEnvironmentId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+
+Output::
+An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
+
+NOTE: The capacity (sizes) in the output are in MB/GB/TB (1000th order) because these are ONTAP aggregates, whereas in Cloud Manager the capacity is specified as MiB, GiB (1024 order).
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "aggr1",
+        "availableCapacity": {
+            "size": 87.55,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 88.57,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 1.02,
+            "unit": "GB"
+        },
+        "volumes": [
+            {
+                "name": "svm_zivgcp01we02_root",
+                "totalSize": {
+                    "size": 1.0,
+                    "unit": "GB"
+                },
+                "usedSize": {
+                    "size": 7.59124755859375E-4,
+                    "unit": "GB"
+                },
+                "thinProvisioned": false,
+                "isClone": false,
+                "rootVolume": true
+            }
+        ],
+        "providerVolumes": [
+            {
+                "id": "00000000000000000",
+                "name": "zivgcp01we02datadisk1",
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "state": "READY",
+                "device": "zivgcp01we02datadisk1",
+                "instanceId": "zivgcp01we02",
+                "diskType": "pd-ssd",
+                "encrypted": true,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-1.2",
+                "position": "data",
+                "ownerNode": "zivgcp01we02-01",
+                "device": "zivgcp01we02datadisk1",
+                "vmDiskProperties": null
+            }
+        ],
+        "state": "online",
+        "encryptionType": "cloudEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "zivgcp01we02-01",
+        "ownerNode": "zivgcp01we02-01",
+        "capacityTier": null,
+        "capacityTierUsed": null,
+        "sidlEnabled": true,
+        "snaplockType": "non_snaplock"
+    }
+]

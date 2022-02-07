@@ -1,0 +1,145 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_regions.html
+keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
+summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
+---
+
+= Get GCP regions
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This workflow retrieves the GCP regions in which a Cloud Volumes ONTAP working environment might be created.
+
+
+=== 1. Get the list of regions
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/regions
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+
+Output::
+
+The JSON output provides an example of a list of GCP regions.
+
+JSON output example::
+[source,json]
+[
+    {
+        "displayName": "asia-east1",
+        "name": "asia-east1",
+        "zones": [
+            {
+                "name": "asia-east1-a"
+            },
+            {
+                "name": "asia-east1-b"
+            },
+            {
+                "name": "asia-east1-c"
+            }
+        ],
+        "vpcs": [
+            {
+                "name": "default",
+                "subnets": [
+                    {
+                        "ipCidrRange": "10.140.0.0/20",
+                        "name": "default",
+                        "path": "projects/occm-dev/regions/asia-east1/subnetworks/default",
+                        "availableIps": 4090,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "allow-all",
+                        "vpc": "default"
+                    },
+                    {
+                        "name": "allow-ssh-netapp",
+                        "vpc": "default"
+                    }
+               ]
+            },
+           {
+                "name": "eli-vpc",
+                "subnets": [
+                    {
+                        "ipCidrRange": "10.0.0.0/00",
+                        "name": "eli-subnet",
+                        "path": "projects/occm-dev/regions/asia-east1/subnetworks/eli-subnet",
+                        "availableIps": 250,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "eli-vpc-allow-http",
+                        "vpc": "eli-vpc"
+                    },
+                    {
+                        "name": "eli-vpc-allow-https",
+                        "vpc": "eli-vpc"
+                    }
+               ]
+            },
+          ],
+         },
+    {
+        "displayName": "asia-northeast1",
+        "name": "asia-northeast1",
+        "zones": [
+            {
+                "name": "asia-northeast1-a"
+            },
+            {
+                "name": "asia-northeast1-b"
+            },
+            {
+                "name": "asia-northeast1-c"
+            }
+        ],
+        "vpcs": [
+            {
+                "name": "default",
+                "subnets": [
+                    {
+                        "ipCidrRange": "00.000.0.0/20",
+                        "name": "default",
+                        "path": "projects/occm-dev/regions/asia-northeast1/subnetworks/default",
+                        "availableIps": 4090,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "allow-all",
+                        "vpc": "default"
+                    },
+                    {
+                        "name": "allow-ssh-netapp",
+                        "vpc": "default"
+                    }
+                 ]
+            }
+        ]
+   }
+}

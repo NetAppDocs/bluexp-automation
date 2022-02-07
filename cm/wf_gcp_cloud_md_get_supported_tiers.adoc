@@ -1,0 +1,79 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_supported_tiers.html
+keywords: supported, features, cloud, volumes, ontap, working, environment, occm
+summary: You can retrieve the supported capacity tiers for EBS volume types.
+---
+
+= Get supported capacity tiers
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve the supported capacity tiers for Google Cloud disk types.
+
+=== 1. Select the permutations
+
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported capacity tiers` request.
+
+=== 2. Get the supported features
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/supported-capacity-tiers
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/supported-capacity-tiers?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <REGION> `region` string
+* <ONTAP_VERSION> `ontapVersion` string
+* <LICENSE_TYPE> `licenseType` string
+* <INST_TYPE> `instanceType` string
+* <ENCRP_TYPE> `dataEncryptionType` string
+
+Output::
+The output shows a list of supported capacity tiers for the GCP disk types.
+
+JSON output example::
+[source, json]
+{
+    "supportedCapacityTiersPerVolumeType": [
+        {
+            "volumeType": "pd-standard",
+            "supportedCapacityTiers": [
+                "cloudStorage"
+            ],
+            "availableTieringPolicies": [
+                "none",
+                "snapshot_only"
+            ]
+        },
+        {
+            "volumeType": "pd-ssd",
+            "supportedCapacityTiers": [
+                "cloudStorage"
+            ],
+            "availableTieringPolicies": [
+                "none",
+                "snapshot_only"
+            ]
+        }
+    ],
+    "capacityTiersDisableReasons": [
+        "Cannot create capacity tiered volume on Cloud Volumes ONTAP Explore license"
+    ],
+    "compositeSupported": true,
+    "forceCompositeVersion": false
+}

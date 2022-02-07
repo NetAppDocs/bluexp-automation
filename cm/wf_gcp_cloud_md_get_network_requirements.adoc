@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_cloud_md_get_network_requirements.html
+keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
+summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
+---
+
+= Get network requirements
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This workflow retrieves the minimum number of required IPs for a Cloud Volumes ONTAP system.
+
+
+=== 1. Get the network requirements
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/network-requirements
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/network-requirements' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+
+Output::
+
+The JSON output provides an example of the minimum number of required IPs.
+
+JSON output example::
+[source,json]
+{
+    "vsaMinimumRequiredIps": 5,
+    "haVsaMinimumRequiredIps": 17
+}

@@ -1,0 +1,83 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_disk_types.html
+keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
+summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
+---
+
+= Get GCP disk types
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This workflow retrieves the GCP supported disk types.
+
+
+=== 1. Get the disk types
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/vsa/metadata/gcp-disk-types
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/gcp-disk-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+
+Output::
+
+The JSON output provides an example of a list of GCP supported disk types.
+
+JSON output example::
+[source,json]
+[
+    {
+        "size": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "supportedDiskTypes": [
+            "pd-standard",
+            "pd-ssd"
+        ],
+        "supportedOccmLicenses": [
+            "Standard (BYOL)",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Explore",
+            "Standard (hourly)",
+            "Cloud Volumes ONTAP BYOL",
+            "Explore (hourly)",
+            "Cloud Volumes ONTAP Premium"
+        ]
+    },
+    {
+        "size": {
+            "size": 500.0,
+            "unit": "GB"
+        },
+        "supportedDiskTypes": [
+            "pd-standard",
+            "pd-ssd"
+        ],
+        "supportedOccmLicenses": [
+            "Standard (BYOL)",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Explore",
+            "Standard (hourly)",
+            "Cloud Volumes ONTAP BYOL",
+            "Explore (hourly)",
+            "Cloud Volumes ONTAP Premium"
+        ]
+    }
+]

@@ -1,0 +1,184 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_create_vol_iscsi.html
+keywords: cloud, manager, rest, api
+summary: 'You can use this workflow to create a volume accessed through iSCSI. There are two workflows available depending on whether a new or existing iGroup is used'
+---
+
+= Create a volume using iSCSI
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create a volume accessed through iSCSI. There are two workflows available depending on whether a new or existing iGroup is used. You need to select the correct workflow:
+
+* <<Create volume using iSCSI with a new iGroup>>
+* <<Create volume using iSCSI with an existing iGroup>>
+
+== Create volume using iSCSI with a new iGroup
+
+[NOTE]
+If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+
+=== 2. Select the aggregate
+
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` value.
+
+=== 3. Choose the size for the disk
+
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+
+=== 4. Choose the iscasiInfo parameters
+
+You must choose the following values for the REST API call:
+
+* A unique igroup name for `igroupCreationRequest` -> `igroupName` parameter
+* The required iqn’s to `igroupCreationRequest` -> `initiators` parameter.
+* The required operating system for the `osName` parameter from one of the following:
+** windows
+** linux
+** vmware
+** windows_2008
+** windows_gpt
+
+=== 5. Create the quote
+
+Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote].This is a recommended step but is not mandatory.
+
+=== 6. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
+
+JSON input example::
+[source,json]
+{
+  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
+  "svmName": "svm_zivaws02we01",
+  "aggregateName": "aggr1",
+  "name": "zivaws02we01vol01Iscsi",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "iscsiInfo": {
+    "igroupCreationRequest": {
+        "igroupName": "zivIgroup",
+        "initiators": [
+            "iqn.1994-05.com.redhat:96de86825216",
+            "iqn.1994-05.com.redhat:96de86823426"
+        ]
+    },
+    "osName": "linux"
+  },
+  "snapshotPolicyName": "default",
+  "enableThinProvisioning": true,
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "maxNumOfDisksApprovedToAdd": 0
+}
+
+Output::
+
+None
+
+== Create volume using iSCSI with an existing iGroup
+
+[NOTE]
+If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+
+=== 2. Select the aggregate
+
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` value.
+
+=== 3. Choose the size for the disk
+
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+
+=== 4. Choose the iGroup
+
+Perform the workflow link:wf_gcp_ontap_get_igroups.html[Get iGroups] and choose the igroups for the `iscasiInfo` -> `igroups` value. Also select the `osType` value for the `iscasiInfo` -> `osName`.
+
+=== 5. Create the quote
+
+Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+
+=== 6. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+If an aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
+
+JSON input exmaple::
+[source,json]
+{
+  "workingEnvironmentId": "VsaWorkingEnvironment-UvFmWXoD",
+  "svmName": "svm_zivaws01we01",
+  "aggregateName": "aggr1",
+  "name": "zivaws01we01vol05Iscsi",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "iscsiInfo": {
+    "igroups": ["zivIgroup1"],
+    "osName": "linux"
+  },
+  "snapshotPolicyName": "default",
+  "enableThinProvisioning": true,
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "maxNumOfDisksApprovedToAdd": 0
+}
+
+Output::
+
+None

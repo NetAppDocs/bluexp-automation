@@ -1,0 +1,50 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_delete_cifs.html
+keywords: cifs, server, configuration, occm, aws, working, environment
+summary: You can use this workflow to delete a CIFS server configuration for an existing Cloud Volumes ONTAP working environment.
+---
+
+= Delete CIFS server configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to delete a CIFS server configuration for an existing Cloud Volumes ONTAP working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Delete the CIFS configurations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}/delete-cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+* Optional JSON body
++
+[source,json]
+{
+  "activeDirectoryUsername": "string",
+  "activeDirectoryPassword": "string",
+  "svmName": "string"
+}
+
+Output::
+
+None.

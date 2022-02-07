@@ -1,0 +1,101 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_create_vol_cifs.html
+keywords: vcloud, manager, rest, api
+summary: 'You can use this workflow to create a volume accessed through CIFS.'
+---
+
+= Create a volume using CIFS
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create a volume accessed through CIFS.
+
+[NOTE]
+If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
+
+=== 1. Choose the CIFS configuration
+
+A CIFS server configuration must be defined for your working environment. You can do one of the following:
+
+* If a CIFS configuration already exists, perform the workflow link:wf_gcp_ontap_get_cifs.html[Get CIFS server configurations] to access the configuration parameters.
+* If a CIFS configuration does not exist, perform the workflow link:wf_gcp_ontap_create_cifs.html[Create CIFS server configuration] to create one.
+
+=== 2. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+
+=== 3. Select the aggregate
+
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` value.
+
+[NOTE]
+If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
+
+=== 4. Choose the size for the disk
+
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+
+=== 5. Create the quote
+
+Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+
+=== 6. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <AGGR_NAME> `(aggregateName)` string
+
+If an aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
+
+JSON input example::
+[source,json]
+{
+  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
+  "svmName": "svm_zivaws02we01",
+  "aggregateName": "aggr1",
+  "name": "zivaws02we02vol02Cifs",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "shareInfo": {
+    "accessControl": {
+        "permission": "full_control",
+        "users": [
+            "Everyone"
+        ],
+        "users": "Everyone;"
+    },
+    "shareName": "zivaws02we01vol02Cifs_share"
+  },
+  "snapshotPolicyName": "default",
+  "enableThinProvisioning": true,
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "maxNumOfDisksApprovedToAdd": 0
+}
+
+Output::
+
+None

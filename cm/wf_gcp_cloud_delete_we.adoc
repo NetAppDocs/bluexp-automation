@@ -1,0 +1,52 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_delete_we.html
+keywords: cloud, manager, rest, api, working, environment, cloud, volumes, ontap, occm
+summary: 'You can delete an existing Cloud Volumes ONTAP working environment.'
+---
+
+= Delete a working environment
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can delete an existing GCP Cloud Volumes ONTAP working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Delete the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|DELETE
+|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}
+|===
+
+Curl example::
+[source,curl]
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
+
+(Optional) Query parameters:
+
+* `localDelete` boolean
++
+If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`). If `false` the Cloud Volumes ONTAP instance is deleted including all the cloud resources created for this working environment.
+
+* `forceDelete` boolean
++
+If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
+
+Output::
+
+None

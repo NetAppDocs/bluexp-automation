@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_ontap_create_aggr.html
+keywords: cloud, manager, rest, api, aggregate, publicid, working, environment, aws
+summary: 'You can create a new aggregate within a working environment.'
+---
+
+= Create aggregate
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create new aggregate within a Cloud Volumes ONTAP working environment using this workflow.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
+
+=== 2. Select the GCP disk types
+
+Perform the link:wf_gcp_cloud_md_get_disk_types.html[Get GCP disk types] workflow and choose the `size`  and `supportedDiskType` values of the required `diskSize` and `providerVolumeType` parameters in the JSON input.
+
+=== 3. Create the aggregate
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|occm/api/gcp/vsa/aggregates
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "name": "ziv01agg01",
+  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+  "numberOfDisks": 1,
+  "diskSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "providerVolumeType": "pd-ssd"
+}
+
+
+Output::
+
+None
