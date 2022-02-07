@@ -14,7 +14,7 @@ summary: There are several workflows you can use with the Google public cloud.
 
 [.lead]
 
-There are several workflows that you can use to deploy and manage Cloud Volumes ONTAP inwith the Google Cloud.
+There are several workflows that you can use to deploy and manage Cloud Volumes ONTAP in Google Cloud.
 
 [NOTE]
 Review the link:getting_started.html[Get started] section before using any of the Cloud Manager REST API workflows.
