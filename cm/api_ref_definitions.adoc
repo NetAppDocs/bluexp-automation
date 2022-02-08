@@ -15,6 +15,7 @@ summary:
 [.lead]
 This section describes existing data format definitions.
 
+
 === About
 [options="header"]
 |===
@@ -73,6 +74,7 @@ This section describes existing data format definitions.
 |providerVolumeType|Provider volume type|false|string|
 |volumeInfo|volume Information|false|<<VolumeInfo>>|
 |currentInstanceType|Current instance type|false|string|
+|composite||true|boolean|
 |===
 
 === AddAwsRegionsRequest
@@ -1250,13 +1252,13 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|ontapVersion||false|string|
-|license||false|<<OntapLicenseType>>|
-|instanceType||false|string|
-|region||false|<<Region>>|
-|defaultInstance||false|boolean|
-|features||false|string array|
-|upgradeableFrom||false|string array|
+|ontapVersion||true|string|
+|license||true|<<OntapLicenseType>>|
+|instanceType||true|string|
+|region||true|<<Region>>|
+|defaultInstance||true|boolean|
+|features||true|string array|
+|upgradeableFrom||true|string array|
 |===
 
 === ConfigureS3Request
@@ -3080,8 +3082,8 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|objectStoreAttachEligible||true|boolean|
 |inactiveDataReportingEnabled||true|boolean|
+|objectStoreAttachEligible||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3233,6 +3235,7 @@ This section describes existing data format definitions.
 |wormEnabled||true|boolean|
 |vscanFileOperationDefaultProfile||true|string|
 |spaceReportingLogical||true|boolean|
+|keystoneSubscription||true|boolean|
 |===
 
 === OntapEncryption
@@ -3710,8 +3713,8 @@ This section describes existing data format definitions.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|backupTarget||true|boolean|
 |tieringTarget||true|boolean|
+|backupTarget||true|boolean|
 |===
 
 === S3BucketsSummary
@@ -4001,6 +4004,7 @@ This section describes existing data format definitions.
 |provider||true|enum (aws,  azure,  gcp)|
 |active|Active|true|boolean|
 |contract|contract|true|boolean|
+|byNodeMode|By node mode|true|boolean|
 |===
 
 === SupportRegistrationInformation
