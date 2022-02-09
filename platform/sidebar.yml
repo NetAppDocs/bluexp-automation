@@ -1,3 +1,5 @@
 section: platform
 title: Get started
-url: /platform/overview.html
+entries:
+  - title: Introduction
+    url: /platform/overview.html
