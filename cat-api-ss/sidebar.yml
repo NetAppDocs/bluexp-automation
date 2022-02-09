@@ -1,5 +1,5 @@
 section: cat-api-ss
-title: Storage services
+title: Storage services APIs
 entries:
   - title: Cloud Volumes ONTAP
     entries:

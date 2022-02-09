@@ -3,3 +3,9 @@ title: Get started
 entries:
   - title: Overview
     url: /platform/overview.html
+  - title: REST implementation
+    url: /platform/rest_implementation.html
+  - title: Security
+    entries:
+      - title: Create user token
+        url: /platform/create_user_token.html

@@ -24,7 +24,7 @@ You must do the following:
 
 * Determine the identifier to use for the `x-agent-id` request header as well as the related client ID. See link:get_client_id.html[Get the client and account identifiers].
 
-* Acquire an access token for the `Authorization` request header. See link:wf_common_identity_create_user_token.html[Create user token].
+* Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
 
 .Curl example
 
