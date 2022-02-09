@@ -3,8 +3,8 @@ title: Storage services
 entries:
   - title: Cloud Volumes ONTAP
     entries:
-      - title: Introduction
-        url: /cm/introduction.html
+      - title: Overview
+        url: /cm/overview.html
       - title: Get started
         url: /cm/getting_started.html
         entries:
