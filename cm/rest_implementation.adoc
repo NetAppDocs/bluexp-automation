@@ -30,7 +30,7 @@ summary:
 [cols="25,75"*,options="header"]
 |===
 |Request Header	|Description
-|Authorization	Contains the user JWT access token and is required
+|Authorization	|Contains the user JWT access token and is required
 |`x-agent-id`	|Contains the Cloud Manager Connector ID and can be included depending on the call
 |===
 
@@ -40,7 +40,11 @@ You can use query parameters with endpoints in the following components:
 [cols="25,75"*,options="header"]
 |===
 |Component	|Query Parameter
-|Resource	|account (required), resourceType, workspace, resourceClass, resourceId
+|Resource	a|account (required)
+resourceType
+workspace
+resourceClass
+resourceId
 |===
 
 === Response headers
