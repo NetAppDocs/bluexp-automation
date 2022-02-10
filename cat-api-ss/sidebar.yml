@@ -22,15 +22,6 @@ entries:
             url: /cm/cloud_manager_deployment.html
       - title: REST implementation details
         url: /cm/rest_implementation.html
-        entries:
-          - title: Basic concepts
-            url: /cm/concepts.html
-          - title: Security
-            url: /cm/security.html
-          - title: HTTP details
-            url: /cm/http_details.html
-          - title: Additional considerations
-            url: /cm/additional_considerations.html
       - title: API reference
         url: /cm/api_reference.html
         entries:
