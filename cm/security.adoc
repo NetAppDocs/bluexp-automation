@@ -13,7 +13,7 @@ summary: "The Cloud Manager REST API provides robust security based on token aut
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Manager REST API provides robust security based on token authentication and authorization.
+The Cloud Manager platform REST APIs provides robust security based on token authentication and authorization.
 
 [NOTE]
 In addition to token authorization, all connections are protected using the Transport Layer Security (TLS) protocol.

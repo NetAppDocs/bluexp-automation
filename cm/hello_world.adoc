@@ -13,7 +13,7 @@ summary: 'You can issue a curl command to get started using the Cloud Manager RE
 :imagesdir: ./media/
 
 [.lead]
-You can issue a curl command to get started using the Cloud Manager REST API and confirm its availability.
+You can issue a curl command to get started using the Cloud Volumes ONTAP REST API and confirm its availability.
 
 [NOTE]
 The example provided below is very simple. The workflow samples later in this guide use a more robust format. As a start, see link:workflow_processes.html[Understanding the workflow processes].

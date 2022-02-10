@@ -13,11 +13,11 @@ summary: 'There are several things you should do to prepare to use the Cloud Man
 :imagesdir: ./media/
 
 [.lead]
-There are several things you should do to prepare before using the Cloud Manager REST API and associated workflows.
+There are several things you should do to prepare before using the Cloud Volumes ONTAP REST API and associated workflows.
 
 ==== Review REST concepts and implementation
 
-Make sure to review link:rest_implementation.html[REST implementation details] for information about REST concepts and the details of how the Cloud Manager REST API is designed.
+Make sure to review link:rest_implementation.html[REST implementation details] for information about REST concepts and the details of how the Cloud Volumes ONTAP REST API is designed.
 
 ==== Decide on the cloud provider and have credentials
 
