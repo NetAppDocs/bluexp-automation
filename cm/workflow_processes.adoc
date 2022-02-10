@@ -105,7 +105,7 @@ Nearly all the REST API calls used in the workflows require the following two re
 Rather than cite these headers as a prerequisite in every REST API call, they are considered a universal requirement. If a workflow does not use these headers or has different prerequisites, the section *Before you begin* is included at the top of the workflow and describes the prerequisites.
 
 Authorization request header::
-To get a bearer token for this header, perform the appropriate workflow at link:wf_common_identity_create_user_token.html[Create user token] and extract the `access_token` value.
+To get a bearer token for this header, perform the appropriate workflow at link:../platform/create_user_token.html[Create a user token] and extract the `access_token` value.
 
 x-agent-id request header::
 This header contains the agent ID which is based on the client ID. See link:get_client_id.html[Get client and account identifiers] for information about creating this value.

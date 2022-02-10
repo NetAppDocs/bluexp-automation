@@ -220,12 +220,8 @@ entries:
         url: /cm/wf_common.html
       - title: Identity and access
         entries:
-          - title: Create user token
-            url: /cm/wf_common_identity_create_user_token.html
-
           - title: Get supported services
             url: /cm/wf_common_identity_get_supported_srv.html
-
           - title: Get cloud provider accounts
             url: /cm/wf_common_identity_get_provider_accounts.html
           - title: Get tenants

@@ -5,6 +5,13 @@ entries:
     url: /platform/overview.html
   - title: REST implementation
     url: /platform/rest_implementation.html
+    entries:
+      - title: Basic concepts
+        url: /platform/concepts.html
+      - title: HTTP details
+        url: /platform/http_details.html
+      - title: Additional considerations
+        url: /platform/additional_considerations.html
   - title: Security
     entries:
       - title: Create user token
