@@ -15,8 +15,8 @@ summary: 'You must generate a bearer token to authenticate and access the Cloud 
 [.lead]
 You must generate a bearer token to authenticate and access the Cloud Manager REST API. There are two workflows available depending on the type of authentication. You need to select the correct workflow:
 
-* link:wf_common_identity_create_user_token.html#create-a-user-token-with-federated-authentication[Federated]
-* link:wf_common_identity_create_user_token.html#create-a-user-token-with-nonfederated-authentication[Nonfederated]
+* link:../platform/create_user_token.html#create-a-user-token-with-federated-authentication[Federated]
+* link:../platform/create_user_token.html#create-a-user-token-with-nonfederated-authentication[Nonfederated]
 
 == Create a user token with federated authentication
 
