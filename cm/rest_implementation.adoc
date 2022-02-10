@@ -13,4 +13,46 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-MUST UPDATE
+
+== HTTP methods
+
+[cols="25,75"*,options="header"]
+|===
+|Method	|Description
+|POST	|Create an object instance
+|GET	|Retrieve an object instance or collection
+|PATCH	|Update an existing object
+|DELETE	|Remove an existing object
+|===
+
+== Request headers
+
+[cols="25,75"*,options="header"]
+|===
+|Request Header	|Description
+|Authorization	Contains the user JWT access token and is required
+|`x-agent-id`	|Contains the Cloud Manager Connector ID and can be included depending on the call
+|===
+
+== Query parameters
+You can use query parameters with endpoints in the following components:
+
+[cols="25,75"*,options="header"]
+|===
+|Component	|Query Parameter
+|Resource	|account (required), resourceType, workspace, resourceClass, resourceId
+|===
+
+== Response headers
+This API uses the standard HTTP response headers common with all Cloud Manager APIs. See REST implementation for more information.
+
+== HTTP status codes
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP Status Code	|Description
+|200	|OK: Returned for successful operation completion
+|400	|Bad Request: Returned if the input is malformed and could not be parsed
+|401	|Unauthorized: Returned if user authentication failed or the token has expired
+|403	|Forbidden: Returned for authorization errors depending on the resource and token
+|===
