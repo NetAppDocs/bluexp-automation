@@ -14,7 +14,7 @@ summary:
 
 [.lead]
 
-== HTTP methods
+=== HTTP methods
 
 [cols="25,75"*,options="header"]
 |===
@@ -25,7 +25,7 @@ summary:
 |DELETE	|Remove an existing object
 |===
 
-== Request headers
+=== Request headers
 
 [cols="25,75"*,options="header"]
 |===
@@ -34,7 +34,7 @@ summary:
 |`x-agent-id`	|Contains the Cloud Manager Connector ID and can be included depending on the call
 |===
 
-== Query parameters
+=== Query parameters
 You can use query parameters with endpoints in the following components:
 
 [cols="25,75"*,options="header"]
@@ -43,10 +43,10 @@ You can use query parameters with endpoints in the following components:
 |Resource	|account (required), resourceType, workspace, resourceClass, resourceId
 |===
 
-== Response headers
-This API uses the standard HTTP response headers common with all Cloud Manager APIs. See REST implementation for more information.
+=== Response headers
+This API uses the standard HTTP response headers common with all Cloud Manager APIs. View link:../platform/rest_implementation.html[REST implementation] for more information.
 
-== HTTP status codes
+=== HTTP status codes
 
 [cols="25,75"*,options="header"]
 |===
