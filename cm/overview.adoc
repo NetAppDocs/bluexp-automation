@@ -5,7 +5,7 @@ keywords: overview, introduction rest api
 summary: 'The NetApp Cloud Manager service includes a REST API that you can access programmatically to administer your cloud-based resources. '
 ---
 
-= Overview of the Cloud Manager REST API
+= Overview of the Cloud Volumes ONTAP REST API
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -15,15 +15,15 @@ summary: 'The NetApp Cloud Manager service includes a REST API that you can acce
 [.lead]
 The NetApp Cloud Manager service includes a REST API you can use programmatically to administer your cloud-based resources. The REST API provides access to a subset of the functionality available in the Cloud Manager platform with a focus on Cloud Volumes ONTAP deployments.
 
-There are several benefits to using the Cloud Manager REST API.
+There are several benefits to using the Cloud Volumes ONTAP REST API.
 
 === Built on REST technology and design principles
 
-The Cloud Manager API has been designed based on REST technology and current best practices. The core technologies include Hypertext Transfer Protocol (HTTP) and JavaScript Object Notation (JSON).
+The Cloud Volumes ONTAP API has been designed based on REST technology and current best practices. The core technologies include Hypertext Transfer Protocol (HTTP) and JavaScript Object Notation (JSON).
 
 === Anchors the Cloud Manager development platform
 
-The Cloud Manager REST API provides the primary external interface to the Cloud Manager platform. There are additional REST APIs which support the various platform services.
+The Cloud Volumes ONTAP REST API provides the primary external interface to the Cloud Manager platform. There are additional REST APIs which support the various platform services.
 
 === Access to NetApp cloud token-based security
 
