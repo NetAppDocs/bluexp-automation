@@ -8,12 +8,6 @@ entries:
       - title: Get started
         url: /cm/getting_started.html
         entries:
-          - title: Before you begin
-            url: /cm/getting_started_before.html
-          - title: Get client and account IDs
-            url: /cm/get_client_id.html
-          - title: Add an NSS credentials key
-            url: /cm/get_nss_key.html
           - title: Hello world
             url: /cm/hello_world.html
           - title: Understand the workflow processes

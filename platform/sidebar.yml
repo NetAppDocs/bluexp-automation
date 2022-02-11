@@ -14,5 +14,9 @@ entries:
         url: /platform/additional_considerations.html
   - title: Security
     entries:
+      - title: Generate NSS key
+        url: /platform/get_nss_key.html
+      - title: Get client and account IDs
+        url: /platform/get_client_id.html
       - title: Create user token
         url: /platform/create_user_token.html

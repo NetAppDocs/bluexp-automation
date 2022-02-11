@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/get_nss_key.html
+permalink: platform/get_nss_key.html
 keywords: nss, credentials, key, cloud, manager, rest, api, nss, credential
 summary: 'You can sign in to the Cloud Manager web user interface to retrieve the NetApp Support Site credentials key.'
 ---
 
-= Add NSS credentials key
+= Generate NSS credentials key
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,11 +14,11 @@ summary: 'You can sign in to the Cloud Manager web user interface to retrieve th
 
 [.lead]
 You can sign in to the Cloud Manager web user interface to create a new NetApp Support Site (NSS) credentials key.
+< Steps are not correct. Revised steps are in Ben's occm site https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html#overview >
+//[NOTE]
+//You need the NSS key when creating a working environment that uses BYOL ("bring your own") licensing.
 
-[NOTE]
-You need the NSS key when creating a working environment that uses BYOL ("bring your own") licensing.
-
-== Add the NSS key
+== Generate the NSS key
 
 You can create an NSS key and use it when creating a working environment.
 
