@@ -1,0 +1,7 @@
+section: cm
+title: API reference
+entries:
+  - title: Resources
+    url: /cm/api_ref_resources.html
+  - title: Definitions
+    url: /cm/api_ref_definitions.html

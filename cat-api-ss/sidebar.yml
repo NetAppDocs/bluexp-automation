@@ -16,10 +16,4 @@ entries:
             url: /cm/cloud_manager_deployment.html
       - title: REST implementation details
         url: /cm/rest_implementation.html
-      - title: API reference
-        url: /cm/api_reference.html
-        entries:
-          - title: Resources
-            url: /cm/api_ref_resources.html
-          - title: Definitions
-            url: /cm/api_ref_definitions.html
+      - section: cm
