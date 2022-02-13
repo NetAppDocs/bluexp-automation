@@ -1,5 +1,6 @@
 section: cm
 title: API reference
+url: /cm/api_reference.html
 entries:
   - title: Resources
     url: /cm/api_ref_resources.html
