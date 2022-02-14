@@ -14,7 +14,8 @@ summary: 'You can sign in to the Cloud Manager web user interface to retrieve th
 
 [.lead]
 You can sign in to the Cloud Manager web user interface to create a new NetApp Support Site (NSS) credentials key.
-< Steps are not correct. Revised steps are in Ben's occm site https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html#overview >
+
+link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html#overview[Learn more about NSS accounts].
 //[NOTE]
 //You need the NSS key when creating a working environment that uses BYOL ("bring your own") licensing.
 
@@ -38,4 +39,10 @@ https://cloudmanager.netapp.com
 
 . Navigate to the *NSS Management* tab and click *Add NSS Account*.
 
-. Provide the NSS username and password and click *Register*. After successful registration, an NSS key ID will be generated.
+. When prompted, click *Continue* which will redirect you to a Microsoft login page.
++
+NetApp uses Microsoft Azure Active Directory as the identity provider for authentication services specific to support and licensing.
+
+. Provide the NSS email address and password to perform the authentication process. After successful authentication, an NSS User ID will be generated.
+
+You can use the generated NSS User ID when creating a working environment with your preferred choice of licensing for a cloud provider. The NSS User ID is optional for PAYGO subscription but mandatory for BYOL licensing.
