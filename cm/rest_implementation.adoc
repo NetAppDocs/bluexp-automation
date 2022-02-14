@@ -52,11 +52,12 @@ This API uses the standard HTTP response headers common with all the Cloud Manag
 
 === HTTP status codes
 
-[cols="25,75"*,options="header"]
+[cols="25,25,50"*,options="header"]
 |===
-|HTTP Status Code	|Description
-|200	|OK: Returned for successful operation completion
-|400	|Bad Request: Returned if the input is malformed and could not be parsed
-|401	|Unauthorized: Returned if user authentication failed or the token has expired
-|403	|Forbidden: Returned for authorization errors depending on the resource and token
+|HTTP Status Code	|Reason phrase |Description
+|200 |OK
+|Returned for successful operation completion
+|400	|Bad Request |Returned if the input is malformed and could not be parsed
+|401	|Unauthorized |Returned if user authentication failed or the token has expired
+|403	|Forbidden |Returned for authorization errors depending on the resource and token
 |===
