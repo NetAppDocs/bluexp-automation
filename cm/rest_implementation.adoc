@@ -48,7 +48,7 @@ resourceId
 |===
 
 === Response headers
-This API uses the standard HTTP response headers common with all Cloud Manager APIs. View link:../platform/rest_implementation.html[REST implementation] for more information.
+This API uses the standard HTTP response headers common with all the Cloud Manager platform REST APIs. See link:../platform/rest_implementation.html[REST implementation] for more information.
 
 === HTTP status codes
 

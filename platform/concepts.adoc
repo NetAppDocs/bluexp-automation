@@ -13,11 +13,11 @@ summary: 'Representational State Transfer (REST) is a style for creating distrib
 :imagesdir: ./media/
 
 [.lead]
-Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The Cloud Manager REST API uses mainstream protocols and standards to provide a flexible foundation for deploying and administering Cloud Volumes ONTAP instances and the associated resources.
+Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The Cloud Manager platform REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based resources.
 
 === Overview of the API resources
 
-The REST style of application development begins by identifying the set of server-based resources. The Cloud Manager resources are broadly categorized as follows:
+The REST style of application development begins by identifying the set of server-based resources. Considering the Cloud Volumes ONTAP API as an example, the resources are broadly categorized as follows:
 
 * Administrative resources
 +
@@ -37,7 +37,7 @@ Used to deploy and manage working environments, including: single Cloud Volumes 
 
 === REST endpoints
 
-The REST resources are accessed through endpoints based on the URL path. Each endpoint provides access to one of the following:
+REST resources are accessed through endpoints identified in the URL path. Each endpoint provides access to one of the following:
 
 * Resource instance
 * Collection of resource instances
@@ -46,7 +46,7 @@ See link:api_reference.html[API reference] for more information.
 
 === Types of input parameters
 
-The Cloud Manager REST API uses several types of parameters in the HTTP request.
+There are several types of parameters available with the Cloud Manager platform APIs with each HTTP request.
 
 [cols="20,80",options="header"]
 |===

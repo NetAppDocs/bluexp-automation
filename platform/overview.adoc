@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Manager platform is composed of multiple internal services or components. Each service implements a specific function or capability and typically exposes one or more REST APIs. Collectively these services form a flexible and extensible platform. The Cloud Volumes ONTAP API is the starting place for automation specialists using the Cloud Manager platform.
+The Cloud Manager platform is composed of multiple internal service components. Each service implements a specific function or capability and typically exposes one or more REST APIs. Collectively these services form a flexible and extensible platform. The Cloud Volumes ONTAP API is the typical starting place for automation specialists using the Cloud Manager platform.
 
 .Related information
 
