@@ -13,11 +13,11 @@ summary: 'You can sign in to the Cloud Manager web user interface to retrieve th
 :imagesdir: ./media/
 
 [.lead]
-You can sign in to the Cloud Manager web user interface to create a NetApp Support Site (NSS) user ID. This ID can be included when creating a Cloud Manager working environment to enable support and analytics.
+You can create a NetApp Support Site (NSS) user ID through the Cloud Manager web user interface. This ID is included when creating a Cloud Manager working environment.
 
 .About this task
 
-Registering credentials and creating an NSS user id is an important Cloud Manager administrative task. For information about related administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Add and manage NetApp Support Site accounts in Cloud Manager^].
+Registering NSS credentials with Cloud Manager and creating an NSS user id enables product support and analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
 
 //[NOTE]
 //You need the NSS key when creating a working environment that uses BYOL ("bring your own") licensing.
@@ -46,4 +46,4 @@ NetApp uses Microsoft Azure Active Directory as the identity provider for authen
 
 .After you finish
 
-You can use the generated NSS user ID when creating a working environment with your preferred choice of licensing model and cloud provider. The NSS user ID is optional for the PAYGO subscription but mandatory with BYOL licensing.
+You can use the generated NSS user ID when creating a working environment with your preferred licensing model and cloud provider. The NSS user ID is required with BYOL licensing and optional for the PAYGO subscription.
