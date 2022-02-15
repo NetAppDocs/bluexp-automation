@@ -1,0 +1,264 @@
+section: cat-wf-ss
+title: Storage workflows
+entries:
+  - title: AWS workflows
+    entries:
+      - title: Before you begin
+        url: /cm/wf_aws.html
+      - title: Working environments
+        entries:
+          - title: Create working environment with PAYGO
+            url: /cm/wf_aws_cloud_create_we_paygo.html
+          - title: Create working environment with BYOL
+            url: /cm/wf_aws_cloud_create_we_byol.html
+          - title: Get working environments
+            url: /cm/wf_aws_cloud_get_wes.html
+          - title: Delete working environment
+            url: /cm/wf_aws_cloud_delete_we.html
+          - title: Create CIFS
+            url: /cm/wf_aws_ontap_create_cifs.html
+          - title: Get CIFS
+            url: /cm/wf_aws_ontap_get_cifs.html
+          - title: Delete CIFS
+            url: /cm/wf_aws_ontap_delete_cifs.html
+      - title: Aggregates
+        entries:
+          - title: Get aggregates
+            url: /cm/wf_aws_ontap_get_aggrs.html
+          - title: Create aggregate
+            url: /cm/wf_aws_ontap_create_aggr.html
+          - title: Add disks to aggregate
+            url: /cm/wf_aws_ontap_add_disks_aggr.html
+          - title: Delete aggregate
+            url: /cm/wf_aws_ontap_delete_aggr.html
+      - title: Volumes
+        entries:
+          - title: Create a volume using NFS
+            url: /cm/wf_aws_ontap_create_vol_nfs.html
+          - title: Create a volume using CIFS
+            url: /cm/wf_aws_ontap_create_vol_cifs.html
+          - title: Create a volume using iSCSI
+            url: /cm/wf_aws_ontap_create_vol_iscsi.html
+          - title: Get volumes
+            url: /cm/wf_aws_ontap_get_volumes.html
+          - title: Modify volume
+            url: /cm/wf_aws_ontap_modify_volume.html
+          - title: Delete volume
+            url: /cm/wf_aws_ontap_delete_volume.html
+          - title: Create quote
+            url: /cm/wf_aws_ontap_create_quote.html
+          - title: Get iGroups
+            url: /cm/wf_aws_ontap_get_igroups.html
+      - title: Metadata
+        entries:
+          - title: Get regions
+            url: /cm/wf_aws_cloud_md_get_regions.html
+          - title: Get permutations
+            url: /cm/wf_aws_cloud_md_get_permutations.html
+          - title: Get virtual private clouds
+            url: /cm/wf_aws_cloud_md_get_vpcs.html
+          - title: Get EBS volume types
+            url: /cm/wf_aws_cloud_md_get_ebs_vol_types.html
+          - title: Get packages
+            url: /cm/wf_aws_cloud_md_get_packages.html
+          - title: Get route tables
+            url: /cm/wf_aws_cloud_md_get_route_tables.html
+          - title: Get key pairs
+            url: /cm/wf_aws_cloud_md_get_key_pairs.html
+      - title: Miscellaneous
+        entries:
+          - title: Create AWS cloud provider account
+            url: /cm/wf_aws_cloud_md_create_account.html
+  - title: Azure workflows
+    entries:
+        - title: Before you begin
+          url: /cm/wf_azure_before.html
+        - title: Working environments
+          entries:
+            - title: Create working environment with PAYGO
+              url: /cm/wf_azure_cloud_create_we_paygo.html
+            - title: Create working environment with BYOL
+              url: /cm/wf_azure_cloud_create_we_byol.html
+            - title: Get working environments
+              url: /cm/wf_azure_cloud_get_wes.html
+            - title: Delete working environment
+              url: /cm/wf_azure_cloud_delete_we.html
+            - title: Create CIFS
+              url: /cm/wf_azure_ontap_create_cifs.html
+            - title: Get CIFS
+              url: /cm/wf_azure_ontap_get_cifs.html
+            - title: Delete CIFS
+              url: /cm/wf_azure_ontap_delete_cifs.html
+
+        - title: Aggregates
+          entries:
+             - title: Get aggregates
+               url: /cm/wf_azure_ontap_get_aggrs.html
+             - title: Create aggregate
+               url: /cm/wf_azure_ontap_create_aggr.html
+             - title: Add disks to aggregate
+               url: /cm/wf_azure_ontap_add_disks_aggr.html
+             - title: Delete aggregate
+               url: /cm/wf_azure_ontap_delete_aggr.html
+        - title: Volumes
+          entries:
+             - title: Create a volume using NFS
+               url: /cm/wf_azure_ontap_create_vol_nfs.html
+             - title: Create a volume using CIFS
+               url: /cm/wf_azure_ontap_create_vol_cifs.html
+             - title: Create a volume using iSCSI
+               url: /cm/wf_azure_ontap_create_vol_iscsi.html
+             - title: Get volumes
+               url: /cm/wf_azure_ontap_get_volumes.html
+             - title: Modify volume
+               url: /cm/wf_azure_ontap_modify_volume.html
+             - title: Delete volume
+               url: /cm/wf_azure_ontap_delete_volume.html
+             - title: Create quote
+               url: /cm/wf_azure_ontap_create_quote.html
+             - title: Get iGroups
+               url: /cm/wf_azure_ontap_get_igroups.html
+        - title: Metadata
+          entries:
+             - title: Get Azure regions
+               url: /cm/wf_azure_cloud_md_get_regions.html
+             - title: Get Azure permutations
+               url: /cm/wf_azure_cloud_md_get_permutations.html
+             - title: Get Azure storage account types
+               url: /cm/wf_azure_cloud_md_get_storage_account_types.html
+             - title: Get Azure VNets
+               url: /cm/wf_azure_cloud_md_get_vnets.html
+             - title: Get Azure availability zones
+               url: /cm/wf_azure_cloud_md_get_availability_zones.html
+             - title: Get Azure packages
+               url: /cm/wf_azure_cloud_md_get_packages.html
+        - title: Miscellaneous
+          entries:
+            - title: Create Azure cloud provider account
+              url: /cm/wf_azure_cloud_md_create_account.html
+  - title: GCP workflows
+    entries:
+        - title: Before you begin
+          url: /cm/wf_gcp_before.html
+        - title: Working environments
+          entries:
+            - title: Create working environment with PAYGO
+              url: /cm/wf_gcp_cloud_create_we_paygo.html
+            - title: Create working environment with BYOL
+              url: /cm/wf_gcp_cloud_create_we_byol.html
+            - title: Get working environments
+              url: /cm/wf_gcp_cloud_get_wes.html
+            - title: Delete working environment
+              url: /cm/wf_gcp_cloud_delete_we.html
+            - title: Create CIFS
+              url: /cm/wf_gcp_ontap_create_cifs.html
+            - title: Get CIFS
+              url: /cm/wf_gcp_ontap_get_cifs.html
+            - title: Delete CIFS
+              url: /cm/wf_gcp_ontap_delete_cifs.html
+        - title: Aggregates
+          entries:
+             - title: Get aggregates
+               url: /cm/wf_gcp_ontap_get_aggrs.html
+             - title: Create aggregate
+               url: /cm/wf_gcp_ontap_create_aggr.html
+             - title: Add disks to aggregate
+               url: /cm/wf_gcp_ontap_add_disks_aggr.html
+             - title: Delete aggregate
+               url: /cm/wf_gcp_ontap_delete_aggr.html
+        - title: Volumes
+          entries:
+             - title: Create a volume using NFS
+               url: /cm/wf_gcp_ontap_create_vol_nfs.html
+             - title: Create a volume using CIFS
+               url: /cm/wf_gcp_ontap_create_vol_cifs.html
+             - title: Create a volume using iSCSI
+               url: /cm/wf_gcp_ontap_create_vol_iscsi.html
+             - title: Get volumes
+               url: /cm/wf_gcp_ontap_get_volumes.html
+             - title: Modify volume
+               url: /cm/wf_gcp_ontap_modify_volume.html
+             - title: Delete volume
+               url: /cm/wf_gcp_ontap_delete_volume.html
+             - title: Create quote
+               url: /cm/wf_gcp_ontap_create_quote.html
+             - title: Get iGroups
+               url: /cm/wf_gcp_ontap_get_igroups.html
+        - title: Metadata
+          entries:
+             - title: Get GCP regions
+               url: /cm/wf_gcp_cloud_md_get_regions.html
+             - title: Get permutations
+               url: /cm/wf_gcp_cloud_md_get_permutations.html
+             - title: Get tag keys
+               url: /cm/wf_gcp_cloud_md_get_tag_keys.html
+             - title: Create buckets
+               url: /cm/wf_gcp_cloud_md_create_buckets.html
+             - title: Get buckets
+               url: /cm/wf_gcp_cloud_md_get_buckets.html
+             - title: Get GCP packages
+               url: /cm/wf_gcp_cloud_md_get_packages.html
+             - title: Get snapshot policies
+               url: /cm/wf_gcp_cloud_md_snapshot_policies.html
+             - title: Get supported features
+               url: /cm/wf_gcp_cloud_md_get_supported_features.html
+             - title: Get supported capacity tiers
+               url: /cm/wf_gcp_cloud_md_get_supported_tiers.html
+             - title: Get service accounts
+               url: /cm/wf_gcp_cloud_md_get_service_accounts.html
+             - title: Get projects
+               url: /cm/wf_gcp_cloud_md_get_projects.html
+             - title: Get GCP encryption keys
+               url: /cm/wf_gcp_cloud_md_get_encryption_keys.html
+             - title: Get disk types
+               url: /cm/wf_gcp_cloud_md_get_disk_types.html
+             - title: Get instance types
+               url: /cm/wf_gcp_cloud_md_get_instance_type_nosupport.html
+  - title: Common workflows
+    entries:
+      - title: Before you begin
+        url: /cm/wf_common.html
+      - title: Identity and access
+        entries:
+          - title: Get supported services
+            url: /cm/wf_common_identity_get_supported_srv.html
+          - title: Get cloud provider accounts
+            url: /cm/wf_common_identity_get_provider_accounts.html
+          - title: Get tenants
+            url: /cm/wf_common_identity_get_tenants.html
+      - title: SaaS marketplace
+        entries:
+          - title: Get SaaS marketplace account
+            url: /cm/wf_common_identity_get_saas_mp.html
+          - title: Attach subscription
+            url: /cm/wf_common_occm_attach_subscription.html
+      - title: NetApp Support Site
+        entries:
+          - title: Get NSS key
+            url: /cm/wf_common_identity_get_nss_key.html
+          - title: Get NSS keys
+            url: /cm/wf_common_identity_get_nss_keys.html
+          - title: Delete NSS key
+            url: /cm/wf_common_identity_delete_nss_key.html
+      - title: Internal tasks and support
+        entries:
+          - title: Get active task
+            url: /cm/wf_common_occm_get_task.html
+      - title: SnapMirror replication
+        entries:
+          - title: Create relationship
+            url: /cm/wf_common_ontap_repl_create_repl.html
+          - title: Update relationship
+            url: /cm/wf_common_ontap_repl_update_repl.html
+          - title: Delete relationship
+            url: /cm/wf_common_ontap_repl_delete_repl.html
+          - title: Get relationships
+            url: /cm/wf_common_ontap_repl_get_sm_rels.html
+          - title: Get relationships status
+            url: /cm/wf_common_ontap_repl_get_rel_status.html
+          - title: Get relationship status for working environment
+            url: /cm/wf_common_ontap_repl_get_rel_we_status.html
+          - title: Get intercluster LIFs
+            url: /cm/wf_common_ontap_repl_get_ic_lifs.html
+          - title: Get schedules for working environment
+            url: /cm/wf_common_ontap_repl_get_we_schedules.html

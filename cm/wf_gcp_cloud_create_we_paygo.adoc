@@ -51,7 +51,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service 
 === 7. (Optional) Obtain an NSS key
 An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
 
-* To create a new NSS key, perform the link:wf_common_identity_create_nss_key.html[Create NSS key] workflow and choose the `id` value from the response.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
 

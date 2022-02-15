@@ -1,0 +1,20 @@
+---
+sidebar: sidebar
+permalink: platform/overview.html
+keywords: overview, cloud manager
+summary:
+---
+
+= Overview of the Cloud Manager platform
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The Cloud Manager platform is composed of multiple internal service components. Each service implements a specific function or capability and typically exposes one or more REST APIs. Collectively these services form a flexible and extensible platform. The Cloud Volumes ONTAP API is the typical starting place for automation specialists using the Cloud Manager platform.
+
+.Related information
+
+link:../cm/overview.html[Cloud Volumes ONTAP API]

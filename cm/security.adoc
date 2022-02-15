@@ -13,7 +13,7 @@ summary: "The Cloud Manager REST API provides robust security based on token aut
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Manager REST API provides robust security based on token authentication and authorization.
+The Cloud Manager platform REST APIs provides robust security based on token authentication and authorization.
 
 [NOTE]
 In addition to token authorization, all connections are protected using the Transport Layer Security (TLS) protocol.
@@ -28,6 +28,6 @@ Authorization can be performed in a federated or non-federated environment. The 
 .Authorization
 You must use a valid token to access the API based on the authorization mode.
 
-Users with federated authorization need to create a token using xref:wf_common_identity_create_user_token.adoc#create-a-user-token-with-federated-authentication[Create a user token with federated authentication]. Non-federated user can optionally use this type of token.
+Users with federated authorization need to create a token using link:../platform/create_user_token.html#create-a-user-token-with-federated-authentication[Create a user token with federated authentication]. Non-federated user can optionally use this type of token.
 
-Users with non-federated authorization need to create a token using xref:wf_common_identity_create_user_token.adoc#create-a-user-token-with-nonfederated-authentication[Create a user token with nonfederated authentication].
+Users with non-federated authorization need to create a token using link:../platform/create_user_token.html#create-a-user-token-with-nonfederated-authentication[Create a user token with nonfederated authentication].

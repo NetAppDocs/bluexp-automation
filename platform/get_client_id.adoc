@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/get_client_id.html
+permalink: platform/get_client_id.html
 keywords: client, id, account, identifiers, cloud, manager, rest, api, netapp, user interface
 summary: 'You can sign in to the Cloud Manager web user interface to retrieve the client and account identifiers to use with the workflows.'
 ---
@@ -16,7 +16,7 @@ summary: 'You can sign in to the Cloud Manager web user interface to retrieve th
 You can sign into the Cloud Manager web user interface to retrieve the client and account identifiers to use with the workflows. You can use these identifiers to access the metadata, authentication, and security related information.
 
 [NOTE]
-This page includes two tasks describing how to use the Cloud Manager web user interface to retrieve the ID values. You can also use the Cloud Manager REST API to get the ID values. See link:wf_common_identity_get_supported_srv.html[Get supported services] for more information.
+This page includes two tasks describing how to use the Cloud Manager web user interface to retrieve the ID values. You can also use the Cloud Manager REST API to get the ID values. See link:../cm/wf_common_identity_get_supported_srv.html[Get supported services] for more information.
 
 == Get the client identifier
 

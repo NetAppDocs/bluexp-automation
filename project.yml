@@ -10,8 +10,9 @@ sidebar:
   entries:
     - title: Cloud Manager API docs
       url: /index.html
-    - section: intro
-    - section: cm
+    - section: platform
+    - section: cat-api-ss
+    - section: cat-wf-ss
     - section: support
     - title: Legal notices
       url: /legal-notices.html
