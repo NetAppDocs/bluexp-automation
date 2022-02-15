@@ -42,7 +42,7 @@ REST resources are accessed through endpoints identified in the URL path. Each e
 * Resource instance
 * Collection of resource instances
 
-See link:api_reference.html[API reference] for more information.
+//See link:api_reference.html[API reference] for more information.
 
 === Types of input parameters
 

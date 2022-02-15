@@ -67,7 +67,7 @@ Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS su
 
 An NSS key is optional when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
@@ -240,7 +240,7 @@ Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS su
 
 An NSS key is optional when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 12.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 

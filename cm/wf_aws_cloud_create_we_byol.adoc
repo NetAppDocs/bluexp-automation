@@ -62,7 +62,7 @@ NOTE: You need to choose one of the allowed values for the required `ebsVolumeTy
 
 An NSS key is required when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 7.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
@@ -201,7 +201,7 @@ Perform the link:wf_aws_cloud_md_get_key_pairs.html[Get key pairs] workflow and 
 
 An NSS key is required when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 

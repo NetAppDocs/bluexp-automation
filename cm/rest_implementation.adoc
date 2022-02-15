@@ -35,7 +35,7 @@ summary:
 |===
 
 === Query parameters
-You can use query parameters with endpoints in the following components:
+You can use query parameters with endpoints in the following component:
 
 [cols="25,75"*,options="header"]
 |===
