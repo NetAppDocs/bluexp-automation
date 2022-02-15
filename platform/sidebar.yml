@@ -14,7 +14,7 @@ entries:
         url: /platform/additional_considerations.html
   - title: Identity and authorization
     entries:
-      - title: Generate NSS User ID
+      - title: Generate NSS user ID
         url: /platform/get_nss_key.html
       - title: Get client and account IDs
         url: /platform/get_client_id.html
