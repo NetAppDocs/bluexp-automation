@@ -1,0 +1,19 @@
+section: cat-api-ss
+title: Storage services APIs
+entries:
+  - title: Cloud Volumes ONTAP
+    entries:
+      - title: Overview
+        url: /cm/overview.html
+      - title: Get started
+        url: /cm/getting_started.html
+        entries:
+          - title: Hello world
+            url: /cm/hello_world.html
+          - title: Understand the workflow processes
+            url: /cm/workflow_processes.html
+          - title: Typical Cloud Manager deployment
+            url: /cm/cloud_manager_deployment.html
+      - title: REST implementation details
+        url: /cm/rest_implementation.html
+      - section: cm

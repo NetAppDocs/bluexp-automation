@@ -13,11 +13,11 @@ summary: "You should be familiar with the high-level organization and format of 
 :imagesdir: ./media/
 
 [.lead]
-You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment.
+You should be familiar with the high-level organization and format of the Cloud Volumes ONTAP workflow processes before using them with a live cloud deployment.
 
 == Introduction
 
-A *_workflow_* is a sequence of one or more steps needed to accomplish a specific administrative task or goal. With the Cloud Manager workflows, each step can be one of the following:
+A *_workflow_* is a sequence of one or more steps needed to accomplish a specific administrative task or goal. With the Cloud Volumes ONTAP workflows, each step can be one of the following:
 
 * REST API call
 * Invocation of another workflow
@@ -61,7 +61,7 @@ The metadata workflows allow you to view and administer the basic configuration 
 Miscellaneous::
 A workflow that is not assigned to an existing functional category is considered _Miscellaneous_. For example, there is a workflow to create a cloud provider account. The cloud provider account securely stores and manages your cloud provider credentials and establishes an identity for users (such as InstanceProfile with AWS and ManagedIdentity with Azure). This account provides fine-grained authorization of the services and resources based on multiple critical conditions.
 
-=== 3. Single node and High Availability workflows
+=== 3. Single node and High availability workflows
 
 Many of the workflows vary based on the type of the deployment.
 
@@ -105,7 +105,7 @@ Nearly all the REST API calls used in the workflows require the following two re
 Rather than cite these headers as a prerequisite in every REST API call, they are considered a universal requirement. If a workflow does not use these headers or has different prerequisites, the section *Before you begin* is included at the top of the workflow and describes the prerequisites.
 
 Authorization request header::
-To get a bearer token for this header, perform the appropriate workflow at link:wf_common_identity_create_user_token.html[Create user token] and extract the `access_token` value.
+To get a bearer token for this header, perform the appropriate workflow at link:../platform/create_user_token.html[Create a user token] and extract the `access_token` value.
 
 x-agent-id request header::
 This header contains the agent ID which is based on the client ID. See link:get_client_id.html[Get client and account identifiers] for information about creating this value.

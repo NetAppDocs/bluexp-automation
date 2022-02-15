@@ -1,0 +1,49 @@
+---
+sidebar: sidebar
+permalink: platform/get_nss_key.html
+keywords: nss, credentials, key, cloud, manager, rest, api, nss, credential
+summary: 'You can sign in to the Cloud Manager web user interface to retrieve the NetApp Support Site credentials key.'
+---
+
+= Generate an NSS user ID
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a NetApp Support Site (NSS) user ID through the Cloud Manager web user interface. This ID is included when creating a Cloud Manager working environment.
+
+.About this task
+
+Registering NSS credentials with Cloud Manager and creating an NSS user ID enables subscription to the Cloud Volumes ONTAP system, product support and analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
+
+//[NOTE]
+//You need the NSS key when creating a working environment that uses BYOL ("bring your own") licensing.
+
+.Before you begin
+
+You must have a NetApp account (formerly Cloud Central account). You normally create this account when first signing in to Cloud Manager and it's displayed at the top of the web user interface. See link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn about NetApp accounts^] for more information.
+
+.Steps
+
+. Navigate to the Cloud Manager web site using a browser:
++
+https://cloudmanager.netapp.com
+
+. Sign in using your NetApp account (formerly Cloud Central account) credentials.
+
+. Click on the *?* icon at the top right of the page and select *Support*.
+
+. Navigate to the *NSS Management* tab and click *Add NSS Account*.
+
+. When prompted, click *Continue* which redirects you to a Microsoft login page.
++
+NetApp uses Microsoft Azure Active Directory as the identity provider for authentication services specific to support and licensing.
+
+. Provide the NSS email address and password. After successful authentication, you will be redirected to the Cloud Manager page and an NSS user ID will be automatically generated.
+
+.After you finish
+
+You can use the generated NSS user ID when creating a working environment with your preferred licensing model and cloud provider. The NSS user ID is required with BYOL licensing and optional for the PAYGO subscription.

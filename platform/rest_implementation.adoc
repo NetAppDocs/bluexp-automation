@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: platform/rest_implementation.html
+keywords: rest, details, cloud, manager, rest, api
+summary: 'While REST establishes a common set of technologies and best practices, the details of each API can vary based on the design choices of the development team.'
+---
+
+= REST implementation details
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+While REST establishes a common set of technologies and best practices, the details of each API can vary based on the design choices of the development team. You should be aware of the details and operational characteristics of the Cloud Manager REST API before using it with a live deployment.
