@@ -17,7 +17,7 @@ You can create a NetApp Support Site (NSS) user ID through the Cloud Manager web
 
 .About this task
 
-Registering NSS credentials with Cloud Manager and creating an NSS user id enables product support and analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
+Registering NSS credentials with Cloud Manager and creating an NSS user ID enables subscription to the Cloud Volumes ONTAP system, product support and analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
 
 //[NOTE]
 //You need the NSS key when creating a working environment that uses BYOL ("bring your own") licensing.
@@ -42,7 +42,7 @@ https://cloudmanager.netapp.com
 +
 NetApp uses Microsoft Azure Active Directory as the identity provider for authentication services specific to support and licensing.
 
-. Provide the NSS email address and password. An NSS user ID is generated after successful authentication.
+. Provide the NSS email address and password. After successful authentication, you will be redirected to the Cloud Manager page and an NSS user ID will be automatically generated.
 
 .After you finish
 
