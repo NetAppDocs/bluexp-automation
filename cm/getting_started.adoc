@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/getting_started.html
-keywords: hello, world, get, started, client, identifier, workflow, deployment
+keywords: hello, world, get, started, client, identifier, workflow, deployment, API
 summary: 'You can quickly get started using the Cloud Manager REST API.'
 ---
 
