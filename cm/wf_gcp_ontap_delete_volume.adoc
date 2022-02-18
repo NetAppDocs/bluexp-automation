@@ -15,6 +15,14 @@ summary: "You can delete an existing volume."
 [.lead]
 You can delete an existing volume.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
+
 === 1. Select the working environment
 
 Perform the link:wf_gcp_cloud_get_wes.html[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.

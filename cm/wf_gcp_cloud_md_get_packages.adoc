@@ -15,6 +15,12 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can perform this workflow to retrieve the pre-defined packages configuration.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
 === 1. Get the packages
 
 [cols="25,75"*,options="header"]

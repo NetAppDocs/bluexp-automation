@@ -15,6 +15,12 @@ summary: You can perform this workflow to retrieve the S3 buckets.
 [.lead]
 You can perform this workflow to create a new bucket. This is a GCP storage bucket (data container in GCP) required for data tiering and backup.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
 === 1. Create a bucket
 
 [cols="25,75"*,options="header"]

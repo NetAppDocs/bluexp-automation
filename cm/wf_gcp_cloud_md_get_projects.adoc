@@ -15,6 +15,12 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 [.lead]
 This workflow retrieves the list of projects that the caller has permission on.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Get the list of regions
 

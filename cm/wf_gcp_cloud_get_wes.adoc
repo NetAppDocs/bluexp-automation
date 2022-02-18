@@ -15,7 +15,12 @@ summary: "You can retrieve the Cloud Volumes ONTAP working environments that are
 [.lead]
 You can retrieve the public identifier, working environment ID, the storage virtual machine name for Cloud Volumes ONTAP working environments and other Cloud Volumes ONTAP related details (visible to currently logged in user) which would be used in other workflows.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
 
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
 === 1. Get the working environments
 
 [cols="25,75"*,options="header"]

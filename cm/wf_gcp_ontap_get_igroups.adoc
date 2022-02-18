@@ -15,6 +15,14 @@ summary: "You can use this workflow to retrieve all the iGroups."
 [.lead]
 You can use this workflow to retrieve all the initiator groups (iGroups).
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
+
 === 1. Create the working environment
 
 Perform the workflow link:wf_gcp_cloud_create_we_paygo.html[Create GCP single node working environment] and choose the `publicId` and `svmName` values for the working environment `workingEnvironmentId` and `svmName` path parameters.

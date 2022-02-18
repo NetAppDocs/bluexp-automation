@@ -15,6 +15,14 @@ summary: 'You can create a quote for a new volume which returns a resource quote
 [.lead]
 You can create a quote for a new volume which returns a resource quote needed to satisfy the request. The resource quote contains aggregate information where the volume will be created and confirms if the space is available. This is a recommended step but is not mandatory.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create single node working environment with BYOL licensing.
+
 === 1. Select the working environment
 
 Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` and ‘svmName’ values of the required working environment for `workingEnvironmentId` and `svmName` parameters in the JSON input.
