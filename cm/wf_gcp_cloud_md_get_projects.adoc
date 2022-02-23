@@ -16,11 +16,12 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 This workflow retrieves the list of projects that the caller has permission on.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+* <<Get projects for single node, Single Node>>
+* <<Get projects for high availability pair, HA pair>>
+
+== Get projects for single node
+You can use this workflow to retrieve projects in a single node working environment.
 
 === 1. Get the list of regions
 
@@ -35,6 +36,77 @@ You can use this workflow to create single node working environment with BYOL li
 curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/projects' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+Output::
+
+The JSON output provides an example of a list of authorized projects.
+
+JSON output example::
+[source,json]
+{
+    "projects": [
+        {
+            "isDefault": false,
+            "projectNumber": "958377592668",
+            "projectId": "occm-host",
+            "lifecycleState": "ACTIVE",
+            "name": "OCCM-host",
+            "createTime": "2019-07-24T14:36:32.472Z",
+            "parent": {
+                "type": "folder",
+                "id": "339830134733"
+            },
+            "subscriptionId": null
+        },
+        {
+            "isDefault": false,
+            "projectNumber": "844924364732",
+            "projectId": "occm-slave",
+            "lifecycleState": "ACTIVE",
+            "name": "OCCM-slave",
+            "createTime": "2019-07-24T14:36:32.405Z",
+            "parent": {
+                "type": "folder",
+                "id": "339830134733"
+            },
+            "subscriptionId": null
+        },
+        {
+            "isDefault": true,
+            "projectNumber": "92083494653",
+            "projectId": "occm-dev",
+            "lifecycleState": "ACTIVE",
+            "name": "OCCM-Dev",
+            "createTime": "2018-05-24T17:23:50.505Z",
+            "parent": {
+                "type": "folder",
+                "id": "339830134733"
+            },
+            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+        }
+    ]
+}
+
+== Get projects for high availability pair
+You can use this workflow to retrieve projects in an HA working environment.
+
+=== 1. Get the list of regions
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/metadata/projects
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/projects' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

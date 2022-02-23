@@ -17,11 +17,11 @@ You can use this workflow to retrieve the CIFS server configurations for an exis
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
+* <<Get CIFS for single node, Single Node>>
+* <<Get CIFS for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+== Get CIFS for single node
+You can use this workflow to retrieve CIFS server configuration in a single node working environment.
 
 === 1. Select the working environment
 
@@ -40,6 +40,51 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] an
 curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+* Path parameter <WORKING_ENV_ID> `workingEnvironmentId` string
+* (Optional) Query parameter `svm` string
+
+Output::
+
+The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP ONTAP working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "dnsDomain": "zivh.netapp.com",
+        "activeDirectoryDomain": "zivh.netapp.com",
+        "ipAddresses": [
+            "172.31.5.241"
+        ],
+        "netBIOS": "zivaws02we01",
+        "organizationalUnit": "CN=Computers",
+        "authenticationType": "domain"
+    }
+]
+
+== Get CIFS for high availability pair
+You can use this workflow to retrieve CIFS server configuration in an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+
+=== 2. Get the CIFS configurations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/working-environments/{workingEnvironmentId}/cifs
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

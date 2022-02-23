@@ -17,11 +17,11 @@ You can retrieve a list of available disk aggregates for Cloud Volumes ONTAP in 
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
+* <<Get aggregates for single node, Single Node>>
+* <<Get aggregates for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+== Get aggregates for single node
+You can use this workflow to retrieve a list of aggregates for a single node working environment.
 
 === 1. Select the working environment
 
@@ -116,6 +116,202 @@ JSON output example::
         "isRoot": false,
         "homeNode": "zivgcp01we02-01",
         "ownerNode": "zivgcp01we02-01",
+        "capacityTier": null,
+        "capacityTierUsed": null,
+        "sidlEnabled": true,
+        "snaplockType": "non_snaplock"
+    }
+]
+
+== Get aggregates for high availability
+You can use this workflow to retrieve a list of aggregates for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+
+=== 2. Get the list of aggregates
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/aggregates/{workingEnvironmentId}
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameter:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+
+Output::
+An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
+
+NOTE: The capacity (sizes) in the output are in MB/GB/TB (1000th order) because these are ONTAP aggregates, whereas in Cloud Manager the capacity is specified as MiB, GiB (1024 order).
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "aggr1",
+        "availableCapacity": {
+            "size": 83.13,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 84.14,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 1.01,
+            "unit": "GB"
+        },
+        "volumes": [
+            {
+                "name": "svm_ziv01we02ha_root",
+                "totalSize": {
+                    "size": 1.0,
+                    "unit": "GB"
+                },
+                "usedSize": {
+                    "size": 3.62396240234375E-4,
+                    "unit": "GB"
+                },
+                "thinProvisioned": false,
+                "isClone": false,
+                "rootVolume": true
+            }
+        ],
+        "providerVolumes": [
+            {
+                "id": "5469472281484615866",
+                "name": "ziv01we02ha-vm1datadisk1",
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "state": "READY",
+                "device": "ziv01we02ha-vm1datadisk1",
+                "instanceId": "ziv01we02ha",
+                "diskType": "pd-ssd",
+                "encrypted": true,
+                "iops": null
+            },
+            {
+                "id": "2668314526796767376",
+                "name": "ziv01we02ha-vm2datadisk1",
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "state": "READY",
+                "device": "ziv01we02ha-vm2datadisk1",
+                "instanceId": "ziv01we02ha",
+                "diskType": "pd-ssd",
+                "encrypted": true,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-3.3",
+                "position": "data",
+                "ownerNode": "ziv01we02ha-01",
+                "device": "ziv01we02ha-vm1datadisk1",
+                "vmDiskProperties": null
+            },
+            {
+                "name": "NET-2.3",
+                "position": "data",
+                "ownerNode": "ziv01we02ha-01",
+                "device": "ziv01we02ha-vm2datadisk1",
+                "vmDiskProperties": null
+            }
+        ],
+        "state": "online",
+        "encryptionType": "cloudEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ziv01we02ha-01",
+        "ownerNode": "ziv01we02ha-01",
+        "capacityTier": null,
+        "capacityTierUsed": null,
+        "sidlEnabled": true,
+        "snaplockType": "non_snaplock"
+    },
+    {
+        "name": "ziv01we02agg01ha",
+        "availableCapacity": {
+            "size": 84.14,
+            "unit": "GB"
+        },
+        "totalCapacity": {
+            "size": 84.14,
+            "unit": "GB"
+        },
+        "usedCapacity": {
+            "size": 168.0,
+            "unit": "KB"
+        },
+        "volumes": [],
+        "providerVolumes": [
+            {
+                "id": "1678554539092628696",
+                "name": "ziv01we02ha-vm1datadisk2",
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "state": "READY",
+                "device": "ziv01we02ha-vm1datadisk2",
+                "instanceId": "ziv01we02ha",
+                "diskType": "pd-ssd",
+                "encrypted": true,
+                "iops": null
+            },
+            {
+                "id": "2039792921120363682",
+                "name": "ziv01we02ha-vm2datadisk2",
+                "size": {
+                    "size": 100.0,
+                    "unit": "GB"
+                },
+                "state": "READY",
+                "device": "ziv01we02ha-vm2datadisk2",
+                "instanceId": "ziv01we02ha",
+                "diskType": "pd-ssd",
+                "encrypted": true,
+                "iops": null
+            }
+        ],
+        "disks": [
+            {
+                "name": "NET-3.4",
+                "position": "data",
+                "ownerNode": "ziv01we02ha-01",
+                "device": "ziv01we02ha-vm1datadisk2",
+                "vmDiskProperties": null
+            },
+            {
+                "name": "NET-2.4",
+                "position": "data",
+                "ownerNode": "ziv01we02ha-01",
+                "device": "ziv01we02ha-vm2datadisk2",
+                "vmDiskProperties": null
+            }
+        ],
+        "state": "online",
+        "encryptionType": "cloudEncrypted",
+        "encryptionKeyId": null,
+        "isRoot": false,
+        "homeNode": "ziv01we02ha-01",
+        "ownerNode": "ziv01we02ha-01",
         "capacityTier": null,
         "capacityTierUsed": null,
         "sidlEnabled": true,

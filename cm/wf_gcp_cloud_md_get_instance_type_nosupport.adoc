@@ -16,11 +16,13 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 This workflow retrieves the GCP instance types which do not support the acceleration and capacity tiering. This means that these kind instance types do not use any sort of hardware accelerator. You can check the instance types  while provisioning the Cloud Volumes ONTAP.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+* <<Get instance types for single node, Single Node>>
+* <<Get instance types for high availability pair, HA pair>>
+
+== Get instance types for single node
+You can use this workflow to retrieve the GCP instance types which do not support the acceleration and capacity tiering in a single node working environment.
+
 === 1. Get the instance types
 
 [cols="25,75"*,options="header"]
@@ -34,6 +36,38 @@ You can use this workflow to create single node working environment with BYOL li
 curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/instance-types-not-supporting-acceleration-and-capacity-tiering' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+
+Output::
+
+The JSON output provides an example of a list of instance types.
+
+JSON output example::
+[source,json]
+{
+    "instanceTypes": []
+}
+
+== Get instance types for single node
+You can use this workflow to retrieve the GCP instance types which do not support the acceleration and capacity tiering in an HA working environment.
+
+=== 1. Get the instance types
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|occm/api/gcp/ha/metadata/instance-types-not-supporting-acceleration-and-capacity-tiering
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/instance-types-not-supporting-acceleration-and-capacity-tiering' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

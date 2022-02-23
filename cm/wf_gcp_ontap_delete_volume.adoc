@@ -17,11 +17,11 @@ You can delete an existing volume.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
+* <<Delete volume for single node, Single Node>>
+* <<Delete volume for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+== Delete volume for single node
+You can use this workflow to delete a volume for a  single node working environment.
 
 === 1. Select the working environment
 
@@ -44,7 +44,45 @@ Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose 
 
 curl example::
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <VOLUME_NAME> `(volumeName)` string
+
+Output::
+
+None
+
+== Delete volume for high availability pair
+You can use this workflow to delete a volume for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the link:wf_gcp_cloud_get_wes.html[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` for the `volumeName` path parameter.
+
+=== 3. Delete the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|DELETE
+|/occm/api/gcp/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+
+curl example::
+[source,curl]
+curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: cm/wf_gcp_cloud_md_create_buckets.html
 keywords: buckets, cloud, volumes, ontap, working, environment, occm
-summary: You can perform this workflow to retrieve the S3 buckets.
+summary: You can perform this workflow to create the S3 buckets.
 ---
 
-= Create Buckets
+= Create bucket
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -16,12 +16,20 @@ summary: You can perform this workflow to retrieve the S3 buckets.
 You can perform this workflow to create a new bucket. This is a GCP storage bucket (data container in GCP) required for data tiering and backup.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
-=== 1. Create a bucket
+* <<Create bucket for single node, Single Node>>
+* <<Create bucket for high availability pair, HA pair>>
+
+== Create bucket for single node
+You can use this workflow to create a bucket for a single node working environment.
+
+=== 1. Select the project
+Perform the link:wf_gcp_cloud_md_get_projects.html[Get projects] workflow and choose the `projectId`` value of the required project for the `projectId` parameter.
+
+=== 2. Select the region
+Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `name` value of the required region for the `location` parameter.
+
+=== 3. Create a bucket
 
 [cols="25,75"*,options="header"]
 |===
@@ -44,6 +52,44 @@ JSON input example::
   "location": "us-west1",
   "storageClass": "standard"
 }
+
+Output::
+
+None
+
+== Create bucket for high availability pair
+You can use this workflow to create a bucket for an HA working environment.
+
+=== 1. Select the project
+Perform the link:wf_gcp_cloud_md_get_projects.html[Get projects] workflow and choose the `projectId`` value of the required project for the `projectId` parameter.
+
+=== 2. Select the region
+Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `name` value of the required region for the `location` parameter.
+
+=== 3. Create a bucket
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/ha/metadata/create-bucket
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/create-bucket' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d JSONinput
+
+
+JSON input example::
+[source,json]
+{
+  "projectId": "occm-dev",
+  "bucketName": "zivgcpbucket02ha",
+  "location": "us-west1",
+  "storageClass": "standard"
+}
+
 
 Output::
 

@@ -214,6 +214,10 @@ entries:
                url: /cm/wf_gcp_cloud_md_get_disk_types.html
              - title: Get instance types
                url: /cm/wf_gcp_cloud_md_get_instance_type_nosupport.html
+             - title: Get VPCs
+               url: /cm/wf_gcp_cloud_md_get_vpcs.html
+             - title: Get zones
+               url: /cm/wf_gcp_cloud_md_get_zones.html
   - title: Common workflows
     entries:
       - title: Before you begin

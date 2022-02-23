@@ -16,11 +16,12 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 This workflow retrieves the GCP regions in which a Cloud Volumes ONTAP working environment might be created.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+* <<Get regions for single node, Single Node>>
+* <<Get regions for high availability pair, HA pair>>
+
+== Get regions for single node
+You can use this workflow to retrieve the GCP regions in a single node working environment.
 
 === 1. Get the list of regions
 
@@ -149,3 +150,133 @@ JSON output example::
         ]
    }
 }
+
+== Get regions for high availability pair
+You can use this workflow to retrieve the GCP regions in an HA working environment.
+
+=== 1. Get the list of regions
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/metadata/regions
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+
+Output::
+
+The JSON output provides an example of a list of GCP regions.
+
+JSON output example::
+[source,json]
+[
+    {
+        "displayName": "asia-east1",
+        "name": "asia-east1",
+        "zones": [
+            {
+                "name": "asia-east1-a"
+            },
+            {
+                "name": "asia-east1-b"
+            },
+            {
+                "name": "asia-east1-c"
+            }
+        ],
+        "vpcs": [
+            {
+                "name": "default",
+                "subnets": [
+                    {
+                        "ipCidrRange": "10.140.0.0/20",
+                        "name": "default",
+                        "path": "projects/occm-dev/regions/asia-east1/subnetworks/default",
+                        "availableIps": 4090,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "allow-all",
+                        "vpc": "default"
+                    },
+                    {
+                        "name": "allow-ssh-netapp",
+                        "vpc": "default"
+                    }
+                ]
+            },
+            {
+                "name": "eli-vpc",
+                "subnets": [
+                    {
+                        "ipCidrRange": "10.0.0.0/24",
+                        "name": "eli-subnet",
+                        "path": "projects/occm-dev/regions/asia-east1/subnetworks/eli-subnet",
+                        "availableIps": 250,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "eli-vpc-allow-http",
+                        "vpc": "eli-vpc"
+                    },
+                    {
+                        "name": "eli-vpc-allow-https",
+                        "vpc": "eli-vpc"
+                    }
+                ]
+            }
+    },
+    {
+        "displayName": "asia-east2",
+        "name": "asia-east2",
+        "zones": [
+            {
+                "name": "asia-east2-c"
+            },
+            {
+                "name": "asia-east2-b"
+            },
+            {
+                "name": "asia-east2-a"
+            }
+        ],
+        "vpcs": [
+            {
+                "name": "default",
+                "subnets": [
+                    {
+                        "ipCidrRange": "10.170.0.0/20",
+                        "name": "default",
+                        "path": "projects/occm-dev/regions/asia-east2/subnetworks/default",
+                        "availableIps": 4090,
+                        "minimumRequiredIps": 6
+                    }
+                ],
+                "firewalls": [
+                    {
+                        "name": "allow-all",
+                        "vpc": "default"
+                    },
+                    {
+                        "name": "allow-ssh-netapp",
+                        "vpc": "default"
+                    }
+                ]
+            }
+        ]
+  }
+]

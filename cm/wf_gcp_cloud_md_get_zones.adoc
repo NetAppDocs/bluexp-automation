@@ -1,0 +1,83 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_vpcs.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get VPCs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve the GCP regions and zones over which a Cloud Volumes ONTAP working environment might be created.
+[NOTE]
+This workflow is applicable only for an HA working environment.
+
+=== 1. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
+
+=== 2. Get the zones
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/metadata/zones
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/zones?project=<PROJECT_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameter:
+
+* <PROJECT_ID> `projectId` string
+
+
+Output::
+
+The JSON output example includes the list of GCP regions and zones
+
+JSON output example::
+[source, json]
+[
+    {
+        "displayName": "asia-east1",
+        "name": "asia-east1",
+        "location": "Changhua County, Taiwan",
+        "zones": [
+            {
+                "name": "asia-east1-a"
+            },
+            {
+                "name": "asia-east1-b"
+            },
+            {
+                "name": "asia-east1-c"
+            }
+        ]
+    },
+    {
+        "displayName": "asia-east2",
+        "name": "asia-east2",
+        "location": "Hong Kong",
+        "zones": [
+            {
+                "name": "asia-east2-c"
+            },
+            {
+                "name": "asia-east2-b"
+            },
+            {
+                "name": "asia-east2-a"
+            }
+        ]
+    }
+]

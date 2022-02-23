@@ -16,11 +16,11 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 This workflow retrieves the GCP supported disk types.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
+* <<Get GCP disk types for single node, Single Node>>
+* <<Get GCP disk types for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+== Get GCP disk types for single node
+You can use this workflow to retrieve GCP disk types for a single node working environment.
 
 === 1. Get the disk types
 
@@ -35,6 +35,75 @@ You can use this workflow to create single node working environment with BYOL li
 curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/gcp-disk-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+None
+
+
+Output::
+
+The JSON output provides an example of a list of GCP supported disk types.
+
+JSON output example::
+[source,json]
+[
+    {
+        "size": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "supportedDiskTypes": [
+            "pd-standard",
+            "pd-ssd"
+        ],
+        "supportedOccmLicenses": [
+            "Standard (BYOL)",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Explore",
+            "Standard (hourly)",
+            "Cloud Volumes ONTAP BYOL",
+            "Explore (hourly)",
+            "Cloud Volumes ONTAP Premium"
+        ]
+    },
+    {
+        "size": {
+            "size": 500.0,
+            "unit": "GB"
+        },
+        "supportedDiskTypes": [
+            "pd-standard",
+            "pd-ssd"
+        ],
+        "supportedOccmLicenses": [
+            "Standard (BYOL)",
+            "Cloud Volumes ONTAP Standard",
+            "Cloud Volumes ONTAP Explore",
+            "Standard (hourly)",
+            "Cloud Volumes ONTAP BYOL",
+            "Explore (hourly)",
+            "Cloud Volumes ONTAP Premium"
+        ]
+    }
+]
+
+== Get GCP disk types for high availability pair
+You can use this workflow to retrieve GCP disk types for an HA working environment.
+
+=== 1. Get the disk types
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/metadata/gcp-disk-types
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/gcp-disk-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

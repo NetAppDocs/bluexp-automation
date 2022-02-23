@@ -17,11 +17,11 @@ You can modify the configuration of an existing volume.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
-* <<Create working environment for single node, Single Node>>
-* <<Create working environment for high availability pair, HA pair>>
+* <<Modify volume for single node, Single Node>>
+* <<Modify volume for high availability pair, HA pair>>
 
-== Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+== Modify volume for single node
+You can use this workflow to modify the configuration of an existing volume for a single node working environment.
 
 === 1. Select the working environment
 
@@ -62,6 +62,60 @@ JSON input example::
     "policyType": "custom",
     "ips": [
       "10.000.0.0/20"
+    ],
+    "nfsVersion": [
+      "nfs3"
+    ]
+  }
+}
+
+
+Output::
+
+None
+
+== Modify volume for high availability pair
+You can use this workflow to modify the configuration of an existing volume for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId`  and `svmName` values of the working environment for used as the `workingEnvironmentId` and `svmName` path parameters.
+
+=== 2. Select the volume
+
+Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` for the `volumeName` path parameter.
+
+=== 3. Modify the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|PUT
+|/occm/api/gcp/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+|===
+
+curl example::
+[source,curl]
+curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+Path parameters:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* <SVM_NAME> `(svmName)` string
+* <VOLUME_NAME> `(volumeName)` string
+
+The JSON input example includes the minimum list of input parameters.
+
+JSON input example::
+[source,json]
+{
+  "exportPolicyInfo": {
+    "policyType": "custom",
+    "ips": [
+      "10.138.0.0/20"
     ],
     "nfsVersion": [
       "nfs3"
