@@ -16,6 +16,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 You can perform this workflow to retrieve all the labels in the specified project and zone.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
 * <<Get tag keys for single node, Single Node>>
 * <<Get tag keys for high availability pair, HA pair>>
 
