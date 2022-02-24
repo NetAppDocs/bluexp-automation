@@ -13,7 +13,7 @@ summary: 'You can create a new aggregate within a working environment.'
 :imagesdir: ./media/
 
 [.lead]
-You can create new aggregate within a Cloud Volumes ONTAP working environment using this workflow.
+You can create new aggregates within a Cloud Volumes ONTAP working environment using this workflow.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 

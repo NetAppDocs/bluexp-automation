@@ -55,7 +55,7 @@ Output::
 
 None
 
-== Delete aggregate for high availability
+== Delete aggregate for high availability pair
 You can use this workflow to delete an aggregate for an HA working environment.
 
 === 1. Select the working environment

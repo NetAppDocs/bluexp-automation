@@ -29,7 +29,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 * <<Create working environment for high availability pair, HA pair>>
 
 == Create working environment for single node
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to create a single node working environment with PAYGO subscription.
 
 === 1. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do the following:
@@ -155,54 +155,63 @@ JSON output example::
 }
 
 == Create working environment for high availability pair
-You can use this workflow to create single node working environment with BYOL licensing.
+You can use this workflow to create an HA working environment.
 
 === 1. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do the following:
 
 * Choose the `name` value of the required region for the `region` parameter in step 8.
-* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 8.
+* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 9.
 
 === 2. Select the workspace
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 8.
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 9.
 
-=== 3. Select the projects
-Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 8.
+=== 3. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 9.
 
-=== 4. Select the permutations
-Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 8.
+=== 4. Select the VPC
+Perform the link:wf_gcp_cloud_md_get_vpcs.html[Get vpcs] workflow and do the following:
 
-=== 5. Select the packages configuration
+* Choose one of the vpcs. Choose the `name` for the `vpcId` parameter, `subnets: path` for `subnetId` and `subnetPath`, `ha: subnet0NodeAndDataConnectivity` parameters and `vpcPath` for the `vpc0NodeAndDataConnectivity` parameter.
+* Choose the second vpc and select the `vpcPath` for `vpc1ClusterConnectivity` parameter and `subnets: path` for `subnet1ClusterConnectivity` parameter.
+* Choose the third vpc and select the `vpcPath` for `pc2HAConnectivity` parameter and `subnets: path` for `subnet2HAConnectivity` parameter.
+* Choose the fourth vpc and select the `vpcPath` for `vpc3DataReplication` parameter and `subnets: path` for `subnet3DataReplication` parameter.
+
+
+=== 5. Select the permutations
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 9.
+
+=== 6. Select the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html[Get packages] and search the `licenseType` from permutations:
 
 * Choose the `name` for `packageName` parameter.
 *	Choose the `diskSize` for `gcpVolumeSize`.
 *	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
 
-=== 6. Select the service account
-Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 8.
+=== 7. Select the service account
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 9.
 
-=== 7. (Optional) Obtain an NSS key
-An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
+=== 8. (Optional) Obtain an NSS key
+An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
 
-=== 8. Create the working environment
+=== 9. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
 |Path
 |POST
-|/occm/api/gcp/vsa/working-environments
+|/occm/api/gcp/ha/working-environments
 |===
 
 curl example::
 [source,curl]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //<1> --header 'Authorization: Bearer <ACCESS_TOKEN>' //<2> ---header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' //<1> --header 'Authorization: Bearer <ACCESS_TOKEN>' //<2> ---header 'Content-Type: application/json' --d @JSONinput
 ----
 (1) Replace <AGENT_ID> with your agent ID.
 (2) Replace <ACCESS_TOKEN> with your obtained bearer access token.
@@ -218,17 +227,17 @@ This request uses PAYGO as indicated in the `licenseType` parameter.
 JSON input example::
 [source,json]
 {
-  "name": "zivgcp01we03",
+  "name": "ziv01we02ha",
   "svmPassword": "password",
   "vpcId": "default",
-  "region": "us-west1-b",
-  "tenantId": "tenantID",
+  "region": "us-west1-a",
+  "tenantId": "workspace-ced4x9X4",
   "subnetPath": "projects/occm-dev/regions/us-west1/subnetworks/default",
   "subnetId": "projects/occm-dev/regions/us-west1/subnetworks/default",
   "dataEncryptionType": "GCP",
   "vsaMetadata": {
-    "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
-    "licenseType": "gcp-cot-explore-paygo",
+    "ontapVersion": "ONTAP-9.9.0X5.T1.gcpha",
+    "licenseType": "gcp-ha-cot-explore-paygo",
     "instanceType": "custom-4-16384"
   },
   "gcpVolumeSize": {
@@ -238,20 +247,33 @@ JSON input example::
   "gcpVolumeType": "pd-ssd",
   "gcpLabels": [],
   "writingSpeedState": "NORMAL",
-  "packageName": "gcp_poc",
-  "gcpServiceAccount": "xxxxx@occm-dev.iam.xxx.com",
+  "packageName": "gcp_ha_poc",
+  "gcpServiceAccount": "xxxx@occm-dev.iam.gserviceaccount.com",
   "project": "occm-dev",
-  "backupVolumesToCbs": false
+  "haParams": {
+    "node1Zone": "us-west1-a",
+    "node2Zone": "us-west1-b",
+    "mediatorZone": "us-west1-c",
+    "vpc0NodeAndDataConnectivity": "projects/occm-dev/global/networks/default",
+    "vpc1ClusterConnectivity": "projects/occm-dev/global/networks/vpc4qa-2",
+    "vpc2HAConnectivity": "projects/occm-dev/global/networks/vpc4qa-3",
+    "vpc3DataReplication": "projects/occm-dev/global/networks/vpc4qa-4",
+    "subnet0NodeAndDataConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/default",
+    "subnet1ClusterConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-2-us-west1",
+    "subnet2HAConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-3-us-west1",
+    "subnet3DataReplication": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-4-us-west1"
+  }
 }
+
 
 JSON output example::
 [source,json]
 {
-    "publicId": "vsaworkingenvironment-2qkd75xv",
-    "name": "zivgcp01we03",
-    "tenantId": "tenantIDshownhere",
-    "svmName": "svm_zivgcp01we03",
-    "creatorUserEmail": "user_email",
+    "publicId": "vsaworkingenvironment-blg9ei6u",
+    "name": "ziv01we02ha",
+    "tenantId": "Tenant-kT8tLZay",
+    "svmName": "svm_ziv01we02ha",
+    "creatorUserEmail": "auth0|5e576e5205a0dc0c1714a4f8",
     "status": null,
     "providerProperties": null,
     "reservedSize": null,
@@ -270,7 +292,7 @@ JSON output example::
     "capacityFeatures": null,
     "encryptionProperties": null,
     "supportedFeatures": null,
-    "isHA": false,
+    "isHA": true,
     "haProperties": null,
     "k8sProperties": null,
     "fpolicyProperties": null,

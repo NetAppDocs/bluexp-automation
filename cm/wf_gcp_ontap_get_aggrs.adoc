@@ -123,7 +123,7 @@ JSON output example::
     }
 ]
 
-== Get aggregates for high availability
+== Get aggregates for high availability pair
 You can use this workflow to retrieve a list of aggregates for an HA working environment.
 
 === 1. Select the working environment

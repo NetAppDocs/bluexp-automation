@@ -52,7 +52,7 @@ JSON output example::
     "instanceTypes": []
 }
 
-== Get instance types for single node
+== Get instance types for high availability pair
 You can use this workflow to retrieve the GCP instance types which do not support the acceleration and capacity tiering in an HA working environment.
 
 === 1. Get the instance types

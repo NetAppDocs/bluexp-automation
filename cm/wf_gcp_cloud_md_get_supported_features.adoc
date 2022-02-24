@@ -16,6 +16,7 @@ summary: You can retrieve the supported capacity tiers for EBS volume types.
 You can perform this workflow to retrieve and check the supported features while provisioning a Cloud Volumes ONTAP instance.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
 * <<Get supported features for single node, Single Node>>
 * <<Get supported features for high availability pair, HA pair>>
 

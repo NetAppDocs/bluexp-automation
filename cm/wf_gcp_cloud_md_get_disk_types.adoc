@@ -16,6 +16,7 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 This workflow retrieves the GCP supported disk types.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
 * <<Get GCP disk types for single node, Single Node>>
 * <<Get GCP disk types for high availability pair, HA pair>>
 

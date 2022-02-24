@@ -16,6 +16,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information such as  `ontapVersion`, `license`, `instanceType`, `region` and more. You can check the possible permutations that can potentially be provided for the GCP workflows while provisioning a Cloud Volumes ONTAP instance.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
 * <<Get GCP permutations for single node, Single Node>>
 * <<Get GCP permutations for high availability pair, HA pair>>
 
