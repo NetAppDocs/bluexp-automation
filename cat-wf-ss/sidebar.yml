@@ -238,6 +238,8 @@ entries:
             url: /cm/wf_common_occm_attach_subscription.html
       - title: NetApp Support Site
         entries:
+          - title: Create NSS key
+            url: /cm/wf_common_identity_create_nss_key.html
           - title: Get NSS key
             url: /cm/wf_common_identity_get_nss_key.html
           - title: Get NSS keys
@@ -266,3 +268,7 @@ entries:
             url: /cm/wf_common_ontap_repl_get_ic_lifs.html
           - title: Get schedules for working environment
             url: /cm/wf_common_ontap_repl_get_we_schedules.html
+          - title: Get SnapMirror policies
+            url: /cm/wf_common_ontap_md_get_snapmirror_policies.html
+          - title: Get SnapMirror SVM policies
+            url: /cm/wf_common_ontap_md_get_snapmirror_svm_policies.html

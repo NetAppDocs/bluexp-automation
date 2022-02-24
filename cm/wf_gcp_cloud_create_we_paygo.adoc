@@ -154,7 +154,7 @@ JSON output example::
     "monitoringProperties": null
 }
 
-== Create working environment for single node
+== Create working environment for high availability pair
 You can use this workflow to create single node working environment with BYOL licensing.
 
 === 1. Select the region

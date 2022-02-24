@@ -1,0 +1,59 @@
+---
+sidebar: sidebar
+permalink: cm/wf_common_identity_create_nss_key.html
+keywords: cloud, manager, rest
+summary: "You can retrieve the key for a specific NetApp Support Site account."
+---
+
+= Create an NSS key
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create the key for a specific NetApp Support Site account.
+
+=== 1. Select the account
+
+Perform the workflow link:wf_common_identity_get_accounts.html[Get accounts] and choose the `accountId` value for the path parameter.
+
+
+=== 2. Create the NSS key
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Resource path
+|POST
+|/ipa/account/{accountId}/nss-keys
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input parameters::
+
+Path parameters:
+
+* <ACCOUNT_ID> `(accountId)`
+
+JSON input example::
+[source,json]
+{
+  "username": "zivtest03",
+  "password": "password"
+}
+
+
+Output::
+
+An NSS key is returned as shown in the JSON output example.
+
+JSON output example::
+[source,json]
+{
+    "id": "d69a5214-7d61-486e-8750-8e1f68601c43"
+}
