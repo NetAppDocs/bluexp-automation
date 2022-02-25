@@ -140,12 +140,12 @@ You can use this workflow to retrieve GCP packages in an HA working environment.
 |HTTP method
 |Path
 |GET
-|/occm/api/gcp/vsa/metadata/packages
+|/occm/api/gcp/ha/metadata/packages
 |===
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 

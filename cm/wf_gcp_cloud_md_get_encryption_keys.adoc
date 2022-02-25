@@ -78,7 +78,7 @@ You can use this workflow to retrieve GCP encryption keys for an HA working envi
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and choose the `name` value of the required region for the `region` path parameter.
 
 === 2. Select the project
-Perform the link:[get projects] workflow and choose the `projectId` value of the required project for the `project` path parameter.
+Perform the link:wf_gcp_cloud_md_get_projects.html[Get projects] workflow and choose the `projectId` value of the required project for the `project` path parameter.
 
 === 3. Get the encryption keys
 

@@ -101,7 +101,7 @@ JSON output example::
     {
         "key": "platform-serial-number",
         "values": [
-            "00000030000000000009",
+            "00000030xxx000009",
             "00000000000000096011"
         ]
     }
@@ -110,7 +110,7 @@ JSON output example::
     {
         "key": "netapp:cloud-compliance:cloudManager:ClientId",
         "values": [
-            "sNwn2FzHxFrucwz8j1huxNIYI7aRNqTC"
+            "sNwn2FzHxFrucwz8xxxxxI7aRNqTC"
         ]
     }
 ]
@@ -197,8 +197,8 @@ JSON output example::
     {
         "key": "platform-serial-number",
         "values": [
-            "00000030000000000009",
-            "00000000000000096011"
+            "xxxxxxxxxxxxxxx",
+            "000000xx00096011"
         ]
     }
 ]
@@ -206,7 +206,7 @@ JSON output example::
     {
         "key": "netapp:cloud-compliance:cloudManager:ClientId",
         "values": [
-            "sNwn2FzHxFrucwz8j1huxNIYI7aRNqTC"
+            "sNwn2FzHxFrucwxxxxxYI7aRNqTC"
         ]
     }
 ]

@@ -58,7 +58,7 @@ Output::
 None.
 
 == Delete CIFS for high availability pair
-You can use this workflow to delete CIFS server configuration in an HA working environment.
+You can use this workflow to delete a CIFS server configuration in an HA working environment.
 
 === 1. Select the working environment
 
@@ -71,12 +71,12 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] an
 |HTTP method
 |Path
 |POST
-|/occm/api/gcp/vsa/working-environments/{workingEnvironmentId}/delete-cifs
+|/occm/api/gcp/ha/working-environments/{workingEnvironmentId}/delete-cifs
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

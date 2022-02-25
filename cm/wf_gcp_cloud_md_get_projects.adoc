@@ -51,7 +51,7 @@ JSON output example::
     "projects": [
         {
             "isDefault": false,
-            "projectNumber": "958377592668",
+            "projectNumber": "958377592xxx",
             "projectId": "occm-host",
             "lifecycleState": "ACTIVE",
             "name": "OCCM-host",
@@ -64,7 +64,7 @@ JSON output example::
         },
         {
             "isDefault": false,
-            "projectNumber": "844924364732",
+            "projectNumber": "844924364732xxx",
             "projectId": "occm-slave",
             "lifecycleState": "ACTIVE",
             "name": "OCCM-slave",
@@ -77,7 +77,7 @@ JSON output example::
         },
         {
             "isDefault": true,
-            "projectNumber": "92083494653",
+            "projectNumber": "92083494xxx",
             "projectId": "occm-dev",
             "lifecycleState": "ACTIVE",
             "name": "OCCM-Dev",
@@ -86,7 +86,7 @@ JSON output example::
                 "type": "folder",
                 "id": "339830134733"
             },
-            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifierx"
         }
     ]
 }
@@ -122,7 +122,7 @@ JSON output example::
     "projects": [
         {
             "isDefault": false,
-            "projectNumber": "958377592668",
+            "projectNumber": "9583775xxxx8",
             "projectId": "occm-host",
             "lifecycleState": "ACTIVE",
             "name": "OCCM-host",
@@ -142,22 +142,22 @@ JSON output example::
             "createTime": "2019-07-24T14:36:32.405Z",
             "parent": {
                 "type": "folder",
-                "id": "339830134733"
+                "id": "339830xx33"
             },
             "subscriptionId": null
         },
         {
             "isDefault": true,
-            "projectNumber": "92083494653",
+            "projectNumber": "920834xx653",
             "projectId": "occm-dev",
             "lifecycleState": "ACTIVE",
             "name": "OCCM-Dev",
             "createTime": "2018-05-24T17:23:50.505Z",
             "parent": {
                 "type": "folder",
-                "id": "339830134733"
+                "id": "33983xx733"
             },
-            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifier6"
+            "subscriptionId": "gcp-saasMpIntegrationProductId-saasMpCustomerIdentifierx"
         }
     ]
 }

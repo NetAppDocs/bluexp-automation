@@ -168,7 +168,7 @@ JSON output example::
 [
     {
         "name": "ziv01we02agg01havol01",
-        "uuid": "9b8eaf57-60f3-11eb-b6be-4f2f4a647744",
+        "uuid": "9b8eaf57-60f3-11eb-b6be-4f2f4a6477xx,
         "svmName": "svm_ziv01we02ha",
         "size": {
             "size": 100.0,
@@ -244,7 +244,7 @@ JSON output example::
         },
         "cbsBackupsInfo": null,
         "minimumCoolingDays": null,
-        "targetName": "iqn.1992-08.com.netapp:sn.d92dfebe60e811eba91c81b28f681feb:vs.3",
+        "targetName": "iqn.1992-08.com.netapp:sn.d92dfebe60e811eba91c8xxx28f681feb:vs.3",
         "iscsiEnabled": false,
         "isFlexGroupVolume": false
     }

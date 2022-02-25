@@ -49,12 +49,12 @@ JSON output example::
 [source, json]
 [
     {
-        "bucketName": "3.9.0.bins.08112020",
+        "bucketName": "3.9.0.bins.08112xxx",
         "region": "us-east-1",
         "tags": {}
     },
     {
-        "bucketName": "0000000000-awsmacietrail-dataevent",
+        "bucketName": "000000xxx-awsmacietrail-dataevent",
         "region": "us-east-1",
         "tags": {}
     }
@@ -89,12 +89,12 @@ JSON output example::
 [source, json]
 [
     {
-        "bucketName": "3.9.0.bins.08112020",
+        "bucketName": "3.9.0.bins.08112xxx",
         "region": "us-east-1",
         "tags": {}
     },
     {
-        "bucketName": "733004784675-awsmacietrail-dataevent",
+        "bucketName": "7330xxxxxxx-awsmacietrail-dataevent",
         "region": "us-east-1",
         "tags": {}
     }

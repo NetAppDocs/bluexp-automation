@@ -208,13 +208,13 @@ An NSS key is *required* when using BYOL subscription. If needed, you can create
 |HTTP method
 |Path
 |POST
-|/occm/api/gcp/vsa/working-environments
+|/occm/api/gcp/ha/working-environments
 |===
 
 curl example::
 [source,curl]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //<1> --header 'Authorization: Bearer <ACCESS_TOKEN>' //<2> ---header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' //<1> --header 'Authorization: Bearer <ACCESS_TOKEN>' //<2> ---header 'Content-Type: application/json' --d @JSONinput
 ----
 (1) Replace <AGENT_ID> with your agent ID.
 (2) Replace <ACCESS_TOKEN> with your obtained bearer access token.
@@ -226,44 +226,7 @@ The JSON input example includes the minimum list of parameters. This request use
 
 JSON input example::
 [source,json]
-{
-name: "gcpwe123"
-backupVolumesToCbs: true
-capacityTier: "cloudStorage"
-dataEncryptionType: "GCP"
-enableCompliance: true
-gcpLabels: []
-gcpServiceAccount: "fabric-pool@occm-dev.iam.gserviceaccount.com"
-gcpVolumeSize: {size: 500, unit: "GB", _identifier: "500 GB"}
-gcpVolumeType: "pd-ssd"
-name: "gcpwe123"
-nssAccount: "0xxx-000-4c70-9cee-304f36b74db6"
-packageName: "gcp_poc"
-project: "occm-dev"
-region: "europe-west3-c"
-serialNumber: "00000108000000000000"
-subnetId: "projects/occm-dev/regions/europe-west3/subnetworks/vpc4qa-2-europe-west3"
-subnetPath: "projects/occm-dev/regions/europe-west3/subnetworks/vpc4qa-2-europe-west3"
-svmPassword: "Netapp123"
-tenantId: "workspaceNqaJyVMz"
-tierLevel: "standard"
-volume: {
-  exportPolicyInfo: {
-    policyType: "custom",
-    ips: ["172.22.13.0/24"],
-    nfsVersion: ["nfs3", "nfs4"]
-  }
-}
-vpcId: "vpc4qa-2"
-vsaMetadata: {
-  ontapVersion: "ONTAP-9.10.1RC1.T1.gcp",
-  licenseType: "gcp-cot-premium-byol"
-}
-instanceType: "n2-standard-4"
-licenseType: "gcp-cot-premium-byol"
-ontapVersion: "ONTAP-9.10.1RC1.T1.gcp"
-writingSpeedState: "NORMAL"
-}
+
 
 Output::
 
@@ -271,35 +234,3 @@ The JSON output example includes an example of the `VsaWorkingEnvironmentRrespon
 
 JSON output example
 [source,json]
-{
- "publicId": "vsaworkingenvironment-9nhkrtu0",
- "name": "yuvalbyol3101",
- "tenantId": "tenantIDshownhere",
- "svmName": "svm_yuvalbyol3101",
- "creatorUserEmail": "user_email",
- "status": null,
- "providerProperties": null,
- "reservedSize": null,
- "clusterProperties": null,
- "ontapClusterProperties": null,
- "cloudProviderName": "GCP",
- "snapshotPolicies": null,
- "actionsRequired": null,
- "activeActions": null,
- "replicationProperties": null,
- "schedules": null,
- "svms": null,
- "workingEnvironmentType": "VSA",
- "supportRegistrationProperties": null, "supportRegistrationInformation": null,
- "capacityFeatures": null,
- "encryptionProperties": null,
- "supportedFeatures": null,
- "isHA": false,
- "haProperties": null,
- "fpolicyProperties": null,
- "saasProperties": null,
- "cbsProperties": null,
- "complianceProperties": null,
- "monitoringProperties": null,
- "licensesInformation": null
-}

@@ -55,5 +55,5 @@ An NSS key is returned as shown in the JSON output example.
 JSON output example::
 [source,json]
 {
-    "id": "d69a5214-7d61-486e-8750-8e1f68601c43"
+    "id": "d69a5214-7d61-486e-8750-8e1f6xxxxx00"
 }
