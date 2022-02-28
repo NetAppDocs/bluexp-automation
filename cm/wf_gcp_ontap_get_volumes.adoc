@@ -13,7 +13,7 @@ summary: "You can retrieve the list of volumes."
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the list of volumes of a single node Azure working environment.
+You can retrieve the list of volumes of a single node GCP working environment.
 
 === 1. Select the working environment
 
