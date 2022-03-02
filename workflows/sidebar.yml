@@ -1,5 +1,5 @@
 section: workflows
-title: Common workflows and task
+title: Common workflows and tasks
 entries:
   - title: Generate NSS user ID
     url: /workflows/get_nss_key.html
