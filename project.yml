@@ -19,3 +19,21 @@ sidebar:
 
 homepage:
   tiles:
+    - title: Get started
+      links:
+        - title: Platform overview
+          url: /platform/overview.html
+        - title: Common REST implementation
+          url: /platform/concepts.html
+        - title: Workflow processes and tasks
+          url: /platform/workflows_tasks.html
+    - title: More resources
+      links:
+        - title: NetApp Cloud Solutions
+          url: https://cloud.netapp.com/
+        - title: NetApp Support
+          url: https://mysupport.netapp.com/
+        - title: ONTAP 9 documentation
+          url: https://docs.netapp.com/us-en/ontap/
+        - title: Auth0
+          url: https://auth0.com/

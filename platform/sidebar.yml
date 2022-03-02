@@ -3,7 +3,7 @@ title: Get started
 entries:
   - title: Platform overview
     url: /platform/overview.html
-  - title: REST implementation
+  - title: Common REST implementation
     entries:
       - title: Basic concepts
         url: /platform/concepts.html
