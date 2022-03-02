@@ -12,6 +12,8 @@ entries:
         url: /platform/http_details.html
       - title: Additional considerations
         url: /platform/additional_considerations.html
+  - title: Understand the workflow processes
+    url: /platform/workflow_processes.html
   - title: Identity and authorization
     entries:
       - title: Generate NSS user ID

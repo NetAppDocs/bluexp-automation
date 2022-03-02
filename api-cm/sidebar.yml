@@ -8,8 +8,6 @@ entries:
     entries:
       - title: Hello world
         url: /cm/hello_world.html
-      - title: Understand the workflow processes
-        url: /cm/workflow_processes.html
       - title: Typical Cloud Manager deployment
         url: /cm/cloud_manager_deployment.html
   - title: REST implementation details
