@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: platform/workflow_processes.html
+permalink: cm/workflow_processes.html
 keywords: workflows, processes, cloud, manager, api
 summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
 ---
 
-= Understanding the workflow processes
+= Cloud Volume ONTAP workflow processes
 :hardbreaks:
 :nofooter:
 :icons: font

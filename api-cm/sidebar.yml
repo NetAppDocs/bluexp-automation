@@ -6,10 +6,12 @@ entries:
   - title: Get started
     url: /cm/getting_started.html
     entries:
+      - title: Typical deployment
+        url: /cm/cloud_manager_deployment.html
       - title: Hello world
         url: /cm/hello_world.html
-      - title: Typical Cloud Manager deployment
-        url: /cm/cloud_manager_deployment.html
+      - title: Workflow processes
+        url: /cm/workflow_processes.html
   - title: REST implementation details
     url: /cm/rest_implementation.html
   - title: AWS workflows
