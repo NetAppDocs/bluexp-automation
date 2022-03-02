@@ -2,8 +2,8 @@ section: workflows
 title: Common workflows and tasks
 entries:
   - title: Generate NSS user ID
-    url: /workflows/get_nss_key.html
+    url: /platform/get_nss_key.html
   - title: Get client and account IDs
-    url: /workflows/get_client_id.html
+    url: /platform/get_client_id.html
   - title: Create user token
-    url: /workflows/create_user_token.html
+    url: /platform/create_user_token.html
