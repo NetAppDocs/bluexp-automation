@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: platform/get_client_id.html
+permalink: workflows/get_client_id.html
 keywords: client, id, account, identifiers, cloud, manager, rest, api, netapp, user interface
 summary: 'You can sign in to the Cloud Manager web user interface to retrieve the client and account identifiers to use with the workflows.'
 ---

@@ -11,6 +11,7 @@ sidebar:
     - title: Cloud Manager API docs
       url: /index.html
     - section: platform
+    - section: workflows
     - section: api-cm
     - section: support
     - title: Legal notices
