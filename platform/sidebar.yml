@@ -1,7 +1,7 @@
 section: platform
 title: Get started
 entries:
-  - title: Overview
+  - title: Platform overview
     url: /platform/overview.html
   - title: REST implementation
     entries:
