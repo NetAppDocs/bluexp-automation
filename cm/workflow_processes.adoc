@@ -13,24 +13,14 @@ summary: "You should be familiar with the high-level organization and format of 
 :imagesdir: ./media/
 
 [.lead]
-You should be familiar with the high-level organization and format of the Cloud Volumes ONTAP workflow processes before using them with a live cloud deployment.
-
-== Introduction
-
-A *_workflow_* is a sequence of one or more steps needed to accomplish a specific administrative task or goal. With the Cloud Volumes ONTAP workflows, each step can be one of the following:
-
-* REST API call
-* Invocation of another workflow
-* Miscellaneous task such as deciding on the size of a new volume
-
-The workflows provided include the minimum steps and parameters needed to accomplish each task. You can use these workflows as a starting point and customize them for your environment as needed.
+You should be familiar with the organization and format of the Cloud Volumes ONTAP workflow processes before using them with a live deployment.
 
 [NOTE]
-All the workflow examples are designed to be used with NetApp Cloud Volumes ONTAP.
+Before getting started with the Cloud Volumes ONTAP workflows, see link:../platform/workflows_tasks.html[Workflow processes and tasks] for an introduction to how workflows and tasks are generally used with the Cloud Manager platform.
 
 == High level organization of the workflows
 
-At a high level, the workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar.
+At a high level, the Cloud Volumes ONTAP workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar.
 
 === 1. Cloud provider
 
@@ -44,7 +34,7 @@ Most of the workflows can be performed with one cloud provider. The supported cl
 
 The workflows for each cloud provider (AWS, Azure, GCP) are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
-NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:wf_common.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
+NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:../cm/wf_common.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
 
 Working environments::
 A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administrative tasks. You can perform specific workflows to create a working environment based on your preferred licensing model (PAYGO or BYOL), remove a working environment, and retrieve the details of a working environment. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of creating a working environment.
