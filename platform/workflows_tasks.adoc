@@ -15,13 +15,16 @@ summary: "You should be familiar with the high-level organization and format of 
 [.lead]
 The documentation for the Cloud Manager platform REST APIs includes many workflows and tasks. You should be familiar with their common characteristics before reviewing a specific API.
 
+* link:workflows_tasks.html#workflows[Workflows]
+* link:workflows_tasks.html#tasks[Tasks]
+
 == Workflows
 
-A *_workflow_* is a sequence of one or more steps needed to accomplish a specific administrative task or goal. Each step can be one of the following:
+A _workflow_ is a sequence of one or more steps needed to accomplish a specific administrative task or goal. Each step can be one of the following:
 
 * REST API call
 * Invocation of another workflow
-* Miscellaneous task, such as deciding on the size of a new volume
+* Miscellaneous related task, such as deciding on the size of a new volume
 
 The workflows provided include the minimum steps and parameters needed to accomplish each task. You can use these workflows as a starting point and customize them for your environment as needed.
 
@@ -62,11 +65,9 @@ This header contains the agent ID which is based on the client ID. See link:get_
 
 === Presentation of common tokens and identifiers
 
-Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead.
+Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead. For example, *<ACCESS_TOKEN>* is a shorthand notation for a temporary string which establishes identity and access based on the OAuth2 standard.
 
-For example, <ACCESS_TOKEN> is a shorthand notation for a temporary string which establishes identity and access based on the OAuth2 standard.
-
-This has several benefits:
+This approach has several benefits:
 
 * The curl and JSON samples are simpler and easier to understand.
 * Because all keywords use the same format (including capital letters), you can quickly identify the content to insert or extract.
@@ -75,3 +76,11 @@ This has several benefits:
 === JSON input for curl command
 
 In many cases, a workflow step accepts JSON input in the request body of the REST API call. This input is indicated in the curl command through the `-d` option, with the corresponding sample included in the *JSON input example* section.
+
+== Tasks
+
+A _task_ is a sequence of one or more steps needed to accomplish a specific administrative task or goal. Tasks typically differ from workflows in several ways:
+
+* Limited to using the Cloud Manager web user interface
+* Do not make REST API calls
+* If the invocation of a workflow is required it is included as a prerequisite
