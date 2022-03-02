@@ -4,7 +4,6 @@ entries:
   - title: Overview
     url: /platform/overview.html
   - title: REST implementation
-    url: /platform/rest_implementation.html
     entries:
       - title: Basic concepts
         url: /platform/concepts.html

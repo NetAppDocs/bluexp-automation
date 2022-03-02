@@ -15,6 +15,9 @@ summary: 'Representational State Transfer (REST) is a style for creating distrib
 [.lead]
 Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The Cloud Manager platform REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based resources.
 
+[NOTE]
+While REST establishes a common set of technologies and best practices, the details of each API can vary based on the design choices of the development team. See the reference for the APIs you plan to use before using them with a live deployment.
+
 === Overview of the API resources
 
 The REST style of application development begins by identifying the set of server-based resources. Considering the Cloud Volumes ONTAP API as an example, the resources are broadly categorized as follows:
