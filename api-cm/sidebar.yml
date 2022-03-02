@@ -12,6 +12,6 @@ entries:
         url: /cm/workflow_processes.html
       - title: Typical Cloud Manager deployment
         url: /cm/cloud_manager_deployment.html
-      - title: REST implementation details
-        url: /cm/rest_implementation.html
-      - section: cm
+  - title: REST implementation details
+    url: /cm/rest_implementation.html
+  - section: cm
