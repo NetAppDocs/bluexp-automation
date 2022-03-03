@@ -1,3 +1,7 @@
 section: automate
 title: Automation technologies
-url: /automate/automation.html
+entries:
+  - title: Overview
+    url: /automate/overview.html
+  - title: Blogs about automation
+    url: /automate/blogs.html
