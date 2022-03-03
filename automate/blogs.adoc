@@ -13,7 +13,7 @@ summary: Use the resources on this page to get help integrating Cloud Manager an
 :imagesdir: ./media/
 
 [.lead]
-There are several blog articles available to help you better understand the different technologies and approaches to Cloud Manager automation.
+There are several blog articles available to help you better understand the technologies and approaches that can be used for Cloud Manager automation.
 
 ===== Using Cloud Manager REST APIs with Federated Access
 
@@ -27,9 +27,9 @@ https://cloud.netapp.com/blog/cloud-automation-with-cloud-volumes-ontap-rest[htt
 
 https://cloud.netapp.com/blog/automated-data-cloning-for-cloud-based-testing[https://cloud.netapp.com/blog/automated-data-cloning-for-cloud-based-testing^]
 
-===== Infrastructure-As-Code (IaC) Accelerated with Ansible and NetApp
-
-https://blog.netapp.com/infrastructure-as-code-accelerated-with-ansible-netapp[https://blog.netapp.com/infrastructure-as-code-accelerated-with-ansible-netapp^]
+//===== Infrastructure-As-Code (IaC) Accelerated with Ansible and NetApp
+//
+//https://blog.netapp.com/infrastructure-as-code-accelerated-with-ansible-netapp[https://blog.netapp.com/infrastructure-as-code-accelerated-with-ansible-netapp^]
 
 ===== Roles for Ansible ONTAP use
 
