@@ -44,8 +44,8 @@ This documentation does not describe or use the Local UI.
 
 ==== Locate the client identifier
 
-You'll need the `client id` value for several of the workflows. For more information see link:get_client_id.html[Get the client and account identifiers].
+You'll need the `client id` value for several of the workflows. For more information see link:../platform/get_client_id.html[Get the client and account identifiers].
 
 ==== Get more information
 
-You should be aware of the additional resources available as suggested in link:additional_resources.html[Additional resources].
+You should be aware of the additional resources available as suggested in link:../support/additional_resources.html[Additional resources].

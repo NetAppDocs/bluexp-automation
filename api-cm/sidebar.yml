@@ -4,8 +4,9 @@ entries:
   - title: Overview
     url: /cm/overview.html
   - title: Get started
-    url: /cm/getting_started.html
     entries:
+      - title: Before you begin
+        url: /cm/getting_started_before.html
       - title: Typical deployment
         url: /cm/cloud_manager_deployment.html
       - title: Hello world

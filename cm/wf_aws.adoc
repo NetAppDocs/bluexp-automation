@@ -5,7 +5,7 @@ keywords: aws, workflows, cloud, manager, rest, api
 summary: There are several workflows you can use with the Amazon Web Services public cloud.
 ---
 
-= Workflows for Amazon Web Services
+= Before you begin
 :hardbreaks:
 :nofooter:
 :icons: font
