@@ -16,7 +16,7 @@ summary:
 Cloud Manager is a NetApp offering you can use to administer resources in the public cloud. It is composed of several distinct internal services, each of which exposes an associated REST API. Collectively these services and APIs form a flexible and extensible development platform. In addition to the Cloud Manager web user interface, you can directly access the platform functionality through the REST APIs.
 
 [NOTE]
-The Cloud Volumes ONTAP API is a typical starting place for automation specialists using the Cloud Manager platform.
+The Cloud Volumes ONTAP API is the typical starting place for automation specialists using the Cloud Manager platform.
 
 .Related information
 
