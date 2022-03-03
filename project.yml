@@ -27,18 +27,22 @@ homepage:
           url: /platform/concepts.html
         - title: Workflow processes and tasks
           url: /platform/workflows_tasks.html
+        - title: Common workflows
+          url: /platform/get_nss_key.html
     - title: Cloud Volumes ONTAP API
       links:
-        - title: Overview
+        - title: Overview of the API
           url: /cm/overview.html
-        - title: Get started
+        - title: Typical deployment
           url: /cm/cloud_manager_deployment.html
-        - title: REST details
+        - title: REST implementation details
           url: /cm/rest_implementation.html
         - title: API reference
           url: /cm/api_ref_resources.html
     - title: Cloud Volumes ONTAP workflows
       links:
+        - title: Organization and format
+          url: /cm/workflow_processes.html
         - title: AWS workflows
           url: /cm/wf_aws.html
         - title: Azure workflows
