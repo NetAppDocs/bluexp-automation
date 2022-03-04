@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/getting_started_before.html
+permalink: cm/prepare.html
 keywords: cloud, manager, rest, api, credentials, cloud, volumes, ONTAP, API
 summary: 'There are several things you should do to prepare to use the Cloud Manager REST API and associated workflows.'
 ---
 
-= Before you begin
+= Prepare to use the API
 :hardbreaks:
 :nofooter:
 :icons: font
