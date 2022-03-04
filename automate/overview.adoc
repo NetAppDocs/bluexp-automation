@@ -13,7 +13,7 @@ summary: Use the resources on this page to get help integrating Cloud Manager an
 :imagesdir: ./media/
 
 [.lead]
-DevOps teams use a variety of tools to automate the creation and administration of their data center runtime environments. NetApp supports many of these technologies for Cloud Manager and Cloud Volumes ONTAP automation. The tools are commonly based on an Infrastructure as Code (IaC) design.
+DevOps teams use a variety of tools to automate the setup and administration of their data center runtime environments. NetApp supports many of these technologies for Cloud Manager and Cloud Volumes ONTAP automation. The tools are commonly based on an Infrastructure as Code (IaC) design.
 
 === Terraform
 
