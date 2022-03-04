@@ -18,7 +18,7 @@ entries:
   - title: AWS workflows
     entries:
       - title: Before you begin
-        url: /cm/wf_aws.html
+        url: /cm/wf_aws_before.html
       - title: Working environments
         entries:
           - title: Create working environment with PAYGO
@@ -230,7 +230,7 @@ entries:
   - title: Common workflows
     entries:
       - title: Before you begin
-        url: /cm/wf_common.html
+        url: /cm/wf_common_before.html
       - title: Identity and access
         entries:
           - title: Get supported services
