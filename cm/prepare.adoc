@@ -37,7 +37,7 @@ You can create and manage Cloud Volumes ONTAP instances using a subscription PAY
 
 ==== Prepare to use the workflow processes
 
-Review link:workflow_processes.html[Understand the workflow processes] for more information about the organization and content of the workflows. Also see link:cloud_manager_deployment.html[Typical Cloud Manager deployment].
+Review link:workflow_processes.html[Workflow processes] for more information about the organization and content of the workflows. Also see link:cloud_manager_deployment.html[Typical Cloud Manager deployment].
 
 [NOTE]
 This documentation does not describe or use the Local UI.

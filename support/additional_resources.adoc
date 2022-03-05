@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: support/additional_resources_cm.html
+permalink: support/additional_resources.html
 keywords: netapp, support, cloud, services
 summary: 'There are additional resources you can access to get help and find more information about NetApp cloud services and support, ONTAP 9, and general REST and cloud concepts.'
 ---

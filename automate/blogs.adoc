@@ -13,7 +13,7 @@ summary: Use the resources on this page to get help integrating Cloud Manager an
 :imagesdir: ./media/
 
 [.lead]
-There are several blog articles available to help you better understand the technologies and approaches that can be used for Cloud Manager automation.
+There are several blog articles available to help you better understand the technologies and approaches available for Cloud Manager automation.
 
 ===== Using Cloud Manager REST APIs with Federated Access
 
