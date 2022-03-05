@@ -1,0 +1,84 @@
+---
+sidebar: sidebar
+permalink: platform/workflows_tasks.html
+keywords: workflows, processes, cloud, manager, api
+summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
+---
+
+= Workflow processes and tasks
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The Cloud Manager platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing a specific API.
+
+* link:workflows_tasks.html#workflows[Workflows]
+* link:workflows_tasks.html#tasks[Tasks]
+
+== Workflows
+
+A _workflow_ is most typically a sequence of one or more steps needed to accomplish a specific administrative task or goal. For the Cloud Manager platform, each of the workflow steps can be one of the following:
+
+* REST API call
+* Invocation of another workflow
+* Miscellaneous task or decision, such as deciding on the size of a new volume
+
+The workflows provided with this documentation include the minimum steps and parameters needed to accomplish each task. You can use these workflows as a starting point and customize them for your environment as needed.
+
+=== Base URLs and REST endpoint paths
+
+The REST API calls in the workflows use different URLs and URL formats depending on the desired service and resource.
+
+[NOTE]
+Every API call used in the workflows includes the resource path to the REST endpoint. The path is relative and appended to the appropriate *base* URL. Unless otherwise indicated for a specific API call, the base URL addresses the NetApp Cloud Manager service. You should always carefully review the examples provided in the workflows before using them with a live deployment.
+
+===== Cloud Manager endpoints
+
+The majority of the workflow REST API calls are made to the *NetApp Cloud Manager* service. The base URL of the SaaS interface is:
+
+`https://cloudmanager.netapp.com/`
+
+===== Auth0 authentication service
+
+Some of the REST API calls used in the identity workflows are made to the *Auth0* token authentication service. The base URL is:
+
+`https://netapp-cloud-account.auth0.com/`
+
+=== Common parameters and variables
+
+There are several parameters or variables common among the workflows.
+
+===== Request headers
+
+Most of the REST API calls used in the workflows require the following request headers. Rather than cite these headers as a prerequisite in every REST API call, they are considered a universal requirement. If a workflow does not use these headers or has different prerequisites, they are indicated as appropriate.
+
+Authorization request header::
+To get a bearer token for this header, perform the appropriate workflow at link:../platform/create_user_token.html[Create a user token] and extract the `access_token` value.
+
+x-agent-id request header::
+This header contains the agent ID which is based on the client ID. See link:get_client_id.html[Get client and account identifiers] for information about creating this value.
+
+=== Presentation of common tokens and identifiers
+
+Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead. For example, *<ACCESS_TOKEN>* is a shorthand notation for a temporary string used to establish identity based on the OAuth2 standard.
+
+This approach has several benefits:
+
+* The cURL and JSON samples are simpler and easier to understand.
+* Because all keywords use a common format, you can quickly identify the content to insert or extract.
+* No value is lost because the original values cannot be copied and used with an actual deployment.
+
+=== JSON input for curl command
+
+In many cases, a workflow step accepts JSON input in the request body of the REST API call. This input is indicated in the curl command through the `-d` option, with the corresponding sample typically included in the *JSON input example* section.
+
+== Tasks
+
+A _task_ is a sequence of one or more steps needed to accomplish a specific administrative task or goal. Tasks typically differ from workflow processes in several ways:
+
+* Limited to using the Cloud Manager web user interface
+* Do not make REST API calls
+* If invocation of a workflow is required, it is included as a prerequisite

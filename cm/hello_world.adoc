@@ -16,13 +16,13 @@ summary: 'You can issue a curl command to get started using the Cloud Manager RE
 You can issue a curl command to get started using the Cloud Volumes ONTAP REST API and confirm its availability.
 
 [NOTE]
-The example provided below is very simple. The workflow samples later in this guide use a more robust format. As a start, see link:workflow_processes.html[Understanding the workflow processes].
+The example provided below is very simple. The workflow samples later in this guide use a more robust format. As a start, see link:workflow_processes.html[Workflow processes].
 
 .Before you begin
 
 You must do the following:
 
-* Determine the identifier to use for the `x-agent-id` request header as well as the related client ID. See link:get_client_id.html[Get the client and account identifiers].
+* Determine the identifier to use for the `x-agent-id` request header as well as the related client ID. See link:../platform/get_client_id.html[Get the client and account identifiers].
 
 * Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
 
