@@ -45,13 +45,13 @@ homepage:
         - title: Organization and format
           url: /cm/workflow_processes.html
         - title: AWS workflows
-          url: /cm/wf_aws.html
+          url: /cm/wf_aws_before.html
         - title: Azure workflows
           url: /cm/wf_azure_before.html
         - title: GCP workflows
           url: /cm/wf_gcp_before.html
         - title: Common workflows
-          url: /cm/wf_common.html
+          url: /cm/wf_common_before.html
     - title: More resources
       links:
         - title: NetApp Cloud Solutions
