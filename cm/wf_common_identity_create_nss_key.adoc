@@ -17,7 +17,7 @@ You can create the key for a specific NetApp Support Site account.
 
 === 1. Select the account
 
-Perform the workflow link:wf_common_identity_get_accounts.html[Get accounts] and choose the `accountId` value for the path parameter.
+Perform the workflow link:wf_common_identity_get_supported_srv.html[Get supported services] and choose the `accountId` value for the path parameter.
 
 
 === 2. Create the NSS key

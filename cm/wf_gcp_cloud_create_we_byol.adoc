@@ -226,7 +226,53 @@ The JSON input example includes the minimum list of parameters. This request use
 
 JSON input example::
 [source,json]
+{
 
+  "name": "lironweha",
+  "tenantId": "workspace-CdkdlaGl",
+  "region": "us-east1-b",
+  "packageName": "gcp_ha_custom",
+  "dataEncryptionType": "GCP",
+  "capacityTier": "cloudStorage",
+  "tierLevel": "standard",
+  "gcpServiceAccount": xxxxx@occm-dev.iam.gserviceaccount.com,
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.0X1.T1.gcpha",
+    "licenseType": "gcp-ha-cot-premium-byol",
+    "instanceType": "n2-standard-4"
+  },
+  "nssAccount": "6f0577ba-edc4-47f8-8732-xxxxxa41ae5",
+  "subnetPath": "projects/occm-dev/regions/us-east1/subnetworks/default",
+  "subnetId": "projects/occm-dev/regions/us-east1/subnetworks/default",
+  "svmPassword": "password",
+  "vpcId": "default",
+  "gcpVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
+  },
+  "gcpVolumeType": "pd-ssd",
+  "gcpLabels": [],
+  "project": "occm-dev",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "haParams": {
+    "node1Zone": "us-east1-b",
+    "node2Zone": "us-east1-c",
+    "mediatorZone": "us-east1-d",
+    "vpc0NodeAndDataConnectivity": "projects/occm-dev/global/networks/default",
+    "vpc1ClusterConnectivity": "projects/occm-dev/global/networks/vpc4qa-2",
+    "vpc2HAConnectivity": "projects/occm-dev/global/networks/vpc4qa-3",
+    "vpc3DataReplication": "projects/occm-dev/global/networks/vpc4qa-4",
+    "subnet0NodeAndDataConnectivity": "projects/occm-dev/regions/us-east1/subnetworks/default",
+    "subnet1ClusterConnectivity": "projects/occm-dev/regions/us-east1/subnetworks/vpc4qa-2-us-east1",
+    "subnet2HAConnectivity": "projects/occm-dev/regions/us-east1/subnetworks/vpc4qa-3-us-east1",
+    "subnet3DataReplication": "projects/occm-dev/regions/us-east1/subnetworks/vpc4qa-4-us-east1",
+    "platformSerialNumberNode1": "xxx20140000000000510",
+    "platformSerialNumberNode2": "xxx20140000000000510"
+
+  }
+}
 
 Output::
 
@@ -234,3 +280,36 @@ The JSON output example includes an example of the `VsaWorkingEnvironmentRrespon
 
 JSON output example
 [source,json]
+{
+  "publicId": "vsaworkingenvironment-xxx9",
+  "name": "lironweha",
+  "tenantId": "Tenant-mPqezSkl",
+  "svmName": "svm_lironweha",
+  "creatorUserEmail": "user-email",
+  "status": null,
+  "providerProperties": null,
+  "reservedSize": null,
+  "clusterProperties": null,
+  "ontapClusterProperties": null,
+  "cloudProviderName": "GCP",
+  "snapshotPolicies": null,
+  "actionsRequired": null,
+  "activeActions": null,
+  "replicationProperties": null,
+  "schedules": null,
+  "svms": null,
+  "workingEnvironmentType": "VSA",
+  "supportRegistrationProperties": null,
+  "supportRegistrationInformation": null,
+  "capacityFeatures": null,
+  "encryptionProperties": null,
+  "supportedFeatures": null,
+  "isHA": true,
+  "haProperties": null,
+  "fpolicyProperties": null,
+  "saasProperties": null,
+  "cbsProperties": null,
+  "complianceProperties": null,
+  "monitoringProperties": null,
+  "licensesInformation": null
+}

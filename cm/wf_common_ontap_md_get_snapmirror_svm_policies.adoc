@@ -13,7 +13,7 @@ summary: "You can use this workflow to retrieve the SnapMirror policies based on
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to retrieve the SnapMirror policies based on the source and destination Cloud Volume ONTAP instances.
+You can use this workflow to retrieve the SnapMirror policies (owned by cluster admin SVM) based on the source and destination Cloud Volume ONTAP instances.
 
 === 1. Select the working environment to use
 
