@@ -227,7 +227,6 @@ The JSON input example includes the minimum list of parameters. This request use
 JSON input example::
 [source,json]
 {
-
   "name": "lironweha",
   "tenantId": "workspace-CdkdlaGl",
   "region": "us-east1-b",
@@ -278,7 +277,7 @@ Output::
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
 
-JSON output example
+JSON output example::
 [source,json]
 {
   "publicId": "vsaworkingenvironment-xxx9",

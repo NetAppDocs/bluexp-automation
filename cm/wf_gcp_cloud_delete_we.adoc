@@ -44,20 +44,21 @@ curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api
 
 Input::
 
-Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
+* Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
 
-(Optional) Query parameters:
+* (Optional) Query parameters:
 
-* `localDelete` boolean
+** `localDelete` boolean
 +
-If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`). If `false` the Cloud Volumes ONTAP instance is deleted including all the cloud resources created for this working environment.
+If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`).
++
+If `false` the Cloud Volumes ONTAP instance is deleted including all the cloud resources created for this working environment.
 
-* `forceDelete` boolean
+** `forceDelete` boolean
 +
 If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
 
 Output::
-
 None
 
 == Delete working environment for high availability pair
