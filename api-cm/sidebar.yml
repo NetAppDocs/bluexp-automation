@@ -251,13 +251,13 @@ entries:
             url: /cm/wf_common_occm_attach_subscription.html
       - title: NetApp Support Site
         entries:
-          - title: Create NSS key
+          - title: Create NSS ID
             url: /cm/wf_common_identity_create_nss_key.html
-          - title: Get NSS key
+          - title: Get NSS ID
             url: /cm/wf_common_identity_get_nss_key.html
-          - title: Get NSS keys
+          - title: Get NSS IDs
             url: /cm/wf_common_identity_get_nss_keys.html
-          - title: Delete NSS key
+          - title: Delete NSS ID
             url: /cm/wf_common_identity_delete_nss_key.html
       - title: Internal tasks and support
         entries:
