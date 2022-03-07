@@ -1,0 +1,1482 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+      "title": "Persistence service REST API reference",
+      "description": "<br>\n<p>\nThe Persistence service provides a permanent data storage capability for the Cloud Manager platform.\nIt is used by the other services within the platform to store and retrieve documents containing arbitrary data.\nA complete set of REST endpoints is supported to manage the documents based on the CRUD model.\n</p>\n\n<h3>JSON documents</h3>\n<p>\nThe documents managed by the Persistence service must be formatted as valid JSON objects, which are stored internally in a SaaS database.\nThe database includes an indexing feature which improves the overall performance. Aside from the JSON formatting requirement, no additional constraints are applied to the documents.\nThe JSON objects can contain any content and are opaque to the service.\n</p>\n\n<h3>Authorization</h3>\n<p>\nEach client service using the Persistence service must provide a valid service token to authenticate and issue the API calls.\nThis bearer token is passed in on each call by using the authorization request header.\nWhen using the online documentation page, you must provide the service token and click <i>Authorize</i> to execute a specific API call.\n</p>\n<br><br> \n",
+      "version": "1.0.0"
+  },
+  "components": {
+      "securitySchemes": {
+          "authorization": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT",
+              "description": "JWT access token to authorize the request, sent on the request header."
+          }
+      },
+      "schemas": {
+          "def-0": {
+              "title": "AuthorizationToken",
+              "type": "object",
+              "properties": {
+                  "X-Service-Request-Id": {
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "type": "string"
+                  }
+              }
+          },
+          "def-1": {
+              "title": "ErrorMessage",
+              "type": "object",
+              "description": "Error response. \n    <fieldset>\n        <h3>Http Error Codes:</h3>\n        <ol type=\"1\">\n            <li>401: Authorization token expired.</li>\n            <li>403: Authorization failure.</li>\n            <li>404: Document is not found.</li>\n            <li>500: Server side API error.</li>\n        </ol>\n    </fieldset>\n",
+              "properties": {
+                  "errorCode": {
+                      "description": "Error code",
+                      "type": "string",
+                      "example": "P1002"
+                  },
+                  "error": {
+                      "description": "Error category",
+                      "type": "string",
+                      "example": "api error"
+                  },
+                  "message": {
+                      "description": "Error description message",
+                      "type": "string",
+                      "example": "No document found of the specified documentId"
+                  }
+              }
+          },
+          "def-2": {
+              "title": "PersistenceServiceRequest",
+              "description": "(Opaque) Persistence service document as a key-value pair passed as a request.",
+              "type": "object",
+              "example": "{ key1: value1, key2: value2, ....., key-n: value-n}",
+              "additionalProperties": true
+          },
+          "def-3": {
+              "title": "PersistenceServiceResponse",
+              "type": "object",
+              "description": "Persistence Service response document.",
+              "properties": {
+                  "_id": {
+                      "description": "Persistence Service response document identifier. Auto generated and immutable.",
+                      "type": "string",
+                      "minLength": 24,
+                      "maxLength": 24,
+                      "example": "60f51cf96bf74c1eec9be2cc"
+                  },
+                  "document": {
+                      "title": "PersistenceServiceRequest",
+                      "description": "(Opaque) Persistence service document as a key-value pair passed as a request.",
+                      "type": "object",
+                      "example": "{ key1: value1, key2: value2, ....., key-n: value-n}",
+                      "additionalProperties": true
+                  }
+              }
+          },
+          "def-4": {
+              "title": "PersistenceServiceCollectionParam",
+              "type": "object",
+              "description": "Persistence service URL parameters for API endpoints to create and retrieve collections (GET, POST).",
+              "properties": {
+                  "serviceName": {
+                      "description": "Participating external service name (name of the database).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 63,
+                      "pattern": "^([^/. \"$*<>:|?]+$)",
+                      "example": "snapcenter"
+                  },
+                  "collectionName": {
+                      "description": "Persistence service collection name (name of the table).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120,
+                      "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                      "example": "Applications"
+                  },
+                  "accountId": {
+                      "description": "Persistence Service Cloud Manager account identifier for Tenancy service specification.",
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 30,
+                      "example": "account-0Sbc3gZI"
+                  }
+              },
+              "required": [
+                  "serviceName",
+                  "collectionName",
+                  "accountId"
+              ]
+          },
+          "def-5": {
+              "title": "PersistenceServiceDocumentId",
+              "type": "object",
+              "description": "Persistence Service URL document identifier parameter for API endpoints that manage a document (POST, GET, PUT, PATCH, DELETE).",
+              "properties": {
+                  "serviceName": {
+                      "description": "Participating external service name (name of the database).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 63,
+                      "pattern": "^([^/. \"$*<>:|?]+$)",
+                      "example": "snapcenter"
+                  },
+                  "collectionName": {
+                      "description": "Persistence Service collection name (name of the table).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120,
+                      "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                      "example": "Applications"
+                  },
+                  "accountId": {
+                      "description": "Persistence Service Cloud Manager account identifier for Tenancy service specification.",
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 30,
+                      "example": "account-0Sbc3gZI"
+                  },
+                  "documentId": {
+                      "description": "Document identifier displayed in object ID format.",
+                      "type": "string",
+                      "minLength": 24,
+                      "maxLength": 24,
+                      "example": "60f51cf96bf74c1eec9be2cc"
+                  }
+              },
+              "required": [
+                  "serviceName",
+                  "collectionName",
+                  "accountId",
+                  "documentId"
+              ]
+          },
+          "def-6": {
+              "title": "PersistenceQueryParams",
+              "type": "object",
+              "description": "Persistence Service GET API URL query specification (applicable for GET method only).",
+              "properties": {
+                  "_id": {
+                      "description": "Document identifier specified in object ID format as _id or documentId.",
+                      "type": "string",
+                      "minLength": 24,
+                      "maxLength": 24,
+                      "example": "60f51cf96bf74c1eec9be2cc"
+                  },
+                  "documentId": {
+                      "description": "Document identifier specified in object ID format as documentId or _id.",
+                      "type": "string",
+                      "minLength": 24,
+                      "maxLength": 24,
+                      "example": "60f51cf96bf74c1eec9be2cc"
+                  },
+                  "offset": {
+                      "description": "Number of records to be skipped to retrieve the documents. Default is 0, starts from 0.",
+                      "type": "number",
+                      "default": 0,
+                      "minimum": 0,
+                      "allOf": [
+                          {
+                              "minimum": 0
+                          },
+                          {
+                              "type": "integer"
+                          }
+                      ]
+                  },
+                  "limit": {
+                      "description": "Batch size. Number of documents to be fetched in a single API call. Default is 20. Minimum is 1.",
+                      "type": "number",
+                      "default": 20,
+                      "minimum": 1,
+                      "allOf": [
+                          {
+                              "minimum": 1
+                          },
+                          {
+                              "type": "integer"
+                          }
+                      ]
+                  },
+                  "order_by": {
+                      "description": "Sorting specifier. Specifies which field to sort: order_by=<fieldname> asc/desc",
+                      "type": "string",
+                      "pattern": "(.[\r\n\t\f\u000b ](?:(asc)|(desc))s*$)",
+                      "example": "field1 asc, field1 desc"
+                  },
+                  "query_fields": {
+                      "description": "Comma separated, cross-field query keys specifier. Identifies the document keys to be queried for the given value in the query.",
+                      "type": "string",
+                      "example": "f4,f5.f51"
+                  },
+                  "query": {
+                      "description": "Cross-field query value specifier. Value searched across the specified keys in query_fields.",
+                      "type": "string"
+                  },
+                  "total_documents": {
+                      "description": "Total number of documents present in the collection, after applying filters, if any. Example: /endpoint?total_documents",
+                      "type": "string",
+                      "nullable": true
+                  }
+              },
+              "anyOf": [
+                  {
+                      "oneOf": [
+                          {
+                              "required": [
+                                  "_id"
+                              ]
+                          },
+                          {
+                              "required": [
+                                  "documentId"
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "not": {
+                          "required": [
+                              "_id",
+                              "documentId"
+                          ]
+                      }
+                  }
+              ],
+              "oneOf": [
+                  {
+                      "allOf": [
+                          {
+                              "required": [
+                                  "query_fields"
+                              ]
+                          },
+                          {
+                              "required": [
+                                  "query"
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "allOf": [
+                          {
+                              "not": {
+                                  "required": [
+                                      "query_fields"
+                                  ]
+                              }
+                          },
+                          {
+                              "not": {
+                                  "required": [
+                                      "query"
+                                  ]
+                              }
+                          }
+                      ]
+                  }
+              ]
+          },
+          "def-7": {
+              "title": "PersistenceServiceIndexParam",
+              "type": "object",
+              "description": "Persistence service URL parameters for API endpoints that manage the index.",
+              "properties": {
+                  "serviceName": {
+                      "description": "Participating external service name (name of the database).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 63,
+                      "pattern": "^([^/. \"$*<>:|?]+$)",
+                      "example": "snapcenter"
+                  },
+                  "collectionName": {
+                      "description": "Persistence service collection name (name of the table).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120,
+                      "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                      "example": "Applications"
+                  }
+              },
+              "required": [
+                  "serviceName",
+                  "collectionName"
+              ]
+          },
+          "def-8": {
+              "title": "PersistenceServiceIndexParam",
+              "type": "object",
+              "description": "Persistence service URL parameters for API endpoints that manage the index.",
+              "properties": {
+                  "serviceName": {
+                      "description": "Participating external service name (name of the database).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 63,
+                      "pattern": "^([^/. \"$*<>:|?]+$)",
+                      "example": "snapcenter"
+                  },
+                  "collectionName": {
+                      "description": "Persistence service collection name (name of the table).",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120,
+                      "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                      "example": "Applications"
+                  },
+                  "indexName": {
+                      "description": "Name of index to be deleted.",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120,
+                      "example": "testIndex"
+                  }
+              },
+              "required": [
+                  "serviceName",
+                  "collectionName",
+                  "indexName"
+              ]
+          }
+      }
+  },
+  "paths": {
+      "/persistence/v1/service/{serviceName}/collection/{collectionName}/account/{accountId}": {
+          "get": {
+              "operationId": "GetPersistenceDocuments",
+              "tags": [
+                  "persistence"
+              ],
+              "description": "Retrieves documents from the specified collection for the specified service database and account.                 If <i>documentId</i> is mentioned in the query, that document is fetched.                 The documents are retuned inside an array to the user, where the user supplied persistence                 information is found under the document key of each element of the array.                 If the user queries for a single document, an array with the specified single document is returned.                 If no document is found, an empty array is returned.<br>\n <h2>URL query specification<h2>\n\n <h3>Pagination</h3>\n \n By default, the offset is 0 and the limit is 20. You can specify any one or both of these values. \n The values are positive integer numbers or 0 for offset and 1 for limit.\n However, no check is performed for the viability of these numbers (you can specify a floating-point number).\n <br><br>\n Example: \n <ul>\n <li>GET /endpoint?offset=M&limit=N</li>\n </ul>\n \n\n <h3>Cross-field search</h3>\n \n Cross-field queries are useful when multiple fields are searched for a value or combination of values. \n Whereas single-field queries only allow you to search a single field for a value, cross-field queries return rows where \n any field in a specified set of fields matches the query. \n The fields to be queried are specified in the \"query_fields=\" parameter. This parameter must contain a comma-delimited list of fields.\n The behavior is equivalent to the UNIX grep -i command, which means that the value matches anywhere in the string and is not case sensitive.\n <br><br>\n Example: \n <ul>\n <li>GET /endpoint/servers?query=my_server&query_fields=server,ip,state</li>\n </ul>\n \n\n <h3>Single-field filtering</h3>\n \n Represented as field=value where the value is matched only for specified field.\n The behavior is equivalent to the UNIX grep command, which means that the value is an exact match with the specified field and is case sensitive.\n <br><br>\n Examples:\n <ul>\n <li>GET /endpoint/servers?server=my_server</li>\n <li>GET /endpoint/servers?server=my_server&ip_addr=10.10.10.10</li>\n </ul>\n \n\n <h3>Sorting</h3>\n \n Represented as order_by=field asc/desc. Ascending by default means that if the user only specifies order_by=field, then it returns in ascending order.\n <br>\n <i>Note that the field or fields must be indexed to be sortable.</i>\n <br><br>\n Examples:\n <ul>\n <li>GET /endpoint/servers?order_by=server desc</li>\n <li>GET /endpoint/servers?order_by=server</li>\n <li>GET /endpoint/servers?order_by=server asc</li>\n </ul>\n The last two examples are equivalent.\n \n\n <h3>Total document count</h3>\n \n If the total_documents query parameter is passed to the URL, it returns the total number of documents present in the collection after applying the filter, if any.<br>\n This query parameter does not take any value.<br><br>\n Examples:\n <ul>\n <li>GET /endpoint/servers?total_documents</li>\n <li>GET /endpoint/servers?k3=true&offset=1&limit=1&total_documents</li>\n </ul>\n The last example returns the total number of documents present in the collection after applying the filter value <i>true</i> in field <i>k3</i>.\n However, the documents array contains only one document (offset=1&limit=1).\n \n\n <h3><b>NOT</b> supported</h3>\n \n <ul>\n <li>Regex in filtering (e.g. field=abc*)</li>\n <li>Comparison in filtering (e.g. >, <, >=, <=)</li>\n <li>Escape character support in filtering. The special character is treated literally, without any specific meaning (for example, field=\"<query_value_with_special_char>\").</li>\n <li>Returns only the desired field from collections or individual documents instead of returning all fields in the documents.</li>\n <li>Asterisk (*) denotes all fields in the cross-field search (for example, query_fields=*). This means global string search is not supported.</li>\n </ul>\n \n\n",
+              "parameters": [
+                  {
+                      "in": "query",
+                      "name": "_id",
+                      "required": false,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 24,
+                          "maxLength": 24,
+                          "example": "60f51cf96bf74c1eec9be2cc"
+                      },
+                      "description": "Document identifier specified in object ID format as _id or documentId."
+                  },
+                  {
+                      "in": "query",
+                      "name": "documentId",
+                      "required": false,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 24,
+                          "maxLength": 24,
+                          "example": "60f51cf96bf74c1eec9be2cc"
+                      },
+                      "description": "Document identifier specified in object ID format as documentId or _id."
+                  },
+                  {
+                      "in": "query",
+                      "name": "offset",
+                      "required": false,
+                      "schema": {
+                          "type": "number",
+                          "default": 0,
+                          "minimum": 0,
+                          "allOf": [
+                              {
+                                  "minimum": 0
+                              },
+                              {
+                                  "type": "integer"
+                              }
+                          ]
+                      },
+                      "description": "Number of records to be skipped to retrieve the documents. Default is 0, starts from 0."
+                  },
+                  {
+                      "in": "query",
+                      "name": "limit",
+                      "required": false,
+                      "schema": {
+                          "type": "number",
+                          "default": 20,
+                          "minimum": 1,
+                          "allOf": [
+                              {
+                                  "minimum": 1
+                              },
+                              {
+                                  "type": "integer"
+                              }
+                          ]
+                      },
+                      "description": "Batch size. Number of documents to be fetched in a single API call. Default is 20. Minimum is 1."
+                  },
+                  {
+                      "in": "query",
+                      "name": "order_by",
+                      "required": false,
+                      "schema": {
+                          "type": "string",
+                          "pattern": "(.[\r\n\t\f\u000b ](?:(asc)|(desc))s*$)",
+                          "example": "field1 asc, field1 desc"
+                      },
+                      "description": "Sorting specifier. Specifies which field to sort: order_by=<fieldname> asc/desc"
+                  },
+                  {
+                      "in": "query",
+                      "name": "query_fields",
+                      "required": false,
+                      "schema": {
+                          "type": "string",
+                          "example": "f4,f5.f51"
+                      },
+                      "description": "Comma separated, cross-field query keys specifier. Identifies the document keys to be queried for the given value in the query."
+                  },
+                  {
+                      "in": "query",
+                      "name": "query",
+                      "required": false,
+                      "schema": {
+                          "type": "string"
+                      },
+                      "description": "Cross-field query value specifier. Value searched across the specified keys in query_fields."
+                  },
+                  {
+                      "in": "query",
+                      "name": "total_documents",
+                      "required": false,
+                      "schema": {
+                          "type": "string",
+                          "nullable": true
+                      },
+                      "description": "Total number of documents present in the collection, after applying filters, if any. Example: /endpoint?total_documents"
+                  },
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence service collection name (name of the table)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "accountId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 2,
+                          "maxLength": 30,
+                          "example": "account-0Sbc3gZI"
+                      },
+                      "description": "Persistence Service Cloud Manager account identifier for Tenancy service specification."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "properties": {
+                                      "documents": {
+                                          "description": "All the retrieved documents from the specified collection for the specified database and account.",
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/components/schemas/def-3"
+                                          }
+                                      },
+                                      "total_documents": {
+                                          "description": "If total_documents query paremeter is specified, it displays the total number of documents present in the collection after applying query paramaters, if any. If total_documents is not specified, it returns -1.",
+                                          "type": "number",
+                                          "default": -1
+                                      }
+                                  },
+                                  "type": "object"
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Error response.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response."
+                              }
+                          }
+                      }
+                  }
+              }
+          },
+          "post": {
+              "operationId": "AddPersistenceDocuments",
+              "tags": [
+                  "persistence"
+              ],
+              "description": "Adds a single document to the specified collection for the specified service database and account.                 Returns the newly added document.",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "description": "(Opaque) Persistence service document as key-value pair.",
+                              "$ref": "#/components/schemas/def-2"
+                          }
+                      }
+                  }
+              },
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence service collection name (name of the table)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "accountId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 2,
+                          "maxLength": 30,
+                          "example": "account-0Sbc3gZI"
+                      },
+                      "description": "Persistence Service Cloud Manager account identifier for Tenancy service specification."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Newly added Persistence Service Document.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-3",
+                                  "description": "Newly added Persistence Service Document."
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  },
+                  "5XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/persistence/v1/service/{serviceName}/collection/{collectionName}/account/{accountId}/{documentId}": {
+          "patch": {
+              "operationId": "EditPersistenceDocuments",
+              "tags": [
+                  "persistence"
+              ],
+              "description": "Updates the existing document of the specified collection.                 Updates the field values of the original document with the provided values.                 This operation does not support modifying individual array elements, you must use PATCH on the whole array.                 If you need to replace the whole document, use the PUT method.                 The PATCH method returns the modified document.",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "description": "(Opaque) Persistence service document",
+                              "$ref": "#/components/schemas/def-2"
+                          }
+                      }
+                  }
+              },
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence Service collection name (name of the table)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "accountId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 2,
+                          "maxLength": 30,
+                          "example": "account-0Sbc3gZI"
+                      },
+                      "description": "Persistence Service Cloud Manager account identifier for Tenancy service specification."
+                  },
+                  {
+                      "in": "path",
+                      "name": "documentId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 24,
+                          "maxLength": 24,
+                          "example": "60f51cf96bf74c1eec9be2cc"
+                      },
+                      "description": "Document identifier displayed in object ID format."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-3"
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  },
+                  "5XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  }
+              }
+          },
+          "put": {
+              "operationId": "ReplacePersistenceDocuments",
+              "tags": [
+                  "persistence"
+              ],
+              "description": "Replaces an existing document in the specified collection for the specified database and account, with a specified                 new document. Returns the new document after replacement.                 If you need to update the field values of an existing document instead of replacing a document, use the PATCH method.",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "description": "(Opaque) Persistence service document.",
+                              "$ref": "#/components/schemas/def-2"
+                          }
+                      }
+                  }
+              },
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence Service collection name (name of the table)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "accountId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 2,
+                          "maxLength": 30,
+                          "example": "account-0Sbc3gZI"
+                      },
+                      "description": "Persistence Service Cloud Manager account identifier for Tenancy service specification."
+                  },
+                  {
+                      "in": "path",
+                      "name": "documentId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 24,
+                          "maxLength": 24,
+                          "example": "60f51cf96bf74c1eec9be2cc"
+                      },
+                      "description": "Document identifier displayed in object ID format."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Edited Persistence service document.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-3",
+                                  "description": "Edited Persistence service document."
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  },
+                  "5XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  }
+              }
+          },
+          "delete": {
+              "operationId": "DeletePersistenceDocuments",
+              "tags": [
+                  "persistence"
+              ],
+              "description": "Deletes the specified document from the specified collection for the specified database and account.                 Returns the recently deleted document.",
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence Service collection name (name of the table)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "accountId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 2,
+                          "maxLength": 30,
+                          "example": "account-0Sbc3gZI"
+                      },
+                      "description": "Persistence Service Cloud Manager account identifier for Tenancy service specification."
+                  },
+                  {
+                      "in": "path",
+                      "name": "documentId",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 24,
+                          "maxLength": 24,
+                          "example": "60f51cf96bf74c1eec9be2cc"
+                      },
+                      "description": "Document identifier displayed in object ID format."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Deleted Persistence service document.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-3",
+                                  "description": "Deleted Persistence service document."
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  },
+                  "5XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/persistence/v1/service/{serviceName}/collection/{collectionName}/index": {
+          "post": {
+              "tags": [
+                  "index"
+              ],
+              "description": "Adds the create index request that will be used to create the index. The POST index execute API call creates the indexes that have been scheduled by using this API call.",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "type": "object",
+                              "properties": {
+                                  "index": {
+                                      "type": "object",
+                                      "properties": {
+                                          "name": {
+                                              "type": "string",
+                                              "minLength": 2
+                                          },
+                                          "indexProperties": {
+                                              "enum": [
+                                                  "sparse",
+                                                  "unique"
+                                              ]
+                                          },
+                                          "indexStructure": {
+                                              "type": "array",
+                                              "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                      "fieldName": {
+                                                          "type": "string"
+                                                      },
+                                                      "fieldIndexType": {
+                                                          "enum": [
+                                                              "text"
+                                                          ]
+                                                      },
+                                                      "order": {
+                                                          "enum": [
+                                                              "desc",
+                                                              "asc"
+                                                          ]
+                                                      }
+                                                  },
+                                                  "oneOf": [
+                                                      {
+                                                          "required": [
+                                                              "fieldName",
+                                                              "fieldIndexType"
+                                                          ]
+                                                      },
+                                                      {
+                                                          "required": [
+                                                              "fieldName",
+                                                              "order"
+                                                          ]
+                                                      }
+                                                  ]
+                                              }
+                                          }
+                                      },
+                                      "required": [
+                                          "name",
+                                          "indexStructure"
+                                      ]
+                                  }
+                              },
+                              "example": {
+                                  "index": {
+                                      "name": "testIndex",
+                                      "indexProperties": "unique",
+                                      "indexStructure": [
+                                          {
+                                              "fieldName": "server",
+                                              "order": "desc"
+                                          },
+                                          {
+                                              "fieldName": "size",
+                                              "order": "asc"
+                                          },
+                                          {
+                                              "fieldName": "family",
+                                              "fieldIndexType": "hash"
+                                          }
+                                      ]
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence service collection name (name of the table)."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Success response.",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "description": "Success response.",
+                                  "type": "object",
+                                  "properties": {
+                                      "documentId": {
+                                          "type": "string"
+                                      }
+                                  },
+                                  "example": {
+                                      "documentId": "6110f5d25cd7ca0eb6f3f821"
+                                  }
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Default Response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1"
+                              }
+                          }
+                      }
+                  }
+              }
+          },
+          "get": {
+              "tags": [
+                  "index"
+              ],
+              "description": "Retrieves existing indexes for the service collection.",
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence service collection name (name of the table)."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Error response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1",
+                                  "description": "Error response"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/persistence/v1/service/{serviceName}/collection/{collectionName}/index/{indexName}": {
+          "delete": {
+              "tags": [
+                  "index"
+              ],
+              "description": "Adds the drop index request that will be used to delete the index. The POST index execute API call deletes the indexes that have been scheduled by using this API call.",
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence service collection name (name of the table)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "indexName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "example": "testIndex"
+                      },
+                      "description": "Name of index to be deleted."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Success response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "description": "Success response",
+                                  "type": "object",
+                                  "properties": {
+                                      "documentId": {
+                                          "type": "string"
+                                      }
+                                  },
+                                  "example": {
+                                      "documentId": "230f5d25ce7c80ab2f4f857"
+                                  }
+                              }
+                          }
+                      }
+                  },
+                  "4XX": {
+                      "description": "Default Response",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/def-1"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/persistence/v1/service/{serviceName}/collection/{collectionName}/execute": {
+          "post": {
+              "tags": [
+                  "index"
+              ],
+              "description": "Executes the index requests that were previously scheduled by the POST index or DELETE index API calls. When you execute this API call, the scheduled indexes are created or deleted.",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "type": "object",
+                              "properties": {
+                                  "documentId": {
+                                      "type": "string"
+                                  }
+                              },
+                              "required": [
+                                  "documentId"
+                              ]
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "parameters": [
+                  {
+                      "in": "path",
+                      "name": "serviceName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 63,
+                          "pattern": "^([^/. \"$*<>:|?]+$)",
+                          "example": "snapcenter"
+                      },
+                      "description": "Participating external service name (name of the database)."
+                  },
+                  {
+                      "in": "path",
+                      "name": "collectionName",
+                      "required": true,
+                      "schema": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120,
+                          "pattern": "^(?!system.)[a-zA-Z0-9_][^$ \\0]*$",
+                          "example": "Applications"
+                      },
+                      "description": "Persistence service collection name (name of the table)."
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier used to tag the request for better supportability.",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "security": [
+                  {
+                      "authorization": []
+                  }
+              ],
+              "x-doc": {
+                  "title": "",
+                  "category": "",
+                  "filename": "",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      }
+  },
+  "servers": [
+      {
+          "url": "https://staging.cloudmanager.cloud.netapp.com"
+      }
+  ],
+  "tags": [
+      {
+          "name": "persistence",
+          "description": "The persistence endpoints store and retrieve service-specific information."
+      },
+      {
+          "name": "index",
+          "description": "The index operation endpoints set, delete, and retrieve indexes."
+      }
+  ],
+  "externalDocs": {
+      "url": "https://docs.netapp.com/us-en/cloud-manager-automation/cm/introduction.html",
+      "description": "Learn more about the Cloud Manager platform REST APIs."
+  }
+}
