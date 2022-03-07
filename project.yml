@@ -3,9 +3,11 @@ settings:
   name: Cloud Manager Automation
   platform: ''
   internal:
-    pdf_enabled: true
+    pdf_enabled: false
+    api_enabled: true
   prod:
-    pdf_enabled: true
+    pdf_enabled: false
+    api_enabled: true
 sidebar:
   entries:
     - title: Cloud Manager API docs
@@ -13,6 +15,8 @@ sidebar:
     - section: platform
     - section: workflows
     - section: api-cm
+    - section: persistence
+    - section: tenancy
     - section: automate
     - section: support
     - title: Legal notices

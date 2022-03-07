@@ -1,0 +1,3381 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "title": "Tenancy service REST API reference",
+      "description": "  <details><summary>Overview</summary>\n<p>The Tenancy service provides secure and granular role-based access control (RBAC) for the resources in the Cloud Manager platform.<br />\nIt consists of several internal major components that operate together to enable and restrict resource access.<br />\nThe service operates within the context of a Cloud Manager account. The identity of the API caller and the account are established through a user or service token.</p>\n<p>There are six components defined within the Tenancy service.</p>\n<ul>\n<li>account</li>\n<li>authorize</li>\n<li>resource</li>\n<li>service account</li>\n<li>user</li>\n<li>workspace</li>\n</ul>\n<p>All Tenancy service API calls are short lived and run synchronously. Asynchronous processing and internal process tracking are not supported.</p>\n</details>\n<hr />\n   <details>\n<summary>REST implementation</summary>\n<h3>HTTP methods</h3>\n<table>\n<thead>\n<tr>\n<th>Method</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>POST</code></td>\n<td>Create an object instance</td>\n</tr>\n<tr>\n<td><code>GET</code></td>\n<td>Retrieve an object instance or collection</td>\n</tr>\n<tr>\n<td><code>PATCH</code></td>\n<td>Update an existing object</td>\n</tr>\n<tr>\n<td><code>DELETE</code></td>\n<td>Remove an existing object</td>\n</tr>\n</tbody>\n</table>\n<h3>Request headers</h3>\n<table>\n<thead>\n<tr>\n<th>Request Header</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>Authorization</code></td>\n<td>Required. Contains the user JWT access token and is required</td>\n</tr>\n<tr>\n<td><code>X-service-request-id</code></td>\n<td>Used to tag a request with application-specific keys for improved supportability</td>\n</tr>\n<tr>\n<td><code>X-agent-id</code></td>\n<td>Contains the Cloud Manager Connector ID and can be included depending on the call</td>\n</tr>\n<tr>\n<td><code>X-tenancy-account-id</code></td>\n<td>Contains the account identifier and can be included depending on the call</td>\n</tr>\n</tbody>\n</table>\n<h3>Query parameters</h3>\n<p>You can use query parameters with endpoints in the following components:</p>\n<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Query Parameter</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Resource</td>\n<td>account (required)</br>resourceType</br>workspace</br>resourceClass</br>resourceId</td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<h3>Response headers</h3>\n<p>This API uses the standard HTTP response headers common with all Cloud Manager APIs. See <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/rest_implementation.html\">REST implementation</a> for more information.</p>\n<h3>HTTP status codes</h3>\n<table>\n<thead>\n<tr>\n<th>HTTP Status Code</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>200</code></td>\n<td>OK: Returned for successful operation completion</td>\n</tr>\n<tr>\n<td><code>400</code></td>\n<td>Bad Request: Returned if the input is malformed and could not be parsed</td>\n</tr>\n<tr>\n<td><code>401</code></td>\n<td>Unauthorized: Returned if user authentication failed or the token has expired</td>\n</tr>\n<tr>\n<td><code>403</code></td>\n<td>Forbidden: Returned for authorization errors depending on the resource and token</td>\n</tr>\n</tbody>\n</table>\n</details>\n<hr />\n   <details>\n<summary>Error handling</summary>\n<p>There are three processes involved with error handling and processing.</p>\n<ul>\n<li>The error is logged for supportability</li>\n<li>The error is also returned to the caller for any specific handling</li>\n<li>The database connection is rolled back</li>\n</ul>\n</details>\n<hr />\n   <details>\n<summary>cURL examples</summary>\n<h3>Retrieve resources for a specified account</h3>\n<p>This example retrieves the resources for a specified account.</p>\n<pre><code class=\"language-bash\">curl -X GET &quot;https://cloudmanager.cloud.netapp.com/tenancy/resource?account=&lt;account_id&gt;&quot; -H  &quot;accept: application/json&quot; -H  &quot;authorization: &lt;user token&gt;&quot;\n</code></pre>\n</details>\n<hr />\n   <details>\n<summary>Frequently asked questions</summary>\n<p><strong>What is the use case for account migration, where the account configuration data is moved from one account to another?</strong></p>\n<p>Suppose a company is in stealth mode and doing a proof of concept (PoC) with a Cloud Manager account. If it\u00e2\u20ac\u2122s successful, the company might want to move from the PoC account to a development account. Another migration use case is account consolidation.</p>\n<p><strong>If the \u00e2\u20ac\u02dcCMNotificationOptIn\u00e2\u20ac\u2122 account option is enabled, will all users associated with the account receive the Cloud Manager event notifications?</strong></p>\n<p>No. The API endpoint used in this case is &quot;PATCH tenancy/account/{accountId}/update-user&quot;. The occm service token is carried in the &quot;authorization&quot; request header and the specific user to receive the notifications is identified with the &quot;x-user-token&quot; header.</p>\n<p><strong>What are the SaaS enablement and third-part service enablement options for a Cloud Manager account?</strong></p>\n<p>SaaS enablement is used to allow an account to have access to the Cloud Manager portal. Third-party service enablement allows or enables third party services (such as Fluid).</p>\n<p><strong>What are some examples of actions that can be performed with the Authorize REST endpoint?</strong></p>\n<p>Actions are defined as permissions. The general definition pattern is <code>&lt;principal_type&gt;:&lt;action&gt;</code>. Two examples include <code>accounts:create</code> and <code>workspace:*</code>.</p>\n<p><strong>The API endpoint 'authorize-user-is-in-account' only accepts the parameter \u00e2\u20ac\u02dcaccountId\u00e2\u20ac\u2122. In this case, how does the API determine which user is to be authorized?</strong></p>\n<p>It checks if the user belongs to the account. The \u00e2\u20ac\u02dcauthorization\u00e2\u20ac\u2122 header contains the user token identifying the user. One possible use case is account migration, where the application continually polls to determine if all the users are migrated to the destination account.</p>\n<p><strong>The API endpoint 'authorize-agent-in-account' accepts the \u00e2\u20ac\u02dcx-agent-id\u00e2\u20ac\u2122 request header. What does this mean?</strong></p>\n<p>The \u00e2\u20ac\u02dcauthorization\u00e2\u20ac\u2122 header contains the user token and the \u00e2\u20ac\u02dcx-agent-id\u00e2\u20ac\u2122 header has the Cloud Manager client identifier.</p>\n<p><strong>Every Cloud Manager resource has the data field \u00e2\u20ac\u02dccloud_id\u00e2\u20ac\u2122. What is this field and how is it used?</strong></p>\n<p>This field is the cloud identifier for the resource. For example, this could be the cloud VM ID.</p>\n<p><strong>Every resource can be associated with one or more workspaces, which is a 1:N relationship model. Why would a resource be associated with more than one workspace?</strong></p>\n<p>An account or workspace administrator can manage multiple workspaces. In this case, for example, it\u00e2\u20ac\u2122s possible to have one NetApp Cloud Volumes Service resource in multiple workspaces.</p>\n<p><strong>What is the difference between discovering a resource and creating a resource?</strong></p>\n<p>Discovery is the process of locating an existing resource and attaching it to the account. Creating a resource, on the other hand, first involves various allocation and provisioning operations and then attaching the resource.</p>\n<p><strong>What is a service resource? Why is DELETE the only supported operation? Are there other options available when managing a service resource?</strong></p>\n<p>This question applies to the following REST API call: &quot;DELETE /tenancy/service-resource/{resource-id}&quot;. There is no special meaning associated with a service resource. It\u00e2\u20ac\u2122s just another way for services to delete resources.</p>\n<p><strong>There is an API operation \u00e2\u20ac\u02dcremove-resource-from-agent\u00e2\u20ac\u2122. Why isn\u00e2\u20ac\u2122t there a corresponding \u00e2\u20ac\u02dcadd-to-agent\u00e2\u20ac\u2122 call?</strong></p>\n<p>The add operation occurs during resource discovery or creation. From the view of an external Cloud Manager user, only the Connector can discover and create resources. However, internally there are some resources available without explicitly attaching them to the Connector (such as license and persistence). These resources instead belong to the account.</p>\n</details>\n   <br><br>",
+      "version": "2.0.0"
+  },
+  "schemes": [
+      "https"
+  ],
+  "consumes": [
+      "application/json"
+  ],
+  "produces": [
+      "application/json"
+  ],
+  "definitions": {
+      "def-0": {
+          "title": "Authorization",
+          "type": "object",
+          "properties": {
+              "authorization": {
+                  "description": "Authorization JWT access token",
+                  "type": "string"
+              },
+              "X-Service-Request-Id": {
+                  "description": "Request identifier",
+                  "type": "string"
+              }
+          },
+          "required": [
+              "authorization"
+          ]
+      },
+      "def-1": {
+          "title": "AuthorizationUser",
+          "type": "object",
+          "properties": {
+              "authorization": {
+                  "description": "Authorization JWT access token",
+                  "type": "string"
+              },
+              "X-User-Token": {
+                  "description": "User JWT access token",
+                  "type": "string"
+              },
+              "X-Service-Request-Id": {
+                  "description": "Request identifier",
+                  "type": "string"
+              }
+          },
+          "required": [
+              "authorization"
+          ]
+      }
+  },
+  "securityDefinitions": {
+      "Authorization_Token": {
+          "type": "apiKey",
+          "name": "Authorization",
+          "in": "header"
+      },
+      "User_Token": {
+          "type": "apiKey",
+          "name": "X-User-token",
+          "in": "header"
+      }
+  },
+  "tags": [
+      {
+          "name": "Account",
+          "description": "<details>\n<summary>Overview</summary>\n<fieldset>\nThe account endpoints provide the primary identity and organizational structure for controlling access to the resources. An account can consist of one of the following:\n<ul>\n<li>Single person</li>\n<li>Group of people</li>\n<li>Internal software service</li>\n</ul>\n<p>A single person or group of people is identified through a user token. A software service is represented with a service token.</p>\n<p>At a high level, an account is a collection of the following:</p>\n<ul>\n<li>Associated person or group of people or software service</li>\n<li>One or more workspaces</li>\n<li>One or more Cloud Manager Connectors</li>\n</ul>\n<p>Each account has a name selected by the administrator. In addition, a unique identifier is assigned by the system when the account is created. You must include the account ID on subsequent API calls to refer to the account.</p>\n<p>The following actions can be performed with the account endpoints:</p>\n<ul>\n<li>Create an account</li>\n<li>Delete an account</li>\n<li>Associate a user (person) to an account</li>\n<li>Disassociate a user from an account</li>\n<li>List the users of an account</li>\n<li>List the services (service accounts) of an account</li>\n<li>List the members (users and services) of an account</li>\n<li>List the roles and permissions of an account</li>\n<li>Leave an account</li>\n<li>Allow a user to enable or disable receiving Cloud Manager notifications</li>\n<li>List the accounts a user is associated with</li>\n<li>Migrate the configuration data from one account to another account</li>\n<li>Rename an account</li>\n<li>Set miscellaneous account enablement options</li>\n</ul>\n</fieldset>\n</details>\n"
+      },
+      {
+          "name": "Workspace",
+          "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The workspace endpoints provide more granular access control within a given account. An account can have one or more workspaces, although a specific workspace can only be owned by one account.</p>\n<p>Each workspace is defined through the following configuration information:</p>\n<ul>\n<li>Name as selected by the administrator</li>\n<li>Unique identifier generated by the system at creation</li>\n<li>Identifier of the owning account</li>\n<li>One or more users allowed to operate within the workspace</li>\n<li>One or more Connectors</li>\n<li>One or more resources</li>\n</ul>\n<p>Limiting which users can operate within a workspace, along with the set of Connectors and resources defined for the workspace, provides a natural way to enforce access control. Additional access restrictions can be defined for the Connectors and resources within the workspace.</p>\n<p>Workspaces enable enhanced access control granularity by isolating resources. For example, company departments or projects can be assigned to different workspaces. This isolation provides a high level of security.</p>\n<p>The following actions can be performed with the workspace endpoints:</p>\n<ul>\n<li>Create a workspace</li>\n<li>List the workspaces within an account</li>\n<li>Add a user to a workspace</li>\n<li>Remove a user from a workspace</li>\n<li>List the workspaces associated with a user</li>\n<li>Delete a workspace</li>\n<li>Rename a workspace</li>\n<li>Add a Connector to a workspace</li>\n<li>Remove a Connector from a workspace</li>\n<li>List the Connectors associated with a workspace</li>\n</ul>\n</fieldset>\n</details>\n"
+      },
+      {
+          "name": "Authorize",
+          "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The authorization endpoints provide the ability to set various permissions for workspaces, Connectors, and resources that allow them to take specific actions.</p>\n<p>The following actions can be performed with the authorization endpoints:</p>\n<ul>\n<li>Authorize a resource to take specific actions</li>\n<li>Authorize a Connector</li>\n<li>Authorize a workspace and a Connector in the workspace</li>\n<li>Authorize a user as an account administrator</li>\n<li>Authorize a user in an account</li>\n<li>Authorize an agent in an account</li>\n</ul>\n</fieldset>\n</details>\n"
+      },
+      {
+          "name": "Resource",
+          "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>A resource is an object managed by Cloud Manager. By default, all objects within Cloud Manager are considered resources. Each resource is owned by an account and a Connector defined within the account. A single resource can be associated with one or more workspaces.</p>\n<p>Each resource contains the following information:</p>\n<ul>\n<li>Public identifier (such as resource-PnA04qmQ)</li>\n<li>Resource identifier \u00e2\u20ac\u201c used internally (such as VsaWorkingEnvironment-6iEs02vL)</li>\n<li>Resource type (such as S3, AZURE, GCP)</li>\n<li>Resource class (such as ON_PREM, VSA, S3)</li>\n</ul>\n<p>The following actions can be performed with the resource endpoints:</p>\n<ul>\n<li>Discover a resource</li>\n<li>Create, update, or delete a resource</li>\n<li>List the resources available in an account</li>\n<li>Delete a service resource from an account</li>\n<li>Associate or disassociate a resource from the workspace</li>\n<li>Disassociate a resource from a Connector</li>\n</ul>\n</fieldset>\n</details>\n"
+      },
+      {
+          "name": "Service Account",
+          "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The service account endpoints represent a general Cloud Manager service. A service account can be created as an account administrator or delegated more limited authority over one or more workspaces.</p>\n<p>Each service account contains the following information:</p>\n<ul>\n<li>Public identifier (such as do0uPCFi)</li>\n<li>Name</li>\n<li>Auth0 identifier (such as HEgEEJbfE0UfBzhmyprOjdZskl3H8KT3)</li>\n</ul>\n<p>The following actions can be performed with the service account endpoints:</p>\n<ul>\n<li>Create, Read, Update, and Delete (CRUD) operations</li>\n<li>Generate the service account secret</li>\n</ul>\n</fieldset>\n</details>\n"
+      },
+      {
+          "name": "User",
+          "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The user component represents the end user in the Cloud Manager platform. Every user is associated with an account and a workspace.</p>\n<p>Each user is defined through the following configuration information:</p>\n<ul>\n<li>A unique identifier generated by the system at creation</li>\n<li>A public visible identifier</li>\n<li>An authorization (auth0) identifier</li>\n</ul>\n<p>The following actions can be performed with the user endpoints:</p>\n<ul>\n<li>Retrieve users authorized for actions on a particular resource</li>\n<li>Retrieve users authrorized for actions across all resources</li>\n</ul>\n</fieldset>\n</details>\n"
+      }
+  ],
+  "externalDocs": {
+      "url": "https://docs.netapp.com/us-en/cloud-manager-automation/cm/introduction.html",
+      "description": "Learn more about the Cloud Manager platform REST APIs."
+  },
+  "paths": {
+      "/tenancy/account/{accountName}": {
+          "post": {
+              "description": "Creates a new account with the specified account name.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "description": "Account name",
+                      "type": "string",
+                      "pattern": "^[-_.a-zA-Z0-9]{1,40}$",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountName"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Create an account",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "description": "Successful create account response",
+                          "properties": {
+                              "accountPublicId": {
+                                  "type": "string"
+                              }
+                          }
+                      },
+                      "description": "Successful create account response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}": {
+          "delete": {
+              "description": "Deletes the specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Delete an account",
+                  "category": "Account",
+                  "filename": "delete-tenancy-account-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/associate": {
+          "post": {
+              "description": "Associates the user to the account by using the user email.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "associatedEmail": {
+                                  "description": "User email to be associated with the account",
+                                  "type": "string"
+                              },
+                              "rolePublicId": {
+                                  "description": "User role",
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Associate a user",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-associate.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userPublicId": {
+                                  "type": "string"
+                              },
+                              "userClientId": {
+                                  "type": "string"
+                              },
+                              "userRole": {
+                                  "type": "string"
+                              },
+                              "cloudManagerNotificationsOptIn": {
+                                  "type": "boolean"
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/disassociate": {
+          "post": {
+              "description": "Disassociates the user from the specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "associatedUserPublicId": {
+                                  "type": "string"
+                              }
+                          }
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Disassociate a user",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-disassociate.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/users": {
+          "get": {
+              "description": "Retrieves the user data of the specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve user data",
+                  "category": "Account",
+                  "filename": "get-tenancy-account-users.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "cloudManagerNotificationsOptIn": {
+                                      "type": "number"
+                                  },
+                                  "company": {
+                                      "type": "string"
+                                  },
+                                  "email": {
+                                      "type": "string"
+                                  },
+                                  "name": {
+                                      "type": "string"
+                                  },
+                                  "userPublicId": {
+                                      "type": "string"
+                                  },
+                                  "userRole": {
+                                      "type": "string"
+                                  },
+                                  "userClientId": {
+                                      "type": "string"
+                                  },
+                                  "workspaces": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "object",
+                                          "properties": {
+                                              "userPublicId": {
+                                                  "type": "string"
+                                              },
+                                              "workspacePublicId": {
+                                                  "type": "string"
+                                              },
+                                              "workspaceName": {
+                                                  "type": "string"
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/service-accounts": {
+          "get": {
+              "description": "Retrieves the service account data of the specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve service account data",
+                  "category": "Account",
+                  "filename": "get-tenancy-account-service-accounts.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "name": {
+                                      "type": "string"
+                                  },
+                                  "serviceAccountPublicId": {
+                                      "type": "string"
+                                  },
+                                  "serviceAccountRole": {
+                                      "type": "string"
+                                  },
+                                  "serviceAccountClientId": {
+                                      "type": "string"
+                                  },
+                                  "workspaces": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "object",
+                                          "properties": {
+                                              "serviceAccountPublicId": {
+                                                  "type": "string"
+                                              },
+                                              "workspacePublicId": {
+                                                  "type": "string"
+                                              },
+                                              "workspaceName": {
+                                                  "type": "string"
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/members": {
+          "get": {
+              "description": "Retrieves the user and service account data of the specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve user and service account data",
+                  "category": "Account",
+                  "filename": "get-tenancy-account-members.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "name": {
+                                      "type": "string"
+                                  },
+                                  "cloudManagerNotificationsOptIn": {
+                                      "type": "number"
+                                  },
+                                  "company": {
+                                      "type": "string"
+                                  },
+                                  "email": {
+                                      "type": "string"
+                                  },
+                                  "publicId": {
+                                      "type": "string"
+                                  },
+                                  "role": {
+                                      "type": "string"
+                                  },
+                                  "clientId": {
+                                      "type": "string"
+                                  },
+                                  "isServiceAccount": {
+                                      "type": "boolean"
+                                  },
+                                  "workspaces": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "object",
+                                          "properties": {
+                                              "publicId": {
+                                                  "type": "string"
+                                              },
+                                              "workspacePublicId": {
+                                                  "type": "string"
+                                              },
+                                              "workspaceName": {
+                                                  "type": "string"
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/permissions-for-user": {
+          "get": {
+              "description": "Retrieves the user role and permissions of the specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve user role and permissions",
+                  "category": "Account",
+                  "filename": "get-tenancy-account-permissions-for-user.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "role": {
+                                  "type": "string"
+                              },
+                              "permissions": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/leave": {
+          "post": {
+              "description": "Removes the user from the specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Delete a user",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-leave.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/update-user": {
+          "patch": {
+              "description": "Updates the user cloudManagerNotificationsOptIn property of the specified account.\n            The cloudManagerNotificationsOptIn property determines whether the user receives Cloud Manager notifications.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "cloudManagerNotificationsOptIn": {
+                                  "type": "boolean"
+                              }
+                          },
+                          "required": [
+                              "cloudManagerNotificationsOptIn"
+                          ],
+                          "maximum": 1,
+                          "minimum": 0
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Enable Cloud Manager notifications",
+                  "category": "Account",
+                  "filename": "patch-tenancy-account-update-user.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account": {
+          "get": {
+              "description": "Retrieves all accounts related to the user.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve user accounts",
+                  "category": "Account",
+                  "filename": "get-tenancy-account.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "accountPublicId": {
+                                      "type": "string"
+                                  },
+                                  "accountName": {
+                                      "type": "string"
+                                  },
+                                  "isSaas": {
+                                      "type": "boolean"
+                                  },
+                                  "isGov": {
+                                      "type": "boolean"
+                                  },
+                                  "isPrivatePreviewEnabled": {
+                                      "type": "boolean"
+                                  },
+                                  "is3rdPartyServicesEnabled": {
+                                      "type": "boolean"
+                                  },
+                                  "accountSerial": {
+                                      "type": "string"
+                                  },
+                                  "userRole": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{srcAccountId}/dest/account/{dstAccountId}": {
+          "post": {
+              "description": "Moves account data from the source account to the destination account.\n            <br><b>Token usage:</b> Cloud Manager service token with the following scopes: tenancy:support.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "description": "Source account ID",
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "srcAccountId"
+                  },
+                  {
+                      "description": "Destination account ID",
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "dstAccountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Move account data",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-dest-account-.html",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/rename/{newAccountName}": {
+          "post": {
+              "description": "Renames the specified account with a specified new name.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "pattern": "^[-_.a-zA-Z0-9]{1,40}$",
+                      "required": true,
+                      "in": "path",
+                      "name": "newAccountName"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Rename an account",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-rename-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/enable-saas/{saasEnabled}": {
+          "post": {
+              "description": "Sets the saasEnabled property of the specified account.\n            The saasEnabled property determines whether the Cloud Manager SaaS interface is enabled for the account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "boolean",
+                      "maximum": 1,
+                      "minimum": 0,
+                      "required": true,
+                      "in": "path",
+                      "name": "saasEnabled"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Enable SaaS",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-enable-saas-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/enable-private-preview/{privatePreviewEnabled}": {
+          "post": {
+              "description": "Sets the privatePreviewEnabled property of the specified account.\n            The privatePreviewEnabled property determines whether private preview of the SaaS interface is enabled.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "boolean",
+                      "maximum": 1,
+                      "minimum": 0,
+                      "required": true,
+                      "in": "path",
+                      "name": "privatePreviewEnabled"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Enable private preview for SaaS",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-enable-private-preview-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/enable-3rd-party-services/{enabled}": {
+          "post": {
+              "description": "Sets the third-party enabled property of the specified account.\n            The enabled property determines whether third-party services are enabled for the account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "boolean",
+                      "maximum": 1,
+                      "minimum": 0,
+                      "required": true,
+                      "in": "path",
+                      "name": "enabled"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Enable third-party services",
+                  "category": "Account",
+                  "filename": "post-tenancy-account-enable-3rd-party-services-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/authorize": {
+          "post": {
+              "description": "Authorizes an external resource to perform specific actions.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Authorize"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "action": {
+                                  "type": "string"
+                              },
+                              "accountId": {
+                                  "type": "string",
+                                  "default": null
+                              }
+                          },
+                          "required": [
+                              "resourceIdentifier",
+                              "action"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Authorize an external resource",
+                  "category": "Authorize",
+                  "filename": "post-tenancy-authorize.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "resourceType": {
+                                  "type": "string"
+                              },
+                              "resourcePublicId": {
+                                  "type": "string"
+                              },
+                              "accountPublicId": {
+                                  "type": "string"
+                              },
+                              "agentIds": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/authorize-agent": {
+          "post": {
+              "description": "Authorizes an external agent to perform specific actions.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Authorize"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "action": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "agentId",
+                              "action"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Authorize an external agent",
+                  "category": "Authorize",
+                  "filename": "post-tenancy-authorize-agent.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/authorize-agent-workspace": {
+          "post": {
+              "description": "Authorizes an agent workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Authorize"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "workspacePublicId": {
+                                  "type": "string"
+                              },
+                              "action": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "agentId",
+                              "workspacePublicId",
+                              "action"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Authorize an agent workspace",
+                  "category": "Authorize",
+                  "filename": "post-tenancy-authorize-agent-workspace.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/authorize-user-is-account-admin": {
+          "post": {
+              "description": "Authorizes a user as an account admin.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Authorize"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "accountId": {
+                                  "type": "string"
+                              },
+                              "userId": {
+                                  "type": "string"
+                              },
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "agentId": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "accountId"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Authorize a user as account admin",
+                  "category": "Authorize",
+                  "filename": "post-tenancy-authorize-user-is-account-admin.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/authorize-user-is-in-account": {
+          "post": {
+              "description": "Authorizes a user in a specifed account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Authorize"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "accountId": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "accountId"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Authorize a user for an account",
+                  "category": "Authorize",
+                  "filename": "post-tenancy-authorize-user-is-in-account.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/authorize-agent-in-account": {
+          "post": {
+              "description": "Authorizes an agent in a specified account.\n            <br><b>Token usage:</b> Both a Cloud Manager user token and service token. Pass the user token in the Authorization request header and the service token in the X-Agent-Token request header.",
+              "tags": [
+                  "Authorize"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "accountId": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "accountId"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "Authorization",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Agent-Token",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Authorize an agent",
+                  "category": "Authorize",
+                  "filename": "post-tenancy-authorize-agent-in-account.html",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/discover": {
+          "post": {
+              "description": "Discovers an external resource to be added to Cloud Manager.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "workspacePublicId": {
+                                  "type": "string"
+                              },
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "name": {
+                                  "type": "string"
+                              },
+                              "resourceType": {
+                                  "type": "string"
+                              },
+                              "resourceClass": {
+                                  "type": "string"
+                              },
+                              "cloudId": {
+                                  "type": "string"
+                              },
+                              "metadata": {
+                                  "type": "object",
+                                  "properties": {
+                                      "propertyName": {
+                                          "type": "string"
+                                      },
+                                      "propertyValue": {
+                                          "type": "string"
+                                      }
+                                  },
+                                  "required": [
+                                      "propertyName",
+                                      "propertyValue"
+                                  ]
+                              }
+                          },
+                          "required": [
+                              "workspacePublicId",
+                              "agentId",
+                              "resourceIdentifier"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Discover an external resource",
+                  "category": "Resource",
+                  "filename": "post-tenancy-resource-discover.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "accountPublicId": {
+                                  "type": "string"
+                              },
+                              "resourcePublicId": {
+                                  "type": "string"
+                              },
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "resourceType": {
+                                  "type": "string"
+                              },
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "resourceClass": {
+                                  "type": "string"
+                              },
+                              "cloudId": {
+                                  "type": "string"
+                              },
+                              "metadata": {
+                                  "type": "string"
+                              },
+                              "agentIds": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource": {
+          "post": {
+              "description": "Creates an external resource as a Cloud Manager resource. resourceType must be passed to the request.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "workspacePublicId": {
+                                  "type": "string"
+                              },
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "resourceType": {
+                                  "type": "string"
+                              },
+                              "resourceClass": {
+                                  "type": "string"
+                              },
+                              "cloudId": {
+                                  "type": "string"
+                              },
+                              "name": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "agentId"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Create an external resource",
+                  "category": "Resource",
+                  "filename": "post-tenancy-resource.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "accountPublicId": {
+                                  "type": "string"
+                              },
+                              "resourcePublicId": {
+                                  "type": "string"
+                              },
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "resourceType": {
+                                  "type": "string"
+                              },
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "resourceClass": {
+                                  "type": "string"
+                              },
+                              "name": {
+                                  "type": "string"
+                              },
+                              "cloudId": {
+                                  "type": "string"
+                              },
+                              "agentIds": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          },
+          "get": {
+              "description": "Retrieves a resource for an account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "query",
+                      "name": "account"
+                  },
+                  {
+                      "type": "string",
+                      "required": false,
+                      "in": "query",
+                      "name": "resource-type"
+                  },
+                  {
+                      "type": "string",
+                      "required": false,
+                      "in": "query",
+                      "name": "workspace"
+                  },
+                  {
+                      "type": "string",
+                      "required": false,
+                      "in": "query",
+                      "name": "resource-class"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve a resource",
+                  "category": "Resource",
+                  "filename": "get-tenancy-resource.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "resourceIdentifier": {
+                                      "type": "string"
+                                  },
+                                  "resourceType": {
+                                      "type": "string"
+                                  },
+                                  "agentId": {
+                                      "type": "string"
+                                  },
+                                  "resourceClass": {
+                                      "type": "string"
+                                  },
+                                  "name": {
+                                      "type": "string"
+                                  },
+                                  "metadata": {
+                                      "type": "string"
+                                  },
+                                  "workspaceIds": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "string"
+                                      }
+                                  },
+                                  "agentIds": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "string"
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/service-resource/{resourceIdentifier}": {
+          "delete": {
+              "description": "Deletes a service resource from a specified account.\n            <br><b>Token usage:</b> Cloud Manager service token with the following scopes: tenancy:internal.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Delete a service resource",
+                  "category": "Resource",
+                  "filename": "delete-tenancy-service-resource-.html",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/{resourceIdentifier}/set-cloud-id": {
+          "post": {
+              "description": "Sets the cloud identifier of a resource. accountID must be passed to the X-Tenancy-Account-Id header.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "cloudId": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "cloudId"
+                          ]
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "in": "header",
+                      "name": "Authorization",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Tenancy-Account-Id",
+                      "required": false,
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "type": "string"
+                  }
+              ],
+              "deprecated": true,
+              "x-doc": {
+                  "title": "Set a cloud identifier",
+                  "category": "Resource",
+                  "filename": "post-tenancy-resource-set-cloud-id.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/{resourceIdentifier}/account/{accountId}/set-resource-name": {
+          "post": {
+              "description": "Sets the name of a resource.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "name": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "name"
+                          ]
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "Authorization",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "deprecated": true,
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/{resourceIdentifier}/add-to-workspace/{workspacePublicId}": {
+          "post": {
+              "description": "Adds a resource to a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Add a resource to a workspace",
+                  "category": "Resource",
+                  "filename": "post-tenancy-resource-add-to-workspace-.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "accountPublicId": {
+                                  "type": "string"
+                              },
+                              "resourcePublicId": {
+                                  "type": "string"
+                              },
+                              "resourceIdentifier": {
+                                  "type": "string"
+                              },
+                              "resourceType": {
+                                  "type": "string"
+                              },
+                              "agentId": {
+                                  "type": "string"
+                              },
+                              "resourceClass": {
+                                  "type": "string"
+                              },
+                              "cloudId": {
+                                  "type": "string"
+                              },
+                              "agentIds": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/{resourceIdentifier}/remove-from-workspace/{workspacePublicId}": {
+          "post": {
+              "description": "Removes a resource from a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Remove a resource from a workspace",
+                  "category": "Resource",
+                  "filename": "post-tenancy-resource-remove-from-workspace-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/{resourceIdentifier}/remove-from-agent/{agentId}": {
+          "post": {
+              "description": "Removes a resource from a specified agent.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "agentId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Remove a resource from an agent",
+                  "category": "Resource",
+                  "filename": "post-tenancy-resource-remove-from-agent-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/{resourceIdentifier}": {
+          "delete": {
+              "description": "Deletes a resource from a specified account. accountId must be passed to the X-Tenancy-Account-Id request header.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "in": "header",
+                      "name": "Authorization",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Tenancy-Account-Id",
+                      "required": false,
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Delete a resource from an account",
+                  "category": "Resource",
+                  "filename": "delete-tenancy-resource-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/resource/{resourceIdentifier}/account/{accountId}/update": {
+          "post": {
+              "description": "Updates properties of a specified resource.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "cloudId": {
+                                  "type": "string"
+                              },
+                              "metadata": {
+                                  "type": "object",
+                                  "properties": {
+                                      "propertyName": {
+                                          "type": "string"
+                                      },
+                                      "propertyValue": {
+                                          "type": "string"
+                                      }
+                                  },
+                                  "required": [
+                                      "propertyName",
+                                      "propertyValue"
+                                  ]
+                              }
+                          }
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceIdentifier"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Update properties",
+                  "category": "Resource",
+                  "filename": "post-tenancy-resource-account-update.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/service-resources": {
+          "delete": {
+              "description": "Deletes a service resources from a specified account.\n            <br><b>Token usage:</b> Cloud Manager service token with the following scopes: tenancy:internal.",
+              "tags": [
+                  "Resource"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "resourceIdentifiers": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          },
+                          "required": [
+                              "resourceIdentifiers"
+                          ]
+                      }
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Delete a service resource",
+                  "category": "Resource",
+                  "filename": "delete-tenancy-service-resource-.html",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/workspace/{name}": {
+          "post": {
+              "description": "Creates a workspace in a specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "pattern": "^[-_.a-zA-Z0-9]{1,40}$",
+                      "required": true,
+                      "in": "path",
+                      "name": "name"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Create a workspace",
+                  "category": "Workspace",
+                  "filename": "post-tenancy-account-workspace-.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "workspacePublicId": {
+                                  "type": "string"
+                              },
+                              "workspaceName": {
+                                  "type": "string"
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/workspace/{workspacePublicId}/add-user/{userPublicId}": {
+          "post": {
+              "description": "Adds a user to a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "userPublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Add a user",
+                  "category": "Workspace",
+                  "filename": "post-tenancy-account-workspace-add-user-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountPublicId}/workspace/{workspacePublicId}/remove-user/{userPublicId}": {
+          "post": {
+              "description": "Removes a user from a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountPublicId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "userPublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Remove a user",
+                  "category": "Workspace",
+                  "filename": "post-tenancy-account-workspace-remove-user-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/workspace/{workspacePublicId}": {
+          "delete": {
+              "description": "Deletes a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Delete a workspace",
+                  "category": "Workspace",
+                  "filename": "delete-tenancy-account-workspace-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          },
+          "patch": {
+              "description": "Renames a workspace with a specified new name.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "newName": {
+                                  "type": "string",
+                                  "minLength": 1
+                              }
+                          },
+                          "required": [
+                              "newName"
+                          ]
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Rename a workspace",
+                  "category": "Workspace",
+                  "filename": "patch-tenancy-account-workspace-.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "workspacePublicId": {
+                                  "type": "string"
+                              },
+                              "workspaceName": {
+                                  "type": "string"
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/workspace/{workspacePublicId}/add-agent/{agentAuth0Id}": {
+          "post": {
+              "description": "Adds an agent to a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "agentAuth0Id"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Add an agent",
+                  "category": "Workspace",
+                  "filename": "post-tenancy-account-workspace-add-agent-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/workspace/{workspacePublicId}/remove-agent/{agentAuth0Id}": {
+          "post": {
+              "description": "Removes an agent from a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "agentAuth0Id"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Remove an agent",
+                  "category": "Workspace",
+                  "filename": "post-tenancy-account-workspace-remove-agent-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/workspace/{workspacePublicId}/agents": {
+          "get": {
+              "description": "Retrieves agents associated with a specified workspace.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "workspacePublicId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve agents",
+                  "category": "Workspace",
+                  "filename": "get-tenancy-account-workspace-agents.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "auth0_id": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/workspace": {
+          "get": {
+              "description": "Retrieves workspaces associated with a specified account.\n            <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve workspaces",
+                  "category": "Workspace",
+                  "filename": "get-tenancy-account-workspace.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "workspacePublicId": {
+                                      "type": "string"
+                                  },
+                                  "workspaceName": {
+                                      "type": "string"
+                                  },
+                                  "associatedAgents": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "string"
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/user/{userId}/workspaces": {
+          "get": {
+              "description": "Retrieves specified user account workspaces.\n            <br><b>Token usage:</b> Cloud Manager service token with the following scopes: tenancy:external.",
+              "tags": [
+                  "Workspace"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "userId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve user account workspaces",
+                  "category": "Workspace",
+                  "filename": "get-tenancy-account-user-workspaces.html",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "workspacePublicId": {
+                                      "type": "string"
+                                  },
+                                  "workspaceName": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/users/for-action/{accountId}/{action}/{resourceId}": {
+          "get": {
+              "description": "Retrieves users authorized for actions on a particular resource.\n            <br><b>Token usage:</b> Cloud Manager service token with the following scopes: tenancy:internal.",
+              "tags": [
+                  "User"
+              ],
+              "parameters": [
+                  {
+                      "type": "boolean",
+                      "required": false,
+                      "in": "query",
+                      "name": "enforce_ws"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "action"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "resourceId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve users authorized for single resource",
+                  "category": "User",
+                  "filename": "get-tenancy-users-for-action--.html",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userIds": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/users/for-action/{accountId}/{action}": {
+          "get": {
+              "description": "Retrieves users authorized for actions across all resources.\n            <br><b>Token usage:</b> Cloud Manager service token with the following scopes: tenancy:internal.",
+              "tags": [
+                  "User"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "action"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Retrieve users authorized for all resources",
+                  "category": "User",
+                  "filename": "get-tenancy-users-for-action-.html",
+                  "explorer": false
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userIds": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/service-account": {
+          "post": {
+              "description": "Creates a service account on a specified account.\n      <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Service Account"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "serviceAccountName": {
+                                  "description": "Service account name",
+                                  "type": "string",
+                                  "pattern": "^[-_.a-zA-Z0-9]{1,40}$"
+                              },
+                              "rolePublicId": {
+                                  "description": "Service account role",
+                                  "type": "string"
+                              },
+                              "workspacePublicIds": {
+                                  "description": "Service account workspaces",
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          },
+                          "required": [
+                              "serviceAccountName",
+                              "rolePublicId"
+                          ]
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Create a service account",
+                  "category": "Service Account",
+                  "filename": "post-tenancy-account-service-account.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "clientId": {
+                                  "type": "string"
+                              },
+                              "clientSecret": {
+                                  "type": "string"
+                              },
+                              "publicId": {
+                                  "type": "string"
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/service-account/{serviceAccountId}": {
+          "delete": {
+              "description": "Deletes a service account from a specified account.\n      <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Service Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "serviceAccountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Delete a service account",
+                  "category": "Service Account",
+                  "filename": "delete-tenancy-account-service-account-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          },
+          "patch": {
+              "description": "Updates the service account details of a specified account.\n      <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Service Account"
+              ],
+              "parameters": [
+                  {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "serviceAccountName": {
+                                  "description": "Service account name",
+                                  "type": "string",
+                                  "pattern": "^[-_.a-zA-Z0-9]{1,40}$"
+                              },
+                              "rolePublicId": {
+                                  "description": "Service account role",
+                                  "type": "string"
+                              },
+                              "workspacePublicIds": {
+                                  "description": "Service account workspaces",
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              }
+                          }
+                      }
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "serviceAccountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Update details",
+                  "category": "Service Account",
+                  "filename": "patch-tenancy-account-service-account-.html"
+              },
+              "responses": {
+                  "200": {
+                      "description": "Default Response"
+                  }
+              }
+          }
+      },
+      "/tenancy/account/{accountId}/service-account/{serviceAccountId}/generate-service-account-secret": {
+          "post": {
+              "description": "Generates the service account secret.\n      <br><b>Token usage:</b> Cloud Manager user token.",
+              "tags": [
+                  "Service Account"
+              ],
+              "parameters": [
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "accountId"
+                  },
+                  {
+                      "type": "string",
+                      "required": true,
+                      "in": "path",
+                      "name": "serviceAccountId"
+                  },
+                  {
+                      "in": "header",
+                      "name": "authorization",
+                      "required": true,
+                      "description": "Authorization JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-User-Token",
+                      "required": false,
+                      "description": "User JWT access token",
+                      "type": "string"
+                  },
+                  {
+                      "in": "header",
+                      "name": "X-Service-Request-Id",
+                      "required": false,
+                      "description": "Request identifier",
+                      "type": "string"
+                  }
+              ],
+              "x-doc": {
+                  "title": "Generate a secret",
+                  "category": "Service Account",
+                  "filename": "post-tenancy-account-service-account-generate-service-account-secret.html"
+              },
+              "responses": {
+                  "200": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "clientId": {
+                                  "type": "string"
+                              },
+                              "clientSecret": {
+                                  "type": "string"
+                              }
+                          }
+                      },
+                      "description": "Default Response"
+                  }
+              }
+          }
+      }
+  }
+}
