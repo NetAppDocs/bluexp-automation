@@ -1,0 +1,36 @@
+---
+sidebar: sidebar
+permalink: automate/blogs.html
+keywords: terraform, terraform provider, automation, automating
+summary: Use the resources on this page to get help integrating Cloud Manager and Cloud Volumes ONTAP with your infrastructure as code.
+---
+
+= Blogs about Cloud Manager platform automation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are several blog articles available to help you better understand the technologies and approaches available for Cloud Manager automation.
+
+===== Using Cloud Manager REST APIs with Federated Access
+
+https://cloud.netapp.com/blog/using-cloud-manager-rest-apis-with-federated-access[https://cloud.netapp.com/blog/using-cloud-manager-rest-apis-with-federated-access^]
+
+===== Cloud Automation with Cloud Volumes ONTAP and REST
+
+https://cloud.netapp.com/blog/cloud-automation-with-cloud-volumes-ontap-rest[https://cloud.netapp.com/blog/cloud-automation-with-cloud-volumes-ontap-rest^]
+
+===== Automated Data Cloning for Cloud-Based Testing of Software Applications
+
+https://cloud.netapp.com/blog/automated-data-cloning-for-cloud-based-testing[https://cloud.netapp.com/blog/automated-data-cloning-for-cloud-based-testing^]
+
+//===== Infrastructure-As-Code (IaC) Accelerated with Ansible and NetApp
+//
+//https://blog.netapp.com/infrastructure-as-code-accelerated-with-ansible-netapp[https://blog.netapp.com/infrastructure-as-code-accelerated-with-ansible-netapp^]
+
+===== Roles for Ansible ONTAP use
+
+https://netapp.io/2019/03/25/simplicity-at-its-finest-roles-for-ansible-ontap-use[https://netapp.io/2019/03/25/simplicity-at-its-finest-roles-for-ansible-ontap-use^]

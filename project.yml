@@ -11,11 +11,52 @@ sidebar:
     - title: Cloud Manager API docs
       url: /index.html
     - section: platform
-    - section: cat-api-ss
-    - section: cat-wf-ss
+    - section: workflows
+    - section: api-cm
+    - section: automate
     - section: support
     - title: Legal notices
       url: /legal-notices.html
 
 homepage:
   tiles:
+    - title: Get started
+      links:
+        - title: Platform overview
+          url: /platform/overview.html
+        - title: Common REST implementation
+          url: /platform/concepts.html
+        - title: Workflow processes and tasks
+          url: /platform/workflows_tasks.html
+        - title: Common workflows
+          url: /platform/get_nss_key.html
+    - title: Cloud Volumes ONTAP API
+      links:
+        - title: Overview of the API
+          url: /cm/overview.html
+        - title: Typical deployment
+          url: /cm/cloud_manager_deployment.html
+        - title: REST implementation details
+          url: /cm/rest_implementation.html
+        - title: API reference
+          url: /cm/api_ref_resources.html
+    - title: Cloud Volumes ONTAP workflows
+      links:
+        - title: Organization and format
+          url: /cm/workflow_processes.html
+        - title: AWS workflows
+          url: /cm/wf_aws_before.html
+        - title: Azure workflows
+          url: /cm/wf_azure_before.html
+        - title: GCP workflows
+          url: /cm/wf_gcp_before.html
+        - title: Common workflows
+          url: /cm/wf_common_before.html
+    - title: More resources
+      links:
+        - title: NetApp Cloud Solutions
+          url: https://cloud.netapp.com/
+        - title: NetApp Support
+          url: https://mysupport.netapp.com/
+        - title: ONTAP 9 documentation
+          url: https://docs.netapp.com/us-en/ontap/

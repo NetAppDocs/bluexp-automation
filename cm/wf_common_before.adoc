@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_common.html
+permalink: cm/wf_common_before.html
 keywords: public, cloud, common, workflow, rest, api, cloud manager
 summary: 'There are several workflows you can use with any of the public cloud providers.'
 ---
 
-= Common workflows for all cloud providers
+= Before you begin
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,10 +13,10 @@ summary: 'There are several workflows you can use with any of the public cloud p
 :imagesdir: ./media/
 
 [.lead]
-There are several workflows you can use with any of the public cloud providers.
+There are several common workflows you can use with any of the public cloud providers.
 
 [NOTE]
-Before using any of the Cloud Manager REST API workflows, review link:getting_started.html[Get started] section.
+Before using any of the Cloud Volumes ONTAP REST API workflows, review link:getting_started.html[Get started] section.
 
 == Workflow categories
 The common workflows are organized into the following functional categories:
@@ -34,7 +34,7 @@ Internal task::
 You can use these workflows to retrieve the information and status of a background task.
 
 SnapMirror Replication::
-These workflows allow you to manage and monitor SnapMirror relationships to replicate data between source and destination working environments. This supports disaster recovery and backup which optimizes data availability. 
+These workflows allow you to manage and monitor SnapMirror relationships to replicate data between source and destination working environments. This supports disaster recovery and backup which optimizes data availability.
 
 == Connector setup
 

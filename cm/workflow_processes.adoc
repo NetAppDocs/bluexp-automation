@@ -5,7 +5,7 @@ keywords: workflows, processes, cloud, manager, api
 summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
 ---
 
-= Understanding the workflow processes
+= Cloud Volumes ONTAP workflow processes
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,24 +13,14 @@ summary: "You should be familiar with the high-level organization and format of 
 :imagesdir: ./media/
 
 [.lead]
-You should be familiar with the high-level organization and format of the Cloud Volumes ONTAP workflow processes before using them with a live cloud deployment.
-
-== Introduction
-
-A *_workflow_* is a sequence of one or more steps needed to accomplish a specific administrative task or goal. With the Cloud Volumes ONTAP workflows, each step can be one of the following:
-
-* REST API call
-* Invocation of another workflow
-* Miscellaneous task such as deciding on the size of a new volume
-
-The workflows provided include the minimum steps and parameters needed to accomplish each task. You can use these workflows as a starting point and customize them for your environment as needed.
+You should be familiar with the organization and format of the Cloud Volumes ONTAP workflow processes before using them with a live deployment.
 
 [NOTE]
-All the workflow examples are designed to be used with NetApp Cloud Volumes ONTAP.
+Before getting started with the Cloud Volumes ONTAP workflows, see link:../platform/workflows_tasks.html[Workflow processes and tasks] for an introduction to how workflows and tasks are generally used with the Cloud Manager platform.
 
 == High level organization of the workflows
 
-At a high level, the workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar.
+At a high level, the Cloud Volumes ONTAP workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar.
 
 === 1. Cloud provider
 
@@ -44,7 +34,7 @@ Most of the workflows can be performed with one cloud provider. The supported cl
 
 The workflows for each cloud provider (AWS, Azure, GCP) are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
-NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:wf_common.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
+NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:../cm/wf_common.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
 
 Working environments::
 A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administrative tasks. You can perform specific workflows to create a working environment based on your preferred licensing model (PAYGO or BYOL), remove a working environment, and retrieve the details of a working environment. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of creating a working environment.
@@ -73,42 +63,6 @@ The cluster consists of two linked Cloud Volumes ONTAP instances which together 
 
 [NOTE]
 If both versions of a workflow exist for an administrative task, they are included on the same page.
-
-== Base URLs and REST endpoint paths
-
-The REST API calls in the workflows use different URLs and URL formats depending on the desired service and resource.
-
-[NOTE]
-Every API call used in the workflows includes the resource path to the REST endpoint. The path is relative and appended to the appropriate *base* URL. Unless otherwise indicated for a specific API call, the base URL addresses the NetApp Cloud Manager service. You should always carefully review the curl examples provided in the workflows before using them.
-
-=== Cloud Manager endpoints
-
-The majority of the workflow REST API calls are made to the *NetApp Cloud Manager* service. The base URL of the SaaS interface is:
-
-`https://cloudmanager.netapp.com/`
-
-=== Auth0 authentication service
-
-Some of the REST API calls used in the identity workflows are made to the *Auth0* token authentication service. The base URL is:
-
-`https://netapp-cloud-account.auth0.com/`
-
-== Common parameters and variables
-
-There are several parameters or variables common among the workflows.
-
-=== Request headers
-
-Nearly all the REST API calls used in the workflows require the following two request headers.
-
-[NOTE]
-Rather than cite these headers as a prerequisite in every REST API call, they are considered a universal requirement. If a workflow does not use these headers or has different prerequisites, the section *Before you begin* is included at the top of the workflow and describes the prerequisites.
-
-Authorization request header::
-To get a bearer token for this header, perform the appropriate workflow at link:../platform/create_user_token.html[Create a user token] and extract the `access_token` value.
-
-x-agent-id request header::
-This header contains the agent ID which is based on the client ID. See link:get_client_id.html[Get client and account identifiers] for information about creating this value.
 
 === Presentation of common tokens and identifiers
 
@@ -153,10 +107,6 @@ A list of the keywords used in the workflow curl examples is presented in the ta
 |<REFRESH_TOKEN>
 |NetApp refresh token used for federated authentication.
 |===
-
-=== JSON input for curl command
-
-In many cases, a workflow step accepts JSON input in the request body of the REST API call. This input is indicated in the curl command through the `-d` option, with the corresponding sample included in the *JSON input example* section.
 
 == Working environment status requirements
 

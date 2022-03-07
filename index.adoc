@@ -2,11 +2,11 @@
 layout: astra
 sidebar: sidebar
 permalink: index.html
-lead: Cloud Manager is a NetApp offering you can use to administer your resources in the public cloud. In addition to the web browser interface, there are several distinct REST APIs that provide software developers direct access to the Cloud Manager functionality. Cloud Manager consists of several distinct services which collectively form an extensible development platform.
-summary: The Cloud Manager platform API documentation provides the information needed to get started with automating the administration of your cloud-based resources.
+lead: The Cloud Manager platform REST APIs provide the features and capabilities you need to automate the administration of your cloud-based resources.
+summary: The Cloud Manager platform REST APIs provide access to the capabilities you need to automate the administration of your cloud-based resources.
 ---
 
-= Cloud Manager API documentation
+= Cloud Manager platform API documentation
 :hardbreaks:
 :nofooter:
 :icons: font

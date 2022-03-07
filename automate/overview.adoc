@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: automate/overview.html
+keywords: terraform, terraform provider, automation, automating
+summary: Use the resources on this page to get help integrating Cloud Manager and Cloud Volumes ONTAP with your infrastructure as code.
+---
+
+= Overview of Cloud Manager platform automation options
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+DevOps teams use a variety of tools to automate the setup and administration of their data center runtime environments. NetApp supports many of these technologies for Cloud Manager and Cloud Volumes ONTAP automation. The tools are commonly based on an Infrastructure as Code (IaC) design.
+
+=== Terraform
+
+Terraform is an open-source orchestration tool which uses declarative configuration files. NetApp has created a Terraform provider you can use with Cloud Manager to automate and integrate Cloud Volumes ONTAP based on IaC. See https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest[Terraform provider: netapp-cloudmanager^] for more information.
+
+=== Ansible
+
+Ansible is an open-source configuration management tool based on the use of procedural configuration files.
+
+.Related information
+
+* https://www.netapp.com/us/info/what-is-infrastructure-as-code-iac.aspx[Infrastructure as Code^]
+* https://www.terraform.io[Terraform^]
+* https://www.ansible.com[Ansible^]

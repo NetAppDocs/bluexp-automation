@@ -12,9 +12,9 @@ summary:
 :linkattrs:
 :imagesdir: ./media/
 
+
 [.lead]
 This section describes existing data format definitions.
-
 
 === About
 [options="header"]
@@ -1220,6 +1220,7 @@ This section describes existing data format definitions.
 |directApiTraffic||true|boolean|
 |useAccelerationForImageDownload||true|boolean|
 |maxDownloadSessions||true|integer (int32)|
+|rollbackOnAzurePrivateLinkFailure||true|boolean|
 |===
 
 === ConfigValuesUpdateRequest
@@ -1246,6 +1247,7 @@ This section describes existing data format definitions.
 |directApiTraffic||false|boolean|
 |useAccelerationForImageDownload||false|boolean|
 |maxDownloadSessions||false|integer (int32)|
+|rollbackOnAzurePrivateLinkFailure||false|boolean|
 |===
 
 === Configuration
@@ -1448,7 +1450,6 @@ This section describes existing data format definitions.
 |securityGroupId||false|string|
 |internalSecurityGroupId||false|string|
 |externalSecurityGroupId||false|string|
-
 |iops|Provisioned IOPS|false|integer (int32)|
 |instanceProfileName|Instance profile name|false|string|
 |tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
@@ -2044,9 +2045,7 @@ This section describes existing data format definitions.
 |snapshotPolicyName|Snapshot policy name|true|string|
 |exportPolicyInfo|NFS protocol parameters|false|<<ExportPolicyInfo>>|
 |shareInfo|CIFS protocol parameters|false|<<CreateCifsShareInfoRequest>>|
-
-
-
+|ProtocolIscsiInfo|ISCSI protocol parameters|false|<<CreateIscsiInfoRequest>>|
 |enableStorageEfficiency|Storage efficiency|true|boolean|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
 |===
@@ -2058,9 +2057,7 @@ This section describes existing data format definitions.
 |snapshotPolicyName|Snapshot Policy name|false|string|
 |exportPolicyInfo|Export policy info for NFS|false|<<NamedExportPolicyInfo>>|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  backup,  all)|
-
-
-
+|shareInfo|Share names, permissions and users for CIFS|false|<<CifsShareInfo>>|
 |===
 
 === FsxVolumeRequest
@@ -2195,12 +2192,12 @@ This section describes existing data format definitions.
 |node1Zone|Zone for node 1|true|string|
 |node2Zone|Zone for node 2|true|string|
 |mediatorZone|Zone for mediator|true|string|
-|vpc0NodeAndDataConnectivity|VPC path for nic1, requered for node and data connectivity|true|string|
-|vpc1ClusterConnectivity|VPC path for nic2, required for cluster connectiviry|true|string|
+|vpc0NodeAndDataConnectivity|VPC path for nic1, required for node and data connectivity|true|string|
+|vpc1ClusterConnectivity|VPC path for nic2, required for cluster connectivity|true|string|
 |vpc2HAConnectivity|VPC path for nic3, required for HA connectivity|true|string|
 |vpc3DataReplication|VPC path for nic4, required for data replication|true|string|
-|subnet0NodeAndDataConnectivity|Subnet path for nic1, requered for node and data connectivity|true|string|
-|subnet1ClusterConnectivity|Subnet path for nic2, required for cluster connectiviry|true|string|
+|subnet0NodeAndDataConnectivity|Subnet path for nic1, required for node and data connectivity|true|string|
+|subnet1ClusterConnectivity|Subnet path for nic2, required for cluster connectivity|true|string|
 |subnet2HAConnectivity|Subnet path for nic3, required for HA connectivity|true|string|
 |subnet3DataReplication|Subnet path for nic4, required for data replication|true|string|
 |vpc0FirewallRuleName|Optional firewall rule name for vpc1|false|string|
@@ -2974,7 +2971,7 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |wsUrl||true|string|
-
+|url||true|string|
 |===
 
 === NssAccountCredentials
@@ -3304,6 +3301,8 @@ This section describes existing data format definitions.
 |capacityTier||false|string|
 |instanceTenancy||false|string|
 |writingSpeedState||true|string|
+|iops||false|integer (int32)|
+|throughput||false|integer (int32)|
 |===
 
 === PasswordWrapper

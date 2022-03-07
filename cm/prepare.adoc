@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/getting_started_before.html
+permalink: cm/prepare.html
 keywords: cloud, manager, rest, api, credentials, cloud, volumes, ONTAP, API
 summary: 'There are several things you should do to prepare to use the Cloud Manager REST API and associated workflows.'
 ---
 
-= Before you begin
+= Prepare to use the API
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -37,15 +37,15 @@ You can create and manage Cloud Volumes ONTAP instances using a subscription PAY
 
 ==== Prepare to use the workflow processes
 
-Review link:workflow_processes.html[Understand the workflow processes] for more information about the organization and content of the workflows. Also see link:cloud_manager_deployment.html[Typical Cloud Manager deployment].
+Review link:workflow_processes.html[Workflow processes] for more information about the organization and content of the workflows. Also see link:cloud_manager_deployment.html[Typical Cloud Manager deployment].
 
 [NOTE]
 This documentation does not describe or use the Local UI.
 
 ==== Locate the client identifier
 
-You'll need the `client id` value for several of the workflows. For more information see link:get_client_id.html[Get the client and account identifiers].
+You'll need the `client id` value for several of the workflows. For more information see link:../platform/get_client_id.html[Get the client and account identifiers].
 
 ==== Get more information
 
-You should be aware of the additional resources available as suggested in link:additional_resources.html[Additional resources].
+You should be aware of the additional resources available as suggested in link:../support/additional_resources.html[Additional resources].

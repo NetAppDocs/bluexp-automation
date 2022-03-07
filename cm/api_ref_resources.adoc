@@ -15,7 +15,6 @@ summary:
 [.lead]
 This section describes the API calls available for each resource.
 
-
 === Accounts
 ==== Creates an AWS account.
 ----

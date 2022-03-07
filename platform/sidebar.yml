@@ -1,10 +1,9 @@
 section: platform
 title: Get started
 entries:
-  - title: Overview
+  - title: Platform overview
     url: /platform/overview.html
-  - title: REST implementation
-    url: /platform/rest_implementation.html
+  - title: Common REST implementation
     entries:
       - title: Basic concepts
         url: /platform/concepts.html
@@ -12,11 +11,5 @@ entries:
         url: /platform/http_details.html
       - title: Additional considerations
         url: /platform/additional_considerations.html
-  - title: Identity and authorization
-    entries:
-      - title: Generate NSS user ID
-        url: /platform/get_nss_key.html
-      - title: Get client and account IDs
-        url: /platform/get_client_id.html
-      - title: Create user token
-        url: /platform/create_user_token.html
+  - title: Workflow processes and tasks
+    url: /platform/workflows_tasks.html

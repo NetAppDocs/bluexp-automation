@@ -13,6 +13,6 @@ summary: 'A summary of the major steps you should take to deploy and administer 
 :imagesdir: ./media/
 
 [.lead]
-A summary of the major steps needed to deploy and administer a Cloud Volumes ONTAP instance using the Cloud Manager REST API is presented below.
+A summary of the major steps needed to deploy and administer a Cloud Volumes ONTAP instance using the associated REST API is presented below.
 
 image:occm_rest_deploy_workflow.png[Summarizes a typical Cloud Manager deployment.]

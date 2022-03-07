@@ -1,10 +1,24 @@
-section: cat-wf-ss
-title: Storage workflows
+section: api-cm
+title: Cloud Volumes ONTAP
 entries:
+  - title: Overview
+    url: /cm/overview.html
+  - title: Get started
+    entries:
+      - title: Prepare
+        url: /cm/prepare.html
+      - title: Typical deployment
+        url: /cm/cloud_manager_deployment.html
+      - title: Hello world
+        url: /cm/hello_world.html
+      - title: Workflow processes
+        url: /cm/workflow_processes.html
+  - title: REST implementation details
+    url: /cm/rest_implementation.html
   - title: AWS workflows
     entries:
       - title: Before you begin
-        url: /cm/wf_aws.html
+        url: /cm/wf_aws_before.html
       - title: Working environments
         entries:
           - title: Create working environment with PAYGO
@@ -89,7 +103,6 @@ entries:
               url: /cm/wf_azure_ontap_get_cifs.html
             - title: Delete CIFS
               url: /cm/wf_azure_ontap_delete_cifs.html
-
         - title: Aggregates
           entries:
              - title: Get aggregates
@@ -221,7 +234,7 @@ entries:
   - title: Common workflows
     entries:
       - title: Before you begin
-        url: /cm/wf_common.html
+        url: /cm/wf_common_before.html
       - title: Identity and access
         entries:
           - title: Get supported services
@@ -272,3 +285,4 @@ entries:
             url: /cm/wf_common_ontap_md_get_snapmirror_policies.html
           - title: Get SnapMirror SVM policies
             url: /cm/wf_common_ontap_md_get_snapmirror_svm_policies.html
+  - section: cm
