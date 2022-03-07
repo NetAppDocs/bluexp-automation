@@ -15,14 +15,12 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 [.lead]
 You can create a new Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) subscription. You can add new volumes when creating the working environment.
 
+[NOTE]
+.Note the following when using PAYGO:
 ====
-*Note the following when using PAYGO*:
-
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
-//* A new volume can also be created with this working environment.
-* You can add more volumes after creating the working environment. You can add volumes using the link:wf_aws_ontap_create_vol_nfs.html[NFS], link:wf_aws_ontap_create_vol_cifs.html[CIFS] or the link:wf_aws_ontap_create_vol_iscsi.html[iSCSI] protocol.
-
+* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
 ====
 
 Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
