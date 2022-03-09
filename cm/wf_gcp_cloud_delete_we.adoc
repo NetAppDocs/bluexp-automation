@@ -26,7 +26,7 @@ You can use this workflow to delete a single node working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Delete the working environment
 
@@ -67,7 +67,7 @@ You can use this workflow to delete an HA working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Delete the working environment
 

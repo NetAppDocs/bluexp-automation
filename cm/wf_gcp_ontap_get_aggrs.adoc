@@ -25,7 +25,7 @@ You can use this workflow to retrieve a list of aggregates for a single node wor
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Get the list of aggregates
 
@@ -128,7 +128,7 @@ You can use this workflow to retrieve a list of aggregates for an HA working env
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
 === 2. Get the list of aggregates
 

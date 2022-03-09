@@ -23,7 +23,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 == Get projects for single node
 You can use this workflow to retrieve projects in a single node working environment.
 
-=== 1. Get the list of regions
+=== 1. Get the list of projects
 
 [cols="25,75"*,options="header"]
 |===
@@ -94,7 +94,7 @@ JSON output example::
 == Get projects for high availability pair
 You can use this workflow to retrieve projects in an HA working environment.
 
-=== 1. Get the list of regions
+=== 1. Get the list of projects
 
 [cols="25,75"*,options="header"]
 |===

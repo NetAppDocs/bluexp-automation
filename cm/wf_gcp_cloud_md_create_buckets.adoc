@@ -24,10 +24,10 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 You can use this workflow to create a bucket for a single node working environment.
 
 === 1. Select the project
-Perform the link:wf_gcp_cloud_md_get_projects.html[Get projects] workflow and choose the `projectId`` value of the required project for the `projectId` parameter.
+Perform the link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[Get projects] workflow and choose the `projectId`` value of the required project for the `projectId` parameter.
 
 === 2. Select the region
-Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `name` value of the required region for the `location` parameter.
+Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] workflow and choose the `name` value of the required region for the `location` parameter.
 
 === 3. Create a bucket
 
@@ -61,10 +61,10 @@ None
 You can use this workflow to create a bucket for an HA working environment.
 
 === 1. Select the project
-Perform the link:wf_gcp_cloud_md_get_projects.html[Get projects] workflow and choose the `projectId`` value of the required project for the `projectId` parameter.
+Perform the link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availability-pair[Get projects] workflow and choose the `projectId`` value of the required project for the `projectId` parameter.
 
 === 2. Select the region
-Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `name` value of the required region for the `location` parameter.
+Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] workflow and choose the `name` value of the required region for the `location` parameter.
 
 === 3. Create a bucket
 

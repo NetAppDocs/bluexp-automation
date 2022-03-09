@@ -28,11 +28,11 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -42,11 +42,11 @@ If aggregate name does not exist and the `createAggregateIfNotFound` query param
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
 === 4. Select the region
-Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
 
 === 5. Create the quote
 
-Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-single-node[Create quote]. This is a recommended step but is not mandatory.
 
 === 6. Create the volume
 
@@ -111,11 +111,11 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -125,11 +125,11 @@ If aggregate name does not exist and the `createAggregateIfNotFound` query param
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
 === 4. Select the region
-Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
 
 === 5. Create the quote
 
-Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote]. This is a recommended step but is not mandatory.
 
 === 6. Create the volume
 

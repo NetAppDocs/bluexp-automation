@@ -32,7 +32,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 You can use this workflow to create a single node working environment with PAYGO subscription.
 
 === 1. Select the region
-Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do the following:
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and do the following:
 
 * Choose the `name` value of the required region for the `region` parameter in step 8.
 * Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 8.
@@ -40,21 +40,21 @@ Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do t
 === 2. Select the workspace
 Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 8.
 
-=== 3. Select the projects
-Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 8.
+=== 3. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 8.
 
 === 4. Select the permutations
-Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 8.
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-single-node[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 8.
 
 === 5. Select the packages configuration
-Perform the workflow link:wf_gcp_cloud_md_get_packages.html[Get packages] and search the `licenseType` from permutations:
+Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-single-node[Get packages] and search the `licenseType` from permutations:
 
 * Choose the `name` for `packageName` parameter.
 *	Choose the `diskSize` for `gcpVolumeSize`.
 *	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
 
 === 6. Select the service account
-Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 8.
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-single-node[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 8.
 
 === 7. (Optional) Obtain an NSS key
 An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
@@ -158,7 +158,7 @@ JSON output example::
 You can use this workflow to create an HA working environment.
 
 === 1. Select the region
-Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do the following:
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and do the following:
 
 * Choose the `name` value of the required region for the `region` parameter in step 8.
 * Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 9.
@@ -167,7 +167,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] and do t
 Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 9.
 
 === 3. Select the project
-Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 9.
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availability-pair[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 9.
 
 === 4. Select the VPC
 Perform the link:wf_gcp_cloud_md_get_vpcs.html[Get vpcs] workflow and do the following:
@@ -179,17 +179,17 @@ Perform the link:wf_gcp_cloud_md_get_vpcs.html[Get vpcs] workflow and do the fol
 
 
 === 5. Select the permutations
-Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 9.
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 9.
 
 === 6. Select the packages configuration
-Perform the workflow link:wf_gcp_cloud_md_get_packages.html[Get packages] and search the `licenseType` from permutations:
+Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-high-availability-pair[Get packages] and search the `licenseType` from permutations:
 
 * Choose the `name` for `packageName` parameter.
 *	Choose the `diskSize` for `gcpVolumeSize`.
 *	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
 
 === 7. Select the service account
-Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 9.
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-high-availability-pair[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 9.
 
 === 8. (Optional) Obtain an NSS key
 An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
@@ -271,9 +271,9 @@ JSON output example::
 {
     "publicId": "vsaworkingenvironment-blg9ei6u",
     "name": "ziv01we02ha",
-    "tenantId": "Tenant-kT8tLZay",
+    "tenantId": "Tenant-xxxvvv",
     "svmName": "svm_ziv01we02ha",
-    "creatorUserEmail": "auth0|5e576e5205a0dc0c1714a4f8",
+    "creatorUserEmail": "user_email",
     "status": null,
     "providerProperties": null,
     "reservedSize": null,

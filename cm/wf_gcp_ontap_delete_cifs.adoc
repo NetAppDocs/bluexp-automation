@@ -25,7 +25,7 @@ You can use this workflow to delete CIFS server configuration in a single node w
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 === 2. Delete the CIFS configurations
 
@@ -62,7 +62,7 @@ You can use this workflow to delete a CIFS server configuration in an HA working
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the working environment used in the `workingEnvironmentId` path parameter.
 
 === 2. Delete the CIFS configurations
 

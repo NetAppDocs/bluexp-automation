@@ -13,7 +13,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to retrieve all the labels in the specified project and zone.
+You can perform this workflow to retrieve all the tag keys in the specified project and region.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
@@ -24,10 +24,10 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 You can use this workflow to retrieve the tag keys in a single node working environment.
 
 === 1. Select the project
-Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
 
 === 2. Select the region
-Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
+Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
 
 === 3. Get the tag keys
 
@@ -119,10 +119,10 @@ JSON output example::
 You can use this workflow to retrieve the tag keys in an HA working environment.
 
 === 1. Select the project
-Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availability-pair[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
 
 === 2. Select the region
-Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
+Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
 
 === 3. Get the tag keys
 
@@ -148,8 +148,7 @@ Query parameters:
 
 Output::
 
-The JSON output example includes the  list of labels in the specified project and zone.
-
+The JSON output example includes the  list of tag keys.
 
 JSON output example::
 [source, json]

@@ -25,11 +25,11 @@ You can use this workflow to delete a volume for a  single node working environm
 
 === 1. Select the working environment
 
-Perform the link:wf_gcp_cloud_get_wes.html[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.
+Perform the link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` for the `volumeName` path parameter.
+Perform the workflow link:wf_gcp_ontap_get_volumes.html#get-volumes-for-single-node[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
 === 3. Delete the volume
 
@@ -63,11 +63,11 @@ You can use this workflow to delete a volume for an HA working environment.
 
 === 1. Select the working environment
 
-Perform the link:wf_gcp_cloud_get_wes.html[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.
+Perform the link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environment] workflow and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` path parameters.
 
 === 2. Select the volume
 
-Perform the workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` for the `volumeName` path parameter.
+Perform the workflow link:wf_gcp_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
 === 3. Delete the volume
 

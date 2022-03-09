@@ -30,16 +30,16 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 A CIFS server configuration must be defined for your working environment. You can do one of the following:
 
-* If a CIFS configuration already exists, perform the workflow link:wf_gcp_ontap_get_cifs.html[Get CIFS server configurations] to access the configuration parameters.
-* If a CIFS configuration does not exist, perform the workflow link:wf_gcp_ontap_create_cifs.html[Create CIFS server configuration] to create one.
+* If a CIFS configuration already exists, perform the workflow link:wf_gcp_ontap_get_cifs.html#get-cifs-server-configuration-for-single-node[Get CIFS server configurations] to access the configuration parameters.
+* If a CIFS configuration does not exist, perform the workflow link:wf_gcp_ontap_create_cifs.html#create-cifs-server-configuration-for-single-node[Create CIFS server configuration] to create one.
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
 
 === 3. Select the aggregate
 
-Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -50,7 +50,7 @@ Choose the size value for the `size:size` parameter. The `size:unit` must be one
 
 === 5. Create the quote
 
-Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-single-node[Create quote]. This is a recommended step but is not mandatory.
 
 === 6. Create the volume
 
@@ -118,16 +118,16 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 A CIFS server configuration must be defined for your working environment. You can do one of the following:
 
-* If a CIFS configuration already exists, perform the workflow link:wf_gcp_ontap_get_cifs.html[Get CIFS server configurations] to access the configuration parameters.
-* If a CIFS configuration does not exist, perform the workflow link:wf_gcp_ontap_create_cifs.html[Create CIFS server configuration] to create one.
+* If a CIFS configuration already exists, perform the workflow link:wf_gcp_ontap_get_cifs.html#get-cifs-for-high-availability-pair[Get CIFS server configurations] to access the configuration parameters.
+* If a CIFS configuration does not exist, perform the workflow link:wf_gcp_ontap_create_cifs.html#create-cifs-for-high-availability-pair[Create CIFS server configuration] to create one.
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
 
 === 3. Select the aggregate
 
-Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -138,7 +138,7 @@ Choose the size value for the `size:size` parameter. The `size:unit` must be one
 
 === 5. Create the quote
 
-Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote]. This is a recommended step but is not mandatory.
 
 === 6. Create the volume
 

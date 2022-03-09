@@ -25,7 +25,7 @@ You can use this workflow to retrieve the supported features in a single node wo
 
 === 1. Select the permutations
 
-Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported features` request.
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-single-node[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported features` request.
 
 === 2. Get the supported features
 
@@ -65,7 +65,7 @@ You can use this workflow to retrieve the supported features in an HA working en
 
 === 1. Select the permutations
 
-Perform the workflow link:wf_gcp_cloud_md_get_permutations.html[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported features` request.
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported features` request.
 
 === 2. Get the supported features
 
