@@ -1,0 +1,96 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_md_get_vpcs.html
+keywords: permutations, cloud, volumes, ontap, working, environment, occm
+summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+---
+
+= Get VPCs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can perform this workflow to retrieve the GCP networks and subnetworks over which a Cloud Volumes ONTAP working environment might be created.
+
+[NOTE]
+This workflow is applicable only for an HA working environment.
+
+=== 1. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
+
+=== 2. Select the region
+Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `region` value of the required region for the `region` query parameter.
+
+=== 3. Get the VPCs
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/metadata/vpcs
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/vpcs?project=<PROJECT_ID>&region=<REGION>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+Query parameters:
+
+* <PROJECT_ID> `projectId` string
+* <REGION> `region` string
+
+
+Output::
+
+The JSON output example includes the list of GCP networks and subnetworks.
+
+JSON output example::
+[source, json]
+[
+    {
+        "name": "default",
+        "vpcPath": "projects/occm-dev/global/networks/default",
+        "subnets": [
+            {
+                "ipCidrRange": "10.138.0.0/20",
+                "name": "default",
+                "path": "projects/occm-dev/regions/us-west1/subnetworks/default",
+                "availableIps": 4090,
+                "minimumRequiredIps": 6
+            }
+        ],
+        "firewalls": [
+            {
+                "name": "allow-all",
+                "vpc": "default"
+            },
+            {
+                "name": "allow-ssh-netapp",
+                "vpc": "default"
+            }
+        ],
+        "isShared": false
+    },
+    {
+        "name": "eli-vpc",
+        "vpcPath": "projects/occm-dev/global/networks/eli-vpc",
+        "subnets": [],
+        "firewalls": [
+            {
+                "name": "eli-vpc-allow-http",
+                "vpc": "eli-vpc"
+            },
+            {
+                "name": "eli-vpc-allow-https",
+                "vpc": "eli-vpc"
+            }
+        ],
+        "isShared": false
+    }
+]

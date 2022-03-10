@@ -46,7 +46,7 @@ JSON output example::
             "publicId": "InstanceProfile",
             "accountName": "Instance Profile",
             "accountType": "INSTANCE_PROFILE",
-            "accountId": "733004784675",
+            "accountId": "73300470000",
             "accessKey": "",
             "assumeRole": null,
             "occmRole": "occm",

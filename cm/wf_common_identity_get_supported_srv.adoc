@@ -56,7 +56,7 @@ JSON output example::
         "auth0Information": {
             "domain": "netapp-cloud-account.auth0.com",
             "audience": "https://api.cloud.netapp.com",
-            "clientId": "WsefXFuCJJvMKCMppR65jCktHAQBWFs4"
+            "clientId": "WsefXFuCJJvMKCMppR65jCktHXXXXXXX"
         },
         "portalInformation": {
             "edit_user_url": "https://services.cloud.netapp.com/?userMenuOpen",

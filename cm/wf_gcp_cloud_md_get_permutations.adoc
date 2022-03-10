@@ -15,6 +15,14 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information such as  `ontapVersion`, `license`, `instanceType`, `region` and more. You can check the possible permutations that can potentially be provided for the GCP workflows while provisioning a Cloud Volumes ONTAP instance.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get GCP permutations for single node, Single Node>>
+* <<Get GCP permutations for high availability pair, HA pair>>
+
+== Get GCP permutations for single node
+You can use this workflow to retrieve the possible permutations for a single node working environment.
+
 === 1. Get the permutations
 
 [cols="25,75"*,options="header"]
@@ -83,6 +91,107 @@ JSON output example::
         "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
         "license": {
             "type": "gcp-cot-explore-paygo",
+            "name": "Cloud Volumes ONTAP Explore",
+            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
+            "subName": "",
+            "subDescription": "Support of tiering to object storage is not included.",
+            "capacity_limit": "2TB",
+            "platformLicenseRequired": false,
+            "default": false,
+            "capacityLimit": {
+                "size": 2.0,
+                "unit": "TB"
+            }
+        },
+        "instanceType": "custom-4-16384",
+        "region": {
+            "name": "asia east 2",
+            "code": "asia-east2",
+            "location": "Hong Kong",
+            "s3Region": null
+        },
+        "defaultInstance": false,
+        "features": [
+            "cpu:Intel Skylake"
+        ],
+        "upgradeableFrom": [
+            "9.8",
+            "9.9.0"
+        ]
+    }
+]
+
+== Get GCP permutations for high availability pair
+You can use this workflow to retrieve the possible permutations for an HA working environment.
+
+=== 1. Get the permutations
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/metadata/permutations
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+Input::
+
+There are several *optional* query parameters you can use:
+
+* `region` string
+* `version` string
+* `license` string
+* `machine_type` string
+* `latest_only` string
+
+
+Output::
+
+The JSON output example includes the list of Cloud Volumes ONTAP configurations.
+
+JSON output example::
+[source,json]
+[
+    {
+        "ontapVersion": "ONTAP-9.9.0X5.T1.gcpha",
+        "license": {
+            "type": "gcp-ha-cot-explore-paygo",
+            "name": "Cloud Volumes ONTAP Explore",
+            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
+            "subName": "",
+            "subDescription": "Support of tiering to object storage is not included.",
+            "capacity_limit": "2TB",
+            "platformLicenseRequired": false,
+            "default": false,
+            "capacityLimit": {
+                "size": 2.0,
+                "unit": "TB"
+            }
+        },
+        "instanceType": "custom-4-16384",
+        "region": {
+            "name": "asia east 1",
+            "code": "asia-east1",
+            "location": "Changhua County, Taiwan",
+            "s3Region": null
+        },
+        "defaultInstance": false,
+        "features": [
+            "cpu:Intel Skylake"
+        ],
+        "upgradeableFrom": [
+            "9.8",
+            "9.9.0"
+        ]
+    },
+    {
+        "ontapVersion": "ONTAP-9.9.0X5.T1.gcpha",
+        "license": {
+            "type": "gcp-ha-cot-explore-paygo",
             "name": "Cloud Volumes ONTAP Explore",
             "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
             "subName": "",

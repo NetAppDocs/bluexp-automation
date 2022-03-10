@@ -13,11 +13,19 @@ summary: "You can retrieve the list of volumes."
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the list of volumes of a single node GCP working environment.
+You can retrieve the list of volumes of GCP working environment.
+
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Get volumes for single node, Single Node>>
+* <<Get volumes for high availability pair, HA pair>>
+
+== Get volumes for single node
+You can use this workflow to retrieve the list of volumes for a  single node working environment.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
 
 === 2. Get the volumes
 
@@ -121,6 +129,122 @@ JSON output example::
         "cbsBackupsInfo": null,
         "minimumCoolingDays": null,
         "targetName": "iqn.1992-08.com.netapp:sn.986656ab5e3e11eb9cb735a0758d479a:vs.2",
+        "iscsiEnabled": false,
+        "isFlexGroupVolume": false
+    }
+]
+
+== Get volumes for high availability pair
+You can use this workflow to retrieve the list of volumes for an HA working environment.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
+
+=== 2. Get the volumes
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/gcp/ha/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input::
+
+Query parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
+
+Output::
+
+The JSON output example includes the list of volumes for the working environment.
+
+JSON output example::
+[source,json]
+[
+    {
+        "name": "ziv01we02agg01havol01",
+        "uuid": "9b8eaf57-60f3-11eb-b6be-4f2f4a6477xx,
+        "svmName": "svm_ziv01we02ha",
+        "size": {
+            "size": 100.0,
+            "unit": "GB"
+        },
+        "usedSize": {
+            "size": 3.70025634765625E-4,
+            "unit": "GB"
+        },
+        "junctionPath": "/ziv01we02agg01havol01",
+        "volumeTotalInodes": 3112959,
+        "volumeUsedInodes": 96,
+        "mountPoint": "10.138.15.219:/ziv01we02agg01havol01",
+        "compressionSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "deduplicationSpaceSaved": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "thinProvisioning": true,
+        "compression": true,
+        "deduplication": true,
+        "snapshotPolicy": "default",
+        "securityStyle": "unix",
+        "exportPolicyInfo": {
+            "name": "export-svm_ziv01we02ha-ziv01we02agg01havol01",
+            "policyType": "custom",
+            "ips": [
+                "10.138.0.0/20"
+            ],
+            "nfsVersion": [
+                "nfs3"
+            ]
+        },
+        "shareNames": [],
+        "shareInfo": [],
+        "parentVolumeName": "",
+        "rootVolume": false,
+        "state": "online",
+        "volumeType": "rw",
+        "aggregateName": "ziv01we02agg01ha",
+        "parentSnapshot": null,
+        "autoSizeMode": "grow",
+        "maxGrowSize": {
+            "size": 1100.0,
+            "unit": "GB"
+        },
+        "providerVolumeType": "pd-ssd",
+        "cloneNames": [],
+        "moving": false,
+        "primaryNoFailoverMountPoint": null,
+        "secondaryNoFailoverMountPoint": null,
+        "capacityTier": null,
+        "capacityTierUsedSize": null,
+        "cifsShareAccessPoint": null,
+        "primaryCifsShareAccessPoint": null,
+        "secondaryCifsShareAccessPoint": null,
+        "tieringPolicy": "none",
+        "tierInactiveUserData": {
+            "size": 0.0,
+            "unit": "GB"
+        },
+        "tierInactiveUserDataPercent": 0,
+        "comment": null,
+        "qosPolicyGroupName": null,
+        "snaplockType": "non_snaplock",
+        "constituentsAggregates": [],
+        "snapshotsUsedSize": {
+            "size": 630784.0,
+            "unit": "Byte"
+        },
+        "cbsBackupsInfo": null,
+        "minimumCoolingDays": null,
+        "targetName": "iqn.1992-08.com.netapp:sn.d92dfebe60e811eba91c8xxx28f681feb:vs.3",
         "iscsiEnabled": false,
         "isFlexGroupVolume": false
     }

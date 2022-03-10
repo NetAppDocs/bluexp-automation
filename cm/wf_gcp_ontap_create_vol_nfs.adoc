@@ -15,16 +15,24 @@ summary: 'You can use this workflow to create a volume accessed through NFS.'
 [.lead]
 You can use this workflow to create a volume accessed through NFS protocol.
 
+Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create a volume using NFS for single node, Single Node>>
+* <<Create a volume using NFS for high availability pair, HA pair>>
+
+== Create a volume using NFS for single node
+You can use this workflow to create a volume using NFS for a single node working environment.
+
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_gcp_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -34,11 +42,11 @@ If aggregate name does not exist and the `createAggregateIfNotFound` query param
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
 === 4. Select the region
-Perform the workflow link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
 
 === 5. Create the quote
 
-Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote]. This is a recommended step but is not mandatory.
+Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-single-node[Create quote]. This is a recommended step but is not mandatory.
 
 === 6. Create the volume
 
@@ -71,6 +79,89 @@ JSON input example::
   "svmName": "svm_zivgcp01we02",
   "aggregateName": "ziv01agg01",
   "name": "zivagg01vol01",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "snapshotPolicyName": "default",
+  "enableThinProvisioning": true,
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "maxNumOfDisksApprovedToAdd": 0,
+  "exportPolicyInfo": {
+      "ips": [
+          "10.138.0.0/20"
+      ],
+      "nfsVersion": [
+          "nfs3", "nfs4"
+      ],
+      "policyType": "custom"
+  }
+}
+
+Output::
+
+None
+
+== Create a volume using NFS for high availability pair
+You can use this workflow to create a volume using NFS for an HA working environment.
+
+[NOTE]
+If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
+
+=== 1. Select the working environment
+
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+
+=== 2. Select the aggregate
+
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+
+[NOTE]
+If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
+
+=== 3. Choose the size for the disk
+
+Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+
+=== 4. Select the region
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
+
+=== 5. Create the quote
+
+Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote]. This is a recommended step but is not mandatory.
+
+=== 6. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/ha/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <SVM_NAME> `(svmName)`
+* <AGGR_NAME> `(aggregateName)`
+
+If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
+
+JSON input example::
+[source,json]
+{
+  "workingEnvironmentId": "vsaworkingenvironment-blg9ei6u",
+  "svmName": "svm_ziv01we02ha",
+  "aggregateName": "ziv01we02agg01ha",
+  "name": "ziv01we02agg01havol01",
   "size": {
     "size": 100,
     "unit": "GB"

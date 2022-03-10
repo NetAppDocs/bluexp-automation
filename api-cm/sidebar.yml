@@ -227,6 +227,10 @@ entries:
                url: /cm/wf_gcp_cloud_md_get_disk_types.html
              - title: Get instance types
                url: /cm/wf_gcp_cloud_md_get_instance_type_nosupport.html
+             - title: Get VPCs
+               url: /cm/wf_gcp_cloud_md_get_vpcs.html
+             - title: Get zones
+               url: /cm/wf_gcp_cloud_md_get_zones.html
   - title: Common workflows
     entries:
       - title: Before you begin
@@ -247,11 +251,13 @@ entries:
             url: /cm/wf_common_occm_attach_subscription.html
       - title: NetApp Support Site
         entries:
-          - title: Get NSS key
+          - title: Create NSS ID
+            url: /cm/wf_common_identity_create_nss_key.html
+          - title: Get NSS ID
             url: /cm/wf_common_identity_get_nss_key.html
-          - title: Get NSS keys
+          - title: Get NSS IDs
             url: /cm/wf_common_identity_get_nss_keys.html
-          - title: Delete NSS key
+          - title: Delete NSS ID
             url: /cm/wf_common_identity_delete_nss_key.html
       - title: Internal tasks and support
         entries:
@@ -275,4 +281,8 @@ entries:
             url: /cm/wf_common_ontap_repl_get_ic_lifs.html
           - title: Get schedules for working environment
             url: /cm/wf_common_ontap_repl_get_we_schedules.html
+          - title: Get SnapMirror policies
+            url: /cm/wf_common_ontap_md_get_snapmirror_policies.html
+          - title: Get SnapMirror SVM policies
+            url: /cm/wf_common_ontap_md_get_snapmirror_svm_policies.html
   - section: cm
