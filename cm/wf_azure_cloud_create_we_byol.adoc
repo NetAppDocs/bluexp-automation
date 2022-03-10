@@ -15,13 +15,14 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 [.lead]
 You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring-your-own-license (BYOL) licensing.
 
-=====
-*Note the following when using BYOL licensing*:
+[NOTE]
+.Note the following when using BYOL licensing:
+====
 
 * A marketplace subscription is not required.
 * A NetApp Support Site (NSS) key is required to register the system for support.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
-=====
+====
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 

@@ -13,15 +13,15 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a new Azure Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) subscription.
+You can use this workflow to create a new Azure Cloud Volumes ONTAP working environment using a pay-as-you-go (PAYGO) subscription.
 
-=====
-*Note the following when using PAYGO*:
-
+[NOTE]
+.Note the following when using PAYGO:
+====
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
-=====
+====
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 

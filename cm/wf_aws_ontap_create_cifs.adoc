@@ -13,7 +13,7 @@ summary: 'You can use this workflow to set up a new CIFS server configuration fo
 :imagesdir: ./media/
 
 [.lead]
-If you want to create CIFS volumes on your Cloud Volumes ONTAP system, you first need to configure the CIFS server. You can choose to set up the CIFS server in a workgroup or in an Active Directory domain. Review the https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.pow-cifs-cg%2FGUID-362AE62E-EE3A-419B-8195-B96079EEEC5D.html[NetApp docs] for more information.
+If you want to create CIFS volumes on your Cloud Volumes ONTAP system, you first need to configure the CIFS server. You can choose to set up the CIFS server in a workgroup or in an Active Directory domain. Review the link:https://docs.netapp.com/us-en/ontap/smb-config/set-up-server-workgroup-task.html[Set up SMB (CIFS) in a workgroup] and link:https://docs.netapp.com/us-en/ontap/smb-config/set-up-server-workgroup-task.html[Set up SMB (CIFS) in an Active Directory domain] topics for more information.
 
 Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
 
@@ -141,10 +141,10 @@ You can use this workflow to create a CIFS server configuration for an HA workin
 
 Choose the workflow that is specific to your goal:
 
-* <<Set up a CIFS server in a workgroup>>
-* <<Set up a CIFS server in an Active Directory domain>>
+* <<Set up a CIFS server in a workgroup (HA)>>
+* <<Set up a CIFS server in an Active Directory domain (HA)>>
 
-=== Set up a CIFS server in a workgroup
+=== Set up a CIFS server in a workgroup (HA)
 You can configure a CIFS server in a workgroup when the Microsoft Active Directory domain infrastructure is not available.
 
 ==== 1. Select the working environment
@@ -183,7 +183,7 @@ Output::
 
 None.
 
-=== Set up a CIFS server in an Active Directory domain
+=== Set up a CIFS server in an Active Directory domain (HA)
 You can create a CIFS server on the SVM and specify the Active Directory (AD) domain to which it belongs.
 
 ==== 1. Select the working environment

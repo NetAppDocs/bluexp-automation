@@ -13,7 +13,7 @@ summary: "You can use this workflow to retrieve all the iGroups."
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to retrieve all the initiator groups (iGroups).
+You can use this workflow to retrieve all the initiator groups (iGroups). iGroups is a collection of initiators (iSCSI clients). The iGroups information is required when creating a volume with the iSCSI protocol using an existing iGroup.
 
 Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
 
@@ -27,7 +27,7 @@ You can use this workflow to retrieve iGroups for a single node working environm
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` and `svmName` values for the working environment `workingEnvironmentId` and `svmName` path parameters.
 
-=== 2. Get the CIFS configurations
+=== 2. Get the iGroups configuration
 
 [cols="25,75"*,options="header"]
 |===
