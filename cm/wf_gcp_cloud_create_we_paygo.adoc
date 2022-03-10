@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a new GCP Cloud Volumes ONTAP working environment using pay-as-you-go (PAYGO) subscription.
+You can use this workflow to create a new GCP Cloud Volumes ONTAP working environment using a pay-as-you-go (PAYGO) subscription.
 
 [NOTE]
 .Note the following when using PAYGO:
@@ -49,9 +49,9 @@ Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutat
 === 5. Select the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-single-node[Get packages] and search the `licenseType` from permutations:
 
-* Choose the `name` for `packageName` parameter.
-*	Choose the `diskSize` for `gcpVolumeSize`.
-*	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
+* Choose the `name` for `packageName` parameter in step 8.
+*	Choose the `diskSize` for `gcpVolumeSize` in step 8.
+*	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters in step 8.
 
 === 6. Select the service account
 Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-single-node[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 8.
@@ -155,7 +155,7 @@ JSON output example::
 }
 
 == Create working environment for high availability pair
-You can use this workflow to create an HA working environment.
+You can use this workflow to create an HA working environment with PAYGO subscription.
 
 === 1. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and do the following:

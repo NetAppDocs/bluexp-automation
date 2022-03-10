@@ -108,6 +108,8 @@ A list of the keywords used in the workflow curl examples is presented in the ta
 |NetApp refresh token used for federated authentication.
 |===
 
+NOTE: Replace the variables with actual values while performing a curl call.
+
 == Working environment status requirements
 
 Many of the workflows require the working environment to have a specific status (such as `ON` or `DEGRADED`) before the REST API call can be performed. Review the link:api_reference.html[API reference content] for details about the requirements for each API call.
