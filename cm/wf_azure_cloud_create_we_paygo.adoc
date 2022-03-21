@@ -200,63 +200,59 @@ You can use this workflow to create an HA working environment with PAYGO.
 
 === 1. Select the region
 
-Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-high-availability-pair[Get regions] and choose the `name` value of the required region for the `region` parameter in step 11.
+Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-high-availability-pair[Get regions] and choose the `name` value of the required region for the `region` parameter in step 10.
 
 === 2. Select the workspace
 
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 11.
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
 
 === 3. Select the VNets
 
 Perform the workflow link:wf_azure_cloud_md_get_vnets.html#get-azure-vnets-for-high-availability-pair[Get VNets] and do the following:
 
-* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 11.
-*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 11.
-* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 11.
-*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 11.
+* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 10.
+*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 10.
+* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 10.
+*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 10.
 
 
-=== 4. Select the Azure availability zone
-
-Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html#get-availability-zones-for-high-availability-pair[Get Azure Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 11.
-
-=== 5. Get Azure packages configuration
+=== 4. Get Azure packages configuration
 
 Perform the link:wf_azure_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
 
-=== 6. Attach a marketplace subscription
+=== 5. Attach a marketplace subscription
 
 Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
 
-=== 7. (Optional) Obtain an NSS key
+=== 6. (Optional) Obtain an NSS key
 
-An NSS key is *optional* when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 11.
+An NSS key is *optional* when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 10.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 8. Select Azure cloud provider accounts
+=== 7. Select Azure cloud provider accounts
 
 Perform the link:wf_azure_cloud_md_create_account.html[Create Azure Cloud Provider Accounts] workflow and choose the `publicId` of the desired cloud provider account item from the `azureAccounts` for the `cloudProviderAccount` parameter.
 
-=== 9. Select Azure permutations
+=== 8. Select Azure permutations
 
 Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get Azure Permutations] workflow and pick the desired permutation:
 
-*	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 11.
-*	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 11.
-*	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 11.
+*	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 10.
+*	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 10.
+*	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 10.
 
-=== 10. Select Azure storage account types
+=== 9. Select Azure storage account types
 
 Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-high-availability-pair[Get Azure Storage Account Types] workflow and pick the desired storage type.
 
-*	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 11.
-*	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 11.
-*	Choose the `unit` of the desired disk size from the `sizes` -> `size` field for the `unit` field inside the `diskSize` parameter in step 11.
+*	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 10.
+*	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 10.
+*	Choose the `unit` of the desired disk size from the `sizes` -> `size` field for the `unit` field inside the `diskSize` parameter in step 10.
 
-=== 11. Create the working environment
+=== 10. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
