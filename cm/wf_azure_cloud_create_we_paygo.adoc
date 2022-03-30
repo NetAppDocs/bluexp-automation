@@ -16,7 +16,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 You can use this workflow to create a new Azure Cloud Volumes ONTAP working environment using a pay-as-you-go (PAYGO) subscription.
 
 [NOTE]
-.Note the following when using PAYGO:
+.When using PAYGO subscription:
 ====
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.

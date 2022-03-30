@@ -16,7 +16,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring-your-own-license (BYOL) licensing.
 
 [NOTE]
-.Note the following when using BYOL licensing
+.When using BYOL licensing:
 ====
 * A marketplace subscription is not required.
 * A NetApp Support Site (NSS) key is required to register the system for support.

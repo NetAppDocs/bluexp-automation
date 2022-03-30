@@ -33,7 +33,7 @@ The following curl command retrieves information about the Cloud Manager server.
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
-TIP:
+[TIP]
 * Replace <AGENT_ID> with your agent ID.
 * Replace <ACCESS_TOKEN> with the bearer access token.
 
