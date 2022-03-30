@@ -15,7 +15,7 @@ summary: 'You can delete an existing disk aggregate.'
 [.lead]
 You can delete an existing disk aggregate in a Cloud Volumes ONTAP working environment.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Delete aggregate for single node, Single Node>>
 * <<Delete aggregate for high availability pair, HA pair>>

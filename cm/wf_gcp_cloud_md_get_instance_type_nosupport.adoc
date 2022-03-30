@@ -15,7 +15,7 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 [.lead]
 This workflow retrieves the GCP instance types which do not support the acceleration and capacity tiering. This means that these kind instance types do not use any sort of hardware accelerator. You can check the instance types  while provisioning the Cloud Volumes ONTAP.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get instance types for single node, Single Node>>
 * <<Get instance types for high availability pair, HA pair>>

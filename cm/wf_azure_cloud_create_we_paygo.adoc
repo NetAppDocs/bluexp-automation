@@ -23,7 +23,7 @@ You can use this workflow to create a new Azure Cloud Volumes ONTAP working envi
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
 ====
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create working environment for single node, Single Node>>
 * <<Create working environment for high availability pair, HA pair>>
@@ -102,12 +102,9 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-stor
 curl example::
 [source,curl]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //<1> --header 'Authorization: Bearer <ACCESS_TOKEN>' //<2> ---header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>'  --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
 ----
-=====
-(1) Replace <AGENT_ID> with your agent ID.
-(2) Replace <ACCESS_TOKEN> with your obtained access bearer token.
-=====
+
 
 Input::
 

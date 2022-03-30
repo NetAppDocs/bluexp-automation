@@ -15,7 +15,7 @@ summary: 'You can use this workflow to set up a new CIFS server configuration fo
 [.lead]
 If you want to create CIFS volumes on your Cloud Volumes ONTAP system, you first need to configure the CIFS server. You can choose to set up the CIFS server in a workgroup or in an Active Directory domain. Review the link:https://docs.netapp.com/us-en/ontap/smb-config/set-up-server-workgroup-task.html[Set up SMB (CIFS) in a workgroup] and link:https://docs.netapp.com/us-en/ontap/smb-config/set-up-server-workgroup-task.html[Set up SMB (CIFS) in an Active Directory domain] topics for more information.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create CIFS server configuration for single node, Single Node>>
 * <<Create CIFS server configuration for high availability pair, HA pair>>

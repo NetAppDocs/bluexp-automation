@@ -15,7 +15,7 @@ summary: "You can delete an existing volume."
 [.lead]
 You can delete an existing volume.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Delete volume for single node, Single Node>>
 * <<Delete volume for high availability pair, HA pair>>

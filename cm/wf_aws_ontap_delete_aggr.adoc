@@ -13,7 +13,7 @@ summary: 'You can delete an existing disk aggregate.'
 :imagesdir: ./media/
 
 [.lead]
-You can delete an existing disk aggregate. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+You can delete an existing disk aggregate. Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Delete aggregate for single node, Single Node>>
 * <<Delete aggregate for high availability pair, HA pair>>

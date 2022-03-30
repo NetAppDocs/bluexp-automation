@@ -15,7 +15,7 @@ summary: You can perform this workflow to retrieve the S3 buckets.
 [.lead]
 You can perform this workflow to retrieve the default snapshot policies available on the cluster.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get Snapshot policies for single node, Single Node>>
 * <<Get Snapshot policies for high availability pair, HA pair>>

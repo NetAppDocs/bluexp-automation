@@ -15,7 +15,7 @@ summary: 'You can use this workflow to create a volume accessed through CIFS.'
 [.lead]
 You can use this workflow to create a volume accessed through CIFS.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create volume using CIFS for single node, Single Node>>
 * <<Create volume using CIFS for high availability pair, HA pair>>

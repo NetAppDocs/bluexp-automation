@@ -15,7 +15,7 @@ summary: 'You can retrieve a list of available disk aggregates.'
 [.lead]
 You can retrieve a list of available disk aggregates of an Azure working environment.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get aggregates for single node, Single Node>>
 * <<Get aggregates for high availability pair, HA pair>>

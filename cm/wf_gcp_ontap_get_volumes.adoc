@@ -15,7 +15,7 @@ summary: "You can retrieve the list of volumes."
 [.lead]
 You can retrieve the list of volumes of GCP working environment.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get volumes for single node, Single Node>>
 * <<Get volumes for high availability pair, HA pair>>
