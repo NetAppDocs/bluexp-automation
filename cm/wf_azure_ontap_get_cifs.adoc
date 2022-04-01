@@ -15,7 +15,7 @@ summary: "You can use this workflow to retrieve the CIFS server configurations f
 [.lead]
 You can use this workflow to retrieve the CIFS server configurations for an existing Cloud Volumes ONTAP working environment.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get CIFS server configuration for single node, Single Node>>
 * <<Get CIFS server configuration for high availability pair, HA pair>>

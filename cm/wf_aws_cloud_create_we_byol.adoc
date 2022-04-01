@@ -16,7 +16,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 You can use this workflow to create a new Cloud Volumes ONTAP working environment using bring-your-own-license (BYOL) licensing.
 
 [NOTE]
-.Note the following when using BYOL licensing
+.When using BYOL licensing:
 ====
 * A marketplace subscription is not required.
 * A NetApp Support Site (NSS) key is required to register the system for support.
@@ -25,7 +25,7 @@ You can use this workflow to create a new Cloud Volumes ONTAP working environmen
 
 To optionally create a new volume with the working environment, you must modify the JSON input provided on the REST API call. See link:wf_aws_cloud_create_we_paygo.html[Create a working environment with PAYGO licensing] for an example.
 
-Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
+Choose the workflow depending to use based on the type of the Cloud Volumes ONTAP deployment:
 
 * <<Create working environment for single node, Single Node>>
 * <<Create working environment for high availability pair, HA pair>>

@@ -14,7 +14,7 @@ summary: 'You can create a new aggregate within a working environment.'
 :tabs:
 
 [.lead]
-You can create a new aggregate within a working environment using this workflow. Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+You can create a new aggregate within a working environment using this workflow. Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create aggregate for a single node, Single Node>>
 * <<Create aggregate for high availability pair, HA pair>>

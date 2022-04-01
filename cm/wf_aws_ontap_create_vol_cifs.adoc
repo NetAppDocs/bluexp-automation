@@ -18,7 +18,7 @@ You can use this workflow to create a volume accessed through CIFS.
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create volume using CIFS for single node, Single Node>>
 * <<Create volume using CIFS for high availability pair, HA pair>>

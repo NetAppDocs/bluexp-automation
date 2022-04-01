@@ -15,7 +15,7 @@ summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP p
 [.lead]
 You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get packages for single node, Single Node>>
 * <<Get packages for high availability pair, HA pair>>

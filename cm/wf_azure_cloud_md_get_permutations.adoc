@@ -15,7 +15,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get permutations for single node, Single Node>>
 * <<Get permutations for high availability pair, HA pair>>

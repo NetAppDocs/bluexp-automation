@@ -15,7 +15,7 @@ summary: You can use this workflow to retrieve the supported EBS volume types.
 [.lead]
 You can use this workflow to retrieve the supported EBS volume types.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get EBS volume types for single node, Single Node>>
 * <<Get EBS volume types for high availability pair, HA pair>>

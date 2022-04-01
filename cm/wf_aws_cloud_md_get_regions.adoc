@@ -15,7 +15,7 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 [.lead]
 This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get regions for single node, Single Node>>
 * <<Get regions for high availability pair, HA pair>>

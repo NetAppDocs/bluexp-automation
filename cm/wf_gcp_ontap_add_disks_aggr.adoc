@@ -15,7 +15,7 @@ summary: You can add disks to an existing aggregate.
 [.lead]
 You can add disks to an existing aggregate.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Add disks to aggregate for single node, Single Node>>
 * <<Add disks to aggregate for high availability pair, HA pair>>

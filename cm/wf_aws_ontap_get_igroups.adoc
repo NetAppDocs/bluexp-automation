@@ -15,7 +15,7 @@ summary: "You can use this workflow to retrieve all the iGroups."
 [.lead]
 You can use this workflow to retrieve all the initiator groups (iGroups). iGroups is a collection of initiators (iSCSI clients). The iGroups information is required when creating a volume with the iSCSI protocol using an existing iGroup.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get iGroups for single node, Single Node>>
 * <<Get iGroups for high availability pair, HA pair>>

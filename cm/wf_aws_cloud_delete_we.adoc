@@ -15,7 +15,7 @@ summary: 'You can delete an existing Cloud Volumes ONTAP working environment.'
 [.lead]
 You can delete an existing Cloud Volumes ONTAP working environment.
 
-Choose the correct workflow depending on the type of the Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployment:
 
 * <<Delete working environment for single node, Single Node>>
 * <<Delete working environment for high availability pair, HA pair>>

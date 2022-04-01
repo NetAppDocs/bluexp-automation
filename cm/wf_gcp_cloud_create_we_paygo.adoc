@@ -16,14 +16,14 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 You can use this workflow to create a new GCP Cloud Volumes ONTAP working environment using a pay-as-you-go (PAYGO) subscription.
 
 [NOTE]
-.Note the following when using PAYGO:
+.When using PAYGO subscription:
 ====
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
 ====
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create working environment for single node, Single Node>>
 * <<Create working environment for high availability pair, HA pair>>
@@ -76,11 +76,8 @@ An NSS key is *optional* when using PAYGO subscription. If needed, you can creat
 curl example::
 [source,curl]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' //<1> --header 'Authorization: Bearer <ACCESS_TOKEN>' //<2> ---header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
 ----
-(1) Replace <AGENT_ID> with your agent ID.
-(2) Replace <ACCESS_TOKEN> with your obtained bearer access token.
-
 
 Input::
 
