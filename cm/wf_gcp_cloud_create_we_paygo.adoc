@@ -47,7 +47,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-sin
 Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-single-node[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 8.
 
 === 5. Select the packages configuration
-Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-single-node[Get packages] and search the `licenseType` from permutations:
+Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-single-node[Get packages] and search the `licenseType` from the various permutations of packages configuration values:
 
 * Choose the `name` for `packageName` parameter in step 8.
 *	Choose the `diskSize` for `gcpVolumeSize` in step 8.
