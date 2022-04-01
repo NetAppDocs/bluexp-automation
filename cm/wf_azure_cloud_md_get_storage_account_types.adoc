@@ -15,7 +15,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can retrieve the supported Azure storage account types.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get Azure storage account types for single node, Single Node>>
 * <<Get Azure storage account types for high availability pair, HA pair>>

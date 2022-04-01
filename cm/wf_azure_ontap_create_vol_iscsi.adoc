@@ -15,7 +15,7 @@ summary: 'You can use this workflow to create a volume accessed through iSCSI. T
 [.lead]
 You can use this workflow to create a volume accessed through iSCSI.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create volume using iSCSI for single node, Single Node>>
 * <<Create volume using iSCSI for high availability pair, HA pair>>

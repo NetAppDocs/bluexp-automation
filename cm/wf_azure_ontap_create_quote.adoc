@@ -16,7 +16,7 @@ summary: 'You can create a quote for a new volume which returns a resource quote
 You can create a quote for a new volume which returns a resource quote needed to satisfy the request. The resource quote contains aggregate information where the volume will be created and confirms if the space is available. This is a recommended step but is not mandatory.
 
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Create quote for single node, Single Node>>
 * <<Create quote for high availability pair, HA pair>>

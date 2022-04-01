@@ -15,7 +15,7 @@ summary: You can use the route tables endpoint to retrieve the route tables for 
 [.lead]
 You can use the key pairs endpoint to retrieve the AWS key pairs for specific regions.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get key pairs for single node, Single Node>>
 * <<Get key pairs for high availability pair, HA pair>>

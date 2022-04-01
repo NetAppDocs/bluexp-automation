@@ -15,7 +15,7 @@ summary: "You can retrieve the list of volumes."
 [.lead]
 You can retrieve the list of volumes of an Azure working environment.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get volume for single node, Single Node>>
 * <<Get volume for high availability pair, HA pair>>
@@ -23,7 +23,7 @@ Choose the correct workflow depending on the type of Cloud Volumes ONTAP deploym
 == Get volume for single node
 You can use this workflow to retrieve volumes for a single node working environment.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get volume for single node, Single Node>>
 * <<Get volume for high availability pair, HA pair>>

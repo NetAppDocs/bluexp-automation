@@ -15,7 +15,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can perform this workflow to retrieve the pre-defined packages configuration.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get packages for single node, Single Node>>
 * <<Get packages for high availability pair, HA pair>>

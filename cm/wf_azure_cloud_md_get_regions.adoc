@@ -17,7 +17,7 @@ This workflow retrieves the Azure regions in which an Cloud Volumes ONTAP workin
 
 NOTE: Ensure that you've the Azure subscription ID. You can easily obtain the ID from the Azure portal.
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get Azure regions for single node, Single Node>>
 * <<Get Azure regions for high availability pair, HA pair>>

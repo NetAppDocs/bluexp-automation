@@ -15,7 +15,7 @@ summary: You can use this workflow to retrieve a list of the available virtual p
 [.lead]
 You can use this workflow to retrieve a list of the available virtual private clouds (VPCs).
 
-Choose the correct workflow depending on the type of Cloud Volumes ONTAP deployment:
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
 * <<Get VPCs for single node, Single Node>>
 * <<Get VPCs for high availability pair, HA pair>>
