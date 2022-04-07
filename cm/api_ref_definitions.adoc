@@ -1458,6 +1458,7 @@ This section describes existing data format definitions.
 |awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
 |tieringBucketName|Tiering bucket name|false|string|
 |mediatorPassword|Mediator password|false|string|
+|enableExternalCache|Enable External Cache|false|boolean|
 |===
 
 === CreateGcpVsaWorkingEnvironmentRequest
@@ -2447,6 +2448,7 @@ This section describes existing data format definitions.
 |mediatorAssignPublicIP||false|boolean|
 |mediatorInstanceProfileName||false|string|
 |mediatorSecurityGroupId||false|string|
+|assumeRoleArn||false|string|
 |===
 
 === HaProperties
@@ -2883,6 +2885,13 @@ This section describes existing data format definitions.
 |newMapping||true|<<Map[string,string]>>|
 |===
 
+=== ModifyMediatorVersionRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|mediatorVersion||true|string|
+|===
+
 === ModifyUserTagsRequest
 [options="header"]
 |===
@@ -3084,8 +3093,8 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|inactiveDataReportingEnabled||true|boolean|
 |objectStoreAttachEligible||true|boolean|
+|inactiveDataReportingEnabled||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3717,8 +3726,8 @@ This section describes existing data format definitions.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|tieringTarget||true|boolean|
 |backupTarget||true|boolean|
+|tieringTarget||true|boolean|
 |===
 
 === S3BucketsSummary
@@ -3807,6 +3816,13 @@ This section describes existing data format definitions.
 |requireClientInfra||true|boolean|
 |cloudProvider||false|string array|
 |metadata||false|Map[string, string]|
+|===
+
+=== ServiceInformationUrl
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|url||true|string|
 |===
 
 === ServiceUrl
@@ -4062,6 +4078,7 @@ This section describes existing data format definitions.
 |setupInfo||true|<<SetupInfo>>|
 |useCompliancePrivateIpContainerMode||true|boolean|
 |notificationServiceInformation||false|<<NotificationServiceInformation>>|
+|credentialsServiceInformation||false|<<ServiceInformationUrl>>|
 |===
 
 === SupportedCapacityTiers
@@ -4523,8 +4540,8 @@ This section describes existing data format definitions.
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
 |minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
-|iscsiEnabled||true|boolean|
 |flexGroupVolume||true|boolean|
+|iscsiEnabled||true|boolean|
 |===
 
 === VolumeTags
