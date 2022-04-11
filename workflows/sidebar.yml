@@ -7,3 +7,7 @@ entries:
     url: /platform/get_identifiers.html
   - title: Create user token
     url: /platform/create_user_token.html
+  - title: Register service
+    url: /platform/register_service.html
+  - title: Create service token
+    url: /platform/create_service_token.html
