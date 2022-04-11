@@ -1,0 +1,78 @@
+---
+sidebar: sidebar
+permalink: platform/use_rest_apis.html
+keywords:
+summary:
+---
+
+= Use the Cloud Manager platform REST APIs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can follow a general process to prepare and use the authentication and authorization information needed to issue a Cloud Manager platform REST API call.
+
+== Before you begin
+
+There are several things you should consider before performing a Cloud Manager REST API call.
+
+=== Cloud Manager account
+
+A NetApp account (formerly NetApp Cloud Central) is required to access Cloud Manager. The system prompts you to create an account when you attempt to sign in to the Cloud Manager web UI. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Sign in to Cloud Central account^] for more information.
+
+=== Access token usage scenarios
+
+Every Cloud Manager service REST API call requires an access token or combination of tokens. There can also be specific *scope* requirements for the tokens.
+
+[NOTE]
+The exact token requirements for each API call are described in the applicable reference documentation.
+
+User token only::
+You only need to obtain and provide a user access token when issuing the API call.
+
+Service token only::
+You only need to obtain and provide a service token when issuing the API call. This token is typically required by static clients or other internal applications when accessing the platform service APIs.
+
+User and service token::
+Both a user token and service token are required.
+
+=== REST API requirements and your authentication environment
+
+You should review the API reference for the platform service you will use. The reference content includes requirements and other details about the REST calls you will perform. You also need to understand your authentication and authorization environment. Based on this you can determine the following requirements:
+
+* Type of token or tokens needed
+* Any additional scope requirements for the tokens
+* Is federated or non-federated authentication used (user tokens only)
+* Connector ID and client ID requirements
+
+== Perform an API call
+
+The following steps describe how to obtain the required authentication information and then perform a REST API call.
+
+=== 1. Optionally locate the Connector ID and Client ID
+
+Several APIs require a Connector ID to route the request to the right Cloud Manager environment. You can also locate the related Client ID. See link:get_identifiers.html[Get required identifiers] for more information.
+
+=== 2. Obtain the access tokens
+
+Depending on the REST API call, you may need a user token, a service token, or both. These tokens can be obtained from the Auth0 authorization service. The tokens need to be included with every API call. For more information, see:
+
+* https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html[Create user token]
+* https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_service_token.html[Create service token]
+
+=== 3. Create the required request headers
+
+You need to create several HTTP request headers and include them with each API call. See the applicable API reference to understand which headers should be used. The most common headers are described below. Also see https://docs.netapp.com/us-en/cloud-manager-automation/cm/hello_world.html[Hello World] for an example.
+
+Authorization::
+This header typically contains the user bearer access token.
+
+x-agent-id::
+This header contains the Connector ID for API calls that require it.
+
+=== 4. Issue the REST API call
+
+You can use curl or the programming language of your choice to issue the REST API. There are also workflow examples available for the Cloud Volumes ONTAP API. See link:../cm/workflow_process.html[Cloud Volumes ONTAP workflow processes] for more information.

@@ -1,0 +1,111 @@
+---
+sidebar: sidebar
+permalink: platform/user_access_tokens.html
+keywords:
+summary:
+---
+
+= User access tokens
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are two types of access tokens that can be used to establish identity and authorization are part of performing a REST API call. The user access token is generally more common with customer automation applications.
+
+[CAUTION]
+*DP:* Must review and obfuscate the token examples.
+
+=== Authentication models
+
+With a user access token there are two authentication models available. The one you select depends on your authentication environment. Each authentication model is supported through a different grant type. See link:grant_types.html[Grant types] for more information.
+
+Federated authentication::
+
+Federated authentication allows multiple identity domains to be joined, providing shared access to resources across separate enterprise organizations. Each organization maintains its own identity management system which is recognized by the other participating organizations. Users who sign in using a federated user account must first generate a long-lived refresh token.
+
+Non-federated authentication::
+
+Non-federated authentication is based on identity and resource access within a single domain. Users who sign in using a non-federated user account can obtain either a regular access token or a long-lived refresh token.
+
+=== Contents of a user token
+
+A user token is formatted as a standard JWT token and contains information about an individual user. It is normally includes the following fields:
+
+[cols="20,80", options="header"]
+|===
+|Fields
+|Description
+
+|Header
+|JSON object encoded using base64url encoding. Contains information about the encryption algorithm used to encode the token and the public key ID for token validation.
+|Standard claims
+|JSON payload contains the user identification information, audience, the expiration time, scope of resource access given to the user.
+|Custom claims
+|Contains customized information of the user for example, the full name of the user, and so on.
+|Signature
+|Used to validate the issuer and the encoded message in the token.
+|===
+
+=== Example of a user access token
+
+----
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik16VTNRa0kyUlRFeFJqZzVNRE5EUWpORl
+JVVTNRVVpCTlVGQ05URkJRVFpDTWtFMVFqZzFSZyJ9.eyJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9md
+WxsX25hbWUiOiJSYW51IEt1bmR1IiwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZW1haWxfdmVyaWZpZ
+WQiOnRydWUsImh0dHA6Ly9jbG91ZC5uZXRhcHAuY29tL2Nvbm5lY3Rpb25faWQiOiJjb25fZ1BqZmNzM
+zVTUGZpemg0YiIsImh0dHA6Ly9jbG91ZC5uZXRhcHAuY29tL2lzX2ZlZGVyYXRlZCI6ZmFsc2UsImh0d
+HA6Ly9jbG91ZC5uZXRhcHAuY29tL2ludGVybmFsIjoiTmV0QXBwIiwiaXNzIjoiaHR0cHM6Ly9zdGFna
+W5nLW5ldGFwcC1jbG91ZC1hY2NvdW50LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MDZiNjQ2N2QwZ
+TA0MzAwNjk2ZjNjM2QiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuY2xvdWQubmV0YXBwLmNvbSIsImh0dHBzO
+i8vc3RhZ2luZy1uZXRhcHAtY2xvdWQtYWNjb3VudC5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0Ijox
+NjM1MjQwMTM1LCJleHAiOjE2MzUyNjE3MzUsImF6cCI6IkZpaXZSWnF4TFdMamNsQ1V5Rm1hYlo3MXJw
+Q1IxNE5UIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBjYzp1cGRhdGUtcGFzc3dvcmQifQ.
+mwavS7rJYUwMrnu0CL_8J3N-WJG2_UwdD3bplxAR-p6m8_2vZH8o4SjJAvaL3JwvQqcVHoh7YfyWd5TH
+SKQAJawGyTQnqdOdp_2lVbEYQdncGRe9Ve22rWEvW
+HHHCjr1xb8TKueYBCNgOkpl2LFlc3n3oOPqkf6I8iIMKi31-mC8XDqeiRbdW7nfvyypzRbfSAALHjszj
+4LjFfyASO8GDenKZtg4egWzsrTYAQ6JSh4H-QBncFl0DzzJGA1hOKfJohPmzlG7CfKafzemHnXG9pkRz
+AfLVrnwBXuapKUzyL--tU4jzpob5vji1bWAlkXo_p8SqJY4TzU99tiSp470bw
+----
+
+=== Example of a user access token (decoded)
+
+.HEADER:ALGORITHM & TOKEN TYPE
+----
+{
+  "alg": "RS256",
+  "typ": "JWT",
+  "kid": "MzU3QkI2RTExRjg5MDNDQjNFRUU3QUZBNUFCNTFBQTZCMkE1Qjg1Rg"
+}
+----
+
+.PAYLOAD:DATA
+----
+{
+  "http://cloud.netapp.com/full_name": "Ranu Kundu",
+  "http://cloud.netapp.com/email_verified": true,
+  "http://cloud.netapp.com/connection_id": "con_gPjfcs35SPfizh4b",
+  "http://cloud.netapp.com/is_federated": false,
+  "http://cloud.netapp.com/internal": "NetApp",
+  "iss": "https://staging-netapp-cloud-account.auth0.com/",
+  "sub": "auth0|606b6467d0e04300696f3c3d",
+  "aud": [
+    "https://api.cloud.netapp.com",
+    "https://staging-netapp-cloud-account.auth0.com/userinfo"
+  ],
+  "iat": 1635240135,
+  "exp": 1635261735,
+  "azp": "FiivRZqxLWLjclCUyFmabZ71rpCR14NT",
+  "scope": "openid profile email cc:update-password"
+}
+----
+
+.VERIFY SIGNATURE
+----
+RSASHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload)
+)
+----

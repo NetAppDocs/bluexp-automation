@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: platform/connectors_clients.html
+keywords:
+summary:
+---
+
+= Connector and client identifiers
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are several additional identifiers you will typically need depending on the grant type and REST API call.
+
+=== Connector ID
+
+A Connector is a type of agent deployed in the public cloud on behalf of a customer. It provides access to the resources within a specific runtime environment. For example, a Connector is can be used by Cloud Manager to access to one or more Cloud Volumes ONTAP instances. *Every Connector is assigned a unique identifier*.
+
+.Example of a Connector ID
+----
+uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients
+----
+
+=== Client ID
+
+The Client ID identifies a client application and is typically used when requesting a service token. You can derive the Client ID from the associated Connector ID by simply removing the suffix `clients`.
+
+.Example of a Client ID
+----
+uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI
+----
