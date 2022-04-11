@@ -59,7 +59,7 @@ Authorization request header::
 To get a bearer token for this header, perform the appropriate workflow at link:../platform/create_user_token.html[Create a user token] and extract the `access_token` value.
 
 x-agent-id request header::
-This header contains the agent ID which is based on the client ID. See link:get_client_id.html[Get client and account identifiers] for information about creating this value.
+This header contains the agent ID which is based on the client ID. See link:get_identifiers.html[Get required identifiers] for information about creating this value.
 
 === Presentation of common tokens and identifiers
 

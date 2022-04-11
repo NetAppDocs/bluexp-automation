@@ -16,7 +16,7 @@ summary: "You can use this workflow to retrieve information about the Cloud Mana
 You can use this workflow to retrieve information about the Cloud Manager supported services including the _client id_ and _account id_ values.
 
 [NOTE]
-This workflow describes how to use the REST API to retrieve the two ID values. You can also use the Cloud Manager web UI to get these values. See link:get_client_id.html[Get the client and account identifiers] for more information.
+This workflow describes how to use the REST API to retrieve the two ID values. You can also use the Cloud Manager web UI to get these values. See link:get_identifiers.html[Get required identifiers] for more information.
 
 === 1. Get the supported services
 
