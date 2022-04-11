@@ -15,9 +15,6 @@ summary: The Cloud Manager REST API provides a robust security model for control
 [.lead]
 You should be familiar with the basic authentication and authorization concepts before using the Cloud Manager platform REST APIs.
 
-[CAUTION]
-*DP:* Need to confirm this is the correct URL to obtain an access token (via POST). The link is used in several places but no longer seems to work. https://netapp-cloud-account.auth0.com/oauth/token[https://netapp-cloud-account.auth0.com/oauth/token^]
-
 === OAuth 2.0 authorization framework
 
 OAuth 2.0 (OAuth2) is an authorization framework that allows client applications to obtain limited access to protected resources at an HTTP service. The framework addresses many of the deficiencies of the traditional client/server authentication model by introducing an authorization layer as defined through four distinct roles. Within this framework, the client doesn't directly use the resource owner credentials at the server hosting the resources. Instead an authorization server issues an access token which can then be presented to the resource server by the client.
@@ -33,7 +30,7 @@ Auth0 is an authentication and authorization platform based on the OAuth 2.0 sta
 === Auth0 user
 
 [CAUTION]
-*DP:* This is a new section that I copied directly from the feedback in the Word document from Sheli. The feedback had *OAuth0 User* and *OAuth user* and *user*. I assume this should be *Auth0 user*. Please review.
+*DP:* This is a new section that I copied directly from the feedback in the Word document from Sheli. The feedback several different terms: *OAuth0 User* and *OAuth user* and *user*. I assume this should be *Auth0 user*. Please review.
 
 An Auth0 user corresponds to a NetApp Cloud Manager customer account and can authorize an application or client (including a NetApp Cloud service) to access the account. An application's access is limited to the scope of the authorization granted (such as read or write). A NetApp Cloud Manager customer account obtains its Auth0 user as part of the onboarding process at NetApp Cloud Central.
 

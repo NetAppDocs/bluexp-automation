@@ -1,8 +1,6 @@
 section: workflows
 title: Common workflows and tasks
 entries:
-  - title: Generate NSS user ID
-    url: /platform/get_nss_key.html
   - title: Get required identifiers
     url: /platform/get_identifiers.html
   - title: Create user token
@@ -11,3 +9,5 @@ entries:
     url: /platform/register_service.html
   - title: Create service token
     url: /platform/create_service_token.html
+  - title: Generate NSS user ID
+    url: /platform/get_nss_key.html
