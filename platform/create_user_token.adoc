@@ -24,7 +24,10 @@ This workflow describes how to create an access token when using federated authe
 
 .Before you begin
 
-Review the parameters in the *JSON input example* for the second workflow step. In particular, you must have the client identifier.
+Review the parameters in the *JSON input example* for the second workflow step.
+
+[NOTE]
+The client identifier is associated with the NetApp Cloud Manager service and is the same constant value for all customers.
 
 === 1. Generate a NetApp refresh token
 
@@ -55,7 +58,7 @@ JSON input example::
 {
     "grant_type": "refresh_token",
     "refresh_token": "<REFRESH_TOKEN>",
-    "client_id": "<CLIENT_ID>"
+    "client_id": "Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC"
 }
 
 Output::
@@ -71,7 +74,6 @@ JSON output example::
     "expires_in": 86400,
     "token_type": "Bearer"
 }
-
 
 == Create a user token with nonfederated authentication
 

@@ -13,7 +13,7 @@ summary: 'You must generate a bearer token to authenticate and access the Cloud 
 :imagesdir: ./media/
 
 [.lead]
-This workflow describes how to create a service access token that can be used by Cloud Manager internal services and external automation clients.
+This workflow describes how to create a service access token that can be used by Cloud Manager internal services and external clients.
 
 .Before you begin
 You need to obtain the following:
