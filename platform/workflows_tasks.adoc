@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: platform/workflows_tasks.html
 keywords: workflows, processes, cloud, manager, api
-summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
+summary: The Cloud Manager platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing a specific API.
 ---
 
 = Workflow processes and tasks
@@ -13,10 +13,12 @@ summary: "You should be familiar with the high-level organization and format of 
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Manager platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing a specific API.
+The Cloud Manager platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing and using a specific API.
 
 * link:workflows_tasks.html#workflows[Workflows]
 * link:workflows_tasks.html#tasks[Tasks]
+
+Also See link:../cm/workflow_processes.html[Cloud Volumes ONTAP workflow processes] for more details about the extensive set of workflow examples included with the Cloud Volumes ONTAP REST API.
 
 == Workflows
 
@@ -63,7 +65,7 @@ This header contains the agent ID which is based on the client ID. See link:get_
 
 === Presentation of common tokens and identifiers
 
-Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead. For example, *<ACCESS_TOKEN>* is a shorthand notation for a temporary string used to establish identity based on the OAuth2 standard.
+Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. In most case they are _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual strings, smaller reserved keywords are used instead. For example, *<ACCESS_TOKEN>* is a shorthand notation for an OAuth2 access token used to establish identity.
 
 This approach has several benefits:
 
