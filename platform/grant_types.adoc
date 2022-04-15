@@ -15,7 +15,32 @@ summary:
 [.lead]
 There are several OAuth 2.0 grant types available when requesting an access token to use with Cloud Manager. The grant type is based on the application requirements and authentication environment, and determines how the token is requested.
 
-// The Cloud Manager platform consists of multiple services, each with a dedicated REST API. Each Cloud Manager platform API, and each of the API endpoints within a specific service, can have different authorization requirements and usage.
+=== Refresh token
+
+This grant type generates a token used with either federated or non-federated authentication. You need to provide the OAuth2-compliant refresh token to the authentication endpoint to generate a long-lived access token. The generated token can be used to access resources across multiple domains. Here is an example of the JSON input used when requesting the token with a description of each parameter.
+
+[source,json,%autofill]
+---------------------------------------------------------------------
+{
+    "grant_type": "refresh_token",
+    "refresh_token": "YOUR_REFRESH_TOKEN",
+    "client_id": "Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC"
+}
+---------------------------------------------------------------------
+
+[cols="25,75"*,options="header"]
+|===
+|Parameter
+|Description
+|`grant_type`
+|Must be set to "refresh_token".
+|`refresh_token`
+|The refresh token issued by the OAuth2 server.
+|`client_id`
+|The client ID issued when you registered the application.
+|===
+
+The OAuth server verifies the Client ID and confirms that the request came from an authorized client. It also makes sure the refresh token is valid. After the request is validated, the server returns a response with the refresh token.
 
 === Password
 
@@ -47,33 +72,6 @@ This grant type generates a token used with non-federated authentication to acce
 |`client_id`
 |The client ID issued when you registered the application.
 |===
-
-=== Refresh token
-
-This grant type generates a token used with either federated or non-federated authentication. You need to provide the OAuth2-compliant refresh token to the authentication endpoint to generate a long-lived access token. The generated token can be used to access resources across multiple domains. Here is an example of the JSON input used when requesting the token with a description of each parameter.
-
-[source,json,%autofill]
----------------------------------------------------------------------
-{
-    "grant_type": "refresh_token",
-    "refresh_token": "YOUR_REFRESH_TOKEN",
-    "client_id": "O6AHa7kedZfzHaxN80dnrIcuPBGEUvEv"
-}
----------------------------------------------------------------------
-
-[cols="25,75"*,options="header"]
-|===
-|Parameter
-|Description
-|`grant_type`
-|Must be set to "refresh_token".
-|`refresh_token`
-|The refresh token issued by the OAuth2 server.
-|`client_id`
-|The client ID issued when you registered the application.
-|===
-
-The OAuth server verifies the Client ID and confirms that the request came from an authorized client. It also makes sure the refresh token is valid. After the request is validated, the server returns a response with the refresh token.
 
 === Client credentials
 

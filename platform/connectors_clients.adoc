@@ -15,9 +15,13 @@ summary:
 [.lead]
 There are several additional identifiers you will typically need depending on the grant type and REST API call.
 
+=== Connector
+
+A Connector is a type of agent deployed in the public cloud on behalf of a customer. It executes commands and other actions on behalf of Cloud Manager as a way to manage the local cloud environment. For example, a Connector is can be used to access to one or more Cloud Volumes ONTAP instances.
+
 === Connector ID
 
-A Connector is a type of agent deployed in the public cloud on behalf of a customer. It provides access to the resources within a specific runtime environment. For example, a Connector is can be used by Cloud Manager to access to one or more Cloud Volumes ONTAP instances. *Every Connector is assigned a unique identifier*.
+Every Connector is assigned a unique identifier. This value is carry in the HTTP `x-agent-id` request header to identify the destination of a request.
 
 .Example of a Connector ID
 ----
@@ -26,9 +30,13 @@ uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients
 
 === Client ID
 
-The Client ID identifies a client application and is typically used when requesting a service token. You can derive the Client ID from the associated Connector ID by simply removing the suffix `clients`.
+In general, a client ID uniquely identifies a client and can be used in several different ways within the Cloud Manager REST APIs.
 
-.Example of a Client ID
-----
-uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI
-----
+Refresh token grant::
+When requesting a user access token with the refresh token grant for the SaaS access model, the client ID is constant and represents NetApp Cloud Manager. The value is always `Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC`.
+
+Client credentials grant::
+When requesting a service token with the client credentials grant, you must retrieve the client ID from the service account through the Cloud Manager web user interface.
+
+Derive from Connector ID::
+You can derive the client ID from the associated Connector ID by simply removing the suffix `clients`. This value is used when accessing the Connector directly (not through the SaaS model).
