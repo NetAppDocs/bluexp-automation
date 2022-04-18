@@ -13,11 +13,11 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-There are two types of access tokens that can be used to establish identity and authorization are part of performing a REST API call. The user access token is generally more common with customer automation applications.
+There are two types of access tokens that can be used to establish identity and authorization as part of performing a REST API call. The user access token is generally more common with customer automation applications.
 
 === Authentication models
 
-With a user access token there are two authentication models available. The one you select depends on your authentication environment. Each authentication model is supported through a different grant type. See link:grant_types.html[Grant types] for more information.
+There are two authentication models available when requesting a user access token. The one you select depends on your authentication environment. Each authentication model is supported through a different grant type. See link:grant_types.html[Grant types] for more information.
 
 Federated authentication::
 
@@ -25,7 +25,7 @@ Federated authentication allows multiple identity domains to be joined, providin
 
 Non-federated authentication::
 
-Non-federated authentication is based on identity and resource access within a single domain. Users who sign in using a non-federated user account can obtain either a regular access token or a long-lived refresh token.
+Non-federated authentication is based on identity and resource access within a single domain. Users who sign in using a non-federated user account can obtain either a long-lived refresh token or a regular access token.
 
 === Contents of a user token
 

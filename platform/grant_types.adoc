@@ -56,7 +56,7 @@ This grant type generates a token used with non-federated authentication to acce
     "username": "YOUR_EMAIL_ADDRESS",
     "password": "YOUR_PASSWORD",
     "audience": "https://api.cloud.netapp.com",
-    "client_id": "VcPXCf6rPTPQsyS2oIt6SP5ZSgnUHI3S"
+    "client_id": "QC3AgHk6qdbmC7Yyr82ApBwaaJLwRrNO"
 }
 ---------------------------------------------------------------------
 

@@ -17,7 +17,7 @@ You should be familiar with the basic authentication and authorization concepts 
 
 === OAuth 2.0 authorization framework
 
-OAuth 2.0 (OAuth2) is an authorization framework that allows client applications to obtain limited access to the protected resources at an HTTP service. The framework addresses many of the deficiencies of the traditional client/server authentication model by introducing an authorization layer as defined through four distinct roles. Within this framework, the client doesn't directly use the credentials of the resource owner at the server. Instead an authorization server issues an access token which is then presented to the resource server by the client.
+OAuth 2.0 (OAuth2) is an authorization framework that allows client applications to obtain limited access to the protected resources at an HTTP service. The framework addresses many of the deficiencies of the traditional client/server authentication model by introducing an authorization layer as defined through four distinct roles. Within this framework, the client doesn't directly use the credentials of the resource owner at the server. Instead an authorization server issues an access token which is then presented to the server by the client.
 
 === OpenID Connect protocol
 
@@ -43,9 +43,9 @@ There are several ways the two access tokens can be used depending on the specif
 |Type
 |Description
 |User token
-|This is a token identifying a user who accesses Cloud Manager through the REST API or web UI. A federated or non-federated authentication model can be used when authentication as part of requesting the token. See link:user_access_token.html[User access tokens] for more information. The token is valid for six hours.
+|This is a token identifying a user who accesses Cloud Manager through the REST API or web UI. A federated or non-federated authentication model can be used when requesting the token. See link:user_access_token.html[User access tokens] for more information. The token is valid for six hours.
 |Service token
-|This token is used by software applications to perform a REST API call. Example clients include internal Cloud Manager service tasks and external automation clients. The token is valid for 24 hours.
+|This token is used by software applications to perform a REST API call. Example clients include internal Cloud Manager service tasks and external clients. The token is valid for 24 hours.
 |===
 
 === Grant type
