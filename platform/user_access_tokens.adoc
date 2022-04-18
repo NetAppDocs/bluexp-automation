@@ -15,9 +15,6 @@ summary:
 [.lead]
 There are two types of access tokens that can be used to establish identity and authorization are part of performing a REST API call. The user access token is generally more common with customer automation applications.
 
-[CAUTION]
-*DP:* Must review and obfuscate the token examples.
-
 === Authentication models
 
 With a user access token there are two authentication models available. The one you select depends on your authentication environment. Each authentication model is supported through a different grant type. See link:grant_types.html[Grant types] for more information.

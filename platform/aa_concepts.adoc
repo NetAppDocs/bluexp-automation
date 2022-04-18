@@ -29,10 +29,7 @@ Auth0 is an authentication and authorization platform based on the OAuth 2.0 sta
 
 === Auth0 user
 
-[CAUTION]
-*DP:* This is a new section that I copied directly from the feedback in the Word document from Sheli. The feedback several different terms: *OAuth0 User* and *OAuth user* and *user*. I assume this should be *Auth0 user*. Please review.
-
-An Auth0 user corresponds to a NetApp Cloud Manager customer account and can authorize an application or client (including a NetApp Cloud service) to access the account. The application's access is limited to the scope of the authorization granted (such as read or write). A NetApp Cloud Manager customer account obtains its Auth0 user as part of the onboarding process at NetApp Cloud Central.
+An Auth0 user corresponds to a NetApp Cloud Manager customer account and can be used to authorize an application or client (including a NetApp Cloud service) to access the account. The application's access is limited to the scope of the authorization granted (such as read or write). A NetApp Cloud Manager customer account obtains its Auth0 user as part of the onboarding process at NetApp Cloud Central.
 
 === Access tokens
 
