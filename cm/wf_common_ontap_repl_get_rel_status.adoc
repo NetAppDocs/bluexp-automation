@@ -22,6 +22,10 @@ This workflow varies slightly depending on the cloud provider you are using.
 
 Based on the cloud provider, you need to perform a workflow to get the tenant ID as shown in the following table.
 
+[role="tabbed-block"]
+====
+.AWS
+--
 [cols="15,85"*,options="header"]
 |===
 |Provider
@@ -29,7 +33,19 @@ Based on the cloud provider, you need to perform a workflow to get the tenant ID
 |AWS
 |Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
 |===
+--
 
+.Azure
+--
+[cols="15,85"*,options="header"]
+|===
+|Provider
+|Workflow
+|Azure
+|Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
+|===
+--
+====
 === 2. Get the status of the relationships
 
 [cols="25,75"*,options="header"]
