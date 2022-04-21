@@ -15,6 +15,7 @@ sidebar:
     - section: platform
     - section: workflows
     - section: api-cm
+    - section: dw
     - section: persistence
     - section: tenancy
     - section: automate
