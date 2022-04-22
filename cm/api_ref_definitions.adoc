@@ -81,7 +81,7 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|newRegions||true|<<List[Region]>>|
+|newRegions||true|<<Region>> array|
 |===
 
 === AddDisksToAggregateRequest
@@ -1385,7 +1385,7 @@ This section describes existing data format definitions.
 |storageAccountPrefix|Storage Account prefix|false|string|
 |backupVolumesToCbs|Automatically backup all volumes to cloud|false|boolean|
 |tierLevel|Tier Level|false|enum (normal,  cool)|
-|availabilityZone|Availability Zone|false|<<Object>>|
+|availabilityZone|Availability Zone|false|integer (int32)|
 |azureEncryptionParameters|Parameters required if using azure encryption with custom key|false|<<AzureEncryption>>|
 |enableServices|Enable services|false|string array|
 |===
@@ -1952,6 +1952,17 @@ This section describes existing data format definitions.
 |ips|Custom export policy list of IPs|false|string array|
 |nfsVersion|Export policy protocol|false|string array|
 |rules|Export policy rules|false|<<ExportPolicyRule>> array|
+|===
+
+=== ExportPolicyRule
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|index|Export policy rule index|false|integer (int32)|
+|ruleAccessControl|Export policy rule access control|false|string|
+|ips|Export policy rule list of IPs|false|string array|
+|nfsVersion|Export policy rule protocol|false|string array|
+|policyType|Export policy rule super user access|false|boolean|
 |===
 
 === ExtendedObjectStoreConfigInfo
@@ -3719,6 +3730,15 @@ This section describes existing data format definitions.
 |value||true|string|
 |===
 
+=== S3BucketInfo
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|bucketName||true|string|
+|region||true|string|
+|tags||true|Map[String, String]|
+|===
+
 === S3BucketInfoDetails
 [options="header"]
 |===
@@ -3936,6 +3956,15 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |snapshotPolicyName|Snapshot policy name|true|string|
 |schedules|Snapshot policy schedules|true|<<SnapshotPolicyScheduleRequest>> array|
+|===
+
+=== SnapshotResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name|Name|true|string|
+|accessTime|Access time|true|integer (int64)|
+|label|Label|false|string|
 |===
 
 === SnapshotPolicyScheduleRequest
