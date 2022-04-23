@@ -16,11 +16,11 @@ summary: You can sign into the Cloud Manager web user interface to retrieve seve
 You can access the Cloud Manager web user interface to retrieve the identifiers needed for the workflows.
 
 [NOTE]
-In addition to the Cloud Manager web user interface, you can also obtain ID values through the Cloud Volumes ONTAP REST API. See link:../cm/wf_common_identity_get_supported_srv.html[Get supported services] for more information.
+In addition to the Cloud Manager web user interface, you can also obtain the ID values through the Cloud Volumes ONTAP REST API. See link:../cm/wf_common_identity_get_supported_srv.html[Get supported services] for more information.
 
 == Get the Connector identifier
 
-Every Connector is assigned a unique identifier. You can retrieve the ID for a Connector and include it in the `x-agent-id` HTTP request header with 0a REST API call.
+Every Connector is assigned a unique identifier. You can retrieve the ID for a Connector and include it in the `x-agent-id` HTTP request header with each REST API call.
 
 .About this task
 
@@ -47,7 +47,7 @@ link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
 *Example*
 `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`
 
-. You can optionally derive the associated client ID by removing the `clients` suffix.
+. You can optionally derive the associated client ID by removing the `clients` suffix. This ID applies when accessing a connector in local mode (not through the SaaS interface).
 +
 *Example*
 `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI`

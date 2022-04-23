@@ -13,21 +13,21 @@ summary: 'You must generate a bearer token to authenticate and access the Cloud 
 :imagesdir: ./media/
 
 [.lead]
-You need to generate a bearer token to gain access to the Cloud Manager REST APIs. A user token is the most commonly used and there are two available workflows depending on the authentication environment. Select the correct workflow:
+You need to generate a bearer token to gain access to the Cloud Manager REST APIs. A user token is more commonly used for customer automation than the service token. There are two workflows available to create a user token. The one you select depends on your authentication environment.
+
+[NOTE]
+The first of the two workflows is *required* for federated authentication. However you can also use it with non-federated authentication. And because cleartext passwords are not used, it is the more secure way to authenticate and so is recommended for both federated and non-federated authentication.
 
 * link:../platform/create_user_token.html#create-a-user-token-with-federated-authentication[Federated]
-* link:../platform/create_user_token.html#create-a-user-token-with-nonfederated-authentication[Nonfederated]
+* link:../platform/create_user_token.html#create-a-user-token-with-nonfederated-authentication[Non-federated]
 
 == Create a user token with federated authentication
 
-This workflow describes how to create a user access token when using federated authentication.
+This workflow describes how to create a user access token when using federated authentication. You can also use the workflow to create a user token for non-federated authentication, which is recommended because of the enhanced security.
 
 .Before you begin
 
 Review the parameters in the JSON input example for the second workflow step.
-
-[NOTE]
-The client identifier is the same constant value for all customers.
 
 === 1. Generate a NetApp refresh token
 
@@ -35,7 +35,7 @@ Navigate to https://services.cloud.netapp.com/refresh-token[Refresh Token Genera
 
 === 2. Generate the user token
 
-This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the curl example below and adjust for your environment as needed.
+This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the curl example below and adjust for your environment as needed. The client identifier in the JSON input is the same constant value for all customers.
 
 [cols="25,75"*,options="header"]
 |===
