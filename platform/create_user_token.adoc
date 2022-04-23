@@ -16,14 +16,14 @@ summary: 'You must generate a bearer token to authenticate and access the Cloud 
 You need to generate a bearer token to gain access to the Cloud Manager REST APIs. A user token is more commonly used for customer automation than the service token. There are two workflows available to create a user token. The one you select depends on your authentication environment.
 
 [NOTE]
-The first of the two workflows is *required* for federated authentication. However you can also use it with non-federated authentication. And because cleartext passwords are not used, it is the more secure way to authenticate and so is recommended for both federated and non-federated authentication.
+The first of the two workflows is *required* for federated authentication. However you can also use it for non-federated authentication. And because cleartext passwords are not used, it is the more secure way to authenticate and so is recommended for both federated and non-federated authentication.
 
 * link:../platform/create_user_token.html#create-a-user-token-with-federated-authentication[Federated]
 * link:../platform/create_user_token.html#create-a-user-token-with-nonfederated-authentication[Non-federated]
 
 == Create a user token with federated authentication
 
-This workflow describes how to create a user access token when using federated authentication. You can also use the workflow to create a user token for non-federated authentication, which is recommended because of the enhanced security.
+This workflow describes how to create a user access token when using federated authentication. You can also use it to create a user token for non-federated authentication which is recommended because of the enhanced security.
 
 .Before you begin
 

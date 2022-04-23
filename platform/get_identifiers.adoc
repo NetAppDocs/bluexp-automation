@@ -47,14 +47,14 @@ link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
 *Example*
 `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`
 
-. You can optionally derive the associated client ID by removing the `clients` suffix. This ID applies when accessing a connector in local mode (not through the SaaS interface).
+. You can optionally derive the associated client ID by removing the `clients` suffix. This ID applies when accessing a connector directly in local mode and not through the SaaS interface.
 +
 *Example*
 `uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI`
 
 .After you finish
 
-You can use the Connector ID in the `x-agent-id` request header to properly route the request. See the curl examples used in workflows for more information.
+You can use the Connector ID in the `x-agent-id` request header to properly route the request. See the curl examples in the workflows for more information.
 
 == Get the account identifier
 
