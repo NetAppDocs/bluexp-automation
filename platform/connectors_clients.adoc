@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: platform/connectors_clients.html
+keywords:
+summary:
+---
+
+= Connector and client identifiers
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are several additional identifiers you typically need depending on the grant type and REST API call.
+
+=== Connector
+
+A Connector is a type of agent deployed in the public cloud on behalf of a customer. It executes commands and other actions on behalf of Cloud Manager as part of managing the local cloud environment. For example, a Connector is can be used to access to one or more Cloud Volumes ONTAP instances.
+
+=== Connector ID
+
+Every Connector is assigned a unique identifier. This value is carried in the HTTP `x-agent-id` request header to identify the request destination.
+
+.Example of a Connector ID
+----
+uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients
+----
+
+=== Client ID
+
+In general, a client ID uniquely identifies a client and can be used in several different ways with the Cloud Manager REST APIs.
+
+Refresh token grant::
+When requesting a user access token with the refresh token grant for the SaaS access model, the client ID is constant and represents NetApp Cloud Manager. The value is always `Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC`.
+
+Client credentials grant::
+When requesting a service token with the client credentials grant, you must retrieve the client ID from the service account through the Cloud Manager web user interface.
+
+Derive from Connector ID::
+You can derive the client ID from the associated Connector ID by simply removing the suffix `clients`. This value is used when accessing the Connector directly (not through the SaaS model).
