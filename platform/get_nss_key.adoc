@@ -17,8 +17,7 @@ You can create a NetApp Support Site (NSS) user ID through the Cloud Manager web
 
 .About this task
 
-Registering NSS credentials with Cloud Manager and creating an NSS user ID enables subscription to the Cloud Volumes ONTAP system, upgrade Cloud Volumes ONTAP software to the latest release, and predictive analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
-
+Registering NSS credentials with Cloud Manager and creating an NSS user ID enables several features, including subscription to the Cloud Volumes ONTAP system, upgrade of the Cloud Volumes ONTAP software to the latest release, and predictive analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
 
 .Before you begin
 
