@@ -23,5 +23,5 @@ entries:
         url: /platform/grant_types.html
       - title: Connector and client identifiers
         url: /platform/connectors_clients.html
-      - title: Use the RESP APIs
+      - title: Use the REST APIs
         url: /platform/use_rest_apis.html
