@@ -22,13 +22,22 @@ This workflow varies slightly depending on the cloud provider you are using.
 
 Based on the cloud provider, you need to perform a workflow to get the identifier for the working environment as shown in the following table.
 
-[cols="15,85"*,options="header"]
-|===
-|Provider
-|Workflow
-|AWS
-|Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the working environment query parameters.
-|===
+[role="tabbed-block"]
+====
+.AWS
+--
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the working environment query parameters.
+--
+.Azure
+--
+Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the working environment query parameters.
+--
+.Google cloud
+--
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the working environment query parameters.
+--
+
+====
 
 === 2. Get the intercluster LIFs
 

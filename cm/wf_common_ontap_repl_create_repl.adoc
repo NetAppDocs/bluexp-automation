@@ -87,6 +87,7 @@ Perform the Azure workflow link:wf_azure_ontap_create_quote.html[Create quote] a
 --
 Perform the GCP workflow link:wf_gcp_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
 --
+====
 
 === 7. Create the relationship
 
