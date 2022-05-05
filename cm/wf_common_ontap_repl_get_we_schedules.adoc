@@ -20,21 +20,21 @@ This workflow varies slightly depending on the cloud provider you are using.
 
 === 1. Select the working environment
 
-Based on the cloud provider, you need to perform a workflow to get the identifier for the working environment.
+Based on the cloud provider, you need to perform the corresponding workflow to retrieve the identifier of the working environment.
 
 [role="tabbed-block"]
 ====
 .AWS
 --
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get AWS working environments] and choose the `publicId` value for the working environment path parameter.
 --
 .Azure
 --
-Perform the workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html[Get Azure working environments] and choose the `publicId` value for the working environment path parameter.
 --
 .Google cloud
 --
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get GCP working environments] and choose the `publicId` value for the working environment path parameter.
 --
 ====
 

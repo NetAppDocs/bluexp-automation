@@ -19,21 +19,21 @@ You can use this workflow to create a new SnapMirror replication relationship to
 This workflow varies slightly depending on the cloud provider you are using.
 
 === 1. Select the working environment
-Based on the cloud provider, you need to perform a workflow to get the identifier for the working environment as shown in the following table.
+Based on the cloud provider, you need to perform the corresponding workflow to retrieve the identifier of the working environment.
 
 [role="tabbed-block"]
 ====
 .AWS
 --
-Perform the AWS workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values for the source and destination.
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get AWS working environments] and choose the `publicId` and `svmName` values for the source and destination.
 --
 .Azure
 --
-Perform the Azure workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values for the source and destination.
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get Azure working environments] and choose the `publicId` and `svmName` values for the source and destination.
 --
 .Google Cloud
 --
-Perform the GCP workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values for the source and destination.
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get GCP working environments] and choose the `publicId` and `svmName` values for the source and destination.
 --
 ====
 
@@ -51,41 +51,41 @@ Perform the workflow link:wf_common_ontap_repl_get_we_schedules.html[Get schedul
 
 === 5. Select the volume names and related storage parameters
 
-Based on the cloud provider, you need to perform a workflow to get the volume information.
+Based on the cloud provider, you need to perform the corresponding workflow to retrieve the volume information.
 
 [role="tabbed-block"]
 ====
 .AWS
 --
-Perform the AWS workflow link:wf_aws_ontap_get_volumes.html[Get volumes] and choose the `name` and `svmName` and `aggregateName` values.
+Perform the workflow link:wf_aws_ontap_get_volumes.html[Get AWS volumes] and choose the `name` and `svmName` and `aggregateName` values.
 --
 .Azure
 --
-Perform the Azure workflow link:wf_azure_ontap_get_volumes.html[Get volumes] and choose the `name` and `svmName` and `aggregateName` values.
+Perform the Azure workflow link:wf_azure_ontap_get_volumes.html[Get Azure volumes] and choose the `name` and `svmName` and `aggregateName` values.
 --
 .Google cloud
 --
-Perform the GCP workflow link:wf_gcp_ontap_get_volumes.html[Get volumes] and choose the `name` and `svmName` and `aggregateName` values.
+Perform the GCP workflow link:wf_gcp_ontap_get_volumes.html[Get GCP volumes] and choose the `name` and `svmName` and `aggregateName` values.
 --
 ====
 
 === 6. Create a quote
 
-Based on the cloud provider, you need to perform a workflow to get the volume information.
+Based on the cloud provider, you need to perform a workflow to create a volume quote.
 
 [role="tabbed-block"]
 ====
 .AWS
 --
-Perform the AWS workflow link:wf_aws_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
+Perform the workflow link:wf_aws_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
 --
 .Azure
 --
-Perform the Azure workflow link:wf_azure_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
+Perform the workflow link:wf_azure_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
 --
 .Google cloud
 --
-Perform the GCP workflow link:wf_gcp_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
+Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote] and choose the `providerVolumeType` and `name` values.
 --
 ====
 
