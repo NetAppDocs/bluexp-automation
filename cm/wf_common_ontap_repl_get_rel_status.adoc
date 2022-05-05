@@ -61,9 +61,7 @@ Output::
 
 The JSON output example includes the list of all the SnapMirror relationships with status.
 
-.JSON output example
-[%collapsible]
-====
+JSON output example::
 [source,json]
 [
     {
@@ -145,4 +143,3 @@ The JSON output example includes the list of all the SnapMirror relationships wi
         }
     }
 ]
-====
