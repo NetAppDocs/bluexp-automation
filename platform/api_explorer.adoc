@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: platform/api_explorer.html
+keywords: generate, user, token
+summary: 'You must generate a bearer token to authenticate and access the Cloud Manager REST API. There are two workflows available depending on the type of authentication.'
+---
+
+= Use API explorer
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The API Explorer is a feature of the Cloud Manager automation docs website that you can use to execute REST API calls from your browser. The feature is integrated with the Cloud Manager API reference documentation, enabling you to test the various API endpoints while reviewing the documentation.
+
+== Before you begin
+There are several things you should consider before using the API Explorer.
+
+==== Prerequisites
+You must have a NetApp Cloud Central account with access to Cloud Manager. There might also be additional requirements depending on the API call, such as:
+
+*	Connector or agentAuth ID
+*	Service account client ID
+*	Workspace public ID
+
+You can access these and other values through the Cloud Manager SaaS interface at https://cloudmanager.netapp.com/ and pass them as input parameters to the API calls as needed. See Get the client and account identifiers for more information.
+
+==== Limitations
+You can only use the API Explorer to issue REST calls for endpoints that require a user access token. Service tokens and API calls that require a service token are not supported. The Token usage field on the API reference page indicates the type of access token needed for each endpoint. See Key concepts and terminology for more information about access tokens and other important concepts needed when accessing the Cloud Manager resources.
+
+== Issuing a REST API call
+The following steps provide an example of how to use the API explorer to issue a typical REST API call.
+
+.Steps
+
+.	Navigate to Discover an external resource in the Tenancy service API documentation.
+.	Click Try it out to open the API Explorer panel on the right side of the page.
+<INSERT_IMAGE>
+.	Click Sign in, which redirects your browser to the NetApp Cloud Central login page.
+<INSERT_IMAGE>
+.	Enter your credentials, including the email address and password, and click Login. When using a federated login, you’ll need to use your single sign-on account.
+<INSERT_IMAGE>
+After successfully authenticating, you are redirected back to the Try this API panel.
+.	Provide the required parameters, optional parameters, and request body information in the metadata section for the API call. Refer to the parameter descriptions on the corresponding endpoint documentation page as needed.
+<INSERT_IMAGE>
+.	After you've entered all the parameters, to execute the API call, click Submit. to execute the API call.
+
+.Result
+At the bottom of the API Explorer panel, the equivalent curl command needed to execute the API call is displayed in the Code section along with the actual response in JSON format.
+<INSERT_IMAGE>
+<INSERT_IMAGE>
