@@ -13,7 +13,7 @@ summary: 'You must generate a bearer token to authenticate and access the Cloud 
 :imagesdir: ./media/
 
 [.lead]
-The API Explorer is a feature of the Cloud Manager automation docs website that you can use to execute REST API calls from your browser. The feature is integrated with the Cloud Manager API reference documentation, enabling you to test the various API endpoints while reviewing the documentation.
+Use the API Explorer feature to execute REST API calls from your browser. The feature is integrated with the Cloud Manager API reference documentation, enabling you to test the various API endpoints while reviewing the documentation.
 
 == Before you begin
 There are several things you should consider before using the API Explorer.
@@ -21,11 +21,11 @@ There are several things you should consider before using the API Explorer.
 ==== Prerequisites
 You must have a NetApp Cloud Central account with access to Cloud Manager. There might also be additional requirements depending on the API call, such as:
 
-*	Connector or agentAuth ID
+*	agentAuth ID or Connector ID
 *	Service account client ID
 *	Workspace public ID
 
-You can access these and other values through the Cloud Manager SaaS interface at https://cloudmanager.netapp.com/ and pass them as input parameters to the API calls as needed. See Get the client and account identifiers for more information.
+You can access these and other values through the Cloud Manager SaaS interface at https://cloudmanager.netapp.com/ and pass them as input parameters to the API calls as needed. See link:platform/get_identifiers.html[Get required identifiers] for more information.
 
 ==== Limitations
 You can only use the API Explorer to issue REST calls for endpoints that require a user access token. Service tokens and API calls that require a service token are not supported. The Token usage field on the API reference page indicates the type of access token needed for each endpoint. See Key concepts and terminology for more information about access tokens and other important concepts needed when accessing the Cloud Manager resources.
@@ -35,9 +35,9 @@ The following steps provide an example of how to use the API explorer to issue a
 
 .Steps
 
-.	Navigate to Discover an external resource in the Tenancy service API documentation.
-.	Click Try it out to open the API Explorer panel on the right side of the page.
-<INSERT_IMAGE>
+.	Navigate to link:https://docs.netapp.com/us-en/cloud-manager-automation/tenancy/post-tenancy-resource-discover.html[Discover an external resource] in the Tenancy service API documentation.
+.	Click *Try it out* to open the API Explorer panel on the right side of the page.
+
 .	Click Sign in, which redirects your browser to the NetApp Cloud Central login page.
 <INSERT_IMAGE>
 .	Enter your credentials, including the email address and password, and click Login. When using a federated login, you’ll need to use your single sign-on account.
