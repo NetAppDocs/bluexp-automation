@@ -13,3 +13,15 @@ entries:
         url: /platform/additional_considerations.html
   - title: Workflow processes and tasks
     url: /platform/workflows_tasks.html
+  - title: Authentication and authorization
+    entries:
+      - title: Basic concepts
+        url: /platform/aa_concepts.html
+      - title: User access tokens
+        url: /platform/user_access_tokens.html
+      - title: Grant types
+        url: /platform/grant_types.html
+      - title: Connector and client identifiers
+        url: /platform/connectors_clients.html
+      - title: Use the REST APIs
+        url: /platform/use_rest_apis.html

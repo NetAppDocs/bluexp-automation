@@ -46,7 +46,7 @@ The common HTTP request headers are described below.
 |Request header
 |Description
 |Authorization
-|This header contains a bearer token used to access the server.
+|This header contains a bearer token used to access the Cloud Manager server.
 |x-agent-id
 |The agent identifier is based on the client ID and is used to identify the user agent.
 |Content-Type

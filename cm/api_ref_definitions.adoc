@@ -12,7 +12,6 @@ summary:
 :linkattrs:
 :imagesdir: ./media/
 
-
 [.lead]
 This section describes existing data format definitions.
 
@@ -60,7 +59,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |aggregateName|Aggregate name|true|string|
 |numOfDisks|Number of disks relevant to the action|true|integer (int32)|
-|diskSize|The size of the disks needed|true|<<Capacity>>|
+|totalCapacity|The total capacity relevant to the action|true|<<Capacity>>|
 |volumeNames|A limited list of volumes on the aggregate|true|string array|
 |maxCapacity|The maximum capacity of the Cloud Volumes ONTAP instance|true|<<Capacity>>|
 |licenseExpiryDate|License expiry date|true|integer (int64)|
@@ -81,7 +80,7 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|newRegions||true|<<List[Region]>>|
+|newRegions||true|<<Region>> array|
 |===
 
 === AddDisksToAggregateRequest
@@ -137,6 +136,7 @@ This section describes existing data format definitions.
 |capacityTierUsed|Object store used|false|<<Capacity>>|
 |sidlEnabled|SIDL enabled|true|boolean|
 |snaplockType|Snaplock type|true|enum (non_snaplock,  compliance,  enterprise)|
+|iops|Aggregate IOPS|false|integer (int32)|
 |root||true|boolean|
 |===
 
@@ -383,6 +383,17 @@ This section describes existing data format definitions.
 |reasons||true|string array|
 |===
 
+=== AwsHaProperties
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|mediatorVersionInfo||true|<<MediatorVersionInfo>>|
+|mediatorStatus||true|<<MediatorStatus>>|
+|routeTables||true|string array|
+|mediatorVersionsToUpdate||true|<<MediatorUpdateVersionMetadata>> array|
+|failoverMode||true|string|
+|===
+
 === AwsKeysRequest
 [options="header"]
 |===
@@ -604,6 +615,26 @@ This section describes existing data format definitions.
 |haVsaMinimumRequiredIps||true|integer (int32)|
 |===
 
+=== AzureProperties
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|regionName||true|string|
+|resourceGroup|Resource group|true|<<AzureResourceGroupResponse>>|
+|vnetCidr||true|string|
+|tags||true|Map[string,string]|
+|subscriptionId||true|string|
+|deploymentId||true|string|
+|creationTime||true|integer (int64)|
+|instanceType||true|string|
+|numOfNics||true|integer (int32)|
+|singleNetworkInterface||true|boolean|
+|subscriptionName||true|string|
+|cloudProviderAccountId||false|string|
+|availabilityZone||false|integer (int32)|
+|dataDisks||false|<<AzureDataDiskResponse>> array|
+|===
+
 === AzureRegionResponse
 [options="header"]
 |===
@@ -714,7 +745,7 @@ This section describes existing data format definitions.
 |svmName||false|string|
 |creatorUserEmail||true|string|
 |status||false|<<StatusProperties>>|
-|providerProperties||false|<<ProviderProperties>>|
+|providerProperties||false|<<AzureProperties>>|
 |reservedSize||false|<<Capacity>>|
 |clusterProperties||false|<<VsaClusterProperties>>|
 |ontapClusterProperties||false|<<OntapClusterProperties>>|
@@ -919,7 +950,7 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|level|Change tier level|true|enum (normal,  ia,  ia-single,  intelligent,  cool,  nearline,  coldline,  standard)|
+|level|Change tier level|true|enum (normal,  ia,  ia-single,  intelligent,  cool,  nearline,  coldline,  standard,  glacier-ir)|
 |===
 
 === ChangeVolumeTierRequest
@@ -1337,7 +1368,7 @@ This section describes existing data format definitions.
 |nssAccount|Nss Account|false|string|
 |saasSubscriptionId|SaaS Subscription ID|false|string|
 |backupVolumesToCbs|Automatically backup all volumes to S3|false|boolean|
-|tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
+|tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent,  glacier-ir)|
 |enableMonitoring|Enable monitoring|true|boolean|
 |enableServices|Enable services|false|string array|
 |writingSpeedState|Writing speed state|false|string|
@@ -1385,7 +1416,7 @@ This section describes existing data format definitions.
 |storageAccountPrefix|Storage Account prefix|false|string|
 |backupVolumesToCbs|Automatically backup all volumes to cloud|false|boolean|
 |tierLevel|Tier Level|false|enum (normal,  cool)|
-|availabilityZone|Availability Zone|false|<<Object>>|
+|availabilityZone|Availability Zone|false|integer (int32)|
 |azureEncryptionParameters|Parameters required if using azure encryption with custom key|false|<<AzureEncryption>>|
 |enableServices|Enable services|false|string array|
 |===
@@ -1458,6 +1489,7 @@ This section describes existing data format definitions.
 |awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
 |tieringBucketName|Tiering bucket name|false|string|
 |mediatorPassword|Mediator password|false|string|
+|enableExternalCache|Enable External Cache|false|boolean|
 |===
 
 === CreateGcpVsaWorkingEnvironmentRequest
@@ -1475,6 +1507,7 @@ This section describes existing data format definitions.
 |subnetId|Subnet ID for a single node cluster|true|string|
 |firewallRule|Firewall name for a single node cluster|false|string|
 |firewallTagNameRule|Firewall tag name for a single node cluster|false|string|
+|firewallIpRanges|Firewall ip ranges|false|boolean|
 |dataEncryptionType|Type of encryption to use for this working environment|true|enum (GCP)|
 |securityGroupId||false|string|
 |vsaMetadata||true|<<VsaMetadataRequest>>|
@@ -1604,7 +1637,7 @@ This section describes existing data format definitions.
 |nssAccount|Nss Account|false|string|
 |saasSubscriptionId|SaaS Subscription ID|false|string|
 |backupVolumesToCbs|Automatically backup all volumes to S3|false|boolean|
-|tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
+|tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent,  glacier-ir)|
 |enableMonitoring|Enable monitoring|true|boolean|
 |enableServices|Enable services|false|string array|
 |ontapEncryptionDefined||true|boolean|
@@ -1953,6 +1986,17 @@ This section describes existing data format definitions.
 |rules|Export policy rules|false|<<ExportPolicyRule>> array|
 |===
 
+=== ExportPolicyRule
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|index|Export policy rule index|false|integer (int32)|
+|ruleAccessControl|Export policy rule access control|false|string|
+|ips|Export policy rule list of IPs|false|string array|
+|nfsVersion|Export policy rule protocol|false|string array|
+|policyType|Export policy rule super user access|false|boolean|
+|===
+
 === ExtendedObjectStoreConfigInfo
 [options="header"]
 |===
@@ -2156,6 +2200,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |name|Firewall Name|true|string|
 |vpc|VPC|true|string|
+|targetServiceAccount|Target Service Account|true|string array|
 |===
 
 === GcpHaMediatorInfo
@@ -2417,6 +2462,7 @@ This section describes existing data format definitions.
 |supportedFeatures||true|Map[string,Map[string,<<FeatureProperties>>]]|
 |===
 
+
 === GrantPermission
 [options="header"]
 |===
@@ -2447,17 +2493,7 @@ This section describes existing data format definitions.
 |mediatorAssignPublicIP||false|boolean|
 |mediatorInstanceProfileName||false|string|
 |mediatorSecurityGroupId||false|string|
-|===
-
-=== HaProperties
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|mediatorVersionInfo||true|<<MediatorVersionInfo>>|
-|mediatorStatus||true|<<MediatorStatus>>|
-|routeTables||true|string array|
-|mediatorVersionsToUpdate||true|<<MediatorUpdateVersionMetadata>> array|
-|failoverMode||true|string|
+|assumeRoleArn||false|string|
 |===
 
 === Id
@@ -2569,8 +2605,8 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyOs||true|boolean|
 |legacyInstance||true|boolean|
+|legacyOs||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -2883,6 +2919,13 @@ This section describes existing data format definitions.
 |newMapping||true|<<Map[string,string]>>|
 |===
 
+=== ModifyMediatorVersionRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|mediatorVersion||true|string|
+|===
+
 === ModifyUserTagsRequest
 [options="header"]
 |===
@@ -3114,6 +3157,7 @@ This section describes existing data format definitions.
 |clusterUuid||true|string|
 |nodeModels||true|string array|
 |lifs||true|<<LifResponse>> array|
+|aff||true|boolean|
 |snapmirrorLicenseExists||true|boolean|
 |===
 
@@ -3371,26 +3415,6 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |aws||true|string array|
 |azure||true|string array|
-|===
-
-=== ProviderProperties
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|regionName||true|string|
-|resourceGroup|Resource group|true|<<AzureResourceGroupResponse>>|
-|vnetCidr||true|string|
-|tags||true|Map[string,string]|
-|subscriptionId||true|string|
-|deploymentId||true|string|
-|creationTime||true|integer (int64)|
-|instanceType||true|string|
-|numOfNics||true|integer (int32)|
-|singleNetworkInterface||true|boolean|
-|subscriptionName||true|string|
-|cloudProviderAccountId||false|string|
-|availabilityZone||false|integer (int32)|
-|dataDisks||false|<<AzureDataDiskResponse>> array|
 |===
 
 === ProviderSpecific
@@ -3710,6 +3734,15 @@ This section describes existing data format definitions.
 |value||true|string|
 |===
 
+=== S3BucketInfo
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|bucketName||true|string|
+|region||true|string|
+|tags||true|Map[String, String]|
+|===
+
 === S3BucketInfoDetails
 [options="header"]
 |===
@@ -3809,6 +3842,13 @@ This section describes existing data format definitions.
 |metadata||false|Map[string, string]|
 |===
 
+=== ServiceInformationUrl
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|url||true|string|
+|===
+
 === ServiceUrl
 [options="header"]
 |===
@@ -3840,8 +3880,8 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |needCertificate||true|boolean|
 |runningInDocker||true|boolean|
-|setup||true|boolean|
 |pendingConnectivitySet||true|boolean|
+|setup||true|boolean|
 |===
 
 === SgwsCloudBackupSetupRequest
@@ -3920,6 +3960,15 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |snapshotPolicyName|Snapshot policy name|true|string|
 |schedules|Snapshot policy schedules|true|<<SnapshotPolicyScheduleRequest>> array|
+|===
+
+=== SnapshotResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name|Name|true|string|
+|accessTime|Access time|true|integer (int64)|
+|label|Label|false|string|
 |===
 
 === SnapshotPolicyScheduleRequest
@@ -4062,6 +4111,7 @@ This section describes existing data format definitions.
 |setupInfo||true|<<SetupInfo>>|
 |useCompliancePrivateIpContainerMode||true|boolean|
 |notificationServiceInformation||false|<<NotificationServiceInformation>>|
+|credentialsServiceInformation||false|<<ServiceInformationUrl>>|
 |===
 
 === SupportedCapacityTiers
@@ -4523,8 +4573,8 @@ This section describes existing data format definitions.
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
 |minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
-|iscsiEnabled||true|boolean|
 |flexGroupVolume||true|boolean|
+|iscsiEnabled||true|boolean|
 |===
 
 === VolumeTags
@@ -4784,7 +4834,7 @@ This section describes existing data format definitions.
 |workingEnvironmentType||true|string|
 |supportRegistrationProperties||false|<<SupportRegistrationProperties>>|
 |supportRegistrationInformation||false|<<SupportRegistrationInformation>> array|
-|haProperties||false|<<HaProperties>>|
+|haProperties||false|<<AwsHaProperties>>|
 |capacityFeatures||false|<<CapacityFeatures>>|
 |cloudSyncProperties||false|<<CloudSyncProperties>>|
 |supportedFeatures||false|<<SupportedFeatures>>|

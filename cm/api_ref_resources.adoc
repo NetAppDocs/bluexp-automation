@@ -1619,6 +1619,29 @@ POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 
 * application/json
 
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED
+----
+PUT /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|ref|
+|BodyParameter|body|Add export policy rule request|true|link:../cm/api_ref_definitions.html#volumemodifyrequest[VolumeModifyRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Create snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED
 ----
 POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
@@ -4123,6 +4146,29 @@ DELETE /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED
+----
+PUT /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|ref|
+|BodyParameter|body|Add export policy rule request|true|link:../cm/api_ref_definitions.html#volumemodifyrequest[VolumeModifyRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Return a list of snapshot descriptions for the volume.Operation may only be performed on working environments whose status is: ON, DEGRADED
 ----
 GET /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
@@ -6152,6 +6198,29 @@ POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 |PathParameter|svmName||true|string|
 |PathParameter|volumeName||true|string|
 |BodyParameter|body||true|link:../cm/api_ref_definitions.html#volumeclonerequest[VolumeCloneRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED
+----
+PUT /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|ref|
+|BodyParameter|body|Add export policy rule request|true|link:../cm/api_ref_definitions.html#volumemodifyrequest[VolumeModifyRequest]|
 |===
 
 ===== Consumes
@@ -8344,6 +8413,54 @@ PUT /aws/filesystem/software-metadata/{version}/instance-types
 
 * application/json
 
+==== List mediator version for software version.
+----
+GET /aws/filesystem/software-metadata/{version}/mediator-version
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|version|version|true|string|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|string
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Modify mediator version for software version.
+----
+PUT /aws/filesystem/software-metadata/{version}/mediator-version
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|version|version|true|string|
+|BodyParameter|body||true|link:../cm/api_ref_definitions.html#modifymediatorversionrequest[ModifyMediatorVersionRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Creates a new AWS HA Cloud Volumes ONTAP filesystem.
 ----
 POST /aws/filesystem/ha
@@ -9427,6 +9544,29 @@ POST /gcp/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 |PathParameter|svmName||true|string|
 |PathParameter|volumeName||true|string|
 |BodyParameter|body||true|link:../cm/api_ref_definitions.html#volumeclonerequest[VolumeCloneRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Add export policy rule
+----
+PUT /gcp/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|ref|
+|BodyParameter|body|Add export policy rule request|true|link:../cm/api_ref_definitions.html#volumemodifyrequest[VolumeModifyRequest]|
 |===
 
 ===== Consumes
@@ -11550,6 +11690,29 @@ GET /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#snapshotresponse[SnapshotResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED
+----
+PUT /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|ref|
+|BodyParameter|body|Add export policy rule request|true|link:../cm/api_ref_definitions.html#volumemodifyrequest[VolumeModifyRequest]|
 |===
 
 ===== Consumes
@@ -16885,6 +17048,29 @@ DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 |PathParameter|workingEnvironmentId||true|string|
 |PathParameter|svmName||true|string|
 |PathParameter|volumeName||true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED
+----
+PUT /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|ref|
+|BodyParameter|body|Add export policy rule request|true|link:../cm/api_ref_definitions.html#volumemodifyrequest[VolumeModifyRequest]|
 |===
 
 ===== Consumes

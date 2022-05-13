@@ -1,0 +1,77 @@
+---
+sidebar: sidebar
+permalink: platform/get_identifiers.html
+keywords: client, id, account, identifiers, cloud, manager, rest, api, netapp, user interface
+summary: You can sign into the Cloud Manager web user interface to retrieve several identifiers needed with the workflows.
+---
+
+= Get required identifiers
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can access the Cloud Manager web user interface to retrieve the identifiers needed for the workflows.
+
+[NOTE]
+In addition to the Cloud Manager web user interface, you can also obtain the ID values through the Cloud Volumes ONTAP REST API. See link:../cm/wf_common_identity_get_supported_srv.html[Get supported services] for more information.
+
+== Get the Connector identifier
+
+Every Connector is assigned a unique identifier. You can retrieve the ID for a Connector and include it in the `x-agent-id` HTTP request header with each REST API call.
+
+.Before you begin
+
+You must have a NetApp account (formerly Cloud Central account). You created this account when you first logged in to Cloud Manager and it’s displayed at the top of the Cloud Manager user interface. See link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn more about NetApp accounts^] for more information.
+
+.Steps
+
+. Navigate to the Cloud Manager web site using a browser:
++
+link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
+
+. Sign in using your NetApp account (formerly Cloud Central) credentials.
+
+. Click *Connector* at the top right of the page and select *Manage Connectors*.
+
+. On the *Manage Connectors* page, click the ellipses (...) icon.
+
+. Select the *Connector ID*.
++
+*Example*
+`uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients`
+
+. You can optionally derive the associated client ID by removing the `clients` suffix. This ID applies when accessing the connector directly in _local mode_ and not through the SaaS interface.
++
+*Example*
+`uzJbMFKEnuzi2ryLaENbCP52KBTXx0aI`
+
+.After you finish
+
+You can use the Connector ID in the `x-agent-id` request header to properly route the request. See the curl examples in the workflows for more information.
+
+== Get the account identifier
+
+Several of the workflows require the account identifier. The steps needed to obtain the unique identifier for an account are presented below.
+
+.About this task
+
+If you maintain multiple accounts, each is assigned a unique identifier.
+
+.Before you begin
+
+You must have a NetApp account (formerly Cloud Central account). You created this account when you first logged in to Cloud Manager and it’s displayed at the top of the Cloud Manager user interface. link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn more about NetApp accounts^].
+
+.Steps
+
+. Navigate to the Cloud Manager web site using a browser:
++
+link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
+
+. Sign in using your NetApp account (formerly Cloud Central account) credentials.
+
+. Click the *Account* drop-down and click *Manage Account* for the selected account.
+
+. In the *Overview* section copy the *Account ID* value.
