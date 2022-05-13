@@ -20,16 +20,25 @@ This workflow varies slightly depending on the cloud provider you are using.
 
 === 1. Optionally select the tenant ID
 
-Based on the cloud provider, you need to perform a workflow to get the tenant ID as shown in the following table.
+Based on the cloud provider, you need to perform the corresponding workflow to retrieve the tenant ID.
 
-[cols="15,85"*,options="header"]
-|===
-|Provider
-|Workflow
-|AWS
-|Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
-|===
+[role="tabbed-block"]
+====
+.AWS
+--
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
+--
 
+.Azure
+--
+Perform the Azure workflow link:wf_azure_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
+--
+
+.Google Cloud
+--
+Perform the GCP workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
+--
+====
 === 2. Get the status of the relationships
 
 [cols="25,75"*,options="header"]
