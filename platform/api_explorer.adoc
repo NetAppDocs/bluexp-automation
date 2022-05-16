@@ -29,12 +29,12 @@ There might be additional requirements depending on the API call. You might need
 *	Service account client ID
 *	Workspace public ID
 
-You can pass them as input parameters to the API calls as needed. See link:platform/get_identifiers.html[Get required identifiers] for more information.
+You can pass them as input parameters to the API calls as needed. See link:get_identifiers.html[Get required identifiers] for more information.
 
-== Limitation
+==== Limitation
 You can use the API Explorer to issue REST calls for endpoints that require a _user access token_. API calls that require a _service access token_ are not supported.
 
-The _Token usage_ field on the API reference page indicates the type of access token needed for each endpoint. See link:platform/aa_concepts.html[Basic concepts and terminology] to understand the difference between these access tokens and other important concepts when accessing the Cloud Manager resources.
+The _Token usage_ field on the API reference page indicates the type of access token needed for each endpoint. See link:aa_concepts.html[Basic concepts and terminology] to understand the difference between these access tokens and other important concepts when accessing the Cloud Manager resources.
 
 == Issuing a REST API call
 The following steps provide an example of how to use the API explorer to issue a typical REST API call.
