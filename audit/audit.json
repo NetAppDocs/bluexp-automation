@@ -257,7 +257,7 @@
         "tags": [
           "Audit"
         ],
-        "description": "\nSends Audit information.<br>\nThe Audit service uses two types of data formats: Audit Groups and Audit Records.<br>\n\n<h3>Audit Groups</h3>\n<p>\nAudit groups represent a collection of singular actions. For example, creating a CVO instance involves setting up the node, \nconfiguring the High Availability (HA) pair, booting the nodes, setting up licenses and services, creating aggregates, \ncreating data container volumes, and more. The step of creating the CVO instance is represented as an audit group.\n</p>\n<h3>Audit Records</h3>\n<p>\nThe audit record format describes individual granular operations, such node setup, HA formation, or license setup.\n</p>\n    ",
+        "description": "\nSends Audit information.<br>\nThe Audit service uses two types of data formats: Audit Groups and Audit Records.\n<h3>Audit Groups</h3>\n<p>\nAudit groups represent a collection of singular actions. For example, creating a CVO instance involves setting up the node, \nconfiguring the High Availability (HA) pair, booting the nodes, setting up licenses and services, creating aggregates, \ncreating data container volumes, and more. The step of creating the CVO instance is represented as an audit group.\n</p>\n<h3>Audit Records</h3>\n<p>\nThe audit record format describes individual granular operations, such node setup, HA formation, or license setup.\n</p>\n    ",
         "requestBody": {
           "content": {
             "application/json": {
