@@ -5,7 +5,7 @@
         "x-doc": {
           "title": "Send audit information",
           "category": "Audit",
-          "filename": "post-staging-exteranl-audit.cloudmanager.netapp.com.html"
+          "filename": "post-staging-exteranl-audit.cloudmanager.netapp.com.html",
           "explorer": false
         }
       }
