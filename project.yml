@@ -18,6 +18,7 @@ sidebar:
     - section: platform
     - section: workflows
     - section: api-cm
+    - section: audit
     - section: persistence
     - section: tenancy
     - section: automate
