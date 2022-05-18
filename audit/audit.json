@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Audit service REST API reference",
-    "description": "\n<p>\nThe Audit service receives information from other Cloud Manager services about operations they perform. \nThe service records information such as originating IP addresses, what workspaces and connectors the operation uses, and other telemetry data. \nThe Audit service enables users to know who or what performed a certain operation, which can be helpful in forensic situations or environments \nwhere compliance is required. The identity of the API caller and the account are established through a user token.\n</p>\n<h3>Authorization</h3>\n<p>\nThe Audit Service contains only one POST API authorized by passing the User (Bearer) token in the Authorization header. \n</p>\n<br><br> \n",
+    "description": "\n<p>\nThe Audit service receives information from other Cloud Manager services about operations that they perform. \nThe service records information, such as originating IP addresses, the workspaces and Connectors that the operation uses, and other telemetry data. \nThe Audit service enables users to know who or what performed a certain operation, which can be helpful in forensic situations or environments \nwhere compliance is required. The identity of the API caller and the account are established through a user access token.\n</p>\n<h3>Authorization</h3>\n<p>\nThe Audit service contains only one POST API call, which is authorized by passing the user bearer token in the Authorization header. \n</p>\n<br><br> \n",
     "version": "1.0.0"
   },
   "components": {
@@ -257,7 +257,7 @@
         "tags": [
           "Audit"
         ],
-        "description": "<p>Sends Audit information.<br>\nThe Audit service uses two types of data formats: Audit Groups and Audit Records.\n</p>\n<h3>Audit Groups</h3>\n<p>\nAudit groups represent a collection of singular actions. For example, creating a CVO instance involves setting up the node, \nconfiguring the High Availability (HA) pair, booting the nodes, setting up licenses and services, creating aggregates, \ncreating data container volumes, and more. The step of creating the CVO instance is represented as an audit group.\n</p>\n<h3>Audit Records</h3>\n<p>\nThe audit record format describes individual granular operations, such node setup, HA formation, or license setup.\n</p>\n    ",
+        "description": "<p>Sends audit information.<br>\nThe Audit service uses two types of data formats: audit groups and audit records.\n</p>\n<h3>Audit groups</h3>\n<p>\nAudit groups represent a collection of singular actions. For example, creating a Cloud Volumes ONTAP instance involves setting up the node, \nconfiguring the high availability (HA) pair, booting the nodes, setting up licenses and services, creating aggregates, \ncreating data container volumes, and more. The step of creating the Cloud Volumes ONTAP instance is represented as an audit group.\n</p>\n<h3>Audit records</h3>\n<p>\nThe audit record format describes individual granular operations, such as node setup, HA formation, or license setup.\n</p>\n    ",
         "requestBody": {
           "content": {
             "application/json": {
