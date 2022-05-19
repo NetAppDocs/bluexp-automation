@@ -23,18 +23,18 @@ There are several things you should consider before using the API Explorer.
 ==== Prerequisites
 You must have a NetApp Cloud Central account with access to Cloud Manager.
 
-There might be additional requirements depending on the API call. You might need to retrieve the following identifiers from the link:https://cloudmanager.netapp.com/[Cloud Manager SaaS interface] such as:
+There might be additional requirements depending on the API call. You might need to retrieve the following identifiers from the link:https://cloudmanager.netapp.com/[Cloud Manager SaaS interface]:
 
 *	agentAuth ID or Connector ID
 *	Service account client ID
 *	Workspace public ID
 
-You can pass them as input parameters to the API calls as needed. See link:get_identifiers.html[Get required identifiers] for more information.
+You can pass the identifiers as input parameters to the API calls as needed, see link:get_identifiers.html[Get required identifiers].
 
 ==== Limitation
 You can use the API Explorer to issue REST calls for endpoints that require a _user access token_. API calls that require a _service access token_ are not supported.
 
-The _Token usage_ field on the API reference page indicates the type of access token needed for each endpoint. See link:aa_concepts.html[Basic concepts and terminology] to understand the difference between these access tokens and other important concepts when accessing the Cloud Manager resources.
+The _Token usage_ field on the API reference page indicates the type of access token needed for each endpoint. To understand the difference between these access tokens and other important concepts when accessing the Cloud Manager resources, see link:aa_concepts.html[Basic concepts and terminology].
 
 == Issuing a REST API call
 The following steps provide an example of how to use the API explorer to issue a typical REST API call.
@@ -47,7 +47,7 @@ The following steps provide an example of how to use the API explorer to issue a
 +
 image:api1.png[Summarizes a typical Cloud Manager deployment.]
 
-.	Click *Sign in*, which redirects your browser to the NetApp Cloud Central login page.
+.	Click *Sign in*. This redirects your browser to the NetApp Cloud Central login page.
 +
 image:api2.png[Summarizes a typical Cloud Manager deployment.]
 .	Enter your credentials, including the email address and password, and click *Login*.
@@ -56,7 +56,7 @@ TIP: Use your single sign-on account for federated login.
 +
 image:api3.png[Summarizes a typical Cloud Manager deployment.]
 +
-After successful authentication, you will be redirected back to the Try this API panel.
+After successful authentication, you are redirected back to the Try this API panel.
 
 .	Provide the required parameters, optional parameters, and request body information in the metadata section for the API call.
 +
