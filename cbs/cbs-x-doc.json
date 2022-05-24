@@ -260,7 +260,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/restore": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> performs a volume-level restore operation this api endpoint validates whether a backup of a volume exists restore is not supported on dp volumes a restore operation is not supported on a target volume with a different language code than the source volume a restore operation is not supported for volumes with a size less than 1 gb restore is not allowed on a volume enabled with a snaplock license (worm license) it checks whether the source and target cloud provider matches it also verifies whether the  backup and restore operation is supported in the specified working environments</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Perform a volume-level restore operation",
           "category": "Restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-restore.html"
         }
@@ -269,7 +269,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/restore": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> performs a volume-level restore (version 2) operation this api validates whether a backup of a volume exists a restore operation is not supported on dp volumes a restore operation is not supported on a target volume with a different language code than the source volume restore operation is not supported for volumes with a size less than 1 gb a restore operation is not allowed on a volume enabled with a snaplock license (worm license) it checks whether the source and target cloud provider matches it also verifies whether the backup and restore operation is supported in the working environments</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Perform a volume-level restore (v2)",
           "category": "Restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-restore.html"
         }
@@ -278,7 +278,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/restore/status": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> retrieves the status of the volume-level restore operation this api endpoint tracks the restore job and retrieves the job status, error, time, and details of the restore job</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve the status of the volume-level restore operation",
           "category": "Restore",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-restore-status.html"
         }
@@ -287,14 +287,14 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/backup-policy": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> retrieves a list of ontap backup policies associated with a working environment you can filter the policies based on the archival enablement status this api endpoint retrieves the backup-policy name, rule, attached volume count, and archive-after-days information</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of ONTAP backup policies",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy.html"
         }
       },
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> creates a backup policy in a working environment the number of retained backups can be up to a maximum of 1018 when no backup policies are assigned to the volume you can edit a policy to create up to 4000 backups after you assign volumes to a policy through ontap cli this api endpoint validates whether the ontap version used by a working environment supports archiving </p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Create a backup policy",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy.html"
         }
@@ -303,7 +303,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/backup-policy/{policyName}": {
       "put": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> updates a backup policy in a working environment this api endpoint modifies the rule, label-rule, retention, and archive-after-days information  </p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Update a backup policy",
           "category": "Working Environment",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy-.html"
         }
@@ -312,7 +312,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/ip-space": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> retrieves a list of ip spaces within a specified working environment</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of IP spaces",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-ip-space.html"
         }
@@ -321,7 +321,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> retrieves a list of working environments and their details this api endpoint retrieves the name, region, status, type, cloud-provider, provider-accountid, ontap-version, and total-volumes-count information</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of working environments",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment.html"
         }
@@ -330,7 +330,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> retrieves the details of a specific working environment this api endpoint retrieves the name, region, status, type, cloud-provider, provider-accountid, ontap-version, and total-volumes-count of a specific working environment</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve the details of a specific working environment",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-.html"
         }
@@ -339,7 +339,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/svm": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> retrieves a list of storage vms and their details from a specific working environment this api retrieves the id, name, and aggregate list that belongs to an storage  vm</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of storage VMs",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-svm.html"
         }
@@ -348,7 +348,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/volume": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> retrieves a list of volumes and their details from a specific working environment this api endpoint retrieves the name, file-system-id, status , storage vm, type, style, capacity allocated , capacity used, and snapmirror label information</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of volumes",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-volume.html"
         }
@@ -357,7 +357,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/configure-object-store": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> configures object storage verifies whether a private endpoint is enabled and a certificate is installed this api endpoint is called if no object stores are found when cloud backup service is enabled</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Configure object storage",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-working-environment-configure-object-store.html"
         }
@@ -366,7 +366,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/working-environment/{workingEnvironmentId}/configure-object-store": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> configures object storage this is v2 version of the object store configure api verifies whether a private endpoint is enabled and a certificate is installed this api endpoint is called if no object stores are found when cloud backup service is enabled</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Configure object storage",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-working-environment-configure-object-store.html"
         }
@@ -375,7 +375,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/volume/{volumeId}/list": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of working environment volume directories you can query by using target storage vm and path of directories to browse within the volume</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of working environment volume directories",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-volume-list.html"
         }
@@ -384,7 +384,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/object-store-config/status": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves an object store configuration status it uses the get /api/cloud/targets ontap rest apis to retrieve the details</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve an object store configuration status",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-object-store-config-status.html"
         }
@@ -393,7 +393,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/account": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of aws accounts from the cloud manager</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of AWS accounts",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-account.html"
         }
@@ -402,7 +402,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/region": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of subscribed aws regions from cloud manager saas application </p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of subscribed AWS regions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-region.html"
         }
@@ -411,7 +411,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/awsAccountId/{awsAccountId}/region/{regionCode}/key": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of aws keys from a specified region that belongs to a specified aws account id from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of AWS keys",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-awsaccountid-region-key.html"
         }
@@ -420,7 +420,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/awsAccountId/{awsAccountId}/region/{regionCode}/privateLink": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of aws private links from a specified region that belongs to a specified aws account id from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of AWS private links",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-awsaccountid-region-privatelink.html"
         }
@@ -429,7 +429,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/archival-storage-class": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of aws storage classes for archival support from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of AWS storage classes",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-archival-storage-class.html"
         }
@@ -438,7 +438,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/region": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of regions from a specific subscription id in azure from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of regions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-region.html"
         }
@@ -447,14 +447,14 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/resource-group": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>creates azure resource group in the specified subscription id</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Create Azure resource group",
           "category": "Cloud",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-azure-subscription-resource-group.html"
         }
       },
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of azure resource groups from a specific subscription id in azure from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of Azure resource groups",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-resource-group.html"
         }
@@ -463,7 +463,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/vnet": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of azure virtual networks from a specific subscription id in azure cloud from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of Azure virtual networks",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vnet.html"
         }
@@ -472,7 +472,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of azure subscriptions for a particular account from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of Azure subscriptions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription.html"
         }
@@ -481,7 +481,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/vault/{vaultName}/key": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of azure vault keys from a particular vault for a specific subscription id in azure cloud from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of Azure vault keys",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vault-key.html"
         }
@@ -490,7 +490,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/vault": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of azure vault for a specific subscription id in azure cloud from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve a list of Azure vaults",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vault.html"
         }
@@ -499,7 +499,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/gcp/project": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of google cloud projects from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve GCP projects",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project.html"
         }
@@ -508,7 +508,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/gcp/project/{projectId}/region": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of regions from a specific google cloud project from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve GCP regions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region.html"
         }
@@ -517,7 +517,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/job": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of jobs from the cloud manager saas application you can query based on the job type and job status from the cloud manager saas application</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve jobs",
           "category": "Job",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-job.html"
         }
@@ -526,7 +526,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/job/{jobId}": {
       "get": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves the details of particular jobs from the cloud manager saas application </p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve the details of particular jobs",
           "category": "Job",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-job-.html"
         }
@@ -535,7 +535,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/working-environments/{workingEnvironmentId}/setup": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> configures the service to include indexed cataloging services this api endpoint initiates the creation of an  s3 bucket on an account level for cataloging to store the details of the backup and changes it also enables the aws athena interactive s3 query service and aws glue serverless data integration service to coordinate with the new catalog feature</p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Configure to include indexed cataloging services",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-working-environments-setup.html"
         }
@@ -544,7 +544,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/search": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p> searches for a specific file from the backups taken by the cloud backup service it can also search for a specified volume it is possible to narrow down your file searches based on a particular working environment, file extensions, size ranges, creation date range, and also location of the backup </p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Search a specific file"
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-search.html"
         }
@@ -553,7 +553,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/snapshots": {
       "post": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>retrieves a list of snapshot copies pertaining to a particular volume using the catalog index query </p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Retrieve Snapshot copies",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-snapshots.html"
         }
@@ -562,7 +562,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/working-environments/{workingEnvironmentId}": {
       "put": {
         "x-doc": {
-          "title": "<p><strong>description</strong></span></p><p>enables or disables the indexed cataloging service for a specified working environment </p><p><strong>authentication</strong></span></p><p>user token</p>",
+          "title": "Enable or disable the indexed cataloging service",
           "category": "Catalog",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-catalog-working-environments-.html"
         }
@@ -571,7 +571,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/license/working-environment/{workingEnvironmentId}": {
       "get": {
         "x-doc": {
-          "title": "Retrieves the license validity of the working environments from the cloud manager saas the api retrieves the eligibility of the current license used and it also returns the days remaining if the user is using a trial license ",
+          "title": "Retrieve the license validity of working environments",
           "category": "License",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-license-working-environment-.html"
         }
