@@ -219,7 +219,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment/{workingEnvironmentId}/volume/{volumeId}/snapshot/{snapshotId}": {
       "get": {
         "x-doc": {
-          "title": "Retrieve information of a snapshot copy",
+          "title": "Retrieve information of a Snapshot copy",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot-.html"
         }
@@ -544,7 +544,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/search": {
       "post": {
         "x-doc": {
-          "title": "Search a specific file"
+          "title": "Search a specific file",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-search.html"
         }
