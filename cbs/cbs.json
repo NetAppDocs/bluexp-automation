@@ -6393,7 +6393,7 @@
             "type": "string"
           },
           {
-            "in": "header",
+            "in": "path",
             "name": "x-agent-id",
             "required": true,
             "description": "Request Identifier",
