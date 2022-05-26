@@ -31,7 +31,7 @@ There might be additional requirements depending on the API call. You might need
 *	Service account client ID
 *	Workspace public ID
 
- See link:get_identifiers.html[Get required identifiers] for more information. You can pass the identifiers as input parameters to the API calls as needed.
+See link:get_identifiers.html[Get required identifiers] for more information. You can pass the identifiers as input parameters to the API calls as needed.
 
 === Limitations
 You can use the API Explorer to issue REST calls for endpoints that require a _user access token_. API calls that require a _service access token_ are not supported.
