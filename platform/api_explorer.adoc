@@ -13,8 +13,6 @@ summary: 'Use the API Explorer feature to execute REST API calls from your brows
 :imagesdir: ./media/
 
 [.lead]
-Use the API Explorer to execute REST API calls from your browser.
-
 The API Explorer is integrated with the Cloud Manager API reference documentation, enabling you to test the various API endpoints while reviewing the documentation.
 
 NOTE: You can access the API Explorer by clicking *Try it out* on any of the API reference pages where it is supported.
