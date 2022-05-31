@@ -291,7 +291,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/restore": {
       "post": {
         "x-doc": {
-          "title": "Perform a volume-level restore",
+          "title": "Perform a volume and file-level restore",
           "category": "Restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-restore.html",
           "explorer": false
@@ -301,7 +301,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/restore": {
       "post": {
         "x-doc": {
-          "title": "Perform a volume-level restore (v2)",
+          "title": "Perform a volume and file-level restore (v2)",
           "category": "Restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-restore.html",
           "explorer": false
