@@ -4,7 +4,7 @@
       "post": {
         "x-doc": {
           "title": "Start a file explore operation",
-          "category": "SFR",
+          "category": "Single file restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-volume-file-explore-start.html",
           "explorer": false
         }
@@ -14,7 +14,7 @@
       "get": {
         "x-doc": {
           "title": "Return the file explore status",
-          "category": "SFR",
+          "category": "Single file restore",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-file-explore-status.html",
           "explorer": false
         }
@@ -24,7 +24,7 @@
       "get": {
         "x-doc": {
           "title": "Return the file explore status (v2)",
-          "category": "SFR",
+          "category": "Single file restore",
           "filename": "get-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-status.html",
           "explorer": false
         }
@@ -34,7 +34,7 @@
       "get": {
         "x-doc": {
           "title": "Retrieve files",
-          "category": "SFR",
+          "category": "Single file restore",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-snapshot-file-explore-list.html",
           "explorer": false
         }
@@ -44,7 +44,7 @@
       "get": {
         "x-doc": {
           "title": "Retrieve files (v2)",
-          "category": "SFR",
+          "category": "Single file restore",
           "filename": "get-account-providers-cloudmanager_cbs-api-v2-sfr-volume-snapshot-file-explore-list.html",
           "explorer": false
         }
@@ -54,7 +54,7 @@
       "post": {
         "x-doc": {
           "title": "Export a filesystem",
-          "category": "SFR",
+          "category": "Single file restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-volume-backup-export.html",
           "explorer": false
         }
@@ -64,7 +64,7 @@
       "delete": {
         "x-doc": {
           "title": "Unexport a filesystem",
-          "category": "SFR",
+          "category": "Single file restore",
           "filename": "delete-account-providers-cloudmanager_cbs-api-v1-sfr-backup-export.html",
           "explorer": false
         }
