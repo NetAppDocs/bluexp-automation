@@ -29,7 +29,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 |/occm/api/replication/metadata/snapmirror-policies/{workingEnvironmentId}/{destinationVolumeName}
 |===
 
-Curl example::
+curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-policies/<WORKING_ENV_ID>/<DEST_VOL_NAME>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 

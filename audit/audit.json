@@ -1,0 +1,322 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Audit service REST API reference",
+    "description": "\n<p>\nThe Audit service receives information from other Cloud Manager services about operations that they perform. \nThe service records information, such as originating IP addresses, the workspaces and Connectors that the operation uses, and other telemetry data. \nThe Audit service enables users to know who or what performed a certain operation, which can be helpful in forensic situations or environments \nwhere compliance is required. The identity of the API caller and the account are established through a user access token.\n</p>\n<h3>Authorization</h3>\n<p>\nThe Audit service contains only one POST API call, which is authorized by passing the user bearer token in the Authorization header. \n</p>\n<br><br> \n",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "authorization": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT access token to authorize the request, sent on the request header."
+      }
+    },
+    "schemas": {
+      "def-0": {
+        "title": "AuthorizationUserToken",
+        "type": "object",
+        "properties": {
+          "X-Service-Request-Id": {
+            "description": "Request identifier used to tag the request for better supportability.",
+            "type": "string"
+          }
+        }
+      },
+      "def-1": {
+        "title": "AuditGroup",
+        "description": "Audit Group Payload.",
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "description": "The Cloud Manager account Id",
+            "type": "string"
+          },
+          "startTime": {
+            "description": "The start time of the operation",
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "description": "The end time of the operation",
+            "type": "string",
+            "format": "date-time"
+          },
+          "actionName": {
+            "description": "The name of the action, say account:update",
+            "type": "string"
+          },
+          "userId": {
+            "description": "The principal Id. Here principal means the user who is performing the action",
+            "type": "string"
+          },
+          "systemId": {
+            "description": "The system Id",
+            "type": "string"
+          },
+          "status": {
+            "description": "Operation status (success, failed, aborted)",
+            "type": "string"
+          },
+          "requstId": {
+            "description": "The request Id",
+            "type": "string"
+          },
+          "serviceName": {
+            "description": "The service name such as Cloud Manager, Cloud Sync",
+            "type": "string"
+          },
+          "referrer": {
+            "description": "The IP address of the caller",
+            "type": "string"
+          },
+          "version": {
+            "description": "App/service version followed by the build number",
+            "type": "string"
+          },
+          "errors": {
+            "description": "Error message in case status is failed",
+            "type": "string"
+          },
+          "company": {
+            "description": "The organization sends the Audit information",
+            "type": "string"
+          },
+          "requestData": {
+            "description": "Request Parameter",
+            "type": "string"
+          },
+          "reaponseData": {
+            "description": "Response Parameter",
+            "type": "string"
+          },
+          "ipAddress": {
+            "description": "The IP address of the origin",
+            "type": "string"
+          },
+          "workspaceId": {
+            "description": "The workspace Id",
+            "type": "string"
+          },
+          "agentId": {
+            "description": "The connector Id",
+            "type": "string"
+          },
+          "agentName": {
+            "description": "The connector name",
+            "type": "string"
+          },
+          "resourceId": {
+            "description": "The Cloud Manager resource Id",
+            "type": "string"
+          },
+          "resourceName": {
+            "description": "The Cloud Manager resource name",
+            "type": "string"
+          },
+          "postProcessing": {
+            "description": "Indicates whether SNS (AWS Simple Notification Service) notifications to send",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "startTime",
+          "actionName",
+          "userId",
+          "status",
+          "requestId",
+          "serviceName"
+        ]
+      },
+      "def-2": {
+        "title": "AuditRecord",
+        "description": "Audit Record Payload.",
+        "type": "object",
+        "properties": {
+          "recordId": {
+            "description": "Unique Id per request Id",
+            "type": "string"
+          },
+          "creationTime": {
+            "description": "When the record is created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "actionName": {
+            "description": "The name of the action, say account:update",
+            "type": "string"
+          },
+          "status": {
+            "description": "Operation status (success, failed, aborted)",
+            "type": "string"
+          },
+          "requstId": {
+            "description": "The request Id",
+            "type": "string"
+          },
+          "serviceName": {
+            "description": "The service name such as Cloud Manager, Cloud Sync",
+            "type": "string"
+          },
+          "referrer": {
+            "description": "The IP address of the caller",
+            "type": "string"
+          },
+          "data": {
+            "description": "The data of the record to send to audit. This is string data in JSON format.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recordId",
+          "creationTime",
+          "requestId",
+          "serviceName"
+        ]
+      },
+      "def-3": {
+        "title": "AuditRequest",
+        "description": "Audit Request Payload.",
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "The audit payload",
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/def-1"
+              },
+              {
+                "$ref": "#/components/schemas/def-2"
+              }
+            ]
+          },
+          "partition-key": {
+            "description": "The backend Kinesis partition key, will be provided by Cloud Manager",
+            "type": "string"
+          }
+        }
+      },
+      "def-4": {
+        "title": "AuditGroupResponse",
+        "description": "Audit Group Response (when the payload is AuditGroup)",
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "description": "The record identifier, generated from agentId, company and site",
+            "type": "string"
+          },
+          "auditGroup": {
+            "description": "Audit Group",
+            "$ref": "#/components/schemas/def-1"
+          },
+          "accountId": {
+            "description": "Account Id",
+            "type": "string"
+          }
+        }
+      },
+      "def-5": {
+        "title": "AuditRecordResponse",
+        "description": "Audit Record Response (when the payload is AuditRecord)",
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "description": "The record identifier, generated from agentId, company and site",
+            "type": "string"
+          },
+          "auditGroup": {
+            "description": "Audit Record",
+            "$ref": "#/components/schemas/def-2"
+          },
+          "accountId": {
+            "description": "Account Id",
+            "type": "string"
+          }
+        }
+      },
+      "def-6": {
+        "title": "AuditResponse",
+        "description": "Audit Response",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/def-4"
+          },
+          {
+            "$ref": "#/components/schemas/def-5"
+          }
+        ]
+      }
+    }
+  },
+  "paths": {
+    "/staging-exteranl-audit.cloudmanager.netapp.com": {
+      "post": {
+        "tags": [
+          "Audit"
+        ],
+        "description": "<p>Sends audit information.<br>\nThe Audit service uses two types of data formats: audit groups and audit records.\n</p>\n<h3>Audit groups</h3>\n<p>\nAudit groups represent a collection of singular actions. For example, creating a Cloud Volumes ONTAP instance involves setting up the node, \nconfiguring the high availability (HA) pair, booting the nodes, setting up licenses and services, creating aggregates, \ncreating data container volumes, and more. The step of creating the Cloud Volumes ONTAP instance is represented as an audit group.\n</p>\n<h3>Audit records</h3>\n<p>\nThe audit record format describes individual granular operations, such as node setup, HA formation, or license setup.\n</p>\n    ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-3"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Service-Request-Id",
+            "required": false,
+            "description": "Request identifier used to tag the request for better supportability.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "x-doc": {
+          "title": "",
+          "category": "",
+          "filename": ""
+        },
+        "responses": {
+          "204": {
+            "description": "Audit Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Audit Response",
+                  "$ref": "#/components/schemas/def-6"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8092"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Audit",
+      "description": "The Cloud Manager Audit service has one endpoint"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://docs.netapp.com/us-en/cloud-manager-automation/cm/introduction.html",
+    "description": "Learn more about the Cloud Manager platform REST APIs."
+  }
+}
