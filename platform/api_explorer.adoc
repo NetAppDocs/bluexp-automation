@@ -45,16 +45,16 @@ The following steps provide an example of how to use the API Explorer to issue a
 
 .	Click *Try it out* to open the API Explorer panel on the right side of the page.
 +
-image:api1.png[Summarizes a typical Cloud Manager deployment.]
+image:api1.png[Open API explorer]
 
 .	Click *Sign in* which redirects the browser to the NetApp Cloud Central login page.
 +
-image:api2.png[Summarizes a typical Cloud Manager deployment.]
+image:api2.png[Redirect the browser to NetApp Cloud central login page]
 .	Enter your credentials, including the email address and password, and click *Login*.
 +
 TIP: Use your single sign-on account for federated login.
 +
-image:api3.png[Summarizes a typical Cloud Manager deployment.]
+image:api3.png[Provide appropriate credentials]
 +
 After successful authentication, you are redirected back to the *Try this API* panel.
 
@@ -63,10 +63,10 @@ After successful authentication, you are redirected back to the *Try this API* p
 NOTE: Refer to the parameter descriptions on the corresponding endpoint documentation page as needed.
 
 +
-image:api4.png[Summarizes a typical Cloud Manager deployment.]
+image:api4.png[Provide the data in the metadata field]
 .	After you've entered all the parameters, click *Submit* to execute the API call .
 
 .Result
 At the bottom of the API Explorer panel, the equivalent curl command needed to execute the API call is displayed in the _Code_ section along with the actual response in JSON format.
 
-image:api5.png[Summarizes a typical Cloud Manager deployment.]
+image:api5.png[Displays resultant output]
