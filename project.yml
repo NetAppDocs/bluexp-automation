@@ -19,6 +19,7 @@ sidebar:
     - section: workflows
     - section: api-cm
     - section: audit
+    - section: cbs
     - section: persistence
     - section: tenancy
     - section: automate
