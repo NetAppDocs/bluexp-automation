@@ -60,6 +60,7 @@ This section describes existing data format definitions.
 |aggregateName|Aggregate name|true|string|
 |numOfDisks|Number of disks relevant to the action|true|integer (int32)|
 |totalCapacity|The total capacity relevant to the action|true|<<Capacity>>|
+|evCapacityDetails|EV capacity details to the action|false|<<ElasticVolumeQuoteInfo>>|
 |volumeNames|A limited list of volumes on the aggregate|true|string array|
 |maxCapacity|The maximum capacity of the Cloud Volumes ONTAP instance|true|<<Capacity>>|
 |licenseExpiryDate|License expiry date|true|integer (int64)|
@@ -81,6 +82,13 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |newRegions||true|<<Region>> array|
+|===
+
+=== AddCapacityToEvAggregateRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|capacityToAdd|Capacity To Add To The Aggregate|true|<<Capacity>>|
 |===
 
 === AddDisksToAggregateRequest
@@ -136,6 +144,7 @@ This section describes existing data format definitions.
 |capacityTierUsed|Object store used|false|<<Capacity>>|
 |sidlEnabled|SIDL enabled|true|boolean|
 |snaplockType|Snaplock type|true|enum (non_snaplock,  compliance,  enterprise)|
+|evCompatibilityType|Elastic Volume Compatibility Type|true|enum (ev,  non_ev,  ineligible)|
 |iops|Aggregate IOPS|false|integer (int32)|
 |root||true|boolean|
 |===
@@ -550,6 +559,7 @@ This section describes existing data format definitions.
 |state||true|string|
 |serialNumber||true|string|
 |availabilitySet||true|<<AzureAvailabilitySet>>|
+|availabilityZone||false|integer (int32)|
 |===
 
 === AzureHaParameters
@@ -558,7 +568,10 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |platformSerialNumberNode1||false|string|
 |platformSerialNumberNode2||false|string|
+|availabilityZoneNode1||false|integer (int32)|
+|availabilityZoneNode2||false|integer (int32)|
 |enableHttps||true|boolean|
+|multiZone||true|boolean|
 |===
 
 === AzureHaProperties
@@ -569,6 +582,7 @@ This section describes existing data format definitions.
 |haEnabledOnLbRules||true|boolean|
 |node1Info||true|<<AzureHaNodeInfo>>|
 |node2Info||true|<<AzureHaNodeInfo>>|
+|multiZone||true|boolean|
 |applicationSecurityGroupName||false|string|
 |===
 
@@ -965,6 +979,7 @@ This section describes existing data format definitions.
 |iops|Provisioned IOPS|false|integer (int32)|
 |throughput|Provisioned Throughput|false|integer (int32)|
 |newTieringPolicy|New tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
+|evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
 |===
 
 === CifsShareInfo
@@ -1231,6 +1246,7 @@ This section describes existing data format definitions.
 |ipaManualUrl||true|string|
 |certificateValidityPeriod||true|integer (int32)|
 |maxAggregateFreeSpacePercentage||true|integer (int32)|
+|maxEvAggregateFreeSpacePercentage||true|integer (int32)|
 |asupSite||true|string|
 |asupCompany||true|string|
 |maxVolumeGrowSizePercentage||true|integer (int32)|
@@ -1351,6 +1367,7 @@ This section describes existing data format definitions.
 |awsEncryptionParameters|Parameters required if using aws encryption|false|<<AwsEncryption>>|
 |haParams||true|<<HaParameters>>|
 |securityGroupId||false|string|
+|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
 |awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |optimizedNetworkUtilization|Use optimized network utilization|false|boolean|
@@ -1368,6 +1385,7 @@ This section describes existing data format definitions.
 |nssAccount|Nss Account|false|string|
 |saasSubscriptionId|SaaS Subscription ID|false|string|
 |backupVolumesToCbs|Automatically backup all volumes to S3|false|boolean|
+|disableEv|Disable Elastic Volume|false|boolean|
 |tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent,  glacier-ir)|
 |enableMonitoring|Enable monitoring|true|boolean|
 |enableServices|Enable services|false|string array|
@@ -1395,7 +1413,7 @@ This section describes existing data format definitions.
 |serialNumber||false|string|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |diskSize|Disk size|true|<<Capacity>>|
-|storageType|Storage type|true|enum (Standard_LRS,  Premium_LRS ,  StandardSSD_LRS)|
+|storageType|Storage type|true|enum (Standard_LRS,  Premium_LRS ,  StandardSSD_LRS,  Premium_ZRS)|
 |azureTags|Optionally provide up to four key-value pairs with which to tag the Resource group created by Cloud Manager|false|<<AzureTag>> array|
 |writingSpeedState|Writing speed state|false|string|
 |vsaMetadata||true|<<VsaMetadataRequest>>|
@@ -1616,6 +1634,7 @@ This section describes existing data format definitions.
 |ontapEncryptionParameters|Parameters required if using ontap encryption|false|<<OntapEncryption>>|
 |awsEncryptionParameters|Parameters required if using aws encryption|false|<<AwsEncryption>>|
 |securityGroupId||false|string|
+|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
 |vsaMetadata||true|<<VsaMetadataRequest>>|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |ebsVolumeSize|EBS volume size|true|<<Capacity>>|
@@ -1637,6 +1656,7 @@ This section describes existing data format definitions.
 |nssAccount|Nss Account|false|string|
 |saasSubscriptionId|SaaS Subscription ID|false|string|
 |backupVolumesToCbs|Automatically backup all volumes to S3|false|boolean|
+|disableEv|Disable Elastic Volume|false|boolean|
 |tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent,  glacier-ir)|
 |enableMonitoring|Enable monitoring|true|boolean|
 |enableServices|Enable services|false|string array|
@@ -1893,6 +1913,16 @@ This section describes existing data format definitions.
 |supportedVolumeTypes||true|string array|
 |supportedOccmLicenses||true|string array|
 |default||true|boolean|
+|===
+
+=== ElasticVolumeQuoteInfo
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|totalCapacityToAdd|Total Added capacity|true|<<Capacity>>|
+|addedCapacityToExistingEvDisks|Added Capacity for existing EV disks|true|<<Capacity>>|
+|newRaidForEvInfo|New raids info|true|<<RaidInfoForEvAggregate>> array|
+|totalEvDisks||true|integer (int32)|
 |===
 
 === EligibilityResponse
@@ -2462,7 +2492,6 @@ This section describes existing data format definitions.
 |supportedFeatures||true|Map[string,Map[string,<<FeatureProperties>>]]|
 |===
 
-
 === GrantPermission
 [options="header"]
 |===
@@ -2605,8 +2634,8 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyInstance||true|boolean|
 |legacyOs||true|boolean|
+|legacyInstance||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -3089,6 +3118,7 @@ This section describes existing data format definitions.
 |regions||true|Map[string,string array]|
 |servicesInformation||true|Map[string,<<ServiceInfo>>]|
 |ontapBackupTokenCreds||true|<<OntapBackupTokenCreds>>|
+|zrsRegions||true|<<Region>> array|
 |===
 
 === OccmFeaturesFlags
@@ -3127,8 +3157,8 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|inactiveDataReportingEnabled||true|boolean|
 |objectStoreAttachEligible||true|boolean|
+|inactiveDataReportingEnabled||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3157,8 +3187,10 @@ This section describes existing data format definitions.
 |clusterUuid||true|string|
 |nodeModels||true|string array|
 |lifs||true|<<LifResponse>> array|
-|aff||true|boolean|
+|aggregateCount||true|integer (int32)|
+|volumeCount||true|integer (int32)|
 |snapmirrorLicenseExists||true|boolean|
+|aff||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3280,6 +3312,8 @@ This section describes existing data format definitions.
 |userName||true|string|
 |wormEnabled||true|boolean|
 |vscanFileOperationDefaultProfile||true|string|
+|aggregateCount||true|integer (int32)|
+|volumeCount||true|integer (int32)|
 |spaceReportingLogical||true|boolean|
 |keystoneSubscription||true|boolean|
 |===
@@ -3448,6 +3482,7 @@ This section describes existing data format definitions.
 |encrypted|Encrypted|true|boolean|
 |iops|Provisioned IOPS|false|integer (int32)|
 |throughput|Provisioned Throughput|false|integer (int32)|
+|instance2Id|Instance2Id|false|string|
 |===
 
 === ProviderVolumeTypeResponse
@@ -3467,6 +3502,14 @@ This section describes existing data format definitions.
 |proxyUserName||false|string|
 |proxyPassword||false|string|
 |proxyDomain||false|string|
+|===
+
+=== RaidInfoForEvAggregate
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|numOfDisks|Number of new disks needed for the raid|true|integer (int32)|
+|diskSize|Disk size|true|<<Capacity>>|
 |===
 
 === RecoverAzureHARequest
@@ -3750,8 +3793,8 @@ This section describes existing data format definitions.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|tieringTarget||true|boolean|
 |backupTarget||true|boolean|
+|tieringTarget||true|boolean|
 |===
 
 === S3BucketsSummary
@@ -4140,6 +4183,7 @@ This section describes existing data format definitions.
 |supportsMixedAggregates||true|boolean|
 |supportsTieringWithServiceAccount||true|boolean|
 |supportsGp3Disk||true|boolean|
+|supportsElasticVolumes||true|boolean|
 |===
 
 === SupportedFeaturesResponse
@@ -4511,6 +4555,7 @@ This section describes existing data format definitions.
 |newDiskTypeName|Volume's new Disk type|false|string|
 |newCapacityTier|New capacity tier|false|enum (S3,  Blob,  cloudStorage)|
 |newTieringPolicy|New tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
+|evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
 |===
 
 === VolumeQualityOfService
@@ -4573,8 +4618,8 @@ This section describes existing data format definitions.
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
 |minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
-|flexGroupVolume||true|boolean|
 |iscsiEnabled||true|boolean|
+|flexGroupVolume||true|boolean|
 |===
 
 === VolumeTags
@@ -4635,8 +4680,9 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |workingEnvironmentId||true|string|
-|numberOfDisks||true|integer (int32)|
-|diskSize||true|<<Capacity>>|
+|numberOfDisks||false|integer (int32)|
+|diskSize||false|<<Capacity>>|
+|initialEvAggregateSize|Initial Elastic Volume Size|false|<<Capacity>>|
 |homeNode||false|string|
 |providerVolumeType||false|string|
 |capacityTier||false|enum (S3,  Blob,  cloudStorage)|
@@ -4688,7 +4734,7 @@ This section describes existing data format definitions.
 |instanceType|Instance Type|true|string|
 |platformSerialNumber|Optional platform Serial Number|false|string|
 |providedLicense|Optional provided License|false|string|
-|capacityPackageName|Optional Capacity Based Package|false|enum (Professional,  Essential,  Freemium)|
+|capacityPackageName|Optional Capacity Based Package|false|enum (Professional,  Essential,  Freemium,  Edge,  Optimized)|
 |keyStoneSubscription|Keystone Subscription Id|false|string|
 |useLatestVersion|Use Latest Version|false|boolean|
 |===
@@ -4726,6 +4772,7 @@ This section describes existing data format definitions.
 |enableCompression|Enable compression|true|boolean|
 |enableDeduplication|Enable deduplication|true|boolean|
 |maxNumOfDisksApprovedToAdd|Maximum number of disks approved to allocate|true|integer (int32)|
+|evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
 |providerVolumeType|Provider volume type|false|string|
 |syncToS3|Add Cloud Sync relationship|true|boolean|
 |capacityTier|Capacity tier|false|enum (S3,  Blob,  cloudStorage)|
@@ -4787,6 +4834,7 @@ This section describes existing data format definitions.
 |aggregateName|The aggregate on which the requested volume will be created|true|string|
 |newAggregate|Is it a newly created aggregate|true|boolean|
 |autoVsaCapacityManagement|Is auto Cloud Volumes ONTAP capacity management enabled|true|boolean|
+|elasticVolumeQuoteResponse|Elastic Volume quote response|false|<<ElasticVolumeQuoteInfo>>|
 |===
 
 === VsaVolumeRequest
@@ -4798,6 +4846,7 @@ This section describes existing data format definitions.
 |destinationVolumeName|Destination volume name|true|string|
 |destinationAggregateName|Destination aggregate name|true|string|
 |numOfDisksApprovedToAdd|Maximum number of disks approved to add|true|integer (int32)|
+|evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
 |advancedMode|Use advanced allocation for destination volume|true|boolean|
 |destinationProviderVolumeType|Destination provider volume type|false|string|
 |destinationCapacityTier|Destination aggregate capacity tier|false|enum (S3,  Blob,  cloudStorage)|
