@@ -1,11 +1,11 @@
 {
   "paths": {
-    "/staging-exteranl-audit.cloudmanager.netapp.com": {
+    "/exteranl-audit.cloudmanager.netapp.com": {
       "post": {
         "x-doc": {
           "title": "Send audit information",
           "category": "Audit",
-          "filename": "post-staging-exteranl-audit.cloudmanager.netapp.com.html",
+          "filename": "post-exteranl-audit.cloudmanager.netapp.com.html",
           "explorer": false
         }
       }
