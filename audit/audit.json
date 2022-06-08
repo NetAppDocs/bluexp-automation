@@ -27,11 +27,11 @@
       },
       "def-1": {
         "title": "AuditGroup",
-        "description": "Audit Group Payload.",
+        "description": "Audit group payload.",
         "type": "object",
         "properties": {
           "accountId": {
-            "description": "The Cloud Manager account Id",
+            "description": "The Cloud Manager account ID",
             "type": "string"
           },
           "startTime": {
@@ -49,11 +49,11 @@
             "type": "string"
           },
           "userId": {
-            "description": "The principal Id. Here principal means the user who is performing the action",
+            "description": "The principal ID. Here principal means the user who is performing the action",
             "type": "string"
           },
           "systemId": {
-            "description": "The system Id",
+            "description": "The system ID",
             "type": "string"
           },
           "status": {
@@ -61,7 +61,7 @@
             "type": "string"
           },
           "requstId": {
-            "description": "The request Id",
+            "description": "The request ID",
             "type": "string"
           },
           "serviceName": {
@@ -97,11 +97,11 @@
             "type": "string"
           },
           "workspaceId": {
-            "description": "The workspace Id",
+            "description": "The workspace ID",
             "type": "string"
           },
           "agentId": {
-            "description": "The connector Id",
+            "description": "The Connector ID",
             "type": "string"
           },
           "agentName": {
@@ -257,7 +257,7 @@
         "tags": [
           "Audit"
         ],
-        "description": "\n<p>\nSends Audit information.\nThe Audit service uses two types of data formats: Audit Groups and Audit Records.\n</p>\n<h3>Audit Groups</h3>\n<p>\nAudit groups represent a collection of singular actions. For example, creating a Cloud Volumes ONTAP instance involves setting up the node, \nconfiguring the High Availability (HA) pair, booting the nodes, setting up licenses and services, creating aggregates, \ncreating data container volumes, and more. The process of creating the Cloud Volumes ONTAP instance is represented as an audit group.\n</p>\n<h3>Audit Records</h3>\n<p>\nThe audit record format describes individual granular operations, such node setup, HA formation, or license setup.\n</p>\n<br>\n    ",
+        "description": "\n<p>\nSends Audit information.<br>\nThe Audit service uses two types of data formats: audit groups and audit records.\n</p>\n<h3>Audit Groups</h3>\n<p>\nAudit groups represent a collection of singular actions. For example, creating a Cloud Volumes ONTAP instance involves setting up the node, \nconfiguring the high availability (HA) pair, booting the nodes, setting up licenses and services, creating aggregates, \ncreating data container volumes, and more. The process of creating the Cloud Volumes ONTAP instance is represented as an audit group.\n</p>\n<h3>Audit Records</h3>\n<p>\nThe audit record format describes individual granular operations, such as node setup, HA formation, or license setup.\n</p>\n<br>\n    ",
         "requestBody": {
           "content": {
             "application/json": {
