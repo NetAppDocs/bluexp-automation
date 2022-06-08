@@ -759,6 +759,27 @@ GET /aws/ha/aggregates
 
 * application/json
 
+==== Deletes an existing aggregate
+----
+DELETE /aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|PathParameter|aggregateName|Name of aggregate to be deleted|true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Adds disks to an existing aggregate
 ----
 POST /aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/disks
@@ -781,9 +802,9 @@ POST /aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/disks
 
 * application/json
 
-==== Deletes an existing aggregate
+==== Adds capacity to an existing elastic volume aggregate
 ----
-DELETE /aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}
+POST /aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
 ----
 
 ===== Parameters
@@ -791,7 +812,8 @@ DELETE /aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}
 |===
 |Type|Name|Description|Required|Schema|Default
 |PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
-|PathParameter|aggregateName|Name of aggregate to be deleted|true|string|
+|PathParameter|aggregateName|Name of aggregate to be updated|true|string|
+|BodyParameter|body|Add capacity to Elastic Volume Aggregate Request|true|link:../cm/api_ref_definitions.html#addcapacitytoevaggregaterequest[AddCapacityToEvAggregateRequest]|
 |===
 
 ===== Consumes
@@ -957,6 +979,34 @@ DELETE /aws/ha/encryption/{workingEnvironmentId}/key-managers/{keyManagerIp}
 * application/json
 
 === Aws-ha:metadata
+==== Retrieves packages configuration
+----
+GET /aws/ha/metadata/packages
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|deploymentModel||false|enum (multiZone)|
+|QueryParameter|capacityPackage||false|enum (optimized)|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Retrieves VPCs
 ----
 GET /aws/ha/metadata/vpcs
@@ -1112,26 +1162,6 @@ GET /aws/ha/metadata/supported-capacity-tiers
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#supportedcapacitytiers[SupportedCapacityTiers]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves packages configuration
-----
-GET /aws/ha/metadata/packages
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
 |===
 
 ===== Consumes
@@ -3579,6 +3609,61 @@ GET /azure/ha/metadata/instance-types-not-supporting-acceleration-and-capacity-t
 
 * application/json
 
+==== Retrieves supported Azure storage account types
+----
+GET /azure/ha/metadata/storage-account-types
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|isMultiZone||false|boolean|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Retrieves packages configuration
+----
+GET /azure/ha/metadata/packages
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|deploymentModel||false|enum (multiZone)|
+|QueryParameter|capacityPackage||false|enum (optimized)|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Validates the current user is subscribed to Cloud Volumes ONTAP product in Azure marketplace
 ----
 POST /azure/ha/metadata/validate-subscribed-to-ontap-cloud
@@ -3739,26 +3824,6 @@ GET /azure/ha/metadata/network-requirements
 
 * application/json
 
-==== Retrieves supported Azure storage account types
-----
-GET /azure/ha/metadata/storage-account-types
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
 ==== Retrieves supported features
 ----
 GET /azure/ha/metadata/supported-features
@@ -3780,26 +3845,6 @@ GET /azure/ha/metadata/supported-features
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#supportedfeaturesresponse[SupportedFeaturesResponse]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves packages configuration
-----
-GET /azure/ha/metadata/packages
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
 |===
 
 ===== Consumes
@@ -5623,6 +5668,34 @@ GET /azure/vsa/metadata/vaults
 
 * application/json
 
+==== Retrieves packages configuration
+----
+GET /azure/vsa/metadata/packages
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|deploymentModel||false|enum (multiZone)|
+|QueryParameter|capacityPackage||false|enum (optimized)|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Retrieves supported capacity tiers for Azure disk types.
 ----
 GET /azure/vsa/metadata/supported-capacity-tiers
@@ -5834,6 +5907,33 @@ GET /azure/vsa/metadata/permutations
 
 * application/json
 
+==== Retrieves supported Azure storage account types.
+----
+GET /azure/vsa/metadata/storage-account-types
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|isMultiZone||false|boolean|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Retrieves Azure availability zones by region.
 ----
 GET /azure/vsa/metadata/availability-zones
@@ -5882,26 +5982,6 @@ GET /azure/vsa/metadata/vnets
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#azurenetworkextendedresponse[AzureNetworkExtendedResponse]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves packages configuration
-----
-GET /azure/vsa/metadata/packages
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
 |===
 
 ===== Consumes
@@ -6030,26 +6110,6 @@ GET /azure/vsa/metadata/tag-keys
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#tagkeyresponse[TagKeyResponse] array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves supported Azure storage account types.
-----
-GET /azure/vsa/metadata/storage-account-types
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
 |===
 
 ===== Consumes
@@ -9113,6 +9173,34 @@ GET /gcp/ha/metadata/tag-keys
 
 * application/json
 
+==== Retrieves packages configuration
+----
+GET /gcp/ha/metadata/packages
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|deploymentModel||false|enum (multiZone)|
+|QueryParameter|capacityPackage||false|enum (optimized)|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Retrieves list of Service Accounts from the project
 ----
 GET /gcp/ha/metadata/service-accounts
@@ -9150,26 +9238,6 @@ GET /gcp/ha/metadata/projects
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#gcpprojectsresponse[GcpProjectsResponse]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves packages configuration
-----
-GET /gcp/ha/metadata/packages
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
 |===
 
 ===== Consumes
@@ -11206,6 +11274,34 @@ GET /gcp/vsa/metadata/gcp-disk-types
 
 * application/json
 
+==== Retrieves packages configuration
+----
+GET /gcp/vsa/metadata/packages
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|deploymentModel||false|enum (multiZone)|
+|QueryParameter|capacityPackage||false|enum (optimized)|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Retrieves GCP encryption keys for specific region.
 ----
 GET /gcp/vsa/metadata/gcp-encryption-keys
@@ -11472,26 +11568,6 @@ GET /gcp/vsa/metadata/network-requirements
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#gcpnetworkrequirementsresponse[GcpNetworkRequirementsResponse]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves packages configuration
-----
-GET /gcp/vsa/metadata/packages
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
 |===
 
 ===== Consumes
@@ -15989,6 +16065,28 @@ GET /vsa/aggregates
 
 * application/json
 
+==== Adds capacity to an existing elastic volume aggregate.Operation may only be performed on working environments whose status is: ON
+----
+POST /vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|PathParameter|aggregateName|Name of aggregate to be updated|true|string|
+|BodyParameter|body|Add capacity to Elastic Volume Aggregate Request|true|link:../cm/api_ref_definitions.html#addcapacitytoevaggregaterequest[AddCapacityToEvAggregateRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 === Vsa:discovery
 ==== Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database.
 ----
@@ -16224,6 +16322,34 @@ GET /vsa/metadata/instance-types-not-supporting-acceleration-and-capacity-tierin
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#instancetypesnotsupportingaccelerationandcapacitytieringresponse[InstanceTypesNotSupportingAccelerationAndCapacityTieringResponse]
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Retrieves packages configuration
+----
+GET /vsa/metadata/packages
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|deploymentModel||false|enum (multiZone)|
+|QueryParameter|capacityPackage||false|enum (optimized)|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
 |===
 
 ===== Consumes
@@ -16600,26 +16726,6 @@ GET /vsa/metadata/supported-capacity-tiers
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#supportedcapacitytiers[SupportedCapacityTiers]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves packages configuration
-----
-GET /vsa/metadata/packages
-----
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#packageinforesponse[PackageInfoResponse] array
 |===
 
 ===== Consumes
