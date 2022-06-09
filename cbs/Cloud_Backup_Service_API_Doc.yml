@@ -1,0 +1,4993 @@
+swagger: '2.0'
+info:
+  title: Cloud Backup Service REST API Reference
+  version: 1.0.17
+  description: >-
+    <details><summary><strong>Overview</strong></summary><p>Cloud Backup is a
+    service embedded within the Cloud Manager platform that provides backup and
+    restore capabilities for protection and long-term archiving of your data
+    residing in Cloud Volumes ONTAP and on-premises ONTAP clusters
+    (AFF/FAS/OTS). By using this service, you can automatically generate and
+    store backups in an object store in the public or private cloud account of
+    your choice, and you can easily restore data anytime and to any location, as
+    per your requirements.</p><p> There are seven categories defined within the
+    Cloud Backup service.</p><ul><li> single file-level restore (SFR)</li><li>
+    backup </li><li> restore (volume and file level restore)</li><li> working
+    environment </li><li> cloud </li><li> job </li><li> catalog </li><li>
+    license </li> </ul> <br></details><hr /> <details><summary>REST
+    implementation</summary><h3>HTTP
+    methods</h3><table><thead><tr><th>Method</th><th>Description</th></tr></thead><tbody><tr><td><code>POST</code></td><td>Create
+    an object instance</td></tr><tr><td><code>GET</code></td><td>Retrieve an
+    object instance or
+    collection</td></tr><tr><td><code>PATCH</code></td><td>Update an existing
+    object</td></tr><tr><td><code>DELETE</code></td><td>Remove an existing
+    object</td></tr></tbody></table><h3>Request
+    headers</h3><table><thead><tr><th>Request
+    Header</th><th>Description</th></tr></thead><tbody><tr><td><code>Authorization</code></td><td>Required.
+    Contains the JWT access
+    token</td></tr><tr><td><code>x-agent-id</code></td><td>Contains the Cloud
+    Manager Connector ID and can be included depending on the
+    call</td></tr></tbody></table><h3>Query parameters</h3><p>You can use query
+    parameters with endpoints in the following
+    components:</p><table><thead><tr><th>Component</th><th>Query
+    Parameter</th></tr></thead><tbody><tr><td>sfr</td><td>accountId(required)</br>volumeId</br>snapshotId</br>
+    <tbody><tr><td>backup</td><td>accountId(required)</br>workingEnvironmentId</br>volumeId</br>snapshotId</br>
+    <tbody><tr><td>restore</td><td>accountId(required)</br>
+    <tbody><tr><td>Working
+    environment</td><td>accountId(required)</br>workingEnvironmentId</br>volumeId</br>snapshotId</b>
+    <tbody><tr><td>cloud</td><td>accountId(required)</br>workingEnvironmentId</br>volumeId</br>snapshotId</b>awsAccountId</br>regionCode</br>subscriptionId</br>vaultName</br>projectId</br>jobId
+    <tbody><tr><td>license</td><td>accountId(required)</br>workingEnvironmentId</br>
+    <tbody><tr><td>catalog</td><td>accountId(required)</br>workingEnvironmentId</br>
+    <tbody><tr><td>job</td><td>accountId(required)</br>jobId
+    </td></tr><tr><td></td><td></td></tr></tbody></table><h3>Response
+    headers</h3><p>This API uses the standard HTTP response headers common with
+    all Cloud Manager APIs. See <a
+    href="https://docs.netapp.com/us-en/cloud-manager-automation/platform/rest_implementation.html">REST
+    implementation</a> for more information.</p><h3>HTTP status
+    codes</h3><table><thead><tr><th>HTTP Status
+    Code</th><th>Description</th></tr></thead><tbody><tr><td><code>200</code></td><td>OK:Returned
+    for successful operation
+    completion</td></tr><tr><td><code>400</code></td><td>Bad Request:Returned if
+    the input is malformed and could not be
+    parsed</td></tr><tr><td><code>401</code></td><td>Unauthorized:Returned if
+    user authentication failed or the token has
+    expired</td></tr><tr><td><code>403</code></td><td>Forbidden:Returned for
+    authorization errors depending on the resource and
+    token</td></tr></tbody></table></details><hr /> <details><summary>Error
+    handling</summary><p>There are three processes involved with error handling
+    and processing.</p><ul><li>The error is logged for
+    supportability</li><li>The error is also returned to the caller for any
+    specific handling</li></ul></details><hr /> <details><summary>cURL
+    examples</summary><h3>Retrieve resources for a specified account</h3><p>This
+    example retrieves the resources for a specified account.</p><pre><code
+    class="language-bash">curl -X GET
+    &quot;https://cloudmanager.cloud.netapp.com/account/(account_id)/providers/cloudmanager_cbs/api/v1/backup/working-environment/(working_environment_id)/volume/(volume_id)&quot;
+    -H &quot;accept: application/json&quot; -H &quot;authorization: (user
+    token)&quot; </code></pre></details><hr /> <details><summary>Frequently
+    asked questions</summary><p><strong>There are multiple versions of the same
+    command. Which version should I use?</strong></p><p>If there are multiple
+    versions of the same API endpoint, make sure to use the latest version of
+    the API. The version of each endpoint is mentioned in the path.
+    </p><p><strong>What’s the difference between user token and service token
+    and why do we need two types of token authorization ?</strong></p><p>A user
+    token is used for communication between a user (or the UI) and the Cloud
+    Manager REST APIs, whereas the service token is used for communication
+    between two services (machine-to-machine interaction) in the Cloud Manager
+    platform. The type of token required to invoke an API is documented in the
+    description of each endpoint.</p><p><strong>What is difference between SFR
+    Cloud Backup APIs and Catalog Cloud Backup APIs?</strong></p><p>The SFR
+    Cloud Backup APIs provide the option to use the "Browse and Restore" feature
+    while performing a volume level or single/multiple files restore operation
+    from backups stored on the cloud. To restore individual files to on-premises
+    ONTAP or Cloud Volumes ONTAP by using this feature, in addition to Cloud
+    Manager Connector, a cloud restore instance must be deployed by Cloud
+    Manager on the same subnet. The Catalog Cloud Backup APIs have introduced a
+    new "Search and Restore" feature, which enables you to search for a specific
+    file from all backups stored on Amazon S3 cloud storage and then perform a
+    restore operation. It enables you to perform a quick and focused search for
+    files across all the backups in the cloud and gives you the option to narrow
+    down the searches by using multiple search criteria. </p></details> <br><br>
+definitions:
+  Authorization:
+    type: object
+    required:
+      - authorization
+    properties:
+      authorization:
+        type: string
+        description: Authorization JWT Service Token
+      X-Service-Request-Id:
+        type: string
+        description: Request identifier
+  AuthorizationUser:
+    type: object
+    required:
+      - authorization
+    properties:
+      authorization:
+        type: string
+        description: Authorization JWT User Token
+      X-Service-Request-Id:
+        type: string
+        description: Request identifier
+  Error:
+    type: object
+    description: Error response
+    properties:
+      error:
+        type: string
+        description: Error code/category
+      message:
+        type: string
+        description: Error description message
+paths:
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/volume/{volumeId}/file-explore/start:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Starts a file explore
+        operation while initiating a single file restore (SFR) operation. This
+        API endpoint implements single or multiple file restore operations that
+        work on "default" and "compliance" integration modes. This API endpoint
+        is currently supported on Cloud Volumes ONTAP on Amazon Web Service
+        (AWS), Cloud Volumes ONTAP on Azure, and on-premises ONTAP systems. It
+        supports retrieving files from AWS, Azure, and StorageGRID cloud storage
+        providers. The API endpoint initiates the deployment of the additional
+        cloud restore instance. It initiates a cloud formation template in AWS
+        or resource operation template in Azure, depending on the cloud
+        provider. If the cloud restore instance is already deployed and offline,
+        the endpoint restarts the cloud restore
+        instance.</p><p><strong>Authentication</strong></span></p><p>User
+        Token.</p>
+      tags:
+        - SFR
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/volume/{volumeId}/file-explore/status:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Returns the file explore
+        status when you initiate a single or multiple file restore operation.
+        This API endpoint also returns the deployment status of an Active Data
+        Connector (ADC) container on the cloud restore instance during the
+        restore process and the overall status of the file listing
+        operation.</p><p><strong>Authentication </strong></span></p><p>User
+        Token </p>
+      tags: &ref_0
+        - SFR
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              status:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/sfr/volume/{volumeId}/file-explore/status:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Returns the file explore
+        status when you initiate a single or multiple file restore operation.
+        This API endpoint also returns the deployment status of an Active Data
+        Connector (ADC) container on the cloud restore instance during the
+        restore process and the overall status of the file listing
+        operation.</p><p><strong>Authentication </strong></span></p><p>User
+        Token </p>
+      tags: *ref_0
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              status:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/volume/{volumeId}/snapshot/{snapshotId}/file-explore/list:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of the
+        files contained in the specified volume Snapshot copy for a single or
+        multiple file restore operation. The volume Snapshot copy is mounted on
+        the cloud restore instance to create a file catalog for the "Browse and
+        Restore" option.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - SFR
+      parameters:
+        - type: string
+          description: Path of files to browse
+          required: false
+          in: query
+          name: path
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - type: string
+          description: Snapshot ID
+          required: true
+          in: path
+          name: snapshotId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              context:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    inode:
+                      type: number
+                    name:
+                      type: string
+                    path:
+                      type: string
+                    type:
+                      type: string
+                    size:
+                      type: number
+                    mtime:
+                      type: number
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/sfr/volume/{volumeId}/snapshot/{snapshotId}/file-explore/list:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of the
+        files within a specified volume Snapshot copy in a paginated fashion
+        during a single or multiple file restore operation (V2 version of the
+        file-explore/list API). You can pass the number of pages and the limit
+        of the number of files that the API endpoint should retrieve while
+        fetching the details in a paginated format. The volume Snapshot copy is
+        mounted on the cloud restore instance to create a file catalog for the
+        "Browse and Restore"
+        option.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - SFR
+      parameters:
+        - type: string
+          description: Path of files to browse
+          required: false
+          in: query
+          name: path
+        - type: number
+          description: Number of the page
+          required: false
+          in: query
+          name: page
+        - type: number
+          description: Limit of files
+          required: false
+          in: query
+          name: limit
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - type: string
+          description: Snapshot ID
+          required: true
+          in: path
+          name: snapshotId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              pageConfig:
+                type: object
+                properties:
+                  next:
+                    type: object
+                    properties:
+                      page:
+                        type: number
+                        description: Next Page number
+                      limit:
+                        type: number
+                        description: Limit of files
+                  previous:
+                    type: object
+                    properties:
+                      page:
+                        type: number
+                        description: Previous Page number
+                      limit:
+                        type: number
+                        description: Limit of files
+                  startIndex:
+                    type: number
+                    description: Starting index of file list
+                  endIndex:
+                    type: number
+                    description: Ending index of file list
+              context:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    inode:
+                      type: number
+                    name:
+                      type: string
+                    path:
+                      type: string
+                    type:
+                      type: string
+                    size:
+                      type: number
+                    mtime:
+                      type: number
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/volume/{volumeId}/backup/export:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Exports filesystem from the
+        volume on to the Cloud Restore instance to browse the files for a
+        single/multiple file restores. This API verifies if ADC container is
+        deployed and makes sure that it creates a file catalog for the Browse
+        and Restore option by exporting the
+        filesystem.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - SFR
+      parameters:
+        - type: string
+          description: Integration mode
+          required: false
+          in: query
+          name: mode
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              client-ip:
+                type: string
+            required:
+              - client-ip
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              export-path:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/backup/export:
+    delete:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Unexports a filesystem from
+        the cloud restore instance that was mounted to browse the files from a
+        volume for a single or multiple file-restore operation. This API
+        endpoint is called to remove the data fetched during an export after
+        completing a single or multiple
+        file-restore.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - SFR
+      parameters:
+        - type: string
+          description: Integration mode
+          required: false
+          in: query
+          name: mode
+        - type: string
+          description: Client IP
+          required: true
+          in: query
+          name: client-ip
+        - type: string
+          description: Export Path
+          required: true
+          in: query
+          name: export-path
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves the details of
+        the working environments that are backed up by using Cloud Backup
+        service within an account. This endpoint is routed through the SaaS
+        interface to retrieve the details of a working
+        environment.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              working-environment:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    region:
+                      type: string
+                    status:
+                      type: string
+                    ontap-version:
+                      type: string
+                    backup-enablement-status:
+                      type: string
+                    type:
+                      type: string
+                    provider:
+                      type: string
+                    provider-account-id:
+                      type: string
+                    provider-account-name:
+                      type: string
+                    bucket:
+                      type: string
+                    archive-storage-class:
+                      type: string
+                    resource-group:
+                      type: string
+                    storage-account:
+                      type: string
+                    storage-server:
+                      type: string
+                    used-capacity-gb:
+                      type: string
+                    charging-capacity:
+                      type: string
+                    logical-used-size:
+                      type: string
+                    backed-up-volume-count:
+                      type: string
+                    total-volumes-count:
+                      type: string
+                    backup-policy-count:
+                      type: string
+                    failed-backup-volume-count:
+                      type: string
+                    catalog-enabled:
+                      type: boolean
+                    auto-backup-enabled:
+                      type: boolean
+                    backup-policy:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        rule:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              retention:
+                                type: string
+                        archive-after-days:
+                          type: string
+                    private-endpoint-required:
+                      type: boolean
+                    license:
+                      type: object
+                      properties:
+                        free-trial-end:
+                          type: number
+                        eligible:
+                          type: boolean
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment/{workingEnvironmentId}:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves the details of a
+        specific working environment backed up by using Cloud Backup service
+        within an account. This API endpoint is routed through the SaaS
+        interface to retrieve the details of a working
+        environment.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              region:
+                type: string
+              status:
+                type: string
+              ontap-version:
+                type: string
+              backup-enablement-status:
+                type: string
+              type:
+                type: string
+              provider:
+                type: string
+              provider-account-id:
+                type: string
+              provider-account-name:
+                type: string
+              bucket:
+                type: string
+              archive-storage-class:
+                type: string
+              resource-group:
+                type: string
+              storage-account:
+                type: string
+              storage-server:
+                type: string
+              used-capacity-gb:
+                type: string
+              charging-capacity:
+                type: string
+              logical-used-size:
+                type: string
+              backed-up-volume-count:
+                type: string
+              total-volumes-count:
+                type: string
+              backup-policy-count:
+                type: string
+              failed-backup-volume-count:
+                type: string
+              catalog-enabled:
+                type: boolean
+              auto-backup-enabled:
+                type: boolean
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+              private-endpoint-required:
+                type: boolean
+              license:
+                type: object
+                properties:
+                  free-trial-end:
+                    type: number
+                  eligible:
+                    type: boolean
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Enables the Cloud Backup
+        service for a particular working environment. The API endpoint enables
+        the Cloud Backup service on Cloud Volumes ONTAP on AWS, Azure, Google
+        Cloud, and on-premises ONTAP systems. It checks and retrieves the
+        storage account details that have been created for a specified account
+        of the selected cloud provider. If a S3 object store storage bucket does
+        not exist, it will create a bucket. It then configures the object store
+        in ONTAP and also creates a SnapMirror policy, if the chosen SnapMirror
+        policy does not
+        exist.</p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              account-id:
+                type: string
+                description: required when the provider is AWS for On-premises usecase
+              resource-group:
+                type: string
+                description: required when the provider is Azure for On-premises usecase
+              storage-account:
+                type: string
+                description: required when the provider is Azure for On-premises usecase
+              subscription:
+                type: string
+                description: required when the provider is Azure for On-premises usecase
+              project-id:
+                type: string
+                description: >-
+                  required when the provider is Google Cloud for On-premises
+                  usecase
+              bucket:
+                type: string
+                description: Required input field for On-premises
+              region:
+                type: string
+                description: Required input field for On-premises
+              provider:
+                type: string
+                description: Required input field for On-premises usecase
+                enum:
+                  - AWS
+                  - AZURE
+                  - GCP
+                  - SGWS
+              storage-server:
+                type: string
+                description: >-
+                  Storage Grid server URL.Required input field in case of
+                  SGWS(storage grid) provider
+              ip-space:
+                type: string
+                description: Required input field for On-premises usecase
+              access-key:
+                type: string
+                description: Required input field for On-premises usecase
+              secret-password:
+                type: string
+                description: Required input field for On-premises usecase
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Required input
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              state:
+                type: string
+    put:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Modifies the Cloud Backup
+        service for a working environment. You can modify the state and backup
+        policy name.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              state:
+                type: string
+                description: >-
+                  Modifes all the SnapMirror relationships state in the working
+                  envrionment to the state specified
+                enum:
+                  - ENABLE
+                  - DISABLE
+              backup-policy-name:
+                type: string
+                description: Policy name of the existing policy
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID of the source CVO
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+    delete:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Unregisters a  working
+        environment. You can remove the Cloud Backup service from a working
+        environment. Note that before you unregister, make sure you delete all
+        backups and disable the Cloud Backup service on a working environment.
+        This action will also delete the backup
+        folder.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment/{workingEnvironmentId}/status:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves the backup status
+        of a specified working environment backed up by using the Cloud Backup
+        service within an account. This API endpoint is routed through the Cloud
+        Manager SaaS interface to retrieve the details of a working
+        environment.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              region:
+                type: string
+              status:
+                type: string
+              ontap-version:
+                type: string
+              backup-enablement-status:
+                type: string
+              type:
+                type: string
+              provider:
+                type: string
+              provider-account-id:
+                type: string
+              provider-account-name:
+                type: string
+              bucket:
+                type: string
+              archive-storage-class:
+                type: string
+              resource-group:
+                type: string
+              storage-account:
+                type: string
+              storage-server:
+                type: string
+              used-capacity-gb:
+                type: string
+              charging-capacity:
+                type: string
+              logical-used-size:
+                type: string
+              backed-up-volume-count:
+                type: string
+              total-volumes-count:
+                type: string
+              backup-policy-count:
+                type: string
+              failed-backup-volume-count:
+                type: string
+              catalog-enabled:
+                type: boolean
+              auto-backup-enabled:
+                type: boolean
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+              private-endpoint-required:
+                type: boolean
+              license:
+                type: object
+                properties:
+                  free-trial-end:
+                    type: number
+                  eligible:
+                    type: boolean
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/backup/working-environment/{workingEnvironmentId}:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Enables the Cloud Backup
+        service for a specified working environment synchronously (V2 version).
+        This endpoint enables the Cloud Backup service on Cloud Volumes ONTAP on
+        AWS, Azure, Google Cloud and on-premises ONTAP systems. It checks and
+        retrieves storage account details that has been created for a specified
+        account on the selected cloud provider. If an S3 object store  bucket
+        does not exist, it will create the bucket. It then configures object
+        store on ONTAP and also creates a SnapMirror policy if the chosen
+        SnapMirror policy does not
+        exist.</p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              account-id:
+                type: string
+                description: required when the provider is AWS for On-premises usecase
+              resource-group:
+                type: string
+                description: required when the provider is Azure for On-premises usecase
+              storage-account:
+                type: string
+                description: required when the provider is Azure for On-premises usecase
+              subscription:
+                type: string
+                description: required when the provider is Azure for On-premises usecase
+              project-id:
+                type: string
+                description: required when the provider is GCP for On-premises usecase
+              bucket:
+                type: string
+                description: Optional input field
+              region:
+                type: string
+                description: Required input field for On-premises
+              provider:
+                type: string
+                description: Required input field for On-premises usecase
+                enum:
+                  - AWS
+                  - AZURE
+                  - GCP
+                  - SGWS
+              storage-server:
+                type: string
+                description: >-
+                  Storage Grid server URL.Required input field in case of
+                  SGWS(storage grid) provider
+              ip-space:
+                type: string
+                description: Required input field for On-premises usecase
+              access-key:
+                type: string
+                description: Required input field for On-premises usecase
+              secret-password:
+                type: string
+                description: Required input field for On-premises usecase
+              azure-key-vault:
+                type: object
+                properties:
+                  key-vault-id:
+                    type: string
+                  key-name:
+                    type: string
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Required input
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+    put:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Modifies the Cloud Backup
+        service backup configuration for a particular working environment
+        synchronously (V2 version). You can modify the state, backup policy,
+        archive storage class, and enable auto
+        backup.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              state:
+                type: string
+                description: >-
+                  Modifes all the SnapMirror relationships state in the working
+                  envrionment to the state specified
+                enum:
+                  - ENABLE
+                  - DISABLE
+              backup-policy:
+                type: object
+                description: >-
+                  Uses an existing policy or Creates a new policy if not found
+                  in the list of ONTAP policies and modifies the backed up
+                  working environment relationships to use the existing
+                properties:
+                  name:
+                    type: string
+                    description: >-
+                      Policy name of the existing policy or any custom name with
+                      which a new policy needs to be created.If not specified, a
+                      policy with Cloud Backup Service default naming convention
+                      will be created.
+                  rule:
+                    type: array
+                    description: Specify the rules for new policy.
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+              archive-storage-class:
+                type: string
+                description: >-
+                  Required for AWS if modifying the storage class or enabling
+                  archive for the first time
+                enum:
+                  - GLACIER
+                  - DEEP_ARCHIVE
+              auto-backup-enabled:
+                type: boolean
+                description: auto backup volumes
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID of the source CVO
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v3/backup/working-environment/{workingEnvironmentId}:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Enables the Cloud Backup
+        service for a specific working environment.The V3 version of the API
+        endpoint enables the Cloud Backup service on Cloud Volumes ONTAP on AWS,
+        Azure and Google Cloud and on-premises ONTAP systems.  It checks if an
+        S3 cloud storage bucket is associated with an account. If a bucket does
+        not exist, it will create the bucket. It creates a backup folder on the
+        S3 cloud object storage bucket in the specified cloud provider or
+        StorageGRID. The ability to tier older backup files to archival storage
+        requires that the cluster is running ONTAP 9.10.1 or later version
+        (supported currently with AWS and Azure). Restoring volumes from backup
+        objects that reside in archival storage also requires that the
+        destination cluster is running ONTAP 9.10.1 or later  
+        version.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              provider:
+                type: string
+                description: Required input field for On-premises usecase
+                enum:
+                  - AWS
+                  - AZURE
+                  - GCP
+                  - SGWS
+              region:
+                type: string
+                description: Required input field for On-premises
+              aws:
+                type: object
+                properties:
+                  account-id:
+                    type: string
+                    description: Required when the provider is AWS
+                  access-key:
+                    type: string
+                    description: Required input field for On-premises usecase
+                  secret-password:
+                    type: string
+                    description: Required input field for On-premises usecase
+                  kms-key-id:
+                    type: string
+                    description: Optional input field for customer managed key usecase
+                  private-endpoint:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: optional input field for private endpoint
+                  archive-storage-class:
+                    type: string
+                    description: >-
+                      Required for AWS to specify which storage class to be used
+                      for archival
+                    enum:
+                      - GLACIER
+                      - DEEP_ARCHIVE
+              azure:
+                type: object
+                properties:
+                  resource-group:
+                    type: string
+                    description: required when the provider is Azure
+                  storage-account:
+                    type: string
+                    description: required when the provider is Azure
+                  subscription:
+                    type: string
+                    description: required when the provider is Azure
+                  private-endpoint:
+                    type: object
+                    description: >-
+                      Required input field for On-premises usecase for private
+                      link configuration
+                    properties:
+                      subnet:
+                        type: string
+                        description: >-
+                          Required input field for On-premises private link
+                          configuration
+                  key-vault:
+                    type: object
+                    properties:
+                      key-vault-id:
+                        type: string
+                      key-name:
+                        type: string
+              gcp:
+                type: object
+                properties:
+                  project-id:
+                    type: string
+                    description: required when the provider is Google Cloud
+                  access-key:
+                    type: string
+                    description: Required input field for On-premises usecase
+                  secret-password:
+                    type: string
+                    description: Required input field for On-premises usecase
+              sgws:
+                type: object
+                properties:
+                  storage-server:
+                    type: string
+                    description: >-
+                      Storage Grid server URL.Required input field in case of
+                      SGWS(storage grid) provider
+                  access-key:
+                    type: string
+                    description: Required input field for On-premises usecase
+                  secret-password:
+                    type: string
+                    description: Required input field for On-premises usecase
+              bucket:
+                type: string
+                description: Optional input
+              ip-space:
+                type: string
+                description: Required input field for On-premises usecase
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Required input
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+              auto-backup-enabled:
+                type: boolean
+                description: auto backup volumes
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment/{workingEnvironmentId}/volume/{volumeId}:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Enables backup for a
+        specified volume. Backup is not allowed for volume enabled with SnapLock
+        license (WORM license). You can configure optional backup modes. The
+        AD_HOC mode creates an ad-hoc Snapshot copy and creates a backup on the
+        respective cloud. SCHEDULED mode (default mode) creates Snapshot copy as
+        per ONTAP snapshot policy and creates a backup to the cloud as per the
+        backup policy. Based on the defined backup policy, the API endpoint will
+        create a SnapMirror to Cloud relationship with the the specific cloud
+        object storage.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              mode:
+                type: string
+                description: >-
+                  AD_HOC mode creates a ad-hoc snapshot and backs it up on the
+                  respective cloud. SCHEDULED mode creates snapshots as per
+                  ONTAP snapshot policy and backs it up to the cloud as per the
+                  backup policy. [Deprecated] IMMEDIATE mode designed for
+                  internal usecase and not to be used for newer integrations
+                enum:
+                  - AD_HOC
+                  - SCHEDULED
+                  - IMMEDIATE
+              backup-policy-name:
+                type: string
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              state:
+                type: string
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves information of a
+        specified volume backed up by using the Cloud Backup Service. It
+        retrieves the details of the volume from the Cloud Manager SaaS
+        application. It retrieves backup status, relationship policy name, and
+        details.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              file-system-id:
+                type: string
+              name:
+                type: string
+              protocol:
+                type: string
+              svm:
+                type: string
+              status:
+                type: string
+              backup-status:
+                type: string
+              last-backup-creation-time:
+                type: number
+              snapshot-count:
+                type: string
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+              lag:
+                type: string
+              capacity:
+                type: object
+                properties:
+                  allocated:
+                    type: string
+                  used:
+                    type: string
+                  charging:
+                    type: string
+                  logicalUsedSize:
+                    type: string
+              type:
+                type: string
+    put:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Modifies a specified
+        backed up volume. You can use this API endpoint to modify the volume
+        state, backup policy, backup policy rule-retention and
+        archive-after-days parameters.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              state:
+                type: string
+                enum:
+                  - PAUSE
+                  - RESUME
+                  - DELETE
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              state:
+                type: string
+    delete:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Removes the backup
+        settings on a specified backed up volume. To remove the backup from the
+        volume, the Snapshot copies taken for the volume must be deleted.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/backup/working-environment/{workingEnvironmentId}/volume/{volumeId}:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Enables backup for a
+        specified volume (version 2). Backup is not allowed for a volume enabled
+        with a SnapLock license (WORM license). You can configure the different
+        backup modes. The AD_HOC mode creates an on-demand Snapshot copy and
+        stores a backup on the respective cloud. SCHEDULED mode (default mode)
+        creates Snapshot copies as per ONTAP Snapshot copy policy and stores a
+        backup to the cloud as per the backup policy. Based on the defined
+        backup policy, this API endpoint creates a SnapMirror to cloud
+        relationship with a specific cloud object storage system.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              mode:
+                type: string
+                description: >-
+                  AD_HOC mode creates a ad-hoc Snapshot copy and backs it up on
+                  the respective cloud. SCHEDULED mode creates Snapshot copy as
+                  per ONTAP snapshot policy and backs it up to the cloud as per
+                  the backup policy. [Deprecated] IMMEDIATE mode designed for
+                  internal usecase and not to be used for newer integrations
+                enum:
+                  - AD_HOC
+                  - SCHEDULED
+                  - IMMEDIATE
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Required input
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              state:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v3/backup/working-environment/{workingEnvironmentId}/volume/{volumeId}:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Enables backup for a
+        specified volume (version 3). This version of the endpoint runs the job
+        asynchronously. Backup is not allowed for a volume enabled with a
+        SnapLock license (WORM license). You can configure the different backup
+        modes. The AD_HOC mode creates an on-demand Snapshot copy and stores a
+        backup on the respective cloud. SCHEDULED mode (default mode) creates
+        Snapshot copies as per ONTAP Snapshot copy policy and stores a backup to
+        the cloud as per the backup policy. Based on the defined backup policy,
+        this API endpoint creates a SnapMirror to cloud relationship with a
+        specific cloud object storage system.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              mode:
+                type: string
+                description: >-
+                  AD_HOC mode creates a on-demand Snapshot copy and backs it up
+                  on the respective cloud. SCHEDULED mode creates Snapshot
+                  copies as per ONTAP snapshot policy and backs it up to the
+                  cloud as per the backup policy. [Deprecated] IMMEDIATE mode
+                  designed for internal usecase and not to be used for newer
+                  integrations
+                enum:
+                  - AD_HOC
+                  - SCHEDULED
+                  - IMMEDIATE
+              backup-policy:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Required input
+                  rule:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        retention:
+                          type: string
+                  archive-after-days:
+                    type: string
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment/{workingEnvironmentId}/volume:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p> Retrieves details of all the
+        volumes for a specified working environment backed up by using the Cloud
+        Backup service. It retrieves the volume name, volume type, protocol,
+        Storage VM, backup status, last backup creation time, Snapshot count,
+        associated backup policy and backup policy rules.</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              volume:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    file-system-id:
+                      type: string
+                    name:
+                      type: string
+                    type:
+                      type: string
+                    protocol:
+                      type: string
+                    svm:
+                      type: string
+                    status:
+                      type: string
+                    backup-status:
+                      type: string
+                    last-backup-creation-time:
+                      type: number
+                    snapshot-count:
+                      type: string
+                    backup-policy:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        rule:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              retention:
+                                type: string
+                        archive-after-days:
+                          type: string
+                    lag:
+                      type: string
+                    capacity:
+                      type: object
+                      properties:
+                        allocated:
+                          type: string
+                        used:
+                          type: string
+                        charging:
+                          type: string
+                        logicalUsedSize:
+                          type: string
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Enables the backup of
+        multiple volumes. Backup is not allowed for a volume enabled with a
+        NetApp SnapLock license (WORM license). You can configure the different
+        optional backup modes. The AD_HOC mode creates an on-demand  Snapshot
+        copy and stores a backup on the respective cloud object storage.
+        SCHEDULED mode (default mode) creates Snapshot copy as per ONTAP
+        Snapshot policy and stores a backup on the cloud as per the backup
+        policy. Based on the defined backup policy, this API endpoint creates a
+        SnapMirror to cloud relationship with a specific cloud object storage
+        system. </p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              volume:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    file-system-id:
+                      type: string
+                    mode:
+                      type: string
+                      enum:
+                        - IMMEDIATE
+                        - SCHEDULED
+                    backup-policy-name:
+                      type: string
+                  required:
+                    - file-system-id
+            required:
+              - volume
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+    put:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Modifies multiple backed-up
+        volumes in a specific working environment. This API endpoint modifies
+        the volume state, backup-policy, backup policy rule and retention, and
+        archive-after-days
+        parameters.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              volume:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    state:
+                      type: string
+                      enum:
+                        - PAUSE
+                        - RESUME
+                        - DELETE
+                    file-system-id:
+                      type: string
+                    backup-policy:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        rule:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              retention:
+                                type: string
+                        archive-after-days:
+                          type: string
+                  required:
+                    - file-system-id
+            required:
+              - volume
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/backup/working-environment/{workingEnvironmentId}/volume:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Enables backup for
+        multiple volumes (version 2). Backup is not allowed for a volume enabled
+        with a SnapLock license (WORM license). You can configure the different
+        backup modes. The AD_HOC mode creates an on-demand Snapshot copy and
+        stores a backup on the respective cloud. SCHEDULED mode (default mode)
+        creates Snapshot copies as per the ONTAP Snapshot policy and stores a
+        backup to the cloud as per the backup policy. Based on the defined
+        backup policy, this API endpoint creates a SnapMirror to cloud
+        relationship with a cloud object storage
+        system.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              volume:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    volume-id:
+                      type: string
+                    mode:
+                      type: string
+                      enum:
+                        - SCHEDULED
+                        - AD_HOC
+                    backup-policy:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Required input
+                        rule:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              retention:
+                                type: string
+                        archive-after-days:
+                          type: string
+                  required:
+                    - volume-id
+            required:
+              - volume
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment/{workingEnvironmentId}/volume/{volumeId}/snapshot/{snapshotId}:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves information of a
+        Snapshot copy for a specified volume backed up by using the Cloud Backup
+        service for a working environment. This API endpoint retrieves the
+        details of the volume snapshots from the Cloud manager SaaS application.
+        It retrieves the Snapshot name, Snapshot creation time, archive status,
+        and size.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - type: string
+          description: Snapshot ID
+          required: true
+          in: path
+          name: snapshotId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              creation-time:
+                type: number
+              archived:
+                type: boolean
+              size:
+                type: number
+    delete:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Deletes a specified
+        snapshot for a specified volume backed up by using the Cloud Backup
+        service for a working environment.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - type: string
+          description: Snapshot ID
+          required: true
+          in: path
+          name: snapshotId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              state:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/backup/working-environment/{workingEnvironmentId}/volume/{volumeId}/snapshot:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves snapshot
+        information for a specified volume backed up by using the Cloud Backup
+        service for a working environment. This API endpoint retrieves the
+        details of the volume snapshots from the Cloud Manager SaaS application.
+        It retrieves the Snapshot name, Snapshot creation time, archive status,
+        and size.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              snapshot:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    creation-time:
+                      type: number
+                    archived:
+                      type: boolean
+                    size:
+                      type: number
+    delete:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Deletes all the snapshots
+        for a specified volume backed up by using the Cloud Backup service for a
+        working
+        environment.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/backup/working-environment/{workingEnvironmentId}/snapshot:
+    delete:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Deletes all the snapshots
+        for a specified working environment backed up by using the Cloud Backup
+        service (V2
+        version).</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Backup
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/restore:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Performs a volume-level
+        restore operation. This API endpoint validates whether a backup of a
+        volume exists. Restore is not supported on DP volumes. A restore
+        operation is not supported on a target volume with a different language
+        code than the source volume. A restore operation is not supported for
+        volumes with a size less than 1 GB. Restore is not allowed on a volume
+        enabled with a SnapLock license (WORM license). It checks whether the
+        source and target cloud provider matches. It also verifies whether the 
+        backup and restore operation is supported in the specified working
+        environments.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Restore
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              restore:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  source:
+                    type: object
+                    properties:
+                      working-environment-id:
+                        type: string
+                      working-environment-name:
+                        type: string
+                      bucket:
+                        type: string
+                      volume-name:
+                        type: string
+                      volume-id:
+                        type: string
+                      snapshot:
+                        type: string
+                    required:
+                      - working-environment-id
+                      - working-environment-name
+                      - bucket
+                      - volume-name
+                      - volume-id
+                      - snapshot
+                  target:
+                    type: object
+                    properties:
+                      working-environment-id:
+                        type: string
+                      working-environment-name:
+                        type: string
+                      svm:
+                        type: string
+                      aggregate:
+                        type: string
+                      volume-name:
+                        type: string
+                      path:
+                        type: string
+                    required:
+                      - working-environment-id
+                      - working-environment-name
+                      - svm
+                      - volume-name
+                  file:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        inode:
+                          type: number
+                        path:
+                          type: string
+                          minLength: 1
+                        type:
+                          type: string
+                        size:
+                          type: number
+                        mtime:
+                          type: number
+                      required:
+                        - inode
+                        - path
+                        - type
+                        - size
+                        - mtime
+                    minItems: 1
+                    maxItems: 8
+                required:
+                  - type
+                  - source
+                  - target
+            required:
+              - restore
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/restore:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Performs a volume-level
+        restore (version 2) operation. This API validates whether a backup of a
+        volume exists. A restore operation is not supported on DP volumes. A
+        restore operation is not supported on a target volume with a different
+        language code than the source volume. Restore operation is not supported
+        for volumes with a size less than 1 GB. A restore operation is not
+        allowed on a volume enabled with a SnapLock license (WORM license). It
+        checks whether the source and target cloud provider matches. It also
+        verifies whether the backup and restore operation is supported in the
+        working
+        environments.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Restore
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              restore:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  archive-restore-priority:
+                    type: string
+                    description: >-
+                      Required to specify the archival retrieval priority to
+                      determine the restoration time.
+                    enum:
+                      - High
+                      - Standard
+                      - Low
+                  source:
+                    type: object
+                    properties:
+                      working-environment-id:
+                        type: string
+                      working-environment-name:
+                        type: string
+                      bucket:
+                        type: string
+                      volume-name:
+                        type: string
+                      volume-id:
+                        type: string
+                      snapshot:
+                        type: string
+                    required:
+                      - working-environment-id
+                      - working-environment-name
+                      - bucket
+                      - volume-name
+                      - volume-id
+                      - snapshot
+                  target:
+                    type: object
+                    properties:
+                      working-environment-id:
+                        type: string
+                      working-environment-name:
+                        type: string
+                      svm:
+                        type: string
+                      aggregate:
+                        type: string
+                      volume-name:
+                        type: string
+                      path:
+                        type: string
+                    required:
+                      - working-environment-id
+                      - working-environment-name
+                      - svm
+                      - volume-name
+                  file:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        inode:
+                          type: number
+                        path:
+                          type: string
+                          minLength: 1
+                        type:
+                          type: string
+                        size:
+                          type: number
+                        mtime:
+                          type: number
+                      required:
+                        - inode
+                        - path
+                        - type
+                        - size
+                        - mtime
+                    minItems: 1
+                required:
+                  - type
+                  - source
+                  - target
+            required:
+              - restore
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/restore/status:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves the status of
+        the volume-level restore operation. This API endpoint tracks the restore
+        job and retrieves the job status, error, time, and details of the
+        restore job.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Restore
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    status:
+                      type: string
+                    error:
+                      type: string
+                    time:
+                      type: number
+                    data:
+                      type: object
+                      properties:
+                        restore:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            source:
+                              type: object
+                              properties:
+                                working-environment-id:
+                                  type: string
+                                working-environment-name:
+                                  type: string
+                                bucket:
+                                  type: string
+                                volume-id:
+                                  type: string
+                                volume-name:
+                                  type: string
+                                snapshot:
+                                  type: string
+                            target:
+                              type: object
+                              properties:
+                                working-environment-id:
+                                  type: string
+                                working-environment-name:
+                                  type: string
+                                svm:
+                                  type: string
+                                volume-name:
+                                  type: string
+                                volume-size:
+                                  type: number
+                                path:
+                                  type: string
+                            file:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  inode:
+                                    type: number
+                                  path:
+                                    type: string
+                                  type:
+                                    type: string
+                                  size:
+                                    type: number
+                                  mtime:
+                                    type: number
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/backup-policy:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves a list of ONTAP
+        backup policies associated with a working environment. You can filter
+        the policies based on the archival enablement status. This API endpoint
+        retrieves the backup-policy name, rule, attached volume count, and
+        archive-after-days
+        information.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: boolean
+          description: To filter the policies based on the archival enablement status
+          required: false
+          in: query
+          name: archived
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              backup-policy:
+                type: array
+                items:
+                  properties:
+                    name:
+                      type: string
+                    rule:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          label:
+                            type: string
+                          retention:
+                            type: string
+                    attached-volumes-count:
+                      type: string
+                    archive-after-days:
+                      type: string
+                  type: object
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Creates a backup policy in
+        a working environment. The number of retained backups can be up to a
+        maximum of 1018 when no backup policies are assigned to the volume. You
+        can edit a policy to create up to 4000 backups after you assign volumes
+        to a policy through ONTAP CLI. This API endpoint validates whether the
+        ONTAP version used by a working environment supports archiving.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              rule:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                    retention:
+                      type: string
+              archive-after-days:
+                type: string
+            required:
+              - rule
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              name:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/backup-policy/{policyName}:
+    put:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Updates a backup policy in
+        a working environment. This API endpoint modifies the rule, label-rule,
+        retention, and archive-after-days information. 
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              rule:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                    retention:
+                      type: string
+              archive-after-days:
+                type: string
+                description: >-
+                  Archive after days value to which the policy will be modified.
+                  "never" implies removal of archive-after-days property from a
+                  backup policy
+            required:
+              - rule
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: Backup Policy Name
+          required: true
+          in: path
+          name: policyName
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              name:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/ip-space:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves a list of IP
+        spaces within a specified working
+        environment.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              ip-space:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves a list of
+        working environments and their details. This API endpoint retrieves the
+        name, region, status, type, cloud-provider, provider-accountId,
+        ontap-version, and total-volumes-count
+        information.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              working-environment:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    cluster-uuid:
+                      type: string
+                    name:
+                      type: string
+                    region:
+                      type: string
+                    status:
+                      type: string
+                    ontap-version:
+                      type: string
+                    type:
+                      type: string
+                    provider:
+                      type: string
+                    provider-account-id:
+                      type: string
+                      description: AWS account ID/ Azure subscription ID / GCP project ID
+                    total-volumes-count:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves the details of a
+        specific working environment. This API endpoint retrieves the name,
+        region, status, type, cloud-provider, provider-accountId, ontap-version,
+        and total-volumes-count of a specific working
+        environment.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              id:
+                type: string
+              cluster-uuid:
+                type: string
+              name:
+                type: string
+              region:
+                type: string
+              status:
+                type: string
+              ontap-version:
+                type: string
+              type:
+                type: string
+              provider:
+                type: string
+              provider-account-id:
+                type: string
+                description: AWS account ID/ Azure subscription ID / GCP project ID
+              total-volumes-count:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/svm:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves a list of
+        Storage VMs and their details from a specific working environment. This
+        API retrieves the ID, name, and aggregate list that belongs to an
+        Storage  VM.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              svm:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    aggregate:
+                      type: array
+                      items:
+                        type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/volume:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Retrieves a list of
+        volumes and their details from a specific working environment. This API
+        endpoint retrieves the name, file-system-id, status , Storage VM, type,
+        style, capacity allocated , capacity used, and SnapMirror label
+        information.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              volume:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    file-system-id:
+                      type: string
+                    status:
+                      type: string
+                    svm:
+                      type: string
+                    type:
+                      type: string
+                    style:
+                      type: string
+                    capacity:
+                      type: object
+                      properties:
+                        allocated:
+                          type: number
+                        used:
+                          type: number
+                        logicalUsedByAfs:
+                          type: number
+                    snapmirror-label:
+                      type: array
+                      items:
+                        type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/configure-object-store:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Configures object storage.
+        Verifies whether a private endpoint is enabled and a certificate is
+        installed. This API endpoint is called if no object stores are found
+        when Cloud Backup service is
+        enabled.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              cloud-provider:
+                type: string
+              object-store-name:
+                type: string
+              ip-space:
+                type: string
+              access-key:
+                type: string
+              secret-password:
+                type: string
+              storage-server:
+                type: string
+              region:
+                type: string
+              account-id:
+                type: string
+              subscription:
+                type: string
+            required:
+              - cloud-provider
+              - object-store-name
+        - type: string
+          description: Account id
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '201':
+          description: Default Response
+          schema:
+            type: object
+  /account/{accountId}/providers/cloudmanager_cbs/api/v2/working-environment/{workingEnvironmentId}/configure-object-store:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Configures object storage.
+        This is v2 version of the object store configure API. Verifies whether a
+        private endpoint is enabled and a certificate is installed. This API
+        endpoint is called if no object stores are found when Cloud Backup
+        service is
+        enabled.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              cloud-provider:
+                type: string
+              object-store-name:
+                type: string
+              ip-space:
+                type: string
+              access-key:
+                type: string
+              secret-password:
+                type: string
+              storage-server:
+                type: string
+              region:
+                type: string
+              aws:
+                type: object
+                properties:
+                  account-id:
+                    type: string
+                    description: required when the provider is AWS
+                  private-endpoint:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: optional input field for private endpoint
+              azure:
+                type: object
+                properties:
+                  subscription:
+                    type: string
+                    description: required when the provider is Azure
+                  private-endpoint:
+                    type: object
+                    description: >-
+                      Required input field for On-premises usecase for private
+                      link configuration
+                    properties:
+                      subnet:
+                        type: string
+                        description: >-
+                          Required input field for On-premises private link
+                          configuration
+            required:
+              - cloud-provider
+              - object-store-name
+        - type: string
+          description: Account id
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job-id:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/volume/{volumeId}/list:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of working
+        environment volume directories. You can query by using target Storage VM
+        and path of directories to browse within the
+        volume.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: string
+          description: Target SVM
+          required: false
+          in: query
+          name: svm
+        - type: string
+          description: Path of directories to browse within volume
+          required: false
+          in: query
+          name: path
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - type: string
+          description: File System ID/Volume ID
+          required: true
+          in: path
+          name: volumeId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              context:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    inode:
+                      type: number
+                    name:
+                      type: string
+                    type:
+                      type: string
+                    size:
+                      type: number
+                    mtime:
+                      type: number
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/object-store-config/status:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves an object store
+        configuration status. It uses the GET /api/cloud/targets ONTAP REST APIs
+        to retrieve the
+        details.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Working Environment
+      parameters:
+        - type: string
+          required: true
+          in: query
+          name: object-store-name
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working Environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              status:
+                type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/account:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of AWS
+        accounts from the Cloud
+        Manager.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              account:
+                type: array
+                items:
+                  type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/region:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of
+        subscribed AWS regions from Cloud Manager SaaS application.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              region:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    code:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/awsAccountId/{awsAccountId}/region/{regionCode}/key:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of AWS
+        keys from a specified region that belongs to a specified AWS account ID
+        from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Region Code
+          required: true
+          in: path
+          name: regionCode
+        - type: string
+          description: AWS Account ID
+          required: true
+          in: path
+          name: awsAccountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              key:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    origin:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/awsAccountId/{awsAccountId}/region/{regionCode}/privateLink:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of AWS
+        private links from a specified region that belongs to a specified AWS
+        account ID from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Region Code
+          required: true
+          in: path
+          name: regionCode
+        - type: string
+          description: AWS Account ID
+          required: true
+          in: path
+          name: awsAccountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              privateLink:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    vpc-name:
+                      type: string
+                    vpc-id:
+                      type: string
+                    private-endpoint-id:
+                      type: string
+                    private-endpoint-name:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/aws/archival-storage-class:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of AWS
+        storage classes for archival support from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              storage-class:
+                type: array
+                items:
+                  type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/region:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of regions
+        from a specific subscription ID in Azure from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Subscription ID
+          required: true
+          in: path
+          name: subscriptionId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              region:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    code:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/resource-group:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Creates Azure resource
+        group in the specified subscription
+        ID.</p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the resource group to be created
+              region:
+                type: string
+                description: Region where resource group needs to be created
+            required:
+              - name
+              - region
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Subscription ID
+          required: true
+          in: path
+          name: subscriptionId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              state:
+                type: string
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of Azure
+        resource groups from a specific subscription ID in Azure from the Cloud
+        Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Region
+          required: false
+          in: query
+          name: region
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Subscription ID
+          required: true
+          in: path
+          name: subscriptionId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              resource-group:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    region:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/vnet:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of Azure
+        virtual networks from a specific subscription ID in Azure cloud from the
+        Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Region
+          required: false
+          in: query
+          name: region
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Subscription ID
+          required: true
+          in: path
+          name: subscriptionId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              vnet:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    region:
+                      type: string
+                    subnet:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          id:
+                            type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of Azure
+        subscriptions for a particular account from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              subscription:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/vault/{vaultName}/key:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of Azure
+        vault keys from a particular vault for a specific subscription ID in
+        Azure cloud from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Subscription ID
+          required: true
+          in: path
+          name: subscriptionId
+        - type: string
+          description: Azure Key Vault name
+          required: true
+          in: path
+          name: vaultName
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              key:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/azure/subscription/{subscriptionId}/vault:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of Azure
+        vault for a specific subscription ID in Azure cloud from the Cloud
+        Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Subscription ID
+          required: true
+          in: path
+          name: subscriptionId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              vault:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    region:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/gcp/project:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of Google
+        Cloud projects from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              project:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/gcp/project/{projectId}/region:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of regions
+        from a specific Google Cloud project from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Cloud
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Project ID
+          required: true
+          in: path
+          name: projectId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              region:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    code:
+                      type: string
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/job:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of jobs
+        from the Cloud Manager SaaS application. You can query based on the job
+        type and job status from the Cloud Manager SaaS
+        application.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Job
+      parameters:
+        - type: string
+          description: Job type
+          required: false
+          in: query
+          name: type
+        - type: string
+          description: Job Status
+          required: false
+          in: query
+          name: status
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    working-environment-id:
+                      type: string
+                    type:
+                      type: string
+                    status:
+                      type: string
+                      enum:
+                        - PENDING
+                        - IN_PROGRESS
+                        - FAILED
+                        - COMPLETED
+                    error:
+                      type: string
+                    time:
+                      type: number
+                    data:
+                      type: object
+                      description: >-
+                        Optional object present in case of batch / individual
+                        operations inside the main job only
+                      properties:
+                        multi-volume-backup:
+                          type: object
+                          description: >-
+                            contains individual volume data for
+                            multi-volume-backup
+                          properties:
+                            volume:
+                              type: array
+                              description: >-
+                                Array of objects containing volume backup
+                                status/error with the volume id
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: volume id
+                                  status:
+                                    type: string
+                                    description: SUCCESS / FAILED status
+                                    enum:
+                                      - SUCCESS
+                                      - FAILED
+                                  error:
+                                    type: string
+                                    description: error message in case of failure
+                        restore:
+                          type: object
+                          description: >-
+                            contains information about restore job - file and
+                            volume restore
+                          properties:
+                            type:
+                              type: string
+                              description: type of restore - file / volume
+                            source:
+                              type: object
+                              description: >-
+                                Optional object containing present only in case
+                                of restore operation
+                              properties:
+                                working-environment-id:
+                                  type: string
+                                working-environment-name:
+                                  type: string
+                                bucket:
+                                  type: string
+                                volume-id:
+                                  type: string
+                                volume-name:
+                                  type: string
+                                snapshot:
+                                  type: string
+                            target:
+                              type: object
+                              description: >-
+                                Optional object containing present only in case
+                                of restore operation
+                              properties:
+                                working-environment-id:
+                                  type: string
+                                working-environment-name:
+                                  type: string
+                                svm:
+                                  type: string
+                                volume-name:
+                                  type: string
+                                volume-size:
+                                  type: number
+                                path:
+                                  type: string
+                            batch:
+                              type: array
+                              description: >-
+                                Optional array present only in case of restore
+                                files operation
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  status:
+                                    type: string
+                                    enum:
+                                      - PENDING
+                                      - IN_PROGRESS
+                                      - SUCCESS
+                                      - FAILED
+                                  error:
+                                    type: string
+                                  time:
+                                    type: number
+                                  file:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        inode:
+                                          type: number
+                                        path:
+                                          type: string
+                                        type:
+                                          type: string
+                                        size:
+                                          type: number
+                                        mtime:
+                                          type: number
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/job/{jobId}:
+    get:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves the details of
+        particular jobs from the Cloud Manager SaaS application.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Job
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Job ID
+          required: true
+          in: path
+          name: jobId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              job:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    working-environment-id:
+                      type: string
+                    type:
+                      type: string
+                    status:
+                      type: string
+                      enum:
+                        - PENDING
+                        - IN_PROGRESS
+                        - FAILED
+                        - COMPLETED
+                    error:
+                      type: string
+                    time:
+                      type: number
+                    data:
+                      type: object
+                      description: >-
+                        Optional object present in case of batch / individual
+                        operations inside the main job only
+                      properties:
+                        multi-volume-backup:
+                          type: object
+                          description: >-
+                            contains individual volume data for
+                            multi-volume-backup
+                          properties:
+                            volume:
+                              type: array
+                              description: >-
+                                Array of objects containing volume backup
+                                status/error with the volume id
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: volume id
+                                  status:
+                                    type: string
+                                    description: SUCCESS / FAILED status
+                                    enum:
+                                      - SUCCESS
+                                      - FAILED
+                                  error:
+                                    type: string
+                                    description: error message in case of failure
+                        restore:
+                          type: object
+                          description: >-
+                            contains information about restore job - file and
+                            volume restore
+                          properties:
+                            type:
+                              type: string
+                              description: type of restore - file / volume
+                            source:
+                              type: object
+                              description: >-
+                                Optional object containing present only in case
+                                of restore operation
+                              properties:
+                                working-environment-id:
+                                  type: string
+                                working-environment-name:
+                                  type: string
+                                bucket:
+                                  type: string
+                                volume-id:
+                                  type: string
+                                volume-name:
+                                  type: string
+                                snapshot:
+                                  type: string
+                            target:
+                              type: object
+                              description: >-
+                                Optional object containing present only in case
+                                of restore operation
+                              properties:
+                                working-environment-id:
+                                  type: string
+                                working-environment-name:
+                                  type: string
+                                svm:
+                                  type: string
+                                volume-name:
+                                  type: string
+                                volume-size:
+                                  type: number
+                                path:
+                                  type: string
+                            batch:
+                              type: array
+                              description: >-
+                                Optional array present only in case of restore
+                                files operation
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  status:
+                                    type: string
+                                    enum:
+                                      - PENDING
+                                      - IN_PROGRESS
+                                      - SUCCESS
+                                      - FAILED
+                                  error:
+                                    type: string
+                                  time:
+                                    type: number
+                                  file:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        inode:
+                                          type: number
+                                        path:
+                                          type: string
+                                        type:
+                                          type: string
+                                        size:
+                                          type: number
+                                        mtime:
+                                          type: number
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/working-environments/{workingEnvironmentId}/setup:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Configures the service to
+        include indexed cataloging services. This API endpoint initiates the
+        creation of an  S3 bucket on an account level for cataloging to store
+        the details of the backup and changes. It also enables the AWS Athena
+        interactive S3 query service and AWS Glue serverless data integration
+        service to coordinate with the new catalog
+        feature.</p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Catalog
+      parameters:
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '202':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/search:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p> Searches for a specific
+        file from the backups taken by the Cloud Backup service. It can also
+        search for a specified volume. It is possible to narrow down your file
+        searches based on a particular working environment, file extensions,
+        size ranges, creation date range, and also location of the backup.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Catalog
+      parameters:
+        - type: string
+          description: Search sting
+          required: true
+          in: query
+          name: query
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                description: type of resource file/volume
+                enum:
+                  - FILE
+                  - VOLUME
+              workingEnvironmentId:
+                type: array
+                items:
+                  type: string
+              fileExtension:
+                description: File extension
+                type: array
+                items:
+                  type: string
+              size:
+                type: object
+                description: Resource size in bytes
+                properties:
+                  from:
+                    type: number
+                  to:
+                    type: number
+              creationDate:
+                type: object
+                description: Creation date in milliseconds
+                properties:
+                  from:
+                    type: number
+                  to:
+                    type: number
+              backupLocation:
+                type: string
+                description: Snapshot location local/cloud
+                enum:
+                  - LOCAL
+                  - CLOUD
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    resourceName:
+                      type: string
+                    resourceType:
+                      type: string
+                    workingEnvironmentId:
+                      type: string
+                    workingEnvironmentName:
+                      type: string
+                    svmName:
+                      type: string
+                    volumeId:
+                      type: string
+                    volumeName:
+                      type: string
+                    resourceSize:
+                      type: number
+                    inode:
+                      type: number
+                    mtime:
+                      type: number
+                    latestSnapshotCreationTime:
+                      type: number
+                    snapshotsCount:
+                      type: number
+              endOfResults:
+                type: boolean
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/snapshots:
+    post:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Retrieves a list of
+        Snapshot copies pertaining to a particular volume using the catalog
+        index query. </p><p><strong>Authentication</strong></span></p><p>User
+        Token</p>
+      tags:
+        - Catalog
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              resourceName:
+                type: string
+              workingEnvironmentId:
+                type: string
+              volumeId:
+                type: string
+              resourceType:
+                type: string
+            required:
+              - resourceName
+              - workingEnvironmentId
+              - volumeId
+              - resourceType
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              results:
+                type: object
+                properties:
+                  workingEnvironmentId:
+                    type: string
+                  workingEnvironmentName:
+                    type: string
+                  volumeName:
+                    type: string
+                  volumeId:
+                    type: string
+                  snapshots:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        snapshotId:
+                          type: string
+                        snapshotName:
+                          type: string
+                        snapshotSize:
+                          type: number
+                        snapshotCreationTime:
+                          type: number
+                        location:
+                          type: string
+              endOfResults:
+                type: boolean
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/working-environments/{workingEnvironmentId}:
+    put:
+      description: >-
+        <p><strong>Description</strong></span></p><p>Enables or disables the
+        indexed cataloging service for a specified working environment.
+        </p><p><strong>Authentication</strong></span></p><p>User Token</p>
+      tags:
+        - Catalog
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              state:
+                type: string
+                description: >-
+                  Modifes all the snapmirror relationships state in the working
+                  envrionment to the state specified
+                enum:
+                  - ENABLE
+                  - DISABLE
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+  /account/{accountId}/providers/cloudmanager_cbs/api/v1/license/working-environment/{workingEnvironmentId}:
+    get:
+      description: >-
+        Retrieves the license validity of the working environments from the
+        Cloud Manager SaaS. The API retrieves the eligibility of the current
+        license used and it also returns the days remaining if the user is using
+        a trial license. 
+      tags:
+        - License
+      parameters:
+        - type: string
+          enum:
+            - AWS
+            - AZURE
+            - GCP
+            - SGWS
+          required: true
+          in: query
+          name: provider
+        - type: string
+          description: >-
+            Cloud provider account ID. AWS account ID/Azure subscription ID/ GCP
+            project ID. Need not send this query param for SGWS
+          required: false
+          in: query
+          name: cloudProviderAccountId
+        - type: string
+          description: Account ID
+          required: true
+          in: path
+          name: accountId
+        - type: string
+          description: Working environment ID
+          required: true
+          in: path
+          name: workingEnvironmentId
+        - in: header
+          name: authorization
+          required: true
+          description: User Token
+          type: string
+        - in: header
+          name: x-agent-id
+          required: true
+          description: Request Identifier
+          type: string
+      responses:
+        '200':
+          description: Default Response
+          schema:
+            type: object
+            description: Default Response
+            properties:
+              free-trial-end:
+                type: number
+              eligible:
+                type: boolean
+host: localhost:8061
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: SFR
+    description: >-
+      <details><summary>Overview</summary><p>The single file restore (SFR)
+      endpoints restore and retrieve files.</p><p>You can perform the following
+      operations by using the SFR endpoints:<br><ul><li>Restore single/multiple
+      files.</li><br><li>Retrieve file explore status.</li><br><li>List files
+      during file explore operations.</li><br><li>Unexport a file system.
+      </li></ul></p></details>
+  - name: Backup
+    description: >-
+      <details><summary>Overview</summary><p>The backup endpoints manage backup
+      operations of cloud resources and retrieve details of the backup data when
+      required.You can perform the following operations by using the Backup
+      endpoints.</p><ul><li>Retrieve details of the backup data of working
+      environment, volumes and Snapshot copies</li><br><li>Enable backups on a
+      working environment, back up volumes, and create on-demand
+      backups</li><br><li>Modify the backup configuration of working
+      environments and volumes</li><br><li>Disable backups for working
+      environments and volumes, and delete backups</li></ul></details>
+  - name: Restore
+    description: >-
+      <details><summary>Overview</summary>The restore endpoints enable you to
+      perform volume and file-level restore operations.You can perform the
+      following operations by using the Restore endpoints:<ul><li>Restore
+      volumes and files </li><br><li>Retrieve volume and file restore
+      status</li><br></ul></details>
+  - name: Working Environment
+    description: >-
+      <details><summary>Overview</summary><p>The working environment endpoints
+      manage the backup policies and configure an object store associated with a
+      working environment.</p><p>You can perform the following operations by
+      using the working environment endpoints:</p><ul><li>Retrieve the list and
+      details of working environments, backup policies, IP spaces, SVMs, and
+      volumes</li><br><li>Create a backup policy and configure an object
+      store</li><br><li>List files during a file explore
+      operation</li><br><li>Modify a backup policy </li></ul></details>
+  - name: Cloud
+    description: >-
+      <details><summary>Overview</summary><p>The Cloud endpoints enable you to
+      retrieve information about various resources of the AWS, Azure, Google
+      Cloud providers from the Cloud Manager platform.</p><p>You can perform the
+      following actions by using the Cloud endpoints:</p><ul><li>Retrieve the
+      accounts, AWS region key, AWS region private-link, AWS archival
+      storage-class, Azure subscription, Azure subscription region, Azure
+      subscription resource-group, Azure subscription vnet, Azure subscription
+      vault key, Google Cloud projects, Google Cloud project region, and so
+      on</li><br><li>Create a subscription
+      resource-group</li><br></ul></details>
+  - name: Job
+    description: >-
+      <details><summary>Overview</summary><p>The Job endpoints display
+      information about jobs executed on the Cloud Manager platform.</p><p>You
+      can perform the following operation by using the Job
+      endpoints:</p><ul><li>Retrieve a list of jobs and job
+      details</li></</details>
+  - name: Catalog
+    description: >-
+      <details><summary>Overview</summary><p>The Catalog endpoints manage the
+      indexed catalog search based on a query. You can perform the following
+      opearations by using the Catalog endpoints:</p><ul><li>Initiate an indexed
+      catalog search based on a query </li><br><li>Retrieve a list of Snapshot
+      copies pertaining to a particular volume by using the Catalog Index
+      query</li><br><li>Configure an indexed catalog search
+      result</li><br><li>Modify the state of an indexed catalog search
+      result</li></ul></details>
+  - name: License
+    description: >-
+      <details><summary>Overview</summary><p>The License endpoints enable you to
+      retrieve the license validity of the working environments from the Cloud
+      Manager SaaS application. A valid license is required to activate Cloud
+      Backup on a working environment, to create backups of your production
+      data, and to restore backup data to a production system. This API
+      retrieves the eligibility of the current license used and it also returns
+      the days remaining if you are using a trial license.</p></details>
