@@ -6,7 +6,7 @@
           "title": "Start a file explore operation",
           "category": "SFR",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-volume-file-explore-start.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -16,7 +16,7 @@
           "title": "Return the file explore status",
           "category": "SFR",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-file-explore-status.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -26,7 +26,7 @@
           "title": "Return the file explore status (v2)",
           "category": "SFR",
           "filename": "get-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-status.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -36,7 +36,7 @@
           "title": "Retrieve files",
           "category": "SFR",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-snapshot-file-explore-list.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -46,7 +46,7 @@
           "title": "Retrieve files (v2)",
           "category": "SFR",
           "filename": "get-account-providers-cloudmanager_cbs-api-v2-sfr-volume-snapshot-file-explore-list.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -56,7 +56,7 @@
           "title": "Export a filesystem",
           "category": "SFR",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-volume-backup-export.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -66,7 +66,7 @@
           "title": "Unexport a filesystem",
           "category": "SFR",
           "filename": "delete-account-providers-cloudmanager_cbs-api-v1-sfr-backup-export.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -76,7 +76,7 @@
           "title": "Retrieve working environment details",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -86,7 +86,7 @@
           "title": "Retrieve specific working environment details",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "post": {
@@ -94,7 +94,7 @@
           "title": "Enable the Cloud Backup service",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "put": {
@@ -102,7 +102,7 @@
           "title": "Modify the Cloud Backup service",
           "category": "Backup",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "delete": {
@@ -110,7 +110,7 @@
           "title": "Unregister a working environment",
           "category": "Backup",
           "filename": "delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -120,7 +120,7 @@
           "title": "Retrieve the backup status",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-status.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -130,7 +130,7 @@
           "title": "Enable the Cloud backup service (v2)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "put": {
@@ -138,7 +138,7 @@
           "title": "Modify the Cloud backup service backup configuration",
           "category": "Backup",
           "filename": "put-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -148,7 +148,7 @@
           "title": "Enable the Cloud Backup service (v3)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v3-backup-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -158,7 +158,7 @@
           "title": "Enable backup for a volume",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "get": {
@@ -166,7 +166,7 @@
           "title": "Retrieve volume information",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "put": {
@@ -174,7 +174,7 @@
           "title": "Modify a backed up volume",
           "category": "Backup",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "delete": {
@@ -182,7 +182,7 @@
           "title": "Remove backup settings",
           "category": "Backup",
           "filename": "delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -192,7 +192,7 @@
           "title": "Enable backup for a volume (v2)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-volume-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -202,7 +202,7 @@
           "title": "Enable backup for a volume (v3)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v3-backup-working-environment-volume-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -212,7 +212,7 @@
           "title": "Retrieve volume details",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "post": {
@@ -220,7 +220,7 @@
           "title": "Enable backup of multiple volumes",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "put": {
@@ -228,7 +228,7 @@
           "title": "Modify multiple backed up volumes",
           "category": "Backup",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -238,7 +238,7 @@
           "title": "Enable backup for multiple volumes (v2)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-volume.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -248,7 +248,7 @@
           "title": "Retrieve Snapshot copy information",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot-.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "delete": {
@@ -256,7 +256,7 @@
           "title": "Delete a Snapshot copy",
           "category": "Backup",
           "filename": "delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -266,7 +266,7 @@
           "title": "Retrieve Snapshot copy information",
           "category": "Backup",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "delete": {
@@ -274,7 +274,7 @@
           "title": "Delete all Snapshot copies (volume)",
           "category": "Backup",
           "filename": "delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -284,7 +284,7 @@
           "title": "Delete all Snapshot copies (working environment)",
           "category": "Backup",
           "filename": "delete-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-snapshot.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -294,7 +294,7 @@
           "title": "Perform a volume and file-level restore",
           "category": "Restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-restore.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -304,7 +304,7 @@
           "title": "Perform a volume and file-level restore (v2)",
           "category": "Restore",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-restore.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -314,7 +314,7 @@
           "title": "Retrieve volume-level restore status",
           "category": "Restore",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-restore-status.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -324,7 +324,7 @@
           "title": "Retrieve ONTAP backup policies",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "post": {
@@ -332,7 +332,7 @@
           "title": "Create a backup policy",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -342,7 +342,7 @@
           "title": "Update a backup policy",
           "category": "Working Environment",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -352,7 +352,7 @@
           "title": "Retrieve IP spaces",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-ip-space.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -362,7 +362,7 @@
           "title": "Retrieve working environments",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -372,7 +372,7 @@
           "title": "Retrieve a working environment details",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -382,7 +382,7 @@
           "title": "Retrieve storage VMs",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-svm.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -392,7 +392,7 @@
           "title": "Retrieve volumes",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-volume.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -402,7 +402,7 @@
           "title": "Configure the object storage",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-working-environment-configure-object-store.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -412,7 +412,7 @@
           "title": "Configure the object storage (v2)",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-working-environment-configure-object-store.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -422,7 +422,7 @@
           "title": "Retrieve working environment volume directories",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-volume-list.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -432,7 +432,7 @@
           "title": "Retrieve an object store configuration status",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-object-store-config-status.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -442,7 +442,7 @@
           "title": "Retrieve AWS accounts",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-account.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -452,7 +452,7 @@
           "title": "Retrieve subscribed AWS regions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-region.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -462,7 +462,7 @@
           "title": "Retrieve AWS keys",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-awsaccountid-region-key.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -472,7 +472,7 @@
           "title": "Retrieve AWS private links",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-awsaccountid-region-privatelink.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -482,7 +482,7 @@
           "title": "Retrieve AWS storage classes",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-aws-archival-storage-class.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -492,7 +492,7 @@
           "title": "Retrieve regions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-region.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -502,7 +502,7 @@
           "title": "Create an Azure resource group",
           "category": "Cloud",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-azure-subscription-resource-group.html",
-          "explorer": false
+          "explorer": true
         }
       },
       "get": {
@@ -510,7 +510,7 @@
           "title": "Retrieve Azure resource groups",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-resource-group.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -520,7 +520,7 @@
           "title": "Retrieve Azure virtual networks",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vnet.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -530,7 +530,7 @@
           "title": "Retrieve Azure subscriptions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -540,7 +540,7 @@
           "title": "Retrieve Azure vault keys",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vault-key.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -550,7 +550,7 @@
           "title": "Retrieve Azure vaults",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vault.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -560,7 +560,7 @@
           "title": "Retrieve GCP projects",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -570,7 +570,7 @@
           "title": "Retrieve GCP regions",
           "category": "Cloud",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -580,7 +580,7 @@
           "title": "Retrieve jobs",
           "category": "Job",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-job.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -590,7 +590,7 @@
           "title": "Retrieve particular job details",
           "category": "Job",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-job-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -600,7 +600,7 @@
           "title": "Configure the service",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-working-environments-setup.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -610,7 +610,7 @@
           "title": "Search a specific file",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-search.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -620,7 +620,7 @@
           "title": "Retrieve Snapshot copies",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-snapshots.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -630,7 +630,7 @@
           "title": "Enable or disable the service",
           "category": "Catalog",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-catalog-working-environments-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     },
@@ -640,7 +640,7 @@
           "title": "Retrieve the license validity",
           "category": "License",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-license-working-environment-.html",
-          "explorer": false
+          "explorer": true
         }
       }
     }
