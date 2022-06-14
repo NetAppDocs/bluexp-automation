@@ -44,11 +44,11 @@ Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and c
 
 === 3. Select the permutations configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 9.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 10.
 
 === 4. Select the package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three options available: `Professional`, `Essentials`, and `Freemium`.
 Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
 
 === 5. Select the VPC
@@ -207,11 +207,11 @@ Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and c
 
 === 3. Select the permutations configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 9.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 10.
 
 === 4. Select the package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
 Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
 
 === 5. Select the VPC
