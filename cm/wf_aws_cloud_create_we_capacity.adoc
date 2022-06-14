@@ -1,0 +1,357 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_create_we_capacity.html
+keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, workspace
+summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
+---
+
+= Create a working environment with by-capacity license
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a new Cloud Volumes ONTAP working environment using a by-capacity license. You can add new volumes when creating the working environment.
+
+Refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html[Manage capcity-based licenses] for more information.
+
+[NOTE]
+.When using by-capacity license:
+====
+* A marketplace subscription is required.
+* A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
+* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
+====
+
+Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployment:
+
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+
+You can use this workflow to create an single node Cloud Volumes ONTAP working environment.
+
+=== 1. Select the region
+
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` parameter in step 10.
+
+=== 2. Select the workspace
+
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+
+=== 3. Select the permutations configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 9.
+
+=== 4. Select the package name
+
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
+Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+
+=== 5. Select the VPC
+
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get VPCs] and do the following:
+
+* Choose the `vpcId` value for the `vpcId` parameter in step 10.
+* Choose the `cidrBlock` values for the `ips` value of the volume parameter in step 10.
+
+=== 6. Select the EBS volume configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 10.
+
+NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 9.
+
+=== 7. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
+
+=== 8. (Optional) Obtain an NSS key
+
+An NSS key is optional when using by-capacity licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+
+* To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 9. (Optional) Create a new volume
+
+You can optionally add a new volume while creating a working environment.
+
+* Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 10. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
+
+* Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter in step 10 if you choose to create a volume using the NFS protocol. The `ips` parameter signifies the client IP address (could be multiple addresses) that can access the volume over the network. The `nfsVersion` parameter signifies the version of the NFS protocol that a client will use for data transmission over a network.
++
+NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
+
+
+=== 10. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/vsa/working-environments
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of parameters.
+
+[NOTE]
+This request uses PAYGO subscription as indicated in the `licenseType` parameter.
+
+JSON input example::
+[source,json]
+{
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
+  "region": "us-east-1",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.1RC1.T1",
+    "licenseType": "capacity-paygo",
+    "instanceType": "m5.2xlarge",
+    "capacityPackageName": "Professional"
+  },
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
+  "ontapEncryptionParameters": null,
+  "ebsVolumeType": "gp2",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
+  },
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
+  "instanceTenancy": "default",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
+  "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "enableMonitoring": false
+}
+
+Output::
+
+The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse`.
+
+JSON output example::
+
+[source,json]
+{
+    "publicId": "VsaWorkingEnvironment-0NWsb1aX",
+    "name": "ziv01we02",
+    "tenantId": "tenantIDgoeshere",
+    "svmName": "svm_ziv01we02",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "awsProperties": null,
+    "reservedSize": null,
+    "encryptionProperties": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "actionsRequired": null,
+    "interClusterLifs": null,
+    "cronJobSchedules": null,
+    "snapshotPolicies": null,
+    "svms": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "cloudProviderName": "Amazon",
+    "isHA": false,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "haProperties": null,
+    "capacityFeatures": null,
+    "cloudSyncProperties": null,
+    "supportedFeatures": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}
+
+
+== Create working environment for high availability pair
+You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
+
+=== 1. Select the region
+
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` parameter in step 10.
+
+=== 2. Select the workspace
+
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+
+=== 3. Select the permutations configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 9.
+
+=== 4. Select the package name
+
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
+Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+
+=== 5. Select the VPC
+
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get VPCs] and do the following:
+
+* Choose the `vpcId` value for the `vpcId` parameter in step 10.
+* Choose the `cidrBlock` values for the `ips` value of the volume parameter in step 10.
+
+=== 6. Select the EBS volume configuration
+
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 10.
+
+NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 9.
+
+=== 7. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
+
+=== 8. (Optional) Obtain an NSS key
+
+An NSS key is optional when using by-capacity licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+
+* To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 9. (Optional) Create a new volume
+
+You can optionally add a new volume while creating a working environment.
+
+* Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 10. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
+
+* Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter in step 10 if you choose to create a volume using the NFS protocol. The `ips` parameter signifies the client IP address (could be multiple addresses) that can access the volume over the network. The `nfsVersion` parameter signifies the version of the NFS protocol that a client will use for data transmission over a network.
++
+NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
+
+
+=== 10. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/vsa/working-environments
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+
+Input::
+
+The JSON input example includes the minimum list of parameters.
+
+[NOTE]
+This request uses PAYGO subscription as indicated in the `licenseType` parameter.
+
+JSON input example::
+[source,json]
+{
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
+  "region": "us-east-1",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.1RC1.T1",
+    "licenseType": "capacity-paygo",
+    "instanceType": "m5.2xlarge",
+    "capacityPackageName": "Professional"
+  },
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
+  "ontapEncryptionParameters": null,
+  "ebsVolumeType": "gp2",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
+  },
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
+  "instanceTenancy": "default",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
+  "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "enableMonitoring": false
+}
+
+
+Output::
+
+The JSON output example includes an example of the HA working environment details.
+
+JSON output example::
+[source,json]
+{
+    "publicId": "VsaWorkingEnvironment-sQ9AELDS",
+    "name": "ziv04we02ha",
+    "tenantId": "tenantIDshownhere",
+    "svmName": "svm_ziv04we02ha",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "awsProperties": null,
+    "reservedSize": null,
+    "encryptionProperties": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "actionsRequired": null,
+    "interClusterLifs": null,
+    "cronJobSchedules": null,
+    "snapshotPolicies": null,
+    "svms": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "cloudProviderName": "Amazon",
+    "isHA": true,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "haProperties": null,
+    "capacityFeatures": null,
+    "cloudSyncProperties": null,
+    "supportedFeatures": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}

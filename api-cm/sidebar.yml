@@ -23,6 +23,8 @@ entries:
         entries:
           - title: Create working environment with PAYGO
             url: /cm/wf_aws_cloud_create_we_paygo.html
+          - title: Create working environment with by-capacity
+            url: /cm/wf_aws_cloud_create_we_capacity.html
           - title: Create working environment with BYOL
             url: /cm/wf_aws_cloud_create_we_byol.html
           - title: Get working environments
