@@ -5,7 +5,7 @@ keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, worksp
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
-= Create a working environment with by-capacity license
+= Create a working environment with capacity-based license
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,16 +13,16 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can create a new Cloud Volumes ONTAP working environment using a by-capacity license. You can add new volumes when creating the working environment.
+You can create a new Cloud Volumes ONTAP working environment using a capacity-based license. Refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html[Manage capcity-based licenses] for more information.
 
-Refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html[Manage capcity-based licenses] for more information.
+You can add new volumes when creating the working environment.
 
 [NOTE]
-.When using by-capacity license:
+.When using capacity-based license:
 ====
 * A marketplace subscription is required.
 * A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
-* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
+* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_aws_ontap_create_vol_nfs.html[NFS], link:wf_aws_ontap_create_vol_cifs.html[CIFS], or link:wf_aws_ontap_create_vol_iscsi.html[iSCSI] protocol.
 ====
 
 Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployment:
@@ -46,10 +46,9 @@ Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and c
 
 Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 10.
 
-=== 4. Select the package name
+=== 4. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three options available: `Professional`, `Essentials`, and `Freemium`.
-Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
 
 === 5. Select the VPC
 
@@ -70,9 +69,9 @@ Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS su
 
 === 8. (Optional) Obtain an NSS key
 
-An NSS key is optional when using by-capacity licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
+An NSS key is optional when using capacity-based licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 10.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+* To create a new NSS key using the Cloud Manager user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
@@ -106,7 +105,7 @@ Input::
 The JSON input example includes the minimum list of parameters.
 
 [NOTE]
-This request uses PAYGO subscription as indicated in the `licenseType` parameter.
+This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
 
 JSON input example::
 [source,json]
@@ -257,7 +256,7 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 |HTTP method
 |Path
 |POST
-|/occm/api/vsa/working-environments
+|/occm/api/ha/working-environments
 |===
 
 curl example::
