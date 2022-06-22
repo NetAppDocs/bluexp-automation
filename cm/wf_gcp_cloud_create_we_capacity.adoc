@@ -1,0 +1,316 @@
+---
+sidebar: sidebar
+permalink: cm/wf_gcp_cloud_create_we_capacity.html
+keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, workspace
+summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
+---
+
+= Create a working environment with capacity-based license
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a new Cloud Volumes ONTAP working environment using a capacity-based license. Refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html[Manage capcity-based licenses] for more information.
+
+[NOTE]
+.When using capacity-based license:
+====
+* A marketplace subscription is required.
+* A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
+* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
+====
+
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
+
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+You can use this workflow to create a single node working environment with a capacity-based license.
+
+=== 1. Select the region
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and do the following:
+
+* Choose the `name` value of the required region for the `region` parameter in step 10.
+* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 10.
+
+=== 2. Select the workspace
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+
+=== 3. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 10.
+
+=== 4. Select the permutations
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-single-node[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 10.
+
+=== 5. Select the capacity package name
+
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+
+=== 6. Select the packages configuration
+Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-single-node[Get packages] and search the `licenseType` from the various permutations of packages configuration values:
+
+* Choose the `name` for `packageName` parameter in step 10.
+*	Choose the `diskSize` for `gcpVolumeSize` in step 10.
+*	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters in step 10.
+
+=== 7. Select the service account
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-single-node[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 10.
+
+=== 8. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 10.
+
+=== 9. (Optional) Obtain an NSS key
+An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 10.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
+
+* To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
+
+=== 10. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/vsa/working-environments
+|===
+
+curl example::
+[source,curl]
+----
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
+----
+
+Input::
+
+The JSON input example includes the minimum list of parameters.
+
+[NOTE]
+This request uses the hourly pay-as-you-go (PAYGO) as indicated in the `licenseType` parameter.
+
+JSON input example::
+[source,json]
+{
+  "name": "zivgcp01we03",
+  "svmPassword": "password",
+  "vpcId": "default",
+  "region": "us-west1-b",
+  "tenantId": "tenantID",
+  "subnetPath": "projects/occm-dev/regions/us-west1/subnetworks/default",
+  "subnetId": "projects/occm-dev/regions/us-west1/subnetworks/default",
+  "dataEncryptionType": "GCP",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
+    "licenseType": "gcp-cot-explore-paygo",
+    "instanceType": "custom-4-16384"
+    "capacityPackageName": "Professional"
+  },
+  "gcpVolumeSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "gcpVolumeType": "pd-ssd",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
+  "gcpLabels": [],
+  "writingSpeedState": "NORMAL",
+  "packageName": "gcp_poc",
+  "gcpServiceAccount": "xxxxx@occm-dev.iam.xxx.com",
+  "project": "occm-dev",
+  "backupVolumesToCbs": false
+}
+
+JSON output example::
+[source,json]
+{
+    "publicId": "vsaworkingenvironment-2qkd75xv",
+    "name": "zivgcp01we03",
+    "tenantId": "tenantIDshownhere",
+    "svmName": "svm_zivgcp01we03",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "providerProperties": null,
+    "reservedSize": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "cloudProviderName": "GCP",
+    "snapshotPolicies": null,
+    "actionsRequired": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "svms": null,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "capacityFeatures": null,
+    "encryptionProperties": null,
+    "supportedFeatures": null,
+    "isHA": false,
+    "haProperties": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}
+
+== Create working environment for high availability pair
+You can use this workflow to create an HA working environment.
+
+=== 1. Select the region
+Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and do the following:
+
+* Choose the `name` value of the required region for the `region` parameter in step 8.
+* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 11.
+
+=== 2. Select the workspace
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 11.
+
+=== 3. Select the project
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availability-pair[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 11.
+
+=== 4. Select the VPC
+Perform the link:wf_gcp_cloud_md_get_vpcs.html[Get vpcs] workflow and do the following:
+
+* Choose one of the vpcs. Choose the `name` for the `vpcId` parameter, `subnets: path` for `subnetId` and `subnetPath`, `ha: subnet0NodeAndDataConnectivity` parameters and `vpcPath` for the `vpc0NodeAndDataConnectivity` parameter.
+* Choose the second vpc and select the `vpcPath` for `vpc1ClusterConnectivity` parameter and `subnets: path` for `subnet1ClusterConnectivity` parameter.
+* Choose the third vpc and select the `vpcPath` for `pc2HAConnectivity` parameter and `subnets: path` for `subnet2HAConnectivity` parameter.
+* Choose the fourth vpc and select the `vpcPath` for `vpc3DataReplication` parameter and `subnets: path` for `subnet3DataReplication` parameter.
+
+
+=== 5. Select the permutations
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 11.
+
+=== 6. Select the capacity package name
+
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+
+=== 7. Select the packages configuration
+Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-high-availability-pair[Get packages] and search the `licenseType` from permutations:
+
+* Choose the `name` for `packageName` parameter.
+*	Choose the `diskSize` for `gcpVolumeSize`.
+*	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
+
+=== 8. Select the service account
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-high-availability-pair[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 11.
+
+=== 9. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 11.
+
+=== 10. (Optional) Obtain an NSS key
+An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 11.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
+
+* To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
+
+=== 11. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/gcp/ha/working-environments
+|===
+
+curl example::
+[source,curl]
+----
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' //<1> --header 'Authorization: Bearer <ACCESS_TOKEN>' //<2> ---header 'Content-Type: application/json' --d @JSONinput
+----
+
+
+Input::
+
+The JSON input example includes the minimum list of parameters.
+
+[NOTE]
+This request uses the hourly pay-as-you-go (PAYGO) as indicated in the `licenseType` parameter.
+
+JSON input example::
+[source,json]
+{
+  "name": "ziv01we02ha",
+  "svmPassword": "password",
+  "vpcId": "default",
+  "region": "us-west1-a",
+  "tenantId": "workspace-ced4x9X4",
+  "subnetPath": "projects/occm-dev/regions/us-west1/subnetworks/default",
+  "subnetId": "projects/occm-dev/regions/us-west1/subnetworks/default",
+  "dataEncryptionType": "GCP",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.9.0X5.T1.gcpha",
+    "licenseType": "gcp-ha-cot-explore-paygo",
+    "instanceType": "custom-4-16384"
+  },
+  "gcpVolumeSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "gcpVolumeType": "pd-ssd",
+  "gcpLabels": [],
+  "writingSpeedState": "NORMAL",
+  "packageName": "gcp_ha_poc",
+  "gcpServiceAccount": "xxxx@occm-dev.iam.gserviceaccount.com",
+  "project": "occm-dev",
+  "haParams": {
+    "node1Zone": "us-west1-a",
+    "node2Zone": "us-west1-b",
+    "mediatorZone": "us-west1-c",
+    "vpc0NodeAndDataConnectivity": "projects/occm-dev/global/networks/default",
+    "vpc1ClusterConnectivity": "projects/occm-dev/global/networks/vpc4qa-2",
+    "vpc2HAConnectivity": "projects/occm-dev/global/networks/vpc4qa-3",
+    "vpc3DataReplication": "projects/occm-dev/global/networks/vpc4qa-4",
+    "subnet0NodeAndDataConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/default",
+    "subnet1ClusterConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-2-us-west1",
+    "subnet2HAConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-3-us-west1",
+    "subnet3DataReplication": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-4-us-west1"
+  }
+}
+
+
+JSON output example::
+[source,json]
+{
+    "publicId": "vsaworkingenvironment-blg9ei6u",
+    "name": "ziv01we02ha",
+    "tenantId": "Tenant-xxxvvv",
+    "svmName": "svm_ziv01we02ha",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "providerProperties": null,
+    "reservedSize": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "cloudProviderName": "GCP",
+    "snapshotPolicies": null,
+    "actionsRequired": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "svms": null,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "capacityFeatures": null,
+    "encryptionProperties": null,
+    "supportedFeatures": null,
+    "isHA": true,
+    "haProperties": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}

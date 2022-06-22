@@ -198,58 +198,70 @@ You can use this workflow to create an HA Cloud Volumes ONTAP working environmen
 
 === 1. Select the region
 
-Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` parameter in step 10.
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` parameter in step 13.
 
-=== 2. Select the workspace
+=== 2. Select the cloud provider account
 
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+Perform the workflow link:wf_common_identity_get_provider_accounts.html[Get cloud provider accounts] and choose the `publicId` value of the required account for the `cloudProviderAccount` parameter.
 
-=== 3. Select the permutations configuration
+=== 3. Select the workspace
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 10.
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 13.
 
-=== 4. Select the package name
+=== 4. Select the permutations configuration
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 13.
+
+=== 5. Select the package name
+
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
 Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
 
-=== 5. Select the VPC
+=== 6. Select the packages configuration
+Perform the link:wf_aws_cloud_md_get_packages.html[Get Packages] and choose the `packageName`, `instanceTenancy` and `writingSpeedState` values for the corresponding parameters in step 13.
 
-Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get VPCs] and do the following:
+=== 7. Select the VPC
 
-* Choose the `vpcId` value for the `vpcId` parameter in step 10.
-* Choose the `cidrBlock` values for the `ips` value of the volume parameter in step 10.
+Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availability-pair[Get VPCs] and do the following:
 
-=== 6. Select the EBS volume configuration
+* Choose the `vpcId` value for the `vpcId` parameter in step 13.
+* Choose three subnets and choose the `subnetId` value for the `haParams:mediatorSubnetId`, `haParams:node1SubnetId`, `haParams:node2SubnetId` in step 13.
+* Select the IPs for the `clusterFloatingIP`, `dataFloatingIP`, `dataFloatingIP2` values for the corresponding parameters in step 13.
 
-Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 10.
+=== 8. Select route table
 
-NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 9.
+Perform the workflow link:wf_aws_cloud_md_get_route_tables.html[Get route tables] and choose the `id` value of the required route table for `haParams:routeTableIds` parameter is step 13.
 
-=== 7. Attach a marketplace subscription
+=== 9. Select the EBS volume configuration
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 10.
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 13.
 
-=== 8. (Optional) Obtain an NSS key
+NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 13.
 
-An NSS key is optional when using by-capacity licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
+=== 10. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 13.
+
+=== 11. (Optional) Obtain an NSS key
+
+An NSS key is optional when using by-capacity licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 13.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 9. (Optional) Create a new volume
+=== 12. (Optional) Create a new volume
 
 You can optionally add a new volume while creating a working environment.
 
-* Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 10. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
+* Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 13. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
 
 * Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter in step 10 if you choose to create a volume using the NFS protocol. The `ips` parameter signifies the client IP address (could be multiple addresses) that can access the volume over the network. The `nfsVersion` parameter signifies the version of the NFS protocol that a client will use for data transmission over a network.
 +
 NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
 
-=== 10. Create the working environment
+=== 13. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
