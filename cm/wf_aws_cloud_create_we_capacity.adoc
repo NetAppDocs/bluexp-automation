@@ -61,11 +61,11 @@ Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node
 
 Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 10.
 
-NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 9.
+NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 10.
 
 === 7. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 10.
 
 === 8. (Optional) Obtain an NSS key
 
@@ -228,7 +228,7 @@ NOTE: You need to choose one of the allowed values for the required `ebsVolumeTy
 
 === 7. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 10.
 
 === 8. (Optional) Obtain an NSS key
 
@@ -268,7 +268,7 @@ Input::
 The JSON input example includes the minimum list of parameters.
 
 [NOTE]
-This request uses PAYGO subscription as indicated in the `licenseType` parameter.
+This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
 
 JSON input example::
 [source,json]
