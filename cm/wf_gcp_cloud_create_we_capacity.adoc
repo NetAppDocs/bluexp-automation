@@ -97,68 +97,12 @@ This request uses the hourly pay-as-you-go (PAYGO) as indicated in the `licenseT
 JSON input example::
 [source,json]
 {
-  "name": "zivgcp01we03",
-  "svmPassword": "password",
-  "vpcId": "default",
-  "region": "us-west1-b",
-  "tenantId": "tenantID",
-  "subnetPath": "projects/occm-dev/regions/us-west1/subnetworks/default",
-  "subnetId": "projects/occm-dev/regions/us-west1/subnetworks/default",
-  "dataEncryptionType": "GCP",
-  "vsaMetadata": {
-    "ontapVersion": "ONTAP-9.9.0X4.T1.gcp",
-    "licenseType": "gcp-cot-explore-paygo",
-    "instanceType": "custom-4-16384"
-    "capacityPackageName": "Professional"
-  },
-  "gcpVolumeSize": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "gcpVolumeType": "pd-ssd",
-  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
-  "gcpLabels": [],
-  "writingSpeedState": "NORMAL",
-  "packageName": "gcp_poc",
-  "gcpServiceAccount": "xxxxx@occm-dev.iam.xxx.com",
-  "project": "occm-dev",
-  "backupVolumesToCbs": false
 }
 
 JSON output example::
 [source,json]
 {
-    "publicId": "vsaworkingenvironment-2qkd75xv",
-    "name": "zivgcp01we03",
-    "tenantId": "tenantIDshownhere",
-    "svmName": "svm_zivgcp01we03",
-    "creatorUserEmail": "user_email",
-    "status": null,
-    "providerProperties": null,
-    "reservedSize": null,
-    "clusterProperties": null,
-    "ontapClusterProperties": null,
-    "cloudProviderName": "GCP",
-    "snapshotPolicies": null,
-    "actionsRequired": null,
-    "activeActions": null,
-    "replicationProperties": null,
-    "schedules": null,
-    "svms": null,
-    "workingEnvironmentType": "VSA",
-    "supportRegistrationProperties": null,
-    "supportRegistrationInformation": null,
-    "capacityFeatures": null,
-    "encryptionProperties": null,
-    "supportedFeatures": null,
-    "isHA": false,
-    "haProperties": null,
-    "k8sProperties": null,
-    "fpolicyProperties": null,
-    "saasProperties": null,
-    "cbsProperties": null,
-    "complianceProperties": null,
-    "monitoringProperties": null
+
 }
 
 == Create working environment for high availability pair
@@ -240,77 +184,12 @@ This request uses the hourly pay-as-you-go (PAYGO) as indicated in the `licenseT
 JSON input example::
 [source,json]
 {
-  "name": "ziv01we02ha",
-  "svmPassword": "password",
-  "vpcId": "default",
-  "region": "us-west1-a",
-  "tenantId": "workspace-ced4x9X4",
-  "subnetPath": "projects/occm-dev/regions/us-west1/subnetworks/default",
-  "subnetId": "projects/occm-dev/regions/us-west1/subnetworks/default",
-  "dataEncryptionType": "GCP",
-  "vsaMetadata": {
-    "ontapVersion": "ONTAP-9.9.0X5.T1.gcpha",
-    "licenseType": "gcp-ha-cot-explore-paygo",
-    "instanceType": "custom-4-16384"
-  },
-  "gcpVolumeSize": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "gcpVolumeType": "pd-ssd",
-  "gcpLabels": [],
-  "writingSpeedState": "NORMAL",
-  "packageName": "gcp_ha_poc",
-  "gcpServiceAccount": "xxxx@occm-dev.iam.gserviceaccount.com",
-  "project": "occm-dev",
-  "haParams": {
-    "node1Zone": "us-west1-a",
-    "node2Zone": "us-west1-b",
-    "mediatorZone": "us-west1-c",
-    "vpc0NodeAndDataConnectivity": "projects/occm-dev/global/networks/default",
-    "vpc1ClusterConnectivity": "projects/occm-dev/global/networks/vpc4qa-2",
-    "vpc2HAConnectivity": "projects/occm-dev/global/networks/vpc4qa-3",
-    "vpc3DataReplication": "projects/occm-dev/global/networks/vpc4qa-4",
-    "subnet0NodeAndDataConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/default",
-    "subnet1ClusterConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-2-us-west1",
-    "subnet2HAConnectivity": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-3-us-west1",
-    "subnet3DataReplication": "projects/occm-dev/regions/us-west1/subnetworks/vpc4qa-4-us-west1"
-  }
+
 }
 
 
 JSON output example::
 [source,json]
 {
-    "publicId": "vsaworkingenvironment-blg9ei6u",
-    "name": "ziv01we02ha",
-    "tenantId": "Tenant-xxxvvv",
-    "svmName": "svm_ziv01we02ha",
-    "creatorUserEmail": "user_email",
-    "status": null,
-    "providerProperties": null,
-    "reservedSize": null,
-    "clusterProperties": null,
-    "ontapClusterProperties": null,
-    "cloudProviderName": "GCP",
-    "snapshotPolicies": null,
-    "actionsRequired": null,
-    "activeActions": null,
-    "replicationProperties": null,
-    "schedules": null,
-    "svms": null,
-    "workingEnvironmentType": "VSA",
-    "supportRegistrationProperties": null,
-    "supportRegistrationInformation": null,
-    "capacityFeatures": null,
-    "encryptionProperties": null,
-    "supportedFeatures": null,
-    "isHA": true,
-    "haProperties": null,
-    "k8sProperties": null,
-    "fpolicyProperties": null,
-    "saasProperties": null,
-    "cbsProperties": null,
-    "complianceProperties": null,
-    "monitoringProperties": null
+    
 }

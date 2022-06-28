@@ -36,71 +36,68 @@ You can use this workflow to create an single node Cloud Volumes ONTAP working e
 
 === 1. Select the region
 
-Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-single-node[Get regions] and choose the `name` value of the required region for the `region` parameter in step 13.
+Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-single-node[Get regions] and choose the `name` value of the required region for the `region` parameter in step 12.
 
 === 2. Select the workspace
 
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 13.
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 12.
 
 === 3. Select the VNets
 
 Perform the workflow link:wf_azure_cloud_md_get_vnets.html#get-azure-vnets-for-single-node[Get VNets] and do the following:
 
-* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 13.
-*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 13.
-* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 13.
-*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 13.
+* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 12.
+*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 12.
+* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 12.
+*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 12.
 
 
 === 4. Select the Azure availability zone
 
-Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html#get-availability-zones-for-single-node[Get Azure Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 13.
+Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html#get-availability-zones-for-single-node[Get Azure Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 12.
 
 === 5. Get the Azure packages configuration
 
 Perform the link:wf_azure_cloud_md_get_packages.html#get-packages-for-single-node[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
 
-=== 6. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
+=== 6. (Optional) Obtain an NSS key
 
-=== 7. (Optional) Obtain an NSS key
-
-An NSS key is *optional* when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 13.
+An NSS key is *optional* when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 12.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 8. Select the Azure cloud provider accounts
+=== 7. Select the Azure cloud provider accounts
 
 Perform the link:wf_azure_cloud_md_create_account.html[Create Azure cloud provider accounts] workflow and choose the `publicId` of the desired cloud provider account item from the `azureAccounts` for the `cloudProviderAccount` parameter.
 
-=== 9. Select the Azure permutations
+=== 8. Select the Azure permutations
 
 Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-single-node[Get Azure Permutations] workflow and pick the desired permutation:
 
-*	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 13.
-*	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 13.
-*	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 13.
+*	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 12.
+*	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 12.
+*	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 12.
 
-=== 10. Select the capacity package name
+=== 9. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 12. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
 
-=== 11. Attach a marketplace subscription
+=== 10. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 13.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 12.
 
-=== 12. Select the Azure storage account types
+=== 11. Select the Azure storage account types
 
 Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-single-node[Get Azure Storage Account Types] workflow and pick the desired storage type.
 
-*	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 13.
-*	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 13.
-*	Choose the `unit` of the desired disk size from the `sizes` -> `size` field for the `unit` field inside the `diskSize` parameter in step 13.
+*	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 12.
+*	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 12.
+*	Choose the `unit` of the desired disk size from the `sizes` -> `size` field for the `unit` field inside the `diskSize` parameter in step 12.
 
-=== 13. Create the working environment
+=== 12. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
@@ -138,42 +135,8 @@ JSON output example::
 
 [source,json]
 {
-    "publicId": "VsaWorkingEnvironment-0NWsb1aX",
-    "name": "ziv01we02",
-    "tenantId": "tenantIDgoeshere",
-    "svmName": "svm_ziv01we02",
-    "creatorUserEmail": "user_email",
-    "status": null,
-    "awsProperties": null,
-    "reservedSize": null,
-    "encryptionProperties": null,
-    "clusterProperties": null,
-    "ontapClusterProperties": null,
-    "actionsRequired": null,
-    "interClusterLifs": null,
-    "cronJobSchedules": null,
-    "snapshotPolicies": null,
-    "svms": null,
-    "activeActions": null,
-    "replicationProperties": null,
-    "schedules": null,
-    "cloudProviderName": "Amazon",
-    "isHA": false,
-    "workingEnvironmentType": "VSA",
-    "supportRegistrationProperties": null,
-    "supportRegistrationInformation": null,
-    "haProperties": null,
-    "capacityFeatures": null,
-    "cloudSyncProperties": null,
-    "supportedFeatures": null,
-    "k8sProperties": null,
-    "fpolicyProperties": null,
-    "saasProperties": null,
-    "cbsProperties": null,
-    "complianceProperties": null,
-    "monitoringProperties": null
-}
 
+}
 
 == Create working environment for high availability pair
 You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
@@ -263,42 +226,8 @@ This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in 
 JSON input example::
 [source,json]
 {
-  "name": "bycapacitycvo",
-  "tenantId": "workspace-ksJa8vEY",
-  "region": "us-east-1",
-  "packageName": "aws_custom",
-  "dataEncryptionType": "AWS",
-  "capacityTier": "S3",
-  "tierLevel": "normal",
-  "vsaMetadata": {
-    "ontapVersion": "ONTAP-9.11.1RC1.T1",
-    "licenseType": "capacity-paygo",
-    "instanceType": "m5.2xlarge",
-    "capacityPackageName": "Professional"
-  },
-  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
-  "writingSpeedState": "NORMAL",
-  "subnetId": "subnet-xxx55de",
-  "svmPassword": "password",
-  "vpcId": "vpc-a762xx00",
-  "ontapEncryptionParameters": null,
-  "ebsVolumeType": "gp2",
-  "ebsVolumeSize": {
-    "size": 1,
-    "unit": "TB",
-    "_identifier": "1 TB"
-  },
-  "awsTags": [],
-  "optimizedNetworkUtilization": true,
-  "instanceTenancy": "default",
-  "iops": null,
-  "throughput": null,
-  "instanceProfileName": null,
-  "cloudProviderAccount": "InstanceProfile",
-  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
-  "backupVolumesToCbs": false,
-  "enableCompliance": false,
-  "enableMonitoring": false
+
+
 }
 
 
@@ -309,38 +238,5 @@ The JSON output example includes an example of the HA working environment detail
 JSON output example::
 [source,json]
 {
-    "publicId": "VsaWorkingEnvironment-sQ9AELDS",
-    "name": "ziv04we02ha",
-    "tenantId": "tenantIDshownhere",
-    "svmName": "svm_ziv04we02ha",
-    "creatorUserEmail": "user_email",
-    "status": null,
-    "awsProperties": null,
-    "reservedSize": null,
-    "encryptionProperties": null,
-    "clusterProperties": null,
-    "ontapClusterProperties": null,
-    "actionsRequired": null,
-    "interClusterLifs": null,
-    "cronJobSchedules": null,
-    "snapshotPolicies": null,
-    "svms": null,
-    "activeActions": null,
-    "replicationProperties": null,
-    "schedules": null,
-    "cloudProviderName": "Amazon",
-    "isHA": true,
-    "workingEnvironmentType": "VSA",
-    "supportRegistrationProperties": null,
-    "supportRegistrationInformation": null,
-    "haProperties": null,
-    "capacityFeatures": null,
-    "cloudSyncProperties": null,
-    "supportedFeatures": null,
-    "k8sProperties": null,
-    "fpolicyProperties": null,
-    "saasProperties": null,
-    "cbsProperties": null,
-    "complianceProperties": null,
-    "monitoringProperties": null
+    
 }

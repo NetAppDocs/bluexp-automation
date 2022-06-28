@@ -284,44 +284,7 @@ This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in 
 
 JSON input example::
 [source,json]
-{
-  "name": "bycapacitycvo",
-  "tenantId": "workspace-ksJa8vEY",
-  "region": "us-east-1",
-  "packageName": "aws_custom",
-  "dataEncryptionType": "AWS",
-  "capacityTier": "S3",
-  "tierLevel": "normal",
-  "vsaMetadata": {
-    "ontapVersion": "ONTAP-9.11.1RC1.T1",
-    "licenseType": "capacity-paygo",
-    "instanceType": "m5.2xlarge",
-    "capacityPackageName": "Professional"
-  },
-  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
-  "writingSpeedState": "NORMAL",
-  "subnetId": "subnet-xxx55de",
-  "svmPassword": "password",
-  "vpcId": "vpc-a762xx00",
-  "ontapEncryptionParameters": null,
-  "ebsVolumeType": "gp2",
-  "ebsVolumeSize": {
-    "size": 1,
-    "unit": "TB",
-    "_identifier": "1 TB"
-  },
-  "awsTags": [],
-  "optimizedNetworkUtilization": true,
-  "instanceTenancy": "default",
-  "iops": null,
-  "throughput": null,
-  "instanceProfileName": null,
-  "cloudProviderAccount": "InstanceProfile",
-  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
-  "backupVolumesToCbs": false,
-  "enableCompliance": false,
-  "enableMonitoring": false
-}
+
 
 
 Output::
@@ -330,39 +293,3 @@ The JSON output example includes an example of the HA working environment detail
 
 JSON output example::
 [source,json]
-{
-    "publicId": "VsaWorkingEnvironment-sQ9AELDS",
-    "name": "ziv04we02ha",
-    "tenantId": "tenantIDshownhere",
-    "svmName": "svm_ziv04we02ha",
-    "creatorUserEmail": "user_email",
-    "status": null,
-    "awsProperties": null,
-    "reservedSize": null,
-    "encryptionProperties": null,
-    "clusterProperties": null,
-    "ontapClusterProperties": null,
-    "actionsRequired": null,
-    "interClusterLifs": null,
-    "cronJobSchedules": null,
-    "snapshotPolicies": null,
-    "svms": null,
-    "activeActions": null,
-    "replicationProperties": null,
-    "schedules": null,
-    "cloudProviderName": "Amazon",
-    "isHA": true,
-    "workingEnvironmentType": "VSA",
-    "supportRegistrationProperties": null,
-    "supportRegistrationInformation": null,
-    "haProperties": null,
-    "capacityFeatures": null,
-    "cloudSyncProperties": null,
-    "supportedFeatures": null,
-    "k8sProperties": null,
-    "fpolicyProperties": null,
-    "saasProperties": null,
-    "cbsProperties": null,
-    "complianceProperties": null,
-    "monitoringProperties": null
-}
