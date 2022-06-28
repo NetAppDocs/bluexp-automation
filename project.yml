@@ -19,6 +19,7 @@ sidebar:
     - section: api-cm
     - section: audit
     - section: cbs
+    - section: credential
     - section: persistence
     - section: tenancy
     - section: automate
