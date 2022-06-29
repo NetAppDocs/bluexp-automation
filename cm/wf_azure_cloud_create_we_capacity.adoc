@@ -87,7 +87,7 @@ Choose the package name for the `vsaMetadata:capacityPackageName` parameter in s
 
 === 10. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 12.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 12.
 
 === 11. Select the Azure storage account types
 
@@ -124,18 +124,81 @@ This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in
 JSON input example::
 [source,json]
 {
-
+	 "name":"Azure123",
+	 "tenantId":"tenantID",
+	 "region":"westeurope",
+	 "packageName":"azure_poc",
+	 "dataEncryptionType":"AZURE",
+   "vsaMetadata": {
+     "ontapVersion": "ONTAP-9.11.1RC1.T1",
+     "licenseType": "capacity-paygo",
+     "instanceType": "m5.2xlarge",
+     "capacityPackageName": "Professional"
+   },
+	 "writingSpeedState":"NORMAL",
+	 "subnetId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
+	 "svmPassword":"Netapp123",
+	 "vnetId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1",
+	 "cidr":"10.0.0.0/16",
+	 "ontapEncryptionParameters":null,
+	 "securityGroupId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/Cloud-Compliance-1nThiJkG05ZgcyucIJvCSbtBdpVnK-2020894989899/providers/Microsoft.Network/networkSecurityGroups/Cloud-Compliance-1nTxxxtkG05ZgcxxxxxxXXXXXX-2000000000000000",
+	 "skipSnapshots":false,
+	 "diskSize":{
+		 "size":500,
+		 "unit":"GB",
+		 "_identifier":"500 GB"
+	},
+	 "storageType":"Premium_LRS",
+	 "azureTags":[],
+	 "subscriptionId":"x000xx00-0x00-0000-000x",
+	 "cloudProviderAccount":"ManagedServiceIdentity",
+	 "backupVolumesToCbs":false,
+	 "enableCompliance":false,
+	 "enableMonitoring":false,
+	 "availabilityZone":1,
+	 "allowDeployInExistingRg":true,
+	 "resourceGroup":"occm_group_westeurope"
 }
+
 
 Output::
 
-The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse`.
+The JSON output example includes an example of the `VsaWorkingEnvironmentResponse`.
 
 JSON output example::
-
 [source,json]
 {
-
+    "publicId": "VsaWorkingEnvironment-uFPaNkrv",
+    "name": "Azure123",
+    "tenantId": "tenantID",
+    "svmName": "svm_Azure123",
+    "creatorUserEmail": "user_mail",
+    "status": null,
+    "providerProperties": null,
+    "reservedSize": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "cloudProviderName": "Azure",
+    "snapshotPolicies": null,
+    "actionsRequired": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "svms": null,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "capacityFeatures": null,
+    "encryptionProperties": null,
+    "supportedFeatures": null,
+    "isHA": false,
+    "haProperties": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
 }
 
 == Create working environment for high availability pair
@@ -190,7 +253,7 @@ Choose the package name for the `vsaMetadata:capacityPackageName` parameter in s
 
 === 9. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 11.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 11.
 
 === 10. Select Azure storage account types
 
@@ -226,17 +289,101 @@ This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in 
 JSON input example::
 [source,json]
 {
-
-
+   "name":"ranukazure12",
+   "volume":{
+      "exportPolicyInfo":{
+         "policyType":"custom",
+         "ips":[
+            "10.0.0.0/16"
+         ],
+         "nfsVersion":[
+            "nfs3",
+            "nfs4"
+         ]
+      },
+      "snapshotPolicyName":"default",
+      "name":"ranukvol12",
+      "enableThinProvisioning":true,
+      "enableDeduplication":true,
+      "enableCompression":true,
+      "size":{
+         "size":100,
+         "unit":"GB"
+      },
+      "tieringPolicy":"auto"
+   },
+   "tenantId":"tenantIDgoeshere",
+   "region":"westeurope",
+   "packageName":"azure_ha_standard",
+   "dataEncryptionType":"AZURE",
+   "capacityTier":"Blob",
+   "vsaMetadata": {
+     "ontapVersion": "ONTAP-9.11.1RC1.T1",
+     "licenseType": "capacity-paygo",
+     "instanceType": "m5.2xlarge",
+     "capacityPackageName": "Professional"
+   },
+   "writingSpeedState":"NORMAL",
+   "subnetId":"/subscriptions/x000xx00-0x00-0000-000x
+/resourceGroups/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
+   "svmPassword":"password",
+   "vnetId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups
+/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1",
+   "cidr":"10.0.0.0/16",
+   "ontapEncryptionParameters":null,
+   "skipSnapshots":false,
+   "diskSize":{
+      "size":1,
+      "unit":"TB",
+      "_identifier":"1 TB"
+   },
+   "storageType":"Premium_LRS",
+   "azureTags":[],
+   "subscriptionId":"x000xx00-0x00-0000-000x",
+   "cloudProviderAccount":"ManagedServiceIdentity",
+   "backupVolumesToCbs":true,
+   "enableCompliance":true,
+   "enableMonitoring":true,
+   "availabilityZone":null,
+   "resourceGroup":"ranukazure12-rg"
 }
-
 
 Output::
 
-The JSON output example includes an example of the HA working environment details.
+The JSON output example includes an example of the HA working environment.
 
 JSON output example::
 [source,json]
 {
-    
+   "publicId":"VsaWorkingEnvironment-1m76JaRt",
+   "name":"ranukazure12",
+   "tenantId":"tenantID",
+   "svmName":"svm_ranukazure12",
+   "creatorUserEmail":"user_email",
+   "status":null,
+   "providerProperties":null,
+   "reservedSize":null,
+   "clusterProperties":null,
+   "ontapClusterProperties":null,
+   "cloudProviderName":"Azure",
+   "snapshotPolicies":null,
+   "actionsRequired":null,
+   "activeActions":null,
+   "replicationProperties":null,
+   "schedules":null,
+   "svms":null,
+   "workingEnvironmentType":"VSA",
+   "supportRegistrationProperties":null,
+   "supportRegistrationInformation":null,
+   "capacityFeatures":null,
+   "encryptionProperties":null,
+   "supportedFeatures":null,
+   "isHA":true,
+   "haProperties":null,
+   "fpolicyProperties":null,
+   "saasProperties":null,
+   "cbsProperties":null,
+   "complianceProperties":null,
+   "monitoringProperties":null,
+   "licensesInformation":null
 }

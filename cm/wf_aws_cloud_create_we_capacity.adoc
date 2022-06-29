@@ -65,7 +65,7 @@ NOTE: You need to choose one of the allowed values for the required `ebsVolumeTy
 
 === 7. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 10.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 10.
 
 === 8. (Optional) Obtain an NSS key
 
@@ -212,7 +212,7 @@ Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and c
 
 Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 13.
 
-=== 5. Select the package name
+=== 5. Select the capacity package name
 
 Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
 Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
@@ -240,7 +240,7 @@ NOTE: You need to choose one of the allowed values for the required `ebsVolumeTy
 
 === 10. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` parameter for the `saasSubscriptionId` parameter in step 13.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 13.
 
 === 11. (Optional) Obtain an NSS key
 
@@ -273,7 +273,7 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
 
 Input::
 
@@ -284,6 +284,68 @@ This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in 
 
 JSON input example::
 [source,json]
+{
+  "name": "ziv04we02ha",
+  "svmPassword": "password",
+  "vpcId": "vpc-b16c90d4",
+  "region": "us-east-1",
+  "tenantId": "tenantIDgoeshere",
+  "ebsVolumeSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "ebsVolumeType": "gp2",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.1RC1.T1",
+    "licenseType": "capacity-paygo",
+    "instanceType": "m5.2xlarge",
+    "capacityPackageName": "Professional"
+  },
+  "dataEncryptionType": "AWS",
+  "ontapEncryptionParameters": null,
+  "haParams": {
+    "node1SubnetId": "subnet-f4da95ac",
+    "node2SubnetId": "subnet-b4387a9e",
+    "mediatorSubnetId": "subnet-76e6d400",
+    "clusterFloatingIP": "4.4.4.4",
+    "dataFloatingIP": "5.5.5.5",
+    "dataFloatingIP2": "6.6.6.6",
+    "mediatorKeyPairName": "Developers_Virginia",
+    "routeTableIds": [
+      "rtb-02a45467"
+    ],
+    "failoverMode": "FloatingIP",
+    "mediatorAssignPublicIP": true
+  },
+  "volume": {
+    "name": "ziv02vol01",
+    "size": {
+      "size": 200,
+      "unit": "GB"
+    },
+    "exportPolicyInfo": {
+      "policyType": "custom",
+      "ips": [
+        "172.31.0.0/16"
+      ],
+     "nfsVersion": [
+        "nfs3",
+        "nfs4"
+      ]
+    },
+    "snapshotPolicyName": "default",
+    "enableThinProvisioning": true,
+    "enableCompression": true,
+    "enableDeduplication": true
+  },
+  "optimizedNetworkUtilization": false,
+  "instanceTenancy": "default",
+  "packageName": "aws_ha_poc",
+  "cloudProviderAccount": "InstanceProfile",
+  "backupVolumesToCbs": false,
+  "enableMonitoring": "false",
+  "writingSpeedState": "NORMAL"
+}
 
 
 
@@ -293,3 +355,39 @@ The JSON output example includes an example of the HA working environment detail
 
 JSON output example::
 [source,json]
+{
+    "publicId": "VsaWorkingEnvironment-sQ9AELDS",
+    "name": "ziv04we02ha",
+    "tenantId": "tenantIDshownhere",
+    "svmName": "svm_ziv04we02ha",
+    "creatorUserEmail": "user_email",
+    "status": null,
+    "awsProperties": null,
+    "reservedSize": null,
+    "encryptionProperties": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "actionsRequired": null,
+    "interClusterLifs": null,
+    "cronJobSchedules": null,
+    "snapshotPolicies": null,
+    "svms": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "cloudProviderName": "Amazon",
+    "isHA": true,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "haProperties": null,
+    "capacityFeatures": null,
+    "cloudSyncProperties": null,
+    "supportedFeatures": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}
