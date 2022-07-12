@@ -1,0 +1,140 @@
+{
+  "paths": {
+    "/health": {
+      "get": {
+        "x-doc": {
+          "title": "Get /health",
+          "category": "Health",
+          "filename": "get-health.html"
+        }
+      }
+    },
+    "/aws-credentials/{accountId}": {
+      "get": {
+        "x-doc": {
+          "title": "",
+          "category": "AWS Credentials",
+          "filename": "get-aws-credentials-.html"
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Add AWS credentials",
+          "category": "AWS Credentials",
+          "filename": "post-aws-credentials-.html"
+        }
+      }
+    },
+    "/working-environments/{accountId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve working environments",
+          "category": "Working Environments",
+          "filename": "get-working-environments-.html"
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Create file system",
+          "category": "Working Environments",
+          "filename": "post-working-environments-.html"
+        }
+      }
+    },
+    "/working-environments/{accountId}/discover": {
+      "get": {
+        "x-doc": {
+          "title": "Discover working environments",
+          "category": "Working Environments",
+          "filename": "get-working-environments-discover.html"
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}/volumes": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve volumes",
+          "category": "Working Environments",
+          "filename": "get-working-environments--volumes.html"
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}/credentials": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve ONTAP credentials",
+          "category": "Working Environments",
+          "filename": "get-working-environments--credentials.html"
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Create ONTAP credentials",
+          "category": "Working Environments",
+          "filename": "post-working-environments--credentials.html"
+        }
+      }
+    },
+    "/working-environments/{accountId}/recover": {
+      "post": {
+        "x-doc": {
+          "title": "Recover working environments",
+          "category": "Working Environments",
+          "filename": "post-working-environments-recover.html"
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve working environments",
+          "category": "Working Environments",
+          "filename": "get-working-environments-.html"
+        }
+      },
+      "delete": {
+        "x-doc": {
+          "title": "Delete file system",
+          "category": "Working Environments",
+          "filename": "delete-working-environments-.html"
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}/workspace/{workspaceId}": {
+      "delete": {
+        "x-doc": {
+          "title": "Remove working environment from workspace",
+          "category": "Working Environments",
+          "filename": "delete-working-environments--workspace-.html"
+        }
+      }
+    },
+    "/aws/vpcs": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve VPCs",
+          "category": "AWS Operations",
+          "filename": "get-aws-vpcs.html"
+        }
+      }
+    },
+    "/aws/route-tables": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve route tables",
+          "category": "AWS Operations",
+          "filename": "get-aws-route-tables.html"
+        }
+      }
+    },
+    "/aws/encryption-keys": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve encryption keys",
+          "category": "AWS Operations",
+          "filename": "get-aws-encryption-keys.html"
+        }
+      }
+    }
+  }
+}
