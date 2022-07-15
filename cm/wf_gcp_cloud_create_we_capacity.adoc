@@ -13,13 +13,13 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can create a new Cloud Volumes ONTAP working environment using a capacity-based license. Refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html[Manage capcity-based licenses] for more information.
+You can create a new Cloud Volumes ONTAP working environment using link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[capacity-based licensing^].
 
 [NOTE]
 .When using capacity-based license:
 ====
 * A marketplace subscription is required.
-* A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
+* If you purchase a license from NetApp (BYOL), a NetApp Support Site (NSS) key is required to register the system for support.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_gcp_ontap_create_vol_nfs.html[NFS], link:wf_gcp_ontap_create_vol_cifs.html[CIFS], or link:wf_gcp_ontap_create_vol_iscsi.html[iSCSI] protocol.
 ====
 
@@ -29,49 +29,53 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 * <<Create working environment for high availability pair, HA pair>>
 
 == Create working environment for single node
-You can use this workflow to create a single node working environment with a capacity-based license.
+You can use this workflow to create a single node working environment with capacity-based licensing.
 
 === 1. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and do the following:
 
-* Choose the `name` value of the required region for the `region` parameter in step 10.
-* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 10.
+* Choose the `name` value of the required region for the `region` parameter in step 11.
+* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 11.
 
 === 2. Select the workspace
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 11.
 
 === 3. Select the project
-Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 10.
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 11.
 
 === 4. Select the permutations
-Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-single-node[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 10.
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-single-node[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 11.
 
 === 5. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
 
 === 6. Select the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-single-node[Get packages] and search the `licenseType` from the various permutations of packages configuration values:
 
-* Choose the `name` for `packageName` parameter in step 10.
-*	Choose the `diskSize` for `gcpVolumeSize` in step 10.
-*	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters in step 10.
+* Choose the `name` for `packageName` parameter in step 11.
+*	Choose the `diskSize` for `gcpVolumeSize` in step 11.
+*	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters in step 11.
 
 === 7. Select the service account
-Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-single-node[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 10.
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-single-node[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 11.
 
 === 8. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 10.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 11.
 
-=== 9. (Optional) Obtain an NSS key
-An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 10.
+=== 9. (Optional) Add a BYOL license
+
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+
+=== 10. (Optional) Obtain an NSS key
+An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 11.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
 
-=== 10. Create the working environment
+=== 11. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
@@ -166,14 +170,14 @@ You can use this workflow to create an HA working environment.
 === 1. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and do the following:
 
-* Choose the `name` value of the required region for the `region` parameter in step 8.
-* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 11.
+* Choose the `name` value of the required region for the `region` parameter in step 12.
+* Choose one of the VPCs. Choose `name` for `vpcId` parameter and `subnets: path` for `subnetId` and `subnetPath` parameters in step 12.
 
 === 2. Select the workspace
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 11.
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 12.
 
 === 3. Select the project
-Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availability-pair[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 11.
+Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availability-pair[Get projects] and choose the `projectId` value of the required project for `project` parameter in step 12.
 
 === 4. Select the VPC
 Perform the link:wf_gcp_cloud_md_get_vpcs.html[Get vpcs] workflow and do the following:
@@ -185,11 +189,11 @@ Perform the link:wf_gcp_cloud_md_get_vpcs.html[Get vpcs] workflow and do the fol
 
 
 === 5. Select the permutations
-Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 11.
+Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion`, `license: type`, and `instanceType` values of the required `vsaMetadata` parameter in step 12.
 
 === 6. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 12. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
 
 === 7. Select the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-high-availability-pair[Get packages] and search the `licenseType` from permutations:
@@ -199,20 +203,24 @@ Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for
 *	Choose the `diskType` and `writingSpeedState` for the `gcpVolumeType` and `writingSpeedState` parameters.
 
 === 8. Select the service account
-Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-high-availability-pair[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 11.
+Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-accounts-for-high-availability-pair[Get service accounts] workflow and choose the `email` value of the required service accounts for the `gcpServiceAccount` parameter in step 12.
 
 === 9. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 11.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 12.
 
-=== 10. (Optional) Obtain an NSS key
-An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 11.
+=== 10. (Optional) Add a BYOL license
+
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+
+=== 11. (Optional) Obtain an NSS key
+An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 12.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
 
-=== 11. Create the working environment
+=== 12. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
@@ -238,7 +246,6 @@ This request uses the hourly pay-as-you-go (PAYGO) as indicated in the `licenseT
 
 JSON input example::
 [source,json]
-[source,json]
 {
   "name": "ziv01we02ha",
   "svmPassword": "password",
@@ -250,7 +257,7 @@ JSON input example::
   "dataEncryptionType": "GCP",
   "vsaMetadata": {
     "ontapVersion": "ONTAP-9.11.1RC1.T1",
-    "licenseType": "capacity-paygo",
+    "licenseType": "ha-capacity-paygo",
     "instanceType": "m5.2xlarge",
     "capacityPackageName": "Professional"
   },

@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can create a new Cloud Volumes ONTAP working environment using a capacity-based license. Refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html[Manage capcity-based licenses] for more information.
+You can create a new Cloud Volumes ONTAP working environment using link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[capacity-based licensing^].
 
 You can add new volumes when creating the working environment.
 
@@ -21,7 +21,7 @@ You can add new volumes when creating the working environment.
 .When using capacity-based license:
 ====
 * A marketplace subscription is required.
-* A NetApp Support Site (NSS) key is recommended to register the system for support, but it's not required.
+* If you purchase a license from NetApp (BYOL), a NetApp Support Site (NSS) key is required to register the system for support.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_aws_ontap_create_vol_nfs.html[NFS], link:wf_aws_ontap_create_vol_cifs.html[CIFS], or link:wf_aws_ontap_create_vol_iscsi.html[iSCSI] protocol.
 ====
 
@@ -36,57 +36,61 @@ You can use this workflow to create an single node Cloud Volumes ONTAP working e
 
 === 1. Select the region
 
-Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` parameter in step 10.
+Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` parameter in step 11.
 
 === 2. Select the workspace
 
-Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 10.
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 11.
 
 === 3. Select the permutations configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 10.
+Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 11.
 
 === 4. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 10. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
 
 === 5. Select the VPC
 
 Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get VPCs] and do the following:
 
-* Choose the `vpcId` value for the `vpcId` parameter in step 10.
-* Choose the `cidrBlock` values for the `ips` value of the volume parameter in step 10.
+* Choose the `vpcId` value for the `vpcId` parameter in step 11.
+* Choose the `cidrBlock` values for the `ips` value of the volume parameter in step 11.
 
 === 6. Select the EBS volume configuration
 
-Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 10.
+Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 11.
 
-NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 10.
+NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 11.
 
 === 7. Attach a marketplace subscription
 
-Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 10.
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 11.
 
-=== 8. (Optional) Obtain an NSS key
+=== 8. (Optional) Add a BYOL license
 
-An NSS key is optional when using capacity-based licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 10.
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+
+=== 9. (Optional) Obtain an NSS key
+
+An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 11.
 
 * To create a new NSS key using the Cloud Manager user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 9. (Optional) Create a new volume
+=== 10. (Optional) Create a new volume
 
 You can optionally add a new volume while creating a working environment.
 
-* Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 10. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
+* Choose the `name` and `size` values for the corresponding `name` and `size:size` input parameters in step 11. The `size:unit` must be one of the following: TB, GB, MB, KB, or Byte.
 
-* Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter in step 10 if you choose to create a volume using the NFS protocol. The `ips` parameter signifies the client IP address (could be multiple addresses) that can access the volume over the network. The `nfsVersion` parameter signifies the version of the NFS protocol that a client will use for data transmission over a network.
+* Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter in step 11 if you choose to create a volume using the NFS protocol. The `ips` parameter signifies the client IP address (could be multiple addresses) that can access the volume over the network. The `nfsVersion` parameter signifies the version of the NFS protocol that a client will use for data transmission over a network.
 +
 NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
 
-=== 10. Create the working environment
+=== 11. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
@@ -214,8 +218,8 @@ Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations
 
 === 5. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are three options avilable: `Professional`, `Essentials`, and `Freemium`.
-Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are three options available: `Professional`, `Essentials`, and `Freemium`.
+Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
 
 === 6. Select the packages configuration
 Perform the link:wf_aws_cloud_md_get_packages.html[Get Packages] and choose the `packageName`, `instanceTenancy` and `writingSpeedState` values for the corresponding parameters in step 13.
@@ -242,15 +246,19 @@ NOTE: You need to choose one of the allowed values for the required `ebsVolumeTy
 
 Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 13.
 
-=== 11. (Optional) Obtain an NSS key
+=== 11. (Optional) Add a BYOL license
 
-An NSS key is optional when using by-capacity licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 13.
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+
+=== 12. (Optional) Obtain an NSS key
+
+An NSS key is optional when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 13.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 12. (Optional) Create a new volume
+=== 13. (Optional) Create a new volume
 
 You can optionally add a new volume while creating a working environment.
 
@@ -261,7 +269,7 @@ You can optionally add a new volume while creating a working environment.
 NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
 
-=== 13. Create the working environment
+=== 14. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
@@ -297,7 +305,7 @@ JSON input example::
   "ebsVolumeType": "gp2",
   "vsaMetadata": {
     "ontapVersion": "ONTAP-9.11.1RC1.T1",
-    "licenseType": "capacity-paygo",
+    "licenseType": "ha-capacity-paygo",
     "instanceType": "m5.2xlarge",
     "capacityPackageName": "Professional"
   },
