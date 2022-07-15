@@ -35,6 +35,15 @@ This section describes existing data format definitions.
 |privateIp||true|string|
 |===
 
+=== AccessPoints
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|accessPoint||false|string|
+|primary||false|string|
+|secondary||false|string|
+|===
+
 === AccountWorkingEnvironmentResponse
 [options="header"]
 |===
@@ -278,6 +287,14 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |email||true|string|
 |password||true|string|
+|===
+
+=== AutoSizeResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|mode||true|string|
+|maximum||true|<<Capacity>>|
 |===
 
 === AvailableIpsResponse
@@ -982,6 +999,14 @@ This section describes existing data format definitions.
 |evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
 |===
 
+=== CifsResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|shareInfo||true|<<CifsShareInfo>> array|
+|accessPoints||true|<<AccessPoints>>|
+|===
+
 === CifsShareInfo
 [options="header"]
 |===
@@ -997,6 +1022,15 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |permission|CIFS share permission type|true|string|
 |users|List of users with the permission|true|string array|
+|===
+
+=== CloneResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|parentVolume||true|<<Identifier>>|
+|parentSnapshot||true|<<Identifier>>|
+|childVolumes||true|string array|
 |===
 
 === CloudAccountResponse
@@ -1221,6 +1255,14 @@ This section describes existing data format definitions.
 |scopeId||false|integer (int32)|
 |===
 
+=== CompressionResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|enabled||true|boolean|
+|savings||true|<<Capacity>>|
+|===
+
 === ConfigResponse
 [options="header"]
 |===
@@ -1268,6 +1310,7 @@ This section describes existing data format definitions.
 |useAccelerationForImageDownload||true|boolean|
 |maxDownloadSessions||true|integer (int32)|
 |rollbackOnAzurePrivateLinkFailure||true|boolean|
+|userPrivateDnsZoneSettings||false|<<UserPrivateDnsZoneSettings>>|
 |===
 
 === ConfigValuesUpdateRequest
@@ -1410,6 +1453,7 @@ This section describes existing data format definitions.
 |dataEncryptionType|Type of encryption to use for this working environment|true|enum (NONE,  AZURE,  ONTAP)|
 |ontapEncryptionParameters|Parameters required if using ontap encryption|false|<<OntapEncryption>>|
 |securityGroupId||false|string|
+|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
 |serialNumber||false|string|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |diskSize|Disk size|true|<<Capacity>>|
@@ -1743,6 +1787,14 @@ This section describes existing data format definitions.
 |dataBrokerPlacement||false|<<DataBrokerPlacement>>|
 |===
 
+=== DeduplicationResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|enabled||true|boolean|
+|savings||true|<<Capacity>>|
+|===
+
 === DefaultProviderVolume
 [options="header"]
 |===
@@ -1913,6 +1965,14 @@ This section describes existing data format definitions.
 |supportedVolumeTypes||true|string array|
 |supportedOccmLicenses||true|string array|
 |default||true|boolean|
+|===
+
+=== EfficiencyResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|compression||true|<<CompressionResponse>>|
+|deduplication||true|<<DeduplicationResponse>>|
 |===
 
 === ElasticVolumeQuoteInfo
@@ -2532,6 +2592,14 @@ This section describes existing data format definitions.
 |id||true|string|
 |===
 
+=== Identifier
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name||true|string|
+|uuid||true|string|
+|===
+
 === IGroup
 [options="header"]
 |===
@@ -2574,6 +2642,14 @@ This section describes existing data format definitions.
 |iqn||false|string|
 |publicId||false|string|
 |id||false|integer (int32)|
+|===
+
+=== InodesResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|total||false|integer (int64)|
+|used||false|integer (int64)|
 |===
 
 === InstallCertificatesAndPrivateKeyRequest
@@ -2634,8 +2710,8 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyOs||true|boolean|
 |legacyInstance||true|boolean|
+|legacyOs||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -2728,6 +2804,14 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |url||true|string|
+|===
+
+=== IscsiResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|enabled||true|boolean|
+|targetName||true|string|
 |===
 
 === KeyManagerCaCertificateRequest
@@ -3001,6 +3085,15 @@ This section describes existing data format definitions.
 |tenantUrl||false|string|
 |===
 
+=== MountPoints
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|mountPoint||false|string|
+|primaryNoFailover||false|string|
+|SecondaryNoFailover||false|string|
+|===
+
 === NTPConfigurationRequest
 [options="header"]
 |===
@@ -3036,6 +3129,14 @@ This section describes existing data format definitions.
 |nonHaNodeMinimumRequiredIps||true|integer (int32)|
 |haNodeMinimumRequiredIps||true|integer (int32)|
 |haMediatorMinimumRequiredIps||true|integer (int32)|
+|===
+
+=== NfsResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|exportPolicy||true|<<NamedExportPolicyInfo>>|
+|mountPoints||true|<<MountPoints>>|
 |===
 
 === NotificationServiceInformation
@@ -3974,6 +4075,21 @@ This section describes existing data format definitions.
 |retention||true|integer (int32)|
 |===
 
+=== SnaplockResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|type||false|string|
+|===
+
+=== SnapmirrorResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|cloudProtected||false|boolean|
+|ontapProtected||false|boolean|
+|===
+
 === SnapshotCreateRequest
 [options="header"]
 |===
@@ -4196,6 +4312,7 @@ This section describes existing data format definitions.
 |tieringWithServiceAccount||true|boolean|
 |s3CmkEncryptionSupportedVersion||true|boolean|
 |gp3SupportedVersion||true|boolean|
+|elasticVolumeSupportedAndEnabled||true|boolean|
 |===
 
 === Svm
@@ -4216,6 +4333,14 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |svmNewName||true|string|
 |svmName||false|string|
+|===
+
+=== Tag
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|key||true|string|
+|value||true|string|
 |===
 
 === TagKeyResponse
@@ -4269,6 +4394,18 @@ This section describes existing data format definitions.
 |name||true|string|
 |publicId||true|string|
 |workingEnvironmentsInformation||false|<<WorkingEnvironmentsInformation>>|
+|===
+
+=== TieringResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|policy||false|string|
+|minCoolingDays||false|integer (int32)|
+|type||false|string|
+|used||false|<<Capacity>>|
+|tierInactiveUserData||false|<<Capacity>>|
+|tierInactiveUserDataPercent||false|integer (int32)|
 |===
 
 === TieringRestriction
@@ -4393,6 +4530,15 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |email|Email address of the user attempting to login|true|string|
 |password|Password of the user attempting to login|true|string|
+|===
+
+=== UserPrivateDnsZoneSettings
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|useExisting||true|boolean|
+|resourceGroup||true|string|
+|subscription||true|string|
 |===
 
 === UserRequest
@@ -4558,6 +4704,16 @@ This section describes existing data format definitions.
 |evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
 |===
 
+=== VolumeProviderPropertiesResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|volumeType||false|string|
+|tags||true|<<Tag>> array|
+|iops||false|integer (int32)|
+|throughput||false|integer (int32)|
+|===
+
 === VolumeQualityOfService
 [options="header"]
 |===
@@ -4620,6 +4776,43 @@ This section describes existing data format definitions.
 |targetName|ISCSI target IQN|true|string|
 |iscsiEnabled||true|boolean|
 |flexGroupVolume||true|boolean|
+|===
+
+=== OntapsVolumesResource:VolumeResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name|Volume name|true|string|
+|uuid|Volume id|true|string|
+|svmName|Volume SVM name|true|string|
+|size|Volume total size|true|<<Capacity>>|
+|usedSize|Volume used size|true|<<Capacity>>|
+|junctionPath|The junction path at which this volume is mounted|true|string|
+|inodes|The total and used inodes size|true|<<InodesResponse>>|
+|thinProvisioned|Whether volume is thin provisioned|true|boolean|
+|efficiency|Efficiency|true|<<EfficiencyResponse>>|
+|snapshotPolicy|The name of the Snapshot policy|true|string|
+|securityStyle|The type of the Security style|true|string|
+|state|state|true|string|
+|volumeType|Volume type|true|string|
+|aggregateName|Aggregate name|true|string|
+|autosize|The operating mode of autosize|true|<<AutoSizeResponse>>|
+|clones|Clone Properties|true|<<CloneResponse>>|
+|volumeProviderProperties|Volume Provider Properties|true|<<VolumeProviderPropertiesResponse>>|
+|volumeIsMoving|Is Volume during move process|false|boolean|
+|ProtocolNfs|NfsResponse|true|<<NfsResponse>>|
+|ProtocolCifs|CifsResponse|true|<<CifsResponse>>|
+|ProtocolIscsi|IscsiResponse|true|<<IscsiResponse>>|
+|comment|Volume comment|false|string|
+|qosPolicyGroupName|Quality of service policy group name|false|string|
+|snaplock|Snaplock type|true|<<SnaplockResponse>>|
+|constituentsAggregates|Aggregates which are used for FlexGroup constituents|true|string array|
+|snapshotsUsedSize|The size that is used by snapshots in the volume|false|<<Capacity>>|
+|cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
+|tiering|TieringResponse|true|<<TieringResponse>>|
+|snapmirror|SnapmirrorResponse|true|<<SnapmirrorResponse>>|
+|flexGroupVolume||true|boolean|
+|svmRoot||true|boolean|
 |===
 
 === VolumeTags
