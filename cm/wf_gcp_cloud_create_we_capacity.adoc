@@ -64,16 +64,16 @@ Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-
 
 Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 11.
 
-=== 9. (Optional) Add a BYOL license
-
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
-
-=== 10. (Optional) Obtain an NSS key
+=== 9. (Optional) Obtain an NSS key
 An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 11.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
+
+=== 10. (Optional) Add a BYOL license
+
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 11. Create the working environment
 
@@ -209,16 +209,16 @@ Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-
 
 Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 12.
 
-=== 10. (Optional) Add a BYOL license
-
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
-
-=== 11. (Optional) Obtain an NSS key
+=== 10. (Optional) Obtain an NSS key
 An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 12.
 
 * To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
+
+=== 11. (Optional) Add a BYOL license
+
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 12. Create the working environment
 

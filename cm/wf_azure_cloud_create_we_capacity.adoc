@@ -83,10 +83,8 @@ Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-si
 
 === 9. Select the capacity package name
 
-Choose a package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are five licensing package options available: `Professional`, `Essentials`, `Freemium`, `Edge Cache`, and `Optimized`.
+Choose a package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are five licensing package options available: `Professional`, `Essentials`, `Freemium`.
 
-[NOTE]
-You must have a marketplace subscription for the new Azure packages: `Optimized` and `Edge Cache`. The BYOL consumption model is unavailable for these packages.
 
 === 10. Attach a marketplace subscription
 
