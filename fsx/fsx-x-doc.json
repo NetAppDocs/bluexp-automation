@@ -5,7 +5,8 @@
         "x-doc": {
           "title": "Get /health",
           "category": "Health",
-          "filename": "get-health.html"
+          "filename": "get-health.html",
+          "explorer": false
         }
       }
     },
@@ -14,14 +15,16 @@
         "x-doc": {
           "title": "",
           "category": "AWS Credentials",
-          "filename": "get-aws-credentials-.html"
+          "filename": "get-aws-credentials-.html",
+          "explorer": false
         }
       },
       "post": {
         "x-doc": {
           "title": "Add AWS credentials",
           "category": "AWS Credentials",
-          "filename": "post-aws-credentials-.html"
+          "filename": "post-aws-credentials-.html",
+          "explorer": false
         }
       }
     },
@@ -30,14 +33,16 @@
         "x-doc": {
           "title": "Retrieve working environments",
           "category": "Working Environments",
-          "filename": "get-working-environments-.html"
+          "filename": "get-working-environments-.html",
+          "explorer": false
         }
       },
       "post": {
         "x-doc": {
           "title": "Create file system",
           "category": "Working Environments",
-          "filename": "post-working-environments-.html"
+          "filename": "post-working-environments-.html",
+          "explorer": false
         }
       }
     },
@@ -46,7 +51,8 @@
         "x-doc": {
           "title": "Discover working environments",
           "category": "Working Environments",
-          "filename": "get-working-environments-discover.html"
+          "filename": "get-working-environments-discover.html",
+          "explorer": false
         }
       }
     },
@@ -55,7 +61,8 @@
         "x-doc": {
           "title": "Retrieve volumes",
           "category": "Working Environments",
-          "filename": "get-working-environments--volumes.html"
+          "filename": "get-working-environments--volumes.html",
+          "explorer": false
         }
       }
     },
@@ -64,14 +71,16 @@
         "x-doc": {
           "title": "Retrieve ONTAP credentials",
           "category": "Working Environments",
-          "filename": "get-working-environments--credentials.html"
+          "filename": "get-working-environments--credentials.html",
+          "explorer": false
         }
       },
       "post": {
         "x-doc": {
           "title": "Create ONTAP credentials",
           "category": "Working Environments",
-          "filename": "post-working-environments--credentials.html"
+          "filename": "post-working-environments--credentials.html",
+          "explorer": false
         }
       }
     },
@@ -80,7 +89,8 @@
         "x-doc": {
           "title": "Recover working environments",
           "category": "Working Environments",
-          "filename": "post-working-environments-recover.html"
+          "filename": "post-working-environments-recover.html",
+          "explorer": false
         }
       }
     },
@@ -89,14 +99,16 @@
         "x-doc": {
           "title": "Retrieve working environments",
           "category": "Working Environments",
-          "filename": "get-working-environments-.html"
+          "filename": "get-working-environments-.html",
+          "explorer": false
         }
       },
       "delete": {
         "x-doc": {
           "title": "Delete file system",
           "category": "Working Environments",
-          "filename": "delete-working-environments-.html"
+          "filename": "delete-working-environments-.html",
+          "explorer": false
         }
       }
     },
@@ -105,7 +117,8 @@
         "x-doc": {
           "title": "Remove working environment from workspace",
           "category": "Working Environments",
-          "filename": "delete-working-environments--workspace-.html"
+          "filename": "delete-working-environments--workspace-.html",
+          "explorer": false
         }
       }
     },
@@ -114,7 +127,8 @@
         "x-doc": {
           "title": "Retrieve VPCs",
           "category": "AWS Operations",
-          "filename": "get-aws-vpcs.html"
+          "filename": "get-aws-vpcs.html",
+          "explorer": false
         }
       }
     },
@@ -123,7 +137,8 @@
         "x-doc": {
           "title": "Retrieve route tables",
           "category": "AWS Operations",
-          "filename": "get-aws-route-tables.html"
+          "filename": "get-aws-route-tables.html",
+          "explorer": false
         }
       }
     },
@@ -132,7 +147,8 @@
         "x-doc": {
           "title": "Retrieve encryption keys",
           "category": "AWS Operations",
-          "filename": "get-aws-encryption-keys.html"
+          "filename": "get-aws-encryption-keys.html",
+          "explorer": false
         }
       }
     }
