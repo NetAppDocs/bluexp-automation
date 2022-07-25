@@ -40,7 +40,7 @@ entries:
       - title: Aggregates
         entries:
           - title: Add capacity to EV aggregate
-            url: /cm/wf_aws_cloud_add_capacity.html
+            url: /cm/wf_aws_cloud_add_capacity_ev.html
           - title: Get aggregates
             url: /cm/wf_aws_ontap_get_aggrs.html
           - title: Create aggregate
