@@ -22,7 +22,7 @@ entries:
       - title: Working environments
         entries:
           - title: Create working environment with capacity-based license
-            url: /cm/wf_aws_cloud_create_we_capacity.html
+            url: /cm/wf_aws_cloud_create_we_capacity_ev.html
           - title: Create working environment with PAYGO (node-based)
             url: /cm/wf_aws_cloud_create_we_paygo.html
           - title: Create working environment with BYOL (node-based)
@@ -40,7 +40,7 @@ entries:
       - title: Aggregates
         entries:
           - title: Add capacity to EV aggregate
-            url: /cm/wf_aws_cloud_add_capacity_ev.html
+            url: /cm/wf_aws_cloud_add_capacity.html
           - title: Get aggregates
             url: /cm/wf_aws_ontap_get_aggrs.html
           - title: Create aggregate
