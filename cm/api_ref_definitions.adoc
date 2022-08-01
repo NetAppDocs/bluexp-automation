@@ -158,6 +158,13 @@ This section describes existing data format definitions.
 |root||true|boolean|
 |===
 
+=== AlertsAndNotificationServiceInformation
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|url||true|string|
+|===
+
 === AllRelationships
 [options="header"]
 |===
@@ -1410,7 +1417,7 @@ This section describes existing data format definitions.
 |awsEncryptionParameters|Parameters required if using aws encryption|false|<<AwsEncryption>>|
 |haParams||true|<<HaParameters>>|
 |securityGroupId||false|string|
-|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
+|openSecurityGroup|Open security group to all IP ranges|false|boolean|
 |awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |optimizedNetworkUtilization|Use optimized network utilization|false|boolean|
@@ -1453,7 +1460,7 @@ This section describes existing data format definitions.
 |dataEncryptionType|Type of encryption to use for this working environment|true|enum (NONE,  AZURE,  ONTAP)|
 |ontapEncryptionParameters|Parameters required if using ontap encryption|false|<<OntapEncryption>>|
 |securityGroupId||false|string|
-|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
+|openSecurityGroup|Open security group to all IP ranges|false|boolean|
 |serialNumber||false|string|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |diskSize|Disk size|true|<<Capacity>>|
@@ -1640,6 +1647,34 @@ This section describes existing data format definitions.
 |parameters||false|Map[string,any]|
 |===
 
+=== CreateSingleFilesystemRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name||true|string|
+|svmPassword||false|string|
+|fsxAdminPassword||true|string|
+|vpcId||true|string|
+|region||true|string|
+|ebsVolumeSize|EBS volume size|true|<<Capacity>>|
+|ebsVolumeType|EBS volume type|true|enum (gp2,  st1,  io1,  io2)|
+|instanceType|Instance Type|true|string|
+|nodeCustomerDataEni||true|<<NetworkInterfaceInfo>>|
+|subnetId||true|string|
+|serialNumber||true|string|
+|awsEncryptionParameters|Parameters required if using aws encryption - system|false|<<AwsEncryption>>|
+|dataAwsEncryptionParameters|Parameters required if using aws encryption - data|false|<<AwsEncryption>>|
+|securityGroupId||false|string|
+|iops|Provisioned IOPS|false|integer (int32)|
+|instanceProfileName|Instance profile name|false|string|
+|tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
+|customOntapVersion|Custom Ontap Version|false|string|
+|svmAdminPassword|SVM admin password|false|string|
+|awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
+|tieringBucketName|Tiering bucket name|false|string|
+|enableExternalCache|Enable External Cache|false|boolean|
+|===
+
 === CreateSvmHaRequest
 [options="header"]
 |===
@@ -1678,7 +1713,7 @@ This section describes existing data format definitions.
 |ontapEncryptionParameters|Parameters required if using ontap encryption|false|<<OntapEncryption>>|
 |awsEncryptionParameters|Parameters required if using aws encryption|false|<<AwsEncryption>>|
 |securityGroupId||false|string|
-|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
+|openSecurityGroup|Open security group to all IP ranges|false|boolean|
 |vsaMetadata||true|<<VsaMetadataRequest>>|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |ebsVolumeSize|EBS volume size|true|<<Capacity>>|
@@ -1755,6 +1790,13 @@ This section describes existing data format definitions.
 |name||true|string|
 |code||true|string|
 |location||true|string|
+|===
+
+=== CvsServiceInformation
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|url||true|string|
 |===
 
 === DataBrokerNetworkInformation
@@ -2710,8 +2752,8 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyInstance||true|boolean|
 |legacyOs||true|boolean|
+|legacyInstance||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -3258,8 +3300,8 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|objectStoreAttachEligible||true|boolean|
 |inactiveDataReportingEnabled||true|boolean|
+|objectStoreAttachEligible||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3290,8 +3332,8 @@ This section describes existing data format definitions.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|snapmirrorLicenseExists||true|boolean|
 |aff||true|boolean|
+|snapmirrorLicenseExists||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3417,6 +3459,36 @@ This section describes existing data format definitions.
 |volumeCount||true|integer (int32)|
 |spaceReportingLogical||true|boolean|
 |keystoneSubscription||true|boolean|
+|===
+
+=== OntapCreateVolumeRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|svmName|SVM name|true|string|
+|aggregateName|Aggregate in which the volume will be created|true|string|
+|name|Volume name, unique within the SVM|true|string|
+|size|Size as Capacity|true|<<PositiveCapacity>>|
+|initialSize|Initial size as Capacity. Relevant for thin provisioned volumes only|false|<<Capacity>>|
+|snapshotPolicyName|Snapshot Policy name|true|string|
+|exportPolicyInfo|NFS protocol parameters|false|<<ExportPolicyInfo>>|
+|shareInfo|CIFS protocol parameters|false|<<CreateCifsShareInfoRequest>>|
+|enableThinProvisioning|Enable thin provisioning|true|boolean|
+|enableCompression|Enable compression|true|boolean|
+|enableDeduplication|Enable deduplication|true|boolean|
+|maxNumOfDisksApprovedToAdd|Maximum number of disks approved to allocate|true|integer (int32)|
+|evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
+|providerVolumeType|Provider volume type|false|string|
+|syncToS3|Add Cloud Sync relationship|true|boolean|
+|capacityTier|Capacity tier|false|enum (S3,  Blob,  cloudStorage)|
+|iops|Provisioned IOPS|false|integer (int32)|
+|throughput|Provisioned Throughput|false|integer (int32)|
+|tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
+|junctionPath|Junction path|false|string|
+|qualityOfService|Quality of service|false|<<VolumeQualityOfService>>|
+|minimumCoolingDays|Cooling Days|false|integer (int32)|
+|volumeTags|Optionally provide key-value pairs with which to tag the ONTAP volume using App Template service|false|<<VolumeTags>> array|
+|csiInfo||true|<<CreateIscsiInfoRequest>>|
 |===
 
 === OntapEncryption
@@ -4024,8 +4096,8 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |needCertificate||true|boolean|
 |runningInDocker||true|boolean|
-|pendingConnectivitySet||true|boolean|
 |setup||true|boolean|
+|pendingConnectivitySet||true|boolean|
 |===
 
 === SgwsCloudBackupSetupRequest
@@ -4270,7 +4342,9 @@ This section describes existing data format definitions.
 |setupInfo||true|<<SetupInfo>>|
 |useCompliancePrivateIpContainerMode||true|boolean|
 |notificationServiceInformation||false|<<NotificationServiceInformation>>|
+|alertsAndNotificationServiceInformation||false|<<AlertsAndNotificationServiceInformation>>|
 |credentialsServiceInformation||false|<<ServiceInformationUrl>>|
+|cvsServiceInformation||false|<<CvsServiceInformation>>|
 |===
 
 === SupportedCapacityTiers
@@ -4313,6 +4387,7 @@ This section describes existing data format definitions.
 |s3CmkEncryptionSupportedVersion||true|boolean|
 |gp3SupportedVersion||true|boolean|
 |elasticVolumeSupportedAndEnabled||true|boolean|
+|wormWithComposeSupported||true|boolean|
 |===
 
 === Svm
@@ -4790,7 +4865,7 @@ This section describes existing data format definitions.
 |junctionPath|The junction path at which this volume is mounted|true|string|
 |inodes|The total and used inodes size|true|<<InodesResponse>>|
 |thinProvisioned|Whether volume is thin provisioned|true|boolean|
-|efficiency|Efficiency|true|<<EfficiencyResponse>>|
+|efficiency|Efficiency|false|<<EfficiencyResponse>>|
 |snapshotPolicy|The name of the Snapshot policy|true|string|
 |securityStyle|The type of the Security style|true|string|
 |state|state|true|string|
@@ -4798,11 +4873,11 @@ This section describes existing data format definitions.
 |aggregateName|Aggregate name|true|string|
 |autosize|The operating mode of autosize|true|<<AutoSizeResponse>>|
 |clones|Clone Properties|true|<<CloneResponse>>|
-|volumeProviderProperties|Volume Provider Properties|true|<<VolumeProviderPropertiesResponse>>|
+|volumeProviderProperties|Volume Provider Properties|false|<<VolumeProviderPropertiesResponse>>|
 |volumeIsMoving|Is Volume during move process|false|boolean|
-|ProtocolNfs|NfsResponse|true|<<NfsResponse>>|
-|ProtocolCifs|CifsResponse|true|<<CifsResponse>>|
-|ProtocolIscsi|IscsiResponse|true|<<IscsiResponse>>|
+|ProtocolNfs|NfsResponse|false|<<NfsResponse>>|
+|ProtocolCifs|CifsResponse|false|<<CifsResponse>>|
+|ProtocolIscsi|IscsiResponse|false|<<IscsiResponse>>|
 |comment|Volume comment|false|string|
 |qosPolicyGroupName|Quality of service policy group name|false|string|
 |snaplock|Snaplock type|true|<<SnaplockResponse>>|
@@ -5177,3 +5252,4 @@ This section describes existing data format definitions.
 |userName||true|string|
 |password||true|string|
 |===
+
