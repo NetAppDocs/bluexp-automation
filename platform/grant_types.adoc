@@ -83,9 +83,11 @@ In some cases, static clients or applications need to acquire an access token to
 [source,json,%autofill]
 ---------------------------------------------------------------------
 {
+    "audience": "https://api.cloud.netapp.com",
     "grant_type": "client_credentials",
     "client_id": "<CLIENT_ID>",
     "client_secret": "<CLIENT_SECRET>"
+    
 }
 ---------------------------------------------------------------------
 
@@ -93,6 +95,8 @@ In some cases, static clients or applications need to acquire an access token to
 |===
 |Parameter
 |Description
+|`audience`
+|The resource identifier.
 |`grant_type`
 |Must be set to "client_credentials".
 |`client_id`
