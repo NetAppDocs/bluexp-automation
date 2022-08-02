@@ -18,6 +18,7 @@ sidebar:
     - section: api-cm
     - section: audit
     - section: cbs
+    - section: dw
     - section: ipa
     - section: persistence
     - section: tenancy
