@@ -5,7 +5,7 @@ keywords: packages, cloud, volumes, ontap, working, environment, occm
 summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
 ---
 
-= Add capacity to an EV aggregate
+= Add capacity to an Elatic Volume aggregate
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP p
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to add capacity to an exisiting Elastic Volume aggregate.
+You can use this workflow to add capacity to an existing Elastic Volume aggregate.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
@@ -28,6 +28,8 @@ Perform the workflow Get working environments and choose the publicId value for 
 
 === 2. Select the aggregate
 Perform the workflow Get aggregates and choose the name value for the `aggregateName` path parameter.
+
+=== 3. Add capacity
 
 [cols="25,75"*,options="header"]
 |===
@@ -52,9 +54,15 @@ JSON output example::
 <>
 
 == Add capacity for high availability pair
-You can use this workflow to add capcity in an HA working environment.
+You can use this workflow to add capacity in an HA working environment.
 
-=== 1. Get the packages
+=== 1. Select the working environment to use
+Perform the workflow Get working environments and choose the publicId value for the `workingEnvironmentId` path parameter.
+
+=== 2. Select the aggregate
+Perform the workflow Get aggregates and choose the name value for the `aggregateName` path parameter.
+
+=== 3. Add capacity
 
 [cols="25,75"*,options="header"]
 |===

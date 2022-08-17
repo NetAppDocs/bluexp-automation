@@ -116,7 +116,7 @@ JSON input example::
 
 [role="tabbed-block"]
 ====
-.Non-EV working environment
+.Non-Elatic Volume working environment
 --
 [source,json]
 {
@@ -159,7 +159,7 @@ JSON input example::
   "enableMonitoring": false
 }
 --
-.EV Working environment
+.Elastic Volume Working environment
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`.
 [source,json]
