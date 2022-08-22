@@ -1,0 +1,402 @@
+---
+sidebar: sidebar
+permalink: cm/wf_azure_cloud_create_we_capacity.html
+keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, workspace
+summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
+---
+
+= Create a working environment with capacity-based license
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can create a new Cloud Volumes ONTAP working environment using link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[capacity-based licensing^].
+
+You can add new volumes when creating the working environment.
+
+[NOTE]
+.When using capacity-based license:
+====
+* A marketplace subscription is required.
+* If you purchase a license from NetApp (BYOL), a NetApp Support Site (NSS) key is required to register the system for support.
+* You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_azure_ontap_create_vol_nfs.html[NFS], link:wf_azure_ontap_create_vol_cifs.html[CIFS], or link:wf_azure_ontap_create_vol_iscsi.html[iSCSI] protocol.
+====
+
+Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployment:
+
+* <<Create working environment for single node, Single Node>>
+* <<Create working environment for high availability pair, HA pair>>
+
+== Create working environment for single node
+
+You can use this workflow to create an single node Cloud Volumes ONTAP working environment.
+
+=== 1. Select the region
+
+Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-single-node[Get regions] and choose the `name` value of the required region for the `region` parameter in step 13.
+
+=== 2. Select the workspace
+
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 13.
+
+=== 3. Select the VNets
+
+Perform the workflow link:wf_azure_cloud_md_get_vnets.html#get-azure-vnets-for-single-node[Get VNets] and do the following:
+
+* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 13.
+*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 13.
+* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 13.
+*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 13.
+
+
+=== 4. Select the Azure availability zone
+
+Perform the workflow link:wf_azure_cloud_md_get_availability_zones.html#get-availability-zones-for-single-node[Get Azure Availability Zones] and choose the number from `zones` for the `availabilityZone` parameter in step 13.
+
+=== 5. Get the Azure packages configuration
+
+Perform the link:wf_azure_cloud_md_get_packages.html#get-packages-for-single-node[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
+
+
+=== 6. (Optional) Obtain an NSS key
+
+An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 13.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
+
+* To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 7. Select the Azure cloud provider accounts
+
+Perform the link:wf_azure_cloud_md_create_account.html[Create Azure cloud provider accounts] workflow and choose the `publicId` of the desired cloud provider account item from the `azureAccounts` for the `cloudProviderAccount` parameter.
+
+=== 8. Select the Azure permutations
+
+Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-single-node[Get Azure Permutations] workflow and pick the desired permutation:
+
+*	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 13.
+*	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 13.
+*	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 13.
+
+=== 9. Select the capacity package name
+
+Choose a package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are five licensing package options available: `Professional`, `Essentials`, `Freemium`, `Optimized`, and `Edge Cache`.
+
+[NOTE]
+You must have a marketplace subscription for the new Azure packages: `Optimized` and `Edge Cache`. The BYOL consumption model is unavailable for these packages.
+
+=== 10. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 13.
+
+=== 11. (Optional) Add a BYOL license
+
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+
+=== 12. Select the Azure storage account types
+
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-single-node[Get Azure Storage Account Types] workflow and pick the desired storage type.
+
+*	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 13.
+*	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 13.
+*	Choose the `unit` of the desired disk size from the `sizes` -> `size` field for the `unit` field inside the `diskSize` parameter in step 13.
+
+=== 13. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/vsa/working-environments
+|===
+
+curl example::
+[source,curl]
+----
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>'  --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
+----
+
+
+Input::
+
+The JSON input example includes the minimum list of parameters.
+
+[NOTE]
+This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
+
+JSON input example::
+[source,json]
+{
+	 "name":"Azure123",
+	 "tenantId":"tenantID",
+	 "region":"westeurope",
+	 "packageName":"azure_poc",
+	 "dataEncryptionType":"AZURE",
+   "vsaMetadata": {
+     "ontapVersion": "ONTAP-9.11.1RC1.T1",
+     "licenseType": "capacity-paygo",
+     "instanceType": "m5.2xlarge",
+     "capacityPackageName": "Professional"
+   },
+	 "writingSpeedState":"NORMAL",
+	 "subnetId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
+	 "svmPassword":"Netapp123",
+	 "vnetId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1",
+	 "cidr":"10.0.0.0/16",
+	 "ontapEncryptionParameters":null,
+	 "securityGroupId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups/Cloud-Compliance-1nThiJkG05ZgcyucIJvCSbtBdpVnK-2020894989899/providers/Microsoft.Network/networkSecurityGroups/Cloud-Compliance-1nTxxxtkG05ZgcxxxxxxXXXXXX-2000000000000000",
+	 "skipSnapshots":false,
+	 "diskSize":{
+		 "size":500,
+		 "unit":"GB",
+		 "_identifier":"500 GB"
+	},
+	 "storageType":"Premium_LRS",
+	 "azureTags":[],
+	 "subscriptionId":"x000xx00-0x00-0000-000x",
+	 "cloudProviderAccount":"ManagedServiceIdentity",
+	 "backupVolumesToCbs":false,
+	 "enableCompliance":false,
+	 "enableMonitoring":false,
+	 "availabilityZone":1,
+	 "allowDeployInExistingRg":true,
+	 "resourceGroup":"occm_group_westeurope"
+}
+
+
+Output::
+
+The JSON output example includes an example of the `VsaWorkingEnvironmentResponse`.
+
+JSON output example::
+[source,json]
+{
+    "publicId": "VsaWorkingEnvironment-uFPaNkrv",
+    "name": "Azure123",
+    "tenantId": "tenantID",
+    "svmName": "svm_Azure123",
+    "creatorUserEmail": "user_mail",
+    "status": null,
+    "providerProperties": null,
+    "reservedSize": null,
+    "clusterProperties": null,
+    "ontapClusterProperties": null,
+    "cloudProviderName": "Azure",
+    "snapshotPolicies": null,
+    "actionsRequired": null,
+    "activeActions": null,
+    "replicationProperties": null,
+    "schedules": null,
+    "svms": null,
+    "workingEnvironmentType": "VSA",
+    "supportRegistrationProperties": null,
+    "supportRegistrationInformation": null,
+    "capacityFeatures": null,
+    "encryptionProperties": null,
+    "supportedFeatures": null,
+    "isHA": false,
+    "haProperties": null,
+    "k8sProperties": null,
+    "fpolicyProperties": null,
+    "saasProperties": null,
+    "cbsProperties": null,
+    "complianceProperties": null,
+    "monitoringProperties": null
+}
+
+== Create working environment for high availability pair
+You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
+
+=== 1. Select the region
+
+Perform the workflow link:wf_azure_cloud_md_get_regions.html#get-azure-regions-for-high-availability-pair[Get regions] and choose the `name` value of the required region for the `region` parameter in step 12.
+
+=== 2. Select the workspace
+
+Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 12.
+
+=== 3. Select the VNets
+
+Perform the workflow link:wf_azure_cloud_md_get_vnets.html#get-azure-vnets-for-high-availability-pair[Get VNets] and do the following:
+
+* Choose the `id` value of the desired vnet from the `virtualNetworks` for the `vnetId` parameter in step 12.
+*	Choose the `cidr` value of the desired cidr from the `virtualNetworks` for the `cidr` parameter in step 12.
+* Choose the `id` of the desired subnet from the `virtualNetworks`-> `cidrs`-> `subnets` for the `subnetId` parameter in step 12.
+*	Choose the `id` of the desired security group from the `securityGroups` field for the `securityGroupId` parameter in step 12.
+
+=== 4. Get Azure packages configuration
+
+Perform the link:wf_azure_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get Azure Packages] workflow and choose the `name` of the desired package item for the `packageName` parameter.
+
+=== 5. (Optional) Obtain an NSS key
+
+An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 12.
+
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
+
+* To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
+
+=== 6. Select Azure cloud provider accounts
+
+Perform the link:wf_azure_cloud_md_create_account.html[Create Azure Cloud Provider Accounts] workflow and choose the `publicId` of the desired cloud provider account item from the `azureAccounts` for the `cloudProviderAccount` parameter.
+
+=== 7. Select Azure permutations
+
+Perform the link:wf_azure_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get Azure Permutations] workflow and choose the desired permutation:
+
+*	Choose the `ontapVersion` of the desired permutation for the `ontapVersion` field inside the `vsaMetadata` parameter  in step 12.
+*	Choose the `type` of the desired license item from the  `license` parameter for the `licenseType` field inside the `vsaMetadata` parameter in step 12.
+*	Choose the `instanceType` of the desired permutation for the `instanceType` field inside the `vsaMetadata` parameter in step 12.
+
+=== 8. Select the capacity package name
+
+Choose a package name for the `vsaMetadata:capacityPackageName` parameter in step 12. There are five licensing options available: `Professional`, `Essentials`, `Freemium`, `Edge Cache`, and `Optimized`.
+
+[NOTE]
+You must have a marketplace subscription for the new Azure packages: `Optimized` and `Edge Cache`. The BYOL consumption model is unavailable for these packages.
+
+=== 9. Attach a marketplace subscription
+
+Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription] and choose the `subscriptionId` value for the `saasSubscriptionId` parameter in step 12.
+
+=== 10. (Optional) Add a BYOL license
+
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+
+
+=== 11. Select Azure storage account types
+
+Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-high-availability-pair[Get Azure Storage Account Types] workflow and pick the desired storage type.
+
+*	Choose the `diskType` of the desired storage type item for the `storageType` parameter in step 12.
+*	Choose the `size` of the desired disk size from the `sizes` -> `size` field for the `size` field inside the `diskSize` parameter in step 12.
+*	Choose the `unit` of the desired disk size from the `sizes` -> `size` field for the `unit` field inside the `diskSize` parameter in step 12.
+
+=== 12. Create the working environment
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/azure/ha/working-environments
+|===
+
+curl example::
+[source,curl]
+----
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments' --header 'x-agent-id: <AGENT_ID>'  --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
+----
+
+Input::
+
+The JSON input example includes the minimum list of parameters.
+
+[NOTE]
+This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
+
+JSON input example::
+[source,json]
+{
+   "name":"ranukazure12",
+   "volume":{
+      "exportPolicyInfo":{
+         "policyType":"custom",
+         "ips":[
+            "10.0.0.0/16"
+         ],
+         "nfsVersion":[
+            "nfs3",
+            "nfs4"
+         ]
+      },
+      "snapshotPolicyName":"default",
+      "name":"ranukvol12",
+      "enableThinProvisioning":true,
+      "enableDeduplication":true,
+      "enableCompression":true,
+      "size":{
+         "size":100,
+         "unit":"GB"
+      },
+      "tieringPolicy":"auto"
+   },
+   "tenantId":"tenantIDgoeshere",
+   "region":"westeurope",
+   "packageName":"azure_ha_standard",
+   "dataEncryptionType":"AZURE",
+   "capacityTier":"Blob",
+   "vsaMetadata": {
+     "ontapVersion": "ONTAP-9.11.1RC1.T1",
+     "licenseType": "ha-capacity-paygo",
+     "instanceType": "m5.2xlarge",
+     "capacityPackageName": "Professional"
+   },
+   "writingSpeedState":"NORMAL",
+   "subnetId":"/subscriptions/x000xx00-0x00-0000-000x
+/resourceGroups/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1/subnets/Subnet2",
+   "svmPassword":"password",
+   "vnetId":"/subscriptions/x000xx00-0x00-0000-000x/resourceGroups
+/occm_group_westeurope/providers/Microsoft.Network/virtualNetworks/Vnet1",
+   "cidr":"10.0.0.0/16",
+   "ontapEncryptionParameters":null,
+   "skipSnapshots":false,
+   "diskSize":{
+      "size":1,
+      "unit":"TB",
+      "_identifier":"1 TB"
+   },
+   "storageType":"Premium_LRS",
+   "azureTags":[],
+   "subscriptionId":"x000xx00-0x00-0000-000x",
+   "cloudProviderAccount":"ManagedServiceIdentity",
+   "backupVolumesToCbs":true,
+   "enableCompliance":true,
+   "enableMonitoring":true,
+   "availabilityZone":null,
+   "resourceGroup":"ranukazure12-rg"
+}
+
+Output::
+
+The JSON output example includes an example of the HA working environment.
+
+JSON output example::
+[source,json]
+{
+   "publicId":"VsaWorkingEnvironment-1m76JaRt",
+   "name":"ranukazure12",
+   "tenantId":"tenantID",
+   "svmName":"svm_ranukazure12",
+   "creatorUserEmail":"user_email",
+   "status":null,
+   "providerProperties":null,
+   "reservedSize":null,
+   "clusterProperties":null,
+   "ontapClusterProperties":null,
+   "cloudProviderName":"Azure",
+   "snapshotPolicies":null,
+   "actionsRequired":null,
+   "activeActions":null,
+   "replicationProperties":null,
+   "schedules":null,
+   "svms":null,
+   "workingEnvironmentType":"VSA",
+   "supportRegistrationProperties":null,
+   "supportRegistrationInformation":null,
+   "capacityFeatures":null,
+   "encryptionProperties":null,
+   "supportedFeatures":null,
+   "isHA":true,
+   "haProperties":null,
+   "fpolicyProperties":null,
+   "saasProperties":null,
+   "cbsProperties":null,
+   "complianceProperties":null,
+   "monitoringProperties":null,
+   "licensesInformation":null
+}
