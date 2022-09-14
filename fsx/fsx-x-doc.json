@@ -99,7 +99,7 @@
         "x-doc": {
           "title": "Retrieve working environments",
           "category": "Working Environments",
-          "filename": "get-working-environments-.html",
+          "filename": "get-working-environments-id-.html",
           "explorer": false
         }
       },
