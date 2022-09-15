@@ -393,6 +393,12 @@
                },
                "throughputCapacity":{
                   "type":"number"
+               },
+               "administrativeActions":{
+                  "type":"object"
+               },
+               "diskIopsConfiguration":{
+                  "type":"object"
                }
             },
             "required":[
@@ -415,8 +421,25 @@
                "minimumSsdIops",
                "preferredSubnetId",
                "routeTableIds",
-               "throughputCapacity"
+               "throughputCapacity",
+               "administrativeActions",
+               "diskIopsConfiguration"
             ]
+         },
+         "DiskIopsConfigurationSchema":{
+            "type":"object",
+            "properties":{
+               "Mode":{
+                  "type":"string",
+                  "enum":[
+                     "AUTOMATIC",
+                     "USER_PROVISIONED"
+                  ]
+               },
+               "Iops":{
+                  "type":"number"
+               }
+            }
          },
          "UpdateFileSystemDto":{
             "type":"object",
@@ -430,6 +453,12 @@
                      1024,
                      2048
                   ]
+               },
+               "diskIopsConfiguration":{
+                  "$ref":"#/components/schemas/DiskIopsConfigurationSchema"
+               },
+               "storageCapacity":{
+                  "type":"number"
                }
             }
          },
@@ -546,31 +575,21 @@
                "origin",
                "status"
             ]
+         },
+         "AwsFsxRegion":{
+            "type":"object",
+            "properties":{
+               
+            }
          }
       }
    },
    "paths":{
-      "/health":{
-         "get":{
-            "operationId":"HealthController_checkHealth",
-            "parameters":[
-               
-            ],
-            "responses":{
-               "200":{
-                  "description":""
-               }
-            },
-            "tags":[
-               "Health"
-            ]
-         }
-      },
       "/aws-credentials/{accountId}":{
          "get":{
             "operationId":"AwsCredentialsController_getAllAwsCredentialsByAccount",
             "summary":"",
-            "description":"Retrieves all the AWS credentials for a specific tenancy account.\n  </br>\n    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Retrieves all the AWS credentials for a specific tenancy account.\n  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"X-Service-Request-Id",
@@ -628,7 +647,7 @@
          "post":{
             "operationId":"AwsCredentialsController_addAwsCredentials",
             "summary":"",
-            "description":"DEPRECATED Post AWS Credentials  </br>\n    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"DEPRECATED Post AWS Credentials  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "deprecated":true,
             "parameters":[
                {
@@ -689,7 +708,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_getWorkingEnvironments",
             "summary":"",
-            "description":"Retrieves all working environments of a Cloud Volumes ONTAP instance for a specified account.\n  </br>  can filter by  workspace. pass provider-details  param to get provider data as well. \n  </br>    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Retrieves all working environments of a Cloud Volumes ONTAP instance for a specified account.\n  </br>  can filter by  workspace. pass provider-details  param to get provider data as well. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -763,7 +782,7 @@
          "post":{
             "operationId":"WorkingEnvironmentsController_createFileSystem",
             "summary":"",
-            "description":"Creates an FSx ONTAP file system on the required AWS account and region.\n  </br>  <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Creates an FSx ONTAP file system on the required AWS account and region.\n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -826,7 +845,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_discover",
             "summary":"",
-            "description":"Discovers all FSx ONTAP file systems of an AWS region by using specified credentials.\n  'inDifferentAccount' field  in response indicates already assigned to different tenancy account. \n  </br>    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Discovers all FSx ONTAP file systems of an AWS region by using specified credentials.\n  'inDifferentAccount' field  in response indicates already assigned to different tenancy account. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -906,7 +925,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_getVolumes",
             "summary":"",
-            "description":"Describes all volumes of an FSx system.\n  </br>    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Describes all volumes of an FSx system.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -970,7 +989,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_getOntapCredentials",
             "summary":"",
-            "description":"Retrieves the ONTAP credentials of an FSx system.\n  </br>    <br><b>Token usage:</b> Cloud Manager service token with the following scopes: occm-access.",
+            "description":"Retrieves the ONTAP credentials of an FSx system.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager service token with the following scopes: occm-access.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1029,7 +1048,7 @@
          "post":{
             "operationId":"WorkingEnvironmentsController_postOntapCredentials",
             "summary":"",
-            "description":"Creates ONTAP credentials for an FSx system to be used to communicate with an ONTAP FSx file system.\n  </br>    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Creates ONTAP credentials for an FSx system to be used to communicate with an ONTAP FSx file system.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1093,7 +1112,7 @@
          "post":{
             "operationId":"WorkingEnvironmentsController_recover",
             "summary":"",
-            "description":"Recovers an unassigned FSx system to a Tenancy account by using the fsx:assigned parameter.\n  </br>    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Recovers an unassigned FSx system to a Tenancy account by using the fsx:assigned parameter.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1149,7 +1168,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_getWorkingEnvironment",
             "summary":"",
-            "description":"Retrieves FSx working environments by specifying the workingEnvironmentId parameter.\n  </br>  pass provider-details:'true'  param to get provider data as well. \n  </br>  pass volumes:'true'  param to get volumes as well \n  </br>  <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Retrieves FSx working environment by specifying the workingEnvironmentId parameter.\n  </br>  pass provider-details:'true'  param to get provider data as well. \n  </br>  pass volumes:'true'  param to get volumes as well \n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1232,7 +1251,7 @@
          "delete":{
             "operationId":"WorkingEnvironmentsController_deleteFileSystem",
             "summary":"",
-            "description":"Deletes an FSx ONTAP working environment.\n  </br>  <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Deletes an FSx ONTAP working environment.\n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1286,7 +1305,7 @@
          "delete":{
             "operationId":"WorkingEnvironmentsController_removeWEFromWorkspace",
             "summary":"",
-            "description":"Removes working environments from a workspace.\n  </br>  <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Removes working environments from a workspace.\n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1347,8 +1366,8 @@
       "/working-environments/{accountId}/{fileSystemId}":{
          "patch":{
             "operationId":"WorkingEnvironmentsController_updateFileSystem",
-            "summary":"Update fsx ontap",
-            "description":"Update fsx ontap (currently only the throughput)",
+            "summary":"",
+            "description":"Update fsx ontap",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1376,13 +1395,6 @@
                   "name":"accountId",
                   "required":true,
                   "in":"path",
-                  "schema":{
-                     "type":"string"
-                  }
-               },
-               {
-                  "name":"x-simulator",
-                  "in":"header",
                   "schema":{
                      "type":"string"
                   }
@@ -1426,7 +1438,7 @@
          "get":{
             "operationId":"AwsOperationsController_getVpcs",
             "summary":"",
-            "description":"Retrieves all VPCs by region by using the credentials.\n  </br>\n    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Retrieves all VPCs by region by using the credentials.\n  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1498,7 +1510,7 @@
          "get":{
             "operationId":"AwsOperationsController_getRouteTables",
             "summary":"",
-            "description":"Retrieves all route tables for a specified region and VPC by using the credentials.\n  </br>\n    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Retrieves all route tables for a specified region and VPC by using the credentials.\n  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1578,7 +1590,7 @@
          "get":{
             "operationId":"AwsOperationsController_getEncryptionKeys",
             "summary":"",
-            "description":"Retrieves all encryption keys for a specified region and VPC by using the credentials.\n  </br>\n    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Retrieves all encryption keys for a specified region and VPC by using the credentials.\n  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1646,11 +1658,83 @@
             ]
          }
       },
+      "/aws/supported-regions":{
+         "get":{
+            "operationId":"AwsOperationsController_getSupportedRegions",
+            "summary":"",
+            "description":"Retrieves all supported fsx regions by using the provided credentials.\n  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "parameters":[
+               {
+                  "name":"x-simulator",
+                  "in":"header",
+                  "schema":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"X-Service-Request-Id",
+                  "in":"header",
+                  "schema":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"account-id",
+                  "required":true,
+                  "in":"query",
+                  "schema":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"credentials-id",
+                  "required":true,
+                  "in":"query",
+                  "schema":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"isGov",
+                  "required":true,
+                  "in":"query",
+                  "schema":{
+                     "type":"boolean"
+                  }
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "type":"array",
+                           "items":{
+                              "$ref":"#/components/schemas/AwsFsxRegion"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "tags":[
+               "AWS Operations"
+            ],
+            "security":[
+               {
+                  "bearer":[
+                     
+                  ]
+               }
+            ]
+         }
+      },
       "/discovery/{accountId}/discover":{
          "get":{
             "operationId":"DiscoveryController_discover",
             "summary":"",
-            "description":"Discovers all FSx ONTAP file systems. All the relevant AWS regions will be scanned. \n  </br>    <br><b>Token usage:</b> Cloud Manager user token.",
+            "description":"Discovers all FSx ONTAP file systems. All the relevant AWS regions will be scanned. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
