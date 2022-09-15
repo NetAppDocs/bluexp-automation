@@ -1,15 +1,5 @@
 {
   "paths": {
-    "/health": {
-      "get": {
-        "x-doc": {
-          "title": "Get /health",
-          "category": "Health",
-          "filename": "get-health.html",
-          "explorer": false
-        }
-      }
-    },
     "/aws-credentials/{accountId}": {
       "get": {
         "x-doc": {
@@ -97,7 +87,7 @@
     "/working-environments/{accountId}/{workingEnvironmentId}": {
       "get": {
         "x-doc": {
-          "title": "Retrieve working environments",
+          "title": "Retrieve working environments by account",
           "category": "Working Environments",
           "filename": "get-working-environments-id-.html",
           "explorer": false
@@ -149,6 +139,24 @@
           "category": "AWS Operations",
           "filename": "get-aws-encryption-keys.html",
           "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/{fileSystemId}": {
+      "patch": {
+        "x-doc": {
+          "title": "Update FSx ONTAP systems",
+          "category": "Working Environments",
+          "filename": "patch-working-environments-.html"
+        }
+      }
+    },
+    "/discovery/{accountId}/discover": {
+      "get": {
+        "x-doc": {
+          "title": "Discover FSx ONTAP systems",
+          "category": "FSx ONTAP discovery",
+          "filename": "get-discovery-discover.html"
         }
       }
     }
