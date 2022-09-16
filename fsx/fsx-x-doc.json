@@ -29,7 +29,7 @@
       },
       "post": {
         "x-doc": {
-          "title": "Create file system",
+          "title": "Create a file system",
           "category": "Working Environments",
           "filename": "post-working-environments-.html",
           "explorer": false
@@ -147,7 +147,8 @@
         "x-doc": {
           "title": "Update FSx ONTAP systems",
           "category": "Working Environments",
-          "filename": "patch-working-environments-.html"
+          "filename": "patch-working-environments-.html",
+          "explorer": false
         }
       }
     },
@@ -156,7 +157,18 @@
         "x-doc": {
           "title": "Discover FSx ONTAP systems",
           "category": "FSx ONTAP discovery",
-          "filename": "get-discovery-discover.html"
+          "filename": "get-discovery-discover.html",
+          "explorer": false
+        }
+      }
+    },
+    "/aws/supported-regions": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve supported regions",
+          "category": "AWS Operations",
+          "filename": "get-aws-supported-regions.html",
+          "explorer": false
         }
       }
     }
