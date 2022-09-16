@@ -23,7 +23,7 @@
       },
       {
          "name":"FSx ONTAP discovery",
-         "description":"<details>\n<summary>Overview</summary>\n<fieldset>\nThe discovery endpoints provide an API for discovering  FSx ONTAP for a given account in Cloud Manager.\n<p>You can perform the following actions with the discovery endpoints:</p>\n<ul>\n<li>Discover an FSx for ONTAP an account</li>\n</ul>\n</fieldset>\n</details>\n"
+         "description":"<details>\n<summary>Overview</summary>\n<fieldset>\nThe discovery endpoints provide an API for discovering FSx ONTAP systems for a specified account in Cloud Manager.\n<p>You can perform the following actions with the discovery endpoints:</p>\n<ul>\n<li>Discover an FSx for ONTAP an account</li>\n</ul>\n</fieldset>\n</details>\n"
       }
    ],
    "servers":[
@@ -708,7 +708,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_getWorkingEnvironments",
             "summary":"",
-            "description":"Retrieves all working environments of a Cloud Volumes ONTAP instance for a specified account.\n  </br>  can filter by  workspace. pass provider-details  param to get provider data as well. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Retrieves all working environments of a Cloud Volumes ONTAP instance for a specified account.\n  </br>You can filter by a specified workspace ID. Pass provider-details parameter to retrieve provider data. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -845,7 +845,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_discover",
             "summary":"",
-            "description":"Discovers all FSx ONTAP file systems of an AWS region by using specified credentials.\n  'inDifferentAccount' field  in response indicates already assigned to different tenancy account. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Discovers all FSx ONTAP file systems of an AWS region by using specified credentials.\n 'inDifferentAccount' field  in response indicates that a user is already assigned to a different Tenancy account. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1112,7 +1112,7 @@
          "post":{
             "operationId":"WorkingEnvironmentsController_recover",
             "summary":"",
-            "description":"Recovers an unassigned FSx system to a Tenancy account by using the fsx:assigned parameter.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Recovers an unassigned FSx system to a Tenancy account by using the `fsx:assigned` parameter.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1168,7 +1168,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_getWorkingEnvironment",
             "summary":"",
-            "description":"Retrieves FSx working environment by specifying the workingEnvironmentId parameter.\n  </br>  pass provider-details:'true'  param to get provider data as well. \n  </br>  pass volumes:'true'  param to get volumes as well \n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Retrieves FSx working environment by specifying the workingEnvironmentId parameter.\n  </br> Pass provider-details:'true'  parameter to get provider data. \n  </br> Pass `volumes:'true'`  parameter to retrieve volumes. \n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1662,7 +1662,7 @@
          "get":{
             "operationId":"AwsOperationsController_getSupportedRegions",
             "summary":"",
-            "description":"Retrieves all supported fsx regions by using the provided credentials.\n  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Retrieves all supported FSx regions by using the provided credentials.\n  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
