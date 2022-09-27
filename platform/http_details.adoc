@@ -65,10 +65,10 @@ The common HTTP response headers are described as follows.
 |===
 |Response header
 |Description
-|`access-control-allow-origin:*`
-|This header specifies the websites that can participate in cross-origin resource sharing. A wildcard value * notifies browsers to allow requesting code from any origin to access a resource.
-|`content-encoding: gzip`
-|This header specifies the type of encoding used on the data. The value `gzip` denotes the compression scheme used to compress the outgoing data. 
+|`access-control-allow-origin`
+|This Cross Origin Resource Sharing (CORS) header indicates whether the response can be shared with requesting code from the specified origin.
+|`content-encoding`
+|This header specifies the type of encoding used on the data. 
 |`content-type`
 |This representation header is used to indicate the original media type of the content.
 |`date`
