@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: platform/http_details.html
 keywords: http, details, cloud, manager, rest, api, request headers, status, codes
-summary: 'The Cloud Manager REST API is based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.'
+summary: 'The BlueXP REST API is based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.'
 ---
 
 = HTTP details
@@ -13,13 +13,13 @@ summary: 'The Cloud Manager REST API is based on the HTTP protocol as well as JS
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Manager platform REST APIs are based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.
+The BlueXP platform REST APIs are based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.
 
 == Request
 
 === HTTP methods
 
-The HTTP methods supported by the Cloud Manager platform REST APIs are shown in the following table. Not all HTTP methods are available at each of the REST endpoints. For more information, see the reference documentation for the specific API you are using.
+The HTTP methods supported by the BlueXP platform REST APIs are shown in the following table. Not all HTTP methods are available at each of the REST endpoints. For more information, see the reference documentation for the specific API you are using.
 
 [cols="20,80",options="header"]
 |===
@@ -46,7 +46,7 @@ The common HTTP request headers are described as follows.
 |Request header
 |Description
 |Authorization
-|This header contains a bearer token used to access the Cloud Manager server.
+|This header contains a bearer token used to access the BlueXP server.
 |x-agent-id
 |The agent identifier is based on the client ID and is used to identify the user agent.
 |Content-Type

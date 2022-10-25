@@ -10,7 +10,7 @@ settings:
     api_enabled: true
 sidebar:
   entries:
-    - title: Cloud Manager API docs
+    - title: BlueXP API docs
       url: /index.html
     - section: platform
     - section: workflows
