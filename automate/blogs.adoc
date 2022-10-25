@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: automate/blogs.html
 keywords: terraform, terraform provider, automation, automating
-summary: Use the resources on this page to get help integrating Cloud Manager and Cloud Volumes ONTAP with your infrastructure as code.
+summary: Use the resources on this page to get help integrating BlueXP and Cloud Volumes ONTAP with your infrastructure as code.
 ---
 
-= Blogs about Cloud Manager platform automation
+= Blogs about BlueXP platform automation
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,9 +13,9 @@ summary: Use the resources on this page to get help integrating Cloud Manager an
 :imagesdir: ./media/
 
 [.lead]
-There are several blog articles available to help you better understand the technologies and approaches available for Cloud Manager automation.
+There are several blog articles available to help you better understand the technologies and approaches available for BlueXP automation.
 
-===== Using Cloud Manager REST APIs with Federated Access
+===== Using BlueXP REST APIs with Federated Access
 
 https://cloud.netapp.com/blog/using-cloud-manager-rest-apis-with-federated-access[https://cloud.netapp.com/blog/using-cloud-manager-rest-apis-with-federated-access^]
 

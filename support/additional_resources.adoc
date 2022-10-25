@@ -47,7 +47,7 @@ This publication introduced and established the REST application development mod
 
 * https://auth0.com/[Auth0^]
 +
-This is the authentication platform service used by Cloud Manager.
+This is the authentication platform service used by BlueXP.
 
 * https://www.rfc-editor.org/[RFC editor^]
 +

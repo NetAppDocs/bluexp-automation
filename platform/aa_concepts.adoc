@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: platform/aa_concepts.html
 keywords:
-summary: The Cloud Manager REST API provides a robust security model for controlling access to the resources it manages.
+summary: The BlueXP REST API provides a robust security model for controlling access to the resources it manages.
 ---
 
 = Basic concepts and terminology
@@ -13,7 +13,7 @@ summary: The Cloud Manager REST API provides a robust security model for control
 :imagesdir: ./media/
 
 [.lead]
-You should be familiar with the basic authentication and authorization concepts before using the Cloud Manager platform REST APIs.
+You should be familiar with the basic authentication and authorization concepts before using the BlueXP platform REST APIs.
 
 === OAuth 2.0 authorization framework
 
@@ -29,11 +29,11 @@ Auth0 is an authentication and authorization platform based on the OAuth 2.0 sta
 
 === Auth0 user
 
-An Auth0 user corresponds to a NetApp Cloud Manager customer account and can be used to authorize an application or client (including a NetApp Cloud service) to access the account. The application's access is limited to the scope of the authorization granted (such as read or write). A NetApp Cloud Manager customer account obtains its Auth0 user as part of the onboarding process at NetApp Cloud Central.
+An Auth0 user corresponds to a NetApp BlueXP customer account and can be used to authorize an application or client (including a NetApp Cloud service) to access the account. The application's access is limited to the scope of the authorization granted (such as read or write). A NetApp BlueXP customer account obtains its Auth0 user as part of the onboarding process at NetApp Cloud Central.
 
 === Access tokens
 
-There are two types of tokens you can acquire and use to access the Cloud Manager platform REST APIs. Each token is valid for a fixed amount of time before it expires. Tokens are not revocable.
+There are two types of tokens you can acquire and use to access the BlueXP platform REST APIs. Each token is valid for a fixed amount of time before it expires. Tokens are not revocable.
 
 [NOTE]
 There are several ways the two access tokens can be used depending on the specific REST API call. See link:use_rest_apis.html[Use the REST APIs] for more information.
@@ -43,9 +43,9 @@ There are several ways the two access tokens can be used depending on the specif
 |Type
 |Description
 |User token
-|This is a token identifying a user who accesses Cloud Manager through the REST API or web UI. A federated or non-federated authentication model can be used when requesting the token. See link:user_access_token.html[User access tokens] for more information. The token is valid for six hours.
+|This is a token identifying a user who accesses BlueXP through the REST API or web UI. A federated or non-federated authentication model can be used when requesting the token. See link:user_access_token.html[User access tokens] for more information. The token is valid for six hours.
 |Service token
-|This token is used by software applications to perform a REST API call. Example clients include internal Cloud Manager service tasks and external clients. The token is valid for 24 hours.
+|This token is used by software applications to perform a REST API call. Example clients include internal BlueXP service tasks and external clients. The token is valid for 24 hours.
 |===
 
 === Grant type

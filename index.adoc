@@ -2,11 +2,11 @@
 layout: astra
 sidebar: sidebar
 permalink: index.html
-lead: The Cloud Manager platform REST APIs provide the features and capabilities you need to automate the administration of your cloud-based resources.
-summary: The Cloud Manager platform REST APIs provide access to the capabilities you need to automate the administration of your cloud-based resources.
+lead: The BlueXP (formerly Cloud Manager) platform REST APIs provide the features and capabilities you need to automate the administration of your cloud-based resources.
+summary: The BlueXP platform REST APIs provide access to the capabilities you need to automate the administration of your cloud-based resources.
 ---
 
-= Cloud Manager platform API documentation
+= BlueXP platform API documentation
 :hardbreaks:
 :nofooter:
 :icons: font

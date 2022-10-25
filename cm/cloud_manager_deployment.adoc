@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/cloud_manager_deployment.html
 keywords: cloud, manager, deployment, rest, api, occm, workflow, deploy
-summary: 'A summary of the major steps you should take to deploy and administer a Cloud Volumes ONTAP instance using the Cloud Manager REST API is presented below.'
+summary: 'A summary of the major steps you should take to deploy and administer a Cloud Volumes ONTAP instance using the BlueXP REST API is presented below.'
 ---
 
 = Typical Cloud Volumes ONTAP deployment
@@ -15,4 +15,4 @@ summary: 'A summary of the major steps you should take to deploy and administer 
 [.lead]
 A summary of the major steps needed to deploy and administer a Cloud Volumes ONTAP instance using the associated REST API is presented below.
 
-image:occm_rest_deploy_workflow.png[Summarizes a typical Cloud Manager deployment.]
+image:occm_rest_deploy_workflow.png[Summarizes a typical BlueXP deployment.]
