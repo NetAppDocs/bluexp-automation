@@ -21,9 +21,9 @@ There are additional resources you can access to get help and find more informat
 +
 Central site for the NetApp cloud solutions.
 
-* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp Cloud Central console^]
+* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp BlueXP website console^]
 +
-NetApp Cloud Central service console with sign in.
+NetApp BlueXP website service console with sign in.
 
 * https://mysupport.netapp.com/[NetApp Support^]
 +

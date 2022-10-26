@@ -13,19 +13,19 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-There is a general process to prepare and use the authentication and authorization information needed to issue a Cloud Manager platform REST API call.
+There is a general process to prepare and use the authentication and authorization information needed to issue a BlueXP platform REST API call.
 
 == Before you begin
 
-There are several things you should consider before performing a Cloud Manager REST API call.
+There are several things you should consider before performing a BlueXP REST API call.
 
 === Cloud Manager account
 
-A NetApp account (formerly NetApp Cloud Central) is required to access Cloud Manager. The system prompts you to create an account when you attempt to sign in to the Cloud Manager web UI. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Sign in to Cloud Central account^] for more information.
+A BlueXP account is required to access Cloud Manager. The system prompts you to create an account when you attempt to sign in to the BlueXP web UI. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Sign in to BlueXP account^] for more information.
 
 === Access token usage scenarios
 
-Every Cloud Manager service REST API call requires an access token or combination of tokens. There might also be specific scope requirements for the tokens.
+Every BlueXP service REST API call requires an access token or combination of tokens. There might also be specific scope requirements for the tokens.
 
 User token only::
 You only need to obtain and provide a user access token when issuing the API call.
@@ -51,7 +51,7 @@ The following steps describe how to obtain the required authentication informati
 
 === 1. Optionally locate the Connector ID and client ID
 
-Several APIs require a Connector ID to route the request to the right Cloud Manager environment. You can also locate the related Client ID. See link:get_identifiers.html[Get required identifiers] for more information.
+Several APIs require a Connector ID to route the request to the appropriate BlueXP environment. You can also locate the related Client ID. See link:get_identifiers.html[Get required identifiers] for more information.
 
 === 2. Obtain the access tokens
 
