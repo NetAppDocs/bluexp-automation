@@ -13,7 +13,7 @@ summary: 'You must generate a bearer token to authenticate and access the BlueXP
 :imagesdir: ./media/
 
 [.lead]
-You need to generate a bearer token to gain access to the BlueXP REST APIs. A user token is more commonly used for customer automation than the service token. There are two workflows available to create a user token. The one you select depends on your authentication environment.
+You need to generate a bearer token to gain access to the Cloud Manager REST APIs. A user token is more commonly used for customer automation than the service token. There are two workflows available to create a user token. The one you select depends on your authentication environment.
 
 [NOTE]
 The first of the two workflows is *required* for federated authentication. However you can also use it for non-federated authentication. And because cleartext passwords are not used, it is the more secure way to authenticate and so is recommended for both federated and non-federated authentication.
@@ -35,7 +35,7 @@ Navigate to https://services.cloud.netapp.com/refresh-token[Refresh Token Genera
 
 === 2. Generate the user token
 
-This API call uses the _Auth0_ authentication service and not the NetApp BlueXP service. See the URL in the curl example below and adjust for your environment as needed. The client identifier in the JSON input is the same constant value for all customers.
+This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the curl example below and adjust for your environment as needed. The client identifier in the JSON input is the same constant value for all customers.
 
 [cols="25,75"*,options="header"]
 |===
@@ -85,7 +85,7 @@ Review the parameters in the JSON input example for the first workflow step. You
 
 === 1. Generate the user token
 
-This API call uses the _Auth0_ authentication service and not the NetApp BlueXP service. See the URL in the curl example below and adjust for your environment as needed.
+This API call uses the _Auth0_ authentication service and not the NetApp Cloud Manager service. See the URL in the curl example below and adjust for your environment as needed.
 
 [cols="25,75"*,options="header"]
 |===
