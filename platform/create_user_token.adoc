@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: platform/create_user_token.html
 keywords: generate, user, token
-summary: 'You must generate a bearer token to authenticate and access the BlueXP REST API. There are two workflows available depending on the type of authentication.'
+summary: 'You must generate a bearer token to authenticate and access the Cloud Manager REST API. There are two workflows available depending on the type of authentication.'
 ---
 
 = Create user token

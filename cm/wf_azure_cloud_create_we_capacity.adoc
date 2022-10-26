@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_azure_cloud_create_we_capacity.html
-keywords: paygo, cloud, volumes, ontap, connector, BlueXP, region, workspace
+keywords: paygo, cloud, volumes, ontap, connector,  region, workspace
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
