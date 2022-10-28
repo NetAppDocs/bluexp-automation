@@ -1,0 +1,176 @@
+{
+  "paths": {
+    "/aws-credentials/{accountId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve AWS credentials",
+          "category": "AWS Credentials",
+          "filename": "get-aws-credentials-.html",
+          "explorer": false
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Add AWS credentials",
+          "category": "AWS Credentials",
+          "filename": "post-aws-credentials-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve working environments",
+          "category": "Working Environments",
+          "filename": "get-working-environments-.html",
+          "explorer": false
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Create FSx for ONTAP working environments",
+          "category": "Working Environments",
+          "filename": "post-working-environments-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/discover": {
+      "get": {
+        "x-doc": {
+          "title": "Discover working environments",
+          "category": "Working Environments",
+          "filename": "get-working-environments-discover.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}/volumes": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve volumes",
+          "category": "Working Environments",
+          "filename": "get-working-environments--volumes.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}/credentials": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve ONTAP credentials",
+          "category": "Working Environments",
+          "filename": "get-working-environments--credentials.html",
+          "explorer": false
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Create ONTAP credentials",
+          "category": "Working Environments",
+          "filename": "post-working-environments--credentials.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/recover": {
+      "post": {
+        "x-doc": {
+          "title": "Recover working environments",
+          "category": "Working Environments",
+          "filename": "post-working-environments-recover.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve working environments by account",
+          "category": "Working Environments",
+          "filename": "get-working-environments-id-.html",
+          "explorer": false
+        }
+      },
+      "delete": {
+        "x-doc": {
+          "title": "Delete an FSX working environment",
+          "category": "Working Environments",
+          "filename": "delete-working-environments-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/{workingEnvironmentId}/workspace/{workspaceId}": {
+      "delete": {
+        "x-doc": {
+          "title": "Remove working environment from workspace",
+          "category": "Working Environments",
+          "filename": "delete-working-environments--workspace-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/aws/vpcs": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve VPCs",
+          "category": "AWS Operations",
+          "filename": "get-aws-vpcs.html",
+          "explorer": false
+        }
+      }
+    },
+    "/aws/route-tables": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve route tables",
+          "category": "AWS Operations",
+          "filename": "get-aws-route-tables.html",
+          "explorer": false
+        }
+      }
+    },
+    "/aws/encryption-keys": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve encryption keys",
+          "category": "AWS Operations",
+          "filename": "get-aws-encryption-keys.html",
+          "explorer": false
+        }
+      }
+    },
+    "/working-environments/{accountId}/{fileSystemId}": {
+      "patch": {
+        "x-doc": {
+          "title": "Update FSx ONTAP systems",
+          "category": "Working Environments",
+          "filename": "patch-working-environments-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/discovery/{accountId}/discover": {
+      "get": {
+        "x-doc": {
+          "title": "Discover FSx ONTAP systems",
+          "category": "FSx ONTAP discovery",
+          "filename": "get-discovery-discover.html",
+          "explorer": false
+        }
+      }
+    },
+    "/aws/supported-regions": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve supported regions",
+          "category": "AWS Operations",
+          "filename": "get-aws-supported-regions.html",
+          "explorer": false
+        }
+      }
+    }
+  }
+}
