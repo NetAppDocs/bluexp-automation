@@ -20,6 +20,7 @@ sidebar:
     - section: cbs
     - section: credential
     - section: dw
+    - section: fsx
     - section: ipa
     - section: persistence
     - section: tenancy
