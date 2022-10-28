@@ -21,9 +21,11 @@ entries:
         url: /cm/wf_aws_before.html
       - title: Working environments
         entries:
-          - title: Create working environment with PAYGO
+          - title: Create working environment with capacity-based license
+            url: /cm/wf_aws_cloud_create_we_capacity.html
+          - title: Create working environment with PAYGO (node-based)
             url: /cm/wf_aws_cloud_create_we_paygo.html
-          - title: Create working environment with BYOL
+          - title: Create working environment with BYOL (node-based)
             url: /cm/wf_aws_cloud_create_we_byol.html
           - title: Get working environments
             url: /cm/wf_aws_cloud_get_wes.html
@@ -89,9 +91,11 @@ entries:
           url: /cm/wf_azure_before.html
         - title: Working environments
           entries:
-            - title: Create working environment with PAYGO
+            - title: Create working environment with capacity-based license
+              url: /cm/wf_azure_cloud_create_we_capacity.html
+            - title: Create working environment with PAYGO (node-based)
               url: /cm/wf_azure_cloud_create_we_paygo.html
-            - title: Create working environment with BYOL
+            - title: Create working environment with BYOL (node-based)
               url: /cm/wf_azure_cloud_create_we_byol.html
             - title: Get working environments
               url: /cm/wf_azure_cloud_get_wes.html
@@ -155,9 +159,11 @@ entries:
           url: /cm/wf_gcp_before.html
         - title: Working environments
           entries:
-            - title: Create working environment with PAYGO
+            - title: Create working environment with capacity-based license
+              url: /cm/wf_gcp_cloud_create_we_capacity.html
+            - title: Create working environment with PAYGO (node-based)
               url: /cm/wf_gcp_cloud_create_we_paygo.html
-            - title: Create working environment with BYOL
+            - title: Create working environment with BYOL (node-based)
               url: /cm/wf_gcp_cloud_create_we_byol.html
             - title: Get working environments
               url: /cm/wf_gcp_cloud_get_wes.html

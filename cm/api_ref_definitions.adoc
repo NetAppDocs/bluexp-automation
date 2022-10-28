@@ -77,13 +77,6 @@ This section describes existing data format definitions.
 |composite||true|boolean|
 |===
 
-=== AddAwsRegionsRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|newRegions||true|<<Region>> array|
-|===
-
 === AddCapacityToEvAggregateRequest
 [options="header"]
 |===
@@ -96,13 +89,6 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |numberOfDisks|Number of Disks|true|integer (int32)|
-|===
-
-=== AddInstanceTypesRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|newInstanceTypes||true|string array|
 |===
 
 === AddPortalUserRequest
@@ -147,6 +133,13 @@ This section describes existing data format definitions.
 |evCompatibilityType|Elastic Volume Compatibility Type|true|enum (ev,  non_ev,  ineligible)|
 |iops|Aggregate IOPS|false|integer (int32)|
 |root||true|boolean|
+|===
+
+=== AlertsAndNotificationServiceInformation
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|url||true|string|
 |===
 
 === AllRelationships
@@ -1174,7 +1167,6 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|serialNumber||true|string|
 |clusterName||true|string|
 |clusterUuid||true|string|
 |===
@@ -1268,6 +1260,7 @@ This section describes existing data format definitions.
 |useAccelerationForImageDownload||true|boolean|
 |maxDownloadSessions||true|integer (int32)|
 |rollbackOnAzurePrivateLinkFailure||true|boolean|
+|userPrivateDnsZoneSettings||false|<<UserPrivateDnsZoneSettings>>|
 |===
 
 === ConfigValuesUpdateRequest
@@ -1308,14 +1301,6 @@ This section describes existing data format definitions.
 |defaultInstance||true|boolean|
 |features||true|string array|
 |upgradeableFrom||true|string array|
-|===
-
-=== ConfigureS3Request
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|bucketName||true|string|
-|bucketPrefix||true|string|
 |===
 
 === CostByService
@@ -1367,7 +1352,7 @@ This section describes existing data format definitions.
 |awsEncryptionParameters|Parameters required if using aws encryption|false|<<AwsEncryption>>|
 |haParams||true|<<HaParameters>>|
 |securityGroupId||false|string|
-|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
+|openSecurityGroup|Open security group to all IP ranges|false|boolean|
 |awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |optimizedNetworkUtilization|Use optimized network utilization|false|boolean|
@@ -1410,6 +1395,7 @@ This section describes existing data format definitions.
 |dataEncryptionType|Type of encryption to use for this working environment|true|enum (NONE,  AZURE,  ONTAP)|
 |ontapEncryptionParameters|Parameters required if using ontap encryption|false|<<OntapEncryption>>|
 |securityGroupId||false|string|
+|openSecurityGroup|Open security group to all IP ranges|false|boolean|
 |serialNumber||false|string|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |diskSize|Disk size|true|<<Capacity>>|
@@ -1477,39 +1463,6 @@ This section describes existing data format definitions.
 |enableAnf||true|boolean|
 |===
 
-=== CreateFilesystemRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|name||true|string|
-|svmPassword||false|string|
-|fsxAdminPassword||true|string|
-|vpcId||true|string|
-|region||true|string|
-|ebsVolumeSize|EBS volume size|true|<<Capacity>>|
-|ebsVolumeType|EBS volume type|true|enum (gp2,  st1,  io1,  io2)|
-|instanceType|Instance Type|true|string|
-|haParams||true|<<HaParameters>>|
-|node1CustomerDataEni||true|<<NetworkInterfaceInfo>>|
-|node2CustomerDataEni||true|<<NetworkInterfaceInfo>>|
-|node1SerialNumber||true|string|
-|node2SerialNumber||true|string|
-|awsEncryptionParameters|Parameters required if using aws encryption - system|false|<<AwsEncryption>>|
-|dataAwsEncryptionParameters|Parameters required if using aws encryption - data|false|<<AwsEncryption>>|
-|securityGroupId||false|string|
-|internalSecurityGroupId||false|string|
-|externalSecurityGroupId||false|string|
-|iops|Provisioned IOPS|false|integer (int32)|
-|instanceProfileName|Instance profile name|false|string|
-|tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent)|
-|customOntapVersion|Custom Ontap Version|false|string|
-|svmAdminPassword|SVM admin password|false|string|
-|awsTags|Optionally provide up to four key-value pairs with which to tag all AWS entities created by Cloud Manager|false|<<AwsTag>> array|
-|tieringBucketName|Tiering bucket name|false|string|
-|mediatorPassword|Mediator password|false|string|
-|enableExternalCache|Enable External Cache|false|boolean|
-|===
-
 === CreateGcpVsaWorkingEnvironmentRequest
 [options="header"]
 |===
@@ -1553,7 +1506,7 @@ This section describes existing data format definitions.
 |enableServices|Enable services|false|string array|
 |backupVolumesToCbs|Automatically backup all volumes to cloud|false|boolean|
 |haParams|Optional HA parameters for HA deployment|false|<<GcpHaParameters>>|
-|skipSvmManagementLif|SVM management Lif flag|true|boolean|
+|skipSvmManagementLif|SVM management Lif flag - from ONTAP version 9.11.1 the flag always set to true|true|boolean|
 |===
 
 === CreateIscsiInfoRequest
@@ -1596,16 +1549,12 @@ This section describes existing data format definitions.
 |parameters||false|Map[string,any]|
 |===
 
-=== CreateSvmHaRequest
+=== CreateSvmRequest
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
 |svmName||true|string|
-|svmPassword||false|string|
-|subnet1Cidr||true|string|
-|subnet2Cidr||true|string|
-|dataFloatingIp||false|string|
-|svmMgmtFloatingIp||false|string|
+|svmPassword|Optional password for SVM vsadmin user|false|string|
 |===
 
 === CreateSyncRequest
@@ -1634,7 +1583,7 @@ This section describes existing data format definitions.
 |ontapEncryptionParameters|Parameters required if using ontap encryption|false|<<OntapEncryption>>|
 |awsEncryptionParameters|Parameters required if using aws encryption|false|<<AwsEncryption>>|
 |securityGroupId||false|string|
-|firewallIpRanges|Firewall contains all ip ranges|false|boolean|
+|openSecurityGroup|Open security group to all IP ranges|false|boolean|
 |vsaMetadata||true|<<VsaMetadataRequest>>|
 |cifsConfigurationRequest||false|<<CIFSConfigurationRequest>>|
 |ebsVolumeSize|EBS volume size|true|<<Capacity>>|
@@ -1711,6 +1660,13 @@ This section describes existing data format definitions.
 |name||true|string|
 |code||true|string|
 |location||true|string|
+|===
+
+=== CvsServiceInformation
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|url||true|string|
 |===
 
 === DataBrokerNetworkInformation
@@ -2143,6 +2099,7 @@ This section describes existing data format definitions.
 |destinationVolumeName|Destination volume name|true|string|
 |destinationSvmName|Destination SVM name|true|string|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
+|minimumCoolingDays|Cooling Days|false|integer (int32)|
 |===
 
 === GcpAccountResponse
@@ -2175,17 +2132,6 @@ This section describes existing data format definitions.
 |accessKey|GCP access Key to used by Cloud Backup Service|true|string|
 |secretKey|GCP secret key used by Cloud Backup Service|true|string|
 |ipSpace|Ip Space|false|string|
-|===
-
-=== GcpConnectivityResponse
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|name|Virtual Network Name|true|string|
-|vpcPath|Virtual Network path|true|string|
-|subnets|Subnets|true|<<GcpSubnetResponse>> array|
-|firewalls|Firewalls|true|<<GcpFirewallResponse>> array|
-|isShared|isShared|true|boolean|
 |===
 
 === GcpDiskTypeResponse
@@ -2532,6 +2478,14 @@ This section describes existing data format definitions.
 |id||true|string|
 |===
 
+=== Identifier
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name||true|string|
+|uuid||true|string|
+|===
+
 === IGroup
 [options="header"]
 |===
@@ -2634,8 +2588,8 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyOs||true|boolean|
 |legacyInstance||true|boolean|
+|legacyOs||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -2941,20 +2895,6 @@ This section describes existing data format definitions.
 |ontapManifests|ONTAP manifests|true|<<CloudOntapManifest>> array|
 |===
 
-=== ModifyMappingRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|newMapping||true|<<Map[string,string]>>|
-|===
-
-=== ModifyMediatorVersionRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|mediatorVersion||true|string|
-|===
-
 === ModifyUserTagsRequest
 [options="header"]
 |===
@@ -3017,16 +2957,6 @@ This section describes existing data format definitions.
 |ips|Custom export policy list of IPs|true|string array|
 |nfsVersion|Export policy protocol|false|string array|
 |rules|Export policy rules|false|<<ExportPolicyRule>> array|
-|===
-
-=== NetworkInterfaceInfo
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|id||true|string|
-|primaryIpAddress||true|string|
-|secondaryIpAddresses||true|string array|
-|subnetCidrBlock||true|string|
 |===
 
 === NetworkRequirementsResponse
@@ -3157,8 +3087,8 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|objectStoreAttachEligible||true|boolean|
 |inactiveDataReportingEnabled||true|boolean|
+|objectStoreAttachEligible||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3189,8 +3119,8 @@ This section describes existing data format definitions.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|snapmirrorLicenseExists||true|boolean|
 |aff||true|boolean|
+|snapmirrorLicenseExists||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3236,6 +3166,7 @@ This section describes existing data format definitions.
 |destinationSvmName|Destination SVM name|true|string|
 |destinationCapacityTier|Destination aggregate capacity tier|false|enum (S3,  Blob)|
 |tieringPolicy|Tiering policy|false|enum (none,  auto,  all)|
+|minimumCoolingDays|Cooling Days|false|integer (int32)|
 |===
 
 === OnPremWorkingEnvironmentDiscoverRequest
@@ -3642,6 +3573,8 @@ This section describes existing data format definitions.
 |policyName|SnapMirror policy name|true|string|
 |scheduleName|Schedule name|false|string|
 |maxTransferRate|Maximum transfer rate limit (KB/s). Use 0 for no limit, otherwise use number between 1024 and 2,147,482,624|false|integer (int32)|
+|sourceIpSpace|Source IpSpace|false|string|
+|destinationIpSpace|Destination IpSpace|false|string|
 |===
 
 === ReplicationSchedule
@@ -3726,6 +3659,7 @@ This section describes existing data format definitions.
 |policyName|SnapMirror policy name|true|string|
 |scheduleName|Schedule name|false|string|
 |maxTransferRate|Maximum transfer rate limit (KB/s). Use 0 for no limit, otherwise use number between 1024 and 2,147,482,624|false|integer (int32)|
+|sourceIpSpace|Source IpSpace|false|string|
 |===
 
 === ReplicationUpdateRequest
@@ -3923,8 +3857,8 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |needCertificate||true|boolean|
 |runningInDocker||true|boolean|
-|pendingConnectivitySet||true|boolean|
 |setup||true|boolean|
+|pendingConnectivitySet||true|boolean|
 |===
 
 === SgwsCloudBackupSetupRequest
@@ -4020,20 +3954,6 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |scheduleType|Snapshot policy schedule type|true|enum (5min,  8hour,  hourly,  daily,  weekly,  monthly)|
 |retention|Snapshot policy retention|true|integer (int32)|
-|===
-
-=== SoftwareVersionAmisResponse
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|regionToAmi||true|<<Map[string,string]>>|
-|===
-
-=== SoftwareVersionsResponse
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|versions||true|string array|
 |===
 
 === SourceSnapmirrorEndpoint
@@ -4154,7 +4074,9 @@ This section describes existing data format definitions.
 |setupInfo||true|<<SetupInfo>>|
 |useCompliancePrivateIpContainerMode||true|boolean|
 |notificationServiceInformation||false|<<NotificationServiceInformation>>|
+|alertsAndNotificationServiceInformation||false|<<AlertsAndNotificationServiceInformation>>|
 |credentialsServiceInformation||false|<<ServiceInformationUrl>>|
+|cvsServiceInformation||false|<<CvsServiceInformation>>|
 |===
 
 === SupportedCapacityTiers
@@ -4196,6 +4118,8 @@ This section describes existing data format definitions.
 |tieringWithServiceAccount||true|boolean|
 |s3CmkEncryptionSupportedVersion||true|boolean|
 |gp3SupportedVersion||true|boolean|
+|elasticVolumeSupportedAndEnabled||true|boolean|
+|wormWithComposeSupported||true|boolean|
 |===
 
 === Svm
@@ -4395,6 +4319,15 @@ This section describes existing data format definitions.
 |password|Password of the user attempting to login|true|string|
 |===
 
+=== UserPrivateDnsZoneSettings
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|useExisting||true|boolean|
+|resourceGroup||true|string|
+|subscription||true|string|
+|===
+
 === UserRequest
 [options="header"]
 |===
@@ -4576,9 +4509,9 @@ This section describes existing data format definitions.
 |size|Volume total size|true|<<Capacity>>|
 |usedSize|Volume used size|true|<<Capacity>>|
 |junctionPath|The junction path at which this volume is mounted|true|string|
-|volumeTotalInodes|Total volume inodes size|false|integer (int32)|
-|volumeUsedInodes|Used volume inodes size|false|integer (int32)|
-|mountPoint|Mount Point|false|string|
+|volumeTotalInodes|Total volume inodes size|true|integer (int32)|
+|volumeUsedInodes|Used volume inodes size|true|integer (int32)|
+|mountPoint|Mount Point|true|string|
 |compressionSpaceSaved|The total disk capacity that is saved by compressing blocks|true|<<Capacity>>|
 |deduplicationSpaceSaved|The disk space capacity that is saved by deduplication and file cloning|true|<<Capacity>>|
 |thinProvisioning|Whether thin provisioning is enabled|true|boolean|
@@ -4594,29 +4527,29 @@ This section describes existing data format definitions.
 |state|Volume state|true|string|
 |volumeType|Volume type|true|string|
 |aggregateName|Aggregate name|true|string|
-|parentSnapshot|The snapshot name the volume is based on|false|string|
+|parentSnapshot|The snapshot name the volume is based on|true|string|
 |autoSizeMode|The operating mode of autosize|true|string|
 |maxGrowSize|The maximum size to which the volume will grow automatically|true|<<Capacity>>|
-|providerVolumeType|Cloud provider volume type|false|string|
+|providerVolumeType|Cloud provider volume type|true|string|
 |cloneNames|Names of cloned copies of the volume|true|string array|
 |moving|Is Volume during move process|true|boolean|
-|primaryNoFailoverMountPoint|Primary mount point without failover|false|string|
-|secondaryNoFailoverMountPoint|Secondary mount point without failover|false|string|
-|capacityTier|Capacity tier|false|enum ([S3,  Blob])|
-|capacityTierUsedSize|Capacity tier used size|false|<<Capacity>>|
-|cifsShareAccessPoint|CIFS share access point|false|string|
-|primaryCifsShareAccessPoint|Primary CIFS share access point|false|string|
-|secondaryCifsShareAccessPoint|Secondary CIFS share access point|false|string|
-|tieringPolicy|Tiering policy|false|string|
-|tierInactiveUserData|Tier inactive user data|false|<<Capacity>>|
-|tierInactiveUserDataPercent|Tier inactive user data percent|false|integer (int32)|
+|primaryNoFailoverMountPoint|Primary mount point without failover|true|string|
+|secondaryNoFailoverMountPoint|Secondary mount point without failover|true|string|
+|capacityTier|Capacity tier|true|enum ([S3,  Blob])|
+|capacityTierUsedSize|Capacity tier used size|true|<<Capacity>>|
+|cifsShareAccessPoint|CIFS share access point|true|string|
+|primaryCifsShareAccessPoint|Primary CIFS share access point|true|string|
+|secondaryCifsShareAccessPoint|Secondary CIFS share access point|true|string|
+|tieringPolicy|Tiering policy|true|string|
+|tierInactiveUserData|Tier inactive user data|true|<<Capacity>>|
+|tierInactiveUserDataPercent|Tier inactive user data percent|true|integer (int32)|
 |comment|Volume comment|false|string|
 |qosPolicyGroupName|Quality of service policy group name|false|string|
-|snaplockType|Snaplock type|false|enum (non_snaplock,  compliance,  enterprise)|
+|snaplockType|Snaplock type|true|enum (non_snaplock,  compliance,  enterprise)|
 |constituentsAggregates|Aggregates which are used for FlexGroup constituents|true|string array|
 |snapshotsUsedSize|The size that is used by snapshots in the volume|false|<<Capacity>>|
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
-|minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
+|minimumCoolingDays|Tiering minimum cooling days|true|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
 |iscsiEnabled||true|boolean|
 |flexGroupVolume||true|boolean|
@@ -4854,6 +4787,7 @@ This section describes existing data format definitions.
 |iops|Provisioned IOPS|false|integer (int32)|
 |throughput|Provisioned Throughput|false|integer (int32)|
 |tieringPolicy|Tiering policy|false|enum (none,  auto,  all)|
+|minimumCoolingDays|Cooling Days|false|integer (int32)|
 |===
 
 === VsaWorkingEnvironmentResponse
@@ -4984,3 +4918,4 @@ This section describes existing data format definitions.
 |userName||true|string|
 |password||true|string|
 |===
+
