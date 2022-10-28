@@ -18,8 +18,8 @@ sidebar:
     - section: audit
     - section: cbs
     - section: credential
-    - section: fsx
     - section: dw
+    - section: fsx
     - section: ipa
     - section: persistence
     - section: tenancy
