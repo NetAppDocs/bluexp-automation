@@ -17,8 +17,8 @@ sidebar:
     - section: api-cm
     - section: audit
     - section: cbs
-    - section: fsx
     - section: credential
+    - section: fsx
     - section: dw
     - section: ipa
     - section: persistence
