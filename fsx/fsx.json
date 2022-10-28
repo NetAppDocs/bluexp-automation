@@ -11,7 +11,7 @@
    "tags":[
       {
          "name":"Working Environments",
-         "description":"<details>\n<summary>Overview</summary>\n<fieldset>\nThe working environment endpoints manage operations made on working environments in Cloud Manager.\n<p>You can perform the following actions with the working environment endpoints:</p>\n<ul>\n<li>Create an FSx for ONTAP working environment</li>\n<li>Retrieve FSx for ONTAP working environments by account</li>\n<li>Discover an FSx for ONTAP working environment</li>\n<li>Recover an FSx for ONTAP working environment</li>\n<li>Retrieve volume details for an FSx for ONTAP working environment</li>\n<li>Retrieve ONTAP credentials for an FSx for ONTAP working environment</li>\n<li>Post ONTAP credentials for an FSx for ONTAP working environment</li>\n<li>Recover FSx for ONTAP as a working environment</li>\n<li>Retrieve details for an FSx for ONTAP working environment</li>\n<li>Delete an FSx for ONTAP working environment</li>\n<li>Remove an FSx for ONTAP working environment from a workspace</li>\n<li>Update the throughput capacity of an FSx for ONTAP working environment</li>\n</ul>\n</fieldset>\n</details>\n"
+         "description":"<details>\n<summary>Overview</summary>\n<fieldset>\nThe working environment endpoints manage operations made on working environments in Cloud Manager.\n<p>You can perform the following actions with the working environment endpoints:</p>\n<ul>\n<li>Create an FSx for ONTAP working environment</li>\n<li>Retrieve FSx for ONTAP working environments by account</li>\n<li>Discover an FSx for ONTAP working environment</li>\n<li>Retrieve volume details for an FSx for ONTAP working environment</li>\n<li>Retrieve ONTAP credentials for an FSx for ONTAP working environment</li>\n<li>Create ONTAP credentials for an FSx for ONTAP working environment</li>\n<li>Recover FSx for ONTAP as a working environment</li>\n<li>Retrieve details for an FSx for ONTAP working environment</li>\n<li>Delete an FSx for ONTAP working environment</li>\n<li>Remove an FSx for ONTAP working environment from a workspace</li>\n<li>Update the throughput capacity of an FSx for ONTAP working environment</li>\n</ul>\n</fieldset>\n</details>\n"
       },
       {
          "name":"AWS Operations",
@@ -19,7 +19,7 @@
       },
       {
          "name":"AWS Credentials",
-         "description":"<details>\n<summary>Overview</summary>\n<fieldset>\nThe AWS credentials endpoints interact with the Credentials service to retrieve appropriate AWS credentials.\n<p>You can perform the following actions with the AWS credentials endpoints:</p>\n<ul>\n<li>Retrieve AWS credentials for a Tenancy account</li>\n<li><strikeout>Deprecate AWS credentials</strikeout></li>\n</ul>\n</fieldset>\n</details>\n"
+         "description":"<details>\n<summary>Overview</summary>\n<fieldset>\nThe AWS credentials endpoints interact with the Credentials service to retrieve appropriate AWS credentials.\n<p>You can perform the following actions with the AWS credentials endpoints:</p>\n<ul>\n<li>Retrieve AWS credentials for a Tenancy account</li>\n<li><strikeout>[Deprecated] Create AWS credentials</strikeout></li>\n</ul>\n</fieldset>\n</details>\n"
       },
       {
          "name":"FSx ONTAP discovery",
@@ -647,7 +647,7 @@
          "post":{
             "operationId":"AwsCredentialsController_addAwsCredentials",
             "summary":"",
-            "description":"DEPRECATED Post AWS Credentials  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"DEPRECATED Create AWS Credentials  </br>\n    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "deprecated":true,
             "parameters":[
                {
@@ -782,7 +782,7 @@
          "post":{
             "operationId":"WorkingEnvironmentsController_createFileSystem",
             "summary":"",
-            "description":"Creates an FSx ONTAP file system on the required AWS account and region.\n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Creates an FSx ONTAP working environment on the required AWS account and region.\n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -845,7 +845,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_discover",
             "summary":"",
-            "description":"Discovers all FSx ONTAP file systems of an AWS region by using specified credentials.\n 'inDifferentAccount' field  in response indicates that a user is already assigned to a different Tenancy account. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Discovers all FSx ONTAP working environments of an AWS region by using specified credentials.\n 'inDifferentAccount' field  in response indicates that a user is already assigned to a different Tenancy account. \n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1112,7 +1112,7 @@
          "post":{
             "operationId":"WorkingEnvironmentsController_recover",
             "summary":"",
-            "description":"Recovers an unassigned FSx system to a Tenancy account by using the `fsx:assigned` parameter.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Recovers an unassigned FSx working environment related to a Tenancy account by using the `fsx:assigned` parameter.\n  </br>    <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1168,7 +1168,7 @@
          "get":{
             "operationId":"WorkingEnvironmentsController_getWorkingEnvironment",
             "summary":"",
-            "description":"Retrieves FSx working environment by specifying the workingEnvironmentId parameter.\n  </br> Pass provider-details:'true'  parameter to get provider data. \n  </br> Pass `volumes:'true'`  parameter to retrieve volumes. \n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
+            "description":"Retrieves FSx working environments by specifying the workingEnvironmentId parameter.\n  </br> Pass provider-details:'true'  parameter to get provider data. \n  </br> Pass `volumes:'true'`  parameter to retrieve volumes. \n  </br>  <p><strong>Token usage:</strong></span> Cloud Manager user token.</p>",
             "parameters":[
                {
                   "name":"x-simulator",
@@ -1367,7 +1367,7 @@
          "patch":{
             "operationId":"WorkingEnvironmentsController_updateFileSystem",
             "summary":"",
-            "description":"Updates FSx ONTAP file systems",
+            "description":"Updates the throughput capacity of an FSx for ONTAP working environment.",
             "parameters":[
                {
                   "name":"x-simulator",

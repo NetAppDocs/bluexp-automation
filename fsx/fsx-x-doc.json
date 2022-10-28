@@ -3,7 +3,7 @@
     "/aws-credentials/{accountId}": {
       "get": {
         "x-doc": {
-          "title": "",
+          "title": "Retrieve AWS credentials",
           "category": "AWS Credentials",
           "filename": "get-aws-credentials-.html",
           "explorer": false
@@ -29,7 +29,7 @@
       },
       "post": {
         "x-doc": {
-          "title": "Create a file system",
+          "title": "Create FSx for ONTAP working environments",
           "category": "Working Environments",
           "filename": "post-working-environments-.html",
           "explorer": false
@@ -95,7 +95,7 @@
       },
       "delete": {
         "x-doc": {
-          "title": "Delete file system",
+          "title": "Delete an FSX working environment",
           "category": "Working Environments",
           "filename": "delete-working-environments-.html",
           "explorer": false
