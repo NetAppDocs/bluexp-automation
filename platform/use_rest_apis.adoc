@@ -5,7 +5,7 @@ keywords:
 summary:
 ---
 
-= Use the Cloud Manager platform REST APIs
+= Use the BlueXP platform REST APIs
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -19,9 +19,9 @@ There is a general process to prepare and use the authentication and authorizati
 
 There are several things you should consider before performing a BlueXP REST API call.
 
-=== Cloud Manager account
+=== BlueXP account
 
-A BlueXP account is required to access Cloud Manager. The system prompts you to create an account when you attempt to sign in to the BlueXP web UI. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Sign in to BlueXP account^] for more information.
+A BlueXP account is required to access the platform. The system prompts you to create an account when you attempt to sign in to the BlueXP web UI. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Sign in to BlueXP account^] for more information.
 
 === Access token usage scenarios
 

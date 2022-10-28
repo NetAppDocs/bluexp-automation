@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-There are several OAuth 2.0 grant types available when requesting an access token to use with Cloud Manager. The grant type is based on the application requirements and authentication environment, and determines how the token is requested.
+There are several OAuth 2.0 grant types available when requesting an access token to use with BlueXP. The grant type is based on the application requirements and authentication environment, and determines how the token is requested.
 
 [TIP]
 The refresh token grant is the most secure option when requesting a user access token. It can be used in both a federated and non-federated authentication environment.

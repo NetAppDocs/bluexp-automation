@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-You can register a service with Cloud Manager and use the associated credentials to create a service token.
+You can register a service with BlueXP and use the associated credentials to create a service token.
 
 .Before you begin
 
