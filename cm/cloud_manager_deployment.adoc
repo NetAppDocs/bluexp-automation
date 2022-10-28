@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/cloud_manager_deployment.html
-keywords: cloud, manager, deployment, rest, api, occm, workflow, deploy
+keywords: cloud, manager, deployment, rest, api, occm, workflow, deploy, cloud
 summary: 'A summary of the major steps you should take to deploy and administer a Cloud Volumes ONTAP instance using the Cloud Manager REST API is presented below.'
 ---
 
