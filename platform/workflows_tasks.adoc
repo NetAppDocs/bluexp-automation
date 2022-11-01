@@ -37,9 +37,9 @@ The REST API calls in the workflows use different URLs and URL formats depending
 [NOTE]
 Every API call used in the workflows includes the resource path to the REST endpoint. The path is relative and appended to the appropriate *base* URL. Unless otherwise indicated for a specific API call, the base URL addresses the NetApp BlueXP services. You should always carefully review the examples provided in the workflows before using them with a live deployment.
 
-===== Cloud Manager endpoints
+===== BlueXP endpoints
 
-The majority of the workflow REST API calls are made to the *NetApp Cloud Manager* service. The base URL of the SaaS interface is:
+The majority of the workflow REST API calls are made to the *NetApp BlueXP* service. The base URL of the SaaS interface is:
 
 `https://cloudmanager.netapp.com/`
 

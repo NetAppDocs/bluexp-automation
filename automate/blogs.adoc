@@ -15,7 +15,7 @@ summary: Use the resources on this page to get help integrating BlueXP and Cloud
 [.lead]
 There are several blog articles available to help you better understand the technologies and approaches available for BlueXP automation.
 
-===== Using BlueXP REST APIs with Federated Access
+===== Using BlueXP (formerly Cloud Manager) REST APIs with Federated Access
 
 https://cloud.netapp.com/blog/using-cloud-manager-rest-apis-with-federated-access[https://cloud.netapp.com/blog/using-cloud-manager-rest-apis-with-federated-access^]
 

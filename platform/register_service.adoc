@@ -25,7 +25,7 @@ You must have a BlueXP account. You created this account when you first logged i
 +
 link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
 
-. Sign in using your BlueXP account credentials.
+. Sign in using your NetApp Cloud credentials or your NetApp Support Site credentials.
 
 . Click the *Account* tab at the top of the SaaS UI.
 

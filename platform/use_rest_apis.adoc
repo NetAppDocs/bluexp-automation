@@ -51,7 +51,7 @@ The following steps describe how to obtain the required authentication informati
 
 === 1. Optionally locate the Connector ID and client ID
 
-Several APIs require a Connector ID to route the request to the appropriate BlueXP environment. You can also locate the related Client ID. See link:get_identifiers.html[Get required identifiers] for more information.
+Several BlueXP APIs require a Connector ID to route the request to the appropriate environment. You can also locate the related Client ID. See link:get_identifiers.html[Get required identifiers] for more information.
 
 === 2. Obtain the access tokens
 

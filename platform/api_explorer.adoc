@@ -50,7 +50,7 @@ image:api1.png[Open API explorer]
 .	Click *Sign in* which redirects the browser to the NetApp BlueXP website login page.
 +
 image:api2.png[Redirect the browser to NetApp BlueXP website login page]
-.	Enter your NetApp Cloud credentials, including the email address and password, and click *Login*.
+.	Enter your NetApp Cloud credentials, including the email address and password, and click *Login* or you can use your NetApp Support Site credentials to log in.
 +
 TIP: Use your single sign-on account for federated login.
 +
