@@ -21,9 +21,9 @@ There are additional resources you can access to get help and find more informat
 +
 Central site for the NetApp cloud solutions.
 
-* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp Cloud Central console^]
+* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp BlueXP website console^]
 +
-NetApp Cloud Central service console with sign in.
+NetApp BlueXP website service console with sign in.
 
 * https://mysupport.netapp.com/[NetApp Support^]
 +
@@ -47,7 +47,7 @@ This publication introduced and established the REST application development mod
 
 * https://auth0.com/[Auth0^]
 +
-This is the authentication platform service used by Cloud Manager.
+This is the authentication platform service used by BlueXP.
 
 * https://www.rfc-editor.org/[RFC editor^]
 +

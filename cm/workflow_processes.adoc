@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/workflow_processes.html
 keywords: workflows, processes, cloud, manager, api
-summary: "You should be familiar with the high-level organization and format of the Cloud Manager workflow processes before using them with a live cloud deployment."
+summary: "You should be familiar with the high-level organization and format of the BlueXP workflow processes before using them with a live cloud deployment."
 ---
 
 = Cloud Volumes ONTAP workflow processes
@@ -16,7 +16,7 @@ summary: "You should be familiar with the high-level organization and format of 
 You should be familiar with the organization and format of the Cloud Volumes ONTAP workflow processes before using them with a live deployment.
 
 [NOTE]
-Before getting started with the Cloud Volumes ONTAP workflows, see link:../platform/workflows_tasks.html[Workflow processes and tasks] for an introduction to how workflows and tasks are generally used with the Cloud Manager platform.
+Before getting started with the Cloud Volumes ONTAP workflows, see link:../platform/workflows_tasks.html[Workflow processes and tasks] for an introduction to how workflows and tasks are generally used with the BlueXP platform.
 
 == High level organization of the workflows
 

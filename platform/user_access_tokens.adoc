@@ -86,11 +86,11 @@ AfLVrnwBXuapKUzyL--tU4jzpob5vji1bWAlkXo_p8SqJY4TzU99tiSp470bw
   "http://cloud.netapp.com/connection_id": "con_gPjfcs35SPfizh4b",
   "http://cloud.netapp.com/is_federated": false,
   "http://cloud.netapp.com/internal": "NetApp",
-  "iss": "https://staging-netapp-cloud-account.auth0.com/",
+  "iss": "https://netapp-cloud-account.auth0.com/",
   "sub": "auth0|606b6467d0e04300696f3c3d",
   "aud": [
     "https://api.cloud.netapp.com",
-    "https://staging-netapp-cloud-account.auth0.com/userinfo"
+    "https://netapp-cloud-account.auth0.com/userinfo"
   ],
   "iat": 1635240135,
   "exp": 1635261735,

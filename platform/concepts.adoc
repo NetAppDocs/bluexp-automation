@@ -13,7 +13,7 @@ summary: 'Representational State Transfer (REST) is a style for creating distrib
 :imagesdir: ./media/
 
 [.lead]
-Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The Cloud Manager platform REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based resources.
+Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The BlueXP platform REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based resources.
 
 [NOTE]
 While REST establishes a common set of technologies and best practices, the details of each API can vary based on the design choices of the development team. See the reference for the API you plan to use.
@@ -24,15 +24,15 @@ The REST style of application development begins by identifying the set of serve
 
 * Administrative resources
 +
-Used to set up and configure Cloud Manager
+Used to set up and configure BlueXP
 
 * Auditing resources
 +
-Used to view details about Cloud Manager activities and operations
+Used to view details about BlueXP activities and operations
 
 * Authentication resources
 +
-Used to authenticate to Cloud Manager so you can make API calls
+Used to authenticate to BlueXP so you can make API calls
 
 * Working environment resources
 +
@@ -49,7 +49,7 @@ REST resources are accessed through endpoints identified in the URL path. Each e
 
 === Types of input parameters
 
-There are several types of parameters available with the Cloud Manager platform APIs with each request.
+There are several types of parameters available with the BlueXP platform APIs with each request.
 
 [cols="20,80",options="header"]
 |===
