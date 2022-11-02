@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/security.html
 keywords: cloud, manager, rest, api
-summary: "The Cloud Manager REST API provides robust security based on token authentication and authorization."
+summary: "The BlueXP REST API provides robust security based on token authentication and authorization."
 ---
 
 = Security
@@ -13,12 +13,12 @@ summary: "The Cloud Manager REST API provides robust security based on token aut
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Manager platform REST APIs provides robust security based on token authentication and authorization.
+The BlueXP platform REST APIs provides robust security based on token authentication and authorization.
 
 [NOTE]
 In addition to token authorization, all connections are protected using the Transport Layer Security (TLS) protocol.
 
-All NetApp Cloud Central Services, including Cloud Manager, use OAuth 2.0 for authorization. OAuth 2.0 is an open standard implemented by several authorization providers including *Auth0*. Connecting and communicating with a secure REST endpoint is a two-step process:
+All NetApp BlueXP services use OAuth 2.0 for authorization. OAuth 2.0 is an open standard implemented by several authorization providers including *Auth0*. Connecting and communicating with a secure REST endpoint is a two-step process:
 
 . Acquire a JWT (JSON Web Token) access token from the trusted OAuth 2.0 token endpoint
 . Make a REST API call to the target endpoint with the access token in the `Authorization: Bearer` request header

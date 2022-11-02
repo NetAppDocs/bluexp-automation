@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/overview.html
 keywords: overview, introduction rest api
-summary: 'The NetApp Cloud Manager service includes a REST API that you can access programmatically to administer your cloud-based resources. '
+summary: 'The NetApp BlueXP service includes a REST API that you can access programmatically to administer your cloud-based resources. '
 ---
 
 = Overview of the Cloud Volumes ONTAP REST API
@@ -13,7 +13,7 @@ summary: 'The NetApp Cloud Manager service includes a REST API that you can acce
 :imagesdir: ./media/
 
 [.lead]
-The NetApp Cloud Manager service includes a REST API, Cloud Volumes ONTAP API, you can use programmatically to administer your cloud-based resources. The Cloud Volumes ONTAP REST API provides access to a subset of the functionality available in the Cloud Manager platform with a focus on Cloud Volumes ONTAP deployments.
+The NetApp BlueXP service includes a REST API, Cloud Volumes ONTAP API, you can use programmatically to administer your cloud-based resources. The Cloud Volumes ONTAP REST API provides access to a subset of the functionality available in the BlueXP platform with a focus on Cloud Volumes ONTAP deployments.
 
 There are several benefits to using the Cloud Volumes ONTAP REST API.
 
@@ -21,14 +21,14 @@ There are several benefits to using the Cloud Volumes ONTAP REST API.
 
 The Cloud Volumes ONTAP API has been designed based on REST technology and current best practices. The core technologies include Hypertext Transfer Protocol (HTTP) and JavaScript Object Notation (JSON).
 
-=== Anchors the Cloud Manager development platform
+=== Anchors the BlueXP development platform
 
-The Cloud Volumes ONTAP REST API provides the primary external interface to the Cloud Manager platform. There are additional REST APIs which support the various platform services.
+The Cloud Volumes ONTAP REST API provides the primary external interface to the BlueXP platform. There are additional REST APIs which support the various platform services.
 
 === Access to NetApp cloud token-based security
 
-Cloud Manager authentication and authorization is based on the _OAuth2_ standard. NetApp relies on the _Auth0_ service implementation.
+BlueXP authentication and authorization is based on the _OAuth2_ standard. NetApp relies on the _Auth0_ service implementation.
 
-=== Alignment with the Cloud Manager web UI
+=== Alignment with the BlueXP web UI
 
-The Cloud Manager web user interface uses the same core REST API and therefore there is consistency between the two access paths.
+The BlueXP web user interface uses the same core REST API and therefore there is consistency between the two access paths.

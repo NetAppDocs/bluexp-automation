@@ -13,7 +13,7 @@ summary: The Cloud Manager platform REST APIs support many different workflows a
 :imagesdir: ./media/
 
 [.lead]
-The Cloud Manager platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing and using a specific API.
+The BlueXP platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing and using a specific API.
 
 * link:workflows_tasks.html#workflows[Workflows]
 * link:workflows_tasks.html#tasks[Tasks]
@@ -22,7 +22,7 @@ Also See link:../cm/workflow_processes.html[Cloud Volumes ONTAP workflow process
 
 == Workflows
 
-A _workflow_ is most typically a sequence of one or more steps needed to accomplish a specific administrative task or goal. For the Cloud Manager platform, each of the workflow steps can be one of the following:
+A _workflow_ is most typically a sequence of one or more steps needed to accomplish a specific administrative task or goal. For the BlueXP platform, each of the workflow steps can be one of the following:
 
 * REST API call
 * Invocation of another workflow
@@ -35,11 +35,11 @@ The workflows provided with this documentation include the minimum steps and par
 The REST API calls in the workflows use different URLs and URL formats depending on the desired service and resource.
 
 [NOTE]
-Every API call used in the workflows includes the resource path to the REST endpoint. The path is relative and appended to the appropriate *base* URL. Unless otherwise indicated for a specific API call, the base URL addresses the NetApp Cloud Manager service. You should always carefully review the examples provided in the workflows before using them with a live deployment.
+Every API call used in the workflows includes the resource path to the REST endpoint. The path is relative and appended to the appropriate *base* URL. Unless otherwise indicated for a specific API call, the base URL addresses the NetApp BlueXP services. You should always carefully review the examples provided in the workflows before using them with a live deployment.
 
-===== Cloud Manager endpoints
+===== BlueXP endpoints
 
-The majority of the workflow REST API calls are made to the *NetApp Cloud Manager* service. The base URL of the SaaS interface is:
+The majority of the workflow REST API calls are made to the *NetApp BlueXP* service. The base URL of the SaaS interface is:
 
 `https://cloudmanager.netapp.com/`
 
@@ -81,6 +81,6 @@ In many cases, a workflow step accepts JSON input in the request body of the RES
 
 A _task_ is a sequence of one or more steps needed to accomplish a specific administrative task or goal. Tasks typically differ from workflow processes in several ways:
 
-* Limited to using the Cloud Manager web user interface
+* Limited to using the BlueXP web user interface
 * Do not make REST API calls
 * If invocation of a workflow is required, it is included as a prerequisite
