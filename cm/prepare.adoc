@@ -23,9 +23,9 @@ Make sure to review link:rest_implementation.html[REST implementation details] f
 
 Cloud Volumes ONTAP can be deployed in Amazon Web Services, Microsoft Azure, and Google Cloud Platform. You need to decide which of these providers you'll use and have the appropriate credentials.
 
-==== Have Cloud Central credentials
+==== Have BlueXP wesite credentials
 
-You'll need a NetApp account (formerly NetApp Cloud Central) login to acquire an access token required for the workflow processes. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Signing up to NetApp Cloud Central^] for more information.
+You'll need a NetApp account login to acquire an access token required for the workflow processes. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Signing up to NetApp BlueXP website^] for more information.
 
 ==== Be familiar with Cloud Volumes ONTAP concepts
 

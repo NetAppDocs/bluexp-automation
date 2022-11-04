@@ -13,7 +13,7 @@ summary: "You can retrieve a list of the Cloud Manager accounts available for th
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve a list of the Cloud Manager accounts available for the supported cloud platforms.
+You can retrieve a list of the cloud provider accounts that have been added to BlueXP.
 
 === 1. Get the cloud provider accounts
 

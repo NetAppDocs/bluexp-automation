@@ -643,6 +643,80 @@
           "explorer": false
         }
       }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v2/working-environment/{workingEnvironmentId}/backup-policy": {
+      "put": {
+        "x-doc": {
+          "title": "Update a backup policy",
+          "category": "Working environment",
+          "filename": "put-account-providers-cloudmanager_cbs-api-v2-working-environment-backup-policy.html",
+          "explorer": false
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v2/catalog/working-environments/{workingEnvironmentId}/setup": {
+      "post": {
+        "x-doc": {
+          "title": "Configure the service",
+          "category": "Catalog",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v2-catalog-working-environments-setup.html",
+          "explorer": false
+        }
+      }
+    },
+    "/api/account/{accountId}/v1/jobs": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve job list",
+          "category": "Jobs",
+          "filename": "get-api-account-v1-jobs.html",
+          "explorer": false
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Register a job",
+          "category": "Jobs",
+          "filename": "post-api-account-v1-jobs.html",
+          "explorer": false
+        }
+      }
+    },
+    "/api/account/{accountId}/v1/jobs/{jobId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve job details",
+          "category": "Jobs",
+          "filename": "get-api-account-v1-jobs-.html",
+          "explorer": false
+        }
+      },
+      "patch": {
+        "x-doc": {
+          "title": "Update a job",
+          "category": "Jobs",
+          "filename": "patch-api-account-v1-jobs-.html",
+          "explorer": false
+        }
+      },
+      "delete": {
+        "x-doc": {
+          "title": "Delete a job",
+          "category": "Jobs",
+          "filename": "delete-api-account-v1-jobs-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/ransomware/working-environment/{workingEnvironmentId}/volume/{volumeId}/snapshot/{snapshotId}": {
+      "post": {
+        "x-doc": {
+          "title": "Initiate a ransomware scan",
+          "category": "Ransomware Scan",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-ransomware-working-environment-volume-snapshot-.html",
+          "explorer": false
+        }
+      }
     }
   }
 }
