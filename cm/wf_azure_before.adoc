@@ -16,7 +16,7 @@ summary: There are several workflows you can use with the Azure public cloud.
 There are several workflows you can use with the Azure public cloud.
 
 [NOTE]
-Review the link:getting_started.html[Get started] section before using any of the BlueXP REST API workflows.
+Review the link:https://docs.netapp.com/us-en/cloud-manager-automation/cm/prepare.html[Get started] section before using any of the Cloud Volumes ONTAP REST API workflows.
 
 == Workflow categories
 The Azure workflows are organized into the following categories:
