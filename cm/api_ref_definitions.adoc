@@ -532,6 +532,7 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |numReservedDisksSingleNode||true|integer (int32)|
+|numReservedDisksHaMultiZoneNode||true|integer (int32)|
 |===
 
 === AzureEncryption
@@ -540,6 +541,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |key||true|string|
 |vaultName||true|string|
+|userAssignedIdentity||false|string|
 |===
 
 === AzureHaNodeInfo
@@ -2621,8 +2623,8 @@ This section describes existing data format definitions.
 |placementGroup|Placement Group|true|string|
 |keyPairName|Key Pair|true|string|
 |instanceProfileId|Instance profile ID|false|string|
-|vsaInstance||true|boolean|
 |oCCMInstance||true|boolean|
+|vsaInstance||true|boolean|
 |===
 
 === InstanceTypeInfo
@@ -3087,8 +3089,8 @@ This section describes existing data format definitions.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|inactiveDataReportingEnabled||true|boolean|
 |objectStoreAttachEligible||true|boolean|
+|inactiveDataReportingEnabled||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3119,8 +3121,8 @@ This section describes existing data format definitions.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|aff||true|boolean|
 |snapmirrorLicenseExists||true|boolean|
+|aff||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3245,8 +3247,8 @@ This section describes existing data format definitions.
 |vscanFileOperationDefaultProfile||true|string|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|spaceReportingLogical||true|boolean|
 |keystoneSubscription||true|boolean|
+|spaceReportingLogical||true|boolean|
 |===
 
 === OntapEncryption
@@ -3727,8 +3729,8 @@ This section describes existing data format definitions.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|backupTarget||true|boolean|
 |tieringTarget||true|boolean|
+|backupTarget||true|boolean|
 |===
 
 === S3BucketsSummary
@@ -3857,8 +3859,8 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |needCertificate||true|boolean|
 |runningInDocker||true|boolean|
-|setup||true|boolean|
 |pendingConnectivitySet||true|boolean|
+|setup||true|boolean|
 |===
 
 === SgwsCloudBackupSetupRequest
@@ -4509,9 +4511,9 @@ This section describes existing data format definitions.
 |size|Volume total size|true|<<Capacity>>|
 |usedSize|Volume used size|true|<<Capacity>>|
 |junctionPath|The junction path at which this volume is mounted|true|string|
-|volumeTotalInodes|Total volume inodes size|true|integer (int32)|
-|volumeUsedInodes|Used volume inodes size|true|integer (int32)|
-|mountPoint|Mount Point|true|string|
+|volumeTotalInodes|Total volume inodes size|false|integer (int32)|
+|volumeUsedInodes|Used volume inodes size|false|integer (int32)|
+|mountPoint|Mount Point|false|string|
 |compressionSpaceSaved|The total disk capacity that is saved by compressing blocks|true|<<Capacity>>|
 |deduplicationSpaceSaved|The disk space capacity that is saved by deduplication and file cloning|true|<<Capacity>>|
 |thinProvisioning|Whether thin provisioning is enabled|true|boolean|
@@ -4527,32 +4529,32 @@ This section describes existing data format definitions.
 |state|Volume state|true|string|
 |volumeType|Volume type|true|string|
 |aggregateName|Aggregate name|true|string|
-|parentSnapshot|The snapshot name the volume is based on|true|string|
+|parentSnapshot|The snapshot name the volume is based on|false|string|
 |autoSizeMode|The operating mode of autosize|true|string|
 |maxGrowSize|The maximum size to which the volume will grow automatically|true|<<Capacity>>|
-|providerVolumeType|Cloud provider volume type|true|string|
+|providerVolumeType|Cloud provider volume type|false|string|
 |cloneNames|Names of cloned copies of the volume|true|string array|
 |moving|Is Volume during move process|true|boolean|
-|primaryNoFailoverMountPoint|Primary mount point without failover|true|string|
-|secondaryNoFailoverMountPoint|Secondary mount point without failover|true|string|
-|capacityTier|Capacity tier|true|enum ([S3,  Blob])|
-|capacityTierUsedSize|Capacity tier used size|true|<<Capacity>>|
-|cifsShareAccessPoint|CIFS share access point|true|string|
-|primaryCifsShareAccessPoint|Primary CIFS share access point|true|string|
-|secondaryCifsShareAccessPoint|Secondary CIFS share access point|true|string|
-|tieringPolicy|Tiering policy|true|string|
-|tierInactiveUserData|Tier inactive user data|true|<<Capacity>>|
-|tierInactiveUserDataPercent|Tier inactive user data percent|true|integer (int32)|
+|primaryNoFailoverMountPoint|Primary mount point without failover|false|string|
+|secondaryNoFailoverMountPoint|Secondary mount point without failover|false|string|
+|capacityTier|Capacity tier|false|enum ([S3,  Blob])|
+|capacityTierUsedSize|Capacity tier used size|false|<<Capacity>>|
+|cifsShareAccessPoint|CIFS share access point|false|string|
+|primaryCifsShareAccessPoint|Primary CIFS share access point|false|string|
+|secondaryCifsShareAccessPoint|Secondary CIFS share access point|false|string|
+|tieringPolicy|Tiering policy|false|string|
+|tierInactiveUserData|Tier inactive user data|false|<<Capacity>>|
+|tierInactiveUserDataPercent|Tier inactive user data percent|false|integer (int32)|
 |comment|Volume comment|false|string|
 |qosPolicyGroupName|Quality of service policy group name|false|string|
-|snaplockType|Snaplock type|true|enum (non_snaplock,  compliance,  enterprise)|
+|snaplockType|Snaplock type|false|enum (non_snaplock,  compliance,  enterprise)|
 |constituentsAggregates|Aggregates which are used for FlexGroup constituents|true|string array|
 |snapshotsUsedSize|The size that is used by snapshots in the volume|false|<<Capacity>>|
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
-|minimumCoolingDays|Tiering minimum cooling days|true|integer (int32)|
+|minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
-|iscsiEnabled||true|boolean|
 |flexGroupVolume||true|boolean|
+|iscsiEnabled||true|boolean|
 |===
 
 === VolumeTags
