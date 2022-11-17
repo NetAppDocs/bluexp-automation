@@ -40,7 +40,7 @@ This grant type generates a token used with either federated or non-federated au
 |`refresh_token`
 |The refresh token issued by the OAuth2 server.
 |`client_id`
-|The client ID representing NetApp Cloud Manager. This value is constant and the same for all customers.
+|The client ID representing NetApp BlueXP. This value is constant and the same for all customers.
 |===
 
 The OAuth server verifies the Client ID and confirms that the request came from an authorized client. It also makes sure the refresh token is valid. After the request is validated, the server returns a response with the refresh token.

@@ -20,7 +20,7 @@ You can retrieve a list of tenants visible to the user currently signed in throu
 Perform the workflow link:wf_common_identity_get_supported_srv.html[Get supported services] to retrieve the account ID.
 
 [NOTE]
-You can also get the account identifier through the Cloud Manager web UI. See link:get_identifiers.html[Get required identifers] for more information.
+You can also get the account identifier through the BlueXP web UI. See link:get_identifiers.html[Get required identifers] for more information.
 
 === 2. Get the account workspace
 
