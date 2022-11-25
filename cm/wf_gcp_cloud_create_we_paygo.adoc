@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_gcp_cloud_create_we_paygo.html
-keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, workspace
+keywords: paygo, cloud, volumes, ontap, connector, BlueXP, region, workspace
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
@@ -59,7 +59,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-
 === 7. (Optional) Obtain an NSS key
 An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 8.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
+* To create a new NSS key using the BlueXP web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
 
@@ -191,7 +191,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_service_accounts.html#get-service-
 === 8. (Optional) Obtain an NSS key
 An NSS key is *optional* when using PAYGO subscription. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
 
-* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
+* To create a new NSS key using the BlueXP web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the `id`.
 
 * To select an existing NSS key, perform the link:wf_common_identity_get_nss_keys.html[Get NSS keys] workflow and choose the `id` value of the required NSS user.
 
