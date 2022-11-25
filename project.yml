@@ -1,6 +1,6 @@
 ---
 settings:
-  name: Cloud Manager Automation
+  name: API
   platform: cloud
   internal:
     pdf_enabled: false
