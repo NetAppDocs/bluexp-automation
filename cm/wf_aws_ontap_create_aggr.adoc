@@ -53,7 +53,10 @@ JSON input example::
 {
   "name": "ziv01agg04",
   "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
-  "initialEvAggregateSize": 100 //imaginary number
+  "initialEvAggregateSize": {
+    "size": 0,
+    "unit": "GB"
+  },
   "numberOfDisks": null,
   "diskSize": {
     "size": 0,
@@ -112,18 +115,46 @@ Input::
 The JSON input example includes the minimum list of input parameters.
 
 JSON input example::
+[role="tabbed-block"]
+====
+.Elastic aggregate
+--
 [source,json]
 {
   "name": "ziv01agg04",
   "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
-  "numberOfDisks": 1,
+  "initialEvAggregateSize": {
+    "size": 0,
+    "unit": "GB"
+  },
+  "numberOfDisks": null,
   "diskSize": {
-    "size": 100,
+    "size": 0,
     "unit": "GB"
   },
   "providerVolumeType": "gp2"
 }
 
+Optional parameters::
+`numberOfDisks` This field must be kept empty when creating an elastic aggregate
+`diskSize` This field must be kept empty when creating an elastic aggregate
+--
+.Non-elastic aggregate
+--
+[source,json]
+{
+  "name": "ziv01agg04",
+  "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
+  "numberOfDisks": null,
+  "diskSize": {
+    "size": 0,
+    "unit": "GB"
+  },
+  "providerVolumeType": "gp2"
+}
+
+--
+====
 Output::
 
 None

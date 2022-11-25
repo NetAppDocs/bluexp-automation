@@ -35,7 +35,7 @@ Perform the workflow Get aggregates and choose the name value for the `aggregate
 |===
 |HTTP method
 |Path
-|GET
+|POST
 |/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
 |===
 
@@ -68,7 +68,7 @@ Perform the workflow Get aggregates and choose the name value for the `aggregate
 |===
 |HTTP method
 |Path
-|GET
+|POST
 |/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
 |===
 
