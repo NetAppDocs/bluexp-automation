@@ -50,7 +50,7 @@ Input::
 
 ** `localDelete` boolean
 +
-If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`).
+If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but BlueXP no longer manages it (default is `false`).
 +
 If `false` the Cloud Volumes ONTAP instance is deleted including all the cloud resources created for this working environment.
 
@@ -91,7 +91,7 @@ Input::
 
 ** `localDelete` boolean
 +
-If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`). If `false` the Cloud Volumes ONTAP instance is deleted including all the cloud resources created for this working environment.
+If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but BlueXP no longer manages it (default is `false`). If `false` the Cloud Volumes ONTAP instance is deleted including all the cloud resources created for this working environment.
 
 ** `forceDelete` boolean
 +
