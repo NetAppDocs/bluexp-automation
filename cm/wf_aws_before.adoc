@@ -29,6 +29,10 @@ The AWS workflows are organized into the following functional categories:
 
 See link:workflow_processes.html[Understanding the workflow processes] for more information on these categories.
 
+[NOTE]
+The link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html[Amazon EBS Elastic Volumes] feature is enabled by default on new Cloud Volumes ONTAP 9.11.0 or later systems when using `gp3` or `io1` disks.
+To support the feature, there are a few additional fields that have been added. The workflows have been updated to reflect the changes. 
+
 == Connector setup
 
 You must have a *Connector* for the cloud environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the BlueXP web UI. When you create a Connector, BlueXP adds the AWS cloud provider account that you deployed the Connector in to your list of available accounts. Your AWS account needs to have the right permissions in order to create a Connector.
