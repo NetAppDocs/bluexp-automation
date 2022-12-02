@@ -362,7 +362,7 @@ JSON input example::
   "writingSpeedState": "NORMAL"
 }
 --
-===
+====
 
 Output::
 
