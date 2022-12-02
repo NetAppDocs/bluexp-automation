@@ -278,12 +278,12 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 |HTTP method
 |Path
 |POST
-|/occm/api/ha/working-environments
+|/occm/api/aws/ha/working-environments
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
 
 Input::
 
