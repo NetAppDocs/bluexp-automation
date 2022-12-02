@@ -89,9 +89,8 @@ New Cloud Volumes ONTAP instances are created with an elastic aggregate by defau
 JSON input example::
 [role="tabbed-block"]
 ====
-.Non-Elastic Volume working environment
+.Non-elastic volume working environment
 --
-
 [source,json]
 {
     "name": "ziv02we03",
@@ -116,7 +115,7 @@ JSON input example::
             "ebsVolumeType": "gp2"
 }
 --
-.Elastic Volume Working environment
+.Elastic volume working environment
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
 `disableEv`: boolean, default value is `false`.
@@ -144,12 +143,12 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
             "ebsVolumeType": "gp2"
 }
 --
-===
+====
 Output::
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
 
-JSON output example
+JSON output example::
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-wL2MaBJs",
@@ -267,7 +266,7 @@ JSON input example::
 
 [role="tabbed-block"]
 ====
-.Non-Elastic Volume working environment
+.Non-elastic volume working environment
 --
 [source,json]
 {
@@ -287,6 +286,7 @@ JSON input example::
     "instanceType": "m5.xlarge"
   },
   "dataEncryptionType": "AWS",
+  "disableEv": "false",
   "ontapEncryptionParameters": null,
   "haParams": {
     "node1SubnetId": "subnet-f4da95ac",
@@ -314,7 +314,7 @@ JSON input example::
   "writingSpeedState": "NORMAL"
 }
 --
-.Elastic Volume working environment
+.Elastic volume working environment
 --
 [source,json]
 {
@@ -323,6 +323,7 @@ JSON input example::
   "vpcId": "vpc-b16c90d4",
   "region": "us-east-1",
   "tenantId": "tenantIDgoeshere",
+  "disableEv": "false",
   "ebsVolumeSize": {
     "size": 100,
     "unit": "GB"

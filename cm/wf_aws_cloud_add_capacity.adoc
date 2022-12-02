@@ -21,7 +21,7 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 * <<Add capacity for high availability pair, HA pair>>
 
 == Add capacity for single node
-You can use this workflow to add capacity in TiB to an existing aggregate in a single node system.
+You can use this workflow to add capacity to an existing aggregate in a single node system.
 
 === 1. Select the working environment to use
 Perform the workflow Get working environments and choose the publicId value for the `workingEnvironmentId` path parameter.
@@ -38,7 +38,7 @@ Choose the `size` and `unit` values for the `capacityToAdd` input parameter. The
 |HTTP method
 |Path
 |POST
-|/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
+|occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
 |===
 
 curl example::

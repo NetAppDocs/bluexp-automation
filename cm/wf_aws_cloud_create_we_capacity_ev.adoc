@@ -78,7 +78,7 @@ An NSS key is *optional* when using a marketplace subscription. When using BYOL,
 
 === 9. (Optional) Add a BYOL license
 
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+If you purchase a license from NetApp (BYOL), make sure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 10. (Optional) Create a new volume
 
@@ -142,7 +142,7 @@ JSON input example::
   "vpcId": "vpc-a762xx00",
   "ontapEncryptionParameters": null,
   "ebsVolumeType": "gp2",
-  "disableEv": "false",
+  "disableEv": "true",
   "ebsVolumeSize": {
     "size": 1,
     "unit": "TB",
@@ -164,7 +164,7 @@ JSON input example::
 .Elastic Volume Working environment
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
-`disableEv`: boolean, default value is `true`.
+`disableEv`: boolean, default value is `false`.
 [source,json]
 {
   "name": "bycapacitycvo",
@@ -186,13 +186,13 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
   "svmPassword": "password",
   "vpcId": "vpc-a762xx00",
   "ontapEncryptionParameters": null,
-  "ebsVolumeType": "gp2",
+  "ebsVolumeType": "gp3",
   "ebsVolumeSize": {
     "size": 1,
     "unit": "TB",
     "_identifier": "1 TB"
   },
-  "disableEv": "true",
+  "disableEv": "false",
   "awsTags": [],
   "optimizedNetworkUtilization": true,
   "instanceTenancy": "default",
@@ -376,7 +376,7 @@ New Cloud Volumes ONTAP instances are created with an elastic aggregate by defau
   "vpcId": "vpc-a762xx00",
   "ontapEncryptionParameters": null,
   "ebsVolumeType": "gp2",
-  "disableEv": "false",
+  "disableEv": "true",
   "ebsVolumeSize": {
     "size": 1,
     "unit": "TB",
@@ -420,13 +420,13 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
   "svmPassword": "password",
   "vpcId": "vpc-a762xx00",
   "ontapEncryptionParameters": null,
-  "ebsVolumeType": "gp2",
+  "ebsVolumeType": "gp3",
   "ebsVolumeSize": {
     "size": 1,
     "unit": "TB",
     "_identifier": "1 TB"
   },
-  "disableEv": "true",
+  "disableEv": "false",
   "awsTags": [],
   "optimizedNetworkUtilization": true,
   "instanceTenancy": "default",

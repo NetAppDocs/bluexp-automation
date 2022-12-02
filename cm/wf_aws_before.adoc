@@ -13,7 +13,7 @@ summary: There are several workflows you can use with the Amazon Web Services pu
 :imagesdir: ./media/
 
 [.lead]
-There are several workflows you can use with the Amazon Web Services public cloud.
+There are several workflows you can use with the Amazon Web Services (AWS) public cloud.
 
 [NOTE]
 Review the link:https://docs.netapp.com/us-en/cloud-manager-automation/cm/prepare.html[Get started] section before using any of the Cloud Volumes ONTAP REST API workflows.
@@ -31,7 +31,7 @@ See link:workflow_processes.html[Understanding the workflow processes] for more 
 
 [NOTE]
 The link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html[Amazon EBS Elastic Volumes] feature is enabled by default on new Cloud Volumes ONTAP 9.11.0 or later systems when using `gp3` or `io1` disks.
-To support the feature, there are a few additional fields that have been added. The workflows have been updated to reflect the changes. 
+To support the feature, a few additional fields have been added. The workflows have been updated to reflect the changes. 
 
 == Connector setup
 
