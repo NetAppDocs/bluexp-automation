@@ -100,8 +100,14 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses PAYGO subscription as indicated in the `licenseType` parameter.
+[NOTE]
+New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate.
 
 JSON input example::
+[role="tabbed-block"]
+====
+.Non-Elastic Volume working environment
+--
 [source,json]
 {
     "name": "ziv01we02",
@@ -111,6 +117,7 @@ JSON input example::
     "tenantId": "tenantIDgoeshere",
     "subnetId": "subnet-f4da95ac",
     "dataEncryptionType": "AWS",
+    "disableEv":"true",
     "vsaMetadata": {
         "ontapVersion": "ONTAP-9.9.0.T1",
         "licenseType": "cot-explore-paygo",
@@ -144,6 +151,57 @@ JSON input example::
     },
     "writingSpeedState": "NORMAL"
 }
+--
+.Elastic Volume Working environment
+--
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+`disableEv`: boolean, default value is `false`.
+[source,json]
+{
+    "name": "ziv01we02",
+    "svmPassword": "user_password",
+    "vpcId": "vpc-b16c90d4",
+    "region": "us-east-1",
+    "tenantId": "tenantIDgoeshere",
+    "subnetId": "subnet-f4da95ac",
+    "dataEncryptionType": "AWS",
+    "disableEv":"false",
+    "vsaMetadata": {
+        "ontapVersion": "ONTAP-9.9.0.T1",
+        "licenseType": "cot-explore-paygo",
+        "instanceType": "m5.xlarge"
+        },
+    "ebsVolumeSize": {
+        "size": 100,
+        "unit": "GB"
+    },
+    "ebsVolumeType": "gp2",
+    "volume": {
+      "name": "ziv02vol01",
+      "size": {
+        "size": 200,
+        "unit": "GB"
+      },
+      "exportPolicyInfo": {
+        "policyType": "custom",
+        "ips": [
+          "172.31.0.0/16"
+        ],
+       "nfsVersion": [
+          "nfs3",
+          "nfs4"
+        ]
+      },
+      "snapshotPolicyName": "default",
+      "enableThinProvisioning": true,
+      "enableCompression": true,
+      "enableDeduplication": true
+    },
+    "writingSpeedState": "NORMAL"
+}
+--
+====
+
 
 Output::
 
@@ -272,8 +330,13 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses PAYGO licensing as indicated in the `licenseType` parameter.
+[NOTE]
+New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate. 
 
-JSON input example::
+[role="tabbed-block"]
+====
+.Non-Elastic Volume working environment
+--
 [source,json]
 {
   "name": "ziv04we02ha",
@@ -281,6 +344,7 @@ JSON input example::
   "vpcId": "vpc-b16c90d4",
   "region": "us-east-1",
   "tenantId": "tenantIDgoeshere",
+  "disableEv": "true",
   "ebsVolumeSize": {
     "size": 100,
     "unit": "GB"
@@ -336,7 +400,77 @@ JSON input example::
   "enableMonitoring": "false",
   "writingSpeedState": "NORMAL"
 }
+--
+.Elastic Volume Working environment
+--
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+`disableEv`: boolean, default value is `false`.
+[source,json]
 
+{
+  "name": "ziv04we02ha",
+  "svmPassword": "password",
+  "vpcId": "vpc-b16c90d4",
+  "region": "us-east-1",
+  "tenantId": "tenantIDgoeshere",
+  "ebsVolumeSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "disableEv": "false",
+  "ebsVolumeType": "gp2",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.9.0X6.T1.ha",
+    "licenseType": "ha-cot-explore-paygo",
+    "instanceType": "m5.xlarge"
+  },
+  "dataEncryptionType": "AWS",
+  "ontapEncryptionParameters": null,
+  "haParams": {
+    "node1SubnetId": "subnet-f4da95ac",
+    "node2SubnetId": "subnet-b4387a9e",
+    "mediatorSubnetId": "subnet-76e6d400",
+    "clusterFloatingIP": "4.4.4.4",
+    "dataFloatingIP": "5.5.5.5",
+    "dataFloatingIP2": "6.6.6.6",
+    "mediatorKeyPairName": "Developers_Virginia",
+    "routeTableIds": [
+      "rtb-02a45467"
+    ],
+    "failoverMode": "FloatingIP",
+    "mediatorAssignPublicIP": true
+  },
+  "volume": {
+    "name": "ziv02vol01",
+    "size": {
+      "size": 200,
+      "unit": "GB"
+    },
+    "exportPolicyInfo": {
+      "policyType": "custom",
+      "ips": [
+        "172.31.0.0/16"
+      ],
+     "nfsVersion": [
+        "nfs3",
+        "nfs4"
+      ]
+    },
+    "snapshotPolicyName": "default",
+    "enableThinProvisioning": true,
+    "enableCompression": true,
+    "enableDeduplication": true
+  },
+  "optimizedNetworkUtilization": false,
+  "instanceTenancy": "default",
+  "packageName": "aws_ha_poc",
+  "cloudProviderAccount": "InstanceProfile",
+  "backupVolumesToCbs": false,
+  "enableMonitoring": "false",
+  "writingSpeedState": "NORMAL"
+}
+--
+====
 
 Output::
 

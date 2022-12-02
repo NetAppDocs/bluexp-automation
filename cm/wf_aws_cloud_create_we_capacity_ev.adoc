@@ -111,6 +111,8 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
+[NOTE]
+New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate. 
 
 JSON input example::
 
@@ -161,7 +163,8 @@ JSON input example::
 --
 .Elastic Volume Working environment
 --
-The `ebsVolumeType` parameter must be `gp3` or `io1`.
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+`disableEv`: boolean, default value is `true`.
 [source,json]
 {
   "name": "bycapacitycvo",
@@ -207,7 +210,7 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
 
 Output::
 
-The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse`.
+The JSON output example includes an example of the `VsaWorkingEnvironmentresponse`.
 
 JSON output example::
 
@@ -331,12 +334,12 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 |HTTP method
 |Path
 |POST
-|/occm/api/ha/working-environments
+|/occm/api/aws/ha/working-environments
 |===
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
 
 Input::
 
@@ -344,71 +347,100 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
+[NOTE]
+New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate. 
 
-JSON input example::
+[role="tabbed-block"]
+====
+.Non-Elastic Volume working environment
+--
 [source,json]
 {
-  "name": "ziv04we02ha",
-  "svmPassword": "password",
-  "vpcId": "vpc-b16c90d4",
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
   "region": "us-east-1",
-  "tenantId": "tenantIDgoeshere",
-  "ebsVolumeSize": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "ebsVolumeType": "gp2",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
   "vsaMetadata": {
     "ontapVersion": "ONTAP-9.11.1RC1.T1",
-    "licenseType": "ha-capacity-paygo",
+    "licenseType": "capacity-paygo",
     "instanceType": "m5.2xlarge",
     "capacityPackageName": "Professional"
   },
-  "dataEncryptionType": "AWS",
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
   "ontapEncryptionParameters": null,
-  "haParams": {
-    "node1SubnetId": "subnet-f4da95ac",
-    "node2SubnetId": "subnet-b4387a9e",
-    "mediatorSubnetId": "subnet-76e6d400",
-    "clusterFloatingIP": "4.4.4.4",
-    "dataFloatingIP": "5.5.5.5",
-    "dataFloatingIP2": "6.6.6.6",
-    "mediatorKeyPairName": "Developers_Virginia",
-    "routeTableIds": [
-      "rtb-02a45467"
-    ],
-    "failoverMode": "FloatingIP",
-    "mediatorAssignPublicIP": true
+  "ebsVolumeType": "gp2",
+  "disableEv": "false",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
   },
-  "volume": {
-    "name": "ziv02vol01",
-    "size": {
-      "size": 200,
-      "unit": "GB"
-    },
-    "exportPolicyInfo": {
-      "policyType": "custom",
-      "ips": [
-        "172.31.0.0/16"
-      ],
-     "nfsVersion": [
-        "nfs3",
-        "nfs4"
-      ]
-    },
-    "snapshotPolicyName": "default",
-    "enableThinProvisioning": true,
-    "enableCompression": true,
-    "enableDeduplication": true
-  },
-  "optimizedNetworkUtilization": false,
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
   "instanceTenancy": "default",
-  "packageName": "aws_ha_poc",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
   "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
   "backupVolumesToCbs": false,
-  "enableMonitoring": "false",
-  "writingSpeedState": "NORMAL"
+  "enableCompliance": false,
+  "enableMonitoring": false
 }
+--
+.Elastic Volume Working environment
+--
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+`disableEv`: boolean, default value is `true`.
+[source,json]
+{
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
+  "region": "us-east-1",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.1RC1.T1",
+    "licenseType": "capacity-paygo",
+    "instanceType": "m5.2xlarge",
+    "capacityPackageName": "Professional"
+  },
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
+  "ontapEncryptionParameters": null,
+  "ebsVolumeType": "gp2",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
+  },
+  "disableEv": "true",
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
+  "instanceTenancy": "default",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
+  "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "enableMonitoring": false
+}
+--
+====
 
 
 
