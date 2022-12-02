@@ -116,7 +116,7 @@ JSON input example::
 
 [role="tabbed-block"]
 ====
-.Non-Elatic Volume working environment
+.Non-Elastic Volume working environment
 --
 [source,json]
 {
@@ -251,6 +251,7 @@ JSON output example::
 
 
 == Create working environment for high availability pair
+
 You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
 
 === 1. Select the region
