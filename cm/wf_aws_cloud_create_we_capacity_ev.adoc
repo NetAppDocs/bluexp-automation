@@ -112,56 +112,13 @@ The JSON input example includes the minimum list of parameters.
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
 [NOTE]
-New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate. 
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
 JSON input example::
 
 [role="tabbed-block"]
 ====
-.Non-Elastic Volume working environment
---
-[source,json]
-{
-  "name": "bycapacitycvo",
-  "tenantId": "workspace-ksJa8vEY",
-  "region": "us-east-1",
-  "packageName": "aws_custom",
-  "dataEncryptionType": "AWS",
-  "capacityTier": "S3",
-  "tierLevel": "normal",
-  "vsaMetadata": {
-    "ontapVersion": "ONTAP-9.11.1RC1.T1",
-    "licenseType": "capacity-paygo",
-    "instanceType": "m5.2xlarge",
-    "capacityPackageName": "Professional"
-  },
-  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
-  "writingSpeedState": "NORMAL",
-  "subnetId": "subnet-xxx55de",
-  "svmPassword": "password",
-  "vpcId": "vpc-a762xx00",
-  "ontapEncryptionParameters": null,
-  "ebsVolumeType": "gp2",
-  "disableEv": "true",
-  "ebsVolumeSize": {
-    "size": 1,
-    "unit": "TB",
-    "_identifier": "1 TB"
-  },
-  "awsTags": [],
-  "optimizedNetworkUtilization": true,
-  "instanceTenancy": "default",
-  "iops": null,
-  "throughput": null,
-  "instanceProfileName": null,
-  "cloudProviderAccount": "InstanceProfile",
-  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
-  "backupVolumesToCbs": false,
-  "enableCompliance": false,
-  "enableMonitoring": false
-}
---
-.Elastic Volume Working environment
+.Enable Elastic Volumes
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
 `disableEv`: boolean, default value is `false`.
@@ -206,6 +163,49 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
   "enableMonitoring": false
 }
 --
+.Disable Elastic Volumes
+--
+[source,json]
+{
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
+  "region": "us-east-1",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.1RC1.T1",
+    "licenseType": "capacity-paygo",
+    "instanceType": "m5.2xlarge",
+    "capacityPackageName": "Professional"
+  },
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
+  "ontapEncryptionParameters": null,
+  "ebsVolumeType": "gp2",
+  "disableEv": "true",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
+  },
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
+  "instanceTenancy": "default",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
+  "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "enableMonitoring": false
+}
+--
 ====
 
 Output::
@@ -213,7 +213,6 @@ Output::
 The JSON output example includes an example of the `VsaWorkingEnvironmentresponse`.
 
 JSON output example::
-
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-0NWsb1aX",
@@ -324,7 +323,7 @@ You can optionally add a new volume while creating a working environment.
 
 * Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter in step 10 if you choose to create a volume using the NFS protocol. The `ips` parameter signifies the client IP address (could be multiple addresses) that can access the volume over the network. The `nfsVersion` parameter signifies the version of the NFS protocol that a client will use for data transmission over a network.
 +
-NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
+[NOTE] If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
 
 === 14. Create the working environment
