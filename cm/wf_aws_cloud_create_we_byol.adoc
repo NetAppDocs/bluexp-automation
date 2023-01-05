@@ -89,7 +89,7 @@ By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes e
 JSON input example::
 [role="tabbed-block"]
 ====
-.Non-elastic volume working environment
+.Enable Elastic Volumes
 --
 [source,json]
 {
@@ -114,8 +114,9 @@ JSON input example::
             },
             "ebsVolumeType": "gp2"
 }
+
 --
-.Elastic volume working environment
+.Disable Elastic Volumes
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
 `disableEv`: boolean, default value is `false`.

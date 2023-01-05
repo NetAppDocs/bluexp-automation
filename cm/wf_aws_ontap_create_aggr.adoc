@@ -42,7 +42,7 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/v
 
 Input::
 
-The JSON input example includes the minimum list of input parameters.
+The JSON input example includes the minimum list of input parameters. You can choose to create an aggregate with Elastic Volumes enabled. 
 
 JSON input example::
 [role="tabbed-block"]
@@ -65,9 +65,13 @@ JSON input example::
   "providerVolumeType": "gp2"
 }
 
+Required parameter::
+
+`initialEvAggregateSize` This field must be provided to create a new aggregate with Elastic Volumes enabled.
+
 Optional parameters::
-`numberOfDisks` This field must be kept empty when creating an elastic aggregate
-`diskSize` This field must be kept empty when creating an elastic aggregate
+`numberOfDisks` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
+`diskSize` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
 --
 .Disable Elastic Volumes aggregates
 --
@@ -137,11 +141,11 @@ JSON input example::
 
 Required parameter::
 
-`initialEvAggregateSize` This field must be provided to create a new aggregate with Elastic Volumes enabled
+`initialEvAggregateSize` This field must be provided to create a new aggregate with Elastic Volumes enabled.
 
 Optional parameters::
-`numberOfDisks` This field must be kept empty when creating an aggregate with Elastic Volumes enabled
-`diskSize` This field must be kept empty when creating an aggregate with Elastic Volumes enabled
+`numberOfDisks` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
+`diskSize` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
 --
 .Disable Elastic Volumes aggregates
 --
