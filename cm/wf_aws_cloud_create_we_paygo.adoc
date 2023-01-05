@@ -101,12 +101,12 @@ The JSON input example includes the minimum list of parameters.
 [NOTE]
 This request uses PAYGO subscription as indicated in the `licenseType` parameter.
 [NOTE]
-New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate.
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
 JSON input example::
 [role="tabbed-block"]
 ====
-.Non-Elastic Volume working environment
+.Enable Elastic Volumes
 --
 [source,json]
 {
@@ -152,7 +152,7 @@ JSON input example::
     "writingSpeedState": "NORMAL"
 }
 --
-.Elastic Volume Working environment
+.Disable Elastic Volumes
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
 `disableEv`: boolean, default value is `false`.
@@ -199,6 +199,7 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
     },
     "writingSpeedState": "NORMAL"
 }
+
 --
 ====
 
@@ -249,6 +250,7 @@ JSON output example::
 
 
 == Create working environment for high availability pair
+
 You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
 
 === 1. Select the region
@@ -331,11 +333,11 @@ The JSON input example includes the minimum list of parameters.
 [NOTE]
 This request uses PAYGO licensing as indicated in the `licenseType` parameter.
 [NOTE]
-New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate. 
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
 [role="tabbed-block"]
 ====
-.Non-Elastic Volume working environment
+.Enable Elastic Volumes
 --
 [source,json]
 {
@@ -401,7 +403,7 @@ New Cloud Volumes ONTAP instances are created with an elastic aggregate by defau
   "writingSpeedState": "NORMAL"
 }
 --
-.Elastic Volume Working environment
+.Disable Elastic Volumes
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
 `disableEv`: boolean, default value is `false`.

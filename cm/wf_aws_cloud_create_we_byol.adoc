@@ -84,7 +84,7 @@ Input::
 The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumber` is required.
 
 [NOTE]
-New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate.
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
 JSON input example::
 [role="tabbed-block"]
@@ -142,6 +142,7 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
             },
             "ebsVolumeType": "gp2"
 }
+
 --
 ====
 Output::
@@ -259,14 +260,14 @@ Input::
 The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters are required.
 
 [NOTE]
-New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate.
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
 
 JSON input example::
 
 [role="tabbed-block"]
 ====
-.Non-elastic volume working environment
+.Enable Elastic Volumes
 --
 [source,json]
 {
@@ -314,7 +315,7 @@ JSON input example::
   "writingSpeedState": "NORMAL"
 }
 --
-.Elastic volume working environment
+.Disable Elastic Volumes
 --
 [source,json]
 {
@@ -361,6 +362,7 @@ JSON input example::
   "enableMonitoring": "false",
   "writingSpeedState": "NORMAL"
 }
+
 --
 ====
 

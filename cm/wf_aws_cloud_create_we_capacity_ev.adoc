@@ -205,6 +205,7 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
   "enableCompliance": false,
   "enableMonitoring": false
 }
+
 --
 ====
 
@@ -347,11 +348,11 @@ The JSON input example includes the minimum list of parameters.
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
 [NOTE]
-New Cloud Volumes ONTAP instances are created with an elastic aggregate by default. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with a non-elastic aggregate. 
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
 [role="tabbed-block"]
 ====
-.Non-Elastic Volume working environment
+.Enable Elastic Volumes
 --
 [source,json]
 {
@@ -394,7 +395,7 @@ New Cloud Volumes ONTAP instances are created with an elastic aggregate by defau
   "enableMonitoring": false
 }
 --
-.Elastic Volume Working environment
+.Disable Elastic Volumes
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
 `disableEv`: boolean, default value is `true`.
@@ -438,6 +439,7 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
   "enableCompliance": false,
   "enableMonitoring": false
 }
+
 --
 ====
 

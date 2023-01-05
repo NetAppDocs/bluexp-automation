@@ -47,7 +47,7 @@ The JSON input example includes the minimum list of input parameters.
 JSON input example::
 [role="tabbed-block"]
 ====
-.Elastic aggregate
+.Enable Elastic Volumes aggregates
 --
 [source,json]
 {
@@ -69,7 +69,7 @@ Optional parameters::
 `numberOfDisks` This field must be kept empty when creating an elastic aggregate
 `diskSize` This field must be kept empty when creating an elastic aggregate
 --
-.Non-elastic aggregate
+.Disable Elastic Volumes aggregates
 --
 [source,json]
 {
@@ -117,7 +117,7 @@ The JSON input example includes the minimum list of input parameters.
 JSON input example::
 [role="tabbed-block"]
 ====
-.Enable Elastic Volumes
+.Enable Elastic Volumes aggregates
 --
 [source,json]
 {
@@ -143,7 +143,7 @@ Optional parameters::
 `numberOfDisks` This field must be kept empty when creating an aggregate with Elastic Volumes enabled
 `diskSize` This field must be kept empty when creating an aggregate with Elastic Volumes enabled
 --
-.Disable Elastic Volumes
+.Disable Elastic Volumes aggregates
 --
 [source,json]
 {
