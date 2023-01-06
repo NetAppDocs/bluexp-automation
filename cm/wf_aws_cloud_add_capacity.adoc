@@ -5,7 +5,7 @@ keywords: packages, cloud, volumes, ontap, working, environment, occm
 summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
 ---
 
-= Add capacity to an Elatic Volume aggregate
+= Add capacity to an Elastic Volume aggregate
 :hardbreaks:
 :nofooter:
 :icons: font
