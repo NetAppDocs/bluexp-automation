@@ -22,7 +22,6 @@ sidebar:
     - section: dw
     - section: fsx
     - section: ipa
-    - section: persistence
     - section: tenancy
     - section: automate
     - section: support
