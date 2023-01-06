@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_aws_cloud_create_we_capacity.html
-keywords: paygo, cloud, volumes, ontap, connector, BlueXP, region, workspace, capacity-based
+permalink: cm/wf_aws_cloud_create_we_capacity_ev.html
+keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, workspace
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
@@ -48,7 +48,7 @@ Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations
 
 === 4. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing^] types offered to new customers to know more about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
 
 === 5. Select the VPC
 
@@ -72,13 +72,13 @@ Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS su
 
 An NSS key is *optional* when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 11.
 
-* To create a new NSS key using the BlueXP user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+* To create a new NSS key using the Cloud Manager user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
 === 9. (Optional) Add a BYOL license
 
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with BlueXP. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+If you purchase a license from NetApp (BYOL), make sure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 10. (Optional) Create a new volume
 
@@ -111,8 +111,60 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
+[NOTE]
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
 JSON input example::
+
+[role="tabbed-block"]
+====
+.Enable Elastic Volumes
+--
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+`disableEv`: boolean, default value is `false`.
+[source,json]
+{
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
+  "region": "us-east-1",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.1RC1.T1",
+    "licenseType": "capacity-paygo",
+    "instanceType": "m5.2xlarge",
+    "capacityPackageName": "Professional"
+  },
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
+  "ontapEncryptionParameters": null,
+  "ebsVolumeType": "gp3",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
+  },
+  "disableEv": "false",
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
+  "instanceTenancy": "default",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
+  "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "enableMonitoring": false
+}
+--
+.Disable Elastic Volumes
+--
 [source,json]
 {
   "name": "bycapacitycvo",
@@ -135,6 +187,7 @@ JSON input example::
   "vpcId": "vpc-a762xx00",
   "ontapEncryptionParameters": null,
   "ebsVolumeType": "gp2",
+  "disableEv": "true",
   "ebsVolumeSize": {
     "size": 1,
     "unit": "TB",
@@ -153,12 +206,14 @@ JSON input example::
   "enableMonitoring": false
 }
 
+--
+====
+
 Output::
 
-The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse`.
+The JSON output example includes an example of the `VsaWorkingEnvironmentresponse`.
 
 JSON output example::
-
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-0NWsb1aX",
@@ -199,6 +254,7 @@ JSON output example::
 
 
 == Create working environment for high availability pair
+
 You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
 
 === 1. Select the region
@@ -252,13 +308,13 @@ Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS su
 
 An NSS key is optional when using a marketplace subscription. When using BYOL, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 13.
 
-* To create a new NSS key using the BlueXP web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
+* To create a new NSS key using the Cloud Manager web user interface, perform the task link:../platform/get_nss_key.html[Generate NSS user ID] and choose the NSS ID.
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
 === 12. (Optional) Add a BYOL license
 
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with BlueXP. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 13. (Optional) Create a new volume
 
@@ -268,7 +324,7 @@ You can optionally add a new volume while creating a working environment.
 
 * Choose the `policyType`, `ips`, and the `nfsVersion` parameters in the `exportPolicyInfo` input parameter in step 10 if you choose to create a volume using the NFS protocol. The `ips` parameter signifies the client IP address (could be multiple addresses) that can access the volume over the network. The `nfsVersion` parameter signifies the version of the NFS protocol that a client will use for data transmission over a network.
 +
-NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
+[NOTE] If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
 
 === 14. Create the working environment
@@ -291,71 +347,101 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
+[NOTE]
+By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
-JSON input example::
+[role="tabbed-block"]
+====
+.Enable Elastic Volumes
+--
 [source,json]
 {
-  "name": "ziv04we02ha",
-  "svmPassword": "password",
-  "vpcId": "vpc-b16c90d4",
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
   "region": "us-east-1",
-  "tenantId": "tenantIDgoeshere",
-  "ebsVolumeSize": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "ebsVolumeType": "gp2",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
   "vsaMetadata": {
     "ontapVersion": "ONTAP-9.11.1RC1.T1",
-    "licenseType": "ha-capacity-paygo",
+    "licenseType": "capacity-paygo",
     "instanceType": "m5.2xlarge",
     "capacityPackageName": "Professional"
   },
-  "dataEncryptionType": "AWS",
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
   "ontapEncryptionParameters": null,
-  "haParams": {
-    "node1SubnetId": "subnet-f4da95ac",
-    "node2SubnetId": "subnet-b4387a9e",
-    "mediatorSubnetId": "subnet-76e6d400",
-    "clusterFloatingIP": "4.4.4.4",
-    "dataFloatingIP": "5.5.5.5",
-    "dataFloatingIP2": "6.6.6.6",
-    "mediatorKeyPairName": "Developers_Virginia",
-    "routeTableIds": [
-      "rtb-02a45467"
-    ],
-    "failoverMode": "FloatingIP",
-    "mediatorAssignPublicIP": true
+  "ebsVolumeType": "gp2",
+  "disableEv": "true",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
   },
-  "volume": {
-    "name": "ziv02vol01",
-    "size": {
-      "size": 200,
-      "unit": "GB"
-    },
-    "exportPolicyInfo": {
-      "policyType": "custom",
-      "ips": [
-        "172.31.0.0/16"
-      ],
-     "nfsVersion": [
-        "nfs3",
-        "nfs4"
-      ]
-    },
-    "snapshotPolicyName": "default",
-    "enableThinProvisioning": true,
-    "enableCompression": true,
-    "enableDeduplication": true
-  },
-  "optimizedNetworkUtilization": false,
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
   "instanceTenancy": "default",
-  "packageName": "aws_ha_poc",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
   "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
   "backupVolumesToCbs": false,
-  "enableMonitoring": "false",
-  "writingSpeedState": "NORMAL"
+  "enableCompliance": false,
+  "enableMonitoring": false
 }
+--
+.Disable Elastic Volumes
+--
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+`disableEv`: boolean, default value is `true`.
+[source,json]
+{
+  "name": "bycapacitycvo",
+  "tenantId": "workspace-ksJa8vEY",
+  "region": "us-east-1",
+  "packageName": "aws_custom",
+  "dataEncryptionType": "AWS",
+  "capacityTier": "S3",
+  "tierLevel": "normal",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.11.1RC1.T1",
+    "licenseType": "capacity-paygo",
+    "instanceType": "m5.2xlarge",
+    "capacityPackageName": "Professional"
+  },
+  "nssAccount": "b247b000-d0b3-4e05-bdca-f5e26a7xxb9",
+  "writingSpeedState": "NORMAL",
+  "subnetId": "subnet-xxx55de",
+  "svmPassword": "password",
+  "vpcId": "vpc-a762xx00",
+  "ontapEncryptionParameters": null,
+  "ebsVolumeType": "gp3",
+  "ebsVolumeSize": {
+    "size": 1,
+    "unit": "TB",
+    "_identifier": "1 TB"
+  },
+  "disableEv": "false",
+  "awsTags": [],
+  "optimizedNetworkUtilization": true,
+  "instanceTenancy": "default",
+  "iops": null,
+  "throughput": null,
+  "instanceProfileName": null,
+  "cloudProviderAccount": "InstanceProfile",
+  "saasSubscriptionId": "aws-a0s9zvu5ghepz0j9yamr2wsjk-FJsUvVHffi9",
+  "backupVolumesToCbs": false,
+  "enableCompliance": false,
+  "enableMonitoring": false
+}
+
+--
+====
 
 
 
