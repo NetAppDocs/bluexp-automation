@@ -22,7 +22,7 @@ entries:
       - title: Working environments
         entries:
           - title: Create working environment with capacity-based license
-            url: /cm/wf_aws_cloud_create_we_capacity_ev.html
+            url: /cm/wf_aws_cloud_create_we_capacity.html
           - title: Create working environment with PAYGO (node-based)
             url: /cm/wf_aws_cloud_create_we_paygo.html
           - title: Create working environment with BYOL (node-based)
