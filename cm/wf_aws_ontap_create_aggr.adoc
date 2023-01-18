@@ -40,11 +40,10 @@ curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
-Input::
+JSON input example::
 
 The JSON input example includes the minimum list of input parameters. You can choose to create an aggregate with Elastic Volumes enabled. 
 
-JSON input example::
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes aggregates
@@ -114,11 +113,11 @@ curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
-Input::
-
-The JSON input example includes the minimum list of input parameters.
 
 JSON input example::
+
+The JSON input example includes the minimum list of input parameters. You can choose to create an aggregate with Elastic Volumes enabled. 
+
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes aggregates

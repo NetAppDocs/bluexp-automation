@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can create a new Cloud Volumes ONTAP working environment using link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[capacity-based licensing^].
+You can create a new Cloud Volumes ONTAP working environment using capacity-based licensing.
 
 You can add new volumes when creating the working environment.
 
@@ -23,6 +23,8 @@ You can add new volumes when creating the working environment.
 * A marketplace subscription is required.
 * If you purchase a license from NetApp (BYOL), a NetApp Support Site (NSS) key is required to register the system for support.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_aws_ontap_create_vol_nfs.html[NFS], link:wf_aws_ontap_create_vol_cifs.html[CIFS], or link:wf_aws_ontap_create_vol_iscsi.html[iSCSI] protocol.
+
+link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[Learn more about capacity-based licensing^].
 ====
 
 Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployment:
