@@ -34,7 +34,7 @@ Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployme
 
 == Create working environment for single node
 
-You can use this workflow to create an single node Cloud Volumes ONTAP working environment.
+You can use this workflow to create a single node Cloud Volumes ONTAP working environment.
 
 === 1. Select the region
 
@@ -123,7 +123,9 @@ JSON input example::
 .Enable Elastic Volumes
 --
 The `ebsVolumeType` parameter must be `gp3` or `io1`. 
-`disableEv`: boolean, default value is `false`.
+
+`disableEv`: boolean, default value is `false`. By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates.
+
 [source,json]
 {
   "name": "bycapacitycvo",
@@ -167,6 +169,8 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
 --
 .Disable Elastic Volumes
 --
+You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
+
 [source,json]
 {
   "name": "bycapacitycvo",

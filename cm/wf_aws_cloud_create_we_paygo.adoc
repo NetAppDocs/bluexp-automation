@@ -30,7 +30,7 @@ Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployme
 
 == Create working environment for single node
 
-You can use this workflow to create an single node Cloud Volumes ONTAP working environment.
+You can use this workflow to create a single node Cloud Volumes ONTAP working environment.
 
 === 1. Select the region
 
