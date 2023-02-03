@@ -113,8 +113,7 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
-[NOTE]
-By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
+
 
 JSON input example::
 
@@ -167,6 +166,7 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
   "enableMonitoring": false
 }
 --
+
 .Disable Elastic Volumes
 --
 You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
@@ -353,13 +353,16 @@ The JSON input example includes the minimum list of parameters.
 
 [NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
-[NOTE]
-By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
+
 
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes
 --
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+
+`disableEv`: boolean, default value is `false`. By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates.
+
 [source,json]
 {
   "name": "bycapacitycvo",
@@ -403,8 +406,9 @@ By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes e
 --
 .Disable Elastic Volumes
 --
-The `ebsVolumeType` parameter must be `gp3` or `io1`. 
-`disableEv`: boolean, default value is `true`.
+
+You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
+
 [source,json]
 {
   "name": "bycapacitycvo",

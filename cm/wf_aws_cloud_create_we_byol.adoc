@@ -83,14 +83,17 @@ Input::
 
 The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumber` is required.
 
-[NOTE]
-By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
+
 
 JSON input example::
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes
 --
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+
+`disableEv`: boolean, default value is `false`. By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates.
+
 [source,json]
 {
     "name": "ziv02we03",
@@ -100,7 +103,7 @@ JSON input example::
     "tenantId": "workspace-cxxx123",
     "subnetId": "subnet-f4da95ac",
     "dataEncryptionType": "AWS",
-    "disableEv":"true",
+    "disableEv":"false",
     "nssAccount": "xxx332ce3-xxxx-4000-xx00-000a0601c682",
     "vsaMetadata": {
         "ontapVersion": "ONTAP-9.9.0.T1",
@@ -118,8 +121,7 @@ JSON input example::
 --
 .Disable Elastic Volumes
 --
-The `ebsVolumeType` parameter must be `gp3` or `io1`. 
-`disableEv`: boolean, default value is `false`.
+You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 [source,json]
 {
     "name": "ziv02we03",
@@ -129,7 +131,7 @@ The `ebsVolumeType` parameter must be `gp3` or `io1`.
     "tenantId": "workspace-cxxx123",
     "subnetId": "subnet-f4da95ac",
     "dataEncryptionType": "AWS",
-    "disableEv":"false",
+    "disableEv":"true",
     "nssAccount": "xxx332ce3-xxxx-4000-xx00-000a0601c682",
     "vsaMetadata": {
         "ontapVersion": "ONTAP-9.9.0.T1",
@@ -260,9 +262,6 @@ Input::
 
 The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters are required.
 
-[NOTE]
-By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
-
 
 JSON input example::
 
@@ -270,6 +269,10 @@ JSON input example::
 ====
 .Enable Elastic Volumes
 --
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+
+`disableEv`: boolean, default value is `false`. By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates.
+
 [source,json]
 {
   "name": "ziv04we02ha",
@@ -318,6 +321,7 @@ JSON input example::
 --
 .Disable Elastic Volumes
 --
+You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 [source,json]
 {
   "name": "ziv04we02ha",
@@ -325,7 +329,7 @@ JSON input example::
   "vpcId": "vpc-b16c90d4",
   "region": "us-east-1",
   "tenantId": "tenantIDgoeshere",
-  "disableEv": "false",
+  "disableEv": "true",
   "ebsVolumeSize": {
     "size": 100,
     "unit": "GB"
