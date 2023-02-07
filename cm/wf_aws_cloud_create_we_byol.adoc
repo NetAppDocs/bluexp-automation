@@ -83,7 +83,17 @@ Input::
 
 The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumber` is required.
 
+
+
 JSON input example::
+[role="tabbed-block"]
+====
+.Enable Elastic Volumes
+--
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+
+`disableEv`: boolean, default value is `false`. By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates.
+
 [source,json]
 {
     "name": "ziv02we03",
@@ -93,6 +103,7 @@ JSON input example::
     "tenantId": "workspace-cxxx123",
     "subnetId": "subnet-f4da95ac",
     "dataEncryptionType": "AWS",
+    "disableEv":"false",
     "nssAccount": "xxx332ce3-xxxx-4000-xx00-000a0601c682",
     "vsaMetadata": {
         "ontapVersion": "ONTAP-9.9.0.T1",
@@ -107,12 +118,41 @@ JSON input example::
             "ebsVolumeType": "gp2"
 }
 
+--
+.Disable Elastic Volumes
+--
+You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
+[source,json]
+{
+    "name": "ziv02we03",
+    "svmPassword": "password",
+    "vpcId": "vpc-b16c90d4",
+    "region": "us-east-1",
+    "tenantId": "workspace-cxxx123",
+    "subnetId": "subnet-f4da95ac",
+    "dataEncryptionType": "AWS",
+    "disableEv":"true",
+    "nssAccount": "xxx332ce3-xxxx-4000-xx00-000a0601c682",
+    "vsaMetadata": {
+        "ontapVersion": "ONTAP-9.9.0.T1",
+        "licenseType": "cot-premium-byol",
+        "instanceType": "m5.xlarge",
+        "platformSerialNumber": "00100100000000000020"
+        },
+        "ebsVolumeSize": {
+            "size": 100,
+            "unit": "GB"
+            },
+            "ebsVolumeType": "gp2"
+}
 
+--
+====
 Output::
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
 
-JSON output example
+JSON output example::
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-wL2MaBJs",
@@ -224,6 +264,15 @@ The JSON input example includes the minimum list of parameters. This request use
 
 
 JSON input example::
+
+[role="tabbed-block"]
+====
+.Enable Elastic Volumes
+--
+The `ebsVolumeType` parameter must be `gp3` or `io1`. 
+
+`disableEv`: boolean, default value is `false`. By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates.
+
 [source,json]
 {
   "name": "ziv04we02ha",
@@ -231,6 +280,56 @@ JSON input example::
   "vpcId": "vpc-b16c90d4",
   "region": "us-east-1",
   "tenantId": "tenantIDgoeshere",
+  "ebsVolumeSize": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "ebsVolumeType": "gp2",
+  "vsaMetadata": {
+    "ontapVersion": "ONTAP-9.9.0.T1.ha",
+    "licenseType": "ha-cot-premium-byol",
+    "instanceType": "m5.xlarge"
+  },
+  "dataEncryptionType": "AWS",
+  "disableEv": "false",
+  "ontapEncryptionParameters": null,
+  "haParams": {
+    "node1SubnetId": "subnet-f4da95ac",
+    "node2SubnetId": "subnet-b4387a9e",
+    "mediatorSubnetId": "subnet-76e6d400",
+    "clusterFloatingIP": "4.4.4.4",
+    "dataFloatingIP": "5.5.5.5",
+    "dataFloatingIP2": "6.6.6.6",
+    "platformSerialNumberNode1": "90120140000000000023",
+    "platformSerialNumberNode2": "90120140000000000024",
+    "mediatorKeyPairName": "Developers_Virginia",
+    "routeTableIds": [
+      "rtb-02a45467"
+    ],
+    "failoverMode": "FloatingIP",
+    "mediatorAssignPublicIP": true
+  },
+  "nssAccount": “54ab5c0d-xx23-xxxd-bcef-6eeda79e747d”,
+  "optimizedNetworkUtilization": false,
+  "instanceTenancy": "default",
+  "packageName": "aws_ha_poc",
+  "cloudProviderAccount": "InstanceProfile",
+  "backupVolumesToCbs": false,
+  "enableMonitoring": "false",
+  "writingSpeedState": "NORMAL"
+}
+--
+.Disable Elastic Volumes
+--
+You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
+[source,json]
+{
+  "name": "ziv04we02ha",
+  "svmPassword": "password",
+  "vpcId": "vpc-b16c90d4",
+  "region": "us-east-1",
+  "tenantId": "tenantIDgoeshere",
+  "disableEv": "true",
   "ebsVolumeSize": {
     "size": 100,
     "unit": "GB"
@@ -269,7 +368,8 @@ JSON input example::
   "writingSpeedState": "NORMAL"
 }
 
-
+--
+====
 
 Output::
 

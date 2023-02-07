@@ -40,23 +40,54 @@ curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
-Input::
-
-The JSON input example includes the minimum list of input parameters.
-
 JSON input example::
+
+The JSON input example includes the minimum list of input parameters. You can choose to create an aggregate with Elastic Volumes enabled. 
+
+[role="tabbed-block"]
+====
+.Enable Elastic Volumes aggregates
+--
 [source,json]
 {
   "name": "ziv01agg04",
   "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
-  "numberOfDisks": 1,
+  "initialEvAggregateSize": {
+    "size": 0,
+    "unit": "GB"
+  },
+  "numberOfDisks": null,
   "diskSize": {
-    "size": 100,
+    "size": 0,
     "unit": "GB"
   },
   "providerVolumeType": "gp2"
 }
 
+Required parameter::
+
+`initialEvAggregateSize` This field must be provided to create a new aggregate with Elastic Volumes enabled.
+
+Optional parameters::
+`numberOfDisks` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
+`diskSize` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
+--
+.Disable Elastic Volumes aggregates
+--
+[source,json]
+{
+  "name": "ziv01agg04",
+  "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
+  "numberOfDisks": null,
+  "diskSize": {
+    "size": 0,
+    "unit": "GB"
+  },
+  "providerVolumeType": "gp2"
+}
+
+--
+====
 Output::
 
 None
@@ -82,23 +113,55 @@ curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
-Input::
-
-The JSON input example includes the minimum list of input parameters.
 
 JSON input example::
+
+The JSON input example includes the minimum list of input parameters. You can choose to create an aggregate with Elastic Volumes enabled. 
+
+[role="tabbed-block"]
+====
+.Enable Elastic Volumes aggregates
+--
 [source,json]
 {
   "name": "ziv01agg04",
   "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
-  "numberOfDisks": 1,
+  "initialEvAggregateSize": {
+    "size": 0,
+    "unit": "GB"
+  },
+  "numberOfDisks": null,
   "diskSize": {
-    "size": 100,
+    "size": 0,
     "unit": "GB"
   },
   "providerVolumeType": "gp2"
 }
 
+Required parameter::
+
+`initialEvAggregateSize` This field must be provided to create a new aggregate with Elastic Volumes enabled.
+
+Optional parameters::
+`numberOfDisks` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
+`diskSize` This field must be kept empty when creating an aggregate with Elastic Volumes enabled.
+--
+.Disable Elastic Volumes aggregates
+--
+[source,json]
+{
+  "name": "ziv01agg04",
+  "workingEnvironmentId": "VsaWorkingEnvironment-9e6p8LuF",
+  "numberOfDisks": null,
+  "diskSize": {
+    "size": 0,
+    "unit": "GB"
+  },
+  "providerVolumeType": "gp2"
+}
+
+--
+====
 Output::
 
 None
