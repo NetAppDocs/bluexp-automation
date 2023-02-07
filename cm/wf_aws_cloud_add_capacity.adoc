@@ -1,0 +1,105 @@
+---
+sidebar: sidebar
+permalink: cm/wf_aws_cloud_add_capacity.html
+keywords: packages, cloud, volumes, ontap, working, environment, occm
+summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
+---
+
+= Add capacity to an Elastic Volume aggregate
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to add capacity to an existing aggregate with Elastic Volumes enabled.
+
+Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
+
+* <<Add capacity for single node, Single Node>>
+* <<Add capacity for high availability pair, HA pair>>
+
+== Add capacity for single node
+You can use this workflow to add capacity to an existing aggregate in a single node system.
+
+=== 1. Select the working environment to use
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
+
+=== 2. Select the aggregate
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the name value for the `aggregateName` path parameter.
+
+=== 3. Specify capacity size to add to an aggregate
+Choose the `size` and `unit` values for the `capacityToAdd` input parameter. The `unit` must be one of the following: TB, GB, MB, KB, or Byte.
+
+=== 4. Add capacity
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+JSON input example::
+[source, json]
+
+{
+  "name": "aggr1",
+  "capacityToAdd": {
+    "size": 2,
+    "unit": "TB"  },
+  "aggregateName": "aggr1",
+  "workingEnvironmentName": "shirleyha7",
+  "workingEnvironmentId": "VsaWorkingEnvironment-yTsHWvWD"
+}
+
+Output::
+
+None
+
+== Add capacity for high availability pair
+You can use this workflow to add capacity in an HA working environment.
+
+=== 1. Select the working environment to use
+Perform the workflow Get working environments and choose the publicId value for the `workingEnvironmentId` path parameter.
+
+=== 2. Select the aggregate
+Perform the workflow Get aggregates and choose the name value for the `aggregateName` path parameter.
+
+=== 3. Specify capacity size to add to an aggregate
+Choose the `size` and `unit` values for the `capacityToAdd` input parameter. The `unit` must be one of the following: TB, GB, MB, KB, or Byte.
+
+=== 4. Add capacity
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+
+JSON input example::
+[source, json]
+
+{
+  "name": "aggr1",
+  "capacityToAdd": {
+    "size": 2,
+    "unit": "TB"  },
+  "aggregateName": "aggr1",
+  "workingEnvironmentName": "shirleyha7",
+  "workingEnvironmentId": "VsaWorkingEnvironment-yTsHWvWD"
+}
+
+Output::
+None
