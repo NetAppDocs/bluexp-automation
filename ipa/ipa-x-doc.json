@@ -201,6 +201,26 @@
           "filename": "get-ipa-account-nss-key-nss-data.html"
         }
       }
+    },
+    "/ipa/support/case/system-entitlements": {
+      "post": {
+        "x-doc": {
+          "title": "Check system entitlements",
+          "category": "Support",
+          "filename": "post-ipa-support-case-system-entitlements.html",
+          "explorer": false
+        }
+      }
+    },
+    "/ipa/support/case/create": {
+      "post": {
+        "x-doc": {
+          "title": "Create a support case",
+          "category": "Support",
+          "filename": "post-ipa-support-case-create.html",
+          "explorer": false
+        }
+      }
     }
   }
 }
