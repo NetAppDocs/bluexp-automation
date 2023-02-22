@@ -1,179 +1,213 @@
 {
-    "paths": {
-      "/license/serial-number/{serialNumber}": {
-        "post": {
-          "x-doc": {
-            "title": "Associate a license",
-            "category": "License",
-            "filename": "post-license-serial-number-.html"
-          }
-        },
-        "patch": {
-          "x-doc": {
-            "title": "Update a license by serial number",
-            "category": "License",
-            "filename": "patch-license-serial-number-.html"
-          }
-        },
-        "delete": {
-          "x-doc": {
-            "title": "Delete a license",
-            "category": "License",
-            "filename": "delete-license-serial-number-.html"
-          }
+  "paths": {
+    "/license/serial-number/{serialNumber}": {
+      "post": {
+        "x-doc": {
+          "title": "Associate a license",
+          "category": "License",
+          "filename": "post-license-serial-number-.html"
         }
       },
-      "/license/licenses": {
-        "get": {
-          "x-doc": {
-            "title": "Retrieve a licence by type",
-            "category": "License",
-            "filename": "get-license-licenses.html"
-          }
+      "patch": {
+        "x-doc": {
+          "title": "Update a license by serial number",
+          "category": "License",
+          "filename": "patch-license-serial-number-.html"
         }
       },
-      "/license/account/{accountId}/licenseResource/{resourceIdentifier}": {
-        "patch": {
-          "x-doc": {
-            "title": "Update a license by resource ID",
-            "category": "License",
-            "filename": "patch-license-account-licenseresource-.html",
-            "explorer": false
-          }
-        },
-        "delete": {
-          "x-doc": {
-            "title": "Delete a license by resource ID",
-            "category": "License",
-            "filename": "delete-license-account-licenseresource-.html",
-            "explorer": false
-          }
+      "delete": {
+        "x-doc": {
+          "title": "Delete a license",
+          "category": "License",
+          "filename": "delete-license-serial-number-.html"
+        }
+      }
+    },
+    "/license/licenses": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a license by type",
+          "category": "License",
+          "filename": "get-license-licenses.html"
+        }
+      }
+    },
+    "/license/account/{accountId}/licenseResource/{resourceIdentifier}": {
+      "patch": {
+        "x-doc": {
+          "title": "Update a license by resource ID",
+          "category": "License",
+          "filename": "patch-license-account-licenseresource-.html",
+          "explorer": false
         }
       },
-      "/license/exchange": {
-        "post": {
-          "x-doc": {
-            "title": "Exchange a cloud volume ontap license",
-            "category": "License",
-            "filename": "post-license-exchange.html"
-          }
+      "delete": {
+        "x-doc": {
+          "title": "Delete a license by resource ID",
+          "category": "License",
+          "filename": "delete-license-account-licenseresource-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/exchange": {
+      "post": {
+        "x-doc": {
+          "title": "Exchange a Cloud Volumes ONTAP license",
+          "category": "License",
+          "filename": "post-license-exchange.html"
+        }
+      }
+    },
+    "/license/data-service-eligibility/account/{accountId}/provider/{cloudProvider}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve data service eligibility details",
+          "category": "Data Services",
+          "filename": "get-license-data-service-eligibility-account-provider-.html"
+        }
+      }
+    },
+    "/license/account/{accountId}/subscriptions/{subscriptionId}": {
+      "post": {
+        "x-doc": {
+          "title": "Register a subscription",
+          "category": "Subscription",
+          "filename": "post-license-account-subscriptions-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/account/{accountId}/subscriptions": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve subscription information",
+          "category": "Subscription",
+          "filename": "get-license-account-subscriptions.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/subscriptions/{subscriptionId}": {
+      "patch": {
+        "x-doc": {
+          "title": "Update a subscription expiration date",
+          "category": "Subscription",
+          "filename": "patch-license-subscriptions-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/account/{accountId}/subscription/{subscriptionId}": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete a subscription",
+          "category": "Subscription",
+          "filename": "delete-license-account-subscription-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/onPrem/account/{accountId}/clusters": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve on-prem ONTAP data",
+          "category": "External Services",
+          "filename": "get-license-onprem-account-clusters.html"
+        }
+      }
+    },
+    "/license/subscriptions/entitlements": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve the subscription entitlements",
+          "category": "Subscription",
+          "filename": "get-license-subscriptions-entitlements.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/subscriptions/account/{accountId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve the subscription information",
+          "category": "Subscription",
+          "filename": "get-license-subscriptions-account-.html",
+          "explorer": false
         }
       },
-      "/license/data-service-eligibility/account/{accountId}/provider/{cloudProvider}": {
-        "get": {
-          "x-doc": {
-            "title": "Retrieve data service eligibility details",
-            "category": "Data Services",
-            "filename": "get-license-data-service-eligibility-account-provider-.html"
-          }
+      "delete": {
+        "x-doc": {
+          "title": "Delete a subscription",
+          "category": "Subscription",
+          "filename": "delete-license-subscriptions-account-.html",
+          "explorer": false
         }
       },
-      "/license/account/{accountId}/subscriptions/{subscriptionId}": {
-        "post": {
-          "x-doc": {
-            "title": "Register a subscription",
-            "category": "Subscription",
-            "filename": "post-license-account-subscriptions-.html",
-            "explorer": false
-          }
+      "post": {
+        "x-doc": {
+          "title": "Associate a subscription",
+          "category": "Subscription",
+          "filename": "post-license-subscriptions-account-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/subscriptions/subscription/{subscriptionId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve the subscription information of a specified subscription",
+          "category": "Subscription",
+          "filename": "get-license-subscriptions-subscription-.html",
+          "explorer": false
         }
       },
-      "/license/account/{accountId}/subscriptions": {
-        "get": {
-          "x-doc": {
-            "title": "Retrieve subscription information",
-            "category": "Subscription",
-            "filename": "get-license-account-subscriptions.html",
-            "explorer": false
-          }
+      "patch": {
+        "x-doc": {
+          "title": "Update subscription expiration date",
+          "category": "Subscription",
+          "filename": "patch-license-subscriptions-subscription-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/subscriptions/account/{accountId}/subscription/{subscriptionId}": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete a subscription",
+          "category": "Subscription",
+          "filename": "delete-license-subscriptions-account-subscription-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/subscriptions/subscription/{subscriptionId}/account/{accountId}": {
+      "post": {
+        "x-doc": {
+          "title": "Associate a subscription",
+          "category": "Subscription",
+          "filename": "post-license-subscriptions-subscription-account-.html",
+          "explorer": false
+        }
+      }
+    },
+    "/license/subscriptions/subscription": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve subscription information ",
+          "category": "Subscription",
+          "filename": "get-license-subscriptions-subscription.html",
+          "explorer": false
         }
       },
-      "/license/subscriptions/{subscriptionId}": {
-        "patch": {
-          "x-doc": {
-            "title": "Update a subscription expiration date",
-            "category": "Subscription",
-            "filename": "patch-license-subscriptions-.html",
-            "explorer": false
-          }
-        }
-      },
-      "/license/account/{accountId}/subscription/{subscriptionId}": {
-        "delete": {
-          "x-doc": {
-            "title": "Delete a subscription",
-            "category": "Subscription",
-            "filename": "delete-license-account-subscription-.html",
-            "explorer": false
-          }
-        }
-      },
-      "/license/onPrem/account/{accountId}/clusters": {
-        "get": {
-          "x-doc": {
-            "title": "Retrieve on-prem ONTAP data",
-            "category": "External Services",
-            "filename": "get-license-onprem-account-clusters.html"
-          }
-        }
-      },
-      "/license/subscriptions/entitlements": {
-        "get": {
-          "x-doc": {
-            "title": "Retrieve the subscription entitlements",
-            "category": "Subscription",
-            "filename": "get-license-subscriptions-entitlements.html",
-            "explorer": false
-          }
-        }
-      },
-      "/license/subscriptions/account/{accountId}": {
-        "get": {
-          "x-doc": {
-            "title": "Retrieve the subscription information",
-            "category": "Subscription",
-            "filename": "get-license-subscriptions-account-.html",
-            "explorer": false
-          }
-        }
-      },
-      "/license/subscriptions/subscription/{subscriptionId}": {
-        "get": {
-          "x-doc": {
-            "title": "Retrieve the subscription information of a specified subscription",
-            "category": "Subscription",
-            "filename": "get-license-subscriptions-subscription-.html",
-            "explorer": false
-          }
-        },
-        "patch": {
-          "x-doc": {
-            "title": "Update subscription expiration date",
-            "category": "Subscription",
-            "filename": "patch-license-subscriptions-subscription-.html",
-            "explorer": false
-          }
-        }
-      },
-      "/license/subscriptions/account/{accountId}/subscription/{subscriptionId}": {
-        "delete": {
-          "x-doc": {
-            "title": "Delete a subscription",
-            "category": "Subscription",
-            "filename": "delete-license-subscriptions-account-subscription-.html",
-            "explorer": false
-          }
-        }
-      },
-      "/license/subscriptions/subscription/{subscriptionId}/account/{accountId}": {
-        "post": {
-          "x-doc": {
-            "title": "Associate a subscription",
-            "category": "Subscription",
-            "filename": "post-license-subscriptions-subscription-account-.html",
-            "explorer": false
-          }
+      "patch": {
+        "x-doc": {
+          "title": "Update a subscription expiration date",
+          "category": "Subscription",
+          "filename": "patch-license-subscriptions-subscription.html",
+          "explorer": false
         }
       }
     }
   }
+}
