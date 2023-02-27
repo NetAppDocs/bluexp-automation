@@ -127,7 +127,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/backup/working-environment/{workingEnvironmentId}": {
       "post": {
         "x-doc": {
-          "title": "Enable the Cloud backup service (v2)",
+          "title": "Enable Cloud backup (v2)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html",
           "explorer": false
@@ -135,7 +135,7 @@
       },
       "put": {
         "x-doc": {
-          "title": "Modify the Cloud backup service backup configuration",
+          "title": "Modify Cloud backup service backup configuration",
           "category": "Backup",
           "filename": "put-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html",
           "explorer": false
@@ -145,7 +145,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v3/backup/working-environment/{workingEnvironmentId}": {
       "post": {
         "x-doc": {
-          "title": "Enable the Cloud Backup service (v3)",
+          "title": "Enable Cloud Backup (v3)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v3-backup-working-environment-.html",
           "explorer": false
@@ -715,6 +715,85 @@
           "category": "Ransomware Scan",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-ransomware-working-environment-volume-snapshot-.html",
           "explorer": false
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v2/sfr/volume/{volumeId}/file-explore/start": {
+      "post": {
+        "x-doc": {
+          "title": "Start a file and folder explore operation",
+          "category": "SFR",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-start.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v3/restore": {
+      "post": {
+        "x-doc": {
+          "title": "Perform a volume, file and folder-level restore operation (V3)",
+          "category": "Restore",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v3-restore.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v2/working-environment/{workingEnvironmentId}/svm": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a list of storage VMs",
+          "category": "Working Environment",
+          "filename": "get-account-providers-cloudmanager_cbs-api-v2-working-environment-svm.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/gcp/project/{projectId}/region/{locationId}/keyrings": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a list of KeyRings for a region",
+          "category": "Cloud",
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/gcp/project/{projectId}/region/{locationId}/keyrings/{keyRingId}/cryptokey": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a list of CryptoKeys",
+          "category": "Cloud",
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings-cryptokey.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sg/version": {
+      "post": {
+        "x-doc": {
+          "title": "Retrieve StorageGrid server version",
+          "category": "StorageGRID",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-version.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sg": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a list of StorageGrid WebScales servers",
+          "category": "StorageGRID",
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-sg.html"
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Discover a new StorageGrid WebScale server",
+          "category": "StorageGRID",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sg/credentials/working-environment/{workingEnvironmentId}": {
+      "post": {
+        "x-doc": {
+          "title": "Save SGWS credentials",
+          "category": "StorageGRID",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-credentials-working-environment-.html"
         }
       }
     }
