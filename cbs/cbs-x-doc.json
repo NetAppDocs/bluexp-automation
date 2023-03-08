@@ -13,7 +13,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/volume/{volumeId}/file-explore/status": {
       "get": {
         "x-doc": {
-          "title": "Return the file explore status",
+          "title": "Retrieve file explore status (v1)",
           "category": "SFR",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-file-explore-status.html",
           "explorer": false
@@ -23,7 +23,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/sfr/volume/{volumeId}/file-explore/status": {
       "get": {
         "x-doc": {
-          "title": "Return the file explore status (v2)",
+          "title": "Retrieve file explore status (v2)",
           "category": "SFR",
           "filename": "get-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-status.html",
           "explorer": false
@@ -33,7 +33,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/volume/{volumeId}/snapshot/{snapshotId}/file-explore/list": {
       "get": {
         "x-doc": {
-          "title": "Retrieve files",
+          "title": "Retrieve files (v1)",
           "category": "SFR",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-snapshot-file-explore-list.html",
           "explorer": false
@@ -369,7 +369,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}": {
       "get": {
         "x-doc": {
-          "title": "Retrieve a working environment details",
+          "title": "Retrieve working environment details",
           "category": "Working Environment",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-working-environment-.html",
           "explorer": false
@@ -399,7 +399,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/working-environment/{workingEnvironmentId}/configure-object-store": {
       "post": {
         "x-doc": {
-          "title": "Configure the object storage",
+          "title": "Configure object storage",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-working-environment-configure-object-store.html",
           "explorer": false
@@ -409,7 +409,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/working-environment/{workingEnvironmentId}/configure-object-store": {
       "post": {
         "x-doc": {
-          "title": "Configure the object storage (v2)",
+          "title": "Configure object storage (v2)",
           "category": "Working Environment",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-working-environment-configure-object-store.html",
           "explorer": false
@@ -597,7 +597,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/catalog/working-environments/{workingEnvironmentId}/setup": {
       "post": {
         "x-doc": {
-          "title": "Configure the service",
+          "title": "Configure a service",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-catalog-working-environments-setup.html",
           "explorer": false
@@ -637,7 +637,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/license/working-environment/{workingEnvironmentId}": {
       "get": {
         "x-doc": {
-          "title": "Retrieve the license validity",
+          "title": "Retrieve license validity",
           "category": "License",
           "filename": "get-account-providers-cloudmanager_cbs-api-v1-license-working-environment-.html",
           "explorer": false
@@ -657,7 +657,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/catalog/working-environments/{workingEnvironmentId}/setup": {
       "post": {
         "x-doc": {
-          "title": "Configure the service",
+          "title": "Configure a service",
           "category": "Catalog",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-catalog-working-environments-setup.html",
           "explorer": false
@@ -791,7 +791,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sg/credentials/working-environment/{workingEnvironmentId}": {
       "post": {
         "x-doc": {
-          "title": "Save SGWS credentials",
+          "title": "Save StorageGRID credentials",
           "category": "StorageGRID",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-credentials-working-environment-.html"
         }
@@ -800,7 +800,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/working-environment/{workingEnvironmentId}/volume/{volumeId}/file-explore/start": {
       "post": {
         "x-doc": {
-          "title": "Start a file and folder explore operation",
+          "title": "Start a file and folder explore operation (v1)",
           "category": "SFR",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-file-explore-start.html"
         }
