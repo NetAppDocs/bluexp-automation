@@ -796,6 +796,24 @@
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-credentials-working-environment-.html"
         }
       }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/working-environment/{workingEnvironmentId}/volume/{volumeId}/file-explore/start": {
+      "post": {
+        "x-doc": {
+          "title": "Start a file and folder explore operation",
+          "category": "SFR",
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-file-explore-start.html"
+        }
+      }
+    },
+    "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sfr/working-environment/{workingEnvironmentId}/volume/{volumeId}/snapshot/{snapshotId}/file-explore/list": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a list of files and folders",
+          "category": "SFR",
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-snapshot-file-explore-list.html"
+        }
+      }
     }
   }
 }
