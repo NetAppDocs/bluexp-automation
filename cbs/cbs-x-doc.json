@@ -723,7 +723,8 @@
         "x-doc": {
           "title": "Start a file and folder explore operation",
           "category": "SFR",
-          "filename": "post-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-start.html"
+          "filename": "post-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-start.html",
+          "explorer": false
         }
       }
     },
@@ -732,7 +733,8 @@
         "x-doc": {
           "title": "Perform a volume, file and folder-level restore operation (V3)",
           "category": "Restore",
-          "filename": "post-account-providers-cloudmanager_cbs-api-v3-restore.html"
+          "filename": "post-account-providers-cloudmanager_cbs-api-v3-restore.html",
+          "explorer": false
         }
       }
     },
@@ -741,7 +743,8 @@
         "x-doc": {
           "title": "Retrieve a list of storage VMs",
           "category": "Working Environment",
-          "filename": "get-account-providers-cloudmanager_cbs-api-v2-working-environment-svm.html"
+          "filename": "get-account-providers-cloudmanager_cbs-api-v2-working-environment-svm.html",
+          "explorer": false
         }
       }
     },
@@ -750,7 +753,8 @@
         "x-doc": {
           "title": "Retrieve a list of KeyRings for a region",
           "category": "Cloud",
-          "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings.html"
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings.html",
+          "explorer": false
         }
       }
     },
@@ -759,32 +763,36 @@
         "x-doc": {
           "title": "Retrieve a list of CryptoKeys",
           "category": "Cloud",
-          "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings-cryptokey.html"
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings-cryptokey.html",
+          "explorer": false
         }
       }
     },
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sg/version": {
       "post": {
         "x-doc": {
-          "title": "Retrieve StorageGrid server version",
+          "title": "Retrieve StorageGRID server version",
           "category": "StorageGRID",
-          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-version.html"
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-version.html",
+          "explorer": false
         }
       }
     },
     "/account/{accountId}/providers/cloudmanager_cbs/api/v1/sg": {
       "get": {
         "x-doc": {
-          "title": "Retrieve a list of StorageGrid WebScales servers",
+          "title": "Retrieve a list of StorageGRID WebScale servers",
           "category": "StorageGRID",
-          "filename": "get-account-providers-cloudmanager_cbs-api-v1-sg.html"
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-sg.html",
+          "explorer": false
         }
       },
       "post": {
         "x-doc": {
-          "title": "Discover a new StorageGrid WebScale server",
+          "title": "Discover a new StorageGRID WebScale server",
           "category": "StorageGRID",
-          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg.html"
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg.html",
+          "explorer": false
         }
       }
     },
@@ -793,7 +801,8 @@
         "x-doc": {
           "title": "Save StorageGRID credentials",
           "category": "StorageGRID",
-          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-credentials-working-environment-.html"
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sg-credentials-working-environment-.html",
+          "explorer": false
         }
       }
     },
@@ -802,7 +811,8 @@
         "x-doc": {
           "title": "Start a file and folder explore operation (v1)",
           "category": "SFR",
-          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-file-explore-start.html"
+          "filename": "post-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-file-explore-start.html",
+          "explorer": false
         }
       }
     },
@@ -811,7 +821,9 @@
         "x-doc": {
           "title": "Retrieve a list of files and folders",
           "category": "SFR",
-          "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-snapshot-file-explore-list.html"
+          "filename": "get-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-snapshot-file-explore-list.html",
+          "explorer": false
+        
         }
       }
     }
