@@ -15,7 +15,6 @@ summary:
 [.lead]
 There are many API calls available for each resource.
 
-
 === Accounts
 ==== Create a Gcp Storage account.
 ----
@@ -3615,34 +3614,6 @@ GET /azure/ha/metadata/network-requirements
 
 * application/json
 
-==== Retrieves supported Azure storage account types
-----
-GET /azure/ha/metadata/storage-account-types
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|isMultiZone||false|boolean|
-|QueryParameter|isFlashcacheInstance||false|boolean|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
 ==== Retrieves supported features
 ----
 GET /azure/ha/metadata/supported-features
@@ -3694,6 +3665,35 @@ GET /azure/ha/metadata/keys-vault
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#azurekey[AzureKey] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Retrieves supported Azure storage account types
+----
+GET /azure/ha/metadata/storage-account-types
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|isMultiZone||false|boolean|
+|QueryParameter|isFlashcacheInstance||false|boolean|
+|QueryParameter|isManagedDiskSupported||false|boolean|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
 |===
 
 ===== Consumes
@@ -5710,34 +5710,6 @@ GET /azure/vsa/metadata/permutations
 
 * application/json
 
-==== Retrieves supported Azure storage account types.
-----
-GET /azure/vsa/metadata/storage-account-types
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|isMultiZone||false|boolean|
-|QueryParameter|isFlashcacheInstance||false|boolean|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
 ==== Retrieves instance types not supporting acceleration and capacity tiering
 ----
 GET /azure/vsa/metadata/instance-types-not-supporting-acceleration-and-capacity-tiering
@@ -5775,6 +5747,35 @@ GET /azure/vsa/metadata/associated-subscriptions
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#associatedsubscription[AssociatedSubscription] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Retrieves supported Azure storage account types.
+----
+GET /azure/vsa/metadata/storage-account-types
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|QueryParameter|isMultiZone||false|boolean|
+|QueryParameter|isFlashcacheInstance||false|boolean|
+|QueryParameter|isManagedDiskSupported||false|boolean|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#azurestorageaccounttyperesponse[AzureStorageAccountTypeResponse] array
 |===
 
 ===== Consumes
@@ -10051,27 +10052,6 @@ POST /gcp/ha/working-environments/{workingEnvironmentId}/upload-licenses
 
 * application/json
 
-==== Stops a specific Cloud Volumes ONTAP instance
-----
-POST /gcp/ha/working-environments/{workingEnvironmentId}/stop
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
-|QueryParameter|takeSnapshots|Take snapshots before stopping Cloud Volumes ONTAP|true|boolean|true
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
 ==== Create snapshot policy
 ----
 POST /gcp/ha/working-environments/{workingEnvironmentId}/snapshot-policy
@@ -10203,6 +10183,27 @@ PUT /gcp/ha/working-environments/{workingEnvironmentId}/offbox
 |===
 |Type|Name|Description|Required|Schema|Default
 |PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Stops a specific Cloud Volumes ONTAP instance.Operation may only be performed on working environments whose status is: ON
+----
+POST /gcp/ha/working-environments/{workingEnvironmentId}/stop
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|QueryParameter|takeSnapshots|Take snapshots before stopping Cloud Volumes ONTAP|true|boolean|true
 |===
 
 ===== Consumes
