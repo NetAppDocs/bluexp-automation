@@ -8211,7 +8211,7 @@
     },
     {
       "name": "StorageGRID",
-      "description": "<details><summary>Overview</summary><p>The Storagegrid API endpoints retrieve version and details of the StorageGRID server. You can also discover StorageGRID WebScale server in the BlueXP SaaS application.</p><p>You can perform the following operations by using the Storagegrid endpoints:<br><ul><li>Retrieve StorageGRID server version</li><li>Retrieve details of the StorageGRID server</li><li>Discover or add new StorageGRID server in BlueXP</li><li>Save StorageGRID credentials</li><br></ul></p></details>"
+      "description": "<details><summary>Overview</summary><p>The StorageGRID API endpoints retrieve version and details of the StorageGRID server. You can also discover StorageGRID WebScale server in the BlueXP SaaS application.</p><p>You can perform the following operations by using the StorageGRID endpoints:<br><ul><li>Retrieve StorageGRID server version</li><li>Retrieve details of the StorageGRID server</li><li>Discover or add new StorageGRID server in BlueXP</li><li>Save StorageGRID credentials</li><br></ul></p></details>"
     }
   ]
 }
