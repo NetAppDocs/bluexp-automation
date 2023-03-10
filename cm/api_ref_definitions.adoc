@@ -799,14 +799,6 @@ The data definitions are used when making REST API calls.
 |accessData||true|string|
 |===
 
-=== BucketInformation
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|bucketName|Bucket's name|true|string|
-|fullPath|Object's full path|true|string|
-|===
-
 === BucketsPolicyAndTieringInfoRequest
 [options="header"]
 |===
@@ -846,15 +838,6 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |activeDirectoryUsername|Active Directory username|false|string|
 |activeDirectoryPassword|Active Directory password|false|string|
-|svmName|SVM name|false|string|
-|===
-
-=== CIFSWorkgroupConfigurationRequest
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|serverName|Workgroup name|true|string|
-|workgroupName|Workgroup name|true|string|
 |svmName|SVM name|false|string|
 |===
 
@@ -975,6 +958,7 @@ The data definitions are used when making REST API calls.
 |throughput|Provisioned Throughput|false|integer (int32)|
 |newTieringPolicy|New tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
 |evCapacityApprovedToAdd|Maximum EV capacity approved to add|false|<<ElasticVolumeQuoteInfo>>|
+|minimumCoolingDays|Cooling Days|false|integer (int32)|
 |===
 
 === CifsShareInfo
@@ -1509,6 +1493,7 @@ The data definitions are used when making REST API calls.
 |backupVolumesToCbs|Automatically backup all volumes to cloud|false|boolean|
 |haParams|Optional HA parameters for HA deployment|false|<<GcpHaParameters>>|
 |skipSvmManagementLif|SVM management Lif flag - from ONTAP version 9.11.1 the flag always set to true|true|boolean|
+|flashCache|Enable Flash Cache|true|boolean|
 |===
 
 === CreateIscsiInfoRequest
@@ -2461,14 +2446,6 @@ The data definitions are used when making REST API calls.
 |id||true|string|
 |===
 
-=== Identifier
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|name||true|string|
-|uuid||true|string|
-|===
-
 === IGroup
 [options="header"]
 |===
@@ -3070,8 +3047,8 @@ The data definitions are used when making REST API calls.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|objectStoreAttachEligible||true|boolean|
 |inactiveDataReportingEnabled||true|boolean|
+|objectStoreAttachEligible||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3102,8 +3079,8 @@ The data definitions are used when making REST API calls.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|snapmirrorLicenseExists||true|boolean|
 |aff||true|boolean|
+|snapmirrorLicenseExists||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3228,6 +3205,7 @@ The data definitions are used when making REST API calls.
 |vscanFileOperationDefaultProfile||true|string|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
+|flashCache||true|boolean|
 |spaceReportingLogical||true|boolean|
 |keystoneSubscription||true|boolean|
 |===
@@ -3810,13 +3788,6 @@ The data definitions are used when making REST API calls.
 |url||true|string|
 |===
 
-=== ServiceUrl
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|url|url|true|string|
-|===
-
 === SetNssKeysRequest
 [options="header"]
 |===
@@ -3841,8 +3812,8 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |needCertificate||true|boolean|
 |runningInDocker||true|boolean|
-|pendingConnectivitySet||true|boolean|
 |setup||true|boolean|
+|pendingConnectivitySet||true|boolean|
 |===
 
 === SgwsCloudBackupSetupRequest
@@ -4106,6 +4077,7 @@ The data definitions are used when making REST API calls.
 |elasticVolumeSupportedAndEnabled||true|boolean|
 |wormWithComposeSupported||true|boolean|
 |wormWithBackupSupported||true|boolean|
+|azureHaManagedDisksSupported||true|boolean|
 |azureFlashcacheSupported||true|boolean|
 |===
 
@@ -4266,8 +4238,8 @@ The data definitions are used when making REST API calls.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|updateType|System update type. System update can be performed by providing either: an external URL from which ONTAP will download the image file, a local image already in ONTAP or a name of an image provided by Cloud Manager|true|enum (EXTERNAL_FILE,  OCCM_PROVIDED)|
-|updateParameter|Parameter specific to the specified update type. External file URL, local image name or Cloud Manager provided image name|true|string|
+|updateType|System update type. System update can be performed by providing either: an external URL from which ONTAP will download the image file or a name of an image provided by Cloud Manager|true|enum (EXTERNAL_FILE,  OCCM_PROVIDED)|
+|updateParameter|Parameter specific to the specified update type. External file URL or Cloud Manager provided image name|true|string|
 |===
 
 === UpdateTenantRequest
