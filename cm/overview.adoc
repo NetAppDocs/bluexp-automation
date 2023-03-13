@@ -17,18 +17,18 @@ The NetApp BlueXP service includes a REST API, Cloud Volumes ONTAP API, you can 
 
 There are several benefits to using the Cloud Volumes ONTAP REST API.
 
-=== Built on REST technology and design principles
+.Built on REST technology and design principles
 
 The Cloud Volumes ONTAP API has been designed based on REST technology and current best practices. The core technologies include Hypertext Transfer Protocol (HTTP) and JavaScript Object Notation (JSON).
 
-=== Anchors the BlueXP development platform
+.Anchors the BlueXP development platform
 
 The Cloud Volumes ONTAP REST API provides the primary external interface to the BlueXP platform. There are additional REST APIs which support the various platform services.
 
-=== Access to NetApp cloud token-based security
+.Access to NetApp cloud token-based security
 
 BlueXP authentication and authorization is based on the _OAuth2_ standard. NetApp relies on the _Auth0_ service implementation.
 
-=== Alignment with the BlueXP web UI
+.Alignment with the BlueXP web UI
 
 The BlueXP web user interface uses the same core REST API and therefore there is consistency between the two access paths.
