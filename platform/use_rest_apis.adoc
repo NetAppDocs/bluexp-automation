@@ -25,7 +25,7 @@ A BlueXP account is required to access the platform. The system prompts you to c
 
 === Access token usage scenarios
 
-Every BlueXP service REST API call requires an access token or combination of tokens. There might also be specific scope requirements for the tokens.
+Every BlueXP service REST API call requires an access token or a combination of tokens. There might also be specific scope requirements for the tokens.
 
 User token only::
 You only need to obtain and provide a user access token when issuing the API call.
@@ -49,7 +49,7 @@ You should review the API reference for the platform service you will use. The r
 
 The following steps describe how to obtain the required authentication information and perform a REST API call.
 
-=== 1. Optionally locate the Connector ID and client ID
+=== 1. (Optional) Locate the Connector ID and client ID
 
 Several BlueXP APIs require a Connector ID to route the request to the appropriate environment. You can also locate the related Client ID. See link:get_identifiers.html[Get required identifiers] for more information.
 
@@ -70,6 +70,6 @@ This header typically contains the user bearer access token.
 x-agent-id::
 This header contains the Connector ID for API calls that require it.
 
-=== 4. Issue the REST API call
+=== 4. Issue a REST API call
 
-You can use curl or the programming language of your choice to issue the REST API. There are also workflow examples available for the Cloud Volumes ONTAP API. See link:../cm/workflow_processes.html[Cloud Volumes ONTAP workflow processes] for more information.
+You can use curl or the programming language of your choice to issue a REST API call. There are also workflow examples available for the Cloud Volumes ONTAP API. See link:../cm/workflow_processes.html[Cloud Volumes ONTAP workflow processes] for more information.

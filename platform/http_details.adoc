@@ -13,7 +13,7 @@ summary: 'The BlueXP REST API is based on the HTTP protocol as well as JSON for 
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP platform REST APIs are based on the HTTP protocol as well as JSON for content exchange. This section describes the details of how HTTP is used.
+The BlueXP platform REST APIs are based on the HTTP protocol as well as JSON for content exchange. 
 
 == Request
 
