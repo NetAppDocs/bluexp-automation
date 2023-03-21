@@ -15,7 +15,7 @@ summary:
 [.lead]
 There are two types of access tokens that can be used to establish identity and authorization as part of performing a REST API call. The user access token is generally more common with customer automation applications.
 
-.Authentication models
+== Authentication models
 
 There are two authentication models available when requesting a user access token. The one you select depends on your authentication environment. Each authentication model is supported through a different grant type. See link:grant_types.html[Grant types] for more information.
 
@@ -27,7 +27,7 @@ Non-federated authentication::
 
 Non-federated authentication is based on identity and resource access within a single domain. Users who sign in using a non-federated user account can obtain either a long-lived refresh token or a regular access token.
 
-.Contents of a user token
+== Contents of a user token
 
 A user token is formatted as a standard JWT token and contains information about an individual user. It is normally includes the following fields:
 
