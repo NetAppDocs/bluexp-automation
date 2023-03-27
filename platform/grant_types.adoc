@@ -18,7 +18,7 @@ There are several OAuth 2.0 grant types available when requesting an access toke
 [TIP]
 The refresh token grant is the most secure option when requesting a user access token. It can be used in both a federated and non-federated authentication environment.
 
-=== Refresh token
+== Refresh token
 
 This grant type generates a token used with either federated or non-federated authentication. You need to provide the OAuth2-compliant refresh token to the authentication endpoint to generate a long-lived access token. The generated token can be used to access resources across multiple domains. Here is an example of the JSON input used when requesting the token with a description of each parameter.
 
@@ -45,7 +45,7 @@ This grant type generates a token used with either federated or non-federated au
 
 The OAuth server verifies the Client ID and confirms that the request came from an authorized client. It also makes sure the refresh token is valid. After the request is validated, the server returns a response with the refresh token.
 
-=== Password
+== Password
 
 This grant type generates a token used with non-federated authentication to access resources within a single domain. You need to provide the username and password login credentials to the authentication endpoint when requesting the access token.  Here's an example of the JSON input used when requesting the token with a description of each parameter.
 
@@ -76,7 +76,7 @@ This grant type generates a token used with non-federated authentication to acce
 |The client ID issued when you registered the application.
 |===
 
-=== Client credentials
+== Client credentials
 
 In some cases, static clients or applications need to acquire an access token to perform operations on behalf of a user. Applications need to obtain an access token for their own service account without user intervention. In these situations you can use the client credentials grant type. Here is an example of the JSON input used when requesting the token with a description of each parameter.
 

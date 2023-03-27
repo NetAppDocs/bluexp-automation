@@ -15,37 +15,37 @@ summary: 'There are several things you should do to prepare to use the BlueXP RE
 [.lead]
 There are several things you should do to prepare before using the Cloud Volumes ONTAP REST API and associated workflows.
 
-==== Review REST concepts and implementation
+.Review REST concepts and implementation
 
 Make sure to review link:rest_implementation.html[REST implementation details] for information about REST concepts and the details of how the Cloud Volumes ONTAP REST API is designed.
 
-==== Decide on the cloud provider and have credentials
+.Decide on the cloud provider and have credentials
 
 Cloud Volumes ONTAP can be deployed in Amazon Web Services, Microsoft Azure, and Google Cloud Platform. You need to decide which of these providers you'll use and have the appropriate credentials.
 
-==== Have BlueXP website credentials
+.Have BlueXP website credentials
 
 You'll need a NetApp account login to acquire an access token required for the workflow processes. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Signing up to NetApp BlueXP website^] for more information.
 
-==== Be familiar with Cloud Volumes ONTAP concepts
+.Be familiar with Cloud Volumes ONTAP concepts
 
 If you intend to perform Cloud Volumes ONTAP administration tasks, you should be familiar with Cloud Volumes ONTAP concepts, terminology, and procedures. See https://docs.netapp.com/us-en/occm/concept_overview_cvo.html[Learn about Cloud Volumes ONTAP^] for more information.
 
-==== Decide on the licensing model
+.Decide on the licensing model
 
 You can create and manage Cloud Volumes ONTAP instances using a subscription PAYGO ("pay as you go") model or apply your own licenses with BYOL ("bring your own license"). You need to decide which licensing model you'll use and be ready to adjust the workflows as needed.
 
-==== Prepare to use the workflow processes
+.Prepare to use the workflow processes
 
 Review link:workflow_processes.html[Workflow processes] for more information about the organization and content of the workflows. Also see link:cloud_manager_deployment.html[Typical Cloud Manager deployment].
 
 [NOTE]
 This documentation does not describe or use the Local UI.
 
-==== Locate the client identifier
+.Locate the identifier
 
-You'll need the `client id` value for several of the workflows. For more information see link:../platform/get_identifiers.html[Get required identifiers].
+You'll need the identifier values for several of the workflows. For more information see link:../platform/get_identifiers.html[Get required identifiers].
 
-==== Get more information
+.Related information
 
 You should be aware of the additional resources available as suggested in link:../support/additional_resources.html[Additional resources].

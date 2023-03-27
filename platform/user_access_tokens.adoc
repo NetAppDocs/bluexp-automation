@@ -15,7 +15,7 @@ summary:
 [.lead]
 There are two types of access tokens that can be used to establish identity and authorization as part of performing a REST API call. The user access token is generally more common with customer automation applications.
 
-=== Authentication models
+== Authentication models
 
 There are two authentication models available when requesting a user access token. The one you select depends on your authentication environment. Each authentication model is supported through a different grant type. See link:grant_types.html[Grant types] for more information.
 
@@ -27,7 +27,7 @@ Non-federated authentication::
 
 Non-federated authentication is based on identity and resource access within a single domain. Users who sign in using a non-federated user account can obtain either a long-lived refresh token or a regular access token.
 
-=== Contents of a user token
+== Contents of a user token
 
 A user token is formatted as a standard JWT token and contains information about an individual user. It is normally includes the following fields:
 
@@ -46,17 +46,17 @@ A user token is formatted as a standard JWT token and contains information about
 |Used to validate the issuer and the encoded message in the token.
 |===
 
-=== Example of a user access token
+.Example of a user access token
 
 ----
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik16VTNRa0kyUlRFeFJqZzVNRE5EUWpORl
 JVVTNRVVpCTlVGQ05URkJRVFpDTWtFMVFqZzFSZyJ9.eyJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9md
 WxsX25hbWUiOiJSYW51IEt1bmR1IiwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZW1haWxfdmVyaWZpZ
 WQiOnRydWUsImh0dHA6Ly9jbG91ZC5uZXRhcHAuY29tL2Nvbm5lY3Rpb25faWQiOiJjb25fZ1BqZmNzM
-zVTUGZpemg0YiIsImh0dHA6Ly9jbG91ZC5uZXRhcHAuY29tL2lzX2ZlZGVyYXRlZCI6ZmFsc2UsImh0d
-HA6Ly9jbG91ZC5uZXRhcHAuY29tL2ludGVybmFsIjoiTmV0QXBwIiwiaXNzIjoiaHR0cHM6Ly9zdGFna
+zVTUGZpemg0YiIsImh0dHA6Ly9jbG9xxxxxxooooooooooooooooooooooooooooooooooooooooll
+XRhcHAuY29tL2ludGVybmFsIjoiTmV0QXBwIiwiaXNzIjoiaHR0cHM6Ly9zdGFnalllllllllllll
 W5nLW5ldGFwcC1jbG91ZC1hY2NvdW50LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MDZiNjQ2N2QwZ
-TA0MzAwNjk2ZjNjM2QiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuY2xvdWQubmV0YXBwLmNvbSIsImh0dHBzO
+TA0MzAwNjk2ZjNjM2QiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuY2xvdWQubmV0YXBwLxxxxxxxxxxxHBzO
 i8vc3RhZ2luZy1uZXRhcHAtY2xvdWQtYWNjb3VudC5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0Ijox
 NjM1MjQwMTM1LCJleHAiOjE2MzUyNjE3MzUsImF6cCI6IkZpaXZSWnF4TFdMamNsQ1V5Rm1hYlo3MXJw
 Q1IxNE5UIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBjYzp1cGRhdGUtcGFzc3dvcmQifQ.
@@ -67,14 +67,14 @@ HHHCjr1xb8TKueYBCNgOkpl2LFlc3n3oOPqkf6I8iIMKi31-mC8XDqeiRbdW7nfvyypzRbfSAALHjszj
 AfLVrnwBXuapKUzyL--tU4jzpob5vji1bWAlkXo_p8SqJY4TzU99tiSp470bw
 ----
 
-=== Example of a user access token (decoded)
+.Example of a user access token (decoded)
 
 .HEADER:ALGORITHM & TOKEN TYPE
 ----
 {
   "alg": "RS256",
   "typ": "JWT",
-  "kid": "MzU3QkI2RTExRjg5MDNDQjNFRUU3QUZBNUFCNTFBQTZCMkE1Qjg1Rg"
+  "kid": "MzU3QkI2RTExRjg5MDNDQjNFRUU3QZXXXXXNTFBQTZCMkE1Qjg1Rg"
 }
 ----
 
@@ -83,7 +83,7 @@ AfLVrnwBXuapKUzyL--tU4jzpob5vji1bWAlkXo_p8SqJY4TzU99tiSp470bw
 {
   "http://cloud.netapp.com/full_name": "Ranu Kundu",
   "http://cloud.netapp.com/email_verified": true,
-  "http://cloud.netapp.com/connection_id": "con_gPjfcs35SPfizh4b",
+  "http://cloud.netapp.com/connection_id": "con_gPjfcs3cccczh4b",
   "http://cloud.netapp.com/is_federated": false,
   "http://cloud.netapp.com/internal": "NetApp",
   "iss": "https://netapp-cloud-account.auth0.com/",
@@ -92,9 +92,9 @@ AfLVrnwBXuapKUzyL--tU4jzpob5vji1bWAlkXo_p8SqJY4TzU99tiSp470bw
     "https://api.cloud.netapp.com",
     "https://netapp-cloud-account.auth0.com/userinfo"
   ],
-  "iat": 1635240135,
-  "exp": 1635261735,
-  "azp": "FiivRZqxLWLjclCUyFmabZ71rpCR14NT",
+  "iat": 1635240035,
+  "exp": 1635000735,
+  "azp": "FiivRZqxLWLjclCUyFmabZ71rfffffR14NT",
   "scope": "openid profile email cc:update-password"
 }
 ----

@@ -15,11 +15,11 @@ summary:
 [.lead]
 There are several additional identifiers you typically need depending on the grant type and REST API call.
 
-=== Connector
+== Connector
 
 A Connector is a type of agent deployed in the public cloud on behalf of a customer. It executes commands and other actions on behalf of BlueXP as part of managing the local cloud environment. For example, a Connector is can be used to access to one or more Cloud Volumes ONTAP instances.
 
-=== Connector ID
+.Connector ID
 
 Every Connector is assigned a unique identifier. This value is carried in the HTTP `x-agent-id` request header to identify the request destination.
 
@@ -28,7 +28,7 @@ Every Connector is assigned a unique identifier. This value is carried in the HT
 uzJbMFKEnuzi2ryLaENbCP52KBTXx0aIclients
 ----
 
-=== Client ID
+== Client ID
 
 In general, a client ID uniquely identifies a client and can be used in several different ways with the BlueXP REST APIs.
 
