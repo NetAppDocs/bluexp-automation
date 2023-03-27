@@ -15,23 +15,23 @@ summary: The BlueXP REST API provides a robust security model for controlling ac
 [.lead]
 You should be familiar with the basic authentication and authorization concepts before using the BlueXP platform REST APIs.
 
-=== OAuth 2.0 authorization framework
+== OAuth 2.0 authorization framework
 
 OAuth 2.0 (OAuth2) is an authorization framework that allows client applications to obtain limited access to the protected resources at an HTTP service. The framework addresses many of the deficiencies of the traditional client/server authentication model by introducing an authorization layer as defined through four distinct roles. Within this framework, the client doesn't directly use the credentials of the resource owner at the server. Instead an authorization server issues an access token which is then presented to the server by the client.
 
-=== OpenID Connect protocol
+== OpenID Connect protocol
 
 OpenID Connect (OIDC) is a protocol that extends and enhances the OAuth 2.0 framework. It allows third-party applications to confirm the identity of end users and obtain additional profile information.
 
-=== Auth0 platform
+== Auth0 platform
 
 Auth0 is an authentication and authorization platform based on the OAuth 2.0 standard and the OpenID Connect protocol. It orchestrates user authentication as well as authorization to protected resources. The Auth0 authorization server issues access tokens to the client applications. The NetApp Cloud services use Auth0 to authenticate and authorize clients.
 
-=== Auth0 user
+== Auth0 user
 
 An Auth0 user corresponds to a NetApp BlueXP customer account and can be used to authorize an application or client (including a NetApp Cloud service) to access the account. The application's access is limited to the scope of the authorization granted (such as read or write). A NetApp BlueXP customer account obtains its Auth0 user as part of the onboarding process at NetApp BlueXP website.
 
-=== Access tokens
+== Access tokens
 
 There are two types of tokens you can acquire and use to access the BlueXP platform REST APIs. Each token is valid for a fixed amount of time before it expires. Tokens are not revocable.
 
@@ -48,14 +48,14 @@ There are several ways the two access tokens can be used depending on the specif
 |This token is used by software applications to perform a REST API call. Example clients include internal BlueXP service tasks and external clients. The token is valid for 24 hours.
 |===
 
-=== Grant type
+== Grant type
 
 A _grant type_ within the OAuth 2.0 framework defines how an access token is acquired. The different grant types are adapted to several use cases based on the characteristics of the applications. Implicit with each grant type is the type of credentials provided and how identity is confirmed. See link:../platform/grant_types.html[Grant types] for more information.
 
-=== Scope
+== Scope
 
 A _scope_ within the OAuth 2.0 framework provides a way to limit access to data and other resources. It can optionally be included when requesting an access token and is then applied at the resource server when the token is presented by the client.
 
-=== JWT encoding
+== JWT encoding
 
 The JSON web token (JWT) is a standard way of representing claims between parties. It is encoded using base64url. See link:user_access_tokens.html[User access tokens] for more information including an example of a token.
