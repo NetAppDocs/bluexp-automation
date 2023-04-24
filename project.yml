@@ -17,7 +17,6 @@ sidebar:
     - section: platform
     - section: workflows
     - section: api-cm
-    - section: audit
     - section: cbs
     - section: credential
     - section: dw
