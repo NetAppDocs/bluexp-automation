@@ -48,7 +48,7 @@ resourceId
 |===
 
 == Response headers
-This API uses the standard HTTP response headers common with all the BlueXP platform REST APIs. See link:../platform/http_details.html[REST implementation] for more information.
+This API uses the standard HTTP response headers common with all the BlueXP platform REST APIs. See link:platform/http_details.html[REST implementation] for more information.
 
 == HTTP status codes
 
