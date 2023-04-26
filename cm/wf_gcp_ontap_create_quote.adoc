@@ -28,7 +28,7 @@ You can use this workflow to create quote for a single node working environment.
 Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environment] and choose the `publicId` and `svmName` values of the required working environment for `workingEnvironmentId` and `svmName` parameters in the JSON input.
 
 === 2. Select the aggregate
-Perform the link:wf_gcp_cloud_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] workflow and choose the `name` value of the required aggregate for the `aggregateName` parameter in the JSON input.
+Perform the link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] workflow and choose the `name` value of the required aggregate for the `aggregateName` parameter in the JSON input.
 
 === 3. Select the gcp disk type
 Perform the link:wf_gcp_cloud_md_get_disk_types.html#get-gcp-disk-types-for-single-node[Get gcp disk types] workflow and choose the `size` and `supportedDiskType` values of the required disk type for the `diskSize` and `providerVolumeType` parameters in the JSON input.
