@@ -1,6 +1,7 @@
 ---
 settings:
   name: API
+  harmony_integration: maestro
   platform: cloud
   internal:
     pdf_enabled: false
@@ -8,6 +9,7 @@ settings:
   prod:
     pdf_enabled: false
     api_enabled: true
+    harmony_enabled: false
 sidebar:
   entries:
     - title: BlueXP API docs
