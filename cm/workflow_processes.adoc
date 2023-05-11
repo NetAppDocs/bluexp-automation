@@ -34,7 +34,7 @@ Most of the workflows can be performed with one cloud provider. The supported cl
 
 The workflows for each cloud provider (AWS, Azure, GCP) are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
-NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:../cm/wf_common.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
+NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:../cm/wf_common_before.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
 
 Working environments::
 A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administrative tasks. You can perform specific workflows to create a working environment based on your preferred licensing model (PAYGO or BYOL), remove a working environment, and retrieve the details of a working environment. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of creating a working environment.
