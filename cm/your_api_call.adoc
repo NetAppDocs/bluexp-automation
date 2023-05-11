@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/hello_world.html
+permalink: cm/your_api_call.html
 keywords: hello, world, cloud, manager, rest, api, cloud , manager
-summary: 'You can issue a curl command to get started using the Cloud Manager REST API and confirm its availability.'
+summary: "You can issue a curl command to get started using the REST API and confirm its availability."
 ---
 
-= Hello world
+= Your first API call
 :hardbreaks:
 :nofooter:
 :icons: font
