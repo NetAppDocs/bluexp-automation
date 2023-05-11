@@ -21,7 +21,7 @@ NOTE: You can access the API Explorer by clicking *Try it out* on any of the API
 There are several things you should consider before using the API Explorer.
 
 .Prerequisites
-You need to have a NetApp BlueXP account. Refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-signing-up.html[Signing up to NetApp BlueXP website] for more information.
+You need to have a NetApp BlueXP account. Refer to link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-signing-up.html[Signing up to NetApp BlueXP website] for more information.
 
 There might be additional requirements depending on the API call. You might need to obtain the following identifiers from the link:https://cloudmanager.netapp.com/[BlueXP SaaS interface]:
 
@@ -41,7 +41,7 @@ The following steps provide an example of how to use the API Explorer to issue a
 
 .Steps
 
-.	Navigate to the link:https://docs.netapp.com/us-en/cloud-manager-automation/tenancy/post-tenancy-resource-discover.html[Discover an external resource] endpoint in the Tenancy service API documentation.
+.	Navigate to the link:https://docs.netapp.com/us-en/bluexp-automation/tenancy/post-tenancy-resource-discover.html[Discover an external resource] endpoint in the Tenancy service API documentation.
 
 .	Click *Try it out* to open the API Explorer panel on the right side of the page.
 +

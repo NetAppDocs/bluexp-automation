@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can create a new Cloud Volumes ONTAP working environment using link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[capacity-based licensing^].
+You can create a new Cloud Volumes ONTAP working environment using link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[capacity-based licensing^].
 
 [NOTE]
 .When using capacity-based license:
@@ -48,7 +48,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutat
 
 === 5. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
 
 === 6. Select the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-single-node[Get packages] and search the `licenseType` from the various permutations of packages configuration values:
@@ -73,7 +73,7 @@ An NSS key is *optional* when using a marketplace subscription. When using BYOL,
 
 === 10. (Optional) Add a BYOL license
 
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with BlueXP. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with BlueXP. To add the license manually, refer to link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 11. Create the working environment
 
@@ -193,7 +193,7 @@ Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutat
 
 === 6. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 12. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 12. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know about the available options.
 
 === 7. Select the packages configuration
 Perform the workflow link:wf_gcp_cloud_md_get_packages.html#get-gcp-packages-for-high-availability-pair[Get packages] and search the `licenseType` from permutations:
@@ -218,7 +218,7 @@ An NSS key is *optional* when using a marketplace subscription. When using BYOL,
 
 === 11. (Optional) Add a BYOL license
 
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with BlueXP. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with BlueXP. To add the license manually, refer to link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 12. Create the working environment
 
