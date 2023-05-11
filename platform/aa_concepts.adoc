@@ -43,7 +43,7 @@ There are several ways the two access tokens can be used depending on the specif
 |Type
 |Description
 |User token
-|This is a token identifying a user who accesses BlueXP through the REST API or web UI. A federated or non-federated authentication model can be used when requesting the token. See link:user_access_token.html[User access tokens] for more information. The token is valid for six hours.
+|This is a token identifying a user who accesses BlueXP through the REST API or web UI. A federated or non-federated authentication model can be used when requesting the token. See link:user_access_tokens.html[User access tokens] for more information. The token is valid for six hours.
 |Service token
 |This token is used by software applications to perform a REST API call. Example clients include internal BlueXP service tasks and external clients. The token is valid for 24 hours.
 |===
