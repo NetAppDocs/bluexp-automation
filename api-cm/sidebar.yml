@@ -5,14 +5,17 @@ entries:
     entries:
       - title: Prepare
         url: /cm/prepare.html
-      - title: Typical deployment
-        url: /cm/cloud_manager_deployment.html
+      
       - title: Hello world
         url: /cm/hello_world.html
       - title: Workflow processes
         url: /cm/workflow_processes.html
   - title: Cloud Volumes ONTAP workflows
     entries:
+      - title: Before you begin
+        url: /cm/wf_cvo_before.html
+      - title: Typical deployment
+        url: /cm/cloud_manager_deployment.html
       - title: AWS workflows
         entries:
          - title: Before you begin
