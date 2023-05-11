@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: platform/use_rest_apis.html
-keywords:
-summary:
+keywords: bluexp, rest, apis, authentication, authorization
+summary: "The general process to authenticate and authorize users is described in this page"
 ---
 
 = Use the BlueXP platform REST APIs
