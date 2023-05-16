@@ -248,7 +248,7 @@
     "/ipa/support/case/{caseNumber}/upload": {
       "post": {
         "x-doc": {
-          "title": "Upload an attachment file for a support case",
+          "title": "Upload an attachment for a support case",
           "category": "Support",
           "filename": "post-ipa-support-case-upload.html",
           "subcategory": null
@@ -268,7 +268,7 @@
     "/ipa/support/case-search": {
       "get": {
         "x-doc": {
-          "title": "Retrieve list of support case according to filter parameters",
+          "title": "Retrieve support cases",
           "category": "Support",
           "filename": "get-ipa-support-case-search.html",
           "subcategory": null
