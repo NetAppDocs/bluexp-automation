@@ -2047,7 +2047,7 @@
             "tags":[
                "Support"
             ],
-            "description":"Get list of support case according to filter parameters.\n            <br><b>Token usage:</b> Both a BlueXP user token and service token. The service token needs to include the following scopes: %scopes%. Pass the user token in the %userTokenHeader% request header and the service token in the %serviceTokenHeader% request header.",
+            "description":"Retrieve a list of support cases according to filter parameters.\n            <br><b>Token usage:</b> Both a BlueXP user token and service token. The service token needs to include the following scopes: %scopes%. Pass the user token in the %userTokenHeader% request header and the service token in the %serviceTokenHeader% request header.",
             "parameters":[
                {
                   "schema":{
@@ -2344,7 +2344,7 @@
             "tags":[
                "Support"
             ],
-            "description":"Update support case notes/status.\n            <br><b>Token usage:</b> Both a BlueXP user token and service token. The service token needs to include the following scopes: %scopes%. Pass the user token in the %userTokenHeader% request header and the service token in the %serviceTokenHeader% request header.",
+            "description":"Updates support case notes or status.\n            <br><b>Token usage:</b> Both a BlueXP user token and service token. The service token needs to include the following scopes: %scopes%. Pass the user token in the %userTokenHeader% request header and the service token in the %serviceTokenHeader% request header.",
             "requestBody":{
                "content":{
                   "application/json":{
