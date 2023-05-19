@@ -5,7 +5,7 @@
         "x-doc": {
           "title": "Create an account",
           "category": "Account",
-          "filename": "post-tenancy-account-.html",
+          "filename": "post-tenancy-account-id.html",
           "subcategory": null
         }
       }
@@ -15,7 +15,7 @@
         "x-doc": {
           "title": "Delete an account",
           "category": "Account",
-          "filename": "delete-tenancy-account-.html",
+          "filename": "delete-tenancy-account-id.html",
           "subcategory": null
         }
       },
@@ -23,7 +23,7 @@
         "x-doc": {
           "title": "Retrieve an account",
           "category": "Account",
-          "filename": "get-tenancy-account-.html",
+          "filename": "get-tenancy-account-id.html",
           "subcategory": null
         }
       }
@@ -134,7 +134,7 @@
         "x-doc": {
           "title": "Rename an account",
           "category": "Account",
-          "filename": "post-tenancy-account-rename-.html",
+          "filename": "post-tenancy-account-rename-id.html",
           "subcategory": null
         }
       }
@@ -144,7 +144,7 @@
         "x-doc": {
           "title": "Enable SaaS",
           "category": "Account",
-          "filename": "post-tenancy-account-enable-saas-.html"
+          "filename": "post-tenancy-account-enable-saas-id.html"
         }
       }
     },
@@ -153,7 +153,7 @@
         "x-doc": {
           "title": "Enable private preview for SaaS",
           "category": "Account",
-          "filename": "post-tenancy-account-enable-private-preview-.html",
+          "filename": "post-tenancy-account-enable-private-preview-id.html",
           "subcategory": null
         }
       }
@@ -163,7 +163,7 @@
         "x-doc": {
           "title": "Enable third-party services",
           "category": "Account",
-          "filename": "post-tenancy-account-enable-3rd-party-services-.html",
+          "filename": "post-tenancy-account-enable-3rd-party-services-id.html",
           "subcategory": null
         }
       }
@@ -262,7 +262,7 @@
         "x-doc": {
           "title": "Delete a service resource",
           "category": "Resource",
-          "filename": "delete-tenancy-service-resource-.html",
+          "filename": "delete-tenancy-service-resource-id.html",
           "explorer": false,
           "subcategory": null
         }
@@ -293,7 +293,7 @@
         "x-doc": {
           "title": "Add a resource to a workspace",
           "category": "Resource",
-          "filename": "post-tenancy-resource-add-to-workspace-.html",
+          "filename": "post-tenancy-resource-add-to-workspace-id.html",
           "subcategory": null
         }
       }
@@ -303,7 +303,7 @@
         "x-doc": {
           "title": "Remove a resource from a workspace",
           "category": "Resource",
-          "filename": "post-tenancy-resource-remove-from-workspace-.html",
+          "filename": "post-tenancy-resource-remove-from-workspace-id.html",
           "subcategory": null
         }
       }
@@ -313,7 +313,7 @@
         "x-doc": {
           "title": "Remove a resource from an agent",
           "category": "Resource",
-          "filename": "post-tenancy-resource-remove-from-agent-.html",
+          "filename": "post-tenancy-resource-remove-from-agent-id.html",
           "subcategory": null
         }
       }
@@ -323,7 +323,7 @@
         "x-doc": {
           "title": "Delete a resource from an account",
           "category": "Resource",
-          "filename": "delete-tenancy-resource-.html",
+          "filename": "delete-tenancy-resource-id.html",
           "subcategory": null
         }
       }
@@ -343,7 +343,7 @@
         "x-doc": {
           "title": "Delete a service resource",
           "category": "Resource",
-          "filename": "delete-tenancy-service-resource-.html",
+          "filename": "delete-tenancy-service-resource-id.html",
           "explorer": false,
           "subcategory": null
         }
@@ -354,7 +354,7 @@
         "x-doc": {
           "title": "Create a workspace",
           "category": "Workspace",
-          "filename": "post-tenancy-account-workspace-.html",
+          "filename": "post-tenancy-account-workspace-id.html",
           "subcategory": null
         }
       }
@@ -364,7 +364,7 @@
         "x-doc": {
           "title": "Add a user",
           "category": "Workspace",
-          "filename": "post-tenancy-account-workspace-add-user-.html",
+          "filename": "post-tenancy-account-workspace-add-user-id.html",
           "subcategory": null
         }
       }
@@ -374,7 +374,7 @@
         "x-doc": {
           "title": "Remove a user",
           "category": "Workspace",
-          "filename": "post-tenancy-account-workspace-remove-user-.html",
+          "filename": "post-tenancy-account-workspace-remove-user-id.html",
           "subcategory": null
         }
       }
@@ -384,7 +384,7 @@
         "x-doc": {
           "title": "Delete a workspace",
           "category": "Workspace",
-          "filename": "delete-tenancy-account-workspace-.html",
+          "filename": "delete-tenancy-account-workspace-id.html",
           "subcategory": null
         }
       },
@@ -392,7 +392,7 @@
         "x-doc": {
           "title": "Rename a workspace",
           "category": "Workspace",
-          "filename": "patch-tenancy-account-workspace-.html",
+          "filename": "patch-tenancy-account-workspace-id.html",
           "subcategory": null
         }
       }
@@ -402,7 +402,7 @@
         "x-doc": {
           "title": "Add an agent",
           "category": "Workspace",
-          "filename": "post-tenancy-account-workspace-add-agent-.html",
+          "filename": "post-tenancy-account-workspace-add-agent-id.html",
           "subcategory": null
         }
       }
@@ -412,7 +412,7 @@
         "x-doc": {
           "title": "Remove an agent",
           "category": "Workspace",
-          "filename": "post-tenancy-account-workspace-remove-agent-.html",
+          "filename": "post-tenancy-account-workspace-remove-agent-id.html",
           "subcategory": null
         }
       }
@@ -453,7 +453,7 @@
         "x-doc": {
           "title": "Retrieve users authorized for single resource",
           "category": "User",
-          "filename": "get-tenancy-users-for-action--.html",
+          "filename": "get-tenancy-users-for-action--id.html",
           "explorer": false,
           "subcategory": null
         }
@@ -464,7 +464,7 @@
         "x-doc": {
           "title": "Retrieve users authorized for all resources",
           "category": "User",
-          "filename": "get-tenancy-users-for-action-.html",
+          "filename": "get-tenancy-users-for-action-id.html",
           "explorer": false,
           "subcategory": null
         }
@@ -485,7 +485,7 @@
         "x-doc": {
           "title": "Delete a service account",
           "category": "Service Account",
-          "filename": "delete-tenancy-account-service-account-.html",
+          "filename": "delete-tenancy-account-service-account-del.html",
           "subcategory": null
         }
       },
@@ -493,7 +493,7 @@
         "x-doc": {
           "title": "Update details",
           "category": "Service Account",
-          "filename": "patch-tenancy-account-service-account-.html",
+          "filename": "patch-tenancy-account-service-account-pat.html",
           "subcategory": null
         }
       }
