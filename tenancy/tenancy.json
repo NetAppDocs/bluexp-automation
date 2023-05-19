@@ -2319,7 +2319,7 @@
       },
       "/tenancy/service-resources":{
          "delete":{
-            "description":"Deletes a service resources from a specified account.\n            <br><b>Token usage:</b> BlueXP service token with the following scopes: tenancy:internal.",
+            "description":"Deletes service resources from a specified account.\n            <br><b>Token usage:</b> BlueXP service token with the following scopes: tenancy:internal.",
             "tags":[
                "Resource"
             ],

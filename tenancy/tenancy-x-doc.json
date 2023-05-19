@@ -341,7 +341,7 @@
     "/tenancy/service-resources": {
       "delete": {
         "x-doc": {
-          "title": "Delete a service resource",
+          "title": "Delete service resources",
           "category": "Resource",
           "filename": "delete-tenancy-service-resource-id.html",
           "explorer": false,
