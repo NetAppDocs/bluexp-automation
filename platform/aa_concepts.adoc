@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: platform/aa_concepts.html
-keywords:
-summary: The BlueXP REST API provides a robust security model for controlling access to the resources it manages.
+keywords: bluexp, authorization, authentication, oauth2.0, access tokens, rest, apis
+summary: You should be familiar with the basic authentication and authorization concepts before using the BlueXP REST APIs.
 ---
 
 = Basic concepts and terminology
@@ -13,7 +13,7 @@ summary: The BlueXP REST API provides a robust security model for controlling ac
 :imagesdir: ./media/
 
 [.lead]
-You should be familiar with the basic authentication and authorization concepts before using the BlueXP platform REST APIs.
+You should be familiar with the basic authentication and authorization concepts before using the BlueXP REST APIs.
 
 == OAuth 2.0 authorization framework
 
