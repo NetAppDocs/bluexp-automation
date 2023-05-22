@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_common_ontap_repl_get_sm_rels.html
-keywords: cloud, manager, rest, api
+keywords: bluexp, rest, api
 summary: You can retrieve all the SnapMirror relationship pairs.
 ---
 

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: platform/grant_types.html
-keywords:
-summary:
+keywords: oauth2, refresh token, password grant type, client credentials, 
+summary: The document describes the grant types and identity verification while using BlueXP APIs
 ---
 
 = Grant types and identity verification

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: platform/workflows_tasks.html
-keywords: workflows, processes, cloud, manager, api
+keywords: workflows, processes, bluexp, api, cloud, volumes, ontap
 summary: The BlueXP platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing a specific API.
 ---
 
@@ -13,7 +13,7 @@ summary: The BlueXP platform REST APIs support many different workflows and task
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP platform REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing and using a specific API.
+The BlueXP REST APIs support many different workflows and tasks. You should be familiar with their common characteristics before reviewing and using a specific API.
 
 * link:workflows_tasks.html#workflows[Workflows]
 * link:workflows_tasks.html#tasks[Tasks]

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_common_identity_get_nss_keys.html
-keywords: cloud, manager, rest, api
+keywords: bluexp, rest, api
 summary: "You can retrieve all of the available NetApp Support Site credential keys."
 ---
 
