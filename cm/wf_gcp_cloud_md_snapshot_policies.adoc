@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/wf_gcp_cloud_md_snapshot_policies.html
 keywords: buckets, cloud, volumes, ontap, working, environment, occm
-summary: You can perform this workflow to retrieve the S3 buckets.
+summary: You can perform this workflow to retrieve the default snapshot policies available on the cluster.
 ---
 
 = Get Snapshot policies
