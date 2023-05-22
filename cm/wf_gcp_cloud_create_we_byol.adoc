@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_gcp_cloud_create_we_byol.html
-keywords: byol, license, cloud, manager, rest, api
+keywords: byol, license, bluexp rest, api
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using BYOL licensing.'
 ---
 

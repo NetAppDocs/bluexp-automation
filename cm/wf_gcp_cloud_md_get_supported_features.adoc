@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/wf_gcp_cloud_md_get_supported_features.html
 keywords: supported, features, cloud, volumes, ontap, working, environment, occm
-summary: You can retrieve the supported capacity tiers for EBS volume types.
+summary: You can perform this workflow to retrieve and check the supported features while provisioning a Cloud Volumes ONTAP instance.
 ---
 
 = Get supported features

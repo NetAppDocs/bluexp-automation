@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_common_ontap_repl_delete_repl.html
-keywords: cloud, manager, rest, api
+keywords: bluexp, rest, api
 summary: "You can use this workflow to delete an existing SnapMirror replication relationship."
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: platform/api_explorer.html
-keywords: generate, user, token
+keywords: generate, user, token, api explorer, bluexp, rest, apis
 summary: 'Use the API Explorer feature to execute REST API calls from your browser. '
 ---
 

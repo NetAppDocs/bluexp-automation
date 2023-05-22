@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/prepare.html
-keywords: cloud, manager, rest, api, credentials, cloud, volumes, ONTAP, API
+keywords: bluexp, rest, api, credentials, cloud, volumes, ONTAP, API
 summary: 'There are several things you should do to prepare to use the BlueXP REST API and associated workflows.'
 ---
 

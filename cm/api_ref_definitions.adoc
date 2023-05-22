@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: cm/api_ref_definitions.html
-keywords:
-summary:
+keywords: data, definitions, bluexp, rest, apis
+summary: The data definitions are used when making REST API calls.
 ---
 
 = Definitions

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_common_identity_get_provider_accounts.html
-keywords: BlueXP, get accounts, cloud, platform, cloud, manager, rest, api
+keywords: BlueXP, get accounts, cloud, platform, rest, api
 summary: "You can retrieve a list of the BlueXP accounts available for the supported cloud platforms."
 ---
 
