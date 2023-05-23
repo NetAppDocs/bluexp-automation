@@ -40,25 +40,37 @@ NOTE:
 
 .Functional category
 The workflows for each cloud provider (AWS, Azure, GCP) are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
- 	In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See Common workflows for all cloud providers for more information about these workflows and how they are organized.
 
-Working environments
+[NOTE]
+In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See Common workflows for all cloud providers for more information about these workflows and how they are organized.
+
+*Working environments*
 A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administrative tasks. You can perform specific workflows to create a working environment based on your preferred licensing model (PAYGO or BYOL), remove a working environment, and retrieve the details of a working environment. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of creating a working environment.
-Aggregates
+
+*Aggregates*
 An aggregate is the low-level structure for Cloud Volumes ONTAP storage. These workflows allow you to create aggregates and perform related administrative tasks.
-Volumes
+
+*Volumes*
 You can expose the storage volumes for use by your applications. You can perform these workflows to create a volume (using NFS, CIFS, or iSCSI protocol) as well as delete, retrieve, and modify an existing volume based on your storage requirements.
-Metadata
+
+*Metadata*
 The metadata workflows allow you to view and administer the basic configuration of your cloud environment.
-Miscellaneous
+
+*Miscellaneous*
 A workflow that is not assigned to an existing functional category is considered Miscellaneous. For example, there is a workflow to create a cloud provider account. The cloud provider account securely stores and manages your cloud provider credentials and establishes an identity for users (such as InstanceProfile with AWS and ManagedIdentity with Azure). This account provides fine-grained authorization of the services and resources based on multiple critical conditions.
-3. Single node and High availability workflows
+
+.Single node and High availability workflows
+
 Many of the workflows vary based on the type of the deployment.
-Single node
+
+*Single node*
 The cluster consists of a single Cloud Volumes ONTAP instance or ONTAP node.
-HA pair
+
+*HA pair*
 The cluster consists of two linked Cloud Volumes ONTAP instances which together provide the ONTAP high availability (HA) feature.
- 	If both versions of a workflow exist for an administrative task, they are included on the same page.
+
+[NOTE]
+If both versions of a workflow exist for an administrative task, they are included on the same page.
 
 === Organization of the ONTAP on-premises workflows
 
@@ -117,7 +129,7 @@ A list of the keywords used in the workflow curl examples is presented in the ta
 |NetApp refresh token used for federated authentication.
 |===
 
-NOTE: Replace the variables with actual values while performing a curl call.
+[NOTE] Replace the variables with actual values while performing a curl call.
 
 == Working environment status requirements
 
