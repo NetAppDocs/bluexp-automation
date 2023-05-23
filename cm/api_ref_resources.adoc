@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: cm/api_ref_resources.html
-keywords:
-summary:
+keywords: bluexp, rest, apis, accounts, resources
+summary: There are many API calls available for each resource.
 ---
 
 = Resources

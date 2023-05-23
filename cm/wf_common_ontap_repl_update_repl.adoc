@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_common_ontap_repl_update_repl.html
-keywords: cloud, manager, rest, api
+keywords: bluexp, rest, api
 summary: "You can use this workflow to update an existing SnapMirror replication relationship."
 ---
 

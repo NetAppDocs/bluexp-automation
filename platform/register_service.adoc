@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: platform/register_service.html
-keywords: generate, user, token
-summary:
+keywords: generate, user, token, bluexp, rest, apis, account, create, application
+summary: You can register a service with BlueXP and use the associated credentials to create a service token.
 ---
 
 = Register service

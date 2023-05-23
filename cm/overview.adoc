@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/overview.html
-keywords: overview, introduction rest api
+keywords: overview, introduction rest api, bluexp, 
 summary: 'The NetApp BlueXP service includes a REST API that you can access programmatically to administer your cloud-based resources. '
 ---
 
