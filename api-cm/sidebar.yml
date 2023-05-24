@@ -4,10 +4,9 @@ entries:
   - title: Get started
     entries:
       - title: Prepare
-        url: /cm/prepare.html
-      
-      - title: Hello world
-        url: /cm/hello_world.html
+        url: /cm/prepare.html 
+      - title: Your first API call
+        url: /cm/your_api_call.html
       - title: Workflow processes
         url: /cm/workflow_processes.html
   - title: Cloud Volumes ONTAP workflows
@@ -18,8 +17,7 @@ entries:
         url: /cm/cloud_manager_deployment.html
       - title: AWS workflows
         entries:
-         - title: Before you begin
-           url: /cm/wf_aws_before.html
+         
          - title: Working environments
            entries:
             - title: Create working environment with capacity-based license
@@ -90,8 +88,7 @@ entries:
              url: /cm/wf_aws_cloud_md_create_account.html
       - title: Azure workflows
         entries:
-        - title: Before you begin
-          url: /cm/wf_azure_before.html
+        
         - title: Working environments
           entries:
             - title: Create working environment with capacity-based license
@@ -158,8 +155,7 @@ entries:
               url: /cm/wf_azure_cloud_md_create_account.html
       - title: GCP workflows
         entries:
-        - title: Before you begin
-          url: /cm/wf_gcp_before.html
+        
         - title: Working environments
           entries:
             - title: Create working environment with capacity-based license

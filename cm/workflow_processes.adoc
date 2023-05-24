@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/workflow_processes.html
-keywords: workflows, processes, cloud, manager, api
+keywords: workflows, processes, bluexp, api, on-prem ONTAP
 summary: "You should be familiar with the high-level organization and format of the BlueXP workflow processes before using them with a live cloud deployment."
 ---
 
@@ -16,7 +16,7 @@ summary: "You should be familiar with the high-level organization and format of 
 You should be familiar with the organization and format of the Cloud Volumes ONTAP and ONTAP on-premises workflow processes before using them with a live deployment.
 
 [NOTE]
-Before getting started with the workflows, see Workflow processes and tasks for an introduction to how workflows and tasks are generally used with BlueXP.
+Before getting started with the workflows, see link:platform/workflows_tasks.html[Workflow processes and tasks] for an introduction on how workflows and tasks are generally used with BlueXP.
 
 == High level organization of the workflows
 
@@ -32,13 +32,15 @@ At a high level, the Cloud Volumes ONTAP workflows are organized based on three 
 
 .Cloud provider
 The Cloud Volumes ONTAP workflows can be performed with one cloud provider. The supported cloud platforms include:
-•	Amazon Web Services
-•	Microsoft Azure
-•	Google Cloud Platform
+
+* Amazon Web Services
+* Microsoft Azure
+* Google Cloud 
 
 NOTE: 
 
 .Functional category
+
 The workflows for each cloud provider (AWS, Azure, GCP) are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
 [NOTE]
@@ -85,7 +87,7 @@ An aggregate is the low-level structure for ONTAP on-premises storage. These wor
 .Volumes
 You can expose the storage volumes for use by your applications. You can perform these workflows to create a volume (using NFS, CIFS, or iSCSI protocol) as well as delete, retrieve, and modify an existing volume based on your storage requirements.
 
-=== Presentation of common tokens and identifiers
+== Presentation of common tokens and identifiers
 
 Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead. This has several benefits:
 

@@ -1,0 +1,56 @@
+---
+sidebar: sidebar
+permalink: cm/overview.html
+keywords: bluexp, rest, api, credentials, cloud, volumes, ONTAP, API
+summary: 'There are several things you should do to prepare to use the BlueXP REST API and associated workflows.'
+---
+
+= Overview
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+ONTAP management service is comprised of multiple interconnected REST APIs that enable you to administer your cloud-based and on-premises ONTAP storage resources. The service combines multiple API calls to execute specific tasks.
+
+Using the REST APIs, you can perform several operations to manage Cloud Volumes ONTAP single-node and HA resources (which are ONTAP instances running on hyperscalers), on-premises ONTAP cluster resources (AFF/FAS systems), configure cloud provider and support accounts resources in BlueXP, and more. 
+
+The different types of resources that can be managed using the ONTAP management service can be broadly categorized as follows:
+
+* Administrative resources
+  Used to set up and configure BlueXP
+
+* Auditing resources
+  Used to view details about BlueXP operations
+
+* Authentication resources
+  Used to authenticate with BlueXP  so you can run API operations
+
+* Working environment resources
+  Used to deploy and manage working environments: single Cloud Volumes ONTAP systems, Cloud Volumes ONTAP HA configurations, and ONTAP clusters
+
+Each resource is made accessible through a set of API endpoints.
+
+.Cloud Volumes ONTAP operations
+
+Among the many APIs of the ONTAP management service, Cloud Volumes ONTAP API is widely used by developers to create and administer Cloud Volumes ONTAP working environment resources, add aggregates, volumes to Cloud Volumes ONTAP instances as per requirement. The Cloud Volumes ONTAP REST API calls vary depending on the different cloud providers; additionally, there are variations between API calls for single Cloud Volumes ONTAP systems and Cloud Volumes ONTAP HA configurations.
+
+.On-premises ONTAP operations
+
+You can discover and manage the on-premises ONTAP resources by using the on-premises REST API calls. You can issue a REST API call to discover an on-premises ONTAP cluster and add it as a working environment resource. You can add volumes and perform several other activities using the REST calls.
+
+.API workflows
+The ONTAP management service supports many different workflows. Each workflow lets you carry out a specific task. There are three major sets of workflows: 
+
+* Cloud Volumes ONTAP workflows
+* On-premises ONTAP workflows
+* Common workflows
+
+See link:cm/workflow_processes.html[Workflows processes] to familiarize yourself with their common characteristics before using the workflows.
+
+.API reference 
+
+The link:cm/api_reference.html[API reference] provides a guide for working with the ONTAP management service and includes specific reference information for each available operation.
+
