@@ -22,9 +22,11 @@ Before getting started with the workflows, see link:platform/workflows_tasks.htm
 
 There are two broad categories of workflows associated with the ONTAP management service. They are as follows:
 
-* Cloud Volumes ONTAP workflows: This set of workflows enables you to manage the Cloud Volumes ONTAP instances deployed in a hyperscaler (AWS, Azure, or Google Cloud)
+* Cloud Volumes ONTAP workflows: This set of workflows enables you to manage the Cloud Volumes ONTAP instances deployed in a hyperscaler (AWS, Azure, or Google Cloud).
 
-* ONTAP on-premises workflows: This set of workflows enable you to discover and manage the ONTAP on-premises clusters. 
+* ONTAP on-premises workflows: This set of workflows enable you to discover and manage the on-premises ONTAP clusters. 
+
+There's similarity between the functional categories of the Cloud Volumes ONTAP and on-premises ONTAP workflows, however, there are a few key differences noted as follows.
 
 === Organization of Cloud Volumes ONTAP workflows
 
@@ -79,10 +81,10 @@ If both versions of a workflow exist for an administrative task, they are includ
 The ONTAP on-premises workflows are placed in a specific functional category. They resemble the organization pattern of the Cloud Volumes ONTAP workflows. Following are the major categories that are reflected in the sidebar.
 
 .Working environments
-A working environment is the context within which an ONTAP on-premise instance is deployed and run. These workflows allow you to discover and manage the ONTAP on-prem clusters.  working environments and perform related administrative tasks. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of managing an on-premises environment.
+A working environment is the context within which an ONTAP on-premise instance is added after being discovered. These workflows enable you to discover and manage the ONTAP on-prem clusters. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of managing an on-premises environment.
 
 .Aggregates
-An aggregate is the low-level structure for ONTAP on-premises storage. These workflows allow you to create aggregates and perform related administrative tasks.
+An aggregate is the low-level structure for ONTAP on-premises storage. There's a singular workflow that enables you to retrieve aggregates.
 
 .Volumes
 You can expose the storage volumes for use by your applications. You can perform these workflows to create a volume (using NFS, CIFS, or iSCSI protocol) as well as delete, retrieve, and modify an existing volume based on your storage requirements.
