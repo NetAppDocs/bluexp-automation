@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/wf_aws_cloud_add_capacity.html
 keywords: packages, cloud, volumes, ontap, working, environment, occm
-summary: You can use the packages endpoint to retrieve the Cloud Volumes ONTAP packages configuration information.
+summary: You can use this workflow to add capacity to an existing aggregate with Elastic Volumes enabled.
 ---
 
 = Add capacity to an Elastic Volume aggregate

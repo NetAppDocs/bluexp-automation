@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/hello_world.html
-keywords: hello, world, cloud, manager, rest, api, cloud , manager
+keywords: hello, world, rest, api, bluexp
 summary: 'You can issue a curl command to get started using the Cloud Manager REST API and confirm its availability.'
 ---
 
@@ -28,7 +28,7 @@ You must do the following:
 
 .curl example
 
-The following curl command retrieves information about the BlueXP (formerly Cloud Manager) server.
+The following curl command retrieves information about the BlueXP server.
 
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'

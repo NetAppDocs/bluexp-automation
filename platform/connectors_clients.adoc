@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: platform/connectors_clients.html
-keywords:
-summary:
+keywords: connector, bluexp, rest, api, client credentials, client id
+summary: There are several additional identifiers you typically need depending on the grant type and REST API call.
 ---
 
 = Connector and client identifiers
