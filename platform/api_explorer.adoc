@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: platform/api_explorer.html
 keywords: generate, user, token, api explorer, bluexp, rest, apis
-summary: 'Use the API Explorer feature to execute REST API calls from your browser. '
+summary: The API Explorer is integrated with the BlueXP API reference documentation, enabling you to test the various API endpoints while reviewing the documentation.
 ---
 
 = Use the API Explorer
