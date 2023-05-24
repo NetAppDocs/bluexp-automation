@@ -48,9 +48,9 @@ The ONTAP management service supports many different workflows. Each workflow le
 * On-premises ONTAP workflows
 * Common workflows
 
-See link:cm/workflow_processes.html[Workflows processes] to familiarize yourself with their common characteristics before using the workflows.
+See link:workflow_processes.html[Workflows processes] to familiarize yourself with their common characteristics before using the workflows.
 
 .API reference 
 
-The link:cm/api_reference.html[API reference] provides a guide for working with the ONTAP management service and includes specific reference information for each available operation.
+The link:api_reference.html[API reference] provides a guide for working with the ONTAP management service and includes specific reference information for each available operation.
 
