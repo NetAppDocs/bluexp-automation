@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: platform/additional_considerations.html
-keywords: cloud, manager, rest, api
+keywords: bluexp, rest, api, asynchronous, processing, public identifiers
 summary: 'There are several additional characteristics of the BlueXP REST API affecting its operation and use. You should be aware of these considerations before issuing an API call.'
 ---
 
@@ -17,11 +17,11 @@ There are several additional characteristics of the BlueXP REST APIs affecting t
 
 == Public identifiers
 
-All resources exposed through the Cloud Volumes ONTAP API (for example, working environments) are assigned a public ID. Whenever a resource is created or returned, the public ID is displayed in the response. You must specify a resource’s public ID when performing operations on the resource. For example, you must specify the public ID for a working environment when you create a volume.
+All resources exposed through the Cloud Volumes ONTAP API (for example, working environments) are assigned a public ID. Whenever a resource is created or returned, the public ID is displayed in the response. You must specify a resource's public ID when performing operations on the resource. For example, you must specify the public ID for a working environment when you create a volume.
 
 == Asynchronous processing
 
-For most of the BlueXP platform REST APIs, all HTTP request methods except GET are processed asynchronously. If needed, you can check the status of an active task based on the `request id` returned in the original HTTP response. Each task has a status value as described in the following table.
+For most of the BlueXP REST APIs, all HTTP request methods except GET are processed asynchronously. If needed, you can check the status of an active task based on the `request id` returned in the original HTTP response. Each task has a status value as described in the following table.
 
 [cols="20,80",options="header"]
 |===

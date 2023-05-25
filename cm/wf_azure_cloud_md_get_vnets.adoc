@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/wf_azure_cloud_md_get_vnets.html
 keywords: permutations, cloud, volumes, ontap, working, environment, occm
-summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
+summary: You can perform this workflow to retrieve the network extended information.
 ---
 
 = Get Azure VNets
@@ -15,7 +15,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 [.lead]
 You can perform this workflow to retrieve the network extended information.
 
-NOTE: Ensure that you've the Azure subscription ID. You can easily obtain the ID from the Azure portal.
+NOTE: MAke sure that you've the Azure subscription ID. You can easily obtain the ID from the Azure portal.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 

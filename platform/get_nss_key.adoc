@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: platform/get_nss_key.html
-keywords: nss, credentials, key, cloud, manager, rest, api, nss, credential
+keywords: nss, credentials, key, bluexp, rest, api, nss, credential
 summary: 'You can sign in to the BlueXP web user interface to retrieve the NetApp Support Site credentials key.'
 ---
 

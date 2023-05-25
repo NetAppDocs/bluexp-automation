@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: platform/concepts.html
-keywords: rest, api, cloud, manager, http, endpoints, adminitrative resources, authentication, auditing
+keywords: rest, api, cloud, manager, http, endpoints, administrative resources, authentication, auditing
 summary: 'Representational State Transfer (REST) is a style for creating distributed web applications.'
 ---
 
@@ -45,7 +45,6 @@ REST resources are accessed through endpoints identified in the URL path. Each e
 * Resource instance
 * Collection of resource instances
 
-//See link:api_reference.html[API reference] for more information.
 
 == Types of input parameters
 
