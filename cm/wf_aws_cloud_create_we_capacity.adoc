@@ -24,7 +24,7 @@ You can add new volumes when creating the working environment.
 * If you purchase a license from NetApp (BYOL), a NetApp Support Site (NSS) key is required to register the system for support.
 * You can add more volumes after creating the working environment. You can choose to create a volume using either link:wf_aws_ontap_create_vol_nfs.html[NFS], link:wf_aws_ontap_create_vol_cifs.html[CIFS], or link:wf_aws_ontap_create_vol_iscsi.html[iSCSI] protocol.
 
-link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[Learn more about capacity-based licensing^].
+link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing[Learn more about capacity-based licensing^].
 ====
 
 Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployment:
@@ -50,7 +50,7 @@ Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations
 
 === 4. Select the capacity package name
 
-Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
+Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 11. There are three licensing options available: `Professional`, `Essentials`, and `Freemium`. Review the link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
 
 === 5. Select the VPC
 
@@ -80,7 +80,7 @@ An NSS key is *optional* when using a marketplace subscription. When using BYOL,
 
 === 9. (Optional) Add a BYOL license
 
-If you purchase a license from NetApp (BYOL), make sure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+If you purchase a license from NetApp (BYOL), make sure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 10. (Optional) Create a new volume
 
@@ -282,7 +282,7 @@ Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations
 === 5. Select the capacity package name
 
 Choose the package name for the `vsaMetadata:capacityPackageName` parameter in step 13. There are three options available: `Professional`, `Essentials`, and `Freemium`.
-Review the link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
+Review the link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[Cloud Volumes ONTAP licensing] types offered to new customers to know more about the available options.
 
 === 6. Select the packages configuration
 Perform the link:wf_aws_cloud_md_get_packages.html[Get Packages] and choose the `packageName`, `instanceTenancy` and `writingSpeedState` values for the corresponding parameters in step 13.
@@ -320,7 +320,7 @@ An NSS key is optional when using a marketplace subscription. When using BYOL, y
 
 === 12. (Optional) Add a BYOL license
 
-If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
+If you purchase a license from NetApp (BYOL), ensure that the purchased license is available in the Digital Wallet. The license gets automatically added to your account if you have associated the NSS account with Cloud Manager. To add the license manually, refer to link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account[Add purchased licenses to your account^].
 
 === 13. (Optional) Create a new volume
 
