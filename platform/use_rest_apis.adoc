@@ -57,12 +57,12 @@ Several BlueXP APIs require a Connector ID to route the request to the appropria
 
 Depending on the REST API call, you may need a user token, a service token, or both. These tokens can be obtained from the Auth0 authorization service. The tokens need to be included with every API call. For more information, see:
 
-* https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html[Create user token]
-* https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_service_token.html[Create service token]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/create_user_token.html[Create user token]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/create_service_token.html[Create service token]
 
 === 3. Create the required request headers
 
-You need to create several HTTP request headers and include them with each API call. See the applicable API reference to understand which headers should be used. The most common headers are described below. Also see https://docs.netapp.com/us-en/cloud-manager-automation/cm/hello_world.html[Hello World] for an example.
+You need to create several HTTP request headers and include them with each API call. See the applicable API reference to understand which headers should be used. The most common headers are described below. Also see https://docs.netapp.com/us-en/bluexp-automation/cm/hello_world.html[Hello World] for an example.
 
 Authorization::
 This header typically contains the user bearer access token.
