@@ -16,17 +16,17 @@ summary: "You should be familiar with the high-level organization and format of 
 You should be familiar with the organization and format of the Cloud Volumes ONTAP and ONTAP on-premises workflow processes before using them with a live deployment.
 
 [NOTE]
-Before getting started with the workflows, see link:platform/workflows_tasks.html[Workflow processes and tasks] for an introduction on how workflows and tasks are generally used with BlueXP.
+Before getting started with the workflows, see link:../platform/workflows_tasks.html[Workflow processes and tasks] for an introduction on how workflows and tasks are generally used with BlueXP.
 
 == High level organization of the workflows
 
 There are two broad categories of workflows associated with the ONTAP management service. They are as follows:
 
-* Cloud Volumes ONTAP workflows: This set of workflows enables you to manage the Cloud Volumes ONTAP instances deployed in a hyperscaler (AWS, Azure, or Google Cloud).
+* Cloud Volumes ONTAP workflows: This set of workflows enables you to manage the Cloud Volumes ONTAP instances deployed in a cloud provider (AWS, Azure, or Google Cloud).
 
-* ONTAP on-premises workflows: This set of workflows enable you to discover and manage the on-premises ONTAP clusters. 
+* ONTAP on-premises workflows: This set of workflows enable you to discover and manage the ONTAP clusters residing on your premises. 
 
-There's similarity between the functional categories of the Cloud Volumes ONTAP and on-premises ONTAP workflows, however, there are a few key differences noted as follows.
+There's similarity between the functional categories of the Cloud Volumes ONTAP and on-premises ONTAP workflows, however, there are a few key differences presented as follows.
 
 === Organization of Cloud Volumes ONTAP workflows
 
@@ -38,8 +38,6 @@ The Cloud Volumes ONTAP workflows can be performed with one cloud provider. The 
 * Amazon Web Services
 * Microsoft Azure
 * Google Cloud 
-
-NOTE: 
 
 .Functional category
 

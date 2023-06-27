@@ -13,16 +13,15 @@ summary: "You can issue a curl command to get started using the REST API and con
 :imagesdir: ./media/
 
 [.lead]
-You can issue a curl command to get started using the Cloud Volumes ONTAP REST API and confirm its availability.
+You can issue a curl command to get started using a Cloud Volumes ONTAP REST API and confirm its availability.
 
 [NOTE]
-The example provided below is very simple. The workflow samples later in this guide use a more robust format. See link:workflow_processes.html[Workflow processes] to get started.
+The example provided below is very simple. The workflow samples later in this documentation use a more robust format. See link:workflow_processes.html[Workflow processes] to get started.
 
 .Before you begin
+You need to do the following:
 
-You must do the following:
-
-* Determine the identifier to use for the `x-agent-id` request header as well as the related client ID. See link:../platform/get_identifiers.html[Get required identifiers].
+* Determine the identifier to use for the `x-agent-id` request header. See link:../platform/get_identifiers.html[Get required identifiers].
 
 * Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
 
@@ -39,7 +38,7 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/oc
 
 .Output example
 
-Information about the system is provided in the following format.
+Information about the system is provided in the following JSON format.
 
 [source,json]
 {

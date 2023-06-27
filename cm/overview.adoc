@@ -33,7 +33,7 @@ Each resource is accessible through a set of API endpoints.
 
 .Cloud Volumes ONTAP operations
 
-Cloud Volumes ONTAP API is widely used by developers to create and administer Cloud Volumes ONTAP working environment resources, add aggregates, and volumes to Cloud Volumes ONTAP instances. The Cloud Volumes ONTAP REST API calls vary depending on the different cloud providers. Also, there are slight variations among the Cloud Volume ONTAP API calls used for single-node versus HA configurations.
+Cloud Volumes ONTAP API is widely used by developers to create and administer Cloud Volumes ONTAP working environment resources, add aggregates, and volumes to Cloud Volumes ONTAP instances. The Cloud Volumes ONTAP REST API calls vary depending on the different cloud providers. Also, there are slight variations among the Cloud Volumes ONTAP API calls used for single-node versus HA configurations.
 
 .On-premises ONTAP operations
 
