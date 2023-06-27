@@ -16,7 +16,7 @@ summary: "You can issue a curl command to get started using the REST API and con
 You can issue a curl command to get started using the Cloud Volumes ONTAP REST API and confirm its availability.
 
 [NOTE]
-The example provided below is very simple. The workflow samples later in this guide use a more robust format. As a start, see link:workflow_processes.html[Workflow processes].
+The example provided below is very simple. The workflow samples later in this guide use a more robust format. See link:workflow_processes.html[Workflow processes] to get started.
 
 .Before you begin
 
