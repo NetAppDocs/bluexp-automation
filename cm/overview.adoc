@@ -13,44 +13,43 @@ summary: 'There are several things you should do to prepare to use the BlueXP RE
 :imagesdir: ./media/
 
 [.lead]
-ONTAP management service is composed of multiple related REST APIs that enable you to administer your cloud-based and on-premises ONTAP storage resources. The service combines multiple API calls to execute specific tasks.
-
-Using the REST APIs, you can perform different operations, including managing Cloud Volumes ONTAP single-node and HA resources (ONTAP instances running at the public cloud providers), on-premises ONTAP cluster resources (including AFF/FAS systems), configure cloud provider, support BlueXP account resources, and more. 
+ONTAP management service is composed of multiple related REST APIs that enable you to administer your cloud-based and on-premises ONTAP storage resources. Using the REST APIs, you can perform many different operations, including managing Cloud Volumes ONTAP single-node and high availability (HA) resources (ONTAP instances running on the public cloud providers), on-premises ONTAP cluster resources (including AFF/FAS systems), configure cloud providers, support BlueXP account resources, and more. 
 
 The different types of resources supporting these operations can be managed through the ONTAP management service. They can be broadly categorized as follows:
 
 * Administrative resources
-  These resources are used to set up and configure BlueXP
+  These resources are used to set up and configure the BlueXP environment.
 
 * Auditing resources
-  Used to view details about BlueXP operations
+  You can view the details about the BlueXP operations that have been initiated or are active.
 
 * Authentication resources
-  Used to authenticate with BlueXP  so you can run API operations
+  You need to authenticate using a BlueXP account to run the API operations.
 
 * Working environment resources
-  Used to deploy and manage working environments: single Cloud Volumes ONTAP systems, Cloud Volumes ONTAP HA configurations, and ONTAP clusters
+  These resources represent available deployment environments, including Cloud Volumes ONTAP single-node and HA configurations as well as on-premises ONTAP clusters.
 
 Each resource is accessible through a set of API endpoints.
 
 .Cloud Volumes ONTAP operations
 
-Cloud Volumes ONTAP API is widely used by developers to create and administer Cloud Volumes ONTAP working environment resources, add aggregates, volumes to Cloud Volumes ONTAP instances. The Cloud Volumes ONTAP REST API calls vary depending on the different cloud providers. Also, there are slight variations among the Cloud Volume ONTAP API calls used for single-node versus HA configurations.
+Cloud Volumes ONTAP API is widely used by developers to create and administer Cloud Volumes ONTAP working environment resources, add aggregates, and volumes to Cloud Volumes ONTAP instances. The Cloud Volumes ONTAP REST API calls vary depending on the different cloud providers. Also, there are slight variations among the Cloud Volume ONTAP API calls used for single-node versus HA configurations.
 
 .On-premises ONTAP operations
 
-You can discover and manage the on-premises ONTAP resources by using the on-premises REST API calls. You can issue a REST API call to discover an on-premises ONTAP cluster and add it as a working environment resource. You can add volumes and perform several other activities using the REST calls.
+You can discover and manage the on-premises ONTAP resources by using the on-premises REST API calls. In addition, you can also perform various management operations, such as add an ONTAP cluster as a working environment resource, add volumes, and perform other related actions.
 
 .API workflows
+
 The ONTAP management service supports many different workflows. Each workflow is focused on performing a specific administrative task. There are three major sets of workflows: 
 
 * Cloud Volumes ONTAP workflows
 * On-premises ONTAP workflows
 * Common workflows
 
-See link:workflow_processes.html[Workflows processes] to familiarize yourself with their common characteristics before using the workflows.
+See link:workflow_processes.html[Workflows processes] to learn more about the workflows and their common characteristics before using a specific API.
 
 .API reference 
 
-The link:api_reference.html[API reference] provides a single guide that you can use when working with the ONTAP management service. It includes specific reference information for each of the available operations.
+You can use the link:api_reference.html[API reference] documentation when working with the ONTAP management service. It includes specific reference information for each of the available operations.
 
