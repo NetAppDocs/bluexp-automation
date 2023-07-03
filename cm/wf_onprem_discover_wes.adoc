@@ -1,0 +1,74 @@
+---
+sidebar: sidebar
+permalink: cm/wf_onprem_discover_wes.html
+keywords: cloud, manager, rest, api, list, working, environment, occm
+summary: "You can retrieve the on-premises working environments that are visible to the user currently signed in."
+---
+
+= Discover working environments
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can discover the on-premises ONTAP clusters and add them to a working environment using the cluster name as the working environment name.
+
+== 1. Discover the working environments
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|/occm/api/onprem/working-environments
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Input body example::
+[source,json]
+{
+  "clusterPassword": "Netapp234",
+  "description": "Onprem Working Environment",
+  "clusterUserName": "admin",
+  "name": "onpremwe",
+  "location": "ON_PREM",
+  "clusterAddress": "10.140.0.40",
+  "tenantId": "workspaceUsXAWu48"
+}
+
+
+JSON output example::
+[source,json]
+{
+  "publicId": "OnPremWorkingEnvironment-i7by5xxx",
+  "tenantId": "Tenant-dfxx5",
+  "description": "Onprem Working Environment",
+  "name": "onpremwe",
+  "discoverUserEmail": "user_Email@domain.com",
+  "location": "ON_PREM",
+  "reservedSize": null,
+  "status": null,
+  "interClusterLifs": null,
+  "cronJobSchedules": null,
+  "svms": null,
+  "snapshotPolicies": null,
+  "replicationProperties": null,
+  "clusterProperties": null,
+  "ontapClusterProperties": null,
+  "workingEnvironmentType": "ON_PREM",
+  "cloudSyncProperties": null,
+  "actionsRequired": null,
+  "capacityFeatures": null,
+  "aff": false,
+  "cbsProperties": null,
+  "complianceProperties": null,
+  "monitoringProperties": null
+}
+
+
+

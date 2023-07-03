@@ -241,7 +241,7 @@ entries:
   - title: On-premises ONTAP cluster workflows
     entries:
     - title: Before you begin
-      url: /cm/onprem_before.html
+      url: /cm/wf_onprem_before.html
     - title: Working environments
       entries:
              - title: Get working environments

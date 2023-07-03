@@ -1,0 +1,64 @@
+---
+sidebar: sidebar
+permalink: cm/wf_onprem_get_wes.html
+keywords: cloud, manager, rest, api, list, working, environment, occm
+summary: "You can retrieve the on-premises working environments that are visible to the user currently signed in."
+---
+
+= Get working environments
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can retrieve the on-premises working environment details such as the public identifier, name, and type of the working environment, the storage VM name, the cluster properties, and more. These details can be used in the input body field while executing other on-prem workflows.
+
+
+== 1. Get the working environments
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|GET
+|occm/api/onprem/working-environments
+|===
+
+curl example::
+[source,curl]
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/working-environments/<ONPREM_WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+
+Output::
+The JSON output example includes on-premises working environment details.
+
+JSON output example::
+[source,json]
+{
+  "publicId": "OnPremWorkingEnvironment-c4ZMsdrxxh",
+  "tenantId": "Tenant-zzxx",
+  "description": "",
+  "name": "onpremwe",
+  "discoverUserEmail": "user_email@domain.com",
+  "location": "ON_PREM",
+  "reservedSize": null,
+  "status": null,
+  "interClusterLifs": null,
+  "cronJobSchedules": null,
+  "svms": null,
+  "snapshotPolicies": null,
+  "replicationProperties": null,
+  "clusterProperties": null,
+  "ontapClusterProperties": null,
+  "workingEnvironmentType": "ON_PREM",
+  "cloudSyncProperties": null,
+  "actionsRequired": null,
+  "capacityFeatures": null,
+  "aff": false,
+  "cbsProperties": null,
+  "complianceProperties": null,
+  "monitoringProperties": null
+}
+
+
