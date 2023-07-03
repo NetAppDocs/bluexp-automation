@@ -13,14 +13,14 @@ summary: 'Representational State Transfer (REST) is a style for creating distrib
 :imagesdir: ./media/
 
 [.lead]
-Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The BlueXP platform REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based resources.
+Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The BlueXP REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based and on-premise resources.
 
 [NOTE]
 While REST establishes a common set of technologies and best practices, the details of each API can vary based on the design choices of the development team. See the reference for the API you plan to use.
 
 == Overview of the API resources
 
-The REST style of application development begins by identifying the set of server-based resources. Considering the Cloud Volumes ONTAP API as an example, the resources are broadly categorized as follows:
+The REST style of application development begins by identifying a set of server-based resources. The resources are broadly categorized as follows:
 
 * Administrative resources
 +
@@ -38,6 +38,8 @@ Used to authenticate to BlueXP so you can make API calls
 +
 Used to deploy and manage working environments, including: single Cloud Volumes ONTAP systems, Cloud Volumes ONTAP HA configurations, and ONTAP clusters
 
+* Platform resources
+
 == REST endpoints
 
 REST resources are accessed through endpoints identified in the URL path. Each endpoint provides access to one of the following:
@@ -48,7 +50,7 @@ REST resources are accessed through endpoints identified in the URL path. Each e
 
 == Types of input parameters
 
-There are several types of parameters available with the BlueXP platform APIs with each request.
+There are several types of parameters available with the BlueXP APIs with each request.
 
 [cols="20,80",options="header"]
 |===

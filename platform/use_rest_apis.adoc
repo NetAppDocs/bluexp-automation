@@ -5,7 +5,7 @@ keywords: bluexp, rest, apis, authentication, authorization, general, process
 summary: The document describes the general process to prepare and use the authentication and authorization information needed to issue a BlueXP platform REST API call 
 ---
 
-= Use the BlueXP platform REST APIs
+= Use the BlueXP REST APIs
 :hardbreaks:
 :nofooter:
 :icons: font

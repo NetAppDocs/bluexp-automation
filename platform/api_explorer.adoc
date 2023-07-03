@@ -17,7 +17,7 @@ The API Explorer is integrated with the BlueXP API reference documentation, enab
 
 NOTE: You can access the API Explorer by clicking *Try it out* on any of the API reference pages where it is supported.
 
-.Before you begin
+== Before you begin
 There are several things you should consider before using the API Explorer.
 
 .Prerequisites

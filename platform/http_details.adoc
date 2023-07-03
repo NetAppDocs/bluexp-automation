@@ -94,7 +94,7 @@ The common HTTP status codes are described as follows.
 |Conflict
 |The operation failed because another operation is already in progress.
 |420
-|---
+|Method Failure
 |Cloud Manager has not been set up. You must set up Cloud Manager using the API call /occm/setup/init
 |5xx
 |---
