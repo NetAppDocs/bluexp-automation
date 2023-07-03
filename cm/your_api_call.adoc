@@ -16,16 +16,17 @@ summary: "You can issue a curl command to get started using the REST API and con
 You can issue a curl command to get started using a Cloud Volumes ONTAP REST API and confirm its availability.
 
 [NOTE]
-The example provided below is very simple. The workflow samples later in this documentation use a more robust format. See link:workflow_processes.html[Workflow processes] to get started.
+The following workflow example is very simple. The workflow samples later in this documentation use a more robust format. See link:workflow_processes.html[Workflow processes] to get started.
 
-.Before you begin
-You need to do the following:
+== 1. Select the identifier
 
-* Determine the identifier to use for the `x-agent-id` request header. See link:../platform/get_identifiers.html[Get required identifiers].
+Determine the identifier to use for the `x-agent-id` request header. See link:../platform/get_identifiers.html[Get required identifiers].
 
-* Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
+== 2. Get the access token
 
-.curl example
+Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
+
+curl example::
 
 The following curl command retrieves information about the BlueXP server.
 
@@ -36,7 +37,7 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/oc
 * Replace <AGENT_ID> with your agent ID.
 * Replace <ACCESS_TOKEN> with the bearer access token.
 
-.Output example
+JSON output example::
 
 Information about the system is provided in the following JSON format.
 
