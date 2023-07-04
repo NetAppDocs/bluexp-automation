@@ -75,7 +75,7 @@ The common HTTP status codes are described as follows.
 |The request was completed successfully.
 |202
 |Accepted
-|The request was accepted and is currently in process. Cloud Manager returns this code when the API call operates asynchronously. For example, the `/vsa/working-environments` call returns with 202 but the Cloud Volumes ONTAP instance launches up to 25 minutes later.
+|The request was accepted and is currently in process. BlueXP returns this code when the API call operates asynchronously. For example, the `/vsa/working-environments` call returns with 202 but the Cloud Volumes ONTAP instance launches up to 25 minutes later.
 |204
 |No Content
 |The operation was completed successfully and the server did not send a response message.
@@ -93,10 +93,10 @@ The common HTTP status codes are described as follows.
 |The operation failed because another operation is already in progress.
 |420
 |Method Failure
-|Cloud Manager has not been set up. You must set up Cloud Manager using the API call /occm/setup/init
+|BlueXP has not been set up. You must set up BlueXP using the API call /occm/setup/init
 |5xx
 |---
-|An unexpected error occurred within the Cloud Manager server which has prevented it from fulfilling the request.
+|An unexpected error occurred within the BlueXP server which has prevented it from fulfilling the request.
 |===
 
 === Response headers

@@ -35,6 +35,6 @@ To support the feature, a few additional fields have been added. The workflows h
 
 == Connector setup
 
-You must have a *Connector* for the cloud environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the BlueXP web UI. When you create a Connector, BlueXP adds the AWS cloud provider account that you deployed the Connector in to your list of available accounts. Your AWS account needs to have the right permissions in order to create a Connector.
+You must have a *Connector* for the cloud environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the BlueXP web UI. When you create a Connector, BlueXP adds the cloud provider account that you deployed the Connector in to your list of available accounts. Your public cloud account needs to have the right permissions in order to create a Connector.
 
-Review https://docs.netapp.com/us-en/occm/task_creating_connectors_aws.html[Learn about AWS Connectors] to know how to create and deploy an AWS Connector.
+Review https://docs.netapp.com/us-en/occm/task_creating_connectors_aws.html[Learn about Connectors^] to know how to create and deploy a Connector.

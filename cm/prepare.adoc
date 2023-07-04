@@ -19,7 +19,7 @@ You need to prepare before using the REST APIs provided with the ONTAP managemen
 You'll need a NetApp account to acquire an access token required to issue the REST API calls.
 
 .Review REST concepts and implementation
-Review the link:platform/http_details.html[REST implementation details] for information about REST concepts and the details of how the REST API is designed.
+Review the link:../platform/http_details.html[REST implementation details] for information about REST concepts and the details of how the REST API is designed.
 
 .Be familiar with Cloud Volumes ONTAP and ONTAP on-premises concepts
 If you plan to perform Cloud Volumes ONTAP and on-premises ONTAP administration tasks, you should be familiar with the related ONTAP concepts, terminology, and procedures. Learn about link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-overview-cvo.html[Cloud Volumes ONTAP^] and https://docs.netapp.com/us-en/bluexp-ontap-onprem/concept-onprem-ontap.html[on-premises ONTAP^]concepts.
@@ -37,7 +37,7 @@ Review link:workflow_processes.html[Workflow processes] for more information abo
 This documentation does not describe or use the legacy UI (not the SaaS UI).
 
 .Locate the identifiers
-You'll need the identifier values for several of the workflows. See link:platform/get_identifiers.html[Get required identifiers] for more information.
+You'll need the identifier values for several of the workflows. See link:../platform/get_identifiers.html[Get required identifiers] for more information.
 
-.Related information
-Review the available resources described in link:platform/additional_considerations.html[Additional considerations].
+.Additional considerations
+Review the available resources described in link:../platform/additional_considerations.html[Additional considerations].
