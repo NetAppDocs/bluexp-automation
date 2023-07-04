@@ -17,7 +17,7 @@ There are several additional characteristics of the BlueXP REST APIs affecting t
 
 == Public identifiers
 
-All resources exposed through the Cloud Volumes ONTAP API (for example, working environments) are assigned a public ID. Whenever a resource is created or returned, the public ID is displayed in the response. You must specify a resource's public ID when performing operations on the resource. For example, you must specify the public ID for a working environment when you create a volume.
+All resources exposed through the BlueXP APIs (for example, working environments of the Cloud Volumes ONTAP API) are assigned a public ID. Whenever a resource is created or returned, the public ID is displayed in the response. You must specify a resource's public ID when performing operations on the resource. For example, you must specify the public ID for a working environment when you create a volume.
 
 == Asynchronous processing
 

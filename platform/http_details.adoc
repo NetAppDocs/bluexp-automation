@@ -65,8 +65,6 @@ A REST API response contains the standard HTTP status codes and response headers
 
 The common HTTP status codes are described as follows.
 
-// reason-phrase is the simple term for each status code
-
 [cols="15,20,65",options="header"]
 |===
 |Status code
