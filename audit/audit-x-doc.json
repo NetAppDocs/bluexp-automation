@@ -1,0 +1,34 @@
+{
+    "paths": {
+      "/audit/external/{accountId}": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve account records",
+            "category": "audit",
+            "filename": "get-audit-external-.html",
+            "subcategory": null
+          }
+        }
+      },
+      "/audit/external/{accountId}/{service}/{requestId}/records": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve records by service",
+            "category": "audit",
+            "filename": "get-audit-external--records.html",
+            "subcategory": null
+          }
+        }
+      },
+      "/audit/external/{accountId}/options": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve audit options ",
+            "category": "audit",
+            "filename": "get-audit-external-options.html",
+            "subcategory": null
+          }
+        }
+      }
+    }
+  }
