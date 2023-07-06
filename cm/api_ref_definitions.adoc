@@ -1246,6 +1246,7 @@ The data definitions are used when making REST API calls.
 |useAccelerationForImageDownload||true|boolean|
 |maxDownloadSessions||true|integer (int32)|
 |rollbackOnAzurePrivateLinkFailure||true|boolean|
+|gcpInstanceMetadataItems||false|<<GcpInstanceMetadataItems>>|
 |userPrivateDnsZoneSettings||false|<<UserPrivateDnsZoneSettings>>|
 |===
 
@@ -1274,6 +1275,10 @@ The data definitions are used when making REST API calls.
 |useAccelerationForImageDownload||false|boolean|
 |maxDownloadSessions||false|integer (int32)|
 |rollbackOnAzurePrivateLinkFailure||false|boolean|
+|gcpBlockProjectSshKeys||false|boolean|
+|gcpSerialPortEnable||false|boolean|
+|gcpEnableOsLogin||false|boolean|
+|gcpEnableOsLoginSk||false|boolean|
 |===
 
 === Configuration
@@ -1948,29 +1953,6 @@ The data definitions are used when making REST API calls.
 |expands||false|<<Expand>> array|
 |===
 
-=== ExportPolicyRule
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|index|Export policy rule index|false|integer (int32)|
-|ruleAccessControl|Export policy rule access control|false|string|
-|ips|Export policy rule list of IPs|false|string array|
-|nfsVersion|Export policy rule protocol|false|string array|
-|policyType|Export policy rule super user access|false|boolean|
-|===
-
-=== ExportPolicyRuleResponse
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|protocols||true|string array|
-|clients||true|string array|
-|ro_rule||true|string array|
-|rw_rule||true|string array|
-|superuser||true|string array|
-|index||false|integer (int32)|
-|===
-
 === ExportPolicyInfo
 [options="header"]
 |===
@@ -1987,7 +1969,19 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |svm||true|string|
-|rules||true|<<ExportPolicyRuleResponse>> array|
+|rules||true|<<ExportPolicyRule>> array|
+|===
+
+=== ExportPolicyRule
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|protocols||true|string array|
+|clients||true|string array|
+|ro_rule||true|string array|
+|rw_rule||true|string array|
+|superuser||true|string array|
+|index||false|integer (int32)|
 |===
 
 === ExtendedObjectStoreConfigInfo
@@ -2269,6 +2263,16 @@ The data definitions are used when making REST API calls.
 |node1Info||true|<<GcpHaNodeInfo>>|
 |node2Info||true|<<GcpHaNodeInfo>>|
 |projectName||true|string|
+|===
+
+=== GcpInstanceMetadataItems
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|blockProjectSshKeys||true|boolean|
+|serialPortEnable||true|boolean|
+|enableOsLogin||true|boolean|
+|enableOsLoginSk||true|boolean|
 |===
 
 === GcpKeysForCloudStorageWithValidation
@@ -3143,8 +3147,8 @@ The data definitions are used when making REST API calls.
 |usedCapacity||true|<<Capacity>>|
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
-|objectStoreAttachEligible||true|boolean|
 |inactiveDataReportingEnabled||true|boolean|
+|objectStoreAttachEligible||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3175,8 +3179,8 @@ The data definitions are used when making REST API calls.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|snapmirrorLicenseExists||true|boolean|
 |aff||true|boolean|
+|snapmirrorLicenseExists||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3185,7 +3189,7 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |workingEnvironmentId|Target working environment ID|true|string|
 |svmName|SVM name|true|string|
-|aggregateName|Aggregate in which to create the volume|true|string|
+|aggregateName|Aggregate in which to create the volume|false|string|
 |name|Volume name, unique within the SVM|true|string|
 |size|Size as Capacity|true|<<PositiveCapacity>>|
 |initialSize|Initial size as Capacity. Relevant for thin provisioned volumes only. Default to 0.|false|<<Capacity>>|
@@ -4626,8 +4630,8 @@ The data definitions are used when making REST API calls.
 |cbsBackupsInfo|Backup to Cloud Service info|false|<<VolumeCbsInfo>>|
 |minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
-|flexGroupVolume||true|boolean|
 |iscsiEnabled||true|boolean|
+|flexGroupVolume||true|boolean|
 |===
 
 === VolumeShareResponse
