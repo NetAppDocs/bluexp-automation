@@ -67,7 +67,7 @@
             "requestId": {
               "type": "string",
               "readOnly": true,
-              "description": "RequestId of the operation. globally unique for the service.",
+              "description": "RequestId of the operation. Globally unique for the service.",
               "example": "c53qRZlA"
             },
             "service": {
@@ -80,7 +80,7 @@
               "type": "string",
               "readOnly": true,
               "description": "Id of the entity performing the operation.",
-              "example": "auth0|5cd02b613c58e90888cd5741"
+              "example": "auth0|5cd02b613c58e90xxxcd5741"
             },
             "agentName": {
               "type": "string",
@@ -91,24 +91,24 @@
             "agentId": {
               "type": "string",
               "readOnly": true,
-              "description": "Id of the agent which performed the operation.",
+              "description": "ID of the agent which performed the operation.",
               "example": "123-456-769"
             },
             "resourceName": {
               "type": "string",
               "readOnly": true,
               "description": "Name of the resource acted upon by the operation.",
-              "example": "CVO"
+              "example": "Cloud Volumes ONTAP"
             },
             "resourceId": {
               "type": "string",
               "readOnly": true,
-              "description": "Id of the resource acted upon by the operation.",
+              "description": "ID of the resource acted upon by the operation.",
               "example": "resource-123"
             },
             "errors": {
               "readOnly": true,
-              "description": "Array of error message/s if exists. that related to this auditGroup",
+              "description": "Array of error message/s if exists which is related to this auditGroup",
               "example": "[error1,error2]",
               "type": "array",
               "items": {
@@ -118,7 +118,7 @@
             "requestData": {
               "type": "string",
               "readOnly": true,
-              "description": "Parameters related to request of operation. a string, can be JSON string",
+              "description": "Parameters related to a request of operation. a string, can be JSON string",
               "example": "\"{\"replicationRequest\":{\"policyName\":\"MirrorAllSnapshots\",\"destinationWorkingEnvironmentId\":\"VsaWorkingEnvironment-LspTA9zs\",\"sourceWorkingEnvironmentId\":\"VsaWorkingEnvironment-bMyCULIC\",\"destinationInterclusterLifIps\":[\"10.0.0.35\"],\"sourceInterclusterLifIps\":[\"1.1.1.1\"],\"maxTransferRate\":null,\"scheduleName\":\"weekly\"},\"replicationVolume\":{\"destinationProviderVolumeType\":\"Standard_LRS\",\"destinationVolumeName\":\"vol2_1000g_case3_copy\",\"sourceVolumeName\":\"vol2_1000g\",\"advancedMode\":false,\"numOfDisksApprovedToAdd\":1,\"destinationCapacityTier\":null,\"destinationAggregateName\":\"aggr2\",\"sourceSvmName\":\"svm_srcVsa1\"}}\""
             },
             "responseData": {
@@ -206,7 +206,7 @@
             },
             "recordId": {
               "type": "number",
-              "description": "Record id - is unique per requestId per service.",
+              "description": "Record ID - is unique per requestId per service.",
               "example": 234543,
               "readOnly": true
             }
@@ -412,7 +412,7 @@
         "get": {
           "operationId": "AuditController_auditOptions",
           "summary": "",
-          "description": "Retrieves filter options a by specified account ID.\n  </br>\n    <p><strong>Token usage:</strong></span> BlueXP user token.</p>",
+          "description": "Retrieves filter options by a specified account ID.\n  </br>\n    <p><strong>Token usage:</strong></span> BlueXP user token.</p>",
           "parameters": [
             {
               "name": "accountId",
