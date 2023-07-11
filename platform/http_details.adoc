@@ -93,7 +93,7 @@ The common HTTP status codes are described as follows.
 |The operation failed because another operation is already in progress.
 |`420`
 |Method Failure
-|BlueXP has not been set up. You must set up BlueXP using the API call /occm/setup/init
+|BlueXP has not been set up. You must set up BlueXP using the API call `/occm/setup/init`
 |`5xx`
 |---
 |An unexpected error occurred within the BlueXP server which has prevented it from fulfilling the request.
