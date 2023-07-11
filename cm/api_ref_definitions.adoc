@@ -15,7 +15,6 @@ summary: The data definitions are used when making REST API calls.
 [.lead]
 The data definitions are used when making REST API calls.
 
-
 === About
 [options="header"]
 |===
@@ -1247,6 +1246,7 @@ The data definitions are used when making REST API calls.
 |useAccelerationForImageDownload||true|boolean|
 |maxDownloadSessions||true|integer (int32)|
 |rollbackOnAzurePrivateLinkFailure||true|boolean|
+|gcpInstanceMetadataItems||false|<<GcpInstanceMetadataItems>>|
 |userPrivateDnsZoneSettings||false|<<UserPrivateDnsZoneSettings>>|
 |===
 
@@ -1275,6 +1275,10 @@ The data definitions are used when making REST API calls.
 |useAccelerationForImageDownload||false|boolean|
 |maxDownloadSessions||false|integer (int32)|
 |rollbackOnAzurePrivateLinkFailure||false|boolean|
+|gcpBlockProjectSshKeys||false|boolean|
+|gcpSerialPortEnable||false|boolean|
+|gcpEnableOsLogin||false|boolean|
+|gcpEnableOsLoginSk||false|boolean|
 |===
 
 === Configuration
@@ -1448,6 +1452,24 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |workingEnvironmentIds||true|string array|
 |enableAnf||true|boolean|
+|===
+
+=== CreateFlexCacheRestRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|sourceWorkingEnvironmentId|Source working environment Id|true|string|
+|destinationWorkingEnvironmentId|Destination working environment Id|true|string|
+|sourceSvmName|Source svm name|true|string|
+|destinationSvmName|Destination svm name|true|string|
+|sourceIpSpace|Source IP space|false|string|
+|destinationIpSpace|Destination IP space|false|string|
+|sourceVolumes|Names of source volumes|true|string array|
+|cacheVolumePercentage|FlexCache volume percentage|true|integer (int32)|
+|nameForSingleVolume|FlexCache volume name for single volume|false|string|
+|namePrefix|FlexCache name prefix|false|string|
+|nameSuffix|FlexCache name suffix|false|string|
+|replicateNfsCifsShares|Replicate NFS and CIFS shares as source volume|true|boolean|
 |===
 
 === CreateGcpVsaWorkingEnvironmentRequest
@@ -1941,15 +1963,25 @@ The data definitions are used when making REST API calls.
 |rules|Export policy rules|false|<<ExportPolicyRule>> array|
 |===
 
+=== ExportPolicyResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name||true|string|
+|svm||true|string|
+|rules||true|<<ExportPolicyRule>> array|
+|===
+
 === ExportPolicyRule
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|index|Export policy rule index|false|integer (int32)|
-|ruleAccessControl|Export policy rule access control|false|string|
-|ips|Export policy rule list of IPs|false|string array|
-|nfsVersion|Export policy rule protocol|false|string array|
-|policyType|Export policy rule super user access|false|boolean|
+|protocols||true|string array|
+|clients||true|string array|
+|ro_rule||true|string array|
+|rw_rule||true|string array|
+|superuser||true|string array|
+|index||false|integer (int32)|
 |===
 
 === ExtendedObjectStoreConfigInfo
@@ -1984,6 +2016,27 @@ The data definitions are used when making REST API calls.
 |end||false|string|
 |excludedRegions||false|string array|
 |excludedLicenseTypes||false|string array|
+|===
+
+=== FlexCacheResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|source|Source Details|true|<<FlexCacheSide>>|
+|destination|Destination Details|true|<<FlexCacheSide>>|
+|===
+
+=== FlexCacheSide
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|workingEnvironmentId|Working environment ID|false|string|
+|workingEnvironmentType|Working environment type|false|string|
+|clusterName|Cluster name|false|string|
+|svm|Svm name|false|string|
+|volume|Volume name|false|string|
+|uuid|Volume uuid|false|string|
+|size|volume size|false|<<Capacity>>|
 |===
 
 === FloatingIps
@@ -2047,6 +2100,8 @@ The data definitions are used when making REST API calls.
 |ProtocolIscsiInfo|ISCSI protocol parameters|false|<<CreateIscsiInfoRequest>>|
 |enableStorageEfficiency|Storage efficiency|true|boolean|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
+|awsTags|Optionally provide up to 50 key-value pairs to be used as volume tags|false|<<AwsTag>> array|
+|numberOfConstituents|Number of constituents for the FlexGroup volume|false|integer (int32)|
 |===
 
 === FsxVolumeModifyRequest
@@ -2208,6 +2263,16 @@ The data definitions are used when making REST API calls.
 |node1Info||true|<<GcpHaNodeInfo>>|
 |node2Info||true|<<GcpHaNodeInfo>>|
 |projectName||true|string|
+|===
+
+=== GcpInstanceMetadataItems
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|blockProjectSshKeys||true|boolean|
+|serialPortEnable||true|boolean|
+|enableOsLogin||true|boolean|
+|enableOsLoginSk||true|boolean|
 |===
 
 === GcpKeysForCloudStorageWithValidation
@@ -2458,17 +2523,6 @@ The data definitions are used when making REST API calls.
 |initiators|Initiators|true|string array|
 |===
 
-=== IGroup
-[options="header"]
-|===
-|Name|Description|Required|Schema|Default
-|igroupName|Igroup name|true|string|
-|osType|osType|true|string|
-|portsetName|portsetName|true|string|
-|igroupType|igroupType|true|string|
-|initiators|Initiators|true|string array|
-|===
-
 === IgroupCreationRequest
 [options="header"]
 |===
@@ -2560,8 +2614,8 @@ The data definitions are used when making REST API calls.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyInstance||true|boolean|
 |legacyOs||true|boolean|
+|legacyInstance||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -2639,6 +2693,19 @@ The data definitions are used when making REST API calls.
 |node||true|string|
 |status||true|string|
 |peered||true|boolean|
+|===
+
+=== InterfaceResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name||true|string|
+|address||true|string|
+|svm||true|string|
+|role||true|string|
+|status||true|string|
+|ipSpace||true|string|
+|dataProtocols||true|string array|
 |===
 
 === IpSpaceResponse
@@ -2867,6 +2934,16 @@ The data definitions are used when making REST API calls.
 |ontapManifests|ONTAP manifests|true|<<CloudOntapManifest>> array|
 |===
 
+=== ModifyFlexCacheRestRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name|FlexCache volume name|false|string|
+|cacheVolumeSize|FlexCache size|false|integer (int64)|
+|junctionPath|FlexCache volume junction path|false|string|
+|exportPolicy|FlexCache NFS export policy|false|string|
+|===
+
 === ModifyUserTagsRequest
 [options="header"]
 |===
@@ -2938,6 +3015,17 @@ The data definitions are used when making REST API calls.
 |nonHaNodeMinimumRequiredIps||true|integer (int32)|
 |haNodeMinimumRequiredIps||true|integer (int32)|
 |haMediatorMinimumRequiredIps||true|integer (int32)|
+|===
+
+=== NfsClientsResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|volume||true|string|
+|svm||true|string|
+|exportPolicy||false|string|
+|clientIp||false|string|
+|idleDuration||false|string|
 |===
 
 === NotificationServiceInformation
@@ -3101,7 +3189,7 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |workingEnvironmentId|Target working environment ID|true|string|
 |svmName|SVM name|true|string|
-|aggregateName|Aggregate in which to create the volume|true|string|
+|aggregateName|Aggregate in which to create the volume|false|string|
 |name|Volume name, unique within the SVM|true|string|
 |size|Size as Capacity|true|<<PositiveCapacity>>|
 |initialSize|Initial size as Capacity. Relevant for thin provisioned volumes only. Default to 0.|false|<<Capacity>>|
@@ -3701,8 +3789,8 @@ The data definitions are used when making REST API calls.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|backupTarget||true|boolean|
 |tieringTarget||true|boolean|
+|backupTarget||true|boolean|
 |===
 
 === S3BucketsSummary
@@ -3843,6 +3931,14 @@ The data definitions are used when making REST API calls.
 |accessKey|StorageGRID Access Key|true|string|
 |secretKey|StorageGRID Secret Key|true|string|
 |serviceUrl|StorageGRID Endpoint - protocol, FQDN and Port|true|string|
+|===
+
+=== SharePermissions
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|userOrGroup||true|string|
+|permission||true|string|
 |===
 
 === SiteIdentifier
@@ -4099,6 +4195,7 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |state||true|string|
+|allowedProtocols||true|string array|
 |language||true|string|
 |allowedAggregates||true|string array|
 |ver3Enabled|NFS Version 3 enabled|true|boolean|
@@ -4111,6 +4208,16 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |svmNewName||true|string|
 |svmName||false|string|
+|===
+
+=== SvmResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name||true|string|
+|state||true|string|
+|language||true|string|
+|allowedProtocols||true|string array|
 |===
 
 === TagKeyResponse
@@ -4436,6 +4543,7 @@ The data definitions are used when making REST API calls.
 |qualityOfService|Quality of service|false|<<VolumeQualityOfService>>|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
 |minimumCoolingDays|Tiering minimum cooling days|false|integer (int32)|
+|comment|Comment|false|string|
 |===
 
 === VolumeMoveParameters
@@ -4524,6 +4632,16 @@ The data definitions are used when making REST API calls.
 |targetName|ISCSI target IQN|true|string|
 |iscsiEnabled||true|boolean|
 |flexGroupVolume||true|boolean|
+|===
+
+=== VolumeShareResponse
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|name||true|string|
+|volume||false|string|
+|path||false|string|
+|permissions||true|<<SharePermissions>> array|
 |===
 
 === VolumeTags
