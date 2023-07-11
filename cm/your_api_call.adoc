@@ -26,19 +26,19 @@ Determine the identifier to use for the `x-agent-id` request header. See link:..
 
 Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
 
+
 curl example::
-
 The following curl command retrieves information about the BlueXP server.
-
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 [TIP]
+====
 * Replace <AGENT_ID> with your agent ID.
 * Replace <ACCESS_TOKEN> with the bearer access token.
+====
 
 JSON output example::
-
 Information about the system is provided in the following JSON format.
 
 [source,json]

@@ -20,7 +20,7 @@ While REST establishes a common set of technologies and best practices, the deta
 
 == Overview of the API resources
 
-The REST style of application development begins by identifying a set of server-based resources. The resources can be broadly categorized as follows:
+The REST style of application development begins by identifying a set of server-based resources. The resources defined with the BlueXP REST APIs can be broadly categorized as follows:
 
 * Storage resources 
   Used to manage and administer cloud storage resources (for example Cloud Volumes ONTAP, Azure NetApp Files) as well as on-premises and edge storage resources

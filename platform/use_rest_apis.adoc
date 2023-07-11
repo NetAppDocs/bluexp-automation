@@ -21,24 +21,26 @@ There are several things you should consider before performing a BlueXP REST API
 
 == BlueXP account
 
-A BlueXP account is required to access the platform. The system prompts you to create an account when you attempt to sign in to the BlueXP web UI. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Sign in to BlueXP account^] for more information.
+A BlueXP account is required to access the platform. The system prompts you to create an account when you attempt to sign in to the BlueXP web UI.
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html[Learn about BlueXP accounts^]. 
 
 == Access token usage scenarios
 
 Every BlueXP service REST API call requires an access token or a combination of tokens. There might also be specific scope requirements for the tokens.
 
 User token only::
-You only need to obtain and provide a user access token when issuing the API call.
+You only need to obtain and provide a user access token when issuing an API call.
 
 Service token only::
-You only need to obtain and provide a service token when issuing the API call. This token is typically required by static clients or other internal applications when accessing the platform service APIs. It can also be used by external clients.
+You only need to obtain and provide a service token when issuing an API call. This token is typically required by static clients or other internal applications when accessing the platform service APIs. It can also be used by external clients.
 
-User and service token::
+User and service tokens::
 Both a user token and service token are required.
 
 == REST API requirements and your authentication environment
 
-You should review the API reference for the platform service you will use. The reference content includes requirements and other details about the REST calls. You also need to understand your authentication and authorization environment. Based on this you can determine the following requirements:
+You should review the API reference for the platform services you will use. The reference content includes requirements and other details about the REST calls. You also need to understand your authentication and authorization environment. Based on this you can determine the following requirements:
 
 * Type of token or tokens needed
 * Any additional scope requirements for the tokens
@@ -57,8 +59,8 @@ Several BlueXP APIs require a Connector ID to route the request to the appropria
 
 Depending on the REST API call, you may need a user token, a service token, or both. These tokens can be obtained from the Auth0 authorization service. The tokens need to be included with every API call. For more information, see:
 
-* https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html[Create user token]
-* https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_service_token.html[Create service token]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/create_user_token.html[Create user token]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/create_service_token.html[Create service token]
 
 === 3. Create the required request headers
 
@@ -72,4 +74,4 @@ This header contains the Connector ID for API calls that require it.
 
 === 4. Issue a REST API call
 
-You can use curl or the programming language of your choice to issue a REST API call. There are also workflow examples available for the Cloud Volumes ONTAP API. See link:../cm/workflow_processes.html[Cloud Volumes ONTAP workflow processes] for more information.
+You can use curl or the programming language of your choice to issue a REST API call. There are also workflow examples available for the ONTAP management service API. See link:../cm/workflow_processes.html[ONTAP management service workflow processes] for more information.

@@ -21,9 +21,9 @@ NOTE: You can access the API Explorer by clicking *Try it out* on any of the API
 There are several things you should consider before using the API Explorer.
 
 .Prerequisites
-You need to have a NetApp BlueXP account. Refer to link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html[Learn about BlueXP accounts] for more information.
+You need to have a NetApp BlueXP account. Refer to link:https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html[Learn about BlueXP accounts^] for more information.
 
-There might be additional requirements depending on the API call. You might need to obtain the following identifiers from the link:https://cloudmanager.netapp.com/[BlueXP SaaS interface]:
+There might be additional requirements depending on the API call. You might need to obtain the following identifiers from the link:https://console.bluexp.netapp.com/working-environments?view=clouds[BlueXP SaaS interface^]:
 
 *	agentAuth ID or Connector ID
 *	Service account client ID
@@ -34,23 +34,24 @@ See link:get_identifiers.html[Get required identifiers] for more information. Yo
 .Limitations
 You can use the API Explorer to issue REST calls for endpoints that require a _user access token_. API calls that require a _service access token_ are not supported.
 
-The _Token usage_ field on an API reference page indicates the type of access token needed for each endpoint. To understand the difference between these access tokens and other important concepts when accessing the BlueXP resources, see link:aa_concepts.html[Basic concepts and terminology].
+The _Token usage_ field on an API reference page indicates the type of access token needed for each endpoint. See link:aa_concepts.html[Basic concepts and terminology] to understand the difference between these access tokens and other important concepts when accessing the BlueXP resources.
 
 == Issue a REST API call
 The following steps provide an example of how to use the API Explorer to issue a typical REST API call.
 
 .Steps
 
-.	Navigate to the link:https://docs.netapp.com/us-en/cloud-manager-automation/tenancy/post-tenancy-resource-discover.html[Discover an external resource] endpoint in the Tenancy service API documentation.
+. Navigate to the link:https://docs.netapp.com/us-en/bluexp-automation/tenancy/post-tenancy-resource-discover.html[Discover an external resource] endpoint in the Tenancy service API documentation.
 
-.	Click *Try it out* to open the API Explorer panel on the right side of the page.
+. Select *Try it out* to open the API Explorer panel on the right side of the page.
 +
 image:api1.png[Open API explorer]
 
-.	Click *Sign in* which redirects the browser to the NetApp BlueXP website login page.
+. Select *Sign in* which redirects the browser to the NetApp BlueXP website login page.
 +
 image:api2.png[Redirect the browser to NetApp BlueXP website login page]
-.	Enter your NetApp Cloud credentials, including the email address and password, and click *Login* or you can use your NetApp Support Site credentials to log in.
+
+. Enter your NetApp Cloud credentials, including the email address and password, and select *Login* or you can use your NetApp Support Site credentials to log in.
 +
 TIP: Use your single sign-on account for federated login.
 +
@@ -58,13 +59,14 @@ image:api3.png[Provide appropriate credentials]
 +
 After successful authentication, you are redirected back to the *Try this API* panel.
 
-.	Provide the required parameters, optional parameters, and request body information in the metadata section for the API call.
+. Provide the required parameters, optional parameters, and request body information in the metadata section for the API call.
 +
 NOTE: Refer to the parameter descriptions on the corresponding endpoint documentation page as needed.
 
 +
 image:api4.png[Provide the data in the metadata field]
-.	After you've entered all the parameters, click *Submit* to execute the API call .
+
+. After you've entered all the parameters, click *Submit* to execute the API call .
 
 .Result
 At the bottom of the API Explorer panel, the equivalent curl command needed to execute the API call is displayed in the _Code_ section along with the actual response in JSON format.

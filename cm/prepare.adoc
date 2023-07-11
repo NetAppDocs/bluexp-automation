@@ -13,20 +13,20 @@ summary: 'There are several things you should do to prepare to use the BlueXP RE
 :imagesdir: ./media/
 
 [.lead]
-You need to prepare before using the REST APIs provided with the ONTAP management service. See the following information for more details. 
+You need to prepare before using the REST APIs provided with the ONTAP management service. 
 
 .Have BlueXP credentials
 You'll need a NetApp account to acquire an access token required to issue the REST API calls.
 
 .Review REST concepts and implementation
-Review the link:../platform/http_details.html[REST implementation details] for information about REST concepts and the details of how the REST API is designed.
+Review the link:../platform/http_details.html[REST implementation details] for information about REST concepts and the details of how a REST API is designed.
 
 .Be familiar with Cloud Volumes ONTAP and ONTAP on-premises concepts
-If you plan to perform Cloud Volumes ONTAP and on-premises ONTAP administration tasks, you should be familiar with the related ONTAP concepts, terminology, and procedures. Learn about link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-overview-cvo.html[Cloud Volumes ONTAP^] and https://docs.netapp.com/us-en/bluexp-ontap-onprem/concept-onprem-ontap.html[on-premises ONTAP^]concepts.
+If you plan to perform Cloud Volumes ONTAP and on-premises ONTAP administration tasks, you should be familiar with the related ONTAP concepts, terminology, and procedures. Learn about link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-overview-cvo.html[Cloud Volumes ONTAP^] and https://docs.netapp.com/us-en/bluexp-ontap-onprem/concept-onprem-ontap.html[on-premises ONTAP^] concepts.
 
 
-.Decide on the cloud provider and have credentials for Cloud Volumes ONTAP
-Cloud Volumes ONTAP can be deployed in Amazon Web Services, Microsoft Azure, and Google Cloud Platform. You need to decide which of these providers you'll use and have the appropriate credentials.
+.Decide on the cloud provider and obtain credentials for Cloud Volumes ONTAP
+Cloud Volumes ONTAP can be deployed in AWS, Microsoft Azure, and Google Cloud platform. You need to decide which of these providers you'll use and have the appropriate credentials.
 
 .Decide on the licensing model for Cloud Volumes ONTAP
 You can create and manage Cloud Volumes ONTAP instances using a subscription PAYGO ("pay as you go") model or apply your own licenses with BYOL ("bring your own license"). You need to decide which licensing model you'll use and adjust the workflows as needed.

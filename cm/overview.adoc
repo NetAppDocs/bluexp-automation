@@ -43,9 +43,9 @@ You can discover and manage the on-premises ONTAP resources by using the on-prem
 
 The ONTAP management service supports many different workflows. Each workflow is focused on performing a specific administrative task. There are three major sets of workflows: 
 
-* Cloud Volumes ONTAP workflows
-* On-premises ONTAP workflows
-* Common workflows
+* link:wf_cvo_before.html[Cloud Volumes ONTAP workflows]
+* link:wf_onprem_before.html[On-premises ONTAP workflows]
+* link:wf_common_before.html[Common workflows]
 
 See link:workflow_processes.html[Workflows processes] to learn more about the workflows and their common characteristics before using a specific API.
 

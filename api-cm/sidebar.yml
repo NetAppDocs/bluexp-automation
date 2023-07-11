@@ -266,7 +266,7 @@ entries:
       entries:
              - title: Get Aggregates
                url: /cm/wf_onprem_ontap_get_aggrs.html
-    - title: Metadata
+   
   - title: Common workflows
     entries:
     - title: Before you begin

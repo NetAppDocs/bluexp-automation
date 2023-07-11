@@ -13,25 +13,25 @@ summary: 'You can sign in to the BlueXP web user interface to retrieve the NetAp
 :imagesdir: ./media/
 
 [.lead]
-You can create a NetApp Support Site (NSS) user ID through the BlueXP web user interface. This ID is included when creating a BlueXP working environment.
+You can create a NetApp Support Site user ID through the BlueXP web web UI. This ID is included when creating a BlueXP working environment.
 
 .About this task
 
-Registering NSS credentials with BlueXP and creating an NSS user ID enables several features, including subscription to the Cloud Volumes ONTAP system, upgrade of the Cloud Volumes ONTAP software to the latest release, and predictive analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
+Registering support site credentials with BlueXP and creating an support user ID enables several features, including subscription to the Cloud Volumes ONTAP system, upgrade of the Cloud Volumes ONTAP software to the latest release, and predictive analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
 
 .Before you begin
 
-You must have a BlueXP account. You normally create this account when first signing in to BlueXP website and it's displayed at the top of the web user interface. See link:https://docs.netapp.com/us-en/occm/concept_cloud_central_accounts.html[Learn about NetApp accounts^] for more information.
+You must have a BlueXP account. You normally create this account when first signing in to BlueXP website and it's displayed at the top of the web user interface. 
 
 .Steps
 
 . Navigate to the BlueXP website using a browser:
 +
-https://cloudmanager.netapp.com
+https://cconsole.bluexp.netapp.com
 
 . Sign in using your BlueXP account credentials.
 
-. Click on the *?* icon at the top right of the page and select *Support*.
+. Select the *?* icon at the top right of the page and select *Support*.
 
 . Navigate to the *NSS Management* tab and click *Add NSS Account*.
 
