@@ -30,6 +30,6 @@ See link:workflow_processes.html[Understanding the workflow processes] for more 
 
 == Connector setup
 
-You can discover and manage on-premises ONTAP clusters with or without a Connector. If you choose to use a Connector, you need to install and deploy the Connector in your cloud provider or on premises. A direct discovery of the on-premises ONTAP clusters is also available through BlueXP; you don't require a Connector for this option. Using a Connector provides you with additional features. See link:https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discover on-premises ONTAP clusters^] to learn more about the available options to manage on-premises ONTAP clusters. 
+You can discover and manage on-premises ONTAP clusters with or without a Connector. If you choose to use a Connector, you need to install and deploy the Connector in your cloud provider or on your on-premises. A direct discovery of the on-premises ONTAP clusters is also available through BlueXP; you don't require a Connector for this option. Using a Connector provides you with additional features. See link:https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html[Discover on-premises ONTAP clusters^] to learn more about the available options to manage on-premises ONTAP clusters. 
 
 
