@@ -13,10 +13,10 @@ summary: 'There are several common workflows you can use with any of the public 
 :imagesdir: ./media/
 
 [.lead]
-There are several common workflows you can use with any of the public cloud providers.
+There are several common workflows you can use with any of the public cloud providers or ONTAP on-premises clusters.
 
 [NOTE]
-Review the link:https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html[Get started] section before using any of the Cloud Volumes ONTAP REST API workflows.
+Review the link:https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html[Get started] section before using any of the REST API workflows.
 
 == Workflow categories
 The common workflows are organized into the following functional categories:
