@@ -17,7 +17,7 @@ You can create a NetApp Support Site user ID through the BlueXP web web UI. This
 
 .About this task
 
-Registering support site credentials with BlueXP and creating an support user ID enables several features, including subscription to the Cloud Volumes ONTAP system, upgrade of the Cloud Volumes ONTAP software to the latest release, and predictive analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
+Registering support site credentials with BlueXP and creating an NSS ID enables several features, including subscription to the Cloud Volumes ONTAP system, upgrade of the Cloud Volumes ONTAP software to the latest release, and predictive analytics. For information about related NSS administrative tasks, see link:https://docs.netapp.com/us-en/occm/task_adding_nss_accounts.html[Manage NSS credentials^].
 
 .Before you begin
 
