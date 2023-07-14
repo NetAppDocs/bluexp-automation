@@ -49,8 +49,8 @@ homepage:
       links:
         - title: Overview of the service
           url: /cm/overview.html
-        - title: REST implementation details
-          url: /cm/rest_implementation.html
+        - title: Workflow processes
+          url: /cm/workflow_processes.html
         - title: API reference
           url: /cm/api_ref_resources.html
     - title: Cloud Volumes ONTAP workflows
