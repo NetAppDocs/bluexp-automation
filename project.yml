@@ -45,20 +45,18 @@ homepage:
           url: /platform/aa_concepts.html
         - title: Common workflows and tasks
           url: /platform/get_identifiers.html
-    - title: Cloud Volumes ONTAP API
+    - title: ONTAP management service 
       links:
-        - title: Overview of the API
+        - title: Overview of the service
           url: /cm/overview.html
-        - title: Typical deployment
-          url: /cm/cloud_manager_deployment.html
         - title: REST implementation details
           url: /cm/rest_implementation.html
         - title: API reference
           url: /cm/api_ref_resources.html
     - title: Cloud Volumes ONTAP workflows
       links:
-        - title: Organization and format
-          url: /cm/workflow_processes.html
+        - title: Typical deployment
+          url: /cm/cvo_deployment.html
         - title: AWS workflows
           url: /cm/wf_aws_before.html
         - title: Azure workflows
