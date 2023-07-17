@@ -13,30 +13,23 @@ summary: 'Representational State Transfer (REST) is a style for creating distrib
 :imagesdir: ./media/
 
 [.lead]
-Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The BlueXP platform REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based resources.
+Representational State Transfer (REST) is a style for creating distributed web applications. When applied to the design of a web services API, it establishes a set of technologies and best practices for exposing server-based resources and managing their states. The BlueXP REST APIs use mainstream protocols and standards to provide a flexible foundation for deploying and administering your cloud-based and on-premise resources.
 
 [NOTE]
 While REST establishes a common set of technologies and best practices, the details of each API can vary based on the design choices of the development team. See the reference for the API you plan to use.
 
 == Overview of the API resources
 
-The REST style of application development begins by identifying the set of server-based resources. Considering the Cloud Volumes ONTAP API as an example, the resources are broadly categorized as follows:
+The REST style of application development begins by identifying a set of server-based resources. The resources defined with the BlueXP REST APIs can be broadly categorized as follows:
 
-* Administrative resources
-+
-Used to set up and configure BlueXP
+* Storage resources 
+  Used to manage and administer cloud storage resources (for example Cloud Volumes ONTAP, Azure NetApp Files) as well as on-premises and edge storage resources
 
-* Auditing resources
-+
-Used to view details about BlueXP activities and operations
+* Platform resources
+  Used to manage users, workspaces, accounts, Connectors, credentials in BlueXP control plane
 
-* Authentication resources
-+
-Used to authenticate to BlueXP so you can make API calls
-
-* Working environment resources
-+
-Used to deploy and manage working environments, including: single Cloud Volumes ONTAP systems, Cloud Volumes ONTAP HA configurations, and ONTAP clusters
+* Data resources
+  Used to protect and create backup of your cloud and on-premises data, manage your licenses and subscriptions to BlueXP 
 
 == REST endpoints
 
@@ -48,7 +41,7 @@ REST resources are accessed through endpoints identified in the URL path. Each e
 
 == Types of input parameters
 
-There are several types of parameters available with the BlueXP platform APIs with each request.
+There are several types of parameters available with the BlueXP APIs with each request.
 
 [cols="20,80",options="header"]
 |===

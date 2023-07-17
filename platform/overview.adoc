@@ -5,7 +5,7 @@ keywords: overview, bluexp, rest, apis, hybrid, multicloud, dat, estate
 summary: BlueXP enables you to build, protect, and govern your hybrid multicloud data from a single control plane
 ---
 
-= Overview of the BlueXP platform
+= Overview of the BlueXP REST APIs
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,9 +13,17 @@ summary: BlueXP enables you to build, protect, and govern your hybrid multicloud
 :imagesdir: ./media/
 
 [.lead]
-BlueXP enables you to build, protect, and govern your hybrid multicloud data from a single control plane. It is composed of several distinct services, each of which exposes an associated REST API. Collectively these services and APIs form a flexible and extensible development platform. In addition to the BlueXP web user interface, you can directly access the platform functionality through the REST APIs.
+BlueXP enables you to build, protect, and govern your hybrid multi-cloud data from a single control plane. It is composed of several distinct services, each of which exposes an associated REST API. Collectively these services and APIs form a flexible and extensible development platform you can use to administer your cloud-based and on-premises resources. There are several benefits when using the BlueXP REST APIs.
 
+.Built on REST technology and design principles
+The BlueXP APIs have been designed based on REST technology and current best practices. The core technologies include HTTP and JSON.
 
-.Related information
+.Rich set of platform services
+The APIs provide access to a rich set of services including storage, cloud, and security. Applications based on the BlueXP platform are robust, resilient, and supportable.
 
-link:../cm/overview.html[Cloud Volumes ONTAP API]
+.Access to NetApp cloud token-based security
+BlueXP authentication and authorization is based on the OAuth2 standard. NetApp relies on the Auth0 service implementation.
+
+.Alignment with the BlueXP web UI
+The BlueXP web UI uses the same core REST APIs and so there is consistency between the two access paths.
+

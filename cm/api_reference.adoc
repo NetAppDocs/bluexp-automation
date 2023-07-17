@@ -13,4 +13,4 @@ summary: 'This section contains the details of the Cloud Manager REST API calls,
 :imagesdir: ./media/
 
 [.lead]
-This API reference contains the details of the Cloud Volumes ONTAP REST API calls, including resources, endpoints, parameters, and status codes. You can refer to this content when developing applications that use the REST API.
+This API reference contains the details of the ONTAP management service REST API calls, including resources, endpoints, parameters, and status codes. You can refer to this content when developing applications that use the REST API.
