@@ -3,14 +3,14 @@
     "openapi": "3.0.0",
     "info": {
       "title": "Audit service API",
-      "description": "  <details><summary>Overview</summary>\n<p>The Audit service receives information from other BlueXP services about operations that they perform. The service records information, such as originating IP addresses, workspaces, Connectors that the operations use, and other telemetry data. The Audit service enables you to know who or what performed a certain action, and when the action was performed, which can be helpful in forensic situations or environments where compliance is required. The identity of the API caller and the account are established through a user access token.<br />\nAll Audit service API calls in this document are short-lived and run synchronously.</p>\n<p><strong>Note</strong>: Before using the API reference documentation, review the<br />\n<a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/overview.html\">Get started</a> section for the BlueXP APIs. For more information about the security tokens and identifiers you’ll need when using the API, review the <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/get_identifiers.html\">Common workflows and tasks section</a>.</p>\n</details>\n<hr />\n   <details>\n<summary>REST implementation</summary>\n<h3>HTTP methods</h3>\n<table>\n<thead>\n<tr>\n<th>Method</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>GET</code></td>\n<td>Retrieve an object instance or collection</td>\n</tr>\n</tbody>\n</table>\n<h3>Request headers</h3>\n<table>\n<thead>\n<tr>\n<th>Request Header</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>Authorization</code></td>\n<td>Required. Contains the JWT access token</td>\n</tr>\n</tbody>\n</table>\n<h3>Query parameters</h3>\n<p>You can use query parameters with endpoints in the following components:</p>\n<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Query Parameter</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Audit</td>\n<td>account (required)</br>fromLastModified</br>toLastModified</br>fromStartTime</br>qAction</br>qService</br>qStatus</br>qAgent</br>qResource</br>qUser</br>toStartTime</br>offset</td>\n</tr>\n</tbody>\n</table>\n<h3>Response headers</h3>\n<p>This API uses the standard HTTP response headers common with all BlueXP APIs. See <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/http_details.html\">REST implementation</a> for more information.</p>\n<h3>HTTP status codes</h3>\n<table>\n<thead>\n<tr>\n<th>HTTP Status Code</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>200</code></td>\n<td>OK: Returned for successful operation completion</td>\n</tr>\n<tr>\n<td><code>400</code></td>\n<td>Bad Request: Returned if the input is malformed and could not be parsed</td>\n</tr>\n<tr>\n<td><code>401</code></td>\n<td>Unauthorized: Returned if user authentication failed or the token has expired</td>\n</tr>\n<tr>\n<td><code>403</code></td>\n<td>Forbidden: Returned for authorization errors depending on the resource and token</td>\n</tr>\n</tbody>\n</table>\n</details>\n<hr />\n   <details>\n<summary>Error handling</summary>\n<p>There are two processes involved with error handling and processing.</p>\n<ul>\n<li>The error is logged for supportability</li>\n<li>The error is also returned to the caller for any specific handling</li>\n</ul>\n</details>\n<hr />\n   <details>\n<summary>cURL examples</summary>\n<h3>Retrieve audit records for a specified account</h3>\n<p>This example retrieves the audit records for a specified account.</p>\n<pre><code class=\"language-bash\">curl -X GET &quot;https://cloudmanager.cloud.netapp.com/audit/&lt;account_id&gt;&quot; -H  &quot;accept: application/json&quot; -H  &quot;authorization: &lt;JWT user token&gt;&quot;\n</code></pre>\n</details>\n<hr />\n   <br><br>",
+      "description": "  <details><summary>Overview</summary>\n<p>The Audit service records information about the operations performed by the BlueXP services. This includes the originating IP addresses, workspaces, Connectors used, and other telemetry data. You can use this data to determine what actions were performed, who performed them, and when they occurred. This information can be useful in forensic situations or environments where compliance is required. The identity of the API caller and the account are established through a user access token.<br />\nAll Audit service API calls in this document are short-lived and run synchronously.</p>\n<p><strong>Note</strong>: Before using the API reference documentation, review the<br />\n<a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/overview.html\">Get started</a> section for the BlueXP APIs. For more information about the security tokens and identifiers you’ll need when using the API, review the <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/get_identifiers.html\">Common workflows and tasks section</a>.</p>\n</details>\n<hr />\n   <details>\n<summary>REST implementation</summary>\n<h3>HTTP methods</h3>\n<table>\n<thead>\n<tr>\n<th>Method</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>GET</code></td>\n<td>Retrieve an object instance or collection</td>\n</tr>\n</tbody>\n</table>\n<h3>Request headers</h3>\n<table>\n<thead>\n<tr>\n<th>Request Header</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>Authorization</code></td>\n<td>Required. Contains the JWT access token</td>\n</tr>\n</tbody>\n</table>\n<h3>Query parameters</h3>\n<p>You can use query parameters with endpoints in the following components:</p>\n<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Query Parameter</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Audit</td>\n<td>account (required)</br>fromLastModified</br>toLastModified</br>fromStartTime</br>qAction</br>qService</br>qStatus</br>qAgent</br>qResource</br>qUser</br>toStartTime</br>offset</td>\n</tr>\n</tbody>\n</table>\n<h3>Response headers</h3>\n<p>This API uses the standard HTTP response headers common with all BlueXP APIs. See <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/http_details.html\">REST implementation</a> for more information.</p>\n<h3>HTTP status codes</h3>\n<table>\n<thead>\n<tr>\n<th>HTTP Status Code</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>200</code></td>\n<td>OK: Returned for successful operation completion</td>\n</tr>\n<tr>\n<td><code>400</code></td>\n<td>Bad Request: Returned if the input is malformed and could not be parsed</td>\n</tr>\n<tr>\n<td><code>401</code></td>\n<td>Unauthorized: Returned if user authentication failed or the token has expired</td>\n</tr>\n<tr>\n<td><code>403</code></td>\n<td>Forbidden: Returned for authorization errors depending on the resource and token</td>\n</tr>\n</tbody>\n</table>\n</details>\n<hr />\n   <details>\n<summary>Error handling</summary>\n<p>There are two processes involved with error handling and processing.</p>\n<ul>\n<li>The error is logged for supportability</li>\n<li>The error is also returned to the caller for any specific handling</li>\n</ul>\n</details>\n<hr />\n   <details>\n<summary>cURL examples</summary>\n<h3>Retrieve audit records for a specified account</h3>\n<p>This example retrieves the audit records for a specified account.</p>\n<pre><code class=\"language-bash\">curl -X GET &quot;https://cloudmanager.cloud.netapp.com/audit/&lt;account_id&gt;&quot; -H  &quot;accept: application/json&quot; -H  &quot;authorization: &lt;JWT user token&gt;&quot;\n</code></pre>\n</details>\n<hr />\n   <br><br>",
       "version": "1.0",
       "contact": {}
     },
     "tags": [
       {
         "name": "audit",
-        "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The Audit endpoints enable you to perform the following operations:</p>\n<ul>\n<li>Retrieve audit data for a specified account</li>\n<li>Retrieve audit records for a specified account, service, and request ID</li>\n<li>Retrieve audit options for a specified account</li>\n</ul>\n</fieldset>\n</details>\n"
+        "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The Audit endpoints enable you to perform the following operations:</p>\n<ul>\n<li>Retrieve audit data for a specified account</li>\n<li>Retrieve audit records for a specified account and service and request ID</li>\n<li>Retrieve audit options for a specified account</li>\n</ul>\n</fieldset>\n</details>\n"
       }
     ],
     "servers": [
@@ -67,7 +67,7 @@
             "requestId": {
               "type": "string",
               "readOnly": true,
-              "description": "RequestId of the operation. Globally unique for the service.",
+              "description": "RequestId of the operation. globally unique for the service.",
               "example": "c53qRZlA"
             },
             "service": {
@@ -80,7 +80,7 @@
               "type": "string",
               "readOnly": true,
               "description": "Id of the entity performing the operation.",
-              "example": "auth0|5cd02b613c58e90xxxcd5741"
+              "example": "auth0|5cd02b613c58e90888cd5741"
             },
             "agentName": {
               "type": "string",
@@ -91,24 +91,24 @@
             "agentId": {
               "type": "string",
               "readOnly": true,
-              "description": "ID of the agent which performed the operation.",
+              "description": "Id of the agent which performed the operation.",
               "example": "123-456-769"
             },
             "resourceName": {
               "type": "string",
               "readOnly": true,
               "description": "Name of the resource acted upon by the operation.",
-              "example": "Cloud Volumes ONTAP"
+              "example": "CVO"
             },
             "resourceId": {
               "type": "string",
               "readOnly": true,
-              "description": "ID of the resource acted upon by the operation.",
+              "description": "Id of the resource acted upon by the operation.",
               "example": "resource-123"
             },
             "errors": {
               "readOnly": true,
-              "description": "Array of error message/s if exists which is related to this auditGroup",
+              "description": "Array of error message/s if exists. that related to this auditGroup",
               "example": "[error1,error2]",
               "type": "array",
               "items": {
@@ -118,7 +118,7 @@
             "requestData": {
               "type": "string",
               "readOnly": true,
-              "description": "Parameters related to a request of operation. a string, can be JSON string",
+              "description": "Parameters related to request of operation. a string, can be JSON string",
               "example": "\"{\"replicationRequest\":{\"policyName\":\"MirrorAllSnapshots\",\"destinationWorkingEnvironmentId\":\"VsaWorkingEnvironment-LspTA9zs\",\"sourceWorkingEnvironmentId\":\"VsaWorkingEnvironment-bMyCULIC\",\"destinationInterclusterLifIps\":[\"10.0.0.35\"],\"sourceInterclusterLifIps\":[\"1.1.1.1\"],\"maxTransferRate\":null,\"scheduleName\":\"weekly\"},\"replicationVolume\":{\"destinationProviderVolumeType\":\"Standard_LRS\",\"destinationVolumeName\":\"vol2_1000g_case3_copy\",\"sourceVolumeName\":\"vol2_1000g\",\"advancedMode\":false,\"numOfDisksApprovedToAdd\":1,\"destinationCapacityTier\":null,\"destinationAggregateName\":\"aggr2\",\"sourceSvmName\":\"svm_srcVsa1\"}}\""
             },
             "responseData": {
@@ -206,7 +206,7 @@
             },
             "recordId": {
               "type": "number",
-              "description": "Record ID - is unique per requestId per service.",
+              "description": "Record id - is unique per requestId per service.",
               "example": 234543,
               "readOnly": true
             }
@@ -447,4 +447,3 @@
       }
     }
   }
-  
