@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: cm/hello_world.html
-keywords: hello, world, rest, api, bluexp
-summary: 'You can issue a curl command to get started using the Cloud Manager REST API and confirm its availability.'
+permalink: cm/your_api_call.html
+keywords: hello, world, cloud, manager, rest, api, cloud , manager
+summary: "You can issue a curl command to get started using the REST API and confirm its availability."
 ---
 
-= Hello world
+= Your first API call
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,33 +13,33 @@ summary: 'You can issue a curl command to get started using the Cloud Manager RE
 :imagesdir: ./media/
 
 [.lead]
-You can issue a curl command to get started using the Cloud Volumes ONTAP REST API and confirm its availability.
+You can issue a curl command to get started using a Cloud Volumes ONTAP REST API and confirm its availability.
 
 [NOTE]
-The example provided below is very simple. The workflow samples later in this guide use a more robust format. As a start, see link:workflow_processes.html[Workflow processes].
+The following workflow example is very simple. The workflow samples later in this documentation use a more robust format. See link:workflow_processes.html[Workflow processes] to get started.
 
-.Before you begin
+== 1. Select the identifier
 
-You must do the following:
+Determine the identifier to use for the `x-agent-id` request header. See link:../platform/get_identifiers.html[Get required identifiers].
 
-* Determine the identifier to use for the `x-agent-id` request header as well as the related client ID. See link:../platform/get_identifiers.html[Get required identifiers].
+== 2. Get the access token
 
-* Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
+Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
 
-.curl example
 
+curl example::
 The following curl command retrieves information about the BlueXP server.
-
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 [TIP]
+====
 * Replace <AGENT_ID> with your agent ID.
 * Replace <ACCESS_TOKEN> with the bearer access token.
+====
 
-.Output example
-
-Information about the system is provided in the following format.
+JSON output example::
+Information about the system is provided in the following JSON format.
 
 [source,json]
 {

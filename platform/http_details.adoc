@@ -47,14 +47,14 @@ The common HTTP request headers are described as follows.
 |===
 |Request header
 |Description
-|Authorization
+|`Authorization`
 |This header contains a bearer token used to access the BlueXP server.
-|x-agent-id
-|The agent identifier is based on the client ID and is used to identify the user agent.
-|Content-Type
+|`x-agent-id`
+|The agent identifier is used to identify the user agent.
+|`Content-Type`
 |This representation header is used to indicate the original media type of the resource.
-|Accept
-|The server automatically returns content in JSON format if Accept header is not specified.
+|`Accept`
+|The server automatically returns content in JSON format if `Accept` header is not specified.
 |===
 
 == Response
@@ -65,40 +65,38 @@ A REST API response contains the standard HTTP status codes and response headers
 
 The common HTTP status codes are described as follows.
 
-// reason-phrase is the simple term for each status code
-
 [cols="15,20,65",options="header"]
 |===
 |Status code
 |Reason Phrase
 |Description
-|200
+|`200`
 |OK
 |The request was completed successfully.
-|202
+|`202`
 |Accepted
-|The request was accepted and is currently in process. Cloud Manager returns this code when the API call operates asynchronously. For example, the `/vsa/working-environments` call returns with 202 but the Cloud Volumes ONTAP instance launches up to 25 minutes later.
-|204
+|The request was accepted and is currently in process. BlueXP returns this code when the API call operates asynchronously. For example, the `/vsa/working-environments` call returns with 202 but the Cloud Volumes ONTAP instance launches up to 25 minutes later.
+|`204`
 |No Content
 |The operation was completed successfully and the server did not send a response message.
-|400
+|`400`
 |Bad Request
 |The request input is not recognized or is inappropriate. An error response explains the reason.
-|401
+|`401`
 |Unauthorized
 |The user has not authenticated.
-|403
+|`403`
 |Forbidden
 |This operation is not allowed for the current authenticated user.
-|409
+|`409`
 |Conflict
 |The operation failed because another operation is already in progress.
-|420
+|`420`
+|Method Failure
+|BlueXP has not been set up. You must set up BlueXP using the API call `/occm/setup/init`
+|`5xx`
 |---
-|Cloud Manager has not been set up. You must set up Cloud Manager using the API call /occm/setup/init
-|5xx
-|---
-|An unexpected error occurred within the Cloud Manager server which has prevented it from fulfilling the request.
+|An unexpected error occurred within the BlueXP server which has prevented it from fulfilling the request.
 |===
 
 === Response headers

@@ -13,7 +13,7 @@ summary: "The BlueXP REST API provides robust security based on token authentica
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP platform REST APIs provides robust security based on token authentication and authorization.
+The BlueXP REST APIs provides robust security based on token authentication and authorization.
 
 [NOTE]
 In addition to token authorization, all connections are protected using the Transport Layer Security (TLS) protocol.

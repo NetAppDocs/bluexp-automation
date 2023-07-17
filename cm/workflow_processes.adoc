@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: cm/workflow_processes.html
-keywords: workflows, processes, cloud, manager, api
+keywords: workflows, processes, bluexp, api, on-prem ONTAP
 summary: "You should be familiar with the high-level organization and format of the BlueXP workflow processes before using them with a live cloud deployment."
 ---
 
-= Cloud Volumes ONTAP workflow processes
+= Workflow processes
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,58 +13,84 @@ summary: "You should be familiar with the high-level organization and format of 
 :imagesdir: ./media/
 
 [.lead]
-You should be familiar with the organization and format of the Cloud Volumes ONTAP workflow processes before using them with a live deployment.
+You should be familiar with the organization and format of the Cloud Volumes ONTAP and ONTAP on-premises workflow processes before using them with a live deployment.
 
 [NOTE]
-Before getting started with the Cloud Volumes ONTAP workflows, see link:../platform/workflows_tasks.html[Workflow processes and tasks] for an introduction to how workflows and tasks are generally used with the BlueXP platform.
+Before getting started with the workflows, see link:../platform/workflows_tasks.html[Workflow processes and tasks] for an introduction on how workflows and tasks are generally used with BlueXP.
 
 == High level organization of the workflows
 
-At a high level, the Cloud Volumes ONTAP workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar.
+There are two broad categories of workflows associated with the ONTAP management service. They are as follows:
 
-=== 1. Cloud provider
+Cloud Volumes ONTAP workflows::
+This set of workflows enables you to manage the Cloud Volumes ONTAP instances deployed in a cloud provider (AWS, Azure, or Google Cloud).
 
-Most of the workflows can be performed with one cloud provider. The supported cloud platforms include:
+ONTAP on-premises workflows::
+This set of workflows enable you to discover and manage the ONTAP clusters residing on your premises. 
 
-* Amazon Web Services
+There's similarity between the functional categories of the Cloud Volumes ONTAP and on-premises ONTAP workflows, however, there are a few key differences presented as follows.
+
+=== Organization of Cloud Volumes ONTAP workflows
+
+At a high level, the Cloud Volumes ONTAP workflows are organized based on three primary attributes. The organization is reflected in the navigation sidebar. 
+
+.Cloud provider
+The Cloud Volumes ONTAP workflows can be performed with one cloud provider. The supported cloud platforms include:
+
+* Amazon Web Services (AWS)
 * Microsoft Azure
-* Google Cloud Platform
+* Google Cloud 
 
-=== 2. Functional category
+.Functional category
 
 The workflows for each cloud provider (AWS, Azure, GCP) are placed in a specific functional category. The major categories as reflected in the navigation sidebar are presented below.
 
-NOTE: In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:../cm/wf_common_before.html[Common workflows for all cloud providers] for more information about these workflows and how they are organized.
-
-Working environments::
+*Working environments*
 A working environment is the context within which a Cloud Volumes ONTAP instance is deployed and run. These workflows allow you to create working environments and perform related administrative tasks. You can perform specific workflows to create a working environment based on your preferred licensing model (PAYGO or BYOL), remove a working environment, and retrieve the details of a working environment. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of creating a working environment.
 
-Aggregates::
+*Aggregates*
 An aggregate is the low-level structure for Cloud Volumes ONTAP storage. These workflows allow you to create aggregates and perform related administrative tasks.
 
-Volumes::
+*Volumes*
 You can expose the storage volumes for use by your applications. You can perform these workflows to create a volume (using NFS, CIFS, or iSCSI protocol) as well as delete, retrieve, and modify an existing volume based on your storage requirements.
 
-Metadata::
+*Metadata*
 The metadata workflows allow you to view and administer the basic configuration of your cloud environment.
 
-Miscellaneous::
-A workflow that is not assigned to an existing functional category is considered _Miscellaneous_. For example, there is a workflow to create a cloud provider account. The cloud provider account securely stores and manages your cloud provider credentials and establishes an identity for users (such as InstanceProfile with AWS and ManagedIdentity with Azure). This account provides fine-grained authorization of the services and resources based on multiple critical conditions.
+*Miscellaneous*
+A workflow that is not assigned to an existing functional category is considered Miscellaneous. For example, there is a workflow to create a cloud provider account. The cloud provider account securely stores and manages your cloud provider credentials and establishes an identity for users (such as InstanceProfile with AWS and ManagedIdentity with Azure). This account provides fine-grained authorization of the services and resources based on multiple critical conditions.
 
-=== 3. Single node and High availability workflows
+
+.Single node and High availability workflows
 
 Many of the workflows vary based on the type of the deployment.
 
-Single node::
+*Single node*
 The cluster consists of a single Cloud Volumes ONTAP instance or ONTAP node.
 
-HA pair::
+*HA pair*
 The cluster consists of two linked Cloud Volumes ONTAP instances which together provide the ONTAP high availability (HA) feature.
 
 [NOTE]
 If both versions of a workflow exist for an administrative task, they are included on the same page.
 
-=== Presentation of common tokens and identifiers
+=== Organization of the ONTAP on-premises workflows
+
+The ONTAP on-premises workflows are placed in a specific functional category. They resemble the organizational pattern of the Cloud Volumes ONTAP workflows. Following are the major categories that are reflected on the sidebar.
+
+.Working environments
+A working environment is the context within which an ONTAP on-premise instance is added after being discovered. These workflows enable you to discover and manage the ONTAP on-prem clusters. In addition, you can configure the CIFS server when creating a volume that uses the CIFS protocol as part of managing an on-premises environment.
+
+.Aggregates
+An aggregate is the low-level structure for ONTAP on-premises storage. There's a singular workflow that enables you to retrieve aggregates.
+
+.Volumes
+You can expose the storage volumes for use by your applications. You can perform these workflows to create a volume (using NFS, CIFS, or iSCSI protocol) as well as delete, retrieve, and modify an existing volume based on your storage requirements.
+
+[NOTE]
+In addition to the workflows used with the specific cloud providers, there is also a set of common workflows that can be used with any cloud provider. See link:wf_common_before.html[Common workflows] for all cloud providers for more information about these workflows and how they are organized.
+
+== Presentation of common tokens and identifiers
 
 Most of the variable tokens, identifiers, and other variables used in the sample REST API calls consist of long strings of letters, numbers, and special characters. They are considered _opaque_ with no easily discernible content or meaning. Therefore, rather than including the actual original strings, smaller reserved keywords are used instead. This has several benefits:
 
@@ -108,7 +134,8 @@ A list of the keywords used in the workflow curl examples is presented in the ta
 |NetApp refresh token used for federated authentication.
 |===
 
-NOTE: Replace the variables with actual values while performing a curl call.
+[NOTE] 
+Replace the variables with actual values while performing a curl call.
 
 == Working environment status requirements
 
