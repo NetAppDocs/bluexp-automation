@@ -17,7 +17,7 @@ You can use this workflow to delete volumes.
 
 == 1. Select the working environment
 
-Perform the workflow link:wf_onprem_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values of the working environment  for the `workingEnvironmentId` and `svmName` path parameters.
+Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values of the working environment  for the `workingEnvironmentId` and `svmName` path parameters.
 
 == 2. Select the volume
 

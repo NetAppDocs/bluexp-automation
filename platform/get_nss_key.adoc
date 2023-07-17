@@ -27,7 +27,7 @@ You must have a BlueXP account. You normally create this account when first sign
 
 . Navigate to the BlueXP website using a browser:
 +
-https://cconsole.bluexp.netapp.com
+https://console.bluexp.netapp.com
 
 . Sign in using your BlueXP account credentials.
 

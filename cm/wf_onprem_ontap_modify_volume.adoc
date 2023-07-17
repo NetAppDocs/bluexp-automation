@@ -18,7 +18,7 @@ You can modify the configuration of an existing volume.
 
 == 1. Select the working environment
 
-Perform the workflow link:wf_onprem_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
+Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
 
 == 2. Select the volume
 
@@ -55,7 +55,7 @@ JSON input example::
   "exportPolicyInfo": {
     "policyType": "custom",
     "ips": [
-      "172.31.0.0/16"
+      "1xx.00.0.0/16"
     ],
     "nfsVersion": [
       "nfs3"

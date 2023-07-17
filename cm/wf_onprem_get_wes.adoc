@@ -36,7 +36,7 @@ The JSON output example includes on-premises working environment details.
 JSON output example::
 [source,json]
 {
-  "publicId": "OnPremWorkingEnvironment-c4ZMsdrxxh",
+  "publicId": "OnPremWorkingEnvironment-xxxx",
   "tenantId": "Tenant-zzxx",
   "description": "",
   "name": "onpremwe",

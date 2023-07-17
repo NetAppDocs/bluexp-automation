@@ -50,9 +50,9 @@ JSON output example::
         "dnsDomain": "zivh.netapp.com",
         "activeDirectoryDomain": "zivh.netapp.com",
         "ipAddresses": [
-            "172.31.5.241"
+            "1xx.00.5.241"
         ],
-        "netBIOS": "zivaws02we01",
+        "netBIOS": "zivaws02xxx",
         "organizationalUnit": "CN=Computers",
         "authenticationType": "domain"
     }

@@ -66,7 +66,7 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 JSON input example::
 [source,json]
 {
-    "workingEnvironmentId": "OnPremWorkingEnvironment-i7by5ABd",
+    "workingEnvironmentId": "OnPremWorkingEnvironment-xxx",
     "aggregateName": "aggr2",
     "name": "vol3",
     "size": {
@@ -74,7 +74,7 @@ JSON input example::
         "unit": "GB"
     },
     "snapshotPolicyName": "default",
-    "svmName": "svm_onpremwe",
+    "svmName": "svm_dfr",
     "enableCompression": true,
     "enableDeduplication": true,
     "enableThinProvisioning": true,

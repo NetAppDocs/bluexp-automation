@@ -30,7 +30,7 @@ You must have a BlueXP account. You created this account when you first logged i
 
 . Navigate to the BlueXP website using a browser:
 +
-link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
+link:https://bluexp.netapp.com/[https://bluexp.netapp.com/^]
 
 . Sign in using your BlueXP account credentials.
 
@@ -68,7 +68,7 @@ You must have a BlueXP account. You created this account when you first logged i
 
 . Navigate to the BlueXP website using a browser:
 +
-link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
+link:https://bluexp.netapp.com/[https://bluexp.netapp.com/^]
 
 . Sign in using your BlueXP account credentials.
 

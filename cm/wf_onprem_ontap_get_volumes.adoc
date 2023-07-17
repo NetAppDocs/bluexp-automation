@@ -17,7 +17,7 @@ You can retrieve the list of volumes of an on-premises working environment.
 
 == 1. Select the working environment
 
-Perform the workflow link:wf_onprem_cloud_get_wes.html[Get working environments] and choose the `publicId` for the `workingEnvironmentId` path parameter.
+Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` for the `workingEnvironmentId` path parameter.
 
 == 2. Get the volumes
 
@@ -46,7 +46,7 @@ JSON output example::
 [
   {
     "name": "vol1",
-    "uuid": "7770155f-478f-11ed-880d-1155ac8fc573",
+    "uuid": "7770155f-0000-1xxx-880d-1155axcfdrewr73",
     "svmName": "svm_onpremwe",
     "size": {
       "size": 100,
@@ -57,9 +57,9 @@ JSON output example::
       "unit": "GB"
     },
     "junctionPath": "/vol1",
-    "volumeTotalInodes": 3112959,
-    "volumeUsedInodes": 96,
-    "mountPoint": "10.140.0.10:/vol1",
+    "volumeTotalInodes": 0000000,
+    "volumeUsedInodes": 00,
+    "mountPoint": "10.xxx.0.10:/vol1",
     "compressionSpaceSaved": {
       "size": 0,
       "unit": "GB"
@@ -137,7 +137,7 @@ JSON output example::
     },
     "cbsBackupsInfo": null,
     "minimumCoolingDays": null,
-    "targetName": "iqn.1992-08.com.netapp:sn.c304f509478e11ed880d1155ac8fc573:vs.2",
+    "targetName": "iqn.1992-08.com.netapp:sn.c304f509478e11ed88cvcvyhdc8fc573:vs.2",
     "iscsiEnabled": false,
     "isFlexGroupVolume": false
   }

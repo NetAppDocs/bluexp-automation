@@ -46,11 +46,11 @@ JSON output example::
   {
     "name": "aggr2",
     "totalCapacity": {
-      "size": 475608064000,
+      "size": 47xxxxxx,
       "unit": "Byte"
     },
     "availableCapacity": {
-      "size": 475491401728,
+      "size": 4754xxxxxxxxx,
       "unit": "Byte"
     },
     "state": "online",
@@ -58,7 +58,7 @@ JSON output example::
     "isObjectStoreAttachEligible": true,
     "objectStoreName": null,
     "usedCapacity": {
-      "size": 116662272,
+      "size": 1166xxxx,
       "unit": "Byte"
     },
     "tieringRestriction": null,
@@ -67,7 +67,7 @@ JSON output example::
   {
     "name": "aggr1",
     "totalCapacity": {
-      "size": 475608064000,
+      "size": 47560xxxxx,
       "unit": "Byte"
     },
     "availableCapacity": {
@@ -79,7 +79,7 @@ JSON output example::
     "isObjectStoreAttachEligible": false,
     "objectStoreName": "StorageAccount",
     "usedCapacity": {
-      "size": 1086980096,
+      "size": 1086xxxxxx,
       "unit": "Byte"
     },
     "tieringRestriction": null,

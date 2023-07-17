@@ -78,7 +78,7 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 JSON input example::
 [source,json]
 {
-    "workingEnvironmentId": "OnPremWorkingEnvironment-i7by5ABd",
+    "workingEnvironmentId": "OnPremWorkingEnvironment-xxxx",
     "aggregateName": "aggr2",
     "name": "vol3",
     "size": {
@@ -96,8 +96,8 @@ JSON input example::
     "igroupCreationRequest": {
         "igroupName": "onpremGroup",
         "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216",
-            "iqn.1994-05.com.redhat:96de86823426"
+            "iqn.1994-05.com.redhat:96dexxxx216",
+            "iqn.1994-05.com.redhat:96dexxxxx6"
               ]
       },
      "osName": "linux"
@@ -116,11 +116,11 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
 === 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` parameter.
+Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` for the `aggregateName` parameter.
 
 === 3. Choose the size for the disk
 
@@ -154,10 +154,10 @@ If an aggregate name does not exist, you can set the `createAggregateIfNotFound`
 JSON input example::
 [source,json]
 {
-  "workingEnvironmentId": "VsaWorkingEnvironment-UvFmWXoD",
+  "workingEnvironmentId": "VsaWorkingEnvironment-xxxxx",
   "svmName": "svm_zivaws01we01",
   "aggregateName": "aggr1",
-  "name": "zivaws01we01vol05Iscsi",
+  "name": "zivawxxxxxx05Iscsi",
   "size": {
     "size": 100,
     "unit": "GB"

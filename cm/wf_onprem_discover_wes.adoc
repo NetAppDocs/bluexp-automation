@@ -32,13 +32,13 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/on
 Input body example::
 [source,json]
 {
-  "clusterPassword": "Netapp234",
+  "clusterPassword": "password",
   "description": "Onprem Working Environment",
   "clusterUserName": "admin",
   "name": "onpremwe",
   "location": "ON_PREM",
-  "clusterAddress": "10.140.0.40",
-  "tenantId": "workspaceUsXAWu48"
+  "clusterAddress": "10.xxx.0.40",
+  "tenantId": "workspaceUsXAxxxxxx"
 }
 
 
