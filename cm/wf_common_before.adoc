@@ -38,6 +38,8 @@ These workflows allow you to manage and monitor SnapMirror relationships to repl
 
 == Connector setup
 
-You must have a *Connector* for the cloud environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the BlueXP web UI. When you create a Connector, BlueXP adds the cloud provider account that you deployed the Connector in to your list of available accounts. Your cloud provider account needs to have the right permissions in order to create a Connector.
+You must have a Connector for the cloud provider or on-premises environment before creating a working environment and performing other activities using the workflows. You can create a Connector using the BlueXP web UI. When you create a Connector, BlueXP adds the cloud provider account that you deployed the Connector in to your list of available accounts. Your cloud provider account needs to have the right permissions in order to create a Connector.
 
 Review https://docs.netapp.com/us-en/occm/concept_connectors.html[Learn about Connectors] to know how to create and deploy a Connector.
+
+
