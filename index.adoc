@@ -2,8 +2,8 @@
 layout: astra
 sidebar: sidebar
 permalink: index.html
-lead: The BlueXP REST APIs provide the features and capabilities you need to automate the administration of your cloud-based resources.
-summary: The BlueXP REST APIs provide access to the capabilities you need to automate the administration of your cloud-based resources.
+lead: The BlueXP REST APIs provide the features and capabilities you need to automate the administration of your cloud-based and on-premises resources.
+summary: The BlueXP REST APIs provide access to the capabilities you need to automate the administration of your cloud-based and on-premises resources.
 ---
 
 = BlueXP API documentation

@@ -13,39 +13,31 @@ summary: 'There are several things you should do to prepare to use the BlueXP RE
 :imagesdir: ./media/
 
 [.lead]
-There are several things you should do to prepare before using the Cloud Volumes ONTAP REST API and associated workflows.
+You need to prepare before using the REST APIs provided with the ONTAP management service. 
+
+.Have BlueXP credentials
+You'll need a NetApp account to acquire an access token required to issue the REST API calls.
 
 .Review REST concepts and implementation
+Review the link:../platform/concepts.html[REST implementation details] for information about REST concepts and the details of how a REST API is designed.
 
-Make sure to review link:rest_implementation.html[REST implementation details] for information about REST concepts and the details of how the Cloud Volumes ONTAP REST API is designed.
+.Be familiar with Cloud Volumes ONTAP and ONTAP on-premises concepts
+If you plan to perform Cloud Volumes ONTAP and on-premises ONTAP administration tasks, you should be familiar with the related ONTAP concepts, terminology, and procedures. Learn about link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-overview-cvo.html[Cloud Volumes ONTAP^] and https://docs.netapp.com/us-en/bluexp-ontap-onprem/concept-onprem-ontap.html[on-premises ONTAP^] concepts.
 
-.Decide on the cloud provider and have credentials
 
-Cloud Volumes ONTAP can be deployed in Amazon Web Services, Microsoft Azure, and Google Cloud Platform. You need to decide which of these providers you'll use and have the appropriate credentials.
+.Decide on the cloud provider and obtain credentials for Cloud Volumes ONTAP
+Cloud Volumes ONTAP can be deployed in AWS, Microsoft Azure, and Google Cloud platform. You need to decide which of these providers you'll use and have the appropriate credentials.
 
-.Have BlueXP website credentials
-
-You'll need a NetApp account login to acquire an access token required for the workflow processes. See https://docs.netapp.com/us-en/occm/task_signing_up.html[Signing up to NetApp BlueXP website^] for more information.
-
-.Be familiar with Cloud Volumes ONTAP concepts
-
-If you intend to perform Cloud Volumes ONTAP administration tasks, you should be familiar with Cloud Volumes ONTAP concepts, terminology, and procedures. See https://docs.netapp.com/us-en/occm/concept_overview_cvo.html[Learn about Cloud Volumes ONTAP^] for more information.
-
-.Decide on the licensing model
-
-You can create and manage Cloud Volumes ONTAP instances using a subscription PAYGO ("pay as you go") model or apply your own licenses with BYOL ("bring your own license"). You need to decide which licensing model you'll use and be ready to adjust the workflows as needed.
+.Decide on the licensing model for Cloud Volumes ONTAP
+You can create and manage Cloud Volumes ONTAP instances using a subscription PAYGO ("pay as you go") model or apply your own licenses with BYOL ("bring your own license"). You need to decide which licensing model you'll use and adjust the workflows as needed.
 
 .Prepare to use the workflow processes
-
-Review link:workflow_processes.html[Workflow processes] for more information about the organization and content of the workflows. Also see link:cloud_manager_deployment.html[Typical Cloud Manager deployment].
-
+Review link:workflow_processes.html[Workflow processes] for more information about the organization and content of the Cloud Volumes ONTAP and on-premises ONTAP workflows. 
 [NOTE]
-This documentation does not describe or use the Local UI.
+This documentation does not describe or use the legacy UI (not the SaaS UI).
 
-.Locate the identifier
+.Locate the identifiers
+You'll need the identifier values for several of the workflows. See link:../platform/get_identifiers.html[Get required identifiers] for more information.
 
-You'll need the identifier values for several of the workflows. For more information see link:../platform/get_identifiers.html[Get required identifiers].
-
-.Related information
-
-You should be aware of the additional resources available as suggested in link:../support/additional_resources.html[Additional resources].
+.Additional considerations
+Review the available resources described in link:../platform/additional_considerations.html[Additional considerations].

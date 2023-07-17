@@ -18,7 +18,7 @@ The BlueXP REST APIs support many different workflows and tasks. You should be f
 * link:workflows_tasks.html#workflows[Workflows]
 * link:workflows_tasks.html#tasks[Tasks]
 
-See link:../cm/workflow_processes.html[Cloud Volumes ONTAP workflow processes] for more details about the extensive set of workflow examples included with the Cloud Volumes ONTAP REST API.
+See link:../cm/workflow_processes.html[ONTAP management service workflow processes] for more details about the extensive set of workflow examples included with the ONTAP management service REST API.
 
 == Workflows
 
@@ -41,7 +41,7 @@ Every API call used in the workflows includes the resource path to the REST endp
 
 The majority of the workflow REST API calls are made to the *NetApp BlueXP* service. The base URL of the SaaS interface is:
 
-`https://cloudmanager.netapp.com/`
+`https://console.bluexp.netapp.com/`
 
 .Auth0 authentication service
 
@@ -61,7 +61,7 @@ Authorization request header::
 To get a bearer token for this header, perform the appropriate workflow at link:../platform/create_user_token.html[Create a user token] and extract the `access_token` value.
 
 x-agent-id request header::
-This header contains the agent ID which is based on the client ID. See link:get_identifiers.html[Get required identifiers] for information about creating this value.
+This header contains the agent ID which is used to identify an agent. See link:get_identifiers.html[Get required identifiers] for information about creating this value.
 
 == Presentation of common tokens and identifiers
 
@@ -81,6 +81,6 @@ In many cases, a workflow step accepts JSON input in the request body of the RES
 
 A _task_ is a sequence of one or more steps needed to accomplish a specific administrative task or goal. Tasks typically differ from workflow processes in several ways:
 
-* Limited to using the BlueXP web user interface
+* Limited to using the BlueXP web UI
 * Do not make REST API calls
 * If invocation of a workflow is required, it is included as a prerequisite

@@ -13,7 +13,7 @@ summary: You can sign into the BlueXP web user interface to retrieve several ide
 :imagesdir: ./media/
 
 [.lead]
-You can access the BlueXP web user interface to retrieve the identifiers needed for the workflows.
+You can access the BlueXP web UI to retrieve the identifiers needed for the workflows.
 
 [NOTE]
 In addition to the BlueXP web user interface, you can also obtain the ID values through the Cloud Volumes ONTAP REST API. See link:../cm/wf_common_identity_get_supported_srv.html[Get supported services] for more information.
@@ -30,7 +30,7 @@ You must have a BlueXP account. You created this account when you first logged i
 
 . Navigate to the BlueXP website using a browser:
 +
-link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
+link:https://bluexp.netapp.com/[https://bluexp.netapp.com/^]
 
 . Sign in using your BlueXP account credentials.
 
@@ -68,7 +68,7 @@ You must have a BlueXP account. You created this account when you first logged i
 
 . Navigate to the BlueXP website using a browser:
 +
-link:https://cloudmanager.netapp.com[https://cloudmanager.netapp.com^]
+link:https://bluexp.netapp.com/[https://bluexp.netapp.com/^]
 
 . Sign in using your BlueXP account credentials.
 

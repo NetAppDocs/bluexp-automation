@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: cm/overview.html
-keywords: overview, introduction rest api, bluexp, 
-summary: 'The NetApp BlueXP service includes a REST API that you can access programmatically to administer your cloud-based resources. '
+keywords: bluexp, rest, api, credentials, cloud, volumes, ONTAP, API
+summary: 'There are several things you should do to prepare to use the BlueXP REST API and associated workflows.'
 ---
 
-= Overview of the Cloud Volumes ONTAP REST API
+= Overview 
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,22 +13,43 @@ summary: 'The NetApp BlueXP service includes a REST API that you can access prog
 :imagesdir: ./media/
 
 [.lead]
-The NetApp BlueXP service includes a REST API, Cloud Volumes ONTAP API, you can use programmatically to administer your cloud-based resources. The Cloud Volumes ONTAP REST API provides access to a subset of the functionality available in the BlueXP platform with a focus on Cloud Volumes ONTAP deployments.
+ONTAP management service is composed of multiple related REST APIs that enable you to administer your cloud-based and on-premises ONTAP storage resources. Using the REST APIs, you can perform many different operations, including managing Cloud Volumes ONTAP single-node and high availability (HA) resources (ONTAP instances running on the public cloud providers), on-premises ONTAP cluster resources (including AFF/FAS systems), configure cloud providers, support BlueXP account resources, and more. 
 
-There are several benefits to using the Cloud Volumes ONTAP REST API.
+The different types of resources supporting these operations can be managed through the ONTAP management service. They can be broadly categorized as follows:
 
-.Built on REST technology and design principles
+* Administrative resources
+  These resources are used to set up and configure the BlueXP environment.
 
-The Cloud Volumes ONTAP API has been designed based on REST technology and current best practices. The core technologies include Hypertext Transfer Protocol (HTTP) and JavaScript Object Notation (JSON).
+* Auditing resources
+  You can view the details about the BlueXP operations that have been initiated or are active.
 
-.Anchors the BlueXP development platform
+* Authentication resources
+  You need to authenticate using a BlueXP account to run the API operations.
 
-The Cloud Volumes ONTAP REST API provides the primary external interface to the BlueXP platform. There are additional REST APIs which support the various platform services.
+* Working environment resources
+  These resources represent available deployment environments, including Cloud Volumes ONTAP single-node and HA configurations as well as on-premises ONTAP clusters.
 
-.Access to NetApp cloud token-based security
+Each resource is accessible through a set of API endpoints.
 
-BlueXP authentication and authorization is based on the _OAuth2_ standard. NetApp relies on the _Auth0_ service implementation.
+== Cloud Volumes ONTAP operations
 
-.Alignment with the BlueXP web UI
+Cloud Volumes ONTAP API is widely used by developers to create and administer Cloud Volumes ONTAP working environment resources, add aggregates, and volumes to Cloud Volumes ONTAP instances. The Cloud Volumes ONTAP REST API calls vary depending on the different cloud providers. Also, there are slight variations among the Cloud Volumes ONTAP API calls used for single-node versus HA configurations.
 
-The BlueXP web user interface uses the same core REST API and therefore there is consistency between the two access paths.
+== On-premises ONTAP operations
+
+You can discover and manage the on-premises ONTAP resources by using the on-premises REST API calls. In addition, you can also perform various management operations, such as add an ONTAP cluster as a working environment resource, add volumes, and perform other related actions.
+
+== API workflows
+
+The ONTAP management service supports many different workflows. Each workflow is focused on performing a specific administrative task. There are three major sets of workflows: 
+
+* link:wf_cvo_before.html[Cloud Volumes ONTAP workflows]
+* link:wf_onprem_before.html[On-premises ONTAP workflows]
+* link:wf_common_before.html[Common workflows]
+
+See link:workflow_processes.html[Workflows processes] to learn more about the workflows and their common characteristics before using a specific API.
+
+== API reference 
+
+You can use the link:api_reference.html[API reference] documentation when working with the ONTAP management service. It includes specific reference information for each of the available operations.
+
