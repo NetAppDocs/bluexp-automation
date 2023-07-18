@@ -16,7 +16,7 @@ entries:
       - title: Before you begin
         url: /cm/wf_cvo_before.html
       - title: Typical deployment
-        url: /cm/cloud_manager_deployment.html
+        url: /cm/cvo_deployment.html
       - title: AWS workflows
         entries:
          
