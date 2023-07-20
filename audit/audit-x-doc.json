@@ -1,37 +1,35 @@
 {
     "paths": {
-      "/audit/external/{accountId}": {
+      "/audit/{accountId}": {
         "get": {
           "x-doc": {
             "title": "Retrieve account records",
             "category": "audit",
-            "filename": "get-audit-external.html",
-            
+            "filename": "get-audit.html",
             "subcategory": null
           }
         }
       },
-      "/audit/external/{accountId}/{service}/{requestId}/records": {
+      "/audit/{accountId}/{service}/{requestId}/records": {
         "get": {
           "x-doc": {
             "title": "Retrieve records by service",
             "category": "audit",
-            "filename": "get-audit-external--records.html",
-            
+            "filename": "get-audit--records.html",
             "subcategory": null
           }
         }
       },
-      "/audit/external/{accountId}/options": {
+      "/audit/{accountId}/options": {
         "get": {
           "x-doc": {
-            "title": "Retrieve audit options ",
+            "title": "Retrieve audit options",
             "category": "audit",
-            "filename": "get-audit-external-options.html",
-           
+            "filename": "get-audit-options.html",
             "subcategory": null
           }
         }
+     
       }
     }
   }
