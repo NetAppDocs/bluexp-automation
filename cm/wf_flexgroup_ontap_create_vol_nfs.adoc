@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_flexgroup_ontap_create_vol_nfs.html
+permalink: cm/wf_flexgroup_ontap_create_vol.html
 keywords: cloud, manager, rest, api, aggregate, svm, virtual, private, cloud
 summary: 'You can use this workflow to create a volume accessed through NFS.'
 ---
