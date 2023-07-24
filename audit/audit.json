@@ -356,7 +356,7 @@
         "get": {
           "operationId": "AuditController_auditRecords",
           "summary": "",
-          "description": "Retrieves specified records by account, service, and reqeust ID.\n  </br>\n    <p><strong>Token usage:</strong></span> BlueXP user token.</p>",
+          "description": "Retrieves specified records by account, service, and request ID.\n  </br>\n    <p><strong>Token usage:</strong></span> BlueXP user token.</p>",
           "parameters": [
             {
               "name": "accountId",
