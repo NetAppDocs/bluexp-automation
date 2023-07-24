@@ -13,26 +13,34 @@ summary: 'You can use this workflow to create a volume accessed through NFS.'
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a FlexGroup volume.
+You can use this workflow to create a FlexGroup volume using the NFS and CIFS protocols. iSCSI protocol is not supported while creating a FlexGroup volume.
 
-“For now, we don't allow to choose FG volume as source for replication“
-“ISCSI option shall not be supported by Flex Group volume”
+.Requirements
+
+* The ONTAP cluster must be running version 9.7 or later.
+
+* You should be aware of the considerations and requirements when selecting the aggregates for provisioning a FlexGroup volume. For details, refer to https://docs.netapp.com/us-en/ontap/flexgroup/create-task.html[ONTAP documentation^].
+
+* You should be aware of minimum and maximum size limits. For details, refer to the https://www.netapp.com/pdf.html?item=/media/12385-tr4571.pdf[NetApp ONTAP FlexGroup volumes best practices and implementation guide^].
+
+
+.Limitations
+
+* FlexGroup volumes are not supported as a source for data replication from the BlueXP replication service.
+
 “FlexGroup volume size validation״
-FG volume min/max size limit based on number of constituents.
-max constituents number is 200
+FG volume min/max size limit is based on the number of constituents.
+The maximum constituent number is 200;
 min size of constituents member is 100GB, max size is 100TB
 so, f.e.
 
-if user will set 10 constituents, 
-
-the min vol size should be 100GB * 10 = 1TB
-the max vol size should be 100TB * 10 = 1000TB
-Note: constituents member in request is total constituents for FlexGroup volume, this number shall be distributed equally between required aggregates from the list. So, number of constituents for the FlexGroup volume shall match the number of requested aggregates
+If you set 10 constituents, the min vol size should be 100GB * 10 = 1TB and the max vol size should be 100TB * 10 = 1000TB
+Note: constituents member in request is total constituents for FlexGroup volume, this number shall be distributed equally between required aggregates from the list. The number of constituents for a FlexGroup volume should match the number of requested aggregate.
  
 
-[NOTE] FlexGroup is supported for on premises systems running ONTAP 9.7 and later.
 
-If existing, aggregateName parameter shall not be provided.
+
+
 
 “Onprem - Can choose one or more aggregates. Can have Several aggregates on several nodes . once first is chosen we will disable all other aggregates (that have a different disk type or size”
 “all aggregates shall be assigned to the requested svm”
@@ -52,7 +60,7 @@ Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and c
 Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
-If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
+If an aggregate exists, `aggregateName` parameter is not provided.
 
 == 3. Select the network 
 
@@ -95,37 +103,44 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 JSON input example::
 [source,json]
 {
-    "workingEnvironmentId": "OnPremWorkingEnvironment-xxx",
-    "aggregateName": "aggr2",
-    "name": "vol3",
-    "size": {
-        "size": "100",
-        "unit": "GB"
-    },
-    "snapshotPolicyName": "default",
-    "svmName": "svm_dfr",
-    "enableCompression": true,
-    "enableDeduplication": true,
-    "enableThinProvisioning": true,
-    "verifyNameUniqueness": true,
-    "volumeTags": [],
-    "exportPolicyInfo": {
-        "policyType": "custom",
-        "rules": [
-            {
-                "index": 1,
-                "ruleAccessControl": "readwrite",
-                "ips": [
-                    "0.0.0.0/0"
-                ],
-                "nfsVersion": [
-                    "nfs3",
-                    "nfs4"
-                ],
-                "superUser": true
-            }
-        ]
-    }
+  "verifyNameUniqueness": true,
+  "name": "fgvol3",
+  "volumeTags": [],
+  "size": {
+    "size": "2",
+    "unit": "TB"
+  },
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "flexGroupVolumeInfo": {
+    "aggregateList": [
+      "aggr2GP3",
+      "aggr1"
+    ],
+    "numberOfConstituents": 10
+  },
+  "enableThinProvisioning": true,
+  "svmName": "svm_cvogalinaonprem",
+  "snapshotPolicyName": "default",
+  "autoVsaCapacityManagementEnabled": true,
+  "exportPolicyInfo": {
+    "policyType": "custom",
+    "rules": [
+      {
+        "nfsVersion": [
+          "nfs3",
+          "nfs4"
+        ],
+        "ruleAccessControl": "readwrite",
+        "ips": [
+          "0.0.0.0/0"
+        ],
+        "superUser": true,
+        "index": 1
+      }
+    ]
+  },
+  "workingEnvironmentId": "OnPremWorkingEnvironment-oB3ntdCq"
 }
 
 
