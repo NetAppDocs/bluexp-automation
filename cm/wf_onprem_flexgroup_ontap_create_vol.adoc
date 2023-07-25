@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: cm/wf_flexgroup_ontap_create_vol.html
+permalink: cm/wf_onprem_flexgroup_ontap_create_vol.html
 keywords: cloud, manager, rest, api, aggregate, svm, virtual, private, cloud
 summary: 'You can use this workflow to create a volume accessed through NFS.'
 ---
@@ -28,24 +28,7 @@ You can use this workflow to create a FlexGroup volume using the NFS and CIFS pr
 
 * FlexGroup volumes are not supported as a source for data replication from the BlueXP replication service.
 
-“FlexGroup volume size validation״
-FG volume min/max size limit is based on the number of constituents.
-The maximum constituent number is 200;
-min size of constituents member is 100GB, max size is 100TB
-so, f.e.
 
-If you set 10 constituents, the min vol size should be 100GB * 10 = 1TB and the max vol size should be 100TB * 10 = 1000TB
-Note: constituents member in request is total constituents for FlexGroup volume, this number shall be distributed equally between required aggregates from the list. The number of constituents for a FlexGroup volume should match the number of requested aggregate.
- 
-
-
-
-
-
-“Onprem - Can choose one or more aggregates. Can have Several aggregates on several nodes . once first is chosen we will disable all other aggregates (that have a different disk type or size”
-“all aggregates shall be assigned to the requested svm”
-“Tiering Validation - All aggregates must have Tiering Enabled/Disabled.”
-“WORM Validation - All aggregates must have WORM Enabled/Disabled.”
 
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
@@ -55,9 +38,12 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` parameters.
 
-== 2. Select the aggregate
+== 2. (Optional) Select the aggregate
 
 You can select one or more aggregates depending on your requirement. 
+[NOTE]
+Tiering Validation - All aggregates must have Tiering Enabled/Disabled.
+WORM Validation - All aggregates must have WORM Enabled/Disabled.
 
 [NOTE]
 If an aggregate exists, `aggregateName` parameter is not provided.
