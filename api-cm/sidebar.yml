@@ -257,7 +257,7 @@ entries:
              - title: Create a volume using iSCSI
                url: /cm/wf_onprem_ontap_create_vol_iscsi.html
              - title: Create a FlexGroup volume
-               url: /cm/wf_flexgroup_ontap_create_vol.html
+               url: /cm/wf_onprem_flexgroup_ontap_create_vol.html
              - title: Get volumes
                url: /cm/wf_onprem_ontap_get_volumes.html
              - title: Modify volume
