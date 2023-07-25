@@ -28,8 +28,6 @@ You can use this workflow to create a FlexGroup volume using the NFS and CIFS pr
 
 * FlexGroup volumes are not supported as a source for data replication from the BlueXP replication service.
 
-
-
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
@@ -38,15 +36,18 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` parameters.
 
-== 2. (Optional) Select the aggregate
+== 2. (Optional) Select the aggregate and the constituents 
 
-You can select one or more aggregates depending on your requirement. 
+* You can select one or more aggregates depending on your requirement. Perform the xx workflow and select the aggregate values in the `flexGroupVolumeInfo` -> `aggregateList` input parameter.
+
+* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter. As a general rule, the FlexGroup volume minimum or maximum size limit is based on the number of constituents; the maximum constituents number is 200 and the minimum size of constituents is 100GB, maximum size is 100TB. For example, if you provide the value of `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
+
+[NOTE]
+If an aggregate exists, the `flexGroupVolumeInfo` -> `aggregateList` parameter value is not provided.
+
 [NOTE]
 Tiering Validation - All aggregates must have Tiering Enabled/Disabled.
 WORM Validation - All aggregates must have WORM Enabled/Disabled.
-
-[NOTE]
-If an aggregate exists, `aggregateName` parameter is not provided.
 
 == 3. Select the network 
 
@@ -73,8 +74,13 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/o
 
 Optional parameters::
 
-FlexGroupVolumeInfo
-
+"flexGroupVolumeInfo": {
+    "aggregateList": [
+      "aggr1",
+      "aggr2"
+    ],
+    "numberOfConstituents": 00
+}
 
 Input::
 
@@ -82,7 +88,6 @@ The JSON input example includes the minimum list of input parameters, including:
 
 * <WORKING_ENV_ID> `(workingEnvironmentId)`
 * <SVM_NAME> `(svmName)`
-* <AGGR_NAME> `(aggregateName)`
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
