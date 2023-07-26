@@ -42,6 +42,7 @@ Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and c
 [NOTE]
 If one or more aggregates doesn't exist and the aggregate names are not provided on the REST API call, the response will fail and the API call will be aborted.
 
+
 == 3. Select the network 
 
 Choose the desired value for the `exportPolicyInfo` parameter. You need to specify your internal network IP for the `ips` parameter that can access a volume.
@@ -72,8 +73,6 @@ The JSON input example includes the minimum list of input parameters, including:
 
 * <WORKING_ENV_ID> `(workingEnvironmentId)`
 * <SVM_NAME> `(svmName)`
-
-If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
 JSON input example::
 [source,json]
