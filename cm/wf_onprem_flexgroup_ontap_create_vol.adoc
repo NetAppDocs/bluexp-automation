@@ -23,19 +23,17 @@ You can use this workflow to create a FlexGroup volume.
 
 * You should be aware of minimum and maximum size limits. For details, refer to the https://www.netapp.com/pdf.html?item=/media/12385-tr4571.pdf[NetApp ONTAP FlexGroup volumes best practices and implementation guide^].
 
-
 .Limitations
 
 * FlexGroup volumes are not supported as a source for data replication from the BlueXP replication service.
-
 
 == 1. Select the working environment
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` parameters.
 
-== 2. Select the aggregate and the constituents 
+== 2. Select the aggregates and constituents 
 
-* You can select one or more aggregates depending on your requirement. Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` values of the aggregate for the `flexGroupVolumeInfo` -> `aggregateList` input parameter.
+* You can select one or more aggregates depending on your requirement. Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregates for the `flexGroupVolumeInfo` -> `aggregateList` input parameter.
 
 * Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter. As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
 
