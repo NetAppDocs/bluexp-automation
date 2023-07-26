@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_onprem_flexgroup_ontap_create_vol.html
-keywords: cloud, manager, rest, api, aggregate, svm, virtual, private, cloud
-summary: 'You can use this workflow to create a volume accessed through NFS.'
+keywords: bluexp, rest, api, aggregate, svm, virtual, private, cloud
+summary: 'You can use this workflow to create a FlexGroup volume accessed through NFS.'
 ---
 
 = Create a FlexGroup volume
@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a volume accessed through NFS.'
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a FlexGroup volume using the NFS and CIFS protocols. 
+You can use this workflow to create a FlexGroup volume. 
 
 .Requirements
 
@@ -28,26 +28,19 @@ You can use this workflow to create a FlexGroup volume using the NFS and CIFS pr
 
 * FlexGroup volumes are not supported as a source for data replication from the BlueXP replication service.
 
-[NOTE]
-If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
-
 
 == 1. Select the working environment
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` parameters.
 
-== 2. (Optional) Select the aggregate and the constituents 
+== 2. Select the aggregate and the constituents 
 
-* You can select one or more aggregates depending on your requirement. Perform the xx workflow and select the aggregate values in the `flexGroupVolumeInfo` -> `aggregateList` input parameter.
+* You can select one or more aggregates depending on your requirement. Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` values of the aggregate for the `flexGroupVolumeInfo` -> `aggregateList` input parameter.
 
-* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter. As a general rule, the FlexGroup volume minimum or maximum size limit is based on the number of constituents; the maximum constituents number is 200 and the minimum size of constituents is 100GB, maximum size is 100TB. For example, if you provide the value of `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
-
-[NOTE]
-If an aggregate exists, the `flexGroupVolumeInfo` -> `aggregateList` parameter value is not provided.
+* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter. As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
 
 [NOTE]
-Tiering Validation - All aggregates must have Tiering Enabled/Disabled.
-WORM Validation - All aggregates must have WORM Enabled/Disabled.
+If one or more aggregates doesn't exist and the aggregate names are not provided on the REST API call, the response will fail and the API call will be aborted.
 
 == 3. Select the network 
 
@@ -72,15 +65,6 @@ curl example::
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
-Optional parameters::
-
-"flexGroupVolumeInfo": {
-    "aggregateList": [
-      "aggr1",
-      "aggr2"
-    ],
-    "numberOfConstituents": 00
-}
 
 Input::
 
@@ -131,7 +115,7 @@ JSON input example::
       }
     ]
   },
-  "workingEnvironmentId": "OnPremWorkingEnvironment-oB3ntdCq"
+  "workingEnvironmentId": "OnPremWorkingEnvironment-xx"
 }
 
 
