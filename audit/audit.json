@@ -10,7 +10,7 @@
     "tags": [
       {
         "name": "audit",
-        "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The Audit endpoints enable you to perform the following operations:</p>\n<ul>\n<li>Retrieve audit data for a specified account</li>\n<li>Retrieve audit records for a specified account and service and request ID</li>\n<li>Retrieve audit options for a specified account</li>\n</ul>\n</fieldset>\n</details>\n"
+        "description": "<details>\n<summary>Overview</summary>\n<fieldset>\n<p>The Audit endpoints enable you to perform the following operations:</p>\n<ul>\n<li>Retrieve audit data for a specified account</li>\n<li>Retrieve audit records for a specified account, service, and request ID</li>\n<li>Retrieve audit options for a specified account</li>\n</ul>\n</fieldset>\n</details>\n"
       }
     ],
     "servers": [
@@ -412,7 +412,7 @@
         "get": {
           "operationId": "AuditController_auditOptions",
           "summary": "",
-          "description": "Retrieves filter options a by specified account ID.\n  </br>\n    <p><strong>Token usage:</strong></span> BlueXP user token.</p>",
+          "description": "Retrieves filter options by a specified account ID.\n  </br>\n    <p><strong>Token usage:</strong></span> BlueXP user token.</p>",
           "parameters": [
             {
               "name": "accountId",
@@ -447,3 +447,4 @@
       }
     }
   }
+  
