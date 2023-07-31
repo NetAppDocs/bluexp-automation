@@ -1,0 +1,124 @@
+---
+sidebar: sidebar
+permalink: cm/wf_onprem_flexgroup_ontap_create_vol.html
+keywords: bluexp, rest, api, aggregate, svm, virtual, private, cloud
+summary: 'You can use this workflow to create a FlexGroup volume accessed through NFS.'
+---
+
+= Create a FlexGroup volume
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can use this workflow to create an ONTAP FlexGroup volume. 
+
+.Requirements
+
+* The ONTAP cluster must be running version 9.7 or later.
+
+* You should be aware of the considerations and requirements when selecting the aggregates for provisioning a FlexGroup volume. See https://docs.netapp.com/us-en/ontap/flexgroup/create-task.html[ONTAP documentation^] for more details.
+
+* You should be aware of minimum and maximum size limits. See the https://www.netapp.com/pdf.html?item=/media/12385-tr4571.pdf[NetApp ONTAP FlexGroup volumes best practices and implementation guide^] for more details.
+
+.Limitations
+
+* FlexGroup volumes are not supported as a source for data replication from the BlueXP replication service.
+
+== 1. Select the working environment
+
+Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` input parameters.
+
+== 2. Select the aggregates and constituents 
+
+* Select one or more aggregate names as needed. 
+Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` values of the aggregates for the `flexGroupVolumeInfo` -> `aggregateList` input parameter. 
+
+* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` input parameter. 
+As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
+
+[NOTE]
+If one or more aggregates don't exist and the aggregate names are not provided on the REST API call, the response will fail and the API call will be aborted.
+
+
+== 3. Select the network 
+
+Choose the desired value for the `exportPolicyInfo` input parameter. You need to specify your internal network IP for the `ips` input parameter that can access a volume.
+
+== 4. Choose the size for the disk
+
+Choose the size value for the `size:size` input parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+
+
+== 5. Create the volume
+
+[cols="25,75"*,options="header"]
+|===
+|HTTP method
+|Path
+|POST
+|/occm/api/onprem/volumes
+|===
+
+curl example::
+[source,curl]
+curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+
+
+Input::
+
+The JSON input example includes the minimum list of input parameters, including:
+
+* <WORKING_ENV_ID> `(workingEnvironmentId)`
+* <SVM_NAME> `(svmName)`
+
+JSON input example::
+[source,json]
+{
+  "verifyNameUniqueness": true,
+  "name": "fgvol3",
+  "volumeTags": [],
+  "size": {
+    "size": "2",
+    "unit": "TB"
+  },
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "flexGroupVolumeInfo": {
+    "aggregateList": [
+      "aggr2GP3",
+      "aggr1"
+    ],
+    "numberOfConstituents": 10
+  },
+  "enableThinProvisioning": true,
+  "svmName": "svm_cvogalinaonprem",
+  "snapshotPolicyName": "default",
+  "autoVsaCapacityManagementEnabled": true,
+  "exportPolicyInfo": {
+    "policyType": "custom",
+    "rules": [
+      {
+        "nfsVersion": [
+          "nfs3",
+          "nfs4"
+        ],
+        "ruleAccessControl": "readwrite",
+        "ips": [
+          "0.0.0.0/0"
+        ],
+        "superUser": true,
+        "index": 1
+      }
+    ]
+  },
+  "workingEnvironmentId": "OnPremWorkingEnvironment-xx"
+}
+
+
+Output::
+
+None
+
