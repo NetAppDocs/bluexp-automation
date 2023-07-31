@@ -19,9 +19,9 @@ You can use this workflow to create an ONTAP FlexGroup volume.
 
 * The ONTAP cluster must be running version 9.7 or later.
 
-* You should be aware of the considerations and requirements when selecting the aggregates for provisioning a FlexGroup volume. For details, refer to https://docs.netapp.com/us-en/ontap/flexgroup/create-task.html[ONTAP documentation^].
+* You should be aware of the considerations and requirements when selecting the aggregates for provisioning a FlexGroup volume. See https://docs.netapp.com/us-en/ontap/flexgroup/create-task.html[ONTAP documentation^] for more details.
 
-* You should be aware of minimum and maximum size limits. For details, refer to the https://www.netapp.com/pdf.html?item=/media/12385-tr4571.pdf[NetApp ONTAP FlexGroup volumes best practices and implementation guide^].
+* You should be aware of minimum and maximum size limits. See the https://www.netapp.com/pdf.html?item=/media/12385-tr4571.pdf[NetApp ONTAP FlexGroup volumes best practices and implementation guide^] for more details.
 
 .Limitations
 
@@ -36,7 +36,8 @@ Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and c
 * Select one or more aggregate names as needed. 
 Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` values of the aggregates for the `flexGroupVolumeInfo` -> `aggregateList` input parameter. 
 
-* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` input parameter. As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
+* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` input parameter. 
+As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
 
 [NOTE]
 If one or more aggregates don't exist and the aggregate names are not provided on the REST API call, the response will fail and the API call will be aborted.
