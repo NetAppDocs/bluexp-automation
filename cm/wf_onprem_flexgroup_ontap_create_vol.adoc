@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a FlexGroup volume accessed throug
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a FlexGroup volume. 
+You can use this workflow to create an ONTAP FlexGroup volume. 
 
 .Requirements
 
@@ -33,12 +33,13 @@ Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and c
 
 == 2. Select the aggregates and constituents 
 
-* You can select one or more aggregates depending on your requirement. Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` value of the aggregates for the `flexGroupVolumeInfo` -> `aggregateList` input parameter.
+* Select one or more aggregate names as needed. 
+Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` values of the aggregates for the `flexGroupVolumeInfo` -> `aggregateList` input parameter. 
 
 * Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter. As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
 
 [NOTE]
-If one or more aggregates doesn't exist and the aggregate names are not provided on the REST API call, the response will fail and the API call will be aborted.
+If one or more aggregates don't exist and the aggregate names are not provided on the REST API call, the response will fail and the API call will be aborted.
 
 
 == 3. Select the network 
