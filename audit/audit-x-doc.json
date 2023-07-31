@@ -1,0 +1,35 @@
+{
+    "paths": {
+      "/audit/{accountId}": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve account records",
+            "category": "audit",
+            "filename": "get-audit.html",
+            "subcategory": null
+          }
+        }
+      },
+      "/audit/{accountId}/{service}/{requestId}/records": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve records by service",
+            "category": "audit",
+            "filename": "get-audit--records.html",
+            "subcategory": null
+          }
+        }
+      },
+      "/audit/{accountId}/options": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve audit options",
+            "category": "audit",
+            "filename": "get-audit-options.html",
+            "subcategory": null
+          }
+        }
+     
+      }
+    }
+  }
