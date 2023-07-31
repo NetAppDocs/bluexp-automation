@@ -29,14 +29,14 @@ You can use this workflow to create an ONTAP FlexGroup volume.
 
 == 1. Select the working environment
 
-Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` parameters.
+Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` input parameters.
 
 == 2. Select the aggregates and constituents 
 
 * Select one or more aggregate names as needed. 
 Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` values of the aggregates for the `flexGroupVolumeInfo` -> `aggregateList` input parameter. 
 
-* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter. As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
+* Choose the desired value for the `flexGroupVolumeInfo` -> `numberOfConstituents` input parameter. As a general rule, the minimum or maximum size limit of a FlexGroup volume is based on the number of constituents. The maximum constituents number is 200; the minimum size of constituents is 100GB and the maximum size is 100TB. For example, if you provide the value of the `flexGroupVolumeInfo` -> `numberOfConstituents` parameter as 10, the minimum volume size should be 100GB * 10 = 1TB and the maximum volume size should be 100TB * 10 = 1000TB.
 
 [NOTE]
 If one or more aggregates don't exist and the aggregate names are not provided on the REST API call, the response will fail and the API call will be aborted.
@@ -44,11 +44,11 @@ If one or more aggregates don't exist and the aggregate names are not provided o
 
 == 3. Select the network 
 
-Choose the desired value for the `exportPolicyInfo` parameter. You need to specify your internal network IP for the `ips` parameter that can access a volume.
+Choose the desired value for the `exportPolicyInfo` input parameter. You need to specify your internal network IP for the `ips` input parameter that can access a volume.
 
 == 4. Choose the size for the disk
 
-Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
+Choose the size value for the `size:size` input parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
 
 == 5. Create the volume
