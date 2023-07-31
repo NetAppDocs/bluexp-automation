@@ -19,7 +19,7 @@ You can use this workflow to create an ONTAP FlexGroup volume.
 
 * The ONTAP cluster must be running version 9.7 or later.
 
-* You should be aware of the considerations and requirements when selecting the aggregates for provisioning a FlexGroup volume. See https://docs.netapp.com/us-en/ontap/flexgroup/create-task.html[ONTAP documentation^] for more details.
+* You should be aware of the considerations and requirements when selecting the aggregates for provisioning a FlexGroup volume. See the https://docs.netapp.com/us-en/ontap/flexgroup/create-task.html[ONTAP documentation^] for more details.
 
 * You should be aware of minimum and maximum size limits. See the https://www.netapp.com/pdf.html?item=/media/12385-tr4571.pdf[NetApp ONTAP FlexGroup volumes best practices and implementation guide^] for more details.
 
