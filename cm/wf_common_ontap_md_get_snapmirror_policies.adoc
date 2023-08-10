@@ -26,7 +26,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 |HTTP method
 |Path
 |GET
-|/occm/api/replication/metadata/snapmirror-policies/{workingEnvironmentId}/{targetWorkingEnvironmentId}
+|/occm/api/replication/metadata/snapmirror-policies/{workingEnvironmentId}/{desinationWorkingEnvironmentId}
 |===
 
 curl example::
