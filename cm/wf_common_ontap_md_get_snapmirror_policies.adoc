@@ -17,7 +17,7 @@ You can use this workflow to retrieve the SnapMirror policies based on the sourc
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the working environment and destination working environment.
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the source and destination working environments.
 
 === 2. Get the SnapMirror policies
 
@@ -37,7 +37,7 @@ Input::
 
 Path parameters:
 
-* <WORKING_ENV_ID> `workingEnvironmentId`
+* <WORKING_ENV_ID> `sourceworkingEnvironmentId`
 * <DEST_WORKING_ENV_ID> `destinationworkingEnvironmentId`
 
 Output::
