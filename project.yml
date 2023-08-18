@@ -46,14 +46,16 @@ homepage:
           url: /platform/aa_concepts.html
         - title: Common workflows and tasks
           url: /platform/get_identifiers.html
-    - title: ONTAP management service 
+    - title: Storage services 
       links:
-        - title: Overview of the service
+        - title: Cloud Volumes ONTAP
           url: /cm/overview.html
-        - title: Workflow processes
+        - title: on-premises ONTAP
           url: /cm/workflow_processes.html
-        - title: API reference
+        - title: ONTAP management service API reference
           url: /cm/api_ref_resources.html
+        - title: FSx for ONTAP
+          url: 
     - title: Cloud Volumes ONTAP workflows
       links:
         - title: Typical deployment
@@ -66,6 +68,12 @@ homepage:
           url: /cm/wf_gcp_before.html
         - title: Common workflows
           url: /cm/wf_common_before.html
+    - title: Platform services
+      links:
+       - title: Tenancy
+         url: 
+       - title: Credentials
+         url: 
     - title: More resources
       links:
         - title: NetApp Cloud Solutions
