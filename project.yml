@@ -48,32 +48,35 @@ homepage:
           url: /platform/get_identifiers.html
     - title: Storage services 
       links:
-        - title: Cloud Volumes ONTAP
+        
+        - title: ONTAP management service (Cloud Volumes ONTAP & on-prem ONTAP) 
           url: /cm/overview.html
-        - title: on-premises ONTAP
-          url: /cm/workflow_processes.html
-        - title: ONTAP management service API reference
-          url: /cm/api_ref_resources.html
         - title: FSx for ONTAP
           url: 
-    - title: Cloud Volumes ONTAP workflows
+    - title: API workflows
       links:
-        - title: Typical deployment
+        - title: Cloud Volumes ONTAP typical deployment
           url: /cm/cvo_deployment.html
-        - title: AWS workflows
+        - title: Cloud Volumes ONTAP AWS workflows
           url: /cm/wf_aws_before.html
-        - title: Azure workflows
+        - title: Cloud Volumes ONTAP Azure workflows
           url: /cm/wf_azure_before.html
-        - title: GCP workflows
+        - title: Cloud Volumes ONTAP GCP workflows
           url: /cm/wf_gcp_before.html
+        - title: On-premises ONTAP workflows
+          url:
         - title: Common workflows
           url: /cm/wf_common_before.html
     - title: Platform services
       links:
+       - title: Digital Wallet
+         url: /dw/overview.html
+       - title: IPA
+         url: /ipa/overview.html
        - title: Tenancy
-         url: 
+         url:
        - title: Credentials
-         url: 
+         url:
     - title: More resources
       links:
         - title: NetApp Cloud Solutions
