@@ -17,7 +17,7 @@ You can use this workflow to retrieve the SnapMirror policies based on the sourc
 
 === 1. Select the working environment to use
 
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the working environments and destination volume name.
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values for the source and destination working environments.
 
 === 2. Get the SnapMirror policies
 
@@ -26,19 +26,19 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 |HTTP method
 |Path
 |GET
-|/occm/api/replication/metadata/snapmirror-policies/{workingEnvironmentId}/{destinationVolumeName}
+|/occm/api/replication/metadata/snapmirror-policies/{workingEnvironmentId}/{desinationWorkingEnvironmentId}
 |===
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-policies/<WORKING_ENV_ID>/<DEST_VOL_NAME>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-policies/<WORKING_ENV_ID>/<DEST_WORKING_ENV_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 
 Path parameters:
 
-* <WORKING_ENV_ID> `workingEnvironmentId`
-* <DEST_VOL_NAME> `destinationVolumeName`
+* <WORKING_ENV_ID> `sourceworkingEnvironmentId`
+* <DEST_WORKING_ENV_ID> `destinationworkingEnvironmentId`
 
 Output::
 
