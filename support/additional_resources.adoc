@@ -15,9 +15,15 @@ summary: 'There are additional resources you can access to get help and find mor
 [.lead]
 There are additional resources you can access to get help and find more information about NetApp cloud services and support, ONTAP 9, and general REST and cloud concepts.
 
-.NetApp cloud resources
+== BlueXP 
 
-* https://cloud.netapp.com/[NetApp Cloud Solutions^]
+https://docs.netapp.com/us-en/bluexp-family/[BlueXP family documentation^]
++
+Central location for accessing all the BlueXP documentation for both on-premises and public cloud deployments.
+
+== NetApp cloud resources
+
+* https://cloud.netapp.com/[NetApp BlueXP^]
 +
 Central site for the NetApp cloud solutions.
 
@@ -29,17 +35,8 @@ NetApp BlueXP website service console with sign in.
 +
 Access troubleshooting tools, documentation, and technical support assistance.
 
-.ONTAP 9 resources
 
-* https://docs.netapp.com/us-en/ontap/[ONTAP 9 documentation^]
-+
-Provides all of the documentation for ONTAP 9.
-
-* https://www.netapp.com/us/documentation/ontap-and-oncommand-system-manager.aspx[ONTAP and ONTAP System Manager Resources^]
-+
-Provides documentation and other helpful links needed to plan, administer, and support ONTAP 9.
-
-.REST concepts and cloud technology
+== REST concepts and cloud technology
 
 * PhD https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm[dissertation^] by Roy Fielding
 +
