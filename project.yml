@@ -59,11 +59,11 @@ homepage:
         - title: Typical deployment
           url: /cm/cvo_deployment.html
         - title: AWS workflows
-          url: /cm/wf_aws_before.html
+          url: /cm/wf_aws_cloud_create_we_capacity.html
         - title: Azure workflows
-          url: /cm/wf_azure_before.html
+          url: /cm/wf_azure_cloud_create_we_capacity.html
         - title: GCP workflows
-          url: /cm/wf_gcp_before.html
+          url: /cm/wf_gcp_cloud_create_we_capacity.html
         - title: Common workflows
           url: /cm/wf_common_before.html
     - title: More resources
