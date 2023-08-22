@@ -17,7 +17,7 @@ There are additional resources you can access to get help and find more informat
 
 == BlueXP 
 
-https://docs.netapp.com/us-en/bluexp-family/[BlueXP family documentation^]
+* https://docs.netapp.com/us-en/bluexp-family/[BlueXP family documentation^]
 +
 Central location for accessing all the BlueXP documentation for both on-premises and public cloud deployments.
 
