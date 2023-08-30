@@ -29,7 +29,7 @@ The workflows are organized into the following functional categories:
 * Metadata
 * Miscellaneous
 
-See link:workflow_processes.html[Understanding the workflow processes] for more information on these categories.
+See the link:workflow_processes.html[Workflow processes] for more information on these categories.
 
 [NOTE]
 The link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html[Amazon EBS Elastic Volumes^] feature is enabled by default on new Cloud Volumes ONTAP 9.11.0 or later systems when using `gp3` or `io1` disks.

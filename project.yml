@@ -64,7 +64,7 @@ homepage:
         - title: Cloud Volumes ONTAP GCP workflows
           url: /cm/wf_gcp_before.html
         - title: On-premises ONTAP workflows
-          url:
+          url: /cm/wf_onprem_before.html
         - title: Common workflows
           url: /cm/wf_common_before.html
     - title: Platform services
@@ -74,9 +74,9 @@ homepage:
        - title: IPA
          url: /ipa/overview.html
        - title: Tenancy
-         url:
+         url: /tenancy/overview.html
        - title: Credentials
-         url:
+         url: /credential/overview.html
     - title: More resources
       links:
         - title: NetApp Cloud Solutions
