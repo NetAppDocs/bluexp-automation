@@ -36,7 +36,7 @@ homepage:
   tiles:
     - title: Get started
       links:
-        - title: Platform overview
+        - title: BlueXP control plane
           url: /platform/overview.html
         - title: Common REST implementation
           url: /platform/concepts.html
@@ -49,20 +49,22 @@ homepage:
     - title: Storage services 
       links:
         
-        - title: ONTAP management service (Cloud Volumes ONTAP & on-prem ONTAP) 
+        - title: ONTAP management service - Cloud Volumes ONTAP  
+          url: /cm/overview.html
+        - title: ONTAP management service - On-premises ONTAP
           url: /cm/overview.html
         - title: FSx for ONTAP
-          url: 
-    - title: API workflows
+          url: /fsx/overview.html
+    - title: ONTAP management service workflows
       links:
         - title: Cloud Volumes ONTAP typical deployment
           url: /cm/cvo_deployment.html
         - title: Cloud Volumes ONTAP AWS workflows
-          url: /cm/wf_aws_before.html
+          url: /cm/wf_aws_cloud_create_we_capacity.html
         - title: Cloud Volumes ONTAP Azure workflows
-          url: /cm/wf_azure_before.html
+          url: /cm/wf_azure_cloud_create_we_capacity.html
         - title: Cloud Volumes ONTAP GCP workflows
-          url: /cm/wf_gcp_before.html
+          url: /cm/wf_gcp_cloud_create_we_capacity.html
         - title: On-premises ONTAP workflows
           url: /cm/wf_onprem_before.html
         - title: Common workflows
@@ -81,8 +83,8 @@ homepage:
       links:
         - title: NetApp Cloud Solutions
           url: https://cloud.netapp.com/
-        - title: NetApp Support
-          url: https://mysupport.netapp.com/
+        - title: NetApp Automation catalog 
+          url: https://docs.netapp.com/us-en/netapp-automation/index.html
         - title: ONTAP 9 documentation
           url: https://docs.netapp.com/us-en/ontap/
         - title: Additional resources
