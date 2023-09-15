@@ -2631,8 +2631,8 @@ The data definitions are used when making REST API calls.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyInstance||true|boolean|
 |legacyOs||true|boolean|
+|legacyInstance||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -3198,8 +3198,8 @@ The data definitions are used when making REST API calls.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|aff||true|boolean|
 |snapmirrorLicenseExists||true|boolean|
+|aff||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
