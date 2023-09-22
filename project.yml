@@ -44,7 +44,7 @@ homepage:
           url: /platform/workflows_tasks.html
         - title: Authentication and authorization
           url: /platform/aa_concepts.html
-        - title: Common workflows and tasks
+        - title: BlueXP common workflows and tasks
           url: /platform/get_identifiers.html
     - title: Storage services 
       links:
