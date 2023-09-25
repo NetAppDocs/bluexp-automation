@@ -81,10 +81,10 @@ homepage:
          url: /credential/overview.html
     - title: More resources
       links:
-        - title: NetApp Cloud Solutions
+        - title: NetApp Cloud solutions
           url: https://cloud.netapp.com/
-        - title: NetApp Automation catalog 
-          url: https://docs.netapp.com/us-en/netapp-automation/index.html
+        - title: BlueXP automation catalog 
+          url: https://docs.netapp.com/us-en/netapp-automation/solutions/bac-overview.html
         - title: ONTAP 9 documentation
           url: https://docs.netapp.com/us-en/ontap/
         - title: Additional resources

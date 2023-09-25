@@ -2,8 +2,8 @@
 layout: astra
 sidebar: sidebar
 permalink: index.html
-lead: The BlueXP control plane is a collection of various REST APIs that enable you to perform all of the BlueXP operations. The BlueXP REST APIs provide the features and capabilities you need to automate the administration of your cloud-based and on-premises resources with NetApp.
-summary: The BlueXP control plane is a collection of various REST APIs that enable you to perform all of the BlueXP operations. The BlueXP REST APIs provide the features and capabilities you need to automate the administration of your cloud-based and on-premises resources with NetApp.
+lead: The NetApp BlueXP control plane is a collection of various distinct services that enable you to manage your hybrid multicloud data estate. You can programmatically access the BlueXP services using the associated APIs. The APIs provide the capability to automate the administration of your cloud and on-premises resources. Explore the documentation to know how to use the BlueXP APIs.
+summary: The NetApp BlueXP control plane is a collection of various distinct services that enable you to manage your hybrid multicloud data estate. You can programmatically access the BlueXP services using the associated APIs. The APIs provide the capability to automate the administration of your cloud and on-premises resources. Explore the documentation to know how to use the BlueXP APIs.
 ---
 
 = BlueXP API documentation
