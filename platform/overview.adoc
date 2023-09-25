@@ -5,7 +5,7 @@ keywords: overview, bluexp, rest, apis, hybrid, multicloud, dat, estate
 summary: BlueXP enables you to build, protect, and govern your hybrid multicloud data from a single control plane
 ---
 
-= Overview of the BlueXP REST APIs
+= Overview of the BlueXP control plane
 :hardbreaks:
 :nofooter:
 :icons: font
