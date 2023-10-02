@@ -50,10 +50,10 @@ homepage:
       links:
         
         - title: ONTAP management service - Cloud Volumes ONTAP  
-          url: /cm/overview.html
+          url: /cm/overview.html#cloud-volumes-ontap-operations
         - title: ONTAP management service - On-premises ONTAP
-          url: /cm/overview.html
-        - title: FSx for ONTAP
+          url: /cm/overview.html#cloud-volumes-ontap-operations
+        - title: Amazon FSx for ONTAP
           url: /fsx/overview.html
     - title: ONTAP management service workflows
       links:
