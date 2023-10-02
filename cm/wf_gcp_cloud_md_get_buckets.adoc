@@ -13,7 +13,7 @@ summary: You can perform this workflow to retrieve the S3 buckets.
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to retrieve the S3 buckets. The S3 buckets are the GCP storage buckets (data containers in GCP) required for data tiering and backups.
+You can perform this workflow to retrieve the S3 buckets. The S3 buckets are the Google Cloud storage buckets (data containers in Google Cloud) required for data tiering and backups.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 

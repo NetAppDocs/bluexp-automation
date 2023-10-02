@@ -36,7 +36,7 @@ Perform the Azure workflow link:wf_azure_cloud_get_wes.html[Get working environm
 
 .Google Cloud
 --
-Perform the GCP workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
+Perform the Google Cloud workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
 --
 ====
 === 2. Get the status of the relationships

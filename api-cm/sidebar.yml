@@ -155,7 +155,7 @@ entries:
           entries:
             - title: Create an Azure cloud provider account
               url: /cm/wf_azure_cloud_md_create_account.html
-      - title: GCP workflows
+      - title: Google Cloud workflows
         entries:
         
         - title: Working environments
@@ -206,7 +206,7 @@ entries:
                url: /cm/wf_gcp_ontap_get_igroups.html
         - title: Metadata
           entries:
-             - title: Get GCP regions
+             - title: Get Google Cloud regions
                url: /cm/wf_gcp_cloud_md_get_regions.html
              - title: Get permutations
                url: /cm/wf_gcp_cloud_md_get_permutations.html
@@ -216,7 +216,7 @@ entries:
                url: /cm/wf_gcp_cloud_md_create_buckets.html
              - title: Get buckets
                url: /cm/wf_gcp_cloud_md_get_buckets.html
-             - title: Get GCP packages
+             - title: Get Google Cloud packages
                url: /cm/wf_gcp_cloud_md_get_packages.html
              - title: Get snapshot policies
                url: /cm/wf_gcp_cloud_md_snapshot_policies.html
@@ -228,7 +228,7 @@ entries:
                url: /cm/wf_gcp_cloud_md_get_service_accounts.html
              - title: Get projects
                url: /cm/wf_gcp_cloud_md_get_projects.html
-             - title: Get GCP encryption keys
+             - title: Get Google Cloud encryption keys
                url: /cm/wf_gcp_cloud_md_get_encryption_keys.html
              - title: Get disk types
                url: /cm/wf_gcp_cloud_md_get_disk_types.html

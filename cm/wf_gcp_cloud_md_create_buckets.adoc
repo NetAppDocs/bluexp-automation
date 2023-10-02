@@ -13,7 +13,7 @@ summary: You can perform this workflow to create the S3 buckets.
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to create a new bucket. This is a GCP storage bucket (data container in GCP) required for data tiering and backup.
+You can perform this workflow to create a new bucket. This is a Google Cloud storage bucket (data container in Google Cloud) required for data tiering and backup.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 

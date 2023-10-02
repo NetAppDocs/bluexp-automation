@@ -63,7 +63,7 @@ homepage:
           url: /cm/wf_aws_cloud_create_we_capacity.html
         - title: Cloud Volumes ONTAP Azure workflows
           url: /cm/wf_azure_cloud_create_we_capacity.html
-        - title: Cloud Volumes ONTAP GCP workflows
+        - title: Cloud Volumes ONTAP Google Cloud workflows
           url: /cm/wf_gcp_cloud_create_we_capacity.html
         - title: On-premises ONTAP workflows
           url: /cm/wf_onprem_before.html

@@ -34,7 +34,7 @@ Perform the workflow link:wf_azure_cloud_get_wes.html[Get Azure working environm
 --
 .Google cloud
 --
-Perform the workflow link:wf_gcp_cloud_get_wes.html[Get GCP working environments] and choose the `publicId` value for the working environment path parameter.
+Perform the workflow link:wf_gcp_cloud_get_wes.html[Get Google Cloud working environments] and choose the `publicId` value for the working environment path parameter.
 --
 ====
 
