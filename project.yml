@@ -31,7 +31,7 @@ sidebar:
 product-family:
   name: BlueXP
   repo: bluexp-family
-  sidebar_label: All BlueXP documentation
+  
 homepage:
   tiles:
     - title: Get started
@@ -71,7 +71,9 @@ homepage:
           url: /cm/wf_common_before.html
     - title: Platform services
       links:
-       - title: Digital Wallet
+       - title: Audit
+         url: /audit/overview.html
+       - title: BlueXP Digital Wallet
          url: /dw/overview.html
        - title: IPA
          url: /ipa/overview.html
