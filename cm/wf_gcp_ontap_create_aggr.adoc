@@ -27,9 +27,9 @@ You can use this workflow to create aggregates in a single node working environm
 
 Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
-=== 2. Select the GCP disk types
+=== 2. Select the Google Cloud disk types
 
-Perform the link:wf_gcp_cloud_md_get_disk_types.html#get-gcp-disk-types-for-single-node[Get GCP disk types] workflow and choose the `size`  and `supportedDiskType` values of the required `diskSize` and `providerVolumeType` parameters in the JSON input.
+Perform the link:wf_gcp_cloud_md_get_disk_types.html#get-gcp-disk-types-for-single-node[Get Google Cloud disk types] workflow and choose the `size`  and `supportedDiskType` values of the required `diskSize` and `providerVolumeType` parameters in the JSON input.
 
 === 3. Create the aggregate
 
@@ -74,9 +74,9 @@ You can use this workflow to create aggregates in an HA working environment.
 
 Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
-=== 2. Select the GCP disk types
+=== 2. Select the Google Cloud disk types
 
-Perform the link:wf_gcp_cloud_md_get_disk_types.html#get-gcp-disk-types-for-high-availability-pair[Get GCP disk types] workflow and choose the `size`  and `supportedDiskType` values of the required `diskSize` and `providerVolumeType` parameters in the JSON input.
+Perform the link:wf_gcp_cloud_md_get_disk_types.html#get-gcp-disk-types-for-high-availability-pair[Get Google Cloud disk types] workflow and choose the `size`  and `supportedDiskType` values of the required `diskSize` and `providerVolumeType` parameters in the JSON input.
 
 === 3. Create the aggregate
 

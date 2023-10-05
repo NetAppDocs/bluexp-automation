@@ -5,7 +5,7 @@ keywords: paygo, cloud, volumes, ontap, connector, cloud manager, region, worksp
 summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working environment using PAYGO ("pay as you go") licensing. A new volume is also created with the working environment.'
 ---
 
-= Create a working environment with capacity-based license
+= Create a working environment with a capacity-based license
 :hardbreaks:
 :nofooter:
 :icons: font

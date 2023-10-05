@@ -13,7 +13,7 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to retrieve the GCP networks and subnetworks over which a Cloud Volumes ONTAP working environment might be created.
+You can perform this workflow to retrieve the Google Cloud networks and subnetworks over which a Cloud Volumes ONTAP working environment might be created.
 
 [NOTE]
 This workflow is applicable only for an HA working environment.
@@ -48,7 +48,7 @@ Query parameters:
 
 Output::
 
-The JSON output example includes the list of GCP networks and subnetworks.
+The JSON output example includes the list of Google Cloud networks and subnetworks.
 
 JSON output example::
 [source, json]

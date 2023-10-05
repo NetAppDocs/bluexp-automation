@@ -16,7 +16,7 @@ summary: There are several workflows you can use with the Amazon Web Services pu
 There are several workflows you can use to manage the ONTAP on-premises clusters.
 
 [NOTE]
-Review the link:prepare.html[Get started] section before using the on-premises ONTAP workflows.
+Review the link:overview.html[Get started] section before using the on-premises ONTAP workflows.
 
 == Workflow categories
 
@@ -26,7 +26,7 @@ The ONTAP on-premises workflows are organized into the following functional cate
 * Aggregates
 * Volumes
 
-See link:workflow_processes.html[Understanding the workflow processes] for more information on these categories.
+See the link:workflow_processes.html[Workflow processes] for more information on these categories.
 
 == Connector setup
 

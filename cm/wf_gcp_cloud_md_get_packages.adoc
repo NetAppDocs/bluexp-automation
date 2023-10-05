@@ -5,7 +5,7 @@ keywords: permutations, cloud, volumes, ontap, working, environment, occm
 summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
 ---
 
-= Get GCP packages
+= Get Google Cloud packages
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -17,11 +17,11 @@ You can perform this workflow to retrieve the pre-defined packages configuration
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
-* <<Get GCP packages for single node, Single Node>>
-* <<Get GCP packages for high availability pair, HA pair>>
+* <<Get Google Cloud packages for single node, Single Node>>
+* <<Get Google Cloud packages for high availability pair, HA pair>>
 
-== Get GCP packages for single node
-You can use this workflow to retrieve GCP packages in a single node working environment.
+== Get Google Cloud packages for single node
+You can use this workflow to retrieve Google Cloud packages in a single node working environment.
 
 === 1. Get the packages
 
@@ -43,7 +43,7 @@ None
 
 Output::
 
-The JSON output example includes the list of GCP packages.
+The JSON output example includes the list of Google Cloud packages.
 
 JSON output example::
 [source, json]
@@ -130,8 +130,8 @@ JSON output example::
     }
 ]
 
-== Get GCP packages for high availability pair
-You can use this workflow to retrieve GCP packages in an HA working environment.
+== Get Google Cloud packages for high availability pair
+You can use this workflow to retrieve Google Cloud packages in an HA working environment.
 
 === 1. Get the packages
 
@@ -153,7 +153,7 @@ None
 
 Output::
 
-The JSON output example includes the list of GCP packages.
+The JSON output example includes the list of Google Cloud packages.
 
 JSON output example::
 [source, json]

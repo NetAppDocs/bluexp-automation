@@ -5,7 +5,7 @@ keywords: packages, cloud, volumes, ontap, working, environment, occm
 summary: You can use this workflow to add capacity to an existing aggregate with Elastic Volumes enabled.
 ---
 
-= Add capacity to an Elastic Volume aggregate
+= Add a capacity to an Elastic Volume aggregate
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -5,7 +5,7 @@ keywords: terraform, terraform provider, automation, automating
 summary: Use the resources on this page to get help integrating BlueXP and Cloud Volumes ONTAP with your infrastructure as code.
 ---
 
-= Overview of BlueXP platform automation options
+= Overview of BlueXP automation options
 :hardbreaks:
 :nofooter:
 :icons: font

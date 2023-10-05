@@ -5,7 +5,7 @@ keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
 summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP working environment may be created.
 ---
 
-= Get GCP encryption keys
+= Get Google Cloud encryption keys
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,15 +13,15 @@ summary: This workflow retrieves the AWS regions in which an Cloud Volumes ONTAP
 :imagesdir: ./media/
 
 [.lead]
-This workflow retrieves the GCP encryption keys for a specific region.
+This workflow retrieves the Google Cloud encryption keys for a specific region.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
-* <<Get GCP encryption keys for single node, Single Node>>
-* <<Get GCP encryption keys for high availability pair, HA pair>>
+* <<Get Google Cloud encryption keys for single node, Single Node>>
+* <<Get Google Cloud encryption keys for high availability pair, HA pair>>
 
-== Get GCP encryption keys for single node
-You can use this workflow to retrieve GCP encryption keys for a single node working environment.
+== Get Google Cloud encryption keys for single node
+You can use this workflow to retrieve Google Cloud encryption keys for a single node working environment.
 
 === 1. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `name` value of the required region for the `region` path parameter.
@@ -52,7 +52,7 @@ Required query parameters:
 
 Output::
 
-The JSON output provides an example of a list of GCP encryption keys for a specific region.
+The JSON output provides an example of a list of Google Cloud encryption keys for a specific region.
 
 JSON output example::
 [source,json]
@@ -71,8 +71,8 @@ JSON output example::
     }
 ]
 
-== Get GCP encryption keys for high availability pair
-You can use this workflow to retrieve GCP encryption keys for an HA working environment.
+== Get Google Cloud encryption keys for high availability pair
+You can use this workflow to retrieve Google Cloud encryption keys for an HA working environment.
 
 === 1. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and choose the `name` value of the required region for the `region` path parameter.
@@ -103,7 +103,7 @@ Required query parameters:
 
 Output::
 
-The JSON output provides an example of a list of GCP encryption keys for a specific region.
+The JSON output provides an example of a list of Google Cloud encryption keys for a specific region.
 
 JSON output example::
 [source,json]

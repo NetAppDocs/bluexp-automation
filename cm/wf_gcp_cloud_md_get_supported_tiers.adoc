@@ -52,7 +52,7 @@ Query parameters:
 * <ENCRP_TYPE> `dataEncryptionType` string
 
 Output::
-The output shows a list of supported capacity tiers for the GCP disk types.
+The output shows a list of supported capacity tiers for the Google Cloud disk types.
 
 JSON output example::
 [source, json]
@@ -118,7 +118,7 @@ Query parameters:
 * <ENCRP_TYPE> `dataEncryptionType` string
 
 Output::
-The output shows a list of supported capacity tiers for the GCP disk types.
+The output shows a list of supported capacity tiers for the Google Cloud disk types.
 
 JSON output example::
 [source, json]

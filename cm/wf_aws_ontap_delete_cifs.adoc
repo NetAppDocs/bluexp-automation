@@ -5,7 +5,7 @@ keywords: cifs, server, configuration, occm, aws, working, environment
 summary: You can use this workflow to delete a CIFS server configuration for an existing Cloud Volumes ONTAP working environment.
 ---
 
-= Delete CIFS server configuration
+= Delete a CIFS server configuration
 :hardbreaks:
 :nofooter:
 :icons: font

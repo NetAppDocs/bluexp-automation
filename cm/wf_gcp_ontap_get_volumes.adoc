@@ -13,7 +13,7 @@ summary: "You can retrieve the list of volumes."
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the list of volumes of GCP working environment.
+You can retrieve the list of volumes of Google Cloud working environment.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 

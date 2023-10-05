@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: cm/wf_gcp_cloud_md_get_regions.html
 keywords: cloud, volumes, ontap, cvo, regions, aws, workflows
-summary: This workflow retrieves the GCP regions in which an Cloud Volumes ONTAP working environment may be created.
+summary: This workflow retrieves the Google Cloud regions in which an Cloud Volumes ONTAP working environment may be created.
 ---
 
-= Get GCP regions
+= Get Google Cloud regions
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: This workflow retrieves the GCP regions in which an Cloud Volumes ONTAP
 :imagesdir: ./media/
 
 [.lead]
-This workflow retrieves the GCP regions in which a Cloud Volumes ONTAP working environment might be created.
+This workflow retrieves the Google Cloud regions in which a Cloud Volumes ONTAP working environment might be created.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
@@ -21,7 +21,7 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 * <<Get regions for high availability pair, HA pair>>
 
 == Get regions for single node
-You can use this workflow to retrieve the GCP regions in a single node working environment.
+You can use this workflow to retrieve the Google Cloud regions in a single node working environment.
 
 === 1. Get the list of regions
 
@@ -44,7 +44,7 @@ None
 
 Output::
 
-The JSON output provides an example of a list of GCP regions.
+The JSON output provides an example of a list of Google Cloud regions.
 
 JSON output example::
 [source,json]
@@ -152,7 +152,7 @@ JSON output example::
 }
 
 == Get regions for high availability pair
-You can use this workflow to retrieve the GCP regions in an HA working environment.
+You can use this workflow to retrieve the Google Cloud regions in an HA working environment.
 
 === 1. Get the list of regions
 
@@ -175,7 +175,7 @@ None
 
 Output::
 
-The JSON output provides an example of a list of GCP regions.
+The JSON output provides an example of a list of Google Cloud regions.
 
 JSON output example::
 [source,json]

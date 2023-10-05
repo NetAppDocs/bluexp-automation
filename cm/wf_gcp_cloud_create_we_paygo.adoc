@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a new Cloud Volumes ONTAP working 
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a new GCP Cloud Volumes ONTAP working environment using a pay-as-you-go (PAYGO) subscription.
+You can use this workflow to create a new Google Cloud Cloud Volumes ONTAP working environment using a pay-as-you-go (PAYGO) subscription.
 
 [NOTE]
 .When using PAYGO subscription:
