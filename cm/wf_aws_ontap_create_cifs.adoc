@@ -5,7 +5,7 @@ keywords: cloud, manager, rest, api, aws, cifs, server, configuration
 summary: 'You can use this workflow to set up a new CIFS server configuration for an existing Cloud Volumes ONTAP working environment.'
 ---
 
-= Create CIFS server configuration
+= Create a CIFS server configuration
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cm/wf_gcp_cloud_md_get_zones.html
 keywords: permutations, cloud, volumes, ontap, working, environment, occm
-summary: You can perform this workflow to retrieve the GCP regions and zones
+summary: You can perform this workflow to retrieve the Google Cloud regions and zones
 ---
 
 = Get zones
@@ -13,7 +13,7 @@ summary: You can perform this workflow to retrieve the GCP regions and zones
 :imagesdir: ./media/
 
 [.lead]
-You can perform this workflow to retrieve the GCP regions and zones over which a Cloud Volumes ONTAP working environment might be created.
+You can perform this workflow to retrieve the Google Cloud regions and zones over which a Cloud Volumes ONTAP working environment might be created.
 [NOTE]
 This workflow is applicable only for an HA working environment.
 
@@ -43,7 +43,7 @@ Query parameter:
 
 Output::
 
-The JSON output example includes the list of GCP regions and zones.
+The JSON output example includes the list of Google Cloud regions and zones.
 
 JSON output example::
 [source, json]

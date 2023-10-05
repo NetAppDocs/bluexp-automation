@@ -23,9 +23,6 @@ Central location for accessing all the BlueXP documentation for both on-premises
 
 == NetApp cloud resources
 
-* https://cloud.netapp.com/[NetApp BlueXP^]
-+
-Central site for the NetApp cloud solutions.
 
 * https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp BlueXP website console^]
 +

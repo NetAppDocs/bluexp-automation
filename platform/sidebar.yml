@@ -1,7 +1,7 @@
 section: platform
 title: Get started
 entries:
-  - title: Platform overview
+  - title: BlueXP control plane
     url: /platform/overview.html
   - title: Common REST implementation
     entries:

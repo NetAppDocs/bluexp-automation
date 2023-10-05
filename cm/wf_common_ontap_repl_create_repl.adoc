@@ -33,7 +33,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get Azure working environmen
 --
 .Google Cloud
 --
-Perform the workflow link:wf_aws_cloud_get_wes.html[Get GCP working environments] and choose the `publicId` and `svmName` values for the source and destination.
+Perform the workflow link:wf_aws_cloud_get_wes.html[Get Google Cloud working environments] and choose the `publicId` and `svmName` values for the source and destination.
 --
 ====
 
@@ -65,7 +65,7 @@ Perform the Azure workflow link:wf_azure_ontap_get_volumes.html[Get Azure volume
 --
 .Google cloud
 --
-Perform the GCP workflow link:wf_gcp_ontap_get_volumes.html[Get GCP volumes] and choose the `name` and `svmName` and `aggregateName` values.
+Perform the Google Cloud workflow link:wf_gcp_ontap_get_volumes.html[Get Google Cloud volumes] and choose the `name` and `svmName` and `aggregateName` values.
 --
 ====
 

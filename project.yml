@@ -31,12 +31,12 @@ sidebar:
 product-family:
   name: BlueXP
   repo: bluexp-family
-  sidebar_label: All BlueXP documentation
+  
 homepage:
   tiles:
     - title: Get started
       links:
-        - title: Platform overview
+        - title: BlueXP control plane
           url: /platform/overview.html
         - title: Common REST implementation
           url: /platform/concepts.html
@@ -44,34 +44,49 @@ homepage:
           url: /platform/workflows_tasks.html
         - title: Authentication and authorization
           url: /platform/aa_concepts.html
-        - title: Common workflows and tasks
+        - title: BlueXP common workflows and tasks
           url: /platform/get_identifiers.html
-    - title: ONTAP management service 
+    - title: Storage services 
       links:
-        - title: Overview of the service
-          url: /cm/overview.html
-        - title: Workflow processes
-          url: /cm/workflow_processes.html
-        - title: API reference
-          url: /cm/api_ref_resources.html
-    - title: Cloud Volumes ONTAP workflows
+        
+        - title: ONTAP management service - Cloud Volumes ONTAP  
+          url: /cm/overview.html#cloud-volumes-ontap-operations
+        - title: ONTAP management service - On-premises ONTAP
+          url: /cm/overview.html#cloud-volumes-ontap-operations
+        - title: Amazon FSx for ONTAP
+          url: /fsx/overview.html
+    - title: ONTAP management service workflows
       links:
-        - title: Typical deployment
+        - title: Cloud Volumes ONTAP typical deployment
           url: /cm/cvo_deployment.html
-        - title: AWS workflows
+        - title: Cloud Volumes ONTAP AWS workflows
           url: /cm/wf_aws_cloud_create_we_capacity.html
-        - title: Azure workflows
+        - title: Cloud Volumes ONTAP Azure workflows
           url: /cm/wf_azure_cloud_create_we_capacity.html
-        - title: GCP workflows
+        - title: Cloud Volumes ONTAP Google Cloud workflows
           url: /cm/wf_gcp_cloud_create_we_capacity.html
+        - title: On-premises ONTAP workflows
+          url: /cm/wf_onprem_before.html
         - title: Common workflows
           url: /cm/wf_common_before.html
+    - title: Platform services
+      links:
+       - title: Audit
+         url: /audit/overview.html
+       - title: BlueXP digital wallet
+         url: /dw/overview.html
+       - title: IPA
+         url: /ipa/overview.html
+       - title: Tenancy
+         url: /tenancy/overview.html
+       - title: Credentials
+         url: /credential/overview.html
     - title: More resources
       links:
-        - title: NetApp Cloud Solutions
+        - title: NetApp Cloud solutions
           url: https://cloud.netapp.com/
-        - title: NetApp Support
-          url: https://mysupport.netapp.com/
+        - title: BlueXP automation catalog 
+          url: https://docs.netapp.com/us-en/netapp-automation/solutions/bac-overview.html
         - title: ONTAP 9 documentation
           url: https://docs.netapp.com/us-en/ontap/
         - title: Additional resources

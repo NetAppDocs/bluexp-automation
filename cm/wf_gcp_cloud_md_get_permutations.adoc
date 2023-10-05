@@ -5,7 +5,7 @@ keywords: permutations, cloud, volumes, ontap, working, environment, occm
 summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information.
 ---
 
-= Get GCP permutations
+= Get Google Cloud permutations
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,14 +13,14 @@ summary: You can use the permutations endpoint to retrieve the Cloud Volumes ONT
 :imagesdir: ./media/
 
 [.lead]
-You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information such as  `ontapVersion`, `license`, `instanceType`, `region` and more. You can check the possible permutations that can potentially be provided for the GCP workflows while provisioning a Cloud Volumes ONTAP instance.
+You can use the permutations endpoint to retrieve the Cloud Volumes ONTAP configuration information such as  `ontapVersion`, `license`, `instanceType`, `region` and more. You can check the possible permutations that can potentially be provided for the Google Cloud workflows while provisioning a Cloud Volumes ONTAP instance.
 
 Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 
-* <<Get GCP permutations for single node, Single Node>>
-* <<Get GCP permutations for high availability pair, HA pair>>
+* <<Get Google Cloud permutations for single node, Single Node>>
+* <<Get Google Cloud permutations for high availability pair, HA pair>>
 
-== Get GCP permutations for single node
+== Get Google Cloud permutations for single node
 You can use this workflow to retrieve the possible permutations for a single node working environment.
 
 === 1. Get the permutations
@@ -92,7 +92,7 @@ JSON output example::
         "license": {
             "type": "gcp-cot-explore-paygo",
             "name": "Cloud Volumes ONTAP Explore",
-            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying GCP storage.",
+            "description": "Suitable for smaller capacity applications. Supports up to 2 TB of underlying Google Cloud storage.",
             "subName": "",
             "subDescription": "Support of tiering to object storage is not included.",
             "capacity_limit": "2TB",
@@ -121,7 +121,7 @@ JSON output example::
     }
 ]
 
-== Get GCP permutations for high availability pair
+== Get Google Cloud permutations for high availability pair
 You can use this workflow to retrieve the possible permutations for an HA working environment.
 
 === 1. Get the permutations
