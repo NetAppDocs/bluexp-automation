@@ -31,7 +31,7 @@
         "x-doc": {
           "title": "Retrieve a report",
           "category": "Reports",
-          "filename": "get-api-v1-accounts-reports-.html",
+          "filename": "get-api-v1-accounts-reports.html",
           "subcategory": null
         }
       }
@@ -51,7 +51,7 @@
         "x-doc": {
           "title": "Retrieve volumes",
           "category": "Working-environments",
-          "filename": "get-api-v1-accounts-working-environments--volumes.html",
+          "filename": "get-api-v1-accounts-working-environments-volumes.html",
           "subcategory": null
         }
       }
@@ -61,7 +61,7 @@
         "x-doc": {
           "title": "Retrieve data LIFs",
           "category": "Working-environments",
-          "filename": "get-api-v1-accounts-working-environments--data-lifs.html",
+          "filename": "get-api-v1-accounts-working-environments-data-lifs.html",
           "subcategory": null
         }
       }
@@ -71,7 +71,7 @@
         "x-doc": {
           "title": "Retrieve export policies",
           "category": "Working-environments",
-          "filename": "get-api-v1-accounts-working-environments--export-policies.html",
+          "filename": "get-api-v1-accounts-working-environments-export-policies.html",
           "subcategory": null
         }
       }
@@ -81,7 +81,7 @@
         "x-doc": {
           "title": "Retrieve working environments shares",
           "category": "Working-environments",
-          "filename": "get-api-v1-accounts-working-environments--shares.html",
+          "filename": "get-api-v1-accounts-working-environments-shares.html",
           "subcategory": null
         }
       }
