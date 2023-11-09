@@ -3059,7 +3059,7 @@
             "tags":[
                "Working-Environments"
             ],
-            "description":"Retrieves the working environments shares.",
+            "description":"Retrieves the working environment shares.",
             "parameters":[
                {
                   "schema":{

@@ -34,7 +34,7 @@
         "x-doc": {
           "title": "Retrieve a report",
           "category": "Reports",
-          "filename": "get-api-v1-accounts-reports.html",
+          "filename": "get-api-v1-accounts-report.html",
           "subcategory": null,
           "explorer": false
         }
@@ -87,7 +87,7 @@
     "/api/v1/accounts/{accountId}/working-environments/{weId}/{provider}/shares": {
       "get": {
         "x-doc": {
-          "title": "Retrieve working environments shares",
+          "title": "Retrieve working environment shares",
           "category": "Working-environments",
           "filename": "get-api-v1-accounts-working-environments-shares.html",
           "subcategory": null,
