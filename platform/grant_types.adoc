@@ -45,6 +45,9 @@ This grant type generates a token used with either federated or non-federated au
 
 The OAuth server verifies the Client ID and confirms that the request came from an authorized client. It also makes sure the refresh token is valid. After the request is validated, the server returns a response with the refresh token.
 
+[NOTE]
+A refresh token is *not* required when using a service account.
+
 == Password
 
 This grant type generates a token used with non-federated authentication to access resources within a single domain. You need to provide the username and password login credentials to the authentication endpoint when requesting the access token.  Here's an example of the JSON input used when requesting the token with a description of each parameter.
