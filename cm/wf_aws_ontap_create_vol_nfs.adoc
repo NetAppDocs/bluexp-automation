@@ -162,7 +162,7 @@ This REST API call uses the following method and endpoint.
 |/occm/api/aws/ha/volumes
 |===
 
-.curl example
+.Curl example
 
 [source,curl]
 curl --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes"
