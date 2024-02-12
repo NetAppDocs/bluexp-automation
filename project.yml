@@ -19,6 +19,7 @@ sidebar:
     - section: api-cm
     - section: audit
     - section: cbs
+    - section: copysync
     - section: credential
     - section: dw
     - section: fsx
