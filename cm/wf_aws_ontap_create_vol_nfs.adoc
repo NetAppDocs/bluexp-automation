@@ -5,7 +5,7 @@ keywords: cloud, manager, rest, api, aggregate, svm, virtual, private, cloud
 summary: 'You can use this workflow to create a volume accessed through NFS.'
 ---
 
-= Create volume using NFS
+= Create a volume using NFS
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: 'You can use this workflow to create a volume accessed through NFS.'
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to create a volume accessed through NFS protocol.
+You can use this workflow to create a volume accessed through the NFS protocol.
 
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
@@ -23,33 +23,37 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 * <<Create volume using NFS for single node, Single Node>>
 * <<Create volume using NFS for high availability pair, HA pair>>
 
-== Create volume using NFS for single node
-You can use this workflow to create volume using NFS for a single node system.
+== Create a volume using NFS for single node
+You can use this workflow to create a volume using NFS for a single node system.
 
-=== 1. Select the working environment
+=== Step 1. Select a working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
 
-=== 2. Select the aggregate
+=== Step 2. Select an aggregate
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
 
-=== 3. Select the virtual private cloud
+=== Step 3. Select a virtual private cloud
 
 Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get virtual private clouds] and choose the `cidrBlock` value of the required VPC for the `ips` parameter or fill in the desired `exportPolicyInfo` value manually.
 
-=== 4. Choose the size for the disk
+=== Step 4. Choose the size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-=== 5. Create the quote
+=== Step 5. Create a quote
 
 Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single-node[Create quote]. This is a recommended step but is not mandatory.
 
-=== 6. Create the volume
+=== Step 6. Create a volume
+
+Create a volume for a single node system.
+
+.HTTP method and endpoint
 
 [cols="25,75"*,options="header"]
 |===
@@ -59,11 +63,17 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single
 |/occm/api/vsa/volumes
 |===
 
-curl example::
-[source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+.Curl example
 
-Input::
+[source,curl]
+curl --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes"
+--request POST
+--header 'Content-Type: application/json' 
+--header 'x-agent-id: <AGENT_ID>' 
+--header 'Authorization: Bearer <ACCESS_TOKEN>' 
+--d @JSONinput
+
+.Input parameters
 
 The JSON input example includes the minimum list of input parameters, including:
 
@@ -73,7 +83,8 @@ The JSON input example includes the minimum list of input parameters, including:
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
-JSON input example::
+.JSON input example
+
 [source,json]
 {
   "workingEnvironmentId": "VsaWorkingEnvironment-5dZfyKS5",
@@ -101,38 +112,43 @@ JSON input example::
   "maxNumOfDisksApprovedToAdd": 0
 }
 
-Output::
+.JSON output example
 
 None
 
-== Create volume using NFS for high availability pair
-You can use this workflow to create volume using NFS for an HA working environment.
+== Create a volume using NFS for high availability pair
 
-=== 1. Select the working environment
+You can use this workflow to create a volume using NFS for an high availability (HA) working environment.
+
+=== Step 1. Select a working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
 
 
-=== 2. Select the aggregate
+=== Step 2. Select an aggregate
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
 
-=== 3. Select the virtual private cloud
+=== Step 3. Select a virtual private cloud
 
 Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availability-pair[Get virtual private clouds] and choose the `cidrBlock` value of the required VPC for the `ips` parameter or fill in the desired `exportPolicyInfo` value manually.
 
-=== 4. Choose the size for the disk
+=== Step 4. Choose the size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-=== 5. Create the quote
+=== Step 5. Create a quote
 
 Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote]. This is a recommended step but is not mandatory.
 
-=== 6. Create the volume
+=== Step 6. Create a volume
+
+Create a volume for an HA working environment.
+
+.HTTP method and endpoint
 
 [cols="25,75"*,options="header"]
 |===
@@ -142,11 +158,17 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-a
 |/occm/api/aws/ha/volumes
 |===
 
-curl example::
-[source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+.curl example
 
-Input::
+[source,curl]
+curl --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes"
+--request POST
+--header 'Content-Type: application/json' 
+--header 'x-agent-id: <AGENT_ID>' 
+--header 'Authorization: Bearer <ACCESS_TOKEN>' 
+--d @JSONinput
+
+.Input parameters
 
 The JSON input example includes the minimum list of input parameters, including:
 
@@ -156,7 +178,8 @@ The JSON input example includes the minimum list of input parameters, including:
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
-JSON input example::
+.JSON input example
+
 [source,json]
 {
   "workingEnvironmentId": "VsaWorkingEnvironment-5dZfyKS5",
@@ -184,6 +207,6 @@ JSON input example::
   "maxNumOfDisksApprovedToAdd": 0
 }
 
-Output::
+.JSON output example
 
 None
