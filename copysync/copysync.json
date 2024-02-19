@@ -2,7 +2,7 @@
    "openapi":"3.0.3",
    "info":{
       "title":"BlueXP Copy and sync API documentation",
-      "description":"  <details><summary>Overview</summary>\nThe NetApp BlueXP copy and sync service offers a simple, secure, and automated way to migrate your data to any location in the cloud or on your premises. The service enables you to convert and move data stored in any object store including NFS or SMB servers, Amazon Simple Storage Service (S3), Google Drive, Box, and more. When using this service, you can create a sync relationship to copy data from any source to any destination target.\nThe service exposes an associated REST API which you can programmatically use to administer the copy and sync API resources.\nThere are eight categories of endpoints defined within the BlueXP copy and sync REST API:\n<ul>\n<li>Accounts</li>\n<li>Messages</li>\n<li>Data Brokers</li>\n<li>Groups</li>\n<li>Relationships</li>\n<li>Storages</li>\n<li>Reports</li>\n<li>Timelines (deprecated)</li>\n</ul>\n<p>See https://docs.netapp.com/us-en/bluexp-copy-sync/api-sync.html to get started with the BlueXP copy and sync API.<br />\n<p>Note: Before using the API reference documentation, review the Get started section for the BlueXP APIs. For more information about the security tokens and identifiers you’ll need when using the API, review the Common workflows and tasks section.</br></p>\n</details>\n   <details>\n<summary>REST implementation</summary>\n<h3>HTTP methods</h3>\n<table>\n<thead>\n<tr>\n<th>Method</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>POST</code></td>\n<td>Create a resource</td>\n</tr>\n<tr>\n<td><code>GET</code></td>\n<td>Retrieve a resource instance or collection</td>\n</tr>\n<tr>\n<td><code>PUT</code></td>\n<td>Update specific properties of an existing resource</td>\n</tr>\n<tr>\n<td><code>DELETE</code></td>\n<td>Remove an existing resource</td>\n</tr>\n</tbody>\n</table>\n<h3>Request headers</h3>\n<table>\n<thead>\n<tr>\n<th>Request Header</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>Authorization</code></td>\n<td>Required. Contains a JWT token (user)</td>\n</tr>\n<tr>\n<td><code>X-account-id</code></td>\n<td>Contains the tenancy account ID and can be included depending on the API call</td>\n</tr>\n<tr>\n<td><code>username</code></td>\n<td>Contains SMB or SFTP username when calling the APIs related to SMB</td>\n</tr>\n<tr>\n<td><code>password</code></td>\n<td>Contains SMB or SFTP password when calling the APIs related to SMB</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td>Contains SMB domain when calling the APIs related to SMB</td>\n</tr>\n<tr>\n<td><code>access-key</code></td>\n<td>Contains an AWS access key when calling the APIs related to StorageGRID, IBM, or ONTAP S3</td>\n</tr>\n<tr>\n<td><code>secret-key</code></td>\n<td>Contains an AWS access key when calling the APIs related to StorageGRID, IBM, or ONTAP S3</td>\n</tr>\n<tr>\n<td><code>storage-account-connection-string</code></td>\n<td>Contains an Azure storage account connection string when calling the APIs related to Azure storage accounts</td>\n</tr>\n<tr>\n<td><code>x-bucket-name</code></td>\n<td>Contains a bucket name when calling the AWS list S3 private links API</td>\n</tr>\n<tr>\n<td><code>private-key</code></td>\n<td>Contains a Google drive private key when calling the Google Drive APIs</td>\n</tr>\n<tr>\n<td><code>client-email</code></td>\n<td>Contains a Google Drive client email when calling the Google Drive APIs</td>\n</tr>\n<tr>\n<td><code>subject</code></td>\n<td>Contains a Google drive subject when calling the Google Drive APIs</td>\n</tr>\n<tr>\n<td><code>client-secret</code></td>\n<td>Contains a Box client secret when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>public-key-id</code></td>\n<td>Contains a Box public key ID when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>private-key</code></td>\n<td>Contains a Box private key ID when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>passphrase</code></td>\n<td>Contains a Box passphrase ID when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>x-netapp-external-request-id-src</code></td>\n<td>Contains an ID to use when accessing the external vault</td>\n</tr>\n<tr>\n<td><code>x-netapp-external-request-id-trg</code></td>\n<td>Contains an ID to use when accessing the external vault</td>\n</tr>\n</tbody>\n</table>\n<h3>Query parameters</h3>\n<p>A list of all the possible query parameters available for each service component is provided in the table below. This is a summary by component, however not every query parameter can be used with each endpoint in a specific component. See the detailed descriptions of the individual API calls for more details.</p>\n<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Query Parameter</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Accounts</td>\n<td>noCreate (optional)<br> target (required)</td>\n</tr>\n<tr>\n<td>Messages</td>\n<td>last (optional)<br></td>\n</tr><tr>\n<td>Data Brokers</td>\n<td>host (required)<br> version(optional <br> path(optional)<br> isEFS(optional)<br> exportName(required) <br> accessPoint(optional) <br> bucket(required) <br> prefix(optional) <br> port(optional) <br> storageAccountName(required) <br> container(required) <br> region(required)<br></td>\n</tr>\n<tr>\n<td>Groups</td>\n<td>host (required)</br> port(optional)</br> rootDirectory(required)</br> version(optional)</br> path(optional)</br> isEFS(optional)</br> exportName(required)</br> accessPoint(optional) </br> bucket(required) </br> prefix(optional) </br> port(required/optional)</br> storageAccountName(required) </br> container(required)</br> driveId(required)</br> folderId(optional or required)</br> folderName(optional)</br> clientId(required)</br> enterpriseId(required)</br> appName(optional)</br> region(required)</br></td>\n</tr>\n<tr>\n<td>Relationships</td>\n<td>relationships (required)</br></td>\n</tr>\n<tr>\n<td>Storages</td>\n<td>provider (optional)</br></td>\n</tr>\n<tr>\n<td>Reports</td>\n<td>reports (required)</br></td>\n</tr>\n</tbody>\n</table>\n<h3>Response headers</h3>\n<p>This API uses the standard HTTP response headers common with all BlueXP APIs. See <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/http_details.html#response-headers\">REST implementation</a> for more information.</p>\n<h3>HTTP status codes</h3>\n<table>\n<thead>\n<tr>\n<th>HTTP Status Code</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>200</code></td>\n<td>OK: Returned for successful operation completion</td>\n</tr>\n<tr>\n<td><code>400</code></td>\n<td>Bad Request: Returned if the input is malformed and could not be parsed</td>\n</tr>\n<tr>\n<td><code>401</code></td>\n<td>Unauthorized: Returned if user authentication failed or the token has expired</td>\n</tr>\n<tr>\n<td><code>403</code></td>\n<td>Forbidden: Returned for authorization errors depending on the resource and token</td>\n</tr>\n<tr>\n<td><code>404</code></td>\n<td>Not Found: Returned if the requested resource could not be found</td>\n</tr>\n<tr>\n<td><code>500</code></td>\n<td>Processing Error: Returned if an error occurs on the server while processing the API call</td>\n</tr>\n</tbody>\n</table>\n</details>\n<hr />\n   <details><summary>Error handling</summary>\nThe following processes are involved with error handling and processing:\n<ul>\n<li>The error is logged for supportability.</li>\n<li>The error is also returned to the API caller on synchronous operations.</li>\n<li>In case of asynchronous operations, the error will be returned on the GET /messages API.</li>\n</ul>\n</details>   <details>\n<summary>cURL examples</summary>\nThe following example retrieves relationships for a specific account:\n<p><code>curl -X GET https://api.cloudsync.netapp.com/api/relationships-v2 -H &quot;accept: application/json&quot; -H &quot;authorization: &lt;user_token&gt;&quot; -H &quot;x-account-id:&lt;account_id&gt;&quot;</code></p>\n<p>The following example retrieves reports for a specific account:</p>\n<p><code>curl -X GET https://api.cloudsync.netapp.com/api/accounts/&lt;account_id&gt;/reports -H  &quot;accept: application/json&quot; -H  &quot;authorization: &lt;user_token&gt;&quot;</code></p>\n</details>   <br><br>",
+      "description":"  <details><summary>Overview</summary>\nThe NetApp BlueXP copy and sync service offers a simple, secure, and automated way to migrate your data to any location in the cloud or on your premises. The service enables you to convert and move data stored in any object store including NFS or SMB servers, Amazon Simple Storage Service (S3), Google Drive, Box, and more. When using this service, you can create a sync relationship to copy data from any source to any destination target.\nThe service exposes an associated REST API which you can programmatically use to administer the copy and sync API resources.\nThere are eight categories of endpoints defined within the BlueXP copy and sync REST API:\n<ul>\n<li>Accounts</li>\n<li>Messages</li>\n<li>Data Brokers</li>\n<li>Groups</li>\n<li>Relationships</li>\n<li>Storages</li>\n<li>Reports</li>\n<li>Timelines (deprecated)</li>\n</ul>\n<p>See https://docs.netapp.com/us-en/bluexp-copy-sync/api-sync.html to get started with the BlueXP copy and sync API.<br />\n<p>Note: Before using the API reference documentation, review the <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/overview.html\">Get started</a> section for the BlueXP APIs. For more information about the security tokens and identifiers you’ll need when using the API, review the <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/get_identifiers.html\">Common workflows and tasks</a> section.</br></p>\n</details>\n   <details>\n<summary>REST implementation</summary>\n<h3>HTTP methods</h3>\n<table>\n<thead>\n<tr>\n<th>Method</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>POST</code></td>\n<td>Create a resource</td>\n</tr>\n<tr>\n<td><code>GET</code></td>\n<td>Retrieve a resource instance or collection</td>\n</tr>\n<tr>\n<td><code>PUT</code></td>\n<td>Update specific properties of an existing resource</td>\n</tr>\n<tr>\n<td><code>DELETE</code></td>\n<td>Remove an existing resource</td>\n</tr>\n</tbody>\n</table>\n<h3>Request headers</h3>\n<table>\n<thead>\n<tr>\n<th>Request Header</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>Authorization</code></td>\n<td>Required. Contains a JWT token (user)</td>\n</tr>\n<tr>\n<td><code>X-account-id</code></td>\n<td>Contains the tenancy account ID and can be included depending on the API call</td>\n</tr>\n<tr>\n<td><code>username</code></td>\n<td>Contains SMB or SFTP username when calling the APIs related to SMB</td>\n</tr>\n<tr>\n<td><code>password</code></td>\n<td>Contains SMB or SFTP password when calling the APIs related to SMB</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td>Contains SMB domain when calling the APIs related to SMB</td>\n</tr>\n<tr>\n<td><code>access-key</code></td>\n<td>Contains an AWS access key when calling the APIs related to StorageGRID, IBM, or ONTAP S3</td>\n</tr>\n<tr>\n<td><code>secret-key</code></td>\n<td>Contains an AWS access key when calling the APIs related to StorageGRID, IBM, or ONTAP S3</td>\n</tr>\n<tr>\n<td><code>storage-account-connection-string</code></td>\n<td>Contains an Azure storage account connection string when calling the APIs related to Azure storage accounts</td>\n</tr>\n<tr>\n<td><code>x-bucket-name</code></td>\n<td>Contains a bucket name when calling the AWS list S3 private links API</td>\n</tr>\n<tr>\n<td><code>private-key</code></td>\n<td>Contains a Google drive private key when calling the Google Drive APIs</td>\n</tr>\n<tr>\n<td><code>client-email</code></td>\n<td>Contains a Google Drive client email when calling the Google Drive APIs</td>\n</tr>\n<tr>\n<td><code>subject</code></td>\n<td>Contains a Google drive subject when calling the Google Drive APIs</td>\n</tr>\n<tr>\n<td><code>client-secret</code></td>\n<td>Contains a Box client secret when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>public-key-id</code></td>\n<td>Contains a Box public key ID when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>private-key</code></td>\n<td>Contains a Box private key ID when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>passphrase</code></td>\n<td>Contains a Box passphrase ID when calling the Box APIs</td>\n</tr>\n<tr>\n<td><code>x-netapp-external-request-id-src</code></td>\n<td>Contains an ID to use when accessing the external vault</td>\n</tr>\n<tr>\n<td><code>x-netapp-external-request-id-trg</code></td>\n<td>Contains an ID to use when accessing the external vault</td>\n</tr>\n</tbody>\n</table>\n<h3>Query parameters</h3>\n<p>A list of all the possible query parameters available for each service component is provided in the table below. This is a summary by component, however not every query parameter can be used with each endpoint in a specific component. See the detailed descriptions of the individual API calls for more details.</p>\n<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Query Parameter</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Accounts</td>\n<td>noCreate (optional)<br> target (required)</td>\n</tr>\n<tr>\n<td>Messages</td>\n<td>last (optional)<br></td>\n</tr><tr>\n<td>Data Brokers</td>\n<td>host (required)<br> version(optional <br> path(optional)<br> isEFS(optional)<br> exportName(required) <br> accessPoint(optional) <br> bucket(required) <br> prefix(optional) <br> port(optional) <br> storageAccountName(required) <br> container(required) <br> region(required)<br></td>\n</tr>\n<tr>\n<td>Groups</td>\n<td>host (required)</br> port(optional)</br> rootDirectory(required)</br> version(optional)</br> path(optional)</br> isEFS(optional)</br> exportName(required)</br> accessPoint(optional) </br> bucket(required) </br> prefix(optional) </br> port(required/optional)</br> storageAccountName(required) </br> container(required)</br> driveId(required)</br> folderId(optional or required)</br> folderName(optional)</br> clientId(required)</br> enterpriseId(required)</br> appName(optional)</br> region(required)</br></td>\n</tr>\n<tr>\n<td>Relationships</td>\n<td>relationships (required)</br></td>\n</tr>\n<tr>\n<td>Storages</td>\n<td>provider (optional)</br></td>\n</tr>\n<tr>\n<td>Reports</td>\n<td>reports (required)</br></td>\n</tr>\n</tbody>\n</table>\n<h3>Response headers</h3>\n<p>This API uses the standard HTTP response headers common with all BlueXP APIs. See <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/http_details.html#response-headers\">REST implementation</a> for more information.</p>\n<h3>HTTP status codes</h3>\n<table>\n<thead>\n<tr>\n<th>HTTP Status Code</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>200</code></td>\n<td>OK: Returned for successful operation completion</td>\n</tr>\n<tr>\n<td><code>400</code></td>\n<td>Bad Request: Returned if the input is malformed and could not be parsed</td>\n</tr>\n<tr>\n<td><code>401</code></td>\n<td>Unauthorized: Returned if user authentication failed or the token has expired</td>\n</tr>\n<tr>\n<td><code>403</code></td>\n<td>Forbidden: Returned for authorization errors depending on the resource and token</td>\n</tr>\n<tr>\n<td><code>404</code></td>\n<td>Not Found: Returned if the requested resource could not be found</td>\n</tr>\n<tr>\n<td><code>500</code></td>\n<td>Processing Error: Returned if an error occurs on the server while processing the API call</td>\n</tr>\n</tbody>\n</table>\n</details>\n<hr />\n   <details><summary>Error handling</summary>\nThe following processes are involved with error handling and processing:\n<ul>\n<li>The error is logged for supportability.</li>\n<li>The error is also returned to the API caller on synchronous operations.</li>\n<li>In case of asynchronous operations, the error will be returned on the GET /messages API.</li>\n</ul>\n</details>   <details>\n<summary>cURL examples</summary>\nThe following example retrieves relationships for a specific account:\n<p><code>curl -X GET https://api.cloudsync.netapp.com/api/relationships-v2 -H &quot;accept: application/json&quot; -H &quot;authorization: &lt;user_token&gt;&quot; -H &quot;x-account-id:&lt;account_id&gt;&quot;</code></p>\n<p>The following example retrieves reports for a specific account:</p>\n<p><code>curl -X GET https://api.cloudsync.netapp.com/api/accounts/&lt;account_id&gt;/reports -H  &quot;accept: application/json&quot; -H  &quot;authorization: &lt;user_token&gt;&quot;</code></p>\n</details>   <br><br>",
       "version":"1.0.45"
    },
    "components":{
@@ -58,7 +58,7 @@
             "tags":[
                "Accounts"
             ],
-            "description":"Deletes the current account. WARNING: This action will delete the current account from the copy and sync API.",
+            "description":"Deletes the current account. </br> WARNING: This action will delete the current account from the copy and sync API.",
             "parameters":[
                {
                   "schema":{
@@ -91,7 +91,7 @@
                   "in":"query",
                   "name":"noCreate",
                   "required":false,
-                  "description":"Dont create the requested account if it doesnt exist"
+                  "description":"Don't create the requested account if it doesn't exist"
                },
                {
                   "schema":{
@@ -136,7 +136,7 @@
                                  "type":"string"
                               },
                               "subscriptionStatus":{
-                                 "description":"The account's AWS Market Place subscription status",
+                                 "description":"The account's AWS marketplace subscription status",
                                  "enum":[
                                     "unsubscribed-init",
                                     "resolve-failed",
@@ -346,7 +346,7 @@
             "tags":[
                "Accounts"
             ],
-            "description":"Adds NetApp Support Site credentials.",
+            "description":"Adds the NetApp Support Site credentials.",
             "requestBody":{
                "content":{
                   "application/json":{
@@ -414,7 +414,7 @@
             "tags":[
                "Accounts"
             ],
-            "description":"Retrieves NSS credentials.",
+            "description":"Retrieves the NetApp Support Site credentials.",
             "parameters":[
                {
                   "schema":{
@@ -536,7 +536,7 @@
             "tags":[
                "Accounts"
             ],
-            "description":"Retrieves a list of all licenses",
+            "description":"Retrieves a list of all licenses.",
             "parameters":[
                {
                   "schema":{
@@ -597,7 +597,7 @@
             "tags":[
                "Accounts"
             ],
-            "description":"License Settings",
+            "description":"Retrieves the license settings.",
             "parameters":[
                {
                   "schema":{
@@ -657,7 +657,7 @@
             "tags":[
                "Accounts"
             ],
-            "description":"Deletes a license serial number",
+            "description":"Deletes a license serial number.",
             "parameters":[
                {
                   "schema":{
@@ -690,7 +690,7 @@
             "tags":[
                "Accounts"
             ],
-            "description":"Delete NSS credentials",
+            "description":"Deletes the NetApp Support Site credentials.",
             "parameters":[
                {
                   "schema":{
@@ -699,7 +699,7 @@
                   "in":"path",
                   "name":"nssKeyId",
                   "required":true,
-                  "description":"NSS key id"
+                  "description":"NSS key ID"
                },
                {
                   "schema":{
@@ -708,7 +708,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account id"
+                  "description":"NetApp tenancy account ID"
                }
             ],
             "deprecated":true,
@@ -724,7 +724,7 @@
             "tags":[
                "Messages"
             ],
-            "description":"Refers to a long polling endpoint for asynchronous messages.",
+            "description":"Retrieves the asynchronous messages. This API endpoint refers to a long polling endpoint for asynchronous messages.",
             "parameters":[
                {
                   "schema":{
@@ -742,7 +742,7 @@
                   "in":"header",
                   "name":"x-account-id",
                   "required":false,
-                  "description":"NetApp Tenancy AccountId"
+                  "description":"NetApp Tenancy Account ID"
                }
             ],
             "responses":{
@@ -869,11 +869,11 @@
                                     "type":"string"
                                  },
                                  "encryptionType":{
-                                    "description":"Data Broker Encryption type - in case it is part of nfs encrypted relationship",
+                                    "description":"Data Broker Encryption type - in case it is part of NFS encrypted relationship",
                                     "type":"string"
                                  },
                                  "groupId":{
-                                    "description":"Data Broker Group Id",
+                                    "description":"Data Broker Group ID",
                                     "type":"string"
                                  },
                                  "placement":{
@@ -893,11 +893,11 @@
                                           "type":"string"
                                        },
                                        "publicIp":{
-                                          "description":"Data Broker public ip IP address",
+                                          "description":"Data Broker public IP address",
                                           "type":"string"
                                        },
                                        "region":{
-                                          "description":"Data Broker  Region",
+                                          "description":"Data Broker Region",
                                           "type":"string"
                                        },
                                        "availabilityZone":{
@@ -925,7 +925,7 @@
                                           "type":"string"
                                        },
                                        "awsAccountId":{
-                                          "description":"AWS accountId in which the dataBroker was created",
+                                          "description":"AWS account ID in which the data broker was created",
                                           "type":"string"
                                        },
                                        "vault":{
@@ -1246,7 +1246,7 @@
             "tags":[
                "Data Brokers"
             ],
-            "description":"Restarts a data broker",
+            "description":"Restarts a data broker.",
             "parameters":[
                {
                   "schema":{
@@ -1432,7 +1432,7 @@
                   "in":"header",
                   "name":"x-account-id",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -1624,7 +1624,7 @@
             "tags":[
                "Data Brokers"
             ],
-            "description":"Retrieves the NFS server folders from the data broker.",
+            "description":"Retrieves the NFS server folders from the data broker by using a specified ID.",
             "parameters":[
                {
                   "schema":{
@@ -1712,7 +1712,7 @@
             "tags":[
                "Data Brokers"
             ],
-            "description":"Retrieves the S3 buckets accessible from a NetApp data broker",
+            "description":"Retrieves the S3 buckets accessible from a NetApp data broker.",
             "parameters":[
                {
                   "schema":{
@@ -1926,7 +1926,7 @@
                   "in":"header",
                   "name":"x-account-id",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -2088,7 +2088,7 @@
                   "in":"header",
                   "name":"x-account-id",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -2657,7 +2657,7 @@
             "tags":[
                "Data Brokers"
             ],
-            "description":"Retrieves the S3 Private Links",
+            "description":"Retrieves the S3 private links.",
             "parameters":[
                {
                   "schema":{
@@ -2742,7 +2742,7 @@
             "tags":[
                "Groups"
             ],
-            "description":"Retrieves all Groups",
+            "description":"Retrieves all data broker groups.",
             "parameters":[
                {
                   "schema":{
@@ -3126,7 +3126,7 @@
             "tags":[
                "Groups"
             ],
-            "description":"Changes the Group settings",
+            "description":"Modifies the data broker group settings.",
             "requestBody":{
                "content":{
                   "application/json":{
@@ -3292,7 +3292,7 @@
                                                 "type":"string"
                                              },
                                              "publicIp":{
-                                                "description":"Data Broker public ip IP address",
+                                                "description":"Data Broker public IP address",
                                                 "type":"string"
                                              },
                                              "region":{
@@ -3633,7 +3633,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -3642,7 +3642,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -3789,7 +3789,7 @@
                   "in":"query",
                   "name":"share",
                   "required":true,
-                  "description":"Cifs share"
+                  "description":"CIFS share"
                },
                {
                   "schema":{
@@ -3798,7 +3798,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -3807,7 +3807,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4089,7 +4089,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4098,7 +4098,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                }
             ],
             "responses":{
@@ -4142,7 +4142,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4151,7 +4151,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4231,7 +4231,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4240,7 +4240,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4302,7 +4302,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4311,7 +4311,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4462,7 +4462,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4471,7 +4471,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4551,7 +4551,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4560,7 +4560,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4602,7 +4602,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4611,7 +4611,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4731,7 +4731,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4740,7 +4740,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4800,7 +4800,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4809,7 +4809,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4851,7 +4851,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4860,7 +4860,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -4920,7 +4920,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -4929,7 +4929,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -5055,7 +5055,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -5064,7 +5064,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                }
             ],
             "responses":{
@@ -5079,7 +5079,7 @@
             "tags":[
                "Groups"
             ],
-            "description":"Retrieves the Google drives.",
+            "description":"Retrieves the Google Drive objects.",
             "parameters":[
                {
                   "schema":{
@@ -5088,7 +5088,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -5097,7 +5097,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -5106,7 +5106,7 @@
                   "in":"header",
                   "name":"private-key",
                   "required":true,
-                  "description":"Google drive service account private key"
+                  "description":"Google Drive service account private key"
                },
                {
                   "schema":{
@@ -5115,7 +5115,7 @@
                   "in":"header",
                   "name":"client-email",
                   "required":true,
-                  "description":"Google drive service account client email"
+                  "description":"Google Drive service account client email"
                },
                {
                   "schema":{
@@ -5124,7 +5124,7 @@
                   "in":"header",
                   "name":"subject",
                   "required":true,
-                  "description":"Google drive user email"
+                  "description":"Google Drive user email"
                }
             ],
             "responses":{
@@ -5139,7 +5139,7 @@
             "tags":[
                "Groups"
             ],
-            "description":"Retrieves the Google drive folders.",
+            "description":"Retrieves the Google Drive folders.",
             "parameters":[
                {
                   "schema":{
@@ -5193,7 +5193,7 @@
                   "in":"header",
                   "name":"private-key",
                   "required":true,
-                  "description":"Google drive service account private key"
+                  "description":"Google Drive service account private key"
                },
                {
                   "schema":{
@@ -5202,7 +5202,7 @@
                   "in":"header",
                   "name":"client-email",
                   "required":true,
-                  "description":"Google drive service account client email"
+                  "description":"Google Drive service account client email"
                },
                {
                   "schema":{
@@ -5211,7 +5211,7 @@
                   "in":"header",
                   "name":"subject",
                   "required":true,
-                  "description":"Google drive user email"
+                  "description":"Google Drive user email"
                }
             ],
             "responses":{
@@ -5226,7 +5226,7 @@
             "tags":[
                "Groups"
             ],
-            "description":"Retrieves the the BOX API root folder.",
+            "description":"Retrieves the the Box API root folder.",
             "parameters":[
                {
                   "schema":{
@@ -5262,7 +5262,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -5271,7 +5271,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -5322,7 +5322,7 @@
             "tags":[
                "Groups"
             ],
-            "description":"Retrieves the BOX API server folders from a NetApp data broker group.",
+            "description":"Retrieves the Box API server folders from a NetApp data broker group.",
             "parameters":[
                {
                   "schema":{
@@ -5349,7 +5349,7 @@
                   "in":"query",
                   "name":"folderId",
                   "required":true,
-                  "description":"BOX parent folder id"
+                  "description":"BOX parent folder ID"
                },
                {
                   "schema":{
@@ -5385,7 +5385,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -5454,7 +5454,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -5463,7 +5463,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                },
                {
                   "schema":{
@@ -5496,7 +5496,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -5505,7 +5505,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Data Brokers Group Id"
+                  "description":"Data Brokers Group ID"
                }
             ],
             "responses":{
@@ -5548,7 +5548,7 @@
                                  },
                                  "isCM":{
                                     "type":"string",
-                                    "description":"Was the relationship created via CloudManager"
+                                    "description":"Was the relationship created through CloudManager"
                                  },
                                  "dataBroker":{
                                     "type":"string",
@@ -6081,11 +6081,11 @@
                                              },
                                              "folderId":{
                                                 "type":"string",
-                                                "description":"Folder Id"
+                                                "description":"Folder ID"
                                              },
                                              "clientId":{
                                                 "type":"string",
-                                                "description":"Client Id"
+                                                "description":"Client ID"
                                              },
                                              "appName":{
                                                 "type":"string",
@@ -8748,7 +8748,7 @@
                                        },
                                        "publicKeyId":{
                                           "type":"string",
-                                          "description":"Public Key Id"
+                                          "description":"Public Key ID"
                                        },
                                        "privateKey":{
                                           "type":"string",
@@ -11385,7 +11385,7 @@
             "tags":[
                "Relationships"
             ],
-            "description":"Retrieves relationship",
+            "description":"Retrieves a relationship.",
             "parameters":[
                {
                   "schema":{
@@ -11613,7 +11613,7 @@
                                                 },
                                                 "keyId":{
                                                    "type":"string",
-                                                   "description":"Encryption key arn in case it is kms encryption"
+                                                   "description":"Encryption key ARN in case it is KMS encryption"
                                                 }
                                              }
                                           },
@@ -13704,7 +13704,7 @@
             "tags":[
                "Relationships"
             ],
-            "description":"Deletes an existing Relationship",
+            "description":"Deletes an existing relationship.",
             "parameters":[
                {
                   "schema":{
@@ -13713,7 +13713,7 @@
                   "in":"path",
                   "name":"id",
                   "required":true,
-                  "description":"Relationship Id"
+                  "description":"Relationship ID"
                },
                {
                   "schema":{
@@ -13722,7 +13722,7 @@
                   "in":"header",
                   "name":"x-account-id",
                   "required":true,
-                  "description":"NetApp tenancy account Id"
+                  "description":"NetApp tenancy account ID"
                }
             ],
             "deprecated":true,
@@ -13738,7 +13738,7 @@
             "tags":[
                "Relationships"
             ],
-            "description":"Deletes Relationships",
+            "description":"Deletes relationships.",
             "parameters":[
                {
                   "schema":{
@@ -14378,7 +14378,7 @@
             "tags":[
                "Reports"
             ],
-            "description":"Creates a new Report",
+            "description":"Creates a new report.",
             "requestBody":{
                "content":{
                   "application/json":{
@@ -17037,7 +17037,7 @@
             "tags":[
                "Reports"
             ],
-            "description":"Retrieves a report by a specified ID.",
+            "description":"Retrieves a report by a specified report ID.",
             "parameters":[
                {
                   "schema":{
@@ -17046,7 +17046,7 @@
                   "in":"path",
                   "name":"accountId",
                   "required":true,
-                  "description":"NetApp tenancy account id"
+                  "description":"NetApp tenancy account ID"
                },
                {
                   "schema":{
@@ -17763,15 +17763,15 @@
    "tags":[
       {
          "name":"Accounts",
-         "description":"<details><summary>Overview</summary>\nThe accounts endpoints provide information about the identity of the user's tenancy account. The endpoints enable you to receive information about licensing ( PAYGO or CONTRACT subscriptions from Microsoft Azure, AWS marketplace, or bring your own license (BYOL from NetApp) and perform licensing-related operations.\nThe following actions can be performed with the accounts endpoints:\n<ul>\n<li>Retrieve account statistics information</li>\n<li>Add a BYOL license</li>\n<li>Retrieve a list of NSS credentials associated with an account</li>\n<li>Retrieve license information of an account</li>\n<li>Update subscription information (using the /register API call)</li>\n</ul>\n</details>"
+         "description":"<details><summary>Overview</summary>\nThe accounts endpoints provide information about the identity of the user's tenancy account. The endpoints enable you to receive information about licensing (PAYGO or CONTRACT subscriptions from Microsoft Azure), AWS marketplace, or bring your own license (BYOL from NetApp) and perform licensing-related operations.\nThe following actions can be performed with the accounts endpoints:\n<ul>\n<li>Retrieve account statistics information</li>\n<li>Add a BYOL license</li>\n<li>Retrieve a list of NetApp Support Site credentials associated with an account</li>\n<li>Retrieve license information of an account</li>\n<li>Update subscription information (using the /register API call)</li>\n</ul>\n</details>"
       },
       {
          "name":"Data Brokers",
-         "description":"<details><summary>Overview</summary>\nThe data brokers endpoints provide information about the data brokers in an account and enable you to perform various operations on the data brokers.\nThe following actions can be performed with the data brokers endpoints:\n<ul>\n<li>Retrieve data broker information (including type, groupId, address, operating system, node version , VPC, Vnet, and more)</li>\n<li>Delete a data broker</li>\n<li>Restart a data broker</li>\n<li>Change a data broker's proxy configuration</li>\n<li>Move a data broker between groups</li>\n<li>Retrieve data broker's local configuration</li>\n</ul>\n<p>There are a few deprecated API calls to use a data broker to retrieve information from the customer network utilizing the network permissions, such as list S3 buckets, list CIFS shares, and more.<br />\nThe deprecated operations are as follows:</p>\n<ul>\n<li>List S3 buckets</li>\n<li>List CIFS shares</li>\n<li>List NFS exports</li>\n<li>List Azure containers</li>\n<li>List NFS export folders</li>\n<li>List CIFS share folders</li>\n<li>List S3 buckets folders</li>\n<li>List StorageGRID buckets</li>\n<li>List StorageGRID bucket folders</li>\n<li>List IBM buckets</li>\n<li>List IBM bucket folders</li>\n<li>List ONTAP S3 buckets</li>\n<li>List ONTAP S3 bucket folders</li>\n<li>List KMS keys</li>\n<li>List S3 private endpoints</li>\n<li>List Google buckets</li>\n<li>List Google bucket folders</li>\n</ul>\n</details>"
+         "description":"<details><summary>Overview</summary>\nThe data brokers endpoints provide information about the data brokers in an account and enable you to perform various operations on the data brokers.\nThe following actions can be performed with the data brokers endpoints:\n<ul>\n<li>Retrieve data broker information (including type, group ID, address, operating system, node version, VPC, Vnet, and more)</li>\n<li>Delete a data broker</li>\n<li>Restart a data broker</li>\n<li>Modify a data broker's proxy configuration</li>\n<li>Move a data broker between groups</li>\n<li>Retrieve data broker's local configuration</li>\n</ul>\n<p>There are a few deprecated API calls to use a data broker to retrieve information from the customer network utilizing the network permissions, such as retrieve S3 buckets, retrieve CIFS shares, and more.<br />\nThe deprecated operations are as follows:</p>\n<ul>\n<li>Retrieve S3 buckets</li>\n<li>Retrieve CIFS shares</li>\n<li>Retrieve NFS exports</li>\n<li>Retrieve Azure containers</li>\n<li>Retrieve NFS export folders</li>\n<li>Retrieve CIFS share folders</li>\n<li>Retrieve S3 buckets folders</li>\n<li>Retrieve StorageGRID buckets</li>\n<li>Retrieve StorageGRID bucket folders</li>\n<li>Retrieve IBM buckets</li>\n<li>Retrieve IBM bucket folders</li>\n<li>Retrieve ONTAP S3 buckets</li>\n<li>Retrieve ONTAP S3 bucket folders</li>\n<li>Retrieve KMS keys</li>\n<li>Retrieve S3 private endpoints</li>\n<li>Retrieve Google buckets</li>\n<li>Retrieve Google bucket folders</li>\n</ul>\n</details>"
       },
       {
          "name":"Groups",
-         "description":"<details><summary>Overview</summary>\nThe groups endpoints provide information about the data broker groups in an account and enable you to manage the groups.\nThe following actions can be performed with the data broker groups endpoints:\n<ul>\n<li>Retrieve data broker group information (information on the group configuration and each data broker in the group)</li>\n<li>Download data broker group logs (download logs from each data broker in the group)</li>\n<li>Change data broker group configuration - control the number of processes and concurrency in the data brokers</li>\n<li>Delete a data broker group</li>\n<li>Use the data broker group to perform various asynchronous operations such as:</li>\n<li>List S3 buckets</li>\n<li>List NFS exports</li>\n<li>List SMB shares</li>\n<li>List SFTP directories</li>\n<li>List AWS KMS keys</li>\n<li>List StorageGRID buckets</li>\n<li>List IBM buckets</li>\n<li>List ONTAP S3 buckets</li>\n<li>List Azure storage account containers</li>\n<li>List Google drives</li>\n<li>List S3 private links</li>\n</ul>\n</details>"
+         "description":"<details><summary>Overview</summary>\nThe groups endpoints provide information about the data broker groups in an account and enable you to manage the groups.\nThe following actions can be performed with the data broker groups endpoints:\n<ul>\n<li>Retrieve data broker group information (information on the group configuration and each data broker in the group)</li>\n<li>Download data broker group logs (download logs from each data broker in the group)</li>\n<li>Change the data broker group configuration - control the number of processes and concurrency in the data brokers</li>\n<li>Delete a data broker group</li>\n<li>Use the data broker group to perform various asynchronous operations such as:</li>\n<ul><li>Retrieve S3 buckets</li>\n<li>Retrieve NFS exports</li>\n<li>Retrieve SMB shares</li>\n<li>Retrieve SFTP directories</li>\n<li>Retrieve AWS KMS keys</li>\n<li>Retrieve StorageGRID buckets</li>\n<li>Retrieve IBM buckets</li>\n<li>Retrieve ONTAP S3 buckets</li>\n<li>Retrieve Azure storage account containers</li>\n<li>Retrieve Google drives</li>\n<li>Retrieve S3 private links</li>\n</ul>\n</details>"
       },
       {
          "name":"Messages",
@@ -17779,7 +17779,7 @@
       },
       {
          "name":"Relationships",
-         "description":"<details><summary>Overview</summary>\nThe relationships endpoints provide information about the sync relationships between source and target destinations in an account and enable you to perform various operations to manage the sync relationships.\nThe following actions can be performed with the relationships endpoints:\n<ul>\n<li>Retrieve sync relationship information (including statistics)</li>\n<li>Create a sync relationship</li>\n<li>Delete a sync relationship</li>\n<li>Change sync relationship settings</li>\n<li>Start a new sync on a relationship</li>\n<li>Abort a sync operation</li>\n<li>Update relationship endpoint credentials</li>\n<li>Update relationship tags</li>\n<li>Retrieve the identifier of the sync relationship (without all other properties)</li>\n</ul>\n</details>"
+         "description":"<details><summary>Overview</summary>\nThe relationships endpoints provide information about the sync relationships between source and target destinations in an account and enable you to perform various operations to manage the sync relationships.\nThe following actions can be performed with the relationships endpoints:\n<ul>\n<li>Retrieve sync relationship information (including statistics)</li>\n<li>Create a sync relationship</li>\n<li>Delete a sync relationship</li>\n<li>Change sync relationship settings</li>\n<li>Start a new sync on a relationship</li>\n<li>Abort a sync operation</li>\n<li>Update the relationship endpoint credentials</li>\n<li>Update relationship tags</li>\n<li>Retrieve the identifier of the sync relationship (without all other properties)</li>\n</ul>\n</details>"
       },
       {
          "name":"Reports",
@@ -17787,11 +17787,11 @@
       },
       {
          "name":"Storages",
-         "description":"<details><summary>Overview</summary>\nThe storages endpoints provide information about the different source and target locations.\nThis API category displays only the endpoints that are part of a sync relationship in an account.\n<p>You can retrieve the following information by using the storages API endpoints:</p>\n<ul>\n<li>NFS hosts IP addresses</li>\n<li>SMB hosts IP addresses</li>\n<li>Azure storage accounts</li>\n<li>SFTP hosts IP addresses</li>\n<li>IBM hosts IP addresses</li>\n<li>StorageGRID hosts IP addresses</li>\n<li>Azure NetApp Files IP addresses</li>\n<li>Cloud Volumes ONTAP, On-premises, FSx Data LIF IP addresses</li>\n<li>ONTAP S3 endpoint IP addresses</li>\n<li>Amazon Elastic File System IP addresses</li>\n<li>Box app names</li>\n<li>Google drive subjects</li>\n</ul>\n</details>"
+         "description":"<details><summary>Overview</summary>\nThe storages endpoints provide information about the different source and target locations.\nThis API category displays only the endpoints that are part of a sync relationship in an account.\n<p>You can retrieve the following information by using the storages API endpoints:</p>\n<ul>\n<li>NFS host IP addresses</li>\n<li>SMB host IP addresses</li>\n<li>Azure storage accounts</li>\n<li>SFTP host IP addresses</li>\n<li>IBM host IP addresses</li>\n<li>StorageGRID host IP addresses</li>\n<li>Azure NetApp Files IP addresses</li>\n<li>Cloud Volumes ONTAP, on-premises, Amazon FSx Data LIF IP addresses</li>\n<li>ONTAP S3 endpoint IP addresses</li>\n<li>Amazon Elastic File System IP addresses</li>\n<li>Box app names</li>\n<li>Google Drive subjects</li>\n</ul>\n</details>"
       },
       {
          "name":"Timelines",
-         "description":"<details><summary>Overview</summary>\nThe timelines endpoints provide information about historic operations in an account (for example, create a relationship, sync relationships, and abort a relationship).\nThe timelines API endpoints are deprecated; use the BlueXP Audit service API to view your historic account-related operations.\n</details>"
+         "description":"<details><summary>Overview</summary>\nThe timelines endpoints provide information about historic operations in an account (for example, create a relationship, sync relationships, and abort a relationship).\nThe timelines API endpoints are deprecated; use the <a href=\"https://docs.netapp.com/us-en/bluexp-automation/audit/overview.html\">BlueXP Audit service API</a> to view your historic account-related operations.\n</details>"
       }
    ]
 }

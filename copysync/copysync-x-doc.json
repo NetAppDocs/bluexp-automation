@@ -119,7 +119,7 @@
       "/api/messages/client": {
         "get": {
           "x-doc": {
-            "title": "Refer to a long polling endpoint for asynchronous messages",
+            "title": "Retrieve the asynchronous messages",
             "category": "Messages",
             "filename": "get-api-messages-client.html",
             "subcategory": null
@@ -217,7 +217,7 @@
       "/api/data-brokers/{id}/list-nfs-export-folders": {
         "get": {
           "x-doc": {
-            "title": "Retrieve the NFS server folders from the data broker",
+            "title": "Retrieve the NFS server folders by ID",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-nfs-export-folders.html",
             "subcategory": null
@@ -417,7 +417,7 @@
       "/api/accounts/{accountId}/groups/{id}/settings": {
         "put": {
           "x-doc": {
-            "title": "Change the group settings",
+            "title": "Modify the group settings",
             "category": "Groups",
             "filename": "put-api-accounts-groups-settings.html",
             "subcategory": null
@@ -667,7 +667,7 @@
       "/api/accounts/{accountId}/groups/{id}/list-google-drives": {
         "get": {
           "x-doc": {
-            "title": "Retrieve the Google drives",
+            "title": "Retrieve the Google Drives",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-google-drives.html",
             "subcategory": null
