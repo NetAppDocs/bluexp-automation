@@ -44,7 +44,7 @@ Choose the size value for the `size:size` parameter. The `size:unit` must be one
 === 4. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
 
-=== 5. Select rule
+=== 5. Select rules
 
 Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser`
 parameters.
