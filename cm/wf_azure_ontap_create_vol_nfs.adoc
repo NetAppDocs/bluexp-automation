@@ -27,10 +27,9 @@ You can use this workflow to create a volume using NFS protocol for a single nod
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
-=== 2. Select rules
+=== 2. Select the rules
 
-Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser`
-parameters.
+Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser` parameters.
 
 === 3. Create a volume
 
@@ -83,12 +82,9 @@ JSON input example::
           "nfs3",
           "nfs4"
           ],
-        "superUser": True
-        
+        "superUser": True        
       }
-
     ]
-
  }
 }
 
@@ -107,8 +103,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-env
 
 === 2. Select rules
 
-Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser`
-parameters.
+Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser` parameters.
 
 === 3. Create a volume
 
@@ -161,12 +156,9 @@ JSON input example::
           "nfs3",
           "nfs4"
           ],
-        "superUser": True
-        
+        "superUser": True    
       }
-
     ]
-
  }
 }
 

@@ -45,10 +45,9 @@ Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-=== 5. Select rules
+=== 5. Select the rules
 
-Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser`
-parameters.
+Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser` parameters.
 
 === 6. Create a quote
 
@@ -111,13 +110,10 @@ JSON input example::
           "nfs3",
           "nfs4"
           ],
-        "superUser": True
-        
+        "superUser": True       
       }
-
     ]
-
- }
+  }
 }
 
 
@@ -148,7 +144,7 @@ Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availa
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-=== 5. Select rules
+=== 5. Select the rules
 
 Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser`
 parameters.
@@ -214,13 +210,10 @@ JSON input example::
           "nfs3",
           "nfs4"
           ],
-        "superUser": True
-        
+        "superUser": True    
       }
-
     ]
-
- }
+  }
 }
 
 
