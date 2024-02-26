@@ -1,0 +1,99 @@
+{
+  "paths": {
+    "/api/v1/accounts/{accountId}/reports": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve all reports",
+          "category": "Reports",
+          "filename": "get-api-v1-accounts-reports.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      },
+      "post": {
+        "x-doc": {
+          "title": "Create a report",
+          "category": "Reports",
+          "filename": "post-api-v1-accounts-reports.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      },
+      "delete": {
+        "x-doc": {
+          "title": "Delete reports",
+          "category": "Reports",
+          "filename": "delete-api-v1-accounts-reports.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      }
+    },
+    "/api/v1/accounts/{accountId}/reports/{reportId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a report",
+          "category": "Reports",
+          "filename": "get-api-v1-accounts-report.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      }
+    },
+    "/api/v1/accounts/{accountId}/working-environments": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve working environments",
+          "category": "Working-environments",
+          "filename": "get-api-v1-accounts-working-environments.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      }
+    },
+    "/api/v1/accounts/{accountId}/working-environments/{weId}/{provider}/volumes": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve volumes",
+          "category": "Working-environments",
+          "filename": "get-api-v1-accounts-working-environments-volumes.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      }
+    },
+    "/api/v1/accounts/{accountId}/working-environments/{weId}/{provider}/data-lifs": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve data LIFs",
+          "category": "Working-environments",
+          "filename": "get-api-v1-accounts-working-environments-data-lifs.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      }
+    },
+    "/api/v1/accounts/{accountId}/working-environments/{weId}/{provider}/export-policies": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve export policies",
+          "category": "Working-environments",
+          "filename": "get-api-v1-accounts-working-environments-export-policies.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      }
+    },
+    "/api/v1/accounts/{accountId}/working-environments/{weId}/{provider}/shares": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve working environment shares",
+          "category": "Working-environments",
+          "filename": "get-api-v1-accounts-working-environments-shares.html",
+          "subcategory": null,
+          "explorer": false
+        }
+      }
+    }
+  }
+}

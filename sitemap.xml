@@ -1,0 +1,3825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+    
+    
+  
+
+  
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/aa_concepts.html</loc>
+        
+      
+      <lastmod>2023-05-22T12:37:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/account_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/additional_considerations.html</loc>
+        
+      
+      <lastmod>2023-07-11T12:43:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/support/additional_resources.html</loc>
+        
+      
+      <lastmod>2023-09-25T14:30:32+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/api_explorer.html</loc>
+        
+      
+      <lastmod>2023-07-11T13:00:36+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_definitions.html</loc>
+        
+      
+      <lastmod>2023-09-15T17:46:18+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html</loc>
+        
+      
+      <lastmod>2024-01-19T16:33:12+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/api_reference.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//audit/audit_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/authorize_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/aws_credentials_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/aws_operations_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/aws_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/azure_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/backup_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/automate/blogs.html</loc>
+        
+      
+      <lastmod>2023-04-24T15:07:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/catalog_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/cloud_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/concepts.html</loc>
+        
+      
+      <lastmod>2023-07-17T19:56:40+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/connectors_clients.html</loc>
+        
+      
+      <lastmod>2023-05-22T12:37:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/create_service_token.html</loc>
+        
+      
+      <lastmod>2023-05-22T12:37:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/create_user_token.html</loc>
+        
+      
+      <lastmod>2023-05-22T12:37:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/cvo_deployment.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/data_services_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/delete-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/delete-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-snapshot.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/delete-accounts-credentials-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/delete-api-v1-accounts-reports.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/delete-ipa-account-nss-key-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/delete-license-account-licenseresource-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/delete-license-account-subscription-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/delete-license-serial-number-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/delete-license-subscriptions-account-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/delete-license-subscriptions-account-subscription-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/delete-tenancy-account-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/delete-tenancy-account-service-account-del.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/delete-tenancy-account-workspace-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/delete-tenancy-resource-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/delete-tenancy-service-resource-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/delete-tenancy-service-resource-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/delete-working-environments--workspace-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/delete-working-environments-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/external_services_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/fsx_ontap_discovery_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/generic_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-aws-account.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-aws-archival-storage-class.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-aws-awsaccountid-region-key.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-aws-awsaccountid-region-privatelink.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-aws-region.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-region.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-resource-group.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vault-key.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vault.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-azure-subscription-vnet.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-azure-subscription.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-status.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-snapshot.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-backup-working-environment.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings-cryptokey.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region-keyrings.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-gcp-project-region.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-gcp-project.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-job-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-job.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-license-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-restore-status.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-file-explore-status.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-sfr-volume-snapshot-file-explore-list.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-snapshot-file-explore-list.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-sg.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment-ip-space.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment-object-store-config-status.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment-svm.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment-volume-list.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment-volume.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v1-working-environment.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-status.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v2-sfr-volume-snapshot-file-explore-list.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/get-account-providers-cloudmanager_cbs-api-v2-working-environment-svm.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/get-accounts-aws-assume-role-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/get-accounts-azure-service-principal-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/get-accounts-azure-service-principal-generate-token.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/get-accounts-credentials-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/get-accounts-credentials.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/get-api-v1-accounts-report.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/get-api-v1-accounts-reports.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/get-api-v1-accounts-working-environments-data-lifs.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/get-api-v1-accounts-working-environments-export-policies.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/get-api-v1-accounts-working-environments-shares.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/get-api-v1-accounts-working-environments-volumes.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/get-api-v1-accounts-working-environments.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//audit/get-audit--records.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//audit/get-audit-options.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//audit/get-audit.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-aws-credentials-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-aws-encryption-keys.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-aws-route-tables.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-aws-supported-regions.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-aws-vpcs.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-discovery-discover.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-account-nss-key-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-account-nss-key-nss-data.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-account-nss-key-resource-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-account-nss-keys.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-accounts-nss-data.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-nss-key-access-token.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-support-case-details.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-support-case-file-upload-url.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/get-ipa-support-case-search.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-account-subscriptions.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-data-service-eligibility-account-provider-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-licenses.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-onprem-account-clusters.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-subscriptions-account-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-subscriptions-entitlements.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-subscriptions-subscription-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/get-license-subscriptions-subscription.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-members.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-permissions-for-user.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-service-accounts.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-user-workspaces.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-users.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-workspace-agents.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account-workspace.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-account.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-resource.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-users-for-action--id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/get-tenancy-users-for-action-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-working-environments--credentials.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-working-environments--volumes.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-working-environments-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-working-environments-discover.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/get-working-environments-id-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/get_nss_key.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/grant_types.html</loc>
+        
+      
+      <lastmod>2024-02-09T17:28:14+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/http_details.html</loc>
+        
+      
+      <lastmod>2023-07-11T18:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/</loc>
+        
+      
+      <lastmod>2023-12-19T17:04:01+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/job_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/legal-notices.html</loc>
+        
+      
+      <lastmod>2021-07-29T16:50:55+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/license_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/license_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/license_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/nss_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/overview.html</loc>
+        
+      
+      <lastmod>2023-07-11T12:43:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//audit/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/overview.html</loc>
+        
+      
+      <lastmod>2023-09-25T13:54:53+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/automate/overview.html</loc>
+        
+      
+      <lastmod>2023-08-30T16:09:54+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/patch-accounts-aws-assume-role-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/patch-accounts-azure-service-principal-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/patch-accounts-credentials-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/patch-license-account-licenseresource-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/patch-license-serial-number-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/patch-license-subscriptions-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/patch-license-subscriptions-subscription-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/patch-license-subscriptions-subscription.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/patch-tenancy-account-service-account-pat.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/patch-tenancy-account-update-user.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/patch-tenancy-account-workspace-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/patch-working-environments-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-azure-subscription-resource-group.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-catalog-search.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-catalog-snapshots.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-catalog-working-environments-setup.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-ransomware-working-environment-volume-snapshot-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-restore.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-sfr-volume-file-explore-start.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-sfr-working-environment-volume-file-explore-start.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-sg-credentials-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-sg-version.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-sg.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v1-working-environment-configure-object-store.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-volume-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-volume.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v2-catalog-working-environments-setup.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v2-restore.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v2-sfr-volume-file-explore-start.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v2-working-environment-configure-object-store.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v3-backup-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v3-backup-working-environment-volume-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/post-account-providers-cloudmanager_cbs-api-v3-restore.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/post-accounts-aws-assume-role.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/post-accounts-azure-service-principal.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/post-accounts-credentials.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//mr/post-api-v1-accounts-reports.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/post-aws-credentials-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//credential/post-azure-generate-token.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-idaas-key.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-nss-key-associate.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-nss-key-disassociate.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-nss-key.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-serial-number-register.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-serial-number-status-v5.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-serial-number-status-v6.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-account-src-nss-key-dst-nss_key-resource-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-authenticate-v5.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-serial-number-deregister.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-serial-number-registration-status.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-services-account-sn-lookup-token.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-services-sn-lookup.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-support-case-create.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-support-case-system-entitlements.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/post-ipa-support-case-upload.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/post-license-account-subscriptions-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/post-license-exchange.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/post-license-serial-number-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/post-license-subscriptions-account-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/post-license-subscriptions-subscription-account-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-associate.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-dest-account-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-disassociate.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-enable-3rd-party-services-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-enable-private-preview-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-leave.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-rename-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-service-account-generate-service-account-secret.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-service-account.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-workspace-add-agent-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-workspace-add-user-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-workspace-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-workspace-remove-agent-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-account-workspace-remove-user-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-authorize-agent-in-account.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-authorize-agent-workspace.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-authorize-agent.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-authorize-user-is-account-admin.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-authorize-user-is-in-account.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-authorize.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource-account-set-resource-name.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource-account-update.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource-add-to-workspace-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource-discover.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource-remove-from-agent-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource-remove-from-workspace-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource-set-cloud-id.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/post-tenancy-resource.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/post-working-environments--credentials.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/post-working-environments-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/post-working-environments-recover.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html</loc>
+        
+      
+      <lastmod>2023-07-11T18:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/put-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/put-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/put-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-volume.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/put-account-providers-cloudmanager_cbs-api-v1-catalog-working-environments-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:05+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/put-account-providers-cloudmanager_cbs-api-v1-working-environment-backup-policy-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/put-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/put-account-providers-cloudmanager_cbs-api-v2-working-environment-backup-policy.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/put-ipa-account-nss-key-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/put-ipa-support-case-.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/ransomware_scan_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/register_service.html</loc>
+        
+      
+      <lastmod>2023-09-06T10:18:42+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/resource_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/restore_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//search.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:42:12+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/security.html</loc>
+        
+      
+      <lastmod>2023-07-03T17:52:55+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/service_account_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/services_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/sfr_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/storagegrid_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//dw/subscription_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//ipa/support_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html</loc>
+        
+      
+      <lastmod>2023-07-11T13:00:36+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/user_access_tokens.html</loc>
+        
+      
+      <lastmod>2023-05-22T12:37:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/user_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_add_capacity.html</loc>
+        
+      
+      <lastmod>2023-09-22T15:20:20+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_create_we_byol.html</loc>
+        
+      
+      <lastmod>2023-02-03T16:10:21+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_create_we_capacity.html</loc>
+        
+      
+      <lastmod>2023-09-22T15:20:20+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_create_we_paygo.html</loc>
+        
+      
+      <lastmod>2023-02-03T16:10:21+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_delete_we.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_get_wes.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_create_account.html</loc>
+        
+      
+      <lastmod>2021-12-14T11:35:26+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_get_ebs_vol_types.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_get_key_pairs.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_get_packages.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_get_permutations.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_get_regions.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_get_route_tables.html</loc>
+        
+      
+      <lastmod>2021-09-16T10:36:40+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_cloud_md_get_vpcs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_add_disks_aggr.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_create_aggr.html</loc>
+        
+      
+      <lastmod>2023-01-18T10:57:32+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_create_cifs.html</loc>
+        
+      
+      <lastmod>2023-09-25T12:54:22+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_create_quote.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_create_vol_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_create_vol_iscsi.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_create_vol_nfs.html</loc>
+        
+      
+      <lastmod>2024-02-23T10:57:44+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_delete_aggr.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_delete_cifs.html</loc>
+        
+      
+      <lastmod>2023-09-25T12:54:22+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_delete_volume.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_get_aggrs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_get_cifs.html</loc>
+        
+      
+      <lastmod>2021-08-31T14:06:15+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_get_igroups.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_get_volumes.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_aws_ontap_modify_volume.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_create_we_byol.html</loc>
+        
+      
+      <lastmod>2022-11-17T12:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_create_we_capacity.html</loc>
+        
+      
+      <lastmod>2023-05-24T16:42:01+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_create_we_paygo.html</loc>
+        
+      
+      <lastmod>2022-11-17T12:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_delete_we.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_get_wes.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_create_account.html</loc>
+        
+      
+      <lastmod>2021-11-22T17:53:59+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_get_availability_zones.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_get_packages.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_get_permutations.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_get_regions.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_get_storage_account_types.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_get_vnets.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_add_disks_aggr.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_create_aggr.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_create_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_create_quote.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_create_vol_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_create_vol_iscsi.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_create_vol_nfs.html</loc>
+        
+      
+      <lastmod>2024-02-23T10:57:44+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_delete_aggr.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_delete_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_delete_volume.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_get_aggrs.html</loc>
+        
+      
+      <lastmod>2022-11-17T12:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_get_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_get_igroups.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_get_volumes.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_modify_volume.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_ontap_create_aggr.html</loc>
+        
+      
+      <lastmod>2021-12-09T18:25:42+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_before.html</loc>
+        
+      
+      <lastmod>2023-08-30T12:11:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_create_nss_key.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_delete_nss_key.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_get_accounts.html</loc>
+        
+      
+      <lastmod>2022-11-17T12:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_get_nss_key.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_get_nss_keys.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_get_provider_accounts.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_get_saas_mp.html</loc>
+        
+      
+      <lastmod>2022-02-07T10:48:28+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_get_supported_srv.html</loc>
+        
+      
+      <lastmod>2023-04-26T10:17:41+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_identity_get_tenants.html</loc>
+        
+      
+      <lastmod>2023-04-26T10:17:41+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_occm_attach_subscription.html</loc>
+        
+      
+      <lastmod>2022-11-17T12:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_occm_get_task.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_md_get_snapmirror_policies.html</loc>
+        
+      
+      <lastmod>2023-08-16T11:20:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_md_get_snapmirror_svm_policies.html</loc>
+        
+      
+      <lastmod>2023-08-16T11:20:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_create_repl.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_delete_repl.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_get_ic_lifs.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_get_rel_status.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_get_rel_we_status.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_get_sm_rels.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_get_we_schedules.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_common_ontap_repl_update_repl.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_cvo_before.html</loc>
+        
+      
+      <lastmod>2023-08-30T12:11:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_create_we_byol.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_create_we_capacity.html</loc>
+        
+      
+      <lastmod>2023-05-24T16:42:01+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_create_we_paygo.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_delete_we.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_get_wes.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_create_buckets.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_buckets.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_disk_types.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_encryption_keys.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_instance_type_nosupport.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_azure_cloud_md_get_network_requirements.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_packages.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_permutations.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_projects.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_regions.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_service_accounts.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_supported_features.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_supported_tiers.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_tag_keys.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_vpcs.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_get_zones.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_cloud_md_snapshot_policies.html</loc>
+        
+      
+      <lastmod>2023-05-22T13:05:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_add_disks_aggr.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_create_aggr.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_create_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_create_quote.html</loc>
+        
+      
+      <lastmod>2023-04-26T10:39:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_create_vol_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_create_vol_iscsi.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_create_vol_nfs.html</loc>
+        
+      
+      <lastmod>2024-02-23T10:57:44+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_delete_aggr.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_delete_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_delete_volume.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_get_aggrs.html</loc>
+        
+      
+      <lastmod>2022-11-17T12:31:07+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_get_cifs.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_get_igroups.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_get_volumes.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_gcp_ontap_modify_volume.html</loc>
+        
+      
+      <lastmod>2022-03-30T14:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_before.html</loc>
+        
+      
+      <lastmod>2023-08-30T12:11:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_discover_wes.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_flexgroup_ontap_create_vol.html</loc>
+        
+      
+      <lastmod>2023-08-21T16:26:57+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_get_wes.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_create_vol_cifs.html</loc>
+        
+      
+      <lastmod>2023-07-03T17:57:17+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_create_vol_iscsi.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_create_vol_nfs.html</loc>
+        
+      
+      <lastmod>2023-07-26T11:07:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_delete_volume.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_get_aggrs.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_get_cifs.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_get_volumes.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/wf_onprem_ontap_modify_volume.html</loc>
+        
+      
+      <lastmod>2023-07-17T12:44:24+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html</loc>
+        
+      
+      <lastmod>2023-10-02T10:27:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/platform/workflows_tasks.html</loc>
+        
+      
+      <lastmod>2023-07-11T12:43:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//cbs/working_environment_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//fsx/working_environments_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:03+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation//tenancy/workspace_overview.html</loc>
+        
+      
+      <lastmod>2024-02-26T10:45:02+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      
+        <loc>https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html</loc>
+        
+      
+      <lastmod>2023-07-11T12:43:27+00:00</lastmod>
+      
+    </url>
+  
+
+  
+  
+</urlset>

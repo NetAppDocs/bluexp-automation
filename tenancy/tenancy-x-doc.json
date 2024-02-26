@@ -1,0 +1,512 @@
+{
+  "paths": {
+    "/tenancy/account/{accountName}": {
+      "post": {
+        "x-doc": {
+          "title": "Create an account",
+          "category": "Account",
+          "filename": "post-tenancy-account-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete an account",
+          "category": "Account",
+          "filename": "delete-tenancy-account-id.html",
+          "subcategory": null
+        }
+      },
+      "get": {
+        "x-doc": {
+          "title": "Retrieve an account",
+          "category": "Account",
+          "filename": "get-tenancy-account-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/associate": {
+      "post": {
+        "x-doc": {
+          "title": "Associate a user",
+          "category": "Account",
+          "filename": "post-tenancy-account-associate.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/disassociate": {
+      "post": {
+        "x-doc": {
+          "title": "Dissociate a user",
+          "category": "Account",
+          "filename": "post-tenancy-account-disassociate.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/users": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve user data",
+          "category": "Account",
+          "filename": "get-tenancy-account-users.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/service-accounts": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve service account data",
+          "category": "Account",
+          "filename": "get-tenancy-account-service-accounts.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/members": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve user and service account data",
+          "category": "Account",
+          "filename": "get-tenancy-account-members.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/permissions-for-user": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve user role and permissions",
+          "category": "Account",
+          "filename": "get-tenancy-account-permissions-for-user.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/leave": {
+      "post": {
+        "x-doc": {
+          "title": "Delete a user",
+          "category": "Account",
+          "filename": "post-tenancy-account-leave.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/update-user": {
+      "patch": {
+        "x-doc": {
+          "title": "Enable Cloud Manager notifications",
+          "category": "Account",
+          "filename": "patch-tenancy-account-update-user.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve user accounts",
+          "category": "Account",
+          "filename": "get-tenancy-account.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{srcAccountId}/dest/account/{dstAccountId}": {
+      "post": {
+        "x-doc": {
+          "title": "Move account data",
+          "category": "Account",
+          "filename": "post-tenancy-account-dest-account-.html",
+          "explorer": false,
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/rename/{newAccountName}": {
+      "post": {
+        "x-doc": {
+          "title": "Rename an account",
+          "category": "Account",
+          "filename": "post-tenancy-account-rename-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/enable-saas/{saasEnabled}": {
+      "post": {
+        "x-doc": {
+          "title": "Enable SaaS",
+          "category": "Account",
+          "filename": "post-tenancy-account-enable-saas-id.html"
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/enable-private-preview/{privatePreviewEnabled}": {
+      "post": {
+        "x-doc": {
+          "title": "Enable private preview for SaaS",
+          "category": "Account",
+          "filename": "post-tenancy-account-enable-private-preview-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/enable-3rd-party-services/{enabled}": {
+      "post": {
+        "x-doc": {
+          "title": "Enable third-party services",
+          "category": "Account",
+          "filename": "post-tenancy-account-enable-3rd-party-services-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/authorize": {
+      "post": {
+        "x-doc": {
+          "title": "Authorize an external resource",
+          "category": "Authorize",
+          "filename": "post-tenancy-authorize.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/authorize-agent": {
+      "post": {
+        "x-doc": {
+          "title": "Authorize an external agent",
+          "category": "Authorize",
+          "filename": "post-tenancy-authorize-agent.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/authorize-agent-workspace": {
+      "post": {
+        "x-doc": {
+          "title": "Authorize an agent workspace",
+          "category": "Authorize",
+          "filename": "post-tenancy-authorize-agent-workspace.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/authorize-user-is-account-admin": {
+      "post": {
+        "x-doc": {
+          "title": "Authorize a user as account admin",
+          "category": "Authorize",
+          "filename": "post-tenancy-authorize-user-is-account-admin.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/authorize-user-is-in-account": {
+      "post": {
+        "x-doc": {
+          "title": "Authorize a user for an account",
+          "category": "Authorize",
+          "filename": "post-tenancy-authorize-user-is-in-account.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/authorize-agent-in-account": {
+      "post": {
+        "x-doc": {
+          "title": "Authorize an agent",
+          "category": "Authorize",
+          "filename": "post-tenancy-authorize-agent-in-account.html",
+          "explorer": false,
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/discover": {
+      "post": {
+        "x-doc": {
+          "title": "Discover an external resource",
+          "category": "Resource",
+          "filename": "post-tenancy-resource-discover.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource": {
+      "post": {
+        "x-doc": {
+          "title": "Create an external resource",
+          "category": "Resource",
+          "filename": "post-tenancy-resource.html",
+          "subcategory": null
+        }
+      },
+      "get": {
+        "x-doc": {
+          "title": "Retrieve a resource",
+          "category": "Resource",
+          "filename": "get-tenancy-resource.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/service-resource/{resourceIdentifier}": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete a service resource",
+          "category": "Resource",
+          "filename": "delete-tenancy-service-resource-id.html",
+          "explorer": false,
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/{resourceIdentifier}/set-cloud-id": {
+      "post": {
+        "x-doc": {
+          "title": "Set a cloud identifier",
+          "category": "Resource",
+          "filename": "post-tenancy-resource-set-cloud-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/{resourceIdentifier}/account/{accountId}/set-resource-name": {
+      "post": {
+        "x-doc": {
+          "title": "Set a resource name",
+          "category": "Resource",
+          "filename": "post-tenancy-resource-account-set-resource-name.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/{resourceIdentifier}/add-to-workspace/{workspacePublicId}": {
+      "post": {
+        "x-doc": {
+          "title": "Add a resource to a workspace",
+          "category": "Resource",
+          "filename": "post-tenancy-resource-add-to-workspace-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/{resourceIdentifier}/remove-from-workspace/{workspacePublicId}": {
+      "post": {
+        "x-doc": {
+          "title": "Remove a resource from a workspace",
+          "category": "Resource",
+          "filename": "post-tenancy-resource-remove-from-workspace-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/{resourceIdentifier}/remove-from-agent/{agentId}": {
+      "post": {
+        "x-doc": {
+          "title": "Remove a resource from an agent",
+          "category": "Resource",
+          "filename": "post-tenancy-resource-remove-from-agent-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/{resourceIdentifier}": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete a resource from an account",
+          "category": "Resource",
+          "filename": "delete-tenancy-resource-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/resource/{resourceIdentifier}/account/{accountId}/update": {
+      "post": {
+        "x-doc": {
+          "title": "Update properties",
+          "category": "Resource",
+          "filename": "post-tenancy-resource-account-update.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/service-resources": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete service resources",
+          "category": "Resource",
+          "filename": "delete-tenancy-service-resource-.html",
+          "explorer": false,
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/workspace/{name}": {
+      "post": {
+        "x-doc": {
+          "title": "Create a workspace",
+          "category": "Workspace",
+          "filename": "post-tenancy-account-workspace-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/workspace/{workspacePublicId}/add-user/{userPublicId}": {
+      "post": {
+        "x-doc": {
+          "title": "Add a user",
+          "category": "Workspace",
+          "filename": "post-tenancy-account-workspace-add-user-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountPublicId}/workspace/{workspacePublicId}/remove-user/{userPublicId}": {
+      "post": {
+        "x-doc": {
+          "title": "Remove a user",
+          "category": "Workspace",
+          "filename": "post-tenancy-account-workspace-remove-user-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/workspace/{workspacePublicId}": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete a workspace",
+          "category": "Workspace",
+          "filename": "delete-tenancy-account-workspace-id.html",
+          "subcategory": null
+        }
+      },
+      "patch": {
+        "x-doc": {
+          "title": "Rename a workspace",
+          "category": "Workspace",
+          "filename": "patch-tenancy-account-workspace-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/workspace/{workspacePublicId}/add-agent/{agentAuth0Id}": {
+      "post": {
+        "x-doc": {
+          "title": "Add an agent",
+          "category": "Workspace",
+          "filename": "post-tenancy-account-workspace-add-agent-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/workspace/{workspacePublicId}/remove-agent/{agentAuth0Id}": {
+      "post": {
+        "x-doc": {
+          "title": "Remove an agent",
+          "category": "Workspace",
+          "filename": "post-tenancy-account-workspace-remove-agent-id.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/workspace/{workspacePublicId}/agents": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve agents",
+          "category": "Workspace",
+          "filename": "get-tenancy-account-workspace-agents.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/workspace": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve workspaces",
+          "category": "Workspace",
+          "filename": "get-tenancy-account-workspace.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/user/{userId}/workspaces": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve user account workspaces",
+          "category": "Workspace",
+          "filename": "get-tenancy-account-user-workspaces.html",
+          "explorer": false,
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/users/for-action/{accountId}/{action}/{resourceId}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve users authorized for single resource",
+          "category": "User",
+          "filename": "get-tenancy-users-for-action--id.html",
+          "explorer": false,
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/users/for-action/{accountId}/{action}": {
+      "get": {
+        "x-doc": {
+          "title": "Retrieve users authorized for all resources",
+          "category": "User",
+          "filename": "get-tenancy-users-for-action-id.html",
+          "explorer": false,
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/service-account": {
+      "post": {
+        "x-doc": {
+          "title": "Create a service account",
+          "category": "Service Account",
+          "filename": "post-tenancy-account-service-account.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/service-account/{serviceAccountId}": {
+      "delete": {
+        "x-doc": {
+          "title": "Delete a service account",
+          "category": "Service Account",
+          "filename": "delete-tenancy-account-service-account-del.html",
+          "subcategory": null
+        }
+      },
+      "patch": {
+        "x-doc": {
+          "title": "Update details",
+          "category": "Service Account",
+          "filename": "patch-tenancy-account-service-account-pat.html",
+          "subcategory": null
+        }
+      }
+    },
+    "/tenancy/account/{accountId}/service-account/{serviceAccountId}/generate-service-account-secret": {
+      "post": {
+        "x-doc": {
+          "title": "Generate a secret",
+          "category": "Service Account",
+          "filename": "post-tenancy-account-service-account-generate-service-account-secret.html",
+          "subcategory": null
+        }
+      }
+    }
+  }
+}
