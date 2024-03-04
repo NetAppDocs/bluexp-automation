@@ -28,7 +28,7 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 === 1. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environment] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
 
 === 2. Select the aggregate
 
@@ -44,11 +44,15 @@ Choose the size value for the `size:size` parameter. The `size:unit` must be one
 === 4. Select the region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
 
-=== 5. Create the quote
+=== 5. Select the rules
+
+Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser` parameters.
+
+=== 6. Create the quote
 
 Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-single-node[Create quote]. This is a recommended step but is not mandatory.
 
-=== 6. Create the volume
+=== 7. Create the volume
 
 [cols="25,75"*,options="header"]
 |===
@@ -89,14 +93,26 @@ JSON input example::
   "enableDeduplication": true,
   "maxNumOfDisksApprovedToAdd": 0,
   "exportPolicyInfo": {
-      "ips": [
-          "10.138.0.0/20"
+    "name": "rule",
+    "policyType": "custom",
+    "ips": ["x.0.0.0"],
+    "nfsVersion": [
+      "nfs3",
+      "nfs4"
       ],
-      "nfsVersion": [
-          "nfs3", "nfs4"
-      ],
-      "policyType": "custom"
-  }
+    "rules": [
+      {
+        "index": 1,
+        "ruleAccessControl": "readwrite",
+        "ips":  ["1.2.3.4"],
+        "nfsVersion": [
+          "nfs3",
+          "nfs4"
+          ],
+        "superUser": True       
+      }
+    ]
+ }
 }
 
 Output::
@@ -109,29 +125,34 @@ You can use this workflow to create a volume using NFS for an HA working environ
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-=== 1. Select the working environment
+=== 1. Select a working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environement] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environment] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
 
-=== 2. Select the aggregate
+=== 2. Select an aggregate
 
 Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
 
-=== 3. Choose the size for the disk
+=== 3. Choose a size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-=== 4. Select the region
+=== 4. Select a region
 Perform the workflow link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] workflow and pick `ipCidrRange` value of the required `region-> subnets` for `exportPolicy->ips` value.
 
-=== 5. Create the quote
+=== 5. Select rules
+
+Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser`
+parameters.
+
+=== 6. Create a quote
 
 Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote]. This is a recommended step but is not mandatory.
 
-=== 6. Create the volume
+=== 7. Create the volume
 
 [cols="25,75"*,options="header"]
 |===
@@ -172,14 +193,26 @@ JSON input example::
   "enableDeduplication": true,
   "maxNumOfDisksApprovedToAdd": 0,
   "exportPolicyInfo": {
-      "ips": [
-          "10.138.0.0/20"
+    "name": "rule",
+    "policyType": "custom",
+    "ips": ["x.0.0.0"],
+    "nfsVersion": [
+      "nfs3",
+      "nfs4"
       ],
-      "nfsVersion": [
-          "nfs3", "nfs4"
-      ],
-      "policyType": "custom"
-  }
+    "rules": [
+      {
+        "index": 1,
+        "ruleAccessControl": "readwrite",
+        "ips":  ["x.0.0.0"],
+        "nfsVersion": [
+          "nfs3",
+          "nfs4"
+          ],
+        "superUser": True      
+      }
+    ]
+ }
 }
 
 Output::
