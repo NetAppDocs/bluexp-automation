@@ -68,10 +68,10 @@ This REST API call uses the following method and endpoint.
 .Curl example
 
 [source,curl]
-curl --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes"
---request POST
---header 'Content-Type: application/json' 
---header 'x-agent-id: <AGENT_ID>' 
+curl --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes" /
+--request POST /
+--header 'Content-Type: application/json' /
+--header 'x-agent-id: <AGENT_ID>' /
 --header 'Authorization: Bearer <ACCESS_TOKEN>' 
 --d @JSONinput
 
@@ -162,14 +162,14 @@ This REST API call uses the following method and endpoint.
 |/occm/api/aws/ha/volumes
 |===
 
-.Curl example
+.Curl example: Create a volume
 
 [source,curl]
-curl --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes"
---request POST
---header 'Content-Type: application/json' 
---header 'x-agent-id: <AGENT_ID>' 
---header 'Authorization: Bearer <ACCESS_TOKEN>' 
+curl --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes" \
+--request POST \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
 --d @JSONinput
 
 .Input parameters
