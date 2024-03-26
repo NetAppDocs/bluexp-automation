@@ -6,7 +6,8 @@
             "title": "Retrieve the tenancy accounts",
             "category": "Accounts",
             "filename": "get-api-accounts.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         },
         "delete": {
@@ -14,7 +15,8 @@
             "title": "Delete the current account",
             "category": "Accounts",
             "filename": "delete-api-accounts.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -24,7 +26,8 @@
             "title": "Retrieve the account information",
             "category": "Accounts",
             "filename": "get-api-accounts-info.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -34,7 +37,8 @@
             "title": "Register an account to a marketplace",
             "category": "Accounts",
             "filename": "put-api-accounts-register.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -44,7 +48,8 @@
             "title": "Retrieve the logged-in account's relationship status",
             "category": "Accounts",
             "filename": "get-api-accounts-relationships-stats.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -54,7 +59,8 @@
             "title": "Add NetApp support site credentials",
             "category": "Accounts",
             "filename": "put-api-v2-accounts-nss-credentials.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         },
         "get": {
@@ -62,7 +68,8 @@
             "title": "Retrieve NetApp support site credentials",
             "category": "Accounts",
             "filename": "get-api-v2-accounts-nss-credentials.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -72,7 +79,8 @@
             "title": "Add a license",
             "category": "Accounts",
             "filename": "put-api-accounts-licenses-v2.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -82,7 +90,8 @@
             "title": "Retrieve a list of all licenses",
             "category": "Accounts",
             "filename": "get-api-accounts-licenses.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -92,7 +101,8 @@
             "title": "Retrieve license settings",
             "category": "Accounts",
             "filename": "get-api-accounts-license-settings.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -102,7 +112,8 @@
             "title": "Delete a license serial number",
             "category": "Accounts",
             "filename": "delete-api-accounts-licenses-v2-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -112,7 +123,8 @@
             "title": "Delete NetApp support site credentials",
             "category": "Accounts",
             "filename": "delete-api-v2-accounts-nss-credentials-v2-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -122,7 +134,8 @@
             "title": "Retrieve the asynchronous messages",
             "category": "Messages",
             "filename": "get-api-messages-client.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -132,7 +145,8 @@
             "title": "Retrieve all the data brokers",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         },
         "post": {
@@ -140,7 +154,8 @@
             "title": "Create a new installer for the NetApp data broker instance",
             "category": "Data Brokers",
             "filename": "post-api-data-brokers.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -150,7 +165,8 @@
             "title": "Delete an existing NetApp data broker",
             "category": "Data Brokers",
             "filename": "delete-api-data-brokers-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -160,7 +176,8 @@
             "title": "Restart a data broker",
             "category": "Data Brokers",
             "filename": "put-api-accounts-data-brokers-restart.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -170,7 +187,8 @@
             "title": "Update the proxy configuration for a data broker",
             "category": "Data Brokers",
             "filename": "put-api-accounts-data-brokers-proxy.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -180,7 +198,8 @@
             "title": "Move the data broker between groups",
             "category": "Data Brokers",
             "filename": "put-api-accounts-data-brokers-move.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -190,7 +209,8 @@
             "title": "Retrieve the CIFS shares",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-cifs-shares.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -200,7 +220,8 @@
             "title": "Retrieve the CIFS server folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-cifs-share-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -210,7 +231,8 @@
             "title": "Retrieve the NFS server folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-nfs-exports.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -220,7 +242,8 @@
             "title": "Retrieve the NFS server folders by ID",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-nfs-export-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -230,7 +253,8 @@
             "title": "Retrieve the S3 buckets",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-s3-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -240,7 +264,8 @@
             "title": "Retrieve the S3 bucket folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-s3-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -250,7 +275,8 @@
             "title": "Retrieve the StorageGRID buckets",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-sgws-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -260,7 +286,8 @@
             "title": "Retrieve the StorageGRID bucket folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-sgws-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -270,7 +297,8 @@
             "title": "Retrieve the IBM buckets",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-ibm-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -280,7 +308,8 @@
             "title": "Retrieve the IBM bucket folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-ibm-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -290,7 +319,8 @@
             "title": "Retrieve the ONTAP S3 buckets",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-ontap-s3-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -300,7 +330,8 @@
             "title": "Retrieve the ONTAP S3 bucket folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-ontap-s3-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -310,7 +341,8 @@
             "title": "Retrieve the Alibaba buckets",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-alibaba-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -320,7 +352,8 @@
             "title": "Retrieve the Alibaba bucket folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-alibaba-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -330,7 +363,8 @@
             "title": "Retrieve the Azure blob storage containers",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-azure-blob-storage-containers.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -340,7 +374,8 @@
             "title": "Retrieve the Azure blob storage container folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-azure-blob-storage-container-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -350,7 +385,8 @@
             "title": "Retrieve the Google Cloud buckets",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-gcp-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -360,7 +396,8 @@
             "title": "Retrieve the Google Cloud bucket folders",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-gcp-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -370,7 +407,8 @@
             "title": "Retrieve the AWS KMS keys",
             "category": "Data Brokers",
             "filename": "get-api-data-brokers-list-aws-kms-keys.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -380,7 +418,8 @@
             "title": "Retrieve the S3 private links",
             "category": "Data Brokers",
             "filename": "get-api-accounts-data-brokers-list-s3-private-links.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -390,7 +429,8 @@
             "title": "Retrieve the data broker local configuration",
             "category": "Data Brokers",
             "filename": "get-api-accounts-data-brokers-local-configuration.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -400,7 +440,8 @@
             "title": "Retrieve all groups",
             "category": "Groups",
             "filename": "get-api-groups.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -410,7 +451,8 @@
             "title": "Download the data broker group logs",
             "category": "Groups",
             "filename": "put-api-groups-download-data-brokers-logs.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -420,7 +462,8 @@
             "title": "Modify the group settings",
             "category": "Groups",
             "filename": "put-api-accounts-groups-settings.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -430,7 +473,8 @@
             "title": "Retrieve the SFTP root directory",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-sftp-root-directory.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -440,7 +484,8 @@
             "title": "Retrieve the SFTP server folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-sftp-directories.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -450,7 +495,8 @@
             "title": "Retrieves the CIFS shares",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-cifs-shares.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -460,7 +506,8 @@
             "title": "Retrieve the CIFS server folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-cifs-share-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -470,7 +517,8 @@
             "title": "Retrieve the NFS server exports",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-nfs-exports.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -480,7 +528,8 @@
             "title": "Retrieve the NFS server folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-nfs-export-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -490,7 +539,8 @@
             "title": "Retrieve the AWS KMS keys",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-aws-kms-keys.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -500,7 +550,8 @@
             "title": "Retrieve the S3 buckets",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-s3-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -510,7 +561,8 @@
             "title": "Retrieve the S3 bucket folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-s3-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -520,7 +572,8 @@
             "title": "Retrieve the StorageGRID buckets",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-sgws-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -530,7 +583,8 @@
             "title": "Retrieve the StorageGRID bucket folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-sgws-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -540,7 +594,8 @@
             "title": "Retrieve the ONTAP S3 buckets",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-ontap-s3-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -550,7 +605,8 @@
             "title": "Retrieve the ONTAP S3 bucket folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-ontap-s3-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -560,7 +616,8 @@
             "title": "Retrieve the IBM buckets",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-ibm-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -570,7 +627,8 @@
             "title": "Retrieve the IBM bucket folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-ibm-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -580,7 +638,8 @@
             "title": "Retrieve the Alibaba buckets",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-alibaba-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -590,7 +649,8 @@
             "title": "Retrieve the Alibaba bucket folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-alibaba-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -600,7 +660,8 @@
             "title": "Retrieve the Azure blob storage containers",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-azure-blob-storage-containers.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -610,7 +671,8 @@
             "title": "Retrieve the Azure blob storage container folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-azure-blob-storage-container-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -620,7 +682,8 @@
             "title": "Retrieve the Azure Data Lake Gen2 storage containers",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-azure-datalake-storage-containers.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -630,7 +693,8 @@
             "title": "Retrieve the Azure Data Lake Gen2 storage container folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-azure-datalake-storage-container-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -640,7 +704,8 @@
             "title": "Retrieve the Google Cloud buckets",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-gcp-buckets.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -650,7 +715,8 @@
             "title": "Retrieve the Google Cloud bucket folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-gcp-bucket-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -660,7 +726,8 @@
             "title": "Retrieve the Google Cloud KMS keys",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-gcp-kms-keys.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -670,7 +737,8 @@
             "title": "Retrieve the Google Drives",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-google-drives.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -680,7 +748,8 @@
             "title": "Retrieve the Google drive folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-google-drive-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -690,7 +759,8 @@
             "title": "Retrieve the Box API root folder",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-box-root-folder.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -700,7 +770,8 @@
             "title": "Retrieve the Box API server folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-box-folders.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -710,7 +781,8 @@
             "title": "Retrieve the S3 private links",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-s3-private-links.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -720,7 +792,8 @@
             "title": "Delete a data broker group",
             "category": "Groups",
             "filename": "delete-api-accounts-groups-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -730,7 +803,8 @@
             "title": "Retrieve all relationships",
             "category": "Relationships",
             "filename": "get-api-relationships-v2.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         },
         "post": {
@@ -738,7 +812,8 @@
             "title": "Create a new relationship",
             "category": "Relationships",
             "filename": "post-api-relationships-v2.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -748,7 +823,8 @@
             "title": "Retrieve relationship",
             "category": "Relationships",
             "filename": "get-api-relationships-v2-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         },
         "put": {
@@ -756,7 +832,8 @@
             "title": "Update the settings for a relationship",
             "category": "Relationships",
             "filename": "put-api-relationships-v2-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -766,7 +843,8 @@
             "title": "Delete an existing relationship",
             "category": "Relationships",
             "filename": "delete-api-relationships-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -776,7 +854,8 @@
             "title": "Delete relationships",
             "category": "Relationships",
             "filename": "delete-api-v2-accounts-relationships.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -786,7 +865,8 @@
             "title": "Initiate a relationship data sync",
             "category": "Relationships",
             "filename": "put-api-relationships-sync.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -796,7 +876,8 @@
             "title": "Abort relationship data sync",
             "category": "Relationships",
             "filename": "put-api-relationships-abort.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -806,7 +887,8 @@
             "title": "Retrieve the relationship endpoints",
             "category": "Relationships",
             "filename": "get-api-accounts-relationships-end-points.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -816,7 +898,8 @@
             "title": "Modify the source or target credentials",
             "category": "Relationships",
             "filename": "put-api-accounts-relationships-credentials.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -826,7 +909,8 @@
             "title": "Edit the relationship tags",
             "category": "Relationships",
             "filename": "put-api-accounts-relationships-tags.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -836,7 +920,8 @@
             "title": "Retrieve the storage type",
             "category": "Storages",
             "filename": "get-api-storages-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -846,7 +931,8 @@
             "title": "Create a new report",
             "category": "Reports",
             "filename": "post-api-accounts-reports.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         },
         "get": {
@@ -854,7 +940,8 @@
             "title": "Retrieve a list of all reports",
             "category": "Reports",
             "filename": "get-api-accounts-reports.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         },
         "delete": {
@@ -862,7 +949,8 @@
             "title": "Delete the reports by a specified report ID",
             "category": "Reports",
             "filename": "delete-api-accounts-reports.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -872,7 +960,8 @@
             "title": "Retrieve a list of the reports endpoints",
             "category": "Reports",
             "filename": "get-api-accounts-reports-end-points.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -882,7 +971,8 @@
             "title": "Retrieve a report by a specified ID",
             "category": "Reports",
             "filename": "get-api-accounts-reports-.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       },
@@ -892,7 +982,8 @@
             "title": "Retrieve timelines",
             "category": "Timelines",
             "filename": "get-api-timelines.html",
-            "subcategory": null
+            "subcategory": null,
+            "explorer": false
           }
         }
       }
