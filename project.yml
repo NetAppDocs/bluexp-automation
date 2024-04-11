@@ -25,6 +25,7 @@ sidebar:
     - section: ipa
     - section: mr
     - section: tenancy
+    - section: tenancyv4
     - section: automate
     - section: support
     - title: Legal notices
