@@ -492,7 +492,7 @@
       "/api/accounts/{accountId}/groups/{id}/list-cifs-shares": {
         "get": {
           "x-doc": {
-            "title": "Retrieves the CIFS shares",
+            "title": "Retrieve the CIFS shares",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-cifs-shares.html",
             "subcategory": null,
@@ -745,7 +745,7 @@
       "/api/accounts/{accountId}/groups/{id}/list-google-drive-folders": {
         "get": {
           "x-doc": {
-            "title": "Retrieve the Google drive folders",
+            "title": "Retrieve the Google Drive folders",
             "category": "Groups",
             "filename": "get-api-accounts-groups-list-google-drive-folders.html",
             "subcategory": null,
@@ -820,7 +820,7 @@
       "/api/relationships-v2/{id}": {
         "get": {
           "x-doc": {
-            "title": "Retrieve relationship",
+            "title": "Retrieve a relationship",
             "category": "Relationships",
             "filename": "get-api-relationships-v2-.html",
             "subcategory": null,
@@ -873,7 +873,7 @@
       "/api/relationships/{id}/abort": {
         "put": {
           "x-doc": {
-            "title": "Abort relationship data sync",
+            "title": "Abort the relationship data sync",
             "category": "Relationships",
             "filename": "put-api-relationships-abort.html",
             "subcategory": null,
