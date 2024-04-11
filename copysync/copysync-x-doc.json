@@ -1,0 +1,991 @@
+{
+    "paths": {
+      "/api/accounts": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the tenancy accounts",
+            "category": "Accounts",
+            "filename": "get-api-accounts.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        },
+        "delete": {
+          "x-doc": {
+            "title": "Delete the current account",
+            "category": "Accounts",
+            "filename": "delete-api-accounts.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/info": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the account information",
+            "category": "Accounts",
+            "filename": "get-api-accounts-info.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/register": {
+        "put": {
+          "x-doc": {
+            "title": "Register an account to a marketplace",
+            "category": "Accounts",
+            "filename": "put-api-accounts-register.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/relationships-stats": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the logged-in account's relationship status",
+            "category": "Accounts",
+            "filename": "get-api-accounts-relationships-stats.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/v2/accounts/{accountId}/nss-credentials": {
+        "put": {
+          "x-doc": {
+            "title": "Add NetApp support site credentials",
+            "category": "Accounts",
+            "filename": "put-api-v2-accounts-nss-credentials.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        },
+        "get": {
+          "x-doc": {
+            "title": "Retrieve NetApp support site credentials",
+            "category": "Accounts",
+            "filename": "get-api-v2-accounts-nss-credentials.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/licenses-v2": {
+        "put": {
+          "x-doc": {
+            "title": "Add a license",
+            "category": "Accounts",
+            "filename": "put-api-accounts-licenses-v2.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/licenses": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve a list of all licenses",
+            "category": "Accounts",
+            "filename": "get-api-accounts-licenses.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/license-settings": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve license settings",
+            "category": "Accounts",
+            "filename": "get-api-accounts-license-settings.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/licenses-v2/{serialNumber}": {
+        "delete": {
+          "x-doc": {
+            "title": "Delete a license serial number",
+            "category": "Accounts",
+            "filename": "delete-api-accounts-licenses-v2-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/v2/accounts/{accountId}/nss-credentials/v2/{nssKeyId}": {
+        "delete": {
+          "x-doc": {
+            "title": "Delete NetApp support site credentials",
+            "category": "Accounts",
+            "filename": "delete-api-v2-accounts-nss-credentials-v2-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/messages/client": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the asynchronous messages",
+            "category": "Messages",
+            "filename": "get-api-messages-client.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve all the data brokers",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        },
+        "post": {
+          "x-doc": {
+            "title": "Create a new installer for the NetApp data broker instance",
+            "category": "Data Brokers",
+            "filename": "post-api-data-brokers.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}": {
+        "delete": {
+          "x-doc": {
+            "title": "Delete an existing NetApp data broker",
+            "category": "Data Brokers",
+            "filename": "delete-api-data-brokers-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/data-brokers/{id}/restart": {
+        "put": {
+          "x-doc": {
+            "title": "Restart a data broker",
+            "category": "Data Brokers",
+            "filename": "put-api-accounts-data-brokers-restart.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/data-brokers/{id}/proxy": {
+        "put": {
+          "x-doc": {
+            "title": "Update the proxy configuration for a data broker",
+            "category": "Data Brokers",
+            "filename": "put-api-accounts-data-brokers-proxy.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/data-brokers/{id}/move": {
+        "put": {
+          "x-doc": {
+            "title": "Move the data broker between groups",
+            "category": "Data Brokers",
+            "filename": "put-api-accounts-data-brokers-move.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-cifs-shares": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the CIFS shares",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-cifs-shares.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-cifs-share-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the CIFS server folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-cifs-share-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-nfs-exports": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the NFS server folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-nfs-exports.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-nfs-export-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the NFS server folders by ID",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-nfs-export-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-s3-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the S3 buckets",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-s3-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-s3-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the S3 bucket folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-s3-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-sgws-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the StorageGRID buckets",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-sgws-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-sgws-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the StorageGRID bucket folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-sgws-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-ibm-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the IBM buckets",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-ibm-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-ibm-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the IBM bucket folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-ibm-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-ontap-s3-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the ONTAP S3 buckets",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-ontap-s3-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-ontap-s3-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the ONTAP S3 bucket folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-ontap-s3-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-alibaba-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Alibaba buckets",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-alibaba-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-alibaba-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Alibaba bucket folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-alibaba-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-azure-blob-storage-containers": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Azure blob storage containers",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-azure-blob-storage-containers.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-azure-blob-storage-container-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Azure blob storage container folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-azure-blob-storage-container-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-gcp-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Google Cloud buckets",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-gcp-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-gcp-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Google Cloud bucket folders",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-gcp-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/data-brokers/{id}/list-aws-kms-keys": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the AWS KMS keys",
+            "category": "Data Brokers",
+            "filename": "get-api-data-brokers-list-aws-kms-keys.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/data-brokers/{id}/list-s3-private-links": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the S3 private links",
+            "category": "Data Brokers",
+            "filename": "get-api-accounts-data-brokers-list-s3-private-links.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/data-brokers/{id}/local-configuration": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the data broker local configuration",
+            "category": "Data Brokers",
+            "filename": "get-api-accounts-data-brokers-local-configuration.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/groups": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve all groups",
+            "category": "Groups",
+            "filename": "get-api-groups.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/groups/{id}/download-data-brokers-logs": {
+        "put": {
+          "x-doc": {
+            "title": "Download the data broker group logs",
+            "category": "Groups",
+            "filename": "put-api-groups-download-data-brokers-logs.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/settings": {
+        "put": {
+          "x-doc": {
+            "title": "Modify the group settings",
+            "category": "Groups",
+            "filename": "put-api-accounts-groups-settings.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-sftp-root-directory": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the SFTP root directory",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-sftp-root-directory.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-sftp-directories": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the SFTP server folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-sftp-directories.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-cifs-shares": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the CIFS shares",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-cifs-shares.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-cifs-share-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the CIFS server folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-cifs-share-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-nfs-exports": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the NFS server exports",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-nfs-exports.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-nfs-export-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the NFS server folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-nfs-export-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-aws-kms-keys": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the AWS KMS keys",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-aws-kms-keys.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-s3-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the S3 buckets",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-s3-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-s3-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the S3 bucket folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-s3-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-sgws-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the StorageGRID buckets",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-sgws-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-sgws-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the StorageGRID bucket folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-sgws-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-ontap-s3-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the ONTAP S3 buckets",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-ontap-s3-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-ontap-s3-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the ONTAP S3 bucket folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-ontap-s3-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-ibm-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the IBM buckets",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-ibm-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-ibm-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the IBM bucket folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-ibm-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-alibaba-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Alibaba buckets",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-alibaba-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-alibaba-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Alibaba bucket folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-alibaba-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-azure-blob-storage-containers": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Azure blob storage containers",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-azure-blob-storage-containers.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-azure-blob-storage-container-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Azure blob storage container folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-azure-blob-storage-container-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-azure-dataLake-storage-containers": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Azure Data Lake Gen2 storage containers",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-azure-datalake-storage-containers.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-azure-dataLake-storage-container-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Azure Data Lake Gen2 storage container folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-azure-datalake-storage-container-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-gcp-buckets": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Google Cloud buckets",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-gcp-buckets.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-gcp-bucket-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Google Cloud bucket folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-gcp-bucket-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-gcp-kms-keys": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Google Cloud KMS keys",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-gcp-kms-keys.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-google-drives": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Google Drives",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-google-drives.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-google-drive-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Google Drive folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-google-drive-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-box-root-folder": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Box API root folder",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-box-root-folder.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-box-folders": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the Box API server folders",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-box-folders.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}/list-s3-private-links": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the S3 private links",
+            "category": "Groups",
+            "filename": "get-api-accounts-groups-list-s3-private-links.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/groups/{id}": {
+        "delete": {
+          "x-doc": {
+            "title": "Delete a data broker group",
+            "category": "Groups",
+            "filename": "delete-api-accounts-groups-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/relationships-v2": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve all relationships",
+            "category": "Relationships",
+            "filename": "get-api-relationships-v2.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        },
+        "post": {
+          "x-doc": {
+            "title": "Create a new relationship",
+            "category": "Relationships",
+            "filename": "post-api-relationships-v2.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/relationships-v2/{id}": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve a relationship",
+            "category": "Relationships",
+            "filename": "get-api-relationships-v2-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        },
+        "put": {
+          "x-doc": {
+            "title": "Update the settings for a relationship",
+            "category": "Relationships",
+            "filename": "put-api-relationships-v2-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/relationships/{id}": {
+        "delete": {
+          "x-doc": {
+            "title": "Delete an existing relationship",
+            "category": "Relationships",
+            "filename": "delete-api-relationships-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/v2/accounts/{accountId}/relationships": {
+        "delete": {
+          "x-doc": {
+            "title": "Delete relationships",
+            "category": "Relationships",
+            "filename": "delete-api-v2-accounts-relationships.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/relationships/{id}/sync": {
+        "put": {
+          "x-doc": {
+            "title": "Initiate a relationship data sync",
+            "category": "Relationships",
+            "filename": "put-api-relationships-sync.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/relationships/{id}/abort": {
+        "put": {
+          "x-doc": {
+            "title": "Abort the relationship data sync",
+            "category": "Relationships",
+            "filename": "put-api-relationships-abort.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/relationships/end-points": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the relationship endpoints",
+            "category": "Relationships",
+            "filename": "get-api-accounts-relationships-end-points.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/relationships/{id}/credentials": {
+        "put": {
+          "x-doc": {
+            "title": "Modify the source or target credentials",
+            "category": "Relationships",
+            "filename": "put-api-accounts-relationships-credentials.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/relationships/{id}/tags": {
+        "put": {
+          "x-doc": {
+            "title": "Edit the relationship tags",
+            "category": "Relationships",
+            "filename": "put-api-accounts-relationships-tags.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/storages/{protocol}": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve the storage type",
+            "category": "Storages",
+            "filename": "get-api-storages-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/reports": {
+        "post": {
+          "x-doc": {
+            "title": "Create a new report",
+            "category": "Reports",
+            "filename": "post-api-accounts-reports.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        },
+        "get": {
+          "x-doc": {
+            "title": "Retrieve a list of all reports",
+            "category": "Reports",
+            "filename": "get-api-accounts-reports.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        },
+        "delete": {
+          "x-doc": {
+            "title": "Delete the reports by a specified report ID",
+            "category": "Reports",
+            "filename": "delete-api-accounts-reports.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/reports/end-points": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve a list of the reports endpoints",
+            "category": "Reports",
+            "filename": "get-api-accounts-reports-end-points.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/accounts/{accountId}/reports/{id}": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve a report by a specified ID",
+            "category": "Reports",
+            "filename": "get-api-accounts-reports-.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      },
+      "/api/timelines": {
+        "get": {
+          "x-doc": {
+            "title": "Retrieve timelines",
+            "category": "Timelines",
+            "filename": "get-api-timelines.html",
+            "subcategory": null,
+            "explorer": false
+          }
+        }
+      }
+    }
+  }
