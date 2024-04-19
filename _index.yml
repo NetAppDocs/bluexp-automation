@@ -2,7 +2,7 @@ indexpage:
   title: BlueXP API documentation
   lead: BlueXP enables you to build, protect, and govern your hybrid multi-cloud data from a single control plane. BlueXP is composed of distinct services, each of which exposes an associated REST API that enables you to automate the administration of your cloud-based and on-premises resources. Use this site to learn about the REST implementations and common REST workflows in BlueXP, and to access the REST API details for many of the BlueXP services.
   summary: BlueXP enables you to build, protect, and govern your hybrid multi-cloud data from a single control plane. BlueXP is composed of distinct services, each of which exposes an associated REST API that enables you to automate the administration of your cloud-based and on-premises resources. Use this site to learn about the REST implementations and common REST workflows in BlueXP, and to access the REST API details for many of the BlueXP services.
-  keywords: automation, automating, BlueXP
+  keywords: automation, automating, bluexp
   tiles:
     - title: Get started
       links:
