@@ -2810,6 +2810,13 @@ The data definitions are used when making REST API calls.
 |licenseType|New license type|true|string|
 |===
 
+=== LicenseConversionRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|capacityPackageName|Capacity Based Package|true|enum (Professional,  Essential,  Edge,  Optimized)|
+|===
+
 === LicenseFileContent
 [options="header"]
 |===
@@ -4206,6 +4213,7 @@ The data definitions are used when making REST API calls.
 |wormWithComposeSupported||true|boolean|
 |wormWithBackupSupported||true|boolean|
 |azureHaManagedDisksSupported||true|boolean|
+|awsLocalZones||true|boolean|
 |azureFlashcacheSupported||true|boolean|
 |===
 
