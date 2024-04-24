@@ -23,7 +23,10 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get packages for single node
 You can use this workflow to retrieve the packages information for a single node system.
 
-=== 1. Get the packages
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,19 +36,23 @@ You can use this workflow to retrieve the packages information for a single node
 |/occm/api/vsa/metadata/packages
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/packages" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 None
 
-Output::
+.JSON output example
 
 The JSON output example includes the list of Cloud Volumes ONTAP packages.
 
-JSON output example::
+
 [source,json]
 [
     {
@@ -93,7 +100,9 @@ JSON output example::
 == Get packages for high availability pair
 You can use this workflow to retrieve the packages information for an HA working environment.
 
-=== 1. Get the packages
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -103,19 +112,24 @@ You can use this workflow to retrieve the packages information for an HA working
 |/occm/api/aws/ha/metadata/packages
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/packages' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/packages" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+
+.Input
 
 None
 
-Output::
+.JSON output example
 
 The JSON output example includes the list of Cloud Volumes ONTAP packages.
 
-JSON output example::
+
 [source,json]
 [
     {

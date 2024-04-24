@@ -19,11 +19,11 @@ You can use this workflow to create an AWS cloud provider account.
 
 You must have AWS credentials.
 
-=== 1. Get the SaaS marketplace account
+== Step 1. Get the SaaS marketplace account
 
 Perform the workflow link:wf_common_identity_get_saas_mp.html[Get SaaS marketplace account] and choose the `id` value for the required subscription for `subscriptionId` parameter.
 
-=== 2. Create the account
+== Step 2. Create the account
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,15 +33,16 @@ Perform the workflow link:wf_common_identity_get_saas_mp.html[Get SaaS marketpla
 |/occm/api/accounts/aws
 |===
 
-curl example::
+.Curl example
 [source,curl]
 curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/accounts/aws' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <TOKEN>' --header 'Content-Type: application/json' --d JSONinput
 
-Input::
+.Input
 
 The JSON input example includes the list of parameters.
 
-JSON input example::
+.JSON input example
+
 [source,json]
 {
   "accountName": "zivAccountTest2",
@@ -54,11 +55,11 @@ JSON input example::
   "subscriptionId": "subscriptionIDgoeshere"
 }
 
-Output::
+.Output
 
 The JSON output provides an example of the cloud provider details.
 
-JSON output example::
+.JSON output example
 [source,json]
 {
     "publicId": "CloudProviderAccount-LCwgVOy7",
