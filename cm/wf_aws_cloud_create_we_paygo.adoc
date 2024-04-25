@@ -32,36 +32,36 @@ Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployme
 
 You can use this workflow to create a single node Cloud Volumes ONTAP working environment.
 
-=== 1. Select the region
+=== Step 1. Select the region
 
 Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` parameter in step 9.
 
-=== 2. Select the workspace
+=== Step 2. Select the workspace
 
 Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 9.
 
-=== 3. Select the permutations configuration
+=== Step 3. Select the permutations configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 9.
 
-=== 4. Select the VPC
+=== Step 4. Select the VPC
 
 Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get VPCs] and do the following:
 
 * Choose the `vpcId` value for the `vpcId` parameter in step 9.
 * Choose the `cidrBlock` values for the `ips` value of the volume parameter in step 9.
 
-=== 5. Select the EBS volume configuration
+=== Step 5. Select the EBS volume configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 9.
 
 NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 9.
 
-=== 6. Attach a marketplace subscription
+=== Step 6. Attach a marketplace subscription
 
 Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
 
-=== 7. (Optional) Obtain an NSS key
+=== Step 7. (Optional) Obtain an NSS key
 
 An NSS key is optional when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 9.
 
@@ -69,7 +69,7 @@ An NSS key is optional when using PAYGO licensing. If needed, you can create a k
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 8. (Optional) Create a new volume
+=== Step 8. (Optional) Create a new volume
 
 You can optionally add a new volume while creating a working environment.
 
@@ -80,7 +80,11 @@ You can optionally add a new volume while creating a working environment.
 NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
 
-=== 9. Create the working environment
+=== Step 9. Create the working environment
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -90,11 +94,15 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 |/occm/api/vsa/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 The JSON input example includes the minimum list of parameters.
 
@@ -103,7 +111,7 @@ This request uses PAYGO subscription as indicated in the `licenseType` parameter
 [NOTE]
 By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
-JSON input example::
+.JSON input example
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes
@@ -208,11 +216,11 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 ====
 
 
-Output::
+.JSON output example
 
-The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse`.
+The JSON output example includes an example of the `VsaWorkingEnvironmentresponse`.
 
-JSON output example::
+
 
 [source,json]
 {
@@ -257,26 +265,26 @@ JSON output example::
 
 You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
 
-=== 1. Select the region
+=== Step 1. Select the region
 
 Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and choose the `code` value for the `region` parameter in step 11.
 
-=== 2. Select the cloud provider account
+=== Step 2. Select the cloud provider account
 
 Perform the workflow link:wf_common_identity_get_provider_accounts.html[Get cloud provider accounts] and choose the `publicId` value of the required account for the `cloudProviderAccount` parameter.
 
-=== 3. Select the workspace
+=== Step 3. Select the workspace
 
 Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 12.
 
-=== 4. Select the permutations configuration
+=== Step 4. Select the permutations configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 12.
 
-=== 5. Select the packages configuration
+=== Step 5. Select the packages configuration
 Perform the link:wf_aws_cloud_md_get_packages.html[Get Packages] and choose the `packageName`, `instanceTenancy` and `writingSpeedState` values for the corresponding parameters in step 12.
 
-=== 6. Select the VPC
+=== Step 6. Select the VPC
 
 Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availability-pair[Get VPCs] and do the following:
 
@@ -284,21 +292,21 @@ Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availa
 * Choose three subnets and choose the `subnetId` value for the `haParams:mediatorSubnetId`, `haParams:node1SubnetId`, `haParams:node2SubnetId` in step 12.
 * Select the IPs for the `clusterFloatingIP`, `dataFloatingIP`, `dataFloatingIP2` values for the corresponding parameters in step 12.
 
-=== 7. Select route table
+=== Step 7. Select route table
 
 Perform the workflow link:wf_aws_cloud_md_get_route_tables.html[Get route tables] and choose the `id` value of the required route table for `haParams:routeTableIds` parameter is step 12.
 
-=== 8. Select the EBS volume configuration
+=== Step 8. Select the EBS volume configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-high-availability-pair[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values  for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 12.
 
 NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 12.
 
-=== 9. Attach a marketplace subscription
+=== Step 9. Attach a marketplace subscription
 
 Perform the workflow link:wf_common_occm_attach_subscription.html[Attach SaaS subscription].
 
-=== 10. (Optional) Obtain an NSS key
+=== Step 10. (Optional) Obtain an NSS key
 
 An NSS key is optional when using PAYGO licensing. If needed, you can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 12.
 
@@ -306,7 +314,7 @@ An NSS key is optional when using PAYGO licensing. If needed, you can create a k
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 11. (Optional) Create a new volume
+=== Step 11. (Optional) Create a new volume
 
 You can optionally add a new volume while creating a working environment.
 
@@ -316,7 +324,13 @@ You can optionally add a new volume while creating a working environment.
 +
 NOTE: If you choose to create a volume using CIFS protocol, you will need to set the `shareInfo` parameter. If you choose to create a volume using iSCSI protocol, you will need to set the `iscsiInfo` parameter accordingly.
 
-=== 12. Create the working environment
+=== Step 12. Create the working environment
+
+Create a working environment for an HA pair.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -326,11 +340,15 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 |/occm/api/aws/ha/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 The JSON input example includes the minimum list of parameters.
 
@@ -481,11 +499,11 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 --
 ====
 
-Output::
+.JSON output example
 
 The JSON output example includes an example of the HA working environment details.
 
-JSON output example::
+
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-sQ9AELDS",

@@ -23,9 +23,11 @@ Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployme
 
 == Get working environments for single node
 
-You can use this workflow to retrieve the working environments' details for a single node system.
+You can use this workflow to retrieve the working environment details for a single node system.
 
-=== 1. Get the working environments
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -35,21 +37,25 @@ You can use this workflow to retrieve the working environments' details for a si
 |occm/api/vsa/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 Optional query parameters:
 
 * `fields`
 * `tenantId`
 
-Output::
+.JSON output example
 The JSON output example includes an array of VSA working environments and their details.
 
-JSON output example::
+
 [source,json]
 [
     {
@@ -164,13 +170,19 @@ JSON output example::
 
 == Get working environment for high availability pair
 
-You can use this workflow to get the working environment details for an HA pair.
+You can use this workflow to get the working environment details for an high availability (HA) pair.
 
-=== 1. Select the working environment to use
+=== Step 1. Select the working environment to use
 
 Perform the workflow <<Get working environments for single node>> and choose the `publicId` of the required working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Get the working environment
+=== Step 2. Get the working environment
+
+Retrieve the working environments for an HA pair.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -180,11 +192,16 @@ Perform the workflow <<Get working environments for single node>> and choose the
 |occm/api/aws/ha/working-environments/<WORKING_ENV_ID>
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+
+.Input
 
 Path parameter:
 
@@ -194,10 +211,10 @@ Optional query parameter:
 
 `fields`
 
-Output::
+.JSON output example
 The JSON output example includes an HA Cloud Volumes ONTAP working environment.
 
-JSON output example::
+
 [source,json]
 [
 {

@@ -23,7 +23,9 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get regions for single node
 You can use this workflow to retrieve the regions for a single node system.
 
-=== 1. Get the list of regions
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -34,20 +36,24 @@ You can use this workflow to retrieve the regions for a single node system.
 |===
 
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/regions' --header 'Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
 
-Input::
+.Input
 
 None
 
-Output::
+.JSON output example
 
 The JSON output provides an example of a list of AWS regions.
 
-JSON output example::
+
 [source,json]
 [
     {
@@ -79,7 +85,9 @@ JSON output example::
 == Get regions for high availability pair
 You can use this workflow to retrieve the regions for an HA pair.
 
-=== 1. Get the list of regions
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -89,20 +97,23 @@ You can use this workflow to retrieve the regions for an HA pair.
 |/occm/api/aws/ha/metadata/regions
 |===
 
-
-curl example::
+.Curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/regions' --header 'Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 None
 
-Output::
 
+.JSON output example
 The JSON output provides an example of a list of AWS regions.
 
-JSON output example::
+
 [source,json]
 [
     {
