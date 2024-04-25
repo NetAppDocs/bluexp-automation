@@ -33,31 +33,31 @@ Choose the workflow depending to use based on the type of the Cloud Volumes ONTA
 == Create working environment for single node
 You can use this workflow to create a single node Cloud Volumes ONTAP working environment.
 
-=== 1. Select the region
+=== Step 1. Select the region
 
 Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-a-single-node[Get regions] and choose the `code` value for the `region` parameter in step 7.
 
-=== 2. Select the workspace
+=== Step 2. Select the workspace
 
 Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 7.
 
-=== 3. Select the permutations configuration
+=== Step 3. Select the permutations configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-single-node[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 7.
 
 You will also need to include the `platformSerialNumber` value in `vsaMetadata` parameter in the REST API call.
 
-=== 4. Select the VPC
+=== Step 4. Select the VPC
 
 Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-single-node[Get VPCs] and choose the `vpcId` value for the `vpcId` parameter in step 7.
 
-=== 5. Select the EBS volume configuration
+=== Step 5. Select the EBS volume configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-single-node[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 7.
 
 NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 7.
 
-=== 6. Obtain the required NSS key
+=== Step 6. Obtain the required NSS key
 
 An NSS key is required when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter in step 7.
 
@@ -65,7 +65,7 @@ An NSS key is required when using BYOL licensing. You can create a key or select
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 7. Create the working environment
+=== Step 7. Create the working environment
 
 [cols="25,75"*,options="header"]
 |===
@@ -75,17 +75,21 @@ An NSS key is required when using BYOL licensing. You can create a key or select
 |/occm/api/vsa/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumber` is required.
 
 
 
-JSON input example::
+.JSON input example
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes
@@ -148,11 +152,11 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 
 --
 ====
-Output::
+.Output
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
 
-JSON output example::
+.JSON output example
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-wL2MaBJs",
@@ -194,26 +198,26 @@ JSON output example::
 == Create working environment for high availability pair
 You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
 
-=== 1. Select the region
+=== Step 1. Select the region
 
 Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and choose the `code` value for the `region` parameter in step 11.
 
-=== 2. Select the cloud provider account
+=== Step 2. Select the cloud provider account
 
 Perform the workflow link:wf_common_identity_get_provider_accounts.html[Get cloud provider accounts] and choose the `publicId` value of the required account for the `cloudProviderAccount` parameter.
 
-=== 3. Select the workspace
+=== Step 3. Select the workspace
 
 Perform the workflow link:wf_common_identity_get_tenants.html[Get tenants] and choose the `workspacePublicId` value for the `tenantId` parameter in step 11.
 
-=== 4. Select the permutations configuration
+=== Step 4. Select the permutations configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_permutations.html#get-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion` and `license: type` and `instanceType` values for the `vsaMetadata` parameter in step 11.
 
-=== 5. Select the packages configuration
+=== Step 5. Select the packages configuration
 Perform the link:wf_aws_cloud_md_get_packages.html#get-packages-for-high-availability-pair[Get Packages] and choose the `packageName`, `instanceTenancy` and `writingSpeedState` values for the corresponding parameters in step 11.
 
-=== 6. Select the VPC
+=== Step 6. Select the VPC
 
 Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availability-pair[Get VPCs] and do the following:
 
@@ -222,21 +226,21 @@ Perform the workflow link:wf_aws_cloud_md_get_vpcs.html#get-vpcs-for-high-availa
 * Attach the licenses serial number to `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters.
 * Select the IPs for the `clusterFloatingIP`, `dataFloatingIP`, `dataFloatingIP2` values for the corresponding parameters in step 11.
 
-=== 7. Select the route table
+=== Step 7. Select the route table
 
 Perform the workflow link:wf_aws_cloud_md_get_route_tables.html[Get route tables] and choose the `id` value of the required route table for `haParams:routeTableIds` parameter in step 11.
 
-=== 8. Select the EBS volume configuration
+=== Step 8. Select the EBS volume configuration
 
 Perform the workflow link:wf_aws_cloud_md_get_ebs_vol_types.html#get-ebs-volume-types-for-high-availability-pair[Get EBS volume types] and choose the `size` and `supportedVolumeTypes` values for the `ebsVolumeSize` and `ebsVolumeType` parameters in step 11.
 
 NOTE: You need to choose one of the allowed values for the required `ebsVolumeType` parameter. We have used `gp2` value for this parameter in step 11.
 
-=== 9. Get key pairs
+=== Step 9. Get key pairs
 
 Perform the link:wf_aws_cloud_md_get_key_pairs.html[Get key pairs] workflow and select the required key for `haParam: mediatorKeyPairName` parameter in step 11.
 
-=== 10. Obtain the required NSS key
+=== Step 10. Obtain the required NSS key
 
 An NSS key is required when using BYOL licensing. You can create a key or select an existing key, and include the NSS key in the `nssAccount` parameter.
 
@@ -244,7 +248,11 @@ An NSS key is required when using BYOL licensing. You can create a key or select
 
 * To select an existing NSS key, perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` of the required NSS user.
 
-=== 11. Create the working environment
+=== Step 11. Create the working environment
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -254,16 +262,20 @@ An NSS key is required when using BYOL licensing. You can create a key or select
 |/occm/api/aws/ha/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d @JSONinput
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters are required.
 
 
-JSON input example::
+.JSON input example
 
 [role="tabbed-block"]
 ====
@@ -371,11 +383,11 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 --
 ====
 
-Output::
+.JSON output example
 
 The JSON output example includes an example of the HA working environment details.
 
-JSON output example::
+
 [source,json]
 {
     "publicId": "VsaWorkingEnvironment-XxCZibxz",
