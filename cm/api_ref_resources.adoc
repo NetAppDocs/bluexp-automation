@@ -16,7 +16,7 @@ summary: There are many API calls available for each resource.
 There are many API calls available for each resource.
 
 === Accounts
-==== <b>Updates an existing Gcp storage account</b>.
+==== Updates an existing Gcp storage account.
 ----
 PUT /accounts/gcp/{cloudProviderAccountId}
 ----
@@ -45,7 +45,7 @@ PUT /accounts/gcp/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Retrieve Gcp Storage account by public Id</b>.
+==== Retrieve Gcp Storage account by public Id.
 ----
 GET /accounts/gcp/{cloudProviderAccountId}
 ----
@@ -72,7 +72,7 @@ GET /accounts/gcp/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Creates an AWS account</b>.
+==== Creates an AWS account.
 ----
 POST /accounts/aws
 ----
@@ -99,7 +99,7 @@ POST /accounts/aws
 
 * application/json
 
-==== <b>Retrieves all accounts that are only for cloud (AWS, AZURE, GCP)</b>.
+==== Retrieves all accounts that are only for cloud (AWS, AZURE, GCP).
 ----
 GET /accounts/cloud-providers
 ----
@@ -126,7 +126,7 @@ GET /accounts/cloud-providers
 
 * application/json
 
-==== <b>validate gcp account request</b>.
+==== validate gcp account request.
 ----
 POST /accounts/gcp/validate-creds
 ----
@@ -153,7 +153,7 @@ POST /accounts/gcp/validate-creds
 
 * application/json
 
-==== <b>Deletes an existing account. It is not possible to delete an account that has working environments attached to it</b>.
+==== Deletes an existing account. It is not possible to delete an account that has working environments attached to it.
 ----
 DELETE /accounts/{cloudProviderAccountId}
 ----
@@ -180,7 +180,7 @@ DELETE /accounts/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Updates vsa list of an existing Nss account</b>.
+==== Updates vsa list of an existing Nss account.
 ----
 PUT /accounts/nss/set-vsa-list/{cloudProviderAccountId}
 ----
@@ -209,7 +209,7 @@ PUT /accounts/nss/set-vsa-list/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Updates an existing AWS account</b>.
+==== Updates an existing AWS account.
 ----
 PUT /accounts/aws/{cloudProviderAccountId}
 ----
@@ -238,7 +238,7 @@ PUT /accounts/aws/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Retrieves an AWS account by public Id</b>.
+==== Retrieves an AWS account by public Id.
 ----
 GET /accounts/aws/{cloudProviderAccountId}
 ----
@@ -265,7 +265,7 @@ GET /accounts/aws/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Creates a Nss account</b>.
+==== Creates a Nss account.
 ----
 POST /accounts/nss
 ----
@@ -292,7 +292,7 @@ POST /accounts/nss
 
 * application/json
 
-==== <b>Retrieves accounts</b>.
+==== Retrieves accounts.
 ----
 GET /accounts
 ----
@@ -319,7 +319,7 @@ GET /accounts
 
 * application/json
 
-==== <b>get aws cloud account id for the given creds</b>.
+==== get aws cloud account id for the given creds.
 ----
 POST /accounts/aws/validate-creds
 ----
@@ -346,7 +346,7 @@ POST /accounts/aws/validate-creds
 
 * application/json
 
-==== <b>Updates an existing Nss account</b>.
+==== Updates an existing Nss account.
 ----
 PUT /accounts/nss/{cloudProviderAccountId}
 ----
@@ -375,7 +375,7 @@ PUT /accounts/nss/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Retrieves an Nss account by public Id</b>.
+==== Retrieves an Nss account by public Id.
 ----
 GET /accounts/nss/{cloudProviderAccountId}
 ----
@@ -402,7 +402,7 @@ GET /accounts/nss/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Create a Gcp Storage account</b>.
+==== Create a Gcp Storage account.
 ----
 POST /accounts/gcp
 ----
@@ -429,7 +429,7 @@ POST /accounts/gcp
 
 * application/json
 
-==== <b>Validate an Azure account request</b>.
+==== Validate an Azure account request.
 ----
 POST /accounts/azure/validate-creds
 ----
@@ -456,7 +456,7 @@ POST /accounts/azure/validate-creds
 
 * application/json
 
-==== <b>Updates an existing Azure account</b>.
+==== Updates an existing Azure account.
 ----
 PUT /accounts/azure/{cloudProviderAccountId}
 ----
@@ -485,7 +485,7 @@ PUT /accounts/azure/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Retrieves an Azure account by public Id</b>.
+==== Retrieves an Azure account by public Id.
 ----
 GET /accounts/azure/{cloudProviderAccountId}
 ----
@@ -512,7 +512,7 @@ GET /accounts/azure/{cloudProviderAccountId}
 
 * application/json
 
-==== <b>Creates an Azure account</b>.
+==== Creates an Azure account.
 ----
 POST /accounts/azure
 ----
@@ -540,7 +540,7 @@ POST /accounts/azure
 * application/json
 
 === Audit
-==== <b>Retrieves audit groups and group records optionally filtered by query parameters</b>.
+==== Retrieves audit groups and group records optionally filtered by query parameters.
 ----
 GET /audit/auditserver
 ----
@@ -560,7 +560,7 @@ GET /audit/auditserver
 
 * application/json
 
-==== <b>Retrieve active task  for this request ID</b>.
+==== Retrieve active task  for this request ID.
 ----
 GET /audit/activeTask/{requestId}
 ----
@@ -587,7 +587,7 @@ GET /audit/activeTask/{requestId}
 
 * application/json
 
-==== <b>Retrieves timeline filter options for local UI</b>.
+==== Retrieves timeline filter options for local UI.
 ----
 GET /audit/local/audit/{accountId}/options
 ----
@@ -607,7 +607,7 @@ GET /audit/local/audit/{accountId}/options
 
 * application/json
 
-==== <b>Retrieves the audit group entry for the specific request ID</b>.
+==== Retrieves the audit group entry for the specific request ID.
 ----
 GET /audit/{requestId}
 ----
@@ -635,7 +635,7 @@ GET /audit/{requestId}
 
 * application/json
 
-==== <b>Retrieves audit group entries optionally filtered by query parameters for local UI</b>.
+==== Retrieves audit group entries optionally filtered by query parameters for local UI.
 ----
 GET /audit/local/audit/{accountId}
 ----
@@ -655,7 +655,7 @@ GET /audit/local/audit/{accountId}
 
 * application/json
 
-==== <b>Retrieves audit record for given request id for local UI</b>.
+==== Retrieves audit record for given request id for local UI.
 ----
 GET /audit/local/audit/{accountId}/{service}/{requestId}/records
 ----
@@ -682,7 +682,7 @@ GET /audit/local/audit/{accountId}/{service}/{requestId}/records
 
 * application/json
 
-==== <b>Retrieves audit group entries optionally filtered by query parameters</b>.
+==== Retrieves audit group entries optionally filtered by query parameters.
 ----
 GET /audit
 ----
@@ -825,7 +825,7 @@ GET /aws/ha/aggregates
 * application/json
 
 === Aws-ha:discovery
-==== <b>Retrieves a list of discovered working environments visible to the current user in the specified AWS region</b>.
+==== Retrieves a list of discovered working environments visible to the current user in the specified AWS region.
 ----
 GET /aws/ha/discovery/discover
 ----
@@ -853,7 +853,7 @@ GET /aws/ha/discovery/discover
 
 * application/json
 
-==== <b>Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database</b>.
+==== Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database.
 ----
 POST /aws/ha/discovery/recover
 ----
@@ -1156,7 +1156,7 @@ GET /aws/ha/metadata/default-snapshot-policies
 
 * application/json
 
-==== <b>Validate HA floating IPs</b>.
+==== Validate HA floating IPs.
 ----
 POST /aws/ha/metadata/validate-floating-ips
 ----
@@ -1435,7 +1435,7 @@ GET /aws/ha/metadata/network-requirements
 
 * application/json
 
-==== <b>Retrieves route tables per vpc and their subnet associations</b>.
+==== Retrieves route tables per vpc and their subnet associations.
 ----
 GET /aws/ha/metadata/route-tables
 ----
@@ -1559,7 +1559,7 @@ POST /aws/ha/metadata/validate-subscribed-to-ontap-cloud
 
 * application/json
 
-==== <b>Retrieves all Cloud Volumes ONTAP configurations</b>.
+==== Retrieves all Cloud Volumes ONTAP configurations.
 ----
 GET /aws/ha/metadata/permutations
 ----
@@ -1594,7 +1594,7 @@ GET /aws/ha/metadata/permutations
 * application/json
 
 === Aws-ha:volumes
-==== <b>Add ISCSI initiator</b>.
+==== Add ISCSI initiator.
 ----
 POST /aws/ha/volumes/initiator
 ----
@@ -1614,7 +1614,7 @@ POST /aws/ha/volumes/initiator
 
 * application/json
 
-==== <b>Get all ISCSI initiators</b>.
+==== Get all ISCSI initiators.
 ----
 GET /aws/ha/volumes/initiator
 ----
@@ -1634,7 +1634,7 @@ GET /aws/ha/volumes/initiator
 
 * application/json
 
-==== <b>Clones an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Clones an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 ----
@@ -1657,7 +1657,7 @@ POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 
 * application/json
 
-==== <b>Add export policy rule</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 ----
@@ -1680,7 +1680,7 @@ PUT /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 
 * application/json
 
-==== <b>Deletes an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Deletes an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -1702,7 +1702,7 @@ DELETE /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Modify an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Modify an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -1725,7 +1725,7 @@ PUT /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Create snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Create snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -1748,7 +1748,7 @@ POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Delete snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Delete snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -1771,7 +1771,7 @@ DELETE /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Quotes a new volume. Returns a resource quote needed to satisfy the requested volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Quotes a new volume. Returns a resource quote needed to satisfy the requested volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/volumes/quote
 ----
@@ -1798,7 +1798,7 @@ POST /aws/ha/volumes/quote
 
 * application/json
 
-==== <b>Retrieves volumes for Backup Activation</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes for Backup Activation.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /aws/ha/volumes/volumes-for-backup
 ----
@@ -1830,7 +1830,7 @@ GET /aws/ha/volumes/volumes-for-backup
 
 * application/json
 
-==== <b>Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/volumes
 ----
@@ -1851,7 +1851,7 @@ POST /aws/ha/volumes
 
 * application/json
 
-==== <b>Retrieves volumes</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /aws/ha/volumes
 ----
@@ -1878,7 +1878,7 @@ GET /aws/ha/volumes
 
 * application/json
 
-==== <b>Return a list of snapshot descriptions for the volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Return a list of snapshot descriptions for the volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 ----
@@ -1907,7 +1907,7 @@ GET /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 
 * application/json
 
-==== <b>Get all igroups</b>.
+==== Get all igroups.
 ----
 GET /aws/ha/volumes/igroups/{workingEnvironmentId}/{svmName}
 ----
@@ -1935,7 +1935,7 @@ GET /aws/ha/volumes/igroups/{workingEnvironmentId}/{svmName}
 
 * application/json
 
-==== <b>Change underlying volume tier</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Change underlying volume tier.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 ----
@@ -1958,7 +1958,7 @@ POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 
 * application/json
 
-==== <b>Move an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Move an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 ----
@@ -2092,7 +2092,7 @@ DELETE /aws/ha/working-environments/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Retrieves an HA Cloud Volumes ONTAP working environment</b>.
+==== Retrieves an HA Cloud Volumes ONTAP working environment.
 ----
 GET /aws/ha/working-environments/{workingEnvironmentId}
 ----
@@ -2570,7 +2570,7 @@ GET /aws/ha/working-environments/{workingEnvironmentId}/user-tags
 
 * application/json
 
-==== <b>Updates the route tables of an HA Cloud Volumes ONTAP working environment</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Updates the route tables of an HA Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /aws/ha/working-environments/{workingEnvironmentId}/route-tables
 ----
@@ -2618,7 +2618,7 @@ GET /aws/ha/working-environments/{workingEnvironmentId}/create-request-parameter
 
 * application/json
 
-==== <b>Creates a new AWS HA Cloud Volumes ONTAP working environment</b>.
+==== Creates a new AWS HA Cloud Volumes ONTAP working environment.
 ----
 POST /aws/ha/working-environments
 ----
@@ -2645,7 +2645,7 @@ POST /aws/ha/working-environments
 
 * application/json
 
-==== <b>Retrieves Cloud Volumes ONTAP working environments visible to the currently logged in user</b>.
+==== Retrieves Cloud Volumes ONTAP working environments visible to the currently logged in user.
 ----
 GET /aws/ha/working-environments
 ----
@@ -3145,7 +3145,7 @@ GET /aws/ha/working-environments/{workingEnvironmentId}/schedules
 
 * application/json
 
-==== <b>Checks for the presence of non-persistent locks held on CIFs Sessions</b>.
+==== Checks for the presence of non-persistent locks held on CIFs Sessions.
 ----
 GET /aws/ha/working-environments/{workingEnvironmentId}/cifs-locks-exist
 ----
@@ -3193,7 +3193,7 @@ PUT /aws/ha/working-environments/{workingEnvironmentId}/byol-to-capacity
 
 * application/json
 
-==== <b>Updates mediator of the specified Cloud Volumes ONTAP with the given version</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Updates mediator of the specified Cloud Volumes ONTAP with the given version.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/working-environments/{workingEnvironmentId}/update-mediator
 ----
@@ -3305,7 +3305,7 @@ GET /azure/ha/aggregates/{workingEnvironmentId}
 * application/json
 
 === Azure-ha:discovery
-==== <b>Retrieves a list of discovered working environments visible to the current user in the specified Azure region</b>.
+==== Retrieves a list of discovered working environments visible to the current user in the specified Azure region.
 ----
 GET /azure/ha/discovery/discover
 ----
@@ -3334,7 +3334,7 @@ GET /azure/ha/discovery/discover
 
 * application/json
 
-==== <b>Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database</b>.
+==== Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database.
 ----
 POST /azure/ha/discovery/recover
 ----
@@ -3821,7 +3821,7 @@ GET /azure/ha/metadata/packages
 
 * application/json
 
-==== <b>Retrieves all ONTAP Cloud configurations</b>.
+==== Retrieves all ONTAP Cloud configurations.
 ----
 GET /azure/ha/metadata/permutations
 ----
@@ -3886,7 +3886,7 @@ GET /azure/ha/metadata/resource-groups
 * application/json
 
 === Azure-ha:volumes
-==== <b>Add ISCSI initiator</b>.
+==== Add ISCSI initiator.
 ----
 POST /azure/ha/volumes/initiator
 ----
@@ -3906,7 +3906,7 @@ POST /azure/ha/volumes/initiator
 
 * application/json
 
-==== <b>Get all ISCSI initiators</b>.
+==== Get all ISCSI initiators.
 ----
 GET /azure/ha/volumes/initiator
 ----
@@ -3926,7 +3926,7 @@ GET /azure/ha/volumes/initiator
 
 * application/json
 
-==== <b>Add export policy rule</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 ----
@@ -3949,7 +3949,7 @@ PUT /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 
 * application/json
 
-==== <b>Return a list of snapshot descriptions for the volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Return a list of snapshot descriptions for the volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 ----
@@ -3978,7 +3978,7 @@ GET /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 
 * application/json
 
-==== <b>Quotes a new volume. Returns a resource quote needed to satisfy the requested volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Quotes a new volume. Returns a resource quote needed to satisfy the requested volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/ha/volumes/quote
 ----
@@ -4005,7 +4005,7 @@ POST /azure/ha/volumes/quote
 
 * application/json
 
-==== <b>Move an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Move an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 ----
@@ -4028,7 +4028,7 @@ POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 
 * application/json
 
-==== <b>Retrieves volumes for Backup Activation</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes for Backup Activation.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /azure/ha/volumes/volumes-for-backup
 ----
@@ -4060,7 +4060,7 @@ GET /azure/ha/volumes/volumes-for-backup
 
 * application/json
 
-==== <b>Clones an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Clones an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 ----
@@ -4083,7 +4083,7 @@ POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 
 * application/json
 
-==== <b>Get all igroups</b>.
+==== Get all igroups.
 ----
 GET /azure/ha/volumes/igroups/{workingEnvironmentId}/{svmName}
 ----
@@ -4111,7 +4111,7 @@ GET /azure/ha/volumes/igroups/{workingEnvironmentId}/{svmName}
 
 * application/json
 
-==== <b>Create snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Create snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -4134,7 +4134,7 @@ POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Delete snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Delete snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -4157,7 +4157,7 @@ DELETE /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Deletes an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Deletes an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -4179,7 +4179,7 @@ DELETE /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Modify an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Modify an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -4202,7 +4202,7 @@ PUT /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Change underlying volume tier</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Change underlying volume tier.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 ----
@@ -4225,7 +4225,7 @@ POST /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 
 * application/json
 
-==== <b>Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/ha/volumes
 ----
@@ -4246,7 +4246,7 @@ POST /azure/ha/volumes
 
 * application/json
 
-==== <b>Retrieves volumes</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /azure/ha/volumes
 ----
@@ -5000,7 +5000,7 @@ POST /azure/ha/working-environments/{workingEnvironmentId}/delete-cifs
 
 * application/json
 
-==== <b>Creates a new Azure HA Cloud Volumes ONTAP working environment</b>.
+==== Creates a new Azure HA Cloud Volumes ONTAP working environment.
 ----
 POST /azure/ha/working-environments
 ----
@@ -5110,7 +5110,7 @@ GET /azure/ha/working-environments/{workingEnvironmentId}/update-eligibility
 
 * application/json
 
-==== <b>Checks for the presence of non-persistent locks held on CIFs Sessions</b>.
+==== Checks for the presence of non-persistent locks held on CIFs Sessions.
 ----
 GET /azure/ha/working-environments/{workingEnvironmentId}/cifs-locks-exist
 ----
@@ -5541,7 +5541,7 @@ POST /azure/vsa/aggregates
 
 * application/json
 
-==== <b>Retrieves aggregates</b>.<br/>Operation may only be performed on working environments whose status is: ON, INITIALIZING, DEGRADED.
+==== Retrieves aggregates.Operation may only be performed on working environments whose status is: ON, INITIALIZING, DEGRADED.
 ----
 GET /azure/vsa/aggregates/{workingEnvironmentId}
 ----
@@ -5612,7 +5612,7 @@ DELETE /azure/vsa/aggregates/{workingEnvironmentId}/{aggregateName}
 * application/json
 
 === Azure-vsa:discovery
-==== <b>Retrieves a list of discovered working environments visible to the current user in the specified Azure region</b>.
+==== Retrieves a list of discovered working environments visible to the current user in the specified Azure region.
 ----
 GET /azure/vsa/discover
 ----
@@ -5641,7 +5641,7 @@ GET /azure/vsa/discover
 
 * application/json
 
-==== <b>Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database</b>.
+==== Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database.
 ----
 POST /azure/vsa/recover
 ----
@@ -5700,7 +5700,7 @@ GET /azure/vsa/metadata/supported-features
 
 * application/json
 
-==== <b>Create new blob container</b>.
+==== Create new blob container.
 ----
 POST /azure/vsa/metadata/create-container
 ----
@@ -5720,7 +5720,7 @@ POST /azure/vsa/metadata/create-container
 
 * application/json
 
-==== <b>Retrieves Azure regions over which an Cloud Volumes ONTAP working environment may be created</b>.
+==== Retrieves Azure regions over which an Cloud Volumes ONTAP working environment may be created.
 ----
 GET /azure/vsa/metadata/regions
 ----
@@ -5749,7 +5749,7 @@ GET /azure/vsa/metadata/regions
 
 * application/json
 
-==== <b>Retrieves supported Azure storage account types</b>.
+==== Retrieves supported Azure storage account types.
 ----
 GET /azure/vsa/metadata/storage-account-types
 ----
@@ -5798,7 +5798,7 @@ GET /azure/vsa/metadata/instance-types-not-supporting-acceleration-and-capacity-
 
 * application/json
 
-==== <b>Retrieves Azure availability zones by region</b>.
+==== Retrieves Azure availability zones by region.
 ----
 GET /azure/vsa/metadata/availability-zones
 ----
@@ -5827,7 +5827,7 @@ GET /azure/vsa/metadata/availability-zones
 
 * application/json
 
-==== <b>Retrieve all keys in a vault</b>.
+==== Retrieve all keys in a vault.
 ----
 GET /azure/vsa/metadata/keys-vault
 ----
@@ -5857,7 +5857,7 @@ GET /azure/vsa/metadata/keys-vault
 
 * application/json
 
-==== <b>Retrieves supported capacity tiers for Azure disk types</b>.
+==== Retrieves supported capacity tiers for Azure disk types.
 ----
 GET /azure/vsa/metadata/supported-capacity-tiers
 ----
@@ -5918,7 +5918,7 @@ GET /azure/vsa/metadata/packages
 
 * application/json
 
-==== <b>Validates the current user is subscribed to Cloud Volumes ONTAP product in Azure marketplace</b>.
+==== Validates the current user is subscribed to Cloud Volumes ONTAP product in Azure marketplace.
 ----
 POST /azure/vsa/metadata/validate-subscribed-to-ontap-cloud
 ----
@@ -5945,7 +5945,7 @@ POST /azure/vsa/metadata/validate-subscribed-to-ontap-cloud
 
 * application/json
 
-==== <b>Retrieve all vaults</b>.
+==== Retrieve all vaults.
 ----
 GET /azure/vsa/metadata/vaults
 ----
@@ -5974,7 +5974,7 @@ GET /azure/vsa/metadata/vaults
 
 * application/json
 
-==== <b>Retrieves all the Tag names</b>.
+==== Retrieves all the Tag names.
 ----
 GET /azure/vsa/metadata/tag-keys
 ----
@@ -6002,7 +6002,7 @@ GET /azure/vsa/metadata/tag-keys
 
 * application/json
 
-==== <b>Retrieves associated subscriptions</b>.
+==== Retrieves associated subscriptions.
 ----
 GET /azure/vsa/metadata/associated-subscriptions
 ----
@@ -6029,7 +6029,7 @@ GET /azure/vsa/metadata/associated-subscriptions
 
 * application/json
 
-==== <b>Retrieves all Cloud Volumes ONTAP configurations</b>.
+==== Retrieves all Cloud Volumes ONTAP configurations.
 ----
 GET /azure/vsa/metadata/permutations
 ----
@@ -6064,7 +6064,7 @@ GET /azure/vsa/metadata/permutations
 
 * application/json
 
-==== <b>Retrieves the minimum number of required IPs for a Cloud Volumes ONTAP system</b>.
+==== Retrieves the minimum number of required IPs for a Cloud Volumes ONTAP system.
 ----
 GET /azure/vsa/metadata/network-requirements
 ----
@@ -6084,7 +6084,7 @@ GET /azure/vsa/metadata/network-requirements
 
 * application/json
 
-==== <b>Retrieves Network Extended Info</b>.
+==== Retrieves Network Extended Info.
 ----
 GET /azure/vsa/metadata/vnets
 ----
@@ -6113,7 +6113,7 @@ GET /azure/vsa/metadata/vnets
 
 * application/json
 
-==== <b>Retrieve all blob containers</b>.
+==== Retrieve all blob containers.
 ----
 GET /azure/vsa/metadata/containers
 ----
@@ -6143,7 +6143,7 @@ GET /azure/vsa/metadata/containers
 
 * application/json
 
-==== <b>Retrieves Azure resource groups by region</b>.
+==== Retrieves Azure resource groups by region.
 ----
 GET /azure/vsa/metadata/resource-groups
 ----
@@ -6193,7 +6193,7 @@ GET /azure/vsa/metadata/default-snapshot-policies
 * application/json
 
 === Azure-vsa:volumes
-==== <b>Get all igroups</b>.
+==== Get all igroups.
 ----
 GET /azure/vsa/volumes/igroups/{workingEnvironmentId}/{svmName}
 ----
@@ -6221,7 +6221,7 @@ GET /azure/vsa/volumes/igroups/{workingEnvironmentId}/{svmName}
 
 * application/json
 
-==== <b>Deletes an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Deletes an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -6243,7 +6243,7 @@ DELETE /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Modify an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Modify an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -6266,7 +6266,7 @@ PUT /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Create snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Create snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -6289,7 +6289,7 @@ POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Delete snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Delete snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -6312,7 +6312,7 @@ DELETE /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/vsa/volumes
 ----
@@ -6333,7 +6333,7 @@ POST /azure/vsa/volumes
 
 * application/json
 
-==== <b>Retrieves volumes</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /azure/vsa/volumes
 ----
@@ -6360,7 +6360,7 @@ GET /azure/vsa/volumes
 
 * application/json
 
-==== <b>Quotes a new volume. Returns a resource quote needed to satisfy the requested volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Quotes a new volume. Returns a resource quote needed to satisfy the requested volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/vsa/volumes/quote
 ----
@@ -6387,7 +6387,7 @@ POST /azure/vsa/volumes/quote
 
 * application/json
 
-==== <b>Change underlying volume tier</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Change underlying volume tier.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 ----
@@ -6410,7 +6410,7 @@ POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tie
 
 * application/json
 
-==== <b>Move an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Move an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 ----
@@ -6433,7 +6433,7 @@ POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 
 * application/json
 
-==== <b>Add ISCSI initiator</b>.
+==== Add ISCSI initiator.
 ----
 POST /azure/vsa/volumes/initiator
 ----
@@ -6453,7 +6453,7 @@ POST /azure/vsa/volumes/initiator
 
 * application/json
 
-==== <b>Get all ISCSI initiators</b>.
+==== Get all ISCSI initiators.
 ----
 GET /azure/vsa/volumes/initiator
 ----
@@ -6473,7 +6473,7 @@ GET /azure/vsa/volumes/initiator
 
 * application/json
 
-==== <b>Retrieves volumes for Backup Activation</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes for Backup Activation.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /azure/vsa/volumes/volumes-for-backup
 ----
@@ -6505,7 +6505,7 @@ GET /azure/vsa/volumes/volumes-for-backup
 
 * application/json
 
-==== <b>Clones an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Clones an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 ----
@@ -6528,7 +6528,7 @@ POST /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 
 * application/json
 
-==== <b>Add export policy rule</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 ----
@@ -6551,7 +6551,7 @@ PUT /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolic
 
 * application/json
 
-==== <b>Return a list of snapshot descriptions for the volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Return a list of snapshot descriptions for the volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 ----
@@ -6757,7 +6757,7 @@ POST /azure/vsa/working-environments/{workingEnvironmentId}/upload-licenses
 
 * application/json
 
-==== <b>Creates a new Cloud Volumes ONTAP working environment</b>.
+==== Creates a new Cloud Volumes ONTAP working environment.
 ----
 POST /azure/vsa/working-environments
 ----
@@ -7801,7 +7801,7 @@ GET /azure/vsa/working-environments/{workingEnvironmentId}/cifs
 * application/json
 
 === Cloud-compliance
-==== <b>Disable scan</b>.
+==== Disable scan.
 ----
 POST /cloud-compliance/fsx/{fileSystemId}/disable-scan
 ----
@@ -7817,7 +7817,7 @@ POST /cloud-compliance/fsx/{fileSystemId}/disable-scan
 
 * application/json
 
-==== <b>Enable scan</b>.
+==== Enable scan.
 ----
 POST /cloud-compliance/{serviceId}/enable-service-scan
 ----
@@ -7834,7 +7834,7 @@ POST /cloud-compliance/{serviceId}/enable-service-scan
 
 * application/json
 
-==== <b>Enable scan</b>.
+==== Enable scan.
 ----
 POST /cloud-compliance/fsx/{fileSystemId}/enable-scan
 ----
@@ -7850,7 +7850,7 @@ POST /cloud-compliance/fsx/{fileSystemId}/enable-scan
 
 * application/json
 
-==== <b>Deploy Cloud Compliance instance by working environments</b>.
+==== Deploy Cloud Compliance instance by working environments.
 ----
 POST /cloud-compliance/deploy-by-working-environments
 ----
@@ -7866,7 +7866,7 @@ POST /cloud-compliance/deploy-by-working-environments
 
 * application/json
 
-==== <b>Retrieve Cloud Compliance info</b>.
+==== Retrieve Cloud Compliance info.
 ----
 GET /cloud-compliance/info
 ----
@@ -7882,7 +7882,7 @@ GET /cloud-compliance/info
 
 * application/json
 
-==== <b>Enable scan</b>.
+==== Enable scan.
 ----
 POST /cloud-compliance/{workingEnvironmentId}/enable-onprem-scan
 ----
@@ -7898,7 +7898,7 @@ POST /cloud-compliance/{workingEnvironmentId}/enable-onprem-scan
 
 * application/json
 
-==== <b>Disable scan</b>.
+==== Disable scan.
 ----
 POST /cloud-compliance/{serviceId}/disable-service-scan
 ----
@@ -7914,7 +7914,7 @@ POST /cloud-compliance/{serviceId}/disable-service-scan
 
 * application/json
 
-==== <b>Disable scan</b>.
+==== Disable scan.
 ----
 POST /cloud-compliance/{workingEnvironmentId}/disable-scan
 ----
@@ -7930,7 +7930,7 @@ POST /cloud-compliance/{workingEnvironmentId}/disable-scan
 
 * application/json
 
-==== <b>Disable onprem scan</b>.
+==== Disable onprem scan.
 ----
 POST /cloud-compliance/{workingEnvironmentId}/disable-onprem-scan
 ----
@@ -7946,7 +7946,7 @@ POST /cloud-compliance/{workingEnvironmentId}/disable-onprem-scan
 
 * application/json
 
-==== <b>Retrieve service Cloud Compliance status</b>.
+==== Retrieve service Cloud Compliance status.
 ----
 GET /cloud-compliance/fsx/{fileSystemId}/compliance-status
 ----
@@ -7969,7 +7969,7 @@ GET /cloud-compliance/fsx/{fileSystemId}/compliance-status
 
 * application/json
 
-==== <b>Retrieve service Cloud Compliance status</b>.
+==== Retrieve service Cloud Compliance status.
 ----
 GET /cloud-compliance/{serviceId}/compliance-status
 ----
@@ -7992,7 +7992,7 @@ GET /cloud-compliance/{serviceId}/compliance-status
 
 * application/json
 
-==== <b>Enable scan</b>.
+==== Enable scan.
 ----
 POST /cloud-compliance/{workingEnvironmentId}/enable-scan
 ----
@@ -8009,7 +8009,7 @@ POST /cloud-compliance/{workingEnvironmentId}/enable-scan
 * application/json
 
 === Flexcache
-==== <b>Retrieves all FlexCaches relationships</b>.
+==== Retrieves all FlexCaches relationships.
 ----
 GET /flexcache/all-relationships
 ----
@@ -8036,7 +8036,7 @@ GET /flexcache/all-relationships
 
 * application/json
 
-==== <b>Retrieves all FlexCaches List</b>.
+==== Retrieves all FlexCaches List.
 ----
 GET /flexcache/caches
 ----
@@ -8064,7 +8064,7 @@ GET /flexcache/caches
 
 * application/json
 
-==== <b>Creates a new FlexCache to a Cloud Volumes ONTAP working environment</b>.
+==== Creates a new FlexCache to a Cloud Volumes ONTAP working environment.
 ----
 POST /flexcache
 ----
@@ -8084,7 +8084,7 @@ POST /flexcache
 
 * application/json
 
-==== <b>Creates a new FlexCache to an FSx working environment</b>.
+==== Creates a new FlexCache to an FSx working environment.
 ----
 POST /flexcache/fsx
 ----
@@ -8104,7 +8104,7 @@ POST /flexcache/fsx
 
 * application/json
 
-==== <b>Deletes a FlexCache volume</b>.
+==== Deletes a FlexCache volume.
 ----
 DELETE /flexcache/{workingEnvironmentId}/caches/{cacheId}
 ----
@@ -8125,7 +8125,7 @@ DELETE /flexcache/{workingEnvironmentId}/caches/{cacheId}
 
 * application/json
 
-==== <b>Modifies a FlexCache volume</b>.
+==== Modifies a FlexCache volume.
 ----
 PUT /flexcache/{workingEnvironmentId}/caches/{cacheId}
 ----
@@ -8148,7 +8148,7 @@ PUT /flexcache/{workingEnvironmentId}/caches/{cacheId}
 * application/json
 
 === Fsx:volumes
-==== <b>Return a list of snapshot descriptions for the volume</b>.
+==== Return a list of snapshot descriptions for the volume.
 ----
 GET /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/snapshots
 ----
@@ -8177,7 +8177,7 @@ GET /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/snapshots
 
 * application/json
 
-==== <b>Retrieves CIFS share List to an existing FSx working environment</b>.
+==== Retrieves CIFS share List to an existing FSx working environment.
 ----
 GET /fsx/volumes/{fileSystemId}/shares
 ----
@@ -8206,7 +8206,7 @@ GET /fsx/volumes/{fileSystemId}/shares
 
 * application/json
 
-==== <b>Add ISCSI initiator</b>.
+==== Add ISCSI initiator.
 ----
 POST /fsx/volumes/initiator
 ----
@@ -8226,7 +8226,7 @@ POST /fsx/volumes/initiator
 
 * application/json
 
-==== <b>Get all ISCSI initiators</b>.
+==== Get all ISCSI initiators.
 ----
 GET /fsx/volumes/initiator
 ----
@@ -8246,7 +8246,7 @@ GET /fsx/volumes/initiator
 
 * application/json
 
-==== <b>Creates a new volume</b>.
+==== Creates a new volume.
 ----
 POST /fsx/volumes
 ----
@@ -8266,7 +8266,7 @@ POST /fsx/volumes
 
 * application/json
 
-==== <b>Retrieves volumes</b>.
+==== Retrieves volumes.
 ----
 GET /fsx/volumes
 ----
@@ -8293,7 +8293,7 @@ GET /fsx/volumes
 
 * application/json
 
-==== <b>Get all igroups</b>.
+==== Get all igroups.
 ----
 GET /fsx/volumes/igroups/{fileSystemId}/{svmName}
 ----
@@ -8321,7 +8321,7 @@ GET /fsx/volumes/igroups/{fileSystemId}/{svmName}
 
 * application/json
 
-==== <b>Create snapshot manually</b>.
+==== Create snapshot manually.
 ----
 POST /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/snapshot
 ----
@@ -8344,7 +8344,7 @@ POST /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Delete snapshot manually</b>.
+==== Delete snapshot manually.
 ----
 DELETE /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/snapshot
 ----
@@ -8367,7 +8367,7 @@ DELETE /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Retrieves FSx volume count</b>.
+==== Retrieves FSx volume count.
 ----
 GET /fsx/volumes/{fileSystemId}/count
 ----
@@ -8388,7 +8388,7 @@ GET /fsx/volumes/{fileSystemId}/count
 
 * application/json
 
-==== <b>Retrieves volume by id</b>.
+==== Retrieves volume by id.
 ----
 GET /fsx/volumes/{fileSystemId}/{volumeId}
 ----
@@ -8417,7 +8417,7 @@ GET /fsx/volumes/{fileSystemId}/{volumeId}
 
 * application/json
 
-==== <b>Deletes an existing volume</b>.
+==== Deletes an existing volume.
 ----
 DELETE /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}
 ----
@@ -8439,7 +8439,7 @@ DELETE /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Modify an existing volume</b>.
+==== Modify an existing volume.
 ----
 PUT /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}
 ----
@@ -8462,7 +8462,7 @@ PUT /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Retrieves NFS clients List to an existing FSx working environment</b>.
+==== Retrieves NFS clients List to an existing FSx working environment.
 ----
 GET /fsx/volumes/{fileSystemId}/nfs-clients
 ----
@@ -8491,7 +8491,7 @@ GET /fsx/volumes/{fileSystemId}/nfs-clients
 
 * application/json
 
-==== <b>Clones an existing volume</b>.
+==== Clones an existing volume.
 ----
 POST /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/clone
 ----
@@ -8514,7 +8514,7 @@ POST /fsx/volumes/{fileSystemId}/{svmName}/{volumeName}/clone
 
 * application/json
 
-==== <b>Retrieves volumes</b>.
+==== Retrieves volumes.
 ----
 GET /fsx/volumes/{fileSystemId}
 ----
@@ -8543,7 +8543,7 @@ GET /fsx/volumes/{fileSystemId}
 * application/json
 
 === Fsx:working-environments
-==== <b>Retrieves export policies List to an existing FSx working environment</b>.
+==== Retrieves export policies List to an existing FSx working environment.
 ----
 GET /fsx/working-environments/{fileSystemId}/export-policies
 ----
@@ -8571,7 +8571,7 @@ GET /fsx/working-environments/{fileSystemId}/export-policies
 
 * application/json
 
-==== <b>Retrieves network interfaces List to an existing FSx working environment</b>.
+==== Retrieves network interfaces List to an existing FSx working environment.
 ----
 GET /fsx/working-environments/{fileSystemId}/interfaces
 ----
@@ -8599,7 +8599,7 @@ GET /fsx/working-environments/{fileSystemId}/interfaces
 
 * application/json
 
-==== <b>Retrieves SVM list for existing FSx working environment</b>.
+==== Retrieves SVM list for existing FSx working environment.
 ----
 GET /fsx/working-environments/{fileSystemId}/svms
 ----
@@ -8626,7 +8626,7 @@ GET /fsx/working-environments/{fileSystemId}/svms
 
 * application/json
 
-==== <b>Validate provided credentials for existing FSx working environment</b>.
+==== Validate provided credentials for existing FSx working environment.
 ----
 POST /fsx/working-environments/validate-credentials
 ----
@@ -8653,7 +8653,7 @@ POST /fsx/working-environments/validate-credentials
 
 * application/json
 
-==== <b>Setup a new CIFS Configuration for existing FSx working environment</b>.
+==== Setup a new CIFS Configuration for existing FSx working environment.
 ----
 POST /fsx/working-environments/{fileSystemId}/cifs
 ----
@@ -8674,7 +8674,7 @@ POST /fsx/working-environments/{fileSystemId}/cifs
 
 * application/json
 
-==== <b>Retrieves CIFS Configuration for existing FSx working environment</b>.
+==== Retrieves CIFS Configuration for existing FSx working environment.
 ----
 GET /fsx/working-environments/{fileSystemId}/cifs
 ----
@@ -8702,7 +8702,7 @@ GET /fsx/working-environments/{fileSystemId}/cifs
 
 * application/json
 
-==== <b>Retrieve snapshot policies for existing FSx working environment</b>.
+==== Retrieve snapshot policies for existing FSx working environment.
 ----
 GET /fsx/working-environments/{fileSystemId}/snapshot-policies
 ----
@@ -8821,7 +8821,7 @@ POST /gcp/ha/aggregates
 * application/json
 
 === Gcp-ha:discovery
-==== <b>Retrieves a list of discovered working environments visible to the current user in the specified Gcp region</b>.
+==== Retrieves a list of discovered working environments visible to the current user in the specified Gcp region.
 ----
 GET /gcp/ha/discovery/discover
 ----
@@ -8849,7 +8849,7 @@ GET /gcp/ha/discovery/discover
 
 * application/json
 
-==== <b>Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database</b>.
+==== Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database.
 ----
 POST /gcp/ha/discovery/recover
 ----
@@ -8928,7 +8928,7 @@ GET /gcp/ha/metadata/supported-features
 
 * application/json
 
-==== <b>Retrieves all the Labels in the given project Id and region</b>.
+==== Retrieves all the Labels in the given project Id and region.
 ----
 GET /gcp/ha/metadata/tag-keys
 ----
@@ -9075,7 +9075,7 @@ GET /gcp/ha/metadata/regions
 
 * application/json
 
-==== <b>Retrieves GCP networks and subnetworks over which an Cloud Volumes ONTAP working environment may be created</b>.
+==== Retrieves GCP networks and subnetworks over which an Cloud Volumes ONTAP working environment may be created.
 ----
 GET /gcp/ha/metadata/vpcs
 ----
@@ -9131,7 +9131,7 @@ GET /gcp/ha/metadata/gcp-encryption-keys
 
 * application/json
 
-==== <b>Retrieves all Cloud Volumes ONTAP configurations</b>.
+==== Retrieves all Cloud Volumes ONTAP configurations.
 ----
 GET /gcp/ha/metadata/permutations
 ----
@@ -9182,7 +9182,7 @@ GET /gcp/ha/metadata/projects
 
 * application/json
 
-==== <b>Retrieves GCP regions and zones over which an Cloud Volumes ONTAP working environment may be created</b>.
+==== Retrieves GCP regions and zones over which an Cloud Volumes ONTAP working environment may be created.
 ----
 GET /gcp/ha/metadata/zones
 ----
@@ -9790,7 +9790,7 @@ GET /gcp/ha/working-environments/{workingEnvironmentId}/cifs
 
 * application/json
 
-==== <b>Deletes an SVM</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Deletes an SVM.Operation may only be performed on working environments whose status is: ON.
 ----
 DELETE /gcp/ha/working-environments/{workingEnvironmentId}/svm/{svmName}
 ----
@@ -9901,7 +9901,7 @@ PUT /gcp/ha/working-environments/{workingEnvironmentId}/byol-to-capacity
 
 * application/json
 
-==== <b>Checks for the presence of non-persistent locks held on CIFs Sessions</b>.
+==== Checks for the presence of non-persistent locks held on CIFs Sessions.
 ----
 GET /gcp/ha/working-environments/{workingEnvironmentId}/cifs-locks-exist
 ----
@@ -9928,7 +9928,7 @@ GET /gcp/ha/working-environments/{workingEnvironmentId}/cifs-locks-exist
 
 * application/json
 
-==== <b>Stops a specific Cloud Volumes ONTAP instance</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Stops a specific Cloud Volumes ONTAP instance.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /gcp/ha/working-environments/{workingEnvironmentId}/stop
 ----
@@ -10327,7 +10327,7 @@ GET /gcp/ha/working-environments/{workingEnvironmentId}/create-request-parameter
 
 * application/json
 
-==== <b>Creates a new SVM</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Creates a new SVM.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /gcp/ha/working-environments/{workingEnvironmentId}/svm
 ----
@@ -10459,7 +10459,7 @@ POST /gcp/ha/working-environments/{workingEnvironmentId}/snapshot-policy
 
 * application/json
 
-==== <b>Creates a new Cloud Volumes ONTAP GCP HA working environment</b>.
+==== Creates a new Cloud Volumes ONTAP GCP HA working environment.
 ----
 POST /gcp/ha/working-environments
 ----
@@ -10974,7 +10974,7 @@ DELETE /gcp/vsa/aggregates/{workingEnvironmentId}/{aggregateName}
 
 * application/json
 
-==== <b>Retrieves aggregates</b>.<br/>Operation may only be performed on working environments whose status is: ON, INITIALIZING, DEGRADED.
+==== Retrieves aggregates.Operation may only be performed on working environments whose status is: ON, INITIALIZING, DEGRADED.
 ----
 GET /gcp/vsa/aggregates/{workingEnvironmentId}
 ----
@@ -11024,7 +11024,7 @@ POST /gcp/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/disks
 * application/json
 
 === Gcp-vsa:discovery
-==== <b>Retrieves a list of discovered working environments visible to the current user in the specified Gcp zone</b>.
+==== Retrieves a list of discovered working environments visible to the current user in the specified Gcp zone.
 ----
 GET /gcp/vsa/discover
 ----
@@ -11052,7 +11052,7 @@ GET /gcp/vsa/discover
 
 * application/json
 
-==== <b>Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database</b>.
+==== Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database.
 ----
 POST /gcp/vsa/recover
 ----
@@ -11080,7 +11080,7 @@ POST /gcp/vsa/recover
 * application/json
 
 === Gcp-vsa:metadata
-==== <b>Retrieves all the Labels in the given project Id and zone</b>.
+==== Retrieves all the Labels in the given project Id and zone.
 ----
 GET /gcp/vsa/metadata/tag-keys
 ----
@@ -11108,7 +11108,7 @@ GET /gcp/vsa/metadata/tag-keys
 
 * application/json
 
-==== <b>Retrieves GCP encryption keys for specific region</b>.
+==== Retrieves GCP encryption keys for specific region.
 ----
 GET /gcp/vsa/metadata/gcp-encryption-keys
 ----
@@ -11136,7 +11136,7 @@ GET /gcp/vsa/metadata/gcp-encryption-keys
 
 * application/json
 
-==== <b>Retrieves supported capacity tiers for gcp disk types</b>.
+==== Retrieves supported capacity tiers for gcp disk types.
 ----
 GET /gcp/vsa/metadata/supported-capacity-tiers
 ----
@@ -11218,7 +11218,7 @@ GET /gcp/vsa/metadata/supported-features
 
 * application/json
 
-==== <b>Create new bucket</b>.
+==== Create new bucket.
 ----
 POST /gcp/vsa/metadata/create-bucket
 ----
@@ -11266,7 +11266,7 @@ GET /gcp/vsa/metadata/packages
 
 * application/json
 
-==== <b>Retrieves all cloud storage buckets</b>.
+==== Retrieves all cloud storage buckets.
 ----
 GET /gcp/vsa/metadata/buckets
 ----
@@ -11293,7 +11293,7 @@ GET /gcp/vsa/metadata/buckets
 
 * application/json
 
-==== <b>Retrieves the minimum number of required IPs for a Cloud Volumes ONTAP system</b>.
+==== Retrieves the minimum number of required IPs for a Cloud Volumes ONTAP system.
 ----
 GET /gcp/vsa/metadata/network-requirements
 ----
@@ -11313,7 +11313,7 @@ GET /gcp/vsa/metadata/network-requirements
 
 * application/json
 
-==== <b>Retrieves list of Projects that the caller has permission on</b>.
+==== Retrieves list of Projects that the caller has permission on.
 ----
 GET /gcp/vsa/metadata/projects
 ----
@@ -11333,7 +11333,7 @@ GET /gcp/vsa/metadata/projects
 
 * application/json
 
-==== <b>Retrieves list of Service Accounts from the project</b>.
+==== Retrieves list of Service Accounts from the project.
 ----
 GET /gcp/vsa/metadata/service-accounts
 ----
@@ -11360,7 +11360,7 @@ GET /gcp/vsa/metadata/service-accounts
 
 * application/json
 
-==== <b>Retrieves supported disk types</b>.
+==== Retrieves supported disk types.
 ----
 GET /gcp/vsa/metadata/gcp-disk-types
 ----
@@ -11380,7 +11380,7 @@ GET /gcp/vsa/metadata/gcp-disk-types
 
 * application/json
 
-==== <b>Retrieves all Cloud Volumes ONTAP configurations</b>.
+==== Retrieves all Cloud Volumes ONTAP configurations.
 ----
 GET /gcp/vsa/metadata/permutations
 ----
@@ -11431,7 +11431,7 @@ GET /gcp/vsa/metadata/default-snapshot-policies
 
 * application/json
 
-==== <b>Retrieves GCP regions over which an Cloud Volumes ONTAP working environment may be created</b>.
+==== Retrieves GCP regions over which an Cloud Volumes ONTAP working environment may be created.
 ----
 GET /gcp/vsa/metadata/regions
 ----
@@ -11460,7 +11460,7 @@ GET /gcp/vsa/metadata/regions
 * application/json
 
 === Gcp-vsa:volumes
-==== <b>Move an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Move an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 ----
@@ -11483,7 +11483,7 @@ POST /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 
 * application/json
 
-==== <b>Return a list of snapshot descriptions for the volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Return a list of snapshot descriptions for the volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 ----
@@ -11512,7 +11512,7 @@ GET /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 
 * application/json
 
-==== <b>Quotes a new volume. Returns a resource quote needed to satisfy the requested volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Quotes a new volume. Returns a resource quote needed to satisfy the requested volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /gcp/vsa/volumes/quote
 ----
@@ -11539,7 +11539,7 @@ POST /gcp/vsa/volumes/quote
 
 * application/json
 
-==== <b>Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /gcp/vsa/volumes
 ----
@@ -11560,7 +11560,7 @@ POST /gcp/vsa/volumes
 
 * application/json
 
-==== <b>Retrieves volumes</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /gcp/vsa/volumes
 ----
@@ -11587,7 +11587,7 @@ GET /gcp/vsa/volumes
 
 * application/json
 
-==== <b>Get all igroups</b>.
+==== Get all igroups.
 ----
 GET /gcp/vsa/volumes/igroups/{workingEnvironmentId}/{svmName}
 ----
@@ -11615,7 +11615,7 @@ GET /gcp/vsa/volumes/igroups/{workingEnvironmentId}/{svmName}
 
 * application/json
 
-==== <b>Create snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Create snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -11638,7 +11638,7 @@ POST /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Delete snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Delete snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -11661,7 +11661,7 @@ DELETE /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Retrieves volumes for Backup Activation</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes for Backup Activation.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /gcp/vsa/volumes/volumes-for-backup
 ----
@@ -11693,7 +11693,7 @@ GET /gcp/vsa/volumes/volumes-for-backup
 
 * application/json
 
-==== <b>Add ISCSI initiator</b>.
+==== Add ISCSI initiator.
 ----
 POST /gcp/vsa/volumes/initiator
 ----
@@ -11713,7 +11713,7 @@ POST /gcp/vsa/volumes/initiator
 
 * application/json
 
-==== <b>Get all ISCSI initiators</b>.
+==== Get all ISCSI initiators.
 ----
 GET /gcp/vsa/volumes/initiator
 ----
@@ -11733,7 +11733,7 @@ GET /gcp/vsa/volumes/initiator
 
 * application/json
 
-==== <b>Clones an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Clones an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 ----
@@ -11756,7 +11756,7 @@ POST /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 
 * application/json
 
-==== <b>Add export policy rule</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 ----
@@ -11779,7 +11779,7 @@ PUT /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 
 * application/json
 
-==== <b>Deletes an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Deletes an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -11801,7 +11801,7 @@ DELETE /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Modify an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Modify an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -11824,7 +11824,7 @@ PUT /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Change underlying volume tier</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Change underlying volume tier.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /gcp/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 ----
@@ -12734,7 +12734,7 @@ GET /gcp/vsa/working-environments/{workingEnvironmentId}/schedules
 
 * application/json
 
-==== <b>Creates a new Cloud Volumes ONTAP working environment</b>.
+==== Creates a new Cloud Volumes ONTAP working environment.
 ----
 POST /gcp/vsa/working-environments
 ----
@@ -12761,7 +12761,7 @@ POST /gcp/vsa/working-environments
 
 * application/json
 
-==== <b>Retrieves Cloud Volumes ONTAP working environments visible to the currently logged in user</b>.
+==== Retrieves Cloud Volumes ONTAP working environments visible to the currently logged in user.
 ----
 GET /gcp/vsa/working-environments
 ----
@@ -12962,7 +12962,7 @@ DELETE /gcp/vsa/working-environments/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Retrieves an Cloud Volumes ONTAP working environment</b>.
+==== Retrieves an Cloud Volumes ONTAP working environment.
 ----
 GET /gcp/vsa/working-environments/{workingEnvironmentId}
 ----
@@ -13012,7 +13012,7 @@ POST /gcp/vsa/working-environments/{workingEnvironmentId}/delete-cifs
 * application/json
 
 === Monitoring
-==== <b>Deploy monitoring instance by working environments</b>.
+==== Deploy monitoring instance by working environments.
 ----
 POST /monitoring/deploy-by-working-environments
 ----
@@ -13028,7 +13028,7 @@ POST /monitoring/deploy-by-working-environments
 
 * application/json
 
-==== <b>Disable monitoring</b>.
+==== Disable monitoring.
 ----
 POST /monitoring/{workingEnvironmentId}/disable-monitoring
 ----
@@ -13044,7 +13044,7 @@ POST /monitoring/{workingEnvironmentId}/disable-monitoring
 
 * application/json
 
-==== <b>Retrieve Monitoring info</b>.
+==== Retrieve Monitoring info.
 ----
 GET /monitoring/info
 ----
@@ -13060,7 +13060,7 @@ GET /monitoring/info
 
 * application/json
 
-==== <b>Enable monitoring</b>.
+==== Enable monitoring.
 ----
 POST /monitoring/{workingEnvironmentId}/enable-monitoring
 ----
@@ -13077,7 +13077,7 @@ POST /monitoring/{workingEnvironmentId}/enable-monitoring
 * application/json
 
 === Occm:asup
-==== <b>Downloads a compressed file of all ASUP files from all VSAs</b>.
+==== Downloads a compressed file of all ASUP files from all VSAs.
 ----
 GET /occm/asup/download-ontap-cloud-asups
 ----
@@ -13086,7 +13086,7 @@ GET /occm/asup/download-ontap-cloud-asups
 
 * application/json
 
-==== <b>Sends Cloud Volumes ONTAP support data to NetApp Support</b>.
+==== Sends Cloud Volumes ONTAP support data to NetApp Support.
 ----
 POST /occm/asup/send-Cot-Asup
 ----
@@ -13102,7 +13102,7 @@ POST /occm/asup/send-Cot-Asup
 
 * application/json
 
-==== <b>Get Signed URL for Cloud Manager support data</b>.
+==== Get Signed URL for Cloud Manager support data.
 ----
 GET /occm/asup/download-signed
 ----
@@ -13118,7 +13118,7 @@ GET /occm/asup/download-signed
 
 * application/json
 
-==== <b>Sends Cloud Volumes ONTAP performance archive support data to NetApp Support</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Sends Cloud Volumes ONTAP performance archive support data to NetApp Support.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /occm/asup/send-Cot-performance-Asup/{workingEnvironmentId}
 ----
@@ -13134,7 +13134,7 @@ POST /occm/asup/send-Cot-performance-Asup/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Updates the AutoSupport configuration</b>.
+==== Updates the AutoSupport configuration.
 ----
 PUT /occm/asup
 ----
@@ -13154,7 +13154,7 @@ PUT /occm/asup
 
 * application/json
 
-==== <b>Retrieves the AutoSupport configuration</b>.
+==== Retrieves the AutoSupport configuration.
 ----
 GET /occm/asup
 ----
@@ -13170,7 +13170,7 @@ GET /occm/asup
 
 * application/json
 
-==== <b>Sends Cloud Manager support data to NetApp Support</b>.
+==== Sends Cloud Manager support data to NetApp Support.
 ----
 POST /occm/asup/send
 ----
@@ -13186,7 +13186,7 @@ POST /occm/asup/send
 
 * application/json
 
-==== <b>Downloads Cloud Manager support data</b>.
+==== Downloads Cloud Manager support data.
 ----
 GET /occm/asup/download
 ----
@@ -13196,7 +13196,7 @@ GET /occm/asup/download
 * application/json
 
 === Occm:config
-==== <b>Resets to the default simplicator URI. Internal use only</b>.
+==== Resets to the default simplicator URI. Internal use only.
 ----
 POST /occm/config/simplicator/reset
 ----
@@ -13216,7 +13216,7 @@ POST /occm/config/simplicator/reset
 
 * application/json
 
-==== <b>Configures modifiable Cloud Manager parameters</b>.
+==== Configures modifiable Cloud Manager parameters.
 ----
 PUT /occm/config
 ----
@@ -13243,7 +13243,7 @@ PUT /occm/config
 
 * application/json
 
-==== <b>Retrieves Cloud Manager configuration parameters</b>.
+==== Retrieves Cloud Manager configuration parameters.
 ----
 GET /occm/config
 ----
@@ -13263,7 +13263,7 @@ GET /occm/config
 
 * application/json
 
-==== <b>Retrieves the current simplicator URI and status. Internal use only</b>.
+==== Retrieves the current simplicator URI and status. Internal use only.
 ----
 GET /occm/config/simplicator
 ----
@@ -13284,7 +13284,7 @@ GET /occm/config/simplicator
 * application/json
 
 === Occm:encryption:certificate
-==== <b>Validates and installs the provided certificate. Successive calls will overwrite any previously installed certificate. The certificate must match a previously generated CSR</b>.
+==== Validates and installs the provided certificate. Successive calls will overwrite any previously installed certificate. The certificate must match a previously generated CSR.
 ----
 POST /occm/encryption/certificate
 ----
@@ -13311,7 +13311,7 @@ POST /occm/encryption/certificate
 
 * application/json
 
-==== <b>Retrieves the installed certificate, if one exists</b>.
+==== Retrieves the installed certificate, if one exists.
 ----
 GET /occm/encryption/certificate
 ----
@@ -13332,7 +13332,7 @@ GET /occm/encryption/certificate
 * application/json
 
 === Occm:encryption:csr
-==== <b>Generates, stores and returns a certificate signing request (CSR). This CSR can be signed by a CA and then installed in Cloud Manager using /install_certificate. Successive calls will not overwrite previously generated CSRs</b>.
+==== Generates, stores and returns a certificate signing request (CSR). This CSR can be signed by a CA and then installed in Cloud Manager using /install_certificate. Successive calls will not overwrite previously generated CSRs.
 ----
 POST /occm/encryption/csr
 ----
@@ -13352,7 +13352,7 @@ POST /occm/encryption/csr
 
 * application/json
 
-==== <b>Retrieves the most recently generated CSR, if any exists</b>.
+==== Retrieves the most recently generated CSR, if any exists.
 ----
 GET /occm/encryption/csr
 ----
@@ -13373,7 +13373,7 @@ GET /occm/encryption/csr
 * application/json
 
 === Occm:encryption:key-managers
-==== <b>Adds a new key manager</b>.
+==== Adds a new key manager.
 ----
 POST /occm/encryption/key-managers
 ----
@@ -13400,7 +13400,7 @@ POST /occm/encryption/key-managers
 
 * application/json
 
-==== <b>Retrieves all key managers</b>.
+==== Retrieves all key managers.
 ----
 GET /occm/encryption/key-managers
 ----
@@ -13420,7 +13420,7 @@ GET /occm/encryption/key-managers
 
 * application/json
 
-==== <b>Deletes an existing key manager</b>.
+==== Deletes an existing key manager.
 ----
 DELETE /occm/encryption/key-managers/{keyManagerId}
 ----
@@ -13447,7 +13447,7 @@ DELETE /occm/encryption/key-managers/{keyManagerId}
 
 * application/json
 
-==== <b>Updates an existing key manager</b>.
+==== Updates an existing key manager.
 ----
 PUT /occm/encryption/key-managers/{keyManagerId}
 ----
@@ -13476,7 +13476,7 @@ PUT /occm/encryption/key-managers/{keyManagerId}
 
 * application/json
 
-==== <b>Returns specific key manager by public Id</b>.
+==== Returns specific key manager by public Id.
 ----
 GET /occm/encryption/key-managers/{keyManagerId}
 ----
@@ -13504,7 +13504,7 @@ GET /occm/encryption/key-managers/{keyManagerId}
 * application/json
 
 === Occm:encryption:key-managers-ca-certificates
-==== <b>Adds a new key manager CA certificate</b>.
+==== Adds a new key manager CA certificate.
 ----
 POST /occm/encryption/key-managers-ca-certificates
 ----
@@ -13531,7 +13531,7 @@ POST /occm/encryption/key-managers-ca-certificates
 
 * application/json
 
-==== <b>Retrieves all key managers CA certificates</b>.
+==== Retrieves all key managers CA certificates.
 ----
 GET /occm/encryption/key-managers-ca-certificates
 ----
@@ -13551,7 +13551,7 @@ GET /occm/encryption/key-managers-ca-certificates
 
 * application/json
 
-==== <b>Deletes an existing key manager CA certificate</b>.
+==== Deletes an existing key manager CA certificate.
 ----
 DELETE /occm/encryption/key-managers-ca-certificates/{keyManagerCaCertificateId}
 ----
@@ -13578,7 +13578,7 @@ DELETE /occm/encryption/key-managers-ca-certificates/{keyManagerCaCertificateId}
 
 * application/json
 
-==== <b>Retrieves a specific key manager CA certificate</b>.
+==== Retrieves a specific key manager CA certificate.
 ----
 GET /occm/encryption/key-managers-ca-certificates/{keyManagerCaCertificateId}
 ----
@@ -13606,7 +13606,7 @@ GET /occm/encryption/key-managers-ca-certificates/{keyManagerCaCertificateId}
 * application/json
 
 === Occm:key-store
-==== <b>Delete existing trusted certificate from trust store</b>.
+==== Delete existing trusted certificate from trust store.
 ----
 DELETE /occm/key-store/trusted-certificate/{certificateId}
 ----
@@ -13626,7 +13626,7 @@ DELETE /occm/key-store/trusted-certificate/{certificateId}
 
 * application/json
 
-==== <b>Validates and installs the provided root CA chain. Successive calls will overwrite any previously installed root CA chain</b>.
+==== Validates and installs the provided root CA chain. Successive calls will overwrite any previously installed root CA chain.
 ----
 POST /occm/key-store/signed-certificate-file
 ----
@@ -13654,7 +13654,7 @@ POST /occm/key-store/signed-certificate-file
 
 * application/json
 
-==== <b>Generate new key pair and self certificate at key store and return a certificate signing request (CSR). This CSR can be signed by a CA</b>.
+==== Generate new key pair and self certificate at key store and return a certificate signing request (CSR). This CSR can be signed by a CA.
 ----
 POST /occm/key-store
 ----
@@ -13681,7 +13681,7 @@ POST /occm/key-store
 
 * application/json
 
-==== <b>Generate new key pair and self certificate at key store and return a certificate signing request (CSR). This CSR can be signed by a CA</b>.
+==== Generate new key pair and self certificate at key store and return a certificate signing request (CSR). This CSR can be signed by a CA.
 ----
 POST /occm/key-store/external-certificate
 ----
@@ -13708,7 +13708,7 @@ POST /occm/key-store/external-certificate
 
 * application/json
 
-==== <b>Generate new key pair and self certificate at key store and return a certificate signing request (CSR). This CSR can be signed by a CA</b>.
+==== Generate new key pair and self certificate at key store and return a certificate signing request (CSR). This CSR can be signed by a CA.
 ----
 POST /occm/key-store/external-certificate-file
 ----
@@ -13739,7 +13739,7 @@ POST /occm/key-store/external-certificate-file
 
 * application/json
 
-==== <b>Retrieve the self certificate of Cloud Manager key store, if one exists</b>.
+==== Retrieve the self certificate of Cloud Manager key store, if one exists.
 ----
 GET /occm/key-store/self-certificate
 ----
@@ -13759,7 +13759,7 @@ GET /occm/key-store/self-certificate
 
 * application/json
 
-==== <b>Validates and installs the provided root CA chain. Successive calls will overwrite any previously installed root CA chain</b>.
+==== Validates and installs the provided root CA chain. Successive calls will overwrite any previously installed root CA chain.
 ----
 POST /occm/key-store/signed-certificate
 ----
@@ -13786,7 +13786,7 @@ POST /occm/key-store/signed-certificate
 
 * application/json
 
-==== <b>Retrieve the CA signed certificate of Cloud Manager key store, if one exists</b>.
+==== Retrieve the CA signed certificate of Cloud Manager key store, if one exists.
 ----
 GET /occm/key-store/signed-certificate
 ----
@@ -13806,7 +13806,7 @@ GET /occm/key-store/signed-certificate
 
 * application/json
 
-==== <b>Return existing trusted certificates added by the user from trust store</b>.
+==== Return existing trusted certificates added by the user from trust store.
 ----
 GET /occm/key-store/user-trusted-certificates
 ----
@@ -13826,7 +13826,7 @@ GET /occm/key-store/user-trusted-certificates
 
 * application/json
 
-==== <b>Validates and installs the provided certificate in trust store</b>.
+==== Validates and installs the provided certificate in trust store.
 ----
 POST /occm/key-store/trusted-certificate-file
 ----
@@ -13855,7 +13855,7 @@ POST /occm/key-store/trusted-certificate-file
 * application/json
 
 === Occm:saas-mp-service
-==== <b>Retrieves SaaS marketplace subscriptions for cvo</b>.
+==== Retrieves SaaS marketplace subscriptions for cvo.
 ----
 GET /occm/saas-mp-service/{workingEnvironmentId}/subscription
 ----
@@ -13878,7 +13878,7 @@ GET /occm/saas-mp-service/{workingEnvironmentId}/subscription
 
 * application/json
 
-==== <b>Retrieves current SaaS marketplace account and subscriptions</b>.
+==== Retrieves current SaaS marketplace account and subscriptions.
 ----
 GET /occm/saas-mp-service/account
 ----
@@ -13894,7 +13894,7 @@ GET /occm/saas-mp-service/account
 
 * application/json
 
-==== <b>Attach Saas subscription to cloud provider account</b>.
+==== Attach Saas subscription to cloud provider account.
 ----
 PUT /occm/saas-mp-service/attach-subscription/{provider}/{cloudAccountId}
 ----
@@ -13926,7 +13926,7 @@ POST /occm/setup/validate/connectivity
 
 * application/json
 
-==== <b>Validates a given proxy URL</b>.
+==== Validates a given proxy URL.
 ----
 POST /occm/setup/validate/proxy
 ----
@@ -13947,7 +13947,7 @@ POST /occm/setup/validate/proxy
 * application/json
 
 === Occm:setup-portal
-==== <b>Complete setup which was pending connectivity</b>.
+==== Complete setup which was pending connectivity.
 ----
 POST /occm/setup-portal/complete-connectivity-pending-setup
 ----
@@ -13967,7 +13967,7 @@ POST /occm/setup-portal/complete-connectivity-pending-setup
 
 * application/json
 
-==== <b>Performs initial standalone setup with local identity provider</b>.
+==== Performs initial standalone setup with local identity provider.
 ----
 POST /occm/setup-portal/init-standalone-local-auth
 ----
@@ -13996,7 +13996,7 @@ POST /occm/setup-portal/init-standalone-local-auth
 
 * application/json
 
-==== <b>Performs initial setup with NetApp Cloud Central</b>.
+==== Performs initial setup with NetApp Cloud Central.
 ----
 POST /occm/setup-portal/init
 ----
@@ -14025,7 +14025,7 @@ POST /occm/setup-portal/init
 
 * application/json
 
-==== <b>Register Cloud Manager to NetApp Cloud Central</b>.
+==== Register Cloud Manager to NetApp Cloud Central.
 ----
 POST /occm/setup-portal/register
 ----
@@ -14048,7 +14048,7 @@ POST /occm/setup-portal/register
 
 * application/json
 
-==== <b>Setup a given proxy URL</b>.
+==== Setup a given proxy URL.
 ----
 POST /occm/setup-portal/proxy/setup
 ----
@@ -14081,7 +14081,7 @@ POST /occm/setup-portal/validate/connectivity
 
 * application/json
 
-==== <b>Register Cloud Manager in dark site</b>.
+==== Register Cloud Manager in dark site.
 ----
 POST /occm/setup-portal/register-in-local-auth
 ----
@@ -14102,7 +14102,7 @@ POST /occm/setup-portal/register-in-local-auth
 * application/json
 
 === Occm:system
-==== <b>Performs fetch and processing of Cloud Volumes ONTAP image update metadata files</b>.
+==== Performs fetch and processing of Cloud Volumes ONTAP image update metadata files.
 ----
 POST /occm/system/cloud-ontap-update-image-metadata
 ----
@@ -14111,7 +14111,7 @@ POST /occm/system/cloud-ontap-update-image-metadata
 
 * application/json
 
-==== <b>Retrieves Cloud Manager support services information</b>.
+==== Retrieves Cloud Manager support services information.
 ----
 GET /occm/system/support-services
 ----
@@ -14127,7 +14127,7 @@ GET /occm/system/support-services
 
 * application/json
 
-==== <b>Retrieves Cloud Manager server information</b>.
+==== Retrieves Cloud Manager server information.
 ----
 GET /occm/system/about
 ----
@@ -14143,7 +14143,7 @@ GET /occm/system/about
 
 * application/json
 
-==== <b>Manually activate Cloud Volumes ONTAP capacity automatic management cycle</b>.
+==== Manually activate Cloud Volumes ONTAP capacity automatic management cycle.
 ----
 POST /occm/system/manually-activate-auto-vsa-capacity-management-cycle
 ----
@@ -14152,7 +14152,7 @@ POST /occm/system/manually-activate-auto-vsa-capacity-management-cycle
 
 * application/json
 
-==== <b>Updates Cloud Manager to the given version</b>.
+==== Updates Cloud Manager to the given version.
 ----
 POST /occm/system/update
 ----
@@ -14168,7 +14168,7 @@ POST /occm/system/update
 
 * application/json
 
-==== <b>Retrieves the region, VPC, and subnet in which the Cloud Manager instance is running</b>.
+==== Retrieves the region, VPC, and subnet in which the Cloud Manager instance is running.
 ----
 GET /occm/system/occm-instance-placement
 ----
@@ -14191,7 +14191,7 @@ GET /occm/system/occm-instance-placement
 
 * application/json
 
-==== <b>Restart server</b>.
+==== Restart server.
 ----
 POST /occm/system/restart-server
 ----
@@ -14200,7 +14200,7 @@ POST /occm/system/restart-server
 
 * application/json
 
-==== <b>Checks for a new version of Cloud Manager</b>.
+==== Checks for a new version of Cloud Manager.
 ----
 GET /occm/system/available-update-versions
 ----
@@ -14216,7 +14216,7 @@ GET /occm/system/available-update-versions
 
 * application/json
 
-==== <b>Performs fetch and cache of Cloud Volumes ONTAP and Cloud Manager version information files from s3</b>.
+==== Performs fetch and cache of Cloud Volumes ONTAP and Cloud Manager version information files from s3.
 ----
 POST /occm/system/cloud-ontap-update-metadata
 ----
@@ -14225,7 +14225,7 @@ POST /occm/system/cloud-ontap-update-metadata
 
 * application/json
 
-==== <b>Updates Cloud Manager with the given patch. Backup should be provided in multipart/form-data, with the file at a part named 'patch'</b>.
+==== Updates Cloud Manager with the given patch. Backup should be provided in multipart/form-data, with the file at a part named 'patch'.
 ----
 POST /occm/system/patch
 ----
@@ -14246,7 +14246,7 @@ POST /occm/system/patch
 
 * application/json
 
-==== <b>Retrieves cloud providers supported regions</b>.
+==== Retrieves cloud providers supported regions.
 ----
 GET /occm/system/cloud-provider-regions
 ----
@@ -14262,7 +14262,7 @@ GET /occm/system/cloud-provider-regions
 
 * application/json
 
-==== <b>Retrieves Cloud Manager feedback configuration</b>.
+==== Retrieves Cloud Manager feedback configuration.
 ----
 GET /occm/system/external-config
 ----
@@ -14278,7 +14278,7 @@ GET /occm/system/external-config
 
 * application/json
 
-==== <b>Manually trigger daily notification sending</b>.
+==== Manually trigger daily notification sending.
 ----
 POST /occm/system/manually-trigger-send-daily-notification
 ----
@@ -14287,7 +14287,7 @@ POST /occm/system/manually-trigger-send-daily-notification
 
 * application/json
 
-==== <b>Retrieves Feature Flags</b>.
+==== Retrieves Feature Flags.
 ----
 GET /occm/system/feature-flags
 ----
@@ -14304,7 +14304,7 @@ GET /occm/system/feature-flags
 * application/json
 
 === Occm:tenancy-service
-==== <b>Retrieves workspaces that are visible to the currently logged in user</b>.
+==== Retrieves workspaces that are visible to the currently logged in user.
 ----
 GET /occm/tenancy-service/workspaces
 ----
@@ -14320,7 +14320,7 @@ GET /occm/tenancy-service/workspaces
 
 * application/json
 
-==== <b>Updates current Cloud Manager service user</b>.
+==== Updates current Cloud Manager service user.
 ----
 PUT /occm/tenancy-service/users/update-current-user
 ----
@@ -14336,7 +14336,7 @@ PUT /occm/tenancy-service/users/update-current-user
 
 * application/json
 
-==== <b>Associate Service Connector to workspace</b>.
+==== Associate Service Connector to workspace.
 ----
 POST /occm/tenancy-service/workspaces/{workspaceId}/associate
 ----
@@ -14353,7 +14353,7 @@ POST /occm/tenancy-service/workspaces/{workspaceId}/associate
 * application/json
 
 === Onprem:aggregates
-==== <b>Retrieves aggregates</b>.
+==== Retrieves aggregates.
 ----
 GET /onprem/aggregates
 ----
@@ -14382,7 +14382,7 @@ GET /onprem/aggregates
 * application/json
 
 === Onprem:metadata
-==== <b>Verifies the address and credentials of the given cluster by retrieving the cluster info</b>.
+==== Verifies the address and credentials of the given cluster by retrieving the cluster info.
 ----
 GET /onprem/metadata/cluster-info
 ----
@@ -14412,7 +14412,7 @@ GET /onprem/metadata/cluster-info
 * application/json
 
 === Onprem:volumes
-==== <b>Creates a new volume</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Creates a new volume.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /onprem/volumes
 ----
@@ -14432,7 +14432,7 @@ POST /onprem/volumes
 
 * application/json
 
-==== <b>Retrieves volumes</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Retrieves volumes.Operation may only be performed on working environments whose status is: ON.
 ----
 GET /onprem/volumes
 ----
@@ -14460,7 +14460,7 @@ GET /onprem/volumes
 
 * application/json
 
-==== <b>Create snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Create snapshot manually.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -14483,7 +14483,7 @@ POST /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Delete snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Delete snapshot manually.Operation may only be performed on working environments whose status is: ON.
 ----
 DELETE /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -14506,7 +14506,7 @@ DELETE /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Deletes an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Deletes an existing volume.Operation may only be performed on working environments whose status is: ON.
 ----
 DELETE /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -14528,7 +14528,7 @@ DELETE /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Modify an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Modify an existing volume.Operation may only be performed on working environments whose status is: ON.
 ----
 PUT /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -14551,7 +14551,7 @@ PUT /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Return a list of snapshot descriptions for the volume</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Return a list of snapshot descriptions for the volume.Operation may only be performed on working environments whose status is: ON.
 ----
 GET /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 ----
@@ -14580,7 +14580,7 @@ GET /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 
 * application/json
 
-==== <b>Retrieves volumes for Backup Activation</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Retrieves volumes for Backup Activation.Operation may only be performed on working environments whose status is: ON.
 ----
 GET /onprem/volumes/volumes-for-backup
 ----
@@ -14612,7 +14612,7 @@ GET /onprem/volumes/volumes-for-backup
 
 * application/json
 
-==== <b>Clones an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Clones an existing volume.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 ----
@@ -14636,7 +14636,7 @@ POST /onprem/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 * application/json
 
 === Onprem:working-environments
-==== <b>Discovers on-premises working environment in Cloud Manager</b>.
+==== Discovers on-premises working environment in Cloud Manager.
 ----
 POST /onprem/working-environments
 ----
@@ -14663,7 +14663,7 @@ POST /onprem/working-environments
 
 * application/json
 
-==== <b>Retrieves on-premises working environments visible to the currently logged in user</b>.
+==== Retrieves on-premises working environments visible to the currently logged in user.
 ----
 GET /onprem/working-environments
 ----
@@ -14691,7 +14691,7 @@ GET /onprem/working-environments
 
 * application/json
 
-==== <b>Retrieves CIFS Configuration to an existing Cloud Volumes ONTAP working environment</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Retrieves CIFS Configuration to an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON.
 ----
 GET /onprem/working-environments/{workingEnvironmentId}/cifs
 ----
@@ -14719,7 +14719,7 @@ GET /onprem/working-environments/{workingEnvironmentId}/cifs
 
 * application/json
 
-==== <b>Updates Cloud Manager password for an On Premises working environment</b>.
+==== Updates Cloud Manager password for an On Premises working environment.
 ----
 PUT /onprem/working-environments/{workingEnvironmentId}/update-credentials
 ----
@@ -14740,7 +14740,7 @@ PUT /onprem/working-environments/{workingEnvironmentId}/update-credentials
 
 * application/json
 
-==== <b>Cloud Manager will no longer manage this working environment, but will not affect the Data ONTAP itself</b>.
+==== Cloud Manager will no longer manage this working environment, but will not affect the Data ONTAP itself.
 ----
 DELETE /onprem/working-environments/{workingEnvironmentId}
 ----
@@ -14760,7 +14760,7 @@ DELETE /onprem/working-environments/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Retrieves an on-premises ONTAP working environment</b>.
+==== Retrieves an on-premises ONTAP working environment.
 ----
 GET /onprem/working-environments/{workingEnvironmentId}
 ----
@@ -14788,7 +14788,7 @@ GET /onprem/working-environments/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Retrieves IP Space List to an existing Cloud Volumes ONTAP working environment</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Retrieves IP Space List to an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON.
 ----
 GET /onprem/working-environments/{workingEnvironmentId}/ip-spaces
 ----
@@ -14816,7 +14816,7 @@ GET /onprem/working-environments/{workingEnvironmentId}/ip-spaces
 
 * application/json
 
-==== <b>Setup SGWS Backup Cloud to Onprem</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Setup SGWS Backup Cloud to Onprem.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /onprem/working-environments/{workingEnvironmentId}/sgws-cloud-backup-setup
 ----
@@ -14837,7 +14837,7 @@ POST /onprem/working-environments/{workingEnvironmentId}/sgws-cloud-backup-setup
 
 * application/json
 
-==== <b>Setup AWS Backup Cloud to Onprem</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Setup AWS Backup Cloud to Onprem.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /onprem/working-environments/{workingEnvironmentId}/aws-cloud-backup-setup
 ----
@@ -14858,7 +14858,7 @@ POST /onprem/working-environments/{workingEnvironmentId}/aws-cloud-backup-setup
 
 * application/json
 
-==== <b>Setup Azure Backup Cloud to Onprem</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Setup Azure Backup Cloud to Onprem.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /onprem/working-environments/{workingEnvironmentId}/azure-cloud-backup-setup
 ----
@@ -14879,7 +14879,7 @@ POST /onprem/working-environments/{workingEnvironmentId}/azure-cloud-backup-setu
 
 * application/json
 
-==== <b>Setup GCP Backup Cloud to Onprem</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Setup GCP Backup Cloud to Onprem.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /onprem/working-environments/{workingEnvironmentId}/gcp-cloud-backup-setup
 ----
@@ -14901,7 +14901,7 @@ POST /onprem/working-environments/{workingEnvironmentId}/gcp-cloud-backup-setup
 * application/json
 
 === Replication
-==== <b>Retrieves the status of all SnapMirror relationships</b>.
+==== Retrieves the status of all SnapMirror relationships.
 ----
 GET /replication/status
 ----
@@ -14928,7 +14928,7 @@ GET /replication/status
 
 * application/json
 
-==== <b>Creates a new replication to an FSx working environment</b>.
+==== Creates a new replication to an FSx working environment.
 ----
 POST /replication/fsx
 ----
@@ -14948,7 +14948,7 @@ POST /replication/fsx
 
 * application/json
 
-==== <b>Retrieves the intercluster LIFs used in a cluster peering relationship</b>.
+==== Retrieves the intercluster LIFs used in a cluster peering relationship.
 ----
 GET /replication/intercluster-lifs
 ----
@@ -14976,7 +14976,7 @@ GET /replication/intercluster-lifs
 
 * application/json
 
-==== <b>Initializes an existing SnapMirror relationship. This method can only be performed in case the relationship has already been established and is healthy, yet is idle and uninitialized. For example, if the initial transfer were interrupted, then it can be restarted with this request</b>.
+==== Initializes an existing SnapMirror relationship. This method can only be performed in case the relationship has already been established and is healthy, yet is idle and uninitialized. For example, if the initial transfer were interrupted, then it can be restarted with this request.
 ----
 POST /replication/initialize/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 ----
@@ -14998,7 +14998,7 @@ POST /replication/initialize/{destinationWorkingEnvironmentId}/{destinationSvmNa
 
 * application/json
 
-==== <b>Retrieves replication schedules of a specific working environment</b>.
+==== Retrieves replication schedules of a specific working environment.
 ----
 GET /replication/schedules/{workingEnvironmentId}
 ----
@@ -15025,7 +15025,7 @@ GET /replication/schedules/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Creates a new replication to an Cloud Volumes ONTAP working environment</b>.
+==== Creates a new replication to an Cloud Volumes ONTAP working environment.
 ----
 POST /replication/vsa
 ----
@@ -15045,7 +15045,7 @@ POST /replication/vsa
 
 * application/json
 
-==== <b>Reversing an existing SnapMirror relationship. This method can only be performed in case the relationship has already been established and is healthy and idle</b>.
+==== Reversing an existing SnapMirror relationship. This method can only be performed in case the relationship has already been established and is healthy and idle.
 ----
 POST /replication/reverse/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 ----
@@ -15068,7 +15068,7 @@ POST /replication/reverse/{destinationWorkingEnvironmentId}/{destinationSvmName}
 
 * application/json
 
-==== <b>Resyncs a SnapMirror replication relationship</b>.
+==== Resyncs a SnapMirror replication relationship.
 ----
 POST /replication/resync/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 ----
@@ -15090,7 +15090,7 @@ POST /replication/resync/{destinationWorkingEnvironmentId}/{destinationSvmName}/
 
 * application/json
 
-==== <b>Creates a new replication to an on-premises working environment</b>.
+==== Creates a new replication to an on-premises working environment.
 ----
 POST /replication/onprem
 ----
@@ -15110,7 +15110,7 @@ POST /replication/onprem
 
 * application/json
 
-==== <b>Breaks a SnapMirror replication relationship</b>.
+==== Breaks a SnapMirror replication relationship.
 ----
 POST /replication/break/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 ----
@@ -15132,7 +15132,7 @@ POST /replication/break/{destinationWorkingEnvironmentId}/{destinationSvmName}/{
 
 * application/json
 
-==== <b>Removes a replication relationship</b>.
+==== Removes a replication relationship.
 ----
 DELETE /replication/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 ----
@@ -15154,7 +15154,7 @@ DELETE /replication/{destinationWorkingEnvironmentId}/{destinationSvmName}/{dest
 
 * application/json
 
-==== <b>Updates a SnapMirror replication relationship</b>.
+==== Updates a SnapMirror replication relationship.
 ----
 PUT /replication/{workingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 ----
@@ -15177,7 +15177,7 @@ PUT /replication/{workingEnvironmentId}/{destinationSvmName}/{destinationVolumeN
 
 * application/json
 
-==== <b>Updates the destination endpoint of the SnapMirror relationship</b>.
+==== Updates the destination endpoint of the SnapMirror relationship.
 ----
 POST /replication/update/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 ----
@@ -15199,7 +15199,7 @@ POST /replication/update/{destinationWorkingEnvironmentId}/{destinationSvmName}/
 
 * application/json
 
-==== <b>Retrieves SnapMirror replication relationship statuses of a specific working environment</b>.
+==== Retrieves SnapMirror replication relationship statuses of a specific working environment.
 ----
 GET /replication/status/{workingEnvironmentId}
 ----
@@ -15226,7 +15226,7 @@ GET /replication/status/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Return pairs of relationships</b>.
+==== Return pairs of relationships.
 ----
 GET /replication/all-relationships
 ----
@@ -15254,7 +15254,7 @@ GET /replication/all-relationships
 * application/json
 
 === Replication:metadata
-==== <b>retrieves SnapMirror policies based on source and destination Cloud Volumes ONTAP</b>.
+==== retrieves SnapMirror policies based on source and destination Cloud Volumes ONTAP.
 ----
 GET /replication/metadata/snapmirror-policies/{sourceWorkingEnvironmentId}/{targetWorkingEnvironmentId}
 ----
@@ -15282,7 +15282,7 @@ GET /replication/metadata/snapmirror-policies/{sourceWorkingEnvironmentId}/{targ
 
 * application/json
 
-==== <b>retrieves SnapMirror policies based on source and destination Cloud Volumes ONTAP</b>.
+==== retrieves SnapMirror policies based on source and destination Cloud Volumes ONTAP.
 ----
 GET /replication/metadata/snapmirror-svm-policies/{sourceWorkingEnvironmentId}/{svmName}/{targetWorkingEnvironmentId}
 ----
@@ -15311,7 +15311,7 @@ GET /replication/metadata/snapmirror-svm-policies/{sourceWorkingEnvironmentId}/{
 
 * application/json
 
-==== <b>return list of snapshot labels from the volume matching labels in the passed list</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== return list of snapshot labels from the volume matching labels in the passed list.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /replication/metadata/snapshot-labels/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -15342,7 +15342,7 @@ GET /replication/metadata/snapshot-labels/{workingEnvironmentId}/{svmName}/{volu
 * application/json
 
 === Tenants
-==== <b>Creates a new tenant</b>.
+==== Creates a new tenant.
 ----
 POST /tenants
 ----
@@ -15369,7 +15369,7 @@ POST /tenants
 
 * application/json
 
-==== <b>Retrieves tenants that are visible to the currently logged in user</b>.
+==== Retrieves tenants that are visible to the currently logged in user.
 ----
 GET /tenants
 ----
@@ -15396,7 +15396,7 @@ GET /tenants
 
 * application/json
 
-==== <b>Links an existing tenant to a NetApp Support Site account</b>.
+==== Links an existing tenant to a NetApp Support Site account.
 ----
 PUT /tenants/{tenantId}/nss-keys
 ----
@@ -15424,7 +15424,7 @@ PUT /tenants/{tenantId}/nss-keys
 
 * application/json
 
-==== <b>Deletes an existing tenant. It is not possible to delete a tenant over which working environments exist</b>.
+==== Deletes an existing tenant. It is not possible to delete a tenant over which working environments exist.
 ----
 DELETE /tenants/{tenantId}
 ----
@@ -15444,7 +15444,7 @@ DELETE /tenants/{tenantId}
 
 * application/json
 
-==== <b>Updates an existing tenant</b>.
+==== Updates an existing tenant.
 ----
 PUT /tenants/{tenantId}
 ----
@@ -15472,7 +15472,7 @@ PUT /tenants/{tenantId}
 
 * application/json
 
-==== <b>Retrieves a tenant</b>.
+==== Retrieves a tenant.
 ----
 GET /tenants/{tenantId}
 ----
@@ -15501,7 +15501,7 @@ GET /tenants/{tenantId}
 * application/json
 
 === User-mng:auth
-==== <b>Retrieves representation of currently logged in user</b>.
+==== Retrieves representation of currently logged in user.
 ----
 GET /auth/current-user
 ----
@@ -15524,7 +15524,7 @@ GET /auth/current-user
 
 * application/json
 
-==== <b>Log out of Cloud Manager</b>.
+==== Log out of Cloud Manager.
 ----
 POST /auth/logout
 ----
@@ -15544,7 +15544,7 @@ POST /auth/logout
 
 * application/json
 
-==== <b>Changes the password of the currently logged in user</b>.
+==== Changes the password of the currently logged in user.
 ----
 PUT /auth/current-user/change-password
 ----
@@ -15571,7 +15571,7 @@ PUT /auth/current-user/change-password
 
 * application/json
 
-==== <b>Log in to Cloud Manager</b>.
+==== Log in to Cloud Manager.
 ----
 POST /auth/login
 ----
@@ -15600,7 +15600,7 @@ POST /auth/login
 * application/json
 
 === User-mng:users
-==== <b>Creates a new user</b>.
+==== Creates a new user.
 ----
 POST /users
 ----
@@ -15628,7 +15628,7 @@ POST /users
 
 * application/json
 
-==== <b>Retrieves all users visible to the current user</b>.
+==== Retrieves all users visible to the current user.
 ----
 GET /users
 ----
@@ -15648,7 +15648,7 @@ GET /users
 
 * application/json
 
-==== <b>Add existing NetApp Cloud Central user to Cloud Manager</b>.
+==== Add existing NetApp Cloud Central user to Cloud Manager.
 ----
 POST /users/add-user
 ----
@@ -15676,7 +15676,7 @@ POST /users/add-user
 
 * application/json
 
-==== <b>Grants or revokes permissions to the given user for performing operations over the given working environments</b>.
+==== Grants or revokes permissions to the given user for performing operations over the given working environments.
 ----
 POST /users/{userId}/working-environments-grant-revoke
 ----
@@ -15704,7 +15704,7 @@ POST /users/{userId}/working-environments-grant-revoke
 
 * application/json
 
-==== <b>Deletes an existing user. It is not possible to delete a user that has created existing working environments. It is not possible to delete the logged in user</b>.
+==== Deletes an existing user. It is not possible to delete a user that has created existing working environments. It is not possible to delete the logged in user.
 ----
 DELETE /users/{userId}
 ----
@@ -15731,7 +15731,7 @@ DELETE /users/{userId}
 
 * application/json
 
-==== <b>Updates an existing user</b>.
+==== Updates an existing user.
 ----
 PUT /users/{userId}
 ----
@@ -15760,7 +15760,7 @@ PUT /users/{userId}
 
 * application/json
 
-==== <b>Retrieves a specific user</b>.
+==== Retrieves a specific user.
 ----
 GET /users/{userId}
 ----
@@ -15787,7 +15787,7 @@ GET /users/{userId}
 
 * application/json
 
-==== <b>Remove user from Cloud Manager</b>.
+==== Remove user from Cloud Manager.
 ----
 DELETE /users/{userId}/remove-user
 ----
@@ -15807,7 +15807,7 @@ DELETE /users/{userId}/remove-user
 
 * application/json
 
-==== <b>Resets the password of the given user</b>.
+==== Resets the password of the given user.
 ----
 PUT /users/{userId}/reset-password
 ----
@@ -15926,7 +15926,7 @@ GET /vsa/aggregates
 
 * application/json
 
-==== <b>Adds capacity to an existing elastic volume aggregate</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Adds capacity to an existing elastic volume aggregate.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
 ----
@@ -15949,7 +15949,7 @@ POST /vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
 * application/json
 
 === Vsa:discovery
-==== <b>Retrieves a list of discovered working environments visible to the current user in the specified AWS region</b>.
+==== Retrieves a list of discovered working environments visible to the current user in the specified AWS region.
 ----
 GET /vsa/discover
 ----
@@ -15977,7 +15977,7 @@ GET /vsa/discover
 
 * application/json
 
-==== <b>Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database</b>.
+==== Saves a previously discovered Cloud Volumes ONTAP working environment to the Cloud Manager database.
 ----
 POST /vsa/recover
 ----
@@ -16270,7 +16270,7 @@ GET /vsa/metadata/vpcs
 
 * application/json
 
-==== <b>Retrieves all Cloud Volumes ONTAP configurations</b>.
+==== Retrieves all Cloud Volumes ONTAP configurations.
 ----
 GET /vsa/metadata/permutations
 ----
@@ -16661,7 +16661,7 @@ GET /vsa/metadata/packages
 * application/json
 
 === Vsa:volumes
-==== <b>Move an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Move an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 ----
@@ -16684,7 +16684,7 @@ POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/move
 
 * application/json
 
-==== <b>Add ISCSI initiator</b>.
+==== Add ISCSI initiator.
 ----
 POST /vsa/volumes/initiator
 ----
@@ -16704,7 +16704,7 @@ POST /vsa/volumes/initiator
 
 * application/json
 
-==== <b>Get all ISCSI initiators</b>.
+==== Get all ISCSI initiators.
 ----
 GET /vsa/volumes/initiator
 ----
@@ -16724,7 +16724,7 @@ GET /vsa/volumes/initiator
 
 * application/json
 
-==== <b>Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Creates a new volume. If the properties aggregateName and maxNumOfDisksApprovedToAdd are not filled in, then the response will fail with a suggested aggregate name and the number of disks that will need to be created in order to fulfill the request.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/volumes
 ----
@@ -16745,7 +16745,7 @@ POST /vsa/volumes
 
 * application/json
 
-==== <b>Retrieves volumes</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /vsa/volumes
 ----
@@ -16772,7 +16772,7 @@ GET /vsa/volumes
 
 * application/json
 
-==== <b>Return a list of snapshot descriptions for the volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Return a list of snapshot descriptions for the volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 ----
@@ -16801,7 +16801,7 @@ GET /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshots
 
 * application/json
 
-==== <b>Create snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Create snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -16824,7 +16824,7 @@ POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Delete snapshot manually</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Delete snapshot manually.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 ----
@@ -16847,7 +16847,7 @@ DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
 
 * application/json
 
-==== <b>Retrieves volumes for Backup Activation</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves volumes for Backup Activation.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /vsa/volumes/volumes-for-backup
 ----
@@ -16879,7 +16879,7 @@ GET /vsa/volumes/volumes-for-backup
 
 * application/json
 
-==== <b>Deletes an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Deletes an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -16901,7 +16901,7 @@ DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Modify an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Modify an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 ----
@@ -16924,7 +16924,7 @@ PUT /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 * application/json
 
-==== <b>Get all igroups</b>.
+==== Get all igroups.
 ----
 GET /vsa/volumes/igroups/{workingEnvironmentId}/{svmName}
 ----
@@ -16952,7 +16952,7 @@ GET /vsa/volumes/igroups/{workingEnvironmentId}/{svmName}
 
 * application/json
 
-==== <b>Quotes a new volume. Returns a resource quote needed to satisfy the requested volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Quotes a new volume. Returns a resource quote needed to satisfy the requested volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/volumes/quote
 ----
@@ -16979,7 +16979,7 @@ POST /vsa/volumes/quote
 
 * application/json
 
-==== <b>Change underlying volume tier</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Change underlying volume tier.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 ----
@@ -17002,7 +17002,7 @@ POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/change-tier
 
 * application/json
 
-==== <b>Clones an existing volume</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Clones an existing volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 ----
@@ -17025,7 +17025,7 @@ POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 
 * application/json
 
-==== <b>Add export policy rule</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Add export policy rule.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 ----
@@ -17049,7 +17049,7 @@ PUT /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/exportPolicy
 * application/json
 
 === Vsa:working-environments
-==== <b>Create snapshot policy</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Create snapshot policy.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/snapshot-policy
 ----
@@ -17070,7 +17070,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/snapshot-policy
 
 * application/json
 
-==== <b>Activate snapshot policy assignment to all not protected rw volumes</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Activate snapshot policy assignment to all not protected rw volumes.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/activate-snapshot-policy
 ----
@@ -17090,7 +17090,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/activate-snapshot-policy
 
 * application/json
 
-==== <b>Disable FPolicy for ransomeware files</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Disable FPolicy for ransomeware files.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/disable-fpolicy
 ----
@@ -17110,7 +17110,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/disable-fpolicy
 
 * application/json
 
-==== <b>Stops a specific Cloud Volumes ONTAP instance</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Stops a specific Cloud Volumes ONTAP instance.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/stop
 ----
@@ -17131,7 +17131,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/stop
 
 * application/json
 
-==== <b>Performs a complete image update operation on the single node of the specified Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Performs a complete image update operation on the single node of the specified Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/update-image
 ----
@@ -17152,7 +17152,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/update-image
 
 * application/json
 
-==== <b>Setup a new CIFS Configuration to an existing Cloud Volumes ONTAP working environment</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Setup a new CIFS Configuration to an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/cifs
 ----
@@ -17173,7 +17173,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/cifs
 
 * application/json
 
-==== <b>Retrieves CIFS Configuration to an existing Cloud Volumes ONTAP working environment</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves CIFS Configuration to an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/cifs
 ----
@@ -17201,7 +17201,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/cifs
 
 * application/json
 
-==== <b>Registers a Cloud Volumes ONTAP system with NetApp</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Registers a Cloud Volumes ONTAP system with NetApp.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/support-registration
 ----
@@ -17229,7 +17229,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/support-registration
 
 * application/json
 
-==== <b>Retrieves the support registration status of a Cloud Volumes ONTAP system</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Retrieves the support registration status of a Cloud Volumes ONTAP system.Operation may only be performed on working environments whose status is: ON.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/support-registration
 ----
@@ -17256,7 +17256,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/support-registration
 
 * application/json
 
-==== <b>Modify the svm name of the Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Modify the svm name of the Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/svm
 ----
@@ -17277,7 +17277,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/svm
 
 * application/json
 
-==== <b>Activate offbox configuration</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Activate offbox configuration.Operation may only be performed on working environments whose status is: ON.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/offbox
 ----
@@ -17297,7 +17297,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/offbox
 
 * application/json
 
-==== <b>Sets the cluster password of a specific Cloud Volumes ONTAP</b>.
+==== Sets the cluster password of a specific Cloud Volumes ONTAP.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/set-password
 ----
@@ -17319,7 +17319,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/set-password
 
 * application/json
 
-==== <b>Uploads a Cloud license file on the provided Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Uploads a Cloud license file on the provided Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/upload-license-file
 ----
@@ -17341,7 +17341,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/upload-license-file
 
 * application/json
 
-==== <b>Parses an uploaded Cloud license file</b>.
+==== Parses an uploaded Cloud license file.
 ----
 POST /vsa/working-environments/parse-license-file
 ----
@@ -17369,7 +17369,7 @@ POST /vsa/working-environments/parse-license-file
 
 * application/json
 
-==== <b>Modify user tags for cloud resources of a given Cloud Volumes ONTAP instance</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED, OFF.
+==== Modify user tags for cloud resources of a given Cloud Volumes ONTAP instance.Operation may only be performed on working environments whose status is: ON, DEGRADED, OFF.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/user-tags
 ----
@@ -17390,7 +17390,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/user-tags
 
 * application/json
 
-==== <b>Retrieves editable tags for cloud resources of a given Cloud Volumes ONTAP instance</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED, OFF.
+==== Retrieves editable tags for cloud resources of a given Cloud Volumes ONTAP instance.Operation may only be performed on working environments whose status is: ON, DEGRADED, OFF.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/user-tags
 ----
@@ -17417,7 +17417,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/user-tags
 
 * application/json
 
-==== <b>Change tier level</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Change tier level.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/change-tier-level
 ----
@@ -17438,7 +17438,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/change-tier-level
 
 * application/json
 
-==== <b>Manually triggers subscription sync for all Cloud Volumes ONTAP working environments</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Manually triggers subscription sync for all Cloud Volumes ONTAP working environments.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/sync-subscription
 ----
@@ -17451,7 +17451,7 @@ POST /vsa/working-environments/sync-subscription
 
 * application/json
 
-==== <b>Register extra capacity serials</b>.
+==== Register extra capacity serials.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/extra-capacity-serials
 ----
@@ -17472,7 +17472,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/extra-capacity-serials
 
 * application/json
 
-==== <b>Delete extra capacity licenses by serials</b>.
+==== Delete extra capacity licenses by serials.
 ----
 DELETE /vsa/working-environments/{workingEnvironmentId}/extra-capacity-serials
 ----
@@ -17493,7 +17493,7 @@ DELETE /vsa/working-environments/{workingEnvironmentId}/extra-capacity-serials
 
 * application/json
 
-==== <b>Update extra capacity serials</b>.
+==== Update extra capacity serials.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/extra-capacity-serials
 ----
@@ -17514,7 +17514,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/extra-capacity-serials
 
 * application/json
 
-==== <b>Retrieves images already installed on the Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Retrieves images already installed on the Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/ontap-available-images
 ----
@@ -17541,7 +17541,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/ontap-available-images
 
 * application/json
 
-==== <b>Change serial number of Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Change serial number of Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/change-serial
 ----
@@ -17562,7 +17562,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/change-serial
 
 * application/json
 
-==== <b>Register extra capacity license</b>.
+==== Register extra capacity license.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/extra-capacity-licenses
 ----
@@ -17583,7 +17583,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/extra-capacity-licenses
 
 * application/json
 
-==== <b>Update extra capacity license</b>.
+==== Update extra capacity license.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/extra-capacity-licenses
 ----
@@ -17604,7 +17604,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/extra-capacity-licenses
 
 * application/json
 
-==== <b>Get extra capacity licenses for cvo</b>.
+==== Get extra capacity licenses for cvo.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/extra-capacity-licenses
 ----
@@ -17624,7 +17624,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/extra-capacity-licenses
 
 * application/json
 
-==== <b>Enable capacity tiering</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Enable capacity tiering.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/enable-capacity-tiering
 ----
@@ -17645,7 +17645,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/enable-capacity-tiering
 
 * application/json
 
-==== <b>Sets the instance type of a specific Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON, OFF.
+==== Sets the instance type of a specific Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON, OFF.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/license-instance-type
 ----
@@ -17666,7 +17666,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/license-instance-type
 
 * application/json
 
-==== <b>Retrieves all license types and their associated instance types for a given Cloud Volumes ONTAP instance</b>.
+==== Retrieves all license types and their associated instance types for a given Cloud Volumes ONTAP instance.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/license-instance-type
 ----
@@ -17693,7 +17693,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/license-instance-type
 
 * application/json
 
-==== <b>Working Environment Ontap Saving</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Working Environment Ontap Saving.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/ontap-saving
 ----
@@ -17720,7 +17720,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/ontap-saving
 
 * application/json
 
-==== <b>Updates default vscan file operation profile. Profile on existing CIFS shares will change only on writes-only mode</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Updates default vscan file operation profile. Profile on existing CIFS shares will change only on writes-only mode.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/vscan-file-op
 ----
@@ -17741,7 +17741,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/vscan-file-op
 
 * application/json
 
-==== <b>Set schedules for Cloud Volumes ONTAP</b>.
+==== Set schedules for Cloud Volumes ONTAP.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/schedules
 ----
@@ -17762,7 +17762,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/schedules
 
 * application/json
 
-==== <b>List start-stop schedules for Cloud Volumes ONTAP</b>.
+==== List start-stop schedules for Cloud Volumes ONTAP.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/schedules
 ----
@@ -17789,7 +17789,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/schedules
 
 * application/json
 
-==== <b>Uploads a Cloud license file content on the provided Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Uploads a Cloud license file content on the provided Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/upload-licenses
 ----
@@ -17810,7 +17810,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/upload-licenses
 
 * application/json
 
-==== <b>Activate FPolicy for ransomeware files</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Activate FPolicy for ransomeware files.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/activate-fpolicy
 ----
@@ -17830,7 +17830,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/activate-fpolicy
 
 * application/json
 
-==== <b>Modify the net port broadcast domain mtu of the Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Modify the net port broadcast domain mtu of the Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/networkOptimization
 ----
@@ -17851,7 +17851,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/networkOptimization
 
 * application/json
 
-==== <b>Retrieves a list of versions to which this Cloud Volumes ONTAP can be upgraded</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Retrieves a list of versions to which this Cloud Volumes ONTAP can be upgraded.Operation may only be performed on working environments whose status is: ON.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/occm-provided-upgrade-versions
 ----
@@ -17878,7 +17878,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/occm-provided-upgrade-versi
 
 * application/json
 
-==== <b>Setup NTP server</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Setup NTP server.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/ntp
 ----
@@ -17899,7 +17899,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/ntp
 
 * application/json
 
-==== <b>Starts a specific Cloud Volumes ONTAP instance</b>.<br/>Operation may only be performed on working environments whose status is: OFF.
+==== Starts a specific Cloud Volumes ONTAP instance.Operation may only be performed on working environments whose status is: OFF.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/start
 ----
@@ -17919,7 +17919,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/start
 
 * application/json
 
-==== <b>Deletes an existing Cloud Volumes ONTAP working environment, including all Cloud resources created for this working environment (unless the localDelete flag is set to true)</b>.
+==== Deletes an existing Cloud Volumes ONTAP working environment, including all Cloud resources created for this working environment (unless the localDelete flag is set to true).
 ----
 DELETE /vsa/working-environments/{workingEnvironmentId}
 ----
@@ -17941,7 +17941,7 @@ DELETE /vsa/working-environments/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Retrieves an Cloud Volumes ONTAP working environment</b>.
+==== Retrieves an Cloud Volumes ONTAP working environment.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}
 ----
@@ -17969,7 +17969,7 @@ GET /vsa/working-environments/{workingEnvironmentId}
 
 * application/json
 
-==== <b>Retrieves eligibility support status of a Cloud Volumes ONTAP system. Valid values - NSS_NOT_VALID, NOT_REGISTERED, IPA_PROBLEM, VALID, NSS_NOT_EXISTS, LICENSE_EXPIRED</b>.<br/>Operation may only be performed on working environments whose status is: ON, UPDATING.
+==== Retrieves eligibility support status of a Cloud Volumes ONTAP system. Valid values - NSS_NOT_VALID, NOT_REGISTERED, IPA_PROBLEM, VALID, NSS_NOT_EXISTS, LICENSE_EXPIRED.Operation may only be performed on working environments whose status is: ON, UPDATING.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/update-eligibility
 ----
@@ -17997,7 +17997,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/update-eligibility
 
 * application/json
 
-==== <b>Delete FPolicy for ransomeware files</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Delete FPolicy for ransomeware files.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /vsa/working-environments/{workingEnvironmentId}/fpolicy
 ----
@@ -18017,7 +18017,7 @@ DELETE /vsa/working-environments/{workingEnvironmentId}/fpolicy
 
 * application/json
 
-==== <b>Updates Cloud Manager password of a specific Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Updates Cloud Manager password of a specific Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/update-credentials
 ----
@@ -18038,7 +18038,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/update-credentials
 
 * application/json
 
-==== <b>Working Environment Cost And Usage</b>.
+==== Working Environment Cost And Usage.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/cost-and-usage
 ----
@@ -18067,7 +18067,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/cost-and-usage
 
 * application/json
 
-==== <b>Delete CIFS Configuration of an existing Cloud Volumes ONTAP working environment</b>.<br/>Operation may only be performed on working environments whose status is: ON, DEGRADED.
+==== Delete CIFS Configuration of an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /vsa/working-environments/{workingEnvironmentId}/delete-cifs
 ----
@@ -18088,7 +18088,7 @@ POST /vsa/working-environments/{workingEnvironmentId}/delete-cifs
 
 * application/json
 
-==== <b>Retrieves action parameters used in create request of a given Cloud Volumes ONTAP instance</b>.
+==== Retrieves action parameters used in create request of a given Cloud Volumes ONTAP instance.
 ----
 GET /vsa/working-environments/{workingEnvironmentId}/create-request-parameters
 ----
@@ -18115,7 +18115,7 @@ GET /vsa/working-environments/{workingEnvironmentId}/create-request-parameters
 
 * application/json
 
-==== <b>Sets the writing speed for Cloud Volumes ONTAP</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Sets the writing speed for Cloud Volumes ONTAP.Operation may only be performed on working environments whose status is: ON.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/writing-speed
 ----
@@ -18136,7 +18136,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/writing-speed
 
 * application/json
 
-==== <b>Creates a new Cloud Volumes ONTAP working environment. Refer to the API Developers Guide in order to understand how to fill in the values for region, licenseType, instanceType and version</b>.
+==== Creates a new Cloud Volumes ONTAP working environment. Refer to the API Developers Guide in order to understand how to fill in the values for region, licenseType, instanceType and version.
 ----
 POST /vsa/working-environments
 ----
@@ -18163,7 +18163,7 @@ POST /vsa/working-environments
 
 * application/json
 
-==== <b>Retrieves Cloud Volumes ONTAP working environments visible to the currently logged in user</b>.
+==== Retrieves Cloud Volumes ONTAP working environments visible to the currently logged in user.
 ----
 GET /vsa/working-environments
 ----
@@ -18191,7 +18191,7 @@ GET /vsa/working-environments
 
 * application/json
 
-==== <b>Updated byol licence to capacity based license to an existing Cloud Volumes ONTAP working environment</b>.<br/>Operation may only be performed on working environments whose status is: ON.
+==== Updated byol licence to capacity based license to an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON.
 ----
 PUT /vsa/working-environments/{workingEnvironmentId}/byol-to-capacity
 ----
@@ -18213,7 +18213,7 @@ PUT /vsa/working-environments/{workingEnvironmentId}/byol-to-capacity
 * application/json
 
 === Working-environments
-==== <b>Retrieves all working environments</b>.
+==== Retrieves all working environments.
 ----
 GET /working-environments
 ----
@@ -18241,7 +18241,7 @@ GET /working-environments
 
 * application/json
 
-==== <b>Returns true if working environment with that name already exists, false otherwise</b>.
+==== Returns true if working environment with that name already exists, false otherwise.
 ----
 GET /working-environments/exists/{workingEnvironmentName}
 ----
@@ -18268,7 +18268,7 @@ GET /working-environments/exists/{workingEnvironmentName}
 
 * application/json
 
-==== <b>Returns all non prem working environment actions required in a given tenant</b>.
+==== Returns all non prem working environment actions required in a given tenant.
 ----
 GET /working-environments/actionRequired/{tenantId}
 ----
@@ -18295,7 +18295,7 @@ GET /working-environments/actionRequired/{tenantId}
 
 * application/json
 
-==== <b>Retrieves an Cloud Volumes ONTAP working environment</b>.
+==== Retrieves an Cloud Volumes ONTAP working environment.
 ----
 GET /working-environments/{workingEnvironmentId}
 ----
