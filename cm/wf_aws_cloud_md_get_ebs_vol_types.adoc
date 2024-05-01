@@ -23,7 +23,9 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get EBS volume types for single node
 You can use this workflow to get the EBS volume types for a single node working environment.
 
-=== 1. Get the EBS volume types
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,20 +35,23 @@ You can use this workflow to get the EBS volume types for a single node working 
 |/occm/api/vsa/metadata/ebs-volume-types
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/ebs-volume-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/ebs-volume-types" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
 
-None
-
-Output::
+.JSON output example
 
 The JSON output example includes the list of EBS volume types.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "description": "",
@@ -104,11 +109,15 @@ JSON output example::
         "isDefault": false
     }
 ]
+----
+====
 
 == Get EBS volume types for high availability pair
 You can use this workflow to get the EBS volume types for an HA working environment.
 
-=== 1. Get the EBS volume types
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -118,20 +127,24 @@ You can use this workflow to get the EBS volume types for an HA working environm
 |/occm/api/aws/ha/metadata/ebs-volume-types
 |===
 
-curl example::
+
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/ebs-volume-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/ebs-volume-types" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
 
-None
-
-Output::
+.JSON output example
 
 The JSON output example includes the list of EBS volume types.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "description": "",
@@ -221,3 +234,5 @@ JSON output example::
         "isDefault": false
     }
 ]
+----
+====

@@ -5,7 +5,7 @@ keywords: aws, cloud, provider, saas, marketplace, account
 summary: "You can use this workflow to create an AWS cloud provider account."
 ---
 
-= Create AWS cloud provider account
+= Create an AWS cloud provider account
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -19,11 +19,16 @@ You can use this workflow to create an AWS cloud provider account.
 
 You must have AWS credentials.
 
-=== 1. Get the SaaS marketplace account
+== Step 1. Get the SaaS marketplace account
 
 Perform the workflow link:wf_common_identity_get_saas_mp.html[Get SaaS marketplace account] and choose the `id` value for the required subscription for `subscriptionId` parameter.
 
-=== 2. Create the account
+== Step 2. Create the account
+You can issue a REST API call to create the account.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,15 +38,17 @@ Perform the workflow link:wf_common_identity_get_saas_mp.html[Get SaaS marketpla
 |/occm/api/accounts/aws
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/accounts/aws' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <TOKEN>' --header 'Content-Type: application/json' --d JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/accounts/aws" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json" \
+--d JSONinput
 
-Input::
+.JSON input example
 
-The JSON input example includes the list of parameters.
-
-JSON input example::
 [source,json]
 {
   "accountName": "zivAccountTest2",
@@ -54,12 +61,11 @@ JSON input example::
   "subscriptionId": "subscriptionIDgoeshere"
 }
 
-Output::
+.JSON output example
 
 The JSON output provides an example of the cloud provider details.
 
-JSON output example::
-[source,json]
+----
 {
     "publicId": "CloudProviderAccount-LCwgVOy7",
     "accountName": "zivAccountTest2",
@@ -71,3 +77,4 @@ JSON output example::
     "vsaList": [],
     "subscriptionId": "subscriptionIDshownhere"
 }
+----

@@ -23,11 +23,17 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get VPCs for single node
 You can use this workflow to retrieve the VPCs for a single node working environment.
 
-=== 1. Select the region to use
+=== Step 1. Select the region to use
 
 Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value for the `region` query parameter.
 
-=== 2. Get the VPCs
+=== Step 2. Get the VPCs
+
+You can issue a REST API call to retrieve the virtual private clouds (VPCs).
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -37,22 +43,38 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-singl
 |/occm/api/vsa/metadata/vpcs?region=<REGION>
 |===
 
-Curl example::
+
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/vpcs?region=<REGION>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/vpcs?region=<REGION>" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-Query parameters:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* <REGION> `region`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <REGION> `region` |Query |Yes |Identifies the region of the working environment
 
-Output::
+|===
+
+
+.JSON output example
 
 The JSON output example includes the list of virtual private clouds.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "vpcId": "vpc-b16c90d4",
@@ -140,15 +162,23 @@ JSON output example::
         "tenancy": "default"
     }
 ]
+----
+====
 
 == Get VPCs for high availability pair
 You can use this workflow to retrieve the VPCs for an HA working environment.
 
-=== 1. Select the region to use
+=== Step 1. Select the region to use
 
 Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] and choose the `code` value for the `region` query parameter.
 
-=== 2. Get the VPCs
+=== Step 2. Get the VPCs
+
+You can issue a REST API call to retrieve the virtual private clouds (VPCs).
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -158,22 +188,35 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-
 |/occm/api/aws/ha/metadata/vpcs?region=<REGION>
 |===
 
-Curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/vpcs?region=<REGION>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/vpcs?region=<REGION>" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-Query parameters:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* <REGION> `region`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <REGION> `region` |Query |Yes |Identifies the region of the working environment
+|===
 
-Output::
+.JSON output example
 
 The JSON output example includes the list of virtual private clouds.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "vpcId": "vpc-b16c90d4",
@@ -261,3 +304,5 @@ JSON output example::
         "tenancy": "default"
     }
 ]
+----
+====
