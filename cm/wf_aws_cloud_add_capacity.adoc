@@ -34,12 +34,11 @@ Choose the `size` and `unit` values for the `capacityToAdd` input parameter. The
 
 === Step 4. Add capacity
 
-Add capacity.
+You can issue the REST API call to add capacity.
 
 .HTTP method and endpoint
 
 This REST API call uses the following method and endpoint.
-
 
 [cols="25,75"*,options="header"]
 |===
@@ -52,14 +51,14 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/packages" \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
+--header "Content-Type: application/json" \
+--data @JSONinput
 
 .JSON input example
 [source, json]
-
 {
   "name": "aggr1",
   "capacityToAdd": {
@@ -87,12 +86,11 @@ Perform the workflow Get aggregates and choose the name value for the `aggregate
 Choose the `size` and `unit` values for the `capacityToAdd` input parameter. The `unit` must be one of the following: TB, GB, MB, KB, or Byte.
 
 === Step 4. Add capacity
-Add capacity.
+You can issue the REST API call to add capacity.
 
 .HTTP method and endpoint
 
 This REST API call uses the following method and endpoint.
-
 
 [cols="25,75"*,options="header"]
 |===
@@ -102,18 +100,17 @@ This REST API call uses the following method and endpoint.
 |/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity
 |===
 
-
 .Curl example
 [source,curl]
 curl --request GET \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
+--header "Content-Type: application/json" \
+--data @JSONinput
 
 .JSON input example
 [source, json]
-
 {
   "name": "aggr1",
   "capacityToAdd": {

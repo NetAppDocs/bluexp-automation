@@ -43,9 +43,6 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
-
-None
 
 .JSON output example
 
@@ -134,9 +131,6 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
-
-None
 
 .JSON output example
 

@@ -94,6 +94,7 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 
 
 === Step 11. Create the working environment
+You can issue a REST API call to create the working environment.
 
 .HTTP method and endpoint
 
@@ -115,11 +116,9 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
 The JSON input example includes the minimum list of parameters.
-
-[NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
 
 
@@ -343,6 +342,8 @@ You can optionally add a new volume while creating a working environment.
 
 === Step 14. Create the working environment
 
+You can issue a REST API call to create a working environment.
+
 .HTTP method and endpoint
 
 This REST API call uses the following method and endpoint.
@@ -364,14 +365,13 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
 The JSON input example includes the minimum list of parameters.
 
-[NOTE]
 This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
 
-
+.JSON input example
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes
@@ -474,7 +474,7 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 
 .JSON output example
 
-The JSON output example includes an example of the HA working environment details.
+The JSON output includes an example of the HA working environment details.
 
 
 [source,json]

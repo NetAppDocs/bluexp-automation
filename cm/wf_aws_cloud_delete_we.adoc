@@ -21,7 +21,7 @@ Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployme
 * <<Delete working environment for high availability pair, HA pair>>
 
 
-== Delete working environment for single node
+== Delete a working environment for single node
 
 You can use this workflow to delete a working environment for a single node system.
 
@@ -31,7 +31,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 
 === Step 2. Delete the working environment
 
-Delete a working environment for single node.
+You can issue a REST API call to delete a working environment for single node.
 
 .HTTP method and endpoint
 
@@ -51,23 +51,26 @@ curl --request GET \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
+--header "Content-Type: application/json" \
 
-.Input
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
+.Additional input parameters
 
-* Optional query parameters:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-** `localDelete`
-+
-If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`).
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+| `localDelete` |Query |No |If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`).
+| `forceDelete` |Query |No |If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
+|===
 
-** `forceDelete`
-+
-If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
 
-.Output
+.JSON output example
 
 None
 
@@ -81,7 +84,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 
 === Step 2. Delete the working environment
 
-Delete a working environment.
+You can issue a REST API call to delete a working environment for single node.
 
 [cols="25,75"*,options="header"]
 |===
@@ -99,20 +102,22 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
-Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-Optional query parameters:
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+| `localDelete` |Query |No |If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`).
+| `forceDelete` |Query |No |If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
+|===
 
-* `localDelete`
-+
-If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but Cloud Manager no longer manages it (default is `false`).
 
-* `forceDelete`
-+
-If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
-
-.Output
+.JSON output example
 
 None

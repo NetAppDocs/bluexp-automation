@@ -13,7 +13,7 @@ summary: "You can retrieve the Cloud Volumes ONTAP working environments that are
 :imagesdir: ./media/
 
 [.lead]
-You can retrieve the public identifier, working environment identifier and the storage virtual machine name for Cloud Volumes ONTAP working environments (visible to currently logged in user) which would be used in other workflows.
+You can retrieve the public identifier, working environment identifier, and the storage virtual machine name for Cloud Volumes ONTAP working environments (visible to currently logged in user) which will be used in other workflows.
 
 Choose the workflow to use based on the type of the Cloud Volumes ONTAP deployment:
 
@@ -45,17 +45,28 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
-Optional query parameters:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example in this step.
 
-* `fields`
-* `tenantId`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `fields` |Query |No |Identifies the number of fields you will retrieve
+| `tenantId` |Query |No |Identifies the tenant ID.
+|===
+
+
 
 .JSON output example
 The JSON output example includes an array of VSA working environments and their details.
 
-
+.Example output
+[%collapsible]
+====
 [source,json]
 [
     {
@@ -167,6 +178,7 @@ The JSON output example includes an array of VSA working environments and their 
         "monitoringProperties": null
     }
 ]
+====
 
 == Get working environment for high availability pair
 
@@ -178,7 +190,7 @@ Perform the workflow <<Get working environments for single node>> and choose the
 
 === Step 2. Get the working environment
 
-Retrieve the working environments for an HA pair.
+You can issue a REST API call to retrieve the working environments for an HA pair.
 
 .HTTP method and endpoint
 
@@ -201,22 +213,28 @@ curl --request GET \
 --header "Content-Type: application/json"
 
 
-.Input
+.Additional input parameters
 
-Path parameter:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example in this step.
 
-<WORKING_ENV_ID> `workingEnvironmentId`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `fields` |Query |No |Identifies the number of fields you will retrieve
+| `workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID.
+|===
 
-Optional query parameter:
-
-`fields`
 
 .JSON output example
 The JSON output example includes an HA Cloud Volumes ONTAP working environment.
 
-
+.Example output
+[%collapsible]
+====
 [source,json]
-[
 {
     "publicId": "VsaWorkingEnvironment-N6BPfglr",
     "name": "ziv04we01ha",
@@ -253,3 +271,4 @@ The JSON output example includes an HA Cloud Volumes ONTAP working environment.
     "complianceProperties": null,
     "monitoringProperties": null
 }
+====

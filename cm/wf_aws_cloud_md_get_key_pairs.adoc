@@ -27,7 +27,7 @@ You can use this workflow to retrieve the key pairs for a single node working en
 Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] and choose the `code` value of the required region for the `region` query parameter.
 
 === Step 2. Get the key pairs
-Retrieve the key pairs.
+You can issue the REST API call to retrieve the key pairs.
 
 .HTTP method and endpoint
 
@@ -49,16 +49,21 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
-Query parameter:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* <REGION> `region`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <REGION> `region` |Query |Yes |Signifies the region of the working environment
+| `roleArn` |Query |No |Identifies the 
+| `cloudProviderAccountId` |Query |No |Identifies the cloud provider account ID.
+|===
 
-Optional parameters for filter:
-
-* `roleArn`: String
-* `cloudProviderAccountId`: String
 
 .JSON output example
 
@@ -82,7 +87,7 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-
 NOTE: Ensure that you choose the path value for the HA pair while performing the Get Regions workflow.
 
 === Step 2. Get the key pairs
-Retrieve the key pairs.
+You can issue the REST API call to retrieve the key pairs.
 
 .HTTP method and endpoint
 
@@ -104,16 +109,20 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-Query parameter:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* <REGION> `region`
-
-Optional parameters for filter:
-
-* `roleArn`: String
-* `cloudProviderAccountId`: String
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <REGION> `region` |Query |Yes |Signifies the region of the working environment
+| `roleArn` |Query |No |Identifies the 
+| `cloudProviderAccountId` |Query |No |Identifies the cloud provider account ID.
+|===
 
 .JSON output example
 
