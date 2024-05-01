@@ -65,7 +65,7 @@ curl --request POST \
 
 The JSON output provides an example of the cloud provider details.
 
-[source,json]
+----
 {
     "publicId": "CloudProviderAccount-LCwgVOy7",
     "accountName": "zivAccountTest2",
@@ -77,3 +77,4 @@ The JSON output provides an example of the cloud provider details.
     "vsaList": [],
     "subscriptionId": "subscriptionIDshownhere"
 }
+----

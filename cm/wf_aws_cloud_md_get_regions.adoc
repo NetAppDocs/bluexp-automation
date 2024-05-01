@@ -39,19 +39,17 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/regions' --header 'Content-Type: application/json" \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/regions' \
+--header 'Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \ 
---header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
-
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
 
 
 .JSON output example
 
 The JSON output provides an example of a list of AWS regions.
 
-
-[source,json]
+----
 [
     {
         "name": "US East",
@@ -78,6 +76,7 @@ The JSON output provides an example of a list of AWS regions.
         "s3Region": "ap-south-1"
     },
 ]
+----
 
 == Get regions for high availability pair
 You can use this workflow to retrieve the regions for an HA pair.
@@ -97,17 +96,16 @@ This REST API call uses the following method and endpoint.
 .Curl example::
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/regions' --header 'Content-Type: application/json" \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/regions' \
+--header 'Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
 
 
 .JSON output example
 The JSON output provides an example of a list of AWS regions.
 
-
-[source,json]
+----
 [
     {
         "name": "US East",
@@ -128,3 +126,4 @@ The JSON output provides an example of a list of AWS regions.
         "s3Region": "us-west-1"
     }
 ]
+----

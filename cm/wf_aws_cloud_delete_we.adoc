@@ -47,7 +47,7 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request GET \
+curl --request DELETE \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
@@ -96,7 +96,7 @@ You can issue a REST API call to delete a working environment for single node.
 
 .Curl example
 [source,curl]
-curl --request GET \
+curl --request DELETE \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \

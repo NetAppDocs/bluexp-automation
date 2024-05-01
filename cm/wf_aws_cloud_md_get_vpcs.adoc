@@ -74,7 +74,7 @@ The JSON output example includes the list of virtual private clouds.
 .Example output
 [%collapsible]
 ====
-[source,json]
+----
 [
     {
         "vpcId": "vpc-b16c90d4",
@@ -162,6 +162,7 @@ The JSON output example includes the list of virtual private clouds.
         "tenancy": "default"
     }
 ]
+----
 ====
 
 == Get VPCs for high availability pair
@@ -215,7 +216,7 @@ The JSON output example includes the list of virtual private clouds.
 .Example output
 [%collapsible]
 ====
-[source,json]
+----
 [
     {
         "vpcId": "vpc-b16c90d4",
@@ -303,4 +304,5 @@ The JSON output example includes the list of virtual private clouds.
         "tenancy": "default"
     }
 ]
+----
 ====

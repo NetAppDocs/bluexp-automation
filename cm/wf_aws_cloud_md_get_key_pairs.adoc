@@ -69,7 +69,7 @@ In addition to the parameters common with all REST API calls, the following para
 
 The output shows the AWS user key pairs for a specific region.
 
-[source,json]
+----
 [
     "Developers_Virginia",
     "gfcqa",
@@ -77,6 +77,7 @@ The output shows the AWS user key pairs for a specific region.
     "kubernetes-netpn77b32",
     "occm_qa"
 ]
+----
 
 == Get key pairs for high availability pair
 You can use this workflow to retrieve the key pairs for an HA working environment.
@@ -128,7 +129,7 @@ In addition to the parameters common with all REST API calls, the following para
 
 The output shows the AWS user key pairs for a specific region.
 
-[source,json]
+----
 [
     "Developers_Virginia",
     "gfcqa",
@@ -136,3 +137,4 @@ The output shows the AWS user key pairs for a specific region.
     "kubernetes-netpn77b32",
     "occm_qa"
 ]
+----

@@ -96,18 +96,17 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request GET \
+curl --request POST \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
+--header "Content-Type: application/json" \
+--d @JSONinput
 
-.Input
+.Additional input parameters
 
 The JSON input example includes the minimum list of parameters.
 
-[NOTE]
-This request uses PAYGO subscription as indicated in the `licenseType` parameter.
 [NOTE]
 By default, new Cloud Volumes ONTAP instances are created with Elastic Volumes enabled on aggregates. You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP instance with an aggregate where Elastic Volumes is disabled.
 
@@ -215,14 +214,13 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 --
 ====
 
+This request uses PAYGO subscription as indicated in the `licenseType` parameter.
 
 .JSON output example
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentresponse`.
 
-
-
-[source,json]
+----
 {
     "publicId": "VsaWorkingEnvironment-0NWsb1aX",
     "name": "ziv01we02",
@@ -259,7 +257,7 @@ The JSON output example includes an example of the `VsaWorkingEnvironmentrespons
     "complianceProperties": null,
     "monitoringProperties": null
 }
-
+----
 
 == Create working environment for high availability pair
 
@@ -326,7 +324,7 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 
 === Step 12. Create the working environment
 
-Create a working environment for an HA pair.
+You can issue a REST API call to create a working environment for an HA pair.
 
 .HTTP method and endpoint
 
@@ -342,20 +340,15 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request GET \
+curl --request POST \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
-
-.Input
-
-The JSON input example includes the minimum list of parameters.
-
-[NOTE]
-This request uses PAYGO licensing as indicated in the `licenseType` parameter.
+--header "Content-Type: application/json" \
+--d @JSONinput
 
 
+.JSON input example
 [role="tabbed-block"]
 ====
 .Enable Elastic Volumes
@@ -498,13 +491,13 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 }
 --
 ====
+This request uses PAYGO licensing as indicated in the `licenseType` parameter.
 
 .JSON output example
 
 The JSON output example includes an example of the HA working environment details.
 
-
-[source,json]
+----
 {
     "publicId": "VsaWorkingEnvironment-sQ9AELDS",
     "name": "ziv04we02ha",
@@ -541,3 +534,4 @@ The JSON output example includes an example of the HA working environment detail
     "complianceProperties": null,
     "monitoringProperties": null
 }
+----

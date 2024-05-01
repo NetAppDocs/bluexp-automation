@@ -48,7 +48,10 @@ curl --request GET \
 
 The JSON output example includes the list of EBS volume types.
 
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "description": "",
@@ -106,6 +109,8 @@ The JSON output example includes the list of EBS volume types.
         "isDefault": false
     }
 ]
+----
+====
 
 == Get EBS volume types for high availability pair
 You can use this workflow to get the EBS volume types for an HA working environment.
@@ -136,7 +141,10 @@ curl --request GET \
 
 The JSON output example includes the list of EBS volume types.
 
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "description": "",
@@ -226,3 +234,5 @@ The JSON output example includes the list of EBS volume types.
         "isDefault": false
     }
 ]
+----
+====

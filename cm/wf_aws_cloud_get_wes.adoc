@@ -223,8 +223,8 @@ In addition to the parameters common with all REST API calls, the following para
 |Type
 |Required
 |Description
-| `fields` |Query |No |Identifies the number of fields you will retrieve
-| `workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID.
+|`fields` |Query |No |Identifies the number of fields you will retrieve
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
 |===
 
 
@@ -234,7 +234,7 @@ The JSON output example includes an HA Cloud Volumes ONTAP working environment.
 .Example output
 [%collapsible]
 ====
-[source,json]
+----
 {
     "publicId": "VsaWorkingEnvironment-N6BPfglr",
     "name": "ziv04we01ha",
@@ -271,4 +271,5 @@ The JSON output example includes an HA Cloud Volumes ONTAP working environment.
     "complianceProperties": null,
     "monitoringProperties": null
 }
+----
 ====

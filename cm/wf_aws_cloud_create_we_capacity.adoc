@@ -110,17 +110,12 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request GET \
+curl --request POST \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
-
-.Additional input parameters
-
-The JSON input example includes the minimum list of parameters.
-This request uses the hourly pay-as-you-go (PAYGO) subscriptions as indicated in the `licenseType` parameter.
-
+--header "Content-Type: application/json" \
+--d @JSONinput
 
 .JSON input example
 
@@ -222,12 +217,13 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 --
 ====
 
+This API request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
+
 .JSON output example
 
 The JSON output example includes an example of the `VsaWorkingEnvironmentresponse`.
 
-
-[source,json]
+----
 {
     "publicId": "VsaWorkingEnvironment-0NWsb1aX",
     "name": "ziv01we02",
@@ -264,7 +260,7 @@ The JSON output example includes an example of the `VsaWorkingEnvironmentrespons
     "complianceProperties": null,
     "monitoringProperties": null
 }
-
+----
 
 == Create working environment for high availability pair
 
@@ -357,19 +353,15 @@ This REST API call uses the following method and endpoint.
 |/occm/api/aws/ha/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --request GET \
+curl --request POST \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
---header "Content-Type: application/json"
+--header "Content-Type: application/json" \
+--d @JSONinput
 
-.Additional input parameters
-
-The JSON input example includes the minimum list of parameters.
-
-This request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
 
 .JSON input example
 [role="tabbed-block"]
@@ -470,14 +462,14 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 --
 ====
 
+This API request uses the hourly pay-as-you-go (PAYGO) subscription as indicated in the `licenseType` parameter.
 
 
 .JSON output example
 
 The JSON output includes an example of the HA working environment details.
 
-
-[source,json]
+----
 {
     "publicId": "VsaWorkingEnvironment-sQ9AELDS",
     "name": "ziv04we02ha",
@@ -514,3 +506,4 @@ The JSON output includes an example of the HA working environment details.
     "complianceProperties": null,
     "monitoringProperties": null
 }
+----

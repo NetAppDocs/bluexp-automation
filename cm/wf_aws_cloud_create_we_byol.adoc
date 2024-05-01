@@ -82,16 +82,12 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request GET \
+curl --request POST \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json" \
 --data @JSONinput
-
-.Additional input parameters
-
-The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumber` is required.
 
 
 .JSON input example
@@ -157,13 +153,14 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 
 --
 ====
+This API request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumber` is required.
 
 .JSON output example
 
-The JSON output example includes an example of the `VsaWorkingEnvironmentRresponse` response.
+The JSON output example includes an example of the `VsaWorkingEnvironmentresponse` response.
 
 
-[source,json]
+----
 {
     "publicId": "VsaWorkingEnvironment-wL2MaBJs",
     "name": "username",
@@ -200,6 +197,7 @@ The JSON output example includes an example of the `VsaWorkingEnvironmentRrespon
     "complianceProperties": null,
     "monitoringProperties": null
 }
+----
 
 == Create working environment for high availability pair
 You can use this workflow to create an HA Cloud Volumes ONTAP working environment.
@@ -272,16 +270,12 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request GET \
+curl --request POST \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json" \
 --data @JSONinput
-
-.Additional input parameters
-
-The JSON input example includes the minimum list of parameters. This request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters are required.
 
 
 .JSON input example
@@ -391,13 +385,14 @@ You can set `"disableEv": "true"` if you choose to create a Cloud Volumes ONTAP 
 
 --
 ====
+This API request uses BYOL licensing as indicated in the `licenseType` parameter. The `platformSerialNumberNode1` and `platformSerialNumberNode2` parameters are required.
+
 
 .JSON output example
 
 The JSON output example includes an example of the HA working environment details.
 
-
-[source,json]
+----
 {
     "publicId": "VsaWorkingEnvironment-XxCZibxz",
     "name": "ziv04we02ha",
@@ -434,3 +429,4 @@ The JSON output example includes an example of the HA working environment detail
     "complianceProperties": null,
     "monitoringProperties": null
 }
+----

@@ -69,7 +69,7 @@ The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 .Example output
 [%collapsible]
 ====
-[source,json]
+----
 [
    {
        "ontapVersion": "ONTAP-9.9.0X4.T1",
@@ -96,6 +96,7 @@ The JSON output example includes the list of Cloud Volumes ONTAP configurations.
       "upgradeableFrom": ["9.8","9.9.0"]
    }
 ]
+----
 ====
 
 == Get permutations for high availability pair
@@ -149,7 +150,7 @@ The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 .Example output
 [%collapsible]
 ====
-[source,json]
+----
 [
     {
         "ontapVersion": "ONTAP-9.9.0X6.T1.ha",
@@ -220,4 +221,5 @@ The JSON output example includes the list of Cloud Volumes ONTAP configurations.
         ]
     }
 ]
+----
 ====

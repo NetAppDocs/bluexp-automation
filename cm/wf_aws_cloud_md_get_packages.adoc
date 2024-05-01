@@ -44,16 +44,13 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
-
-None
 
 .JSON output example
 
 The JSON output example includes the list of Cloud Volumes ONTAP packages.
 
 
-[source,json]
+----
 [
     {
         "name": "aws_ha_poc",
@@ -96,6 +93,7 @@ The JSON output example includes the list of Cloud Volumes ONTAP packages.
         "writingSpeedState": "NORMAL"
     }
 ]
+----
 
 == Get packages for high availability pair
 You can use this workflow to retrieve the packages information for an HA working environment.
@@ -121,16 +119,13 @@ curl --request GET \
 --header "Content-Type: application/json"
 
 
-.Input
-
-None
 
 .JSON output example
 
 The JSON output example includes the list of Cloud Volumes ONTAP packages.
 
 
-[source,json]
+----
 [
     {
         "name": "aws_ha_poc",
@@ -173,3 +168,4 @@ The JSON output example includes the list of Cloud Volumes ONTAP packages.
         "writingSpeedState": "NORMAL"
     }
 ]
+----

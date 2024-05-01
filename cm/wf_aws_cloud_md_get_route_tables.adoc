@@ -40,7 +40,7 @@ This REST API call uses the following method and endpoint.
 |/occm/api/aws/ha/metadata/route-tables
 |===
 
-.Curl example::
+.Curl example
 [source,curl]
 curl --request GET \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/route-tables?region=<REGION>&vpcId=<VPC_ID>" \
@@ -72,7 +72,7 @@ The output includes an array of route tables.
 .Example output
 [%collapsible]
 ====
-[source,json]
+----
 [
     {
         "id": "rtb-3338784b",
@@ -152,4 +152,5 @@ The output includes an array of route tables.
         ]
     }
 ]
+----
 ====
