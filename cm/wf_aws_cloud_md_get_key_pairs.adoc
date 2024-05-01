@@ -59,8 +59,8 @@ In addition to the parameters common with all REST API calls, the following para
 |Type
 |Required
 |Description
-| <REGION> `region` |Query |Yes |Signifies the region of the working environment
-| `roleArn` |Query |No |Identifies the 
+| <REGION> `region` |Query |Yes |Identifies the region of the working environment
+| `roleArn` |Query |No |Identifies the AMazon resource name for the connection's role.
 | `cloudProviderAccountId` |Query |No |Identifies the cloud provider account ID.
 |===
 
@@ -119,8 +119,8 @@ In addition to the parameters common with all REST API calls, the following para
 |Type
 |Required
 |Description
-| <REGION> `region` |Query |Yes |Signifies the region of the working environment
-| `roleArn` |Query |No |Identifies the 
+| <REGION> `region` |Query |Yes |Identifies the region of the working environment
+| `roleArn` |Query |No |Identifies the AMazon resource name for the connection's role.
 | `cloudProviderAccountId` |Query |No |Identifies the cloud provider account ID.
 |===
 
