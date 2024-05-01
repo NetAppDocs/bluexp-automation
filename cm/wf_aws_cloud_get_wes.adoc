@@ -67,7 +67,7 @@ The JSON output example includes an array of VSA working environments and their 
 .Example output
 [%collapsible]
 ====
-[source,json]
+----
 [
     {
         "publicId": "VsaWorkingEnvironment-79VKenHW",
@@ -178,6 +178,7 @@ The JSON output example includes an array of VSA working environments and their 
         "monitoringProperties": null
     }
 ]
+----
 ====
 
 == Get working environment for high availability pair

@@ -82,6 +82,8 @@ NOTE: If you choose to create a volume using CIFS protocol, you will need to set
 
 === Step 9. Create the working environment
 
+You can issue a REST API call to create a working environment.
+
 .HTTP method and endpoint
 
 This REST API call uses the following method and endpoint.
