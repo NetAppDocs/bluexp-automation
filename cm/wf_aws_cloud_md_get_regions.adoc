@@ -45,9 +45,6 @@ curl --request GET \
 --header "Content-Type: application/json"
 
 
-.Input
-
-None
 
 .JSON output example
 
@@ -104,10 +101,6 @@ curl --request GET \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
-
-.Input
-
-None
 
 
 .JSON output example

@@ -43,24 +43,32 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
-There are several optional query parameters you can use:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* region
-* version
-* license
-* instance_type
-* default_instance_type
-* feature
-* latest_only
-* ami
-
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `region` |Query |No |Identifies the region of the working environment.
+| `version` |Query |No |Identifies the AMazon resource name for the connection's role.
+| `license` |Query |No |Identifies the license associated with your working environment.
+| `instance_type` |Query |No |Identifies the Cloud Volumes ONTAP instance type.
+| `default_instance_type` |Query |No |Identifies the default Cloud Volumes ONTAP instance type.
+| `feature` |Query |No |Identifies the feature.
+| `latest_only` |Query |No |Identifies whether the latest instance is associated.
+| `ami` |Query |No |Identifies the Amazon machine image.
+|===
 
 .JSON output example
 The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 
-
+.Example output
+[%collapsible]
+====
 [source,json]
 [
    {
@@ -88,6 +96,7 @@ The JSON output example includes the list of Cloud Volumes ONTAP configurations.
       "upgradeableFrom": ["9.8","9.9.0"]
    }
 ]
+====
 
 == Get permutations for high availability pair
 You can use this workflow to retrieve the configuration information for an HA working environment.
@@ -112,25 +121,34 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
+.Additional input parameters
 
-.Input
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-There are several optional query parameters you can use:
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `region` |Query |No |Identifies the region of the working environment.
+| `version` |Query |No |Identifies the AMazon resource name for the connection's role.
+| `license` |Query |No |Identifies the license associated with your working environment.
+| `instance_type` |Query |No |Identifies the Cloud Volumes ONTAP instance type.
+| `default_instance_type` |Query |No |Identifies the default Cloud Volumes ONTAP instance type.
+| `feature` |Query |No |Identifies the feature.
+| `latest_only` |Query |No |Identifies whether the latest instance is associated.
+| `ami` |Query |No |Identifies the Amazon machine image.
+|===
 
-* region
-* version
-* license
-* instance_type
-* default_instance_type
-* feature
-* latest_only
-* ami
 
 .JSON output example
 
 The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 
-
+.Example output
+[%collapsible]
+====
 [source,json]
 [
     {
@@ -202,3 +220,4 @@ The JSON output example includes the list of Cloud Volumes ONTAP configurations.
         ]
     }
 ]
+====

@@ -29,7 +29,7 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-singl
 
 === Step 2. Get the VPCs
 
-Retrieve the virtual private clouds (VPCs).
+You can issue a REST API call to retrieve the virtual private clouds (VPCs).
 
 .HTTP method and endpoint
 
@@ -44,7 +44,7 @@ This REST API call uses the following method and endpoint.
 |===
 
 
-Curl example::
+.Curl example
 [source,curl]
 curl --request GET \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/vpcs?region=<REGION>" \
@@ -52,17 +52,28 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
-Query parameters:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* <REGION> `region`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <REGION> `region` |Query |Yes |Identifies the region of the working environment
+
+|===
+
 
 .JSON output example
 
 The JSON output example includes the list of virtual private clouds.
 
-
+.Example output
+[%collapsible]
+====
 [source,json]
 [
     {
@@ -151,6 +162,7 @@ The JSON output example includes the list of virtual private clouds.
         "tenancy": "default"
     }
 ]
+====
 
 == Get VPCs for high availability pair
 You can use this workflow to retrieve the VPCs for an HA working environment.
@@ -161,7 +173,7 @@ Perform the workflow link:wf_aws_cloud_md_get_regions.html#get-regions-for-high-
 
 === Step 2. Get the VPCs
 
-Retrieve the virtual private clouds (VPCs).
+You can issue a REST API call to retrieve the virtual private clouds (VPCs).
 
 .HTTP method and endpoint
 
@@ -183,17 +195,26 @@ curl --request GET \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
 
-.Input
+.Additional input parameters
 
-Query parameters:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* <REGION> `region`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <REGION> `region` |Query |Yes |Identifies the region of the working environment
+|===
 
 .JSON output example
 
 The JSON output example includes the list of virtual private clouds.
 
-
+.Example output
+[%collapsible]
+====
 [source,json]
 [
     {
@@ -282,3 +303,4 @@ The JSON output example includes the list of virtual private clouds.
         "tenancy": "default"
     }
 ]
+====
