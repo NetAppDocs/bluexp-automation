@@ -27,7 +27,7 @@ paths:
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an binding resource
+        title: Update a binding resource partially
         category: Binding
         filename: patch-bindings-.html
         subcategory: 
@@ -59,32 +59,32 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific folder resource
+        title: Retrieve a specific folder resource
         category: Hierarchy
         filename: get-folders-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates a folder resource
+        title: Update a folder resource partially
         category: Hierarchy
         filename: patch-folders-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific folder resource
+        title: Modify a specific folder resource
         category: Hierarchy
         filename: put-folders-.html
         subcategory: 
   "/folders/{folder_id}/folders":
     get:
       x-doc:
-        title: List all the folder resources under this folder
+        title: List all the folder resources 
         category: Hierarchy
         filename: get-folders-folders.html
         subcategory: 
     post:
       x-doc:
-        title: Creates a new folder resource(1)
+        title: Create a new folder resource (1)
         category: Hierarchy
         filename: post-folders-folders.html
         subcategory: 
@@ -97,149 +97,149 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific child folder belonging to a parent folder
+        title: Retrieve a specific child folder from a parent folder
         category: Hierarchy
         filename: get-folders-folders-.html
         subcategory: 
   "/folders/{folder_id}/projects":
     get:
       x-doc:
-        title: List all the project resources under this folder
+        title: List all the project resources 
         category: Hierarchy
         filename: get-folders-projects.html
         subcategory: 
     post:
       x-doc:
-        title: Creates a new project resource
+        title: Create a new project resource
         category: Hierarchy
         filename: post-folders-projects.html
         subcategory: 
   "/folders/{folder_id}/projects/{project_id}":
     delete:
       x-doc:
-        title: Removes a specific project from a folder
+        title: Remove a specific project from a folder
         category: Hierarchy
         filename: delete-folders-projects-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific project belonging to a folder
+        title: Retrieve a specific project from a folder
         category: Hierarchy
         filename: get-folders-projects-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates a project resource
+        title: Update a project resource partially
         category: Hierarchy
         filename: patch-folders-projects-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific project resource
+        title: Modify a specific project resource
         category: Hierarchy
         filename: put-folders-projects-.html
         subcategory: 
   "/folders/{folder_id}/resourcegroups":
     get:
       x-doc:
-        title: List all the resourcegroups in the folder
+        title: List all the resource groups in the folder
         category: Resource and Resourcegroup
         filename: get-folders-resourcegroups.html
         subcategory: 
     post:
       x-doc:
-        title: Add resourcegroups to a folder.
+        title: Add resource groups to a folder
         category: Resource and Resourcegroup
         filename: post-folders-resourcegroups.html
         subcategory: 
   "/folders/{folder_id}/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
-        title: Removes a specific resourcegroup resource from a folder
+        title: Remove a specific resource group from a folder
         category: Resource and Resourcegroup
         filename: delete-folders-resourcegroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resourcegroup resource belonging to a folder
+        title: Retrieve a specific resource group from a folder
         category: Resource and Resourcegroup
         filename: get-folders-resourcegroups-.html
         subcategory: 
   "/folders/{folder_id}/resources":
     get:
       x-doc:
-        title: List all the resources for a given folder
+        title: List all the resources for a specific folder
         category: Resource and Resourcegroup
         filename: get-folders-resources.html
         subcategory: 
     post:
       x-doc:
-        title: Add resources to a folder.
+        title: Add resources to a folder
         category: Resource and Resourcegroup
         filename: post-folders-resources.html
         subcategory: 
   "/folders/{folder_id}/resources/{resource_id}":
     delete:
       x-doc:
-        title: Removes a specific resource from a folder
+        title: Remove a specific resource from a folder
         category: Resource and Resourcegroup
         filename: delete-folders-resources-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resource belonging to a folder
+        title: Retrieve a specific resource belonging to a folder
         category: Resource and Resourcegroup
         filename: get-folders-resources-.html
         subcategory: 
   "/folders/{folder_id}/usergroups":
     get:
       x-doc:
-        title: List all the usergroups in the folder
+        title: List all the user groups in a folder
         category: User and Usergroup
         filename: get-folders-usergroups.html
         subcategory: 
     post:
       x-doc:
-        title: Add usergroups to a folder.
+        title: Add user groups to a folder
         category: User and Usergroup
         filename: post-folders-usergroups.html
         subcategory: 
   "/folders/{folder_id}/usergroups/{usergroup_id}":
     delete:
       x-doc:
-        title: Removes a specific usergroup from a folder
+        title: Remove a specific user group from a folder
         category: User and Usergroup
         filename: delete-folders-usergroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific usergroup belonging to a folder
+        title: Retrieve a specific user group from a folder
         category: User and Usergroup
         filename: get-folders-usergroups-.html
         subcategory: 
   "/folders/{folder_id}/users":
     get:
       x-doc:
-        title: List all the user resources for a given folder
+        title: List all the user resources for a specific folder
         category: User and Usergroup
         filename: get-folders-users.html
         subcategory: 
     post:
       x-doc:
-        title: Add users to a folder.
+        title: Add users to a folder
         category: User and Usergroup
         filename: post-folders-users.html
         subcategory: 
   "/folders/{folder_id}/users/{user_id}":
     delete:
       x-doc:
-        title: Removes a specific user from a folder
+        title: Remove a specific user from a folder
         category: User and Usergroup
         filename: delete-folders-users-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific user belonging to a folder
+        title: Retrieve a specific user belonging to a folder
         category: User and Usergroup
         filename: get-folders-users-.html
         subcategory: 
@@ -252,32 +252,32 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Creates a new organization resource
+        title: Create a new organization resource
         category: Hierarchy
         filename: post-organizations.html
         subcategory: 
   "/organizations/{organization_id}":
     delete:
       x-doc:
-        title: Deletes a specific organization resource
+        title: Delete a specific organization resource
         category: Hierarchy
         filename: delete-organizations-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific organization resource
+        title: Retrieve a specific organization resource
         category: Hierarchy
         filename: get-organizations-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an organization resource
+        title: Update an organization resource partially
         category: Hierarchy
         filename: patch-organizations-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific organization resource
+        title: Modify a specific organization resource
         category: Hierarchy
         filename: put-organizations-.html
         subcategory: 
@@ -290,59 +290,59 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Creates a new folder resource(2)
+        title: Creates a new folder resource (2)
         category: Hierarchy
         filename: post-organizations-folders.html
         subcategory: 
   "/organizations/{organization_id}/folders/{folder_id}":
     delete:
       x-doc:
-        title: Removes a specific folder from a organization
+        title: Remove a specific folder from a organization
         category: Hierarchy
         filename: delete-organizations-folders-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific folder belonging to a organization
+        title: Retrieve a specific folder belonging to an organization
         category: Hierarchy
         filename: get-organizations-folders-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates a folder resource(1)
+        title: Update a folder resource partially (1)
         category: Hierarchy
         filename: patch-organizations-folders-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific folder resource(1)
+        title: Modify a specific folder resource (1)
         category: Hierarchy
         filename: put-organizations-folders-.html
         subcategory: 
   "/organizations/{organization_id}/partnership-with":
     get:
       x-doc:
-        title: List all the organizations this organization is in a partnership with
+        title: List all the partner organizations 
         category: Partnership
         filename: get-organizations-partnership-with.html
         subcategory: 
   "/organizations/{organization_id}/partnerships":
     get:
       x-doc:
-        title: List all the partnership resources attached to this organization
+        title: List all the partnership resources attached to an organization
         category: Partnership
         filename: get-organizations-partnerships.html
         subcategory: 
   "/organizations/{organization_id}/partnerships/{partnership_id}":
     delete:
       x-doc:
-        title: Remove a partnership from the list of partnerships
+        title: Remove a partnership resource from the list of partnerships
         category: Partnership
         filename: delete-organizations-partnerships-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific partnership resource from an organization
+        title: Retrieve a specific partnership resource from an organization
         category: Partnership
         filename: get-organizations-partnerships-.html
         subcategory: 
@@ -355,91 +355,91 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Creates a new project resource(1)
+        title: Create a new project resource (1)
         category: Hierarchy
         filename: post-organizations-projects.html
         subcategory: 
   "/organizations/{organization_id}/projects/{project_id}":
     delete:
       x-doc:
-        title: Removes a specific project from a organization
+        title: Remove a specific project from a organization
         category: Hierarchy
         filename: delete-organizations-projects-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific project belonging to a organization
+        title: Retrieve a specific project belonging to an organization
         category: Hierarchy
         filename: get-organizations-projects-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates a project resource(1)
+        title: Update a project resource partially (1)
         category: Hierarchy
         filename: patch-organizations-projects-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific project resource(1)
+        title: Modify a specific project resource (1)
         category: Hierarchy
         filename: put-organizations-projects-.html
         subcategory: 
   "/organizations/{organization_id}/resourcegroups":
     get:
       x-doc:
-        title: List all the resourcegroups in the organization
+        title: List all the resource groups in the organization
         category: Resource and Resourcegroup
         filename: get-organizations-resourcegroups.html
         subcategory: 
     post:
       x-doc:
-        title: Add resourcegroups to a organization.
+        title: Add resource groups to an organization
         category: Resource and Resourcegroup
         filename: post-organizations-resourcegroups.html
         subcategory: 
   "/organizations/{organization_id}/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
-        title: Removes a specific resourcegroup resource from a organization
+        title: Remove a specific resource group from an organization
         category: Resource and Resourcegroup
         filename: delete-organizations-resourcegroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resourcegroup resource belonging to a organization
+        title: Retrieve a specific resource group of an organization
         category: Resource and Resourcegroup
         filename: get-organizations-resourcegroups-.html
         subcategory: 
   "/organizations/{organization_id}/resources":
     get:
       x-doc:
-        title: List all the resources for a given organization
+        title: List all the resources for a specific organization
         category: Resource and Resourcegroup
         filename: get-organizations-resources.html
         subcategory: 
     post:
       x-doc:
-        title: Add resources to a organization.
+        title: Add resources to an organization
         category: Resource and Resourcegroup
         filename: post-organizations-resources.html
         subcategory: 
   "/organizations/{organization_id}/resources/{resource_id}":
     delete:
       x-doc:
-        title: Removes a specific resource from a organization
+        title: Remove a specific resource from an organization
         category: Resource and Resourcegroup
         filename: delete-organizations-resources-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resource belonging to a organization
+        title: Retrieve a specific resource belonging to an organization
         category: Resource and Resourcegroup
         filename: get-organizations-resources-.html
         subcategory: 
   "/organizations/{organization_id}/roles/{role_id}/users":
     post:
       x-doc:
-        title: Associates user to an organization
+        title: Associate a user to an organization
         category: User and Usergroup
         filename: post-organizations-roles-users.html
         subcategory: 
@@ -452,91 +452,91 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Creates a new service account resource
+        title: Create a new service account resource
         category: User and Usergroup
         filename: post-organizations-serviceaccounts.html
         subcategory: 
   "/organizations/{organization_id}/serviceAccounts/{serviceaccount_id}":
     delete:
       x-doc:
-        title: Deletes a specific service account resource
+        title: Delete a specific service account resource
         category: User and Usergroup
         filename: delete-organizations-serviceaccounts-.html
         subcategory: 
     get:
       x-doc:
-        title: Get a specific service account resource
+        title: Retrieve a specific service account resource
         category: User and Usergroup
         filename: get-organizations-serviceaccounts-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an service account resource
+        title: Update a service account resource partially
         category: User and Usergroup
         filename: patch-organizations-serviceaccounts-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific service account resource
+        title: Modify a specific service account resource
         category: User and Usergroup
         filename: put-organizations-serviceaccounts-.html
         subcategory: 
   "/organizations/{organization_id}/serviceAccounts/{serviceaccount_id}/clientSecret":
     post:
       x-doc:
-        title: Creates a new client secret for service account
+        title: Create a new client secret for a service account
         category: User and Usergroup
         filename: post-organizations-serviceaccounts-clientsecret.html
         subcategory: 
   "/organizations/{organization_id}/usergroups":
     get:
       x-doc:
-        title: List all the usergroups in the organization
+        title: List all user groups in an organization
         category: User and Usergroup
         filename: get-organizations-usergroups.html
         subcategory: 
     post:
       x-doc:
-        title: Add usergroups to a organization.
+        title: Add user groups to a organization
         category: User and Usergroup
         filename: post-organizations-usergroups.html
         subcategory: 
   "/organizations/{organization_id}/usergroups/{usergroup_id}":
     delete:
       x-doc:
-        title: Removes a specific usergroup from a organization
+        title: Remove a specific user group from an organization
         category: User and Usergroup
         filename: delete-organizations-usergroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific usergroup belonging to a organization
+        title: Retrieve a specific user group from an organization
         category: User and Usergroup
         filename: get-organizations-usergroups-.html
         subcategory: 
   "/organizations/{organization_id}/users":
     get:
       x-doc:
-        title: List all the user resources for a given organization
+        title: List all user resources for an organization
         category: User and Usergroup
         filename: get-organizations-users.html
         subcategory: 
     post:
       x-doc:
-        title: Add users to a organization.
+        title: Add users to a organization
         category: User and Usergroup
         filename: post-organizations-users.html
         subcategory: 
   "/organizations/{organization_id}/users/{user_id}":
     delete:
       x-doc:
-        title: Removes a specific user from a organization
+        title: Remove a specific user from a organization
         category: User and Usergroup
         filename: delete-organizations-users-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific user belonging to a organization
+        title: Retrieve a specific user from an organization
         category: User and Usergroup
         filename: get-organizations-users-.html
         subcategory: 
@@ -549,70 +549,70 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Creates a new partnership resource
+        title: Create a new partnership resource
         category: Partnership
         filename: post-partnerships.html
         subcategory: 
   "/partnerships/{partnership_id}":
     delete:
       x-doc:
-        title: Deletes a specific partnership resource
+        title: Delete a specific partnership resource
         category: Partnership
         filename: delete-partnerships-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific partnership resource
+        title: Retrieve a specific partnership resource
         category: Partnership
         filename: get-partnerships-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an partnership resource
+        title: Update a partnership resource partially
         category: Partnership
         filename: patch-partnerships-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific partnership resource
+        title: Modify a specific partnership resource
         category: Partnership
         filename: put-partnerships-.html
         subcategory: 
   "/partnershiptypes":
     get:
       x-doc:
-        title: List all the partnershiptype resources in the collection
+        title: List all partnership type resources in the collection
         category: Resource and Resourcegroup
         filename: get-partnershiptypes.html
         subcategory: 
     post:
       x-doc:
-        title: Creates a new partnershiptype resource
+        title: Create a new partnership type resource
         category: Resource and Resourcegroup
         filename: post-partnershiptypes.html
         subcategory: 
   "/partnershiptypes/{partnershiptype_id}":
     delete:
       x-doc:
-        title: Deletes a specific partnershiptype resource
+        title: Delete a specific partnership type resource
         category: Resource and Resourcegroup
         filename: delete-partnershiptypes-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific partnershiptype resource
+        title: Retrieve a specific partnership type resource
         category: Resource and Resourcegroup
         filename: get-partnershiptypes-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an partnershiptype resource
+        title: Update a partnership type resource partially
         category: Resource and Resourcegroup
         filename: patch-partnershiptypes-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific partnershiptype resource
+        title: Modify a specific partnership type resource
         category: Resource and Resourcegroup
         filename: put-partnershiptypes-.html
         subcategory: 
@@ -625,40 +625,39 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Creates a new permission
+        title: Create a new permission
         category: Permission
         filename: post-permissions.html
         subcategory: 
   "/permissions/{permission_id}":
     delete:
       x-doc:
-        title: Deletes a specific permission
+        title: Delete a specific permission
         category: Permission
         filename: delete-permissions-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific permission
+        title: Retrieve a specific permission
         category: Permission
         filename: get-permissions-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an permission
+        title: Update a permission resource partially
         category: Permission
         filename: patch-permissions-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific permission
+        title: Modify a specific permission resource
         category: Permission
         filename: put-permissions-.html
         subcategory: 
   "/permissions/{permission_id}/bindings":
     get:
       x-doc:
-        title: List all the binding in the collection where a specific permisison
-          is referenced
+        title: List all the bindings in the collection for a specified permission
         category: Binding
         filename: get-permissions-bindings.html
         subcategory: 
@@ -671,110 +670,110 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Creates a new project resource(2)
+        title: Create a new project resource (2)
         category: Hierarchy
         filename: post-projects.html
         subcategory: 
   "/projects/{project_id}":
     delete:
       x-doc:
-        title: Deletes a specific project resource
+        title: Delete a specific project resource
         category: Hierarchy
         filename: delete-projects-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific project resource
+        title: Retrieve a specific project resource
         category: Hierarchy
         filename: get-projects-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates a project resource(2)
+        title: Update a project resource partially (2)
         category: Hierarchy
         filename: patch-projects-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific project resource(2)
+        title: Modify a specific project resource (2)
         category: Hierarchy
         filename: put-projects-.html
         subcategory: 
   "/projects/{project_id}/resourcegroups":
     get:
       x-doc:
-        title: List all the resourcegroups in the collection
+        title: List all the resource groups in the collection
         category: Resource and Resourcegroup
         filename: get-projects-resourcegroups.html
         subcategory: 
     post:
       x-doc:
-        title: Add resourcegroups to a project.
+        title: Add resource groups to a project
         category: Resource and Resourcegroup
         filename: post-projects-resourcegroups.html
         subcategory: 
   "/projects/{project_id}/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
-        title: Removes a specific resourcegroup resource from a project
+        title: Remove a specific resource group resource from a project
         category: Resource and Resourcegroup
         filename: delete-projects-resourcegroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resourcegroup resource belonging to a project
+        title: Retrieve a specific resource group for a project
         category: Resource and Resourcegroup
         filename: get-projects-resourcegroups-.html
         subcategory: 
   "/projects/{project_id}/resources":
     get:
       x-doc:
-        title: List all the resources for a given project
+        title: List all the resources for a specific project
         category: Resource and Resourcegroup
         filename: get-projects-resources.html
         subcategory: 
     post:
       x-doc:
-        title: Add resources to a project.
+        title: Add resources to a project
         category: Resource and Resourcegroup
         filename: post-projects-resources.html
         subcategory: 
   "/projects/{project_id}/resources/{resource_id}":
     delete:
       x-doc:
-        title: Removes a specific resource from a project
+        title: Remove a specific resource from a project
         category: Resource and Resourcegroup
         filename: delete-projects-resources-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resource belonging to a project
+        title: Retrieve a specific resource for a project
         category: Resource and Resourcegroup
         filename: get-projects-resources-.html
         subcategory: 
   "/projects/{project_id}/usergroups":
     get:
       x-doc:
-        title: List all the usergroups in the project
+        title: List all the user groups in the project
         category: User and Usergroup
         filename: get-projects-usergroups.html
         subcategory: 
     post:
       x-doc:
-        title: Add usergroups to a project.
+        title: Add user groups to a project
         category: User and Usergroup
         filename: post-projects-usergroups.html
         subcategory: 
   "/projects/{project_id}/usergroups/{usergroup_id}":
     delete:
       x-doc:
-        title: Removes a specific usergroup from a project
+        title: Remove a specific user group from a project
         category: User and Usergroup
         filename: delete-projects-usergroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific usergroup belonging to a project
+        title: Retrieve a specific user group for a project
         category: User and Usergroup
         filename: get-projects-usergroups-.html
         subcategory: 
@@ -787,58 +786,58 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Add users to a project.
+        title: Add users to a project
         category: User and Usergroup
         filename: post-projects-users.html
         subcategory: 
   "/projects/{project_id}/users/{user_id}":
     delete:
       x-doc:
-        title: Removes a specific user from a project
+        title: Remove a specific user from a project
         category: User and Usergroup
         filename: delete-projects-users-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific user belonging to a project
+        title: Retrieve a specific user belonging to a project
         category: User and Usergroup
         filename: get-projects-users-.html
         subcategory: 
   "/resourcegroups":
     get:
       x-doc:
-        title: List all the resourcegroups in the collection(1)
+        title: List all the resourcegroups in the collection (1)
         category: Resource and Resourcegroup
         filename: get-resourcegroups.html
         subcategory: 
     post:
       x-doc:
-        title: Creates a new resourcegroup
+        title: Create a new resource group
         category: Resource and Resourcegroup
         filename: post-resourcegroups.html
         subcategory: 
   "/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
-        title: Deletes a specific resourcegroup
+        title: Delete a specific resource group
         category: Resource and Resourcegroup
         filename: delete-resourcegroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resourcegroup resource
+        title: Retrieve a specific resource group 
         category: Resource and Resourcegroup
         filename: get-resourcegroups-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an resourcegroup resource
+        title: Update a resource group resource
         category: Resource and Resourcegroup
         filename: patch-resourcegroups-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific resourcegroup resource
+        title: Modify a specific resource group resource
         category: Resource and Resourcegroup
         filename: put-resourcegroups-.html
         subcategory: 
@@ -852,64 +851,64 @@ paths:
   "/resourcegroups/{resourcegroup_id}/resources":
     get:
       x-doc:
-        title: List all the resources for a given resourcegroup
+        title: List all the resources for a specific resourcegroup
         category: Resource and Resourcegroup
         filename: get-resourcegroups-resources.html
         subcategory: 
     post:
       x-doc:
-        title: Add resources to a resourcegroup.
+        title: Add resources to a resource group
         category: Resource and Resourcegroup
         filename: post-resourcegroups-resources.html
         subcategory: 
   "/resourcegroups/{resourcegroup_id}/resources/{resource_id}":
     delete:
       x-doc:
-        title: Removes a specific resource from a resourcegroup
+        title: Remove a specific resource from a resource group
         category: Resource and Resourcegroup
         filename: delete-resourcegroups-resources-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resource belonging to a resourcegroup
+        title: Retrieve a specific resource belonging to a resource group
         category: Resource and Resourcegroup
         filename: get-resourcegroups-resources-.html
         subcategory: 
   "/resources":
     get:
       x-doc:
-        title: List all the resource resources in the collection
+        title: List all the resources in the collection
         category: Resource and Resourcegroup
         filename: get-resources.html
         subcategory: 
     post:
       x-doc:
-        title: Creates a new resource resource
+        title: Create a new resource 
         category: Resource and Resourcegroup
         filename: post-resources.html
         subcategory: 
   "/resources/{resource_id}":
     delete:
       x-doc:
-        title: Deletes a specific resource resource
+        title: Delete a specific resource 
         category: Resource and Resourcegroup
         filename: delete-resources-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieves a specific resource resource
+        title: Retrieve a specific resource 
         category: Resource and Resourcegroup
         filename: get-resources-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an resource resource
+        title: Update a resource 
         category: Resource and Resourcegroup
         filename: patch-resources-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific resource resource
+        title: Modify a specific resource 
         category: Resource and Resourcegroup
         filename: put-resources-.html
         subcategory: 
@@ -923,35 +922,34 @@ paths:
   "/resources/{resource_id}/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection available on the
-          resource
+        title: List all the permission resources in the collection for a resource
         category: Permission
         filename: get-resources-permissions.html
         subcategory: 
   "/resources/{resource_id}/users":
     get:
       x-doc:
-        title: List all the user who have any permission on this resource.
+        title: List all the users 
         category: User and Usergroup
         filename: get-resources-users.html
         subcategory: 
   "/resourcetypes":
     get:
       x-doc:
-        title: List all the resourcetype resources in the collection
+        title: List all the resource type resources in the collection
         category: Resource and Resourcegroup
         filename: get-resourcetypes.html
         subcategory: 
     post:
       x-doc:
-        title: Creates a new resourcetype resource
+        title: Create a new resource type 
         category: Resource and Resourcegroup
         filename: post-resourcetypes.html
         subcategory: 
   "/resourcetypes/{resourcetype_id}":
     get:
       x-doc:
-        title: Retrieves a specific resourcetype resource
+        title: Retrieve a specific resource type 
         category: Resource and Resourcegroup
         filename: get-resourcetypes-.html
         subcategory: 
@@ -983,13 +981,13 @@ paths:
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an role resource
+        title: Update role resource partially
         category: Role
         filename: patch-roles-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific role resource
+        title: Modify a specific role resource
         category: Role
         filename: put-roles-.html
         subcategory: 
@@ -1003,7 +1001,7 @@ paths:
   "/roles/{role_id}/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection(1)
+        title: List all the permission resources in the collection (1)
         category: Permission
         filename: get-roles-permissions.html
         subcategory: 
@@ -1016,7 +1014,7 @@ paths:
   "/roles/{role_id}/permissions/{permission_id}":
     delete:
       x-doc:
-        title: Delete a specific permission(1)
+        title: Delete a specific permission (1)
         category: Permission
         filename: delete-roles-permissions-.html
         subcategory: 
@@ -1054,92 +1052,91 @@ paths:
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates a tag resource
+        title: Update a tag resource partially
         category: Tag
         filename: patch-tags-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific tag resource
+        title: Modify a specific tag resource
         category: Tag
         filename: put-tags-.html
         subcategory: 
   "/usergroups":
     get:
       x-doc:
-        title: List all the usergroups in the collection
+        title: List all the user groups in the collection
         category: User and Usergroup
         filename: get-usergroups.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new usergroup
+        title: Create a new user group
         category: User and Usergroup
         filename: post-usergroups.html
         subcategory: 
   "/usergroups/{usergroup_id}":
     delete:
       x-doc:
-        title: Delete a specific usergroup
+        title: Delete a specific user group
         category: User and Usergroup
         filename: delete-usergroups-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a specific usergroup
+        title: Retrieve a specific user group
         category: User and Usergroup
         filename: get-usergroups-.html
         subcategory: 
     patch:
       x-doc:
-        title: Partially update an usergroup
+        title: Update a user group partially
         category: User and Usergroup
         filename: patch-usergroups-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a specific usergroup
+        title: Modify a specific user group
         category: User and Usergroup
         filename: put-usergroups-.html
         subcategory: 
   "/usergroups/{usergroup_id}/bindings":
     get:
       x-doc:
-        title: List all the binding in the collection where specific usergroup is
-          referenced.
+        title: List all the binding in the collection 
         category: Binding
         filename: get-usergroups-bindings.html
         subcategory: 
   "/usergroups/{usergroup_id}/users":
     get:
       x-doc:
-        title: List all the user resources for a given user
+        title: List all the user resources for a specific user
         category: User and Usergroup
         filename: get-usergroups-users.html
         subcategory: 
     post:
       x-doc:
-        title: Add users to a usergroup
+        title: Add users to a user group
         category: User and Usergroup
         filename: post-usergroups-users.html
         subcategory: 
   "/usergroups/{usergroup_id}/users/{user_id}":
     delete:
       x-doc:
-        title: Remove a specific user from a usergroup
+        title: Remove a specific user from a user group
         category: User and Usergroup
         filename: delete-usergroups-users-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a specific user belonging to a usergroup
+        title: Retrieve a specific user belonging to a user group
         category: User and Usergroup
         filename: get-usergroups-users-.html
         subcategory: 
   "/users":
     get:
       x-doc:
-        title: List all the user resources in the collection(1)
+        title: List all the user resources in the collection (1)
         category: User and Usergroup
         filename: get-users.html
         subcategory: 
@@ -1164,55 +1161,55 @@ paths:
         subcategory: 
     patch:
       x-doc:
-        title: Partially updates an user
+        title: Update a user resource partially
         category: User and Usergroup
         filename: patch-users-.html
         subcategory: 
     put:
       x-doc:
-        title: Modifies a specific user
+        title: Modify a specific user resource
         category: User and Usergroup
         filename: put-users-.html
         subcategory: 
   "/users/{user_id}/bindings":
     get:
       x-doc:
-        title: List all the binding in the collection where specific user is referenced.
+        title: List all the binding in the collection 
         category: Binding
         filename: get-users-bindings.html
         subcategory: 
   "/users/{user_id}/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection the user has
+        title: List all the permission resources in the collection 
         category: Permission
         filename: get-users-permissions.html
         subcategory: 
   "/users/{user_id}/permissions/{permission_id}/resources":
     get:
       x-doc:
-        title: List all the resources the user has a particular permission on.
+        title: List all the resources 
         category: Resource and Resourcegroup
         filename: get-users-permissions-resources.html
         subcategory: 
   "/users/{user_id}/resources":
     get:
       x-doc:
-        title: List all the resources accessible to a given user
+        title: List all the resources accessible to a specific user
         category: Resource and Resourcegroup
         filename: get-users-resources.html
         subcategory: 
   "/users/{user_id}/resources/{resource_id}":
     get:
       x-doc:
-        title: Check if a user has any permission on a specific resource.
+        title: Check whether a user has permission on a specific resource
         category: Resource and Resourcegroup
         filename: get-users-resources-.html
         subcategory: 
   "/users/{user_id}/resources/{resource_id}/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection the user has on
+        title: List all the permission resources in the collection 
           the resource
         category: Permission
         filename: get-users-resources-permissions.html
@@ -1220,22 +1217,21 @@ paths:
   "/users/{user_id}/resources/{resource_id}/permissions/{permission_id}":
     get:
       x-doc:
-        title: Retrieve if a specific permission is available on the resource for
-          the user.
+        title: Retrieve a specific permission available on the resource 
         category: Permission
         filename: get-users-resources-permissions-.html
         subcategory: 
   "/users/{user_id}/roles":
     get:
       x-doc:
-        title: List all the role resources in the collection(1**)
+        title: List all the role resources in the collection (1**)
         category: Role
         filename: get-users-roles.html
         subcategory: 
   resources/{resource_id}/permissions/{permission_id}/users:
     get:
       x-doc:
-        title: List all the users that have a permission on a particular resource.
+        title: List all the users that have a permission on a particular resource
         category: User and Usergroup
         filename: getresources-permissions-users.html
         subcategory: 
