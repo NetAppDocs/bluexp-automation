@@ -5,7 +5,7 @@ keywords: cloud, manager, rest, api, modify, volume,
 summary: "You can modify the configuration of an existing volume."
 ---
 
-= Modify volume
+= Modify a volume
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -20,18 +20,24 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 * <<Modify volume for single node, Single Node>>
 * <<Modify volume for high availability pair, HA pair>>
 
-== Modify volume for single node
+== Modify a volume for single node
 You can use this workflow to modify the configuration of an existing volume for a single node working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
 
-=== 2. Select the volume
+=== Step 2. Select the volume
 
 Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single-node[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
-=== 3. Modify the volume
+=== Step 3. Modify the volume
+
+You can issue a REST API call to modify an existing volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -42,50 +48,86 @@ Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single
 |===
 
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request PUT  \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-Path parameters:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <VOLUME_NAME> `(volumeName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <WORKING_ENV_ID> `(workingEnvironmentId)` |Path |Yes |Identifies the working environment.
+| <SVM_NAME> `(svmName)` |Path |Yes |Identifies the storage VM.
+| <VOLUME_NAME> `(volumeName)` |Path |Yes |Identifies the volume.
+|===
+
+
+.JSON input example
 
 The JSON input example includes the minimum list of input parameters.
 
-JSON input example::
+[NOTE]
+The `exportpolicyInfo -> policyType` parameter can have two values: 
+* When `policyType:none`, the rules parameter should be empty 
+* When `policyType:custom`, the rules parameter must have at least one rule
+
 [source,json]
 {
-  "exportPolicyInfo": {
-    "policyType": "custom",
-    "ips": [
-      "172.31.0.0/16"
-    ],
+ "exportPolicyInfo": {
+  "policyType": "custom",
+  "ips": [
+    "10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"
+  ],
+  "nfsVersion": [
+    "any"
+  ],
+  "rules": [
+   {
+    "index": 1,
+    "ruleAccessControl": "readwrite",
+    "ips": ["10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"],
     "nfsVersion": [
-      "nfs3"
-    ]
-  }
+      "any"
+     ],
+    "superUser": "True"
+    }
+  ]
+ }
 }
 
-Output::
+.Output
 
 None
 
 == Modify volume for high availability pair
 You can use this workflow to modify the configuration of an existing volume for an HA working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and `svmName` values for the `workingEnvironmentId` and `svmName` path parameters.
 
-=== 2. Select the volume
+=== Step 2. Select the volume
 
 Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` for the `volumeName` path parameter.
 
-=== 3. Modify the volume
+=== Step 3. Modify the volume
+
+Ypu can issue a REST API call to modify an existing volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -95,34 +137,66 @@ Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-ava
 |/occm/api/aws/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request PUT  \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
 
-Path parameters:
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <VOLUME_NAME> `(volumeName)`
+.Additional input parameters
+
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example.
+
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| <WORKING_ENV_ID> `(workingEnvironmentId)` |Path |Yes |Identifies the working environment.
+| <SVM_NAME> `(svmName)` |Path |Yes |Identifies the storage VM.
+| <VOLUME_NAME> `(volumeName)` |Yes |No |Identifies the volume.
+|===
+
+.JSON input example
 
 The JSON input example includes the minimum list of input parameters.
 
-JSON input example::
+[NOTE]
+The `exportpolicyInfo -> policyType` parameter can have two values: 
+* When `policyType:none`, the rules parameter should be empty 
+* When `policyType:custom`, the rules parameter must have at least one rule
+
 [source,json]
 {
-  "exportPolicyInfo": {
-    "policyType": "custom",
-    "ips": [
-      "172.31.0.0/16"
-    ],
+ "exportPolicyInfo": {
+  "policyType": "custom",
+  "ips": [
+    "10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"
+  ],
+  "nfsVersion": [
+    "any"
+  ],
+  "rules": [
+   {
+    "index": 1,
+    "ruleAccessControl": "readwrite",
+    "ips": ["10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"],
     "nfsVersion": [
-      "nfs3"
-    ]
-  }
+      "any"
+     ],
+    "superUser": "True"
+    }
+  ]
+ }
 }
 
-Output::
+.Output
 
 None
