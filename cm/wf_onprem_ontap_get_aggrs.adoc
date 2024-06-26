@@ -15,11 +15,17 @@ summary: 'You can retrieve a list of available disk aggregates.'
 [.lead]
 You can retrieve a list of available disk aggregates.
 
-== 1. Select the working environment to use
+== Step 1. Select the working environment to use
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-== 2. Get a list of aggregates
+== Step 2. Get a list of aggregates
+
+You can issue a REST API call to retrieve a list of aggregates.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -29,19 +35,33 @@ Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and c
 |/occm/api/onprem/aggregates/{workingEnvironmentId}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/aggregates?workingEnvironmentId=<ONPREM_WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/onprem/aggregates?workingEnvironmentId=<ONPREM_WORKING_ENV_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.JSON output example
+
 An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
 
-JSON output example::
-[source,json]
+----
 [
   {
     "name": "aggr2",
@@ -86,5 +106,6 @@ JSON output example::
     "availabilityState": "available"
   }
 ]
+----
 
 
