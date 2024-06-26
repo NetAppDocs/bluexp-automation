@@ -53,7 +53,7 @@ The JSON input example includes the minimum list of parameters.
 |Type
 |Required
 |Description
-|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment 
 |`svm` |Query |No |Identifies the SVM
 |===
 

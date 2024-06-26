@@ -21,6 +21,12 @@ Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and c
 
 == Step 2. Get the volumes
 
+You can issue a REST API call to retrieve the volumes.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
@@ -43,7 +49,7 @@ The JSON input example includes the minimum list of parameters.
 |Type
 |Required
 |Description
-|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment 
 |===
 
 
@@ -51,6 +57,7 @@ The JSON input example includes the minimum list of parameters.
 
 The JSON output example includes the list of volumes for the working environment.
 
+.Example output
 ----
 [
   {
