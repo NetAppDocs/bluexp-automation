@@ -15,15 +15,21 @@ summary: "You can delete an NetApp Support Site key."
 [.lead]
 You can delete an NetApp Support Site (NSS) key.
 
-=== 1. Select the account to use
+== Step 1. Select the account to use
 
 Perform the workflow link:wf_common_identity_get_supported_srv.html[Get supported services] and choose the `accountId` value for the path parameter.
 
-=== 2. Select the NSS key to delete
+== Step 2. Select the NSS key to delete
 
 Perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` value for the `nssKeyID` parameter.
 
-=== 3. Delete the NSS keys
+== Step 3. Delete the NSS keys
+
+You can issue a REST API call to delete the NSS keys.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,15 +39,29 @@ Perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and
 |/ipa/account/{accountId}/nss-keys/{nssKeyId}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key/<NSS_KEY_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE \
+--location "https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key/<NSS_KEY_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Additional input parameters
 
-* Path parameter <ACCOUNT_ID> `(accountId)`
-* Path parameter <NSS_KEY_ID> `(nssKeyId)`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<ACCOUNT_ID> `(accountId)` |Path |Yes |Identifies the account
+|<NSS_KEY_ID> `(nssKeyId)` |Path |Yes |Identifies the NSS key
+|===
+
+
+.Output
 
 None

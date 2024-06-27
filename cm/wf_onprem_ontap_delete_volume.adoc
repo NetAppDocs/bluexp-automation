@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_onprem_ontap_delete_volume.html
-keywords: delete, volume, cloud, manager, rest, api, existing, volume, aws, workflows
+keywords: delete, volume, bluexp, rest, api, existing, volume, aws, workflows
 summary: "You can delete an existing volume."
 ---
 
-= Delete volume
+= Delete a volume
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,17 +13,23 @@ summary: "You can delete an existing volume."
 :imagesdir: ./media/
 
 [.lead]
-You can use this workflow to delete volumes.
+You can use this workflow to delete a volume.
 
-== 1. Select the working environment
+== Step 1. Select the working environment
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values of the working environment  for the `workingEnvironmentId` and `svmName` path parameters.
 
-== 2. Select the volume
+== Step 2. Select the volume
 
 Perform the workflow link:wf_onprem_ontap_get_volumes.html[Get volumes] and choose the `name` of the required volume for the `volumeName` path parameter.
 
-== 3. Delete the volume
+== Step 3. Delete the volume
+
+You can issue a REST API call to delete a volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -34,19 +40,29 @@ Perform the workflow link:wf_onprem_ontap_get_volumes.html[Get volumes] and choo
 |===
 
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes/<ONPREM_WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes/<ONPREM_WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <VOLUME_NAME> `(volumeName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Path |Yes |Identifies the SVM name
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+| <AGGR_NAME> `(aggregateName)` |Path |Yes |Identifies the aggregate 
+|===
 
-Output::
+.Output
 
 None
 
