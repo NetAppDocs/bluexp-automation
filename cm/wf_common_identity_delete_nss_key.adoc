@@ -44,8 +44,8 @@ This REST API call uses the following method and endpoint.
 curl --request DELETE \
 --location "https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key/<NSS_KEY_ID>" \
 --header "Content-Type: application/json" \
---header 'x-agent-id: <AGENT_ID>' \
---header 'Authorization: Bearer <ACCESS_TOKEN>'
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
 .Additional input parameters
 
