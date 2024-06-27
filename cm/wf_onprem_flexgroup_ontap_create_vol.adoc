@@ -28,11 +28,11 @@ You can use this workflow to create an ONTAP FlexGroup volume.
 * FlexGroup volumes are not supported as a source for data replication from the BlueXP replication service.
 * FlexGroup volumes do not support iSCSI block protocol.
 
-== 1. Select the working environment
+== Step 1. Select the working environment
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` and the `svmName` input parameters.
 
-== 2. Select the aggregates and constituents 
+== Step 2. Select the aggregates and constituents 
 
 * Select one or more aggregates as needed. 
 Perform the workflow link:wf_onprem_ontap_get_aggrs.html[Get aggregates] and choose the `name` values of the aggregates for the `flexGroupVolumeInfo` -> `aggregateList` input parameter. 
@@ -47,16 +47,21 @@ As a general rule, the minimum or maximum size limit of a FlexGroup volume is ba
 * The `flexGroupVolumeInfo` -> `numberOfConstituents` parameter in the API request signifies the total number constituents of a FlexGroup volume. This number must be distributed equally among the required aggregates in the `flexGroupVolumeInfo` -> `aggregateList` list, otherwise the API call will fail.
 ====
 
-== 3. Select the network 
+== Step 3. Select the network 
 
 Choose the desired value for the `exportPolicyInfo` input parameter. You need to specify your internal network IP for the `ips` input parameter that can access a volume.
 
-== 4. Choose the size for the disk
+== Step 4. Choose the size for the disk
 
 Choose the size value for the `size:size` input parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
+== Step 5. Create the volume
 
-== 5. Create the volume
+You can issue the REST API call to create a volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -66,19 +71,33 @@ Choose the size value for the `size:size` input parameter. The `size:unit` must 
 |/occm/api/onprem/volumes
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
 
-Input::
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters, including:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<WORKING_ENV_ID> `(workingEnvironmentId)` |Query |No |Identifies the number of fields you will retrieve
+|<SVM_NAME> `(svmName)`|Query |Yes |Identifies the working environment ID
+|===
 
-JSON input example::
+
+
+.JSON input example
 [source,json]
 {
   "verifyNameUniqueness": true,
@@ -122,7 +141,7 @@ JSON input example::
 }
 
 
-Output::
+.JSON Output
 
 None
 
