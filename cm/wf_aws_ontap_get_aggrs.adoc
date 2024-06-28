@@ -23,57 +23,93 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get aggregates for single node
 You can use this workflow to retrieve the aggregates for a single node working environment.
 
-=== 1. Select the working environment to use
+=== Step 1. Select the working environment to use
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Get the list of aggregates
+=== Step 2. Get the list of aggregates
+
+You can issue the REST API call to get a list of aggregates.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
 |Path
 |GET
-|/occm/api/vsa/aggregates/{workingEnvironmentId}
+|/occm/api/ontaps/working-environments/{workingEnvironmentId}/aggregates
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://api.bluexp.netapp.com/occm/api/ontaps/working-environments/<WORKING_ENV_ID>/aggregates" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.JSON output example
 An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "name": "aggr1",
         "availableCapacity": {
-            "size": 87.55,
+            "size": 906.09,
             "unit": "GB"
         },
         "totalCapacity": {
-            "size": 88.57,
+            "size": 907.12,
             "unit": "GB"
         },
         "usedCapacity": {
-            "size": 1.02,
+            "size": 1.03,
             "unit": "GB"
         },
         "volumes": [
             {
-                "name": "svm_ziv01we01_root",
+                "name": "volume1",
                 "totalSize": {
-                    "size": 1.0,
+                    "size": 1,
                     "unit": "GB"
                 },
                 "usedSize": {
-                    "size": 0.00115203857421875,
+                    "size": 0.012531280517578125,
+                    "unit": "GB"
+                },
+                "thinProvisioned": true,
+                "isClone": false,
+                "rootVolume": false
+            },
+            {
+                "name": "xx",
+                "totalSize": {
+                    "size": 1,
+                    "unit": "GB"
+                },
+                "usedSize": {
+                    "size": 1.0104827880859375,
                     "unit": "GB"
                 },
                 "thinProvisioned": false,
@@ -83,230 +119,464 @@ JSON output example::
         ],
         "providerVolumes": [
             {
-                "id": "vol-066fea889cbc6a65c",
-                "name": "vol-066fea889cbc6a65c",
+                "id": "xx",
+                "name": "vxx",
                 "size": {
-                    "size": 100.0,
+                    "size": 256,
                     "unit": "GB"
                 },
                 "state": "in-use",
-                "device": "/dev/xvdg",
-                "instanceId": "i-0fa9a2879e67a8829",
-                "diskType": "gp2",
+                "device": "/xx/xxx",
+                "instanceId": "xx",
+                "diskType": "gp3",
                 "encrypted": true,
-                "iops": null
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "xx",
+                "name": "xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "xx",
+                "instanceId": "xx3",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "xx",
+                "name": "xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "xx",
+                "instanceId": "xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "xx",
+                "name": "xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/dev/xvdj",
+                "instanceId": "xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
             }
         ],
         "disks": [
             {
+                "name": "NET-1.5",
+                "containerType": "aggregate",
+                "ownerNode": "pxx",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
                 "name": "NET-1.3",
-                "position": "data",
-                "ownerNode": "ziv01we01-01",
-                "device": "xvdg vol066fea889cbc6a65c",
-                "vmDiskProperties": null
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xe",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "NET-1.4",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "NET-1.6",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
             }
         ],
         "state": "online",
         "encryptionType": "cloudEncrypted",
         "encryptionKeyId": null,
         "isRoot": false,
-        "homeNode": "ziv01we01-01",
-        "ownerNode": "ziv01we01-01",
-        "capacityTier": null,
-        "capacityTierUsed": null,
+        "homeNode": "xx",
+        "ownerNode": "xx",
+        "capacityTier": "S3",
+        "capacityTierUsed": {
+            "size": 0,
+            "unit": "GB"
+        },
         "sidlEnabled": true,
-        "snaplockType": "non_snaplock"
+        "snaplockType": "non_snaplock",
+        "evCompatibilityType": "ev",
+        "iops": 12000
     }
 ]
+----
+====
 
 == Get aggregates for high availability pair
 You can use this workflow to retrieve the aggregates for an HA working environment.
 
-=== 1. Select the working environment to use
+=== Step 1. Select the working environment to use
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Get the list of aggregates
+=== Step 2. Get the list of aggregates
 
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
 |Path
 |GET
-|/occm/api/aws/ha/aggregates/{workingEnvironmentId}
+|/occm/api/ontaps/working-environments/{workingEnvironmentId}/aggregates
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://api.bluexp.netapp.com/occm/api/ontaps/working-environments/<WORKING_ENV_ID>/aggregates" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.JSON output example
+
 An array of aggregates for the indicated working environment is returned as shown in the JSON output example.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "name": "aggr1",
         "availableCapacity": {
-            "size": 83.13,
+            "size": 860.72,
             "unit": "GB"
         },
         "totalCapacity": {
-            "size": 84.14,
+            "size": 861.76,
             "unit": "GB"
         },
         "usedCapacity": {
-            "size": 1.02,
+            "size": 1.04,
             "unit": "GB"
         },
         "volumes": [
             {
-                "name": "svm_ziv04we01ha_root",
+                "name": "svm_svm",
                 "totalSize": {
-                    "size": 1.0,
+                    "size": 1,
                     "unit": "GB"
                 },
                 "usedSize": {
-                    "size": 7.0953369140625E-4,
+                    "size": 1.0102500915527344,
                     "unit": "GB"
                 },
                 "thinProvisioned": false,
                 "isClone": false,
                 "rootVolume": true
+            },
+            {
+                "name": "myvolume1",
+                "totalSize": {
+                    "size": 1,
+                    "unit": "GB"
+                },
+                "usedSize": {
+                    "size": 0.014575958251953125,
+                    "unit": "GB"
+                },
+                "thinProvisioned": true,
+                "isClone": false,
+                "rootVolume": false
             }
         ],
         "providerVolumes": [
             {
-                "id": "vol-0d5d1983432218cec",
-                "name": "vol-0d5d1983432218cec",
+                "id": "vol-xx",
+                "name": "vol-xx",
                 "size": {
-                    "size": 100.0,
+                    "size": 256,
                     "unit": "GB"
                 },
                 "state": "in-use",
-                "device": "/dev/xvdh",
-                "instanceId": "i-053d9d1bce8121c43",
-                "diskType": "gp2",
+                "device": "/cc/xx",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
                 "encrypted": true,
-                "iops": null
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
             },
             {
-                "id": "vol-0a3fe8eaed2af69de",
-                "name": "vol-0a3fe8eaed2af69de",
+                "id": "vol-xx",
+                "name": "vol-xx",
                 "size": {
-                    "size": 100.0,
+                    "size": 256,
                     "unit": "GB"
                 },
                 "state": "in-use",
-                "device": "/dev/xvdh",
-                "instanceId": "i-0392f55ca4bc06322",
-                "diskType": "gp2",
+                "device": "/cc/xx",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
                 "encrypted": true,
-                "iops": null
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "vol-xx",
+                "name": "vol-0xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/xx/xx",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "vol-xx",
+                "name": "vol-xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/dxx/xxxi",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "vol-0xx",
+                "name": "vol-xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/xx/xx",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "vol-xx",
+                "name": "vol-xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/xx/xx",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "vol-xx",
+                "name": "vol-xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/dev/xvdk",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "vol-xx",
+                "name": "vol-xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "/xx/xx",
+                "instanceId": "i-xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
             }
         ],
         "disks": [
             {
-                "name": "NET-1.4",
-                "position": "data",
-                "ownerNode": "ziv04we01ha-01",
-                "device": "xvdh vol0d5d1983432218cec",
-                "vmDiskProperties": null
+                "name": "xx",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
             },
             {
-                "name": "NET-2.4",
-                "position": "data",
-                "ownerNode": "ziv04we01ha-01",
-                "device": "xvdh vol0a3fe8eaed2af69de",
-                "vmDiskProperties": null
+                "name": "xx",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "Nxx",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xxx9",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "xx",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "xx",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xvdk xxe768",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "xx",
+                "containerType": "aggregate",
+                "ownerNode": "pxx-01",
+                "device": "xvdj xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "xx",
+                "containerType": "aggregate",
+                "ownerNode": "xx1",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
+            },
+            {
+                "name": "xx",
+                "containerType": "aggregate",
+                "ownerNode": "xx",
+                "device": "xx",
+                "vmDiskProperties": {
+                    "objectName": null,
+                    "storageAccountName": null,
+                    "containerName": null
+                }
             }
         ],
         "state": "online",
-        "encryptionType": "cloudEncrypted",
+        "encryptionType": "xx",
         "encryptionKeyId": null,
         "isRoot": false,
-        "homeNode": "ziv04we01ha-01",
-        "ownerNode": "ziv04we01ha-01",
-        "capacityTier": null,
-        "capacityTierUsed": null,
-        "sidlEnabled": true,
-        "snaplockType": "non_snaplock"
-    },
-    {
-        "name": "ziv04we01haagg01",
-        "availableCapacity": {
-            "size": 84.14,
+        "homeNode": "xx",
+        "ownerNode": "xx",
+        "capacityTier": "S3",
+        "capacityTierUsed": {
+            "size": 0,
             "unit": "GB"
         },
-        "totalCapacity": {
-            "size": 84.14,
-            "unit": "GB"
-        },
-        "usedCapacity": {
-            "size": 156.0,
-            "unit": "KB"
-        },
-        "volumes": [],
-        "providerVolumes": [
-            {
-                "id": "vol-0149ffa06bb4e92ad",
-                "name": "vol-0149ffa06bb4e92ad",
-                "size": {
-                    "size": 100.0,
-                    "unit": "GB"
-                },
-                "state": "in-use",
-                "device": "/dev/xvdi",
-                "instanceId": "i-0392f55ca4bc06322",
-                "diskType": "gp2",
-                "encrypted": true,
-                "iops": null
-            },
-            {
-                "id": "vol-03e6ada9e893b1196",
-                "name": "vol-03e6ada9e893b1196",
-                "size": {
-                    "size": 100.0,
-                    "unit": "GB"
-                },
-                "state": "in-use",
-                "device": "/dev/xvdi",
-                "instanceId": "i-053d9d1bce8121c43",
-                "diskType": "gp2",
-                "encrypted": true,
-                "iops": null
-            }
-        ],
-        "disks": [
-            {
-                "name": "NET-2.5",
-                "position": "data",
-                "ownerNode": "ziv04we01ha-01",
-                "device": "xvdi vol0149ffa06bb4e92ad",
-                "vmDiskProperties": null
-            },
-            {
-                "name": "NET-1.5",
-                "position": "data",
-                "ownerNode": "ziv04we01ha-01",
-                "device": "xvdi vol03e6ada9e893b1196",
-                "vmDiskProperties": null
-            }
-        ],
-        "state": "online",
-        "encryptionType": "cloudEncrypted",
-        "encryptionKeyId": null,
-        "isRoot": false,
-        "homeNode": "ziv04we01ha-01",
-        "ownerNode": "ziv04we01ha-01",
-        "capacityTier": null,
-        "capacityTierUsed": null,
         "sidlEnabled": true,
-        "snaplockType": "non_snaplock"
+        "snaplockType": "non_snaplock",
+        "evCompatibilityType": "ev",
+        "iops": 12000
     }
 ]
+----
+====
