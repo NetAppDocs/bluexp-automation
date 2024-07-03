@@ -30,6 +30,12 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 
 === 2. Get the iGroups configuration
 
+You can issue the REST API call to retrieve the iGroups configuration.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
@@ -38,21 +44,35 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 |/occm/api/vsa/volumes/igroups/{workingEnvironmentId}/{svmName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>" \ 
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID>
-* Path parameter <SVM_NAME>
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> |Path |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.Output
 
 The JSON output example includes a list of iGroups.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "igroupName": "zivIgroup1",
@@ -73,15 +93,22 @@ JSON output example::
         ]
     }
 ]
+----
 
 == Get iGroups for high availability pair
 You can use this workflow to retrieve the iGroups for an HA working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` and `svmName` values of the working environment for the `workingEnvironmentId` and `svmName` path parameters.
 
-=== 2. Get the CIFS configurations
+=== Step 2. Get the CIFS configurations
+
+You can issue the REST API call to retrieve the CIFS configurations.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -91,21 +118,35 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 |/occm/api/aws/ha/volumes/igroups/{workingEnvironmentId}/{svmName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location  "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID>
-* Path parameter <SVM_NAME>
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> |Path |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.Output
 
 The JSON output example includes a list of iGroups.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "igroupName": "zivIgroup1",
@@ -126,3 +167,4 @@ JSON output example::
         ]
     }
 ]
+----

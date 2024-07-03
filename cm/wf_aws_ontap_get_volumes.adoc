@@ -23,11 +23,18 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get volumes for single node
 You can use this workflow to retrieve a list of volumes for a single node working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` query parameter.
 
-=== 2. Get the volumes
+=== Step 2. Get the volumes
+
+You can issue the REST API call to retrieve volumes.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -37,20 +44,33 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 |/occm/api/vsa/volumes
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes?workingEnvironmentId=<WORKING_ENV_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Query parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|===
+
+.Output
 
 The JSON output example includes the list of volumes for the working environment.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "name": "ziv02vol01",
@@ -135,6 +155,7 @@ JSON output example::
         "isFlexGroupVolume": false
     }
 ]
+----
 
 == Get volumes for high availability pair
 You can use this workflow to retrieve a list of volumes for an HA working environment.
@@ -145,6 +166,13 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 
 === 2. Get the volumes
 
+You can issue the REST API call to retrieve volumes.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
+
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
@@ -153,19 +181,34 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 |/occm/api/aws/ha/volumes
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location  "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes?workingEnvironmentId=<WORKING_ENV_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Query parameter <WORKING_ENV_ID> `(workingEnvironmentId)`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|===
+
+
+.Output
 
 The JSON output example includes the list of volumes for the working environment.
 
-[source,json]
+.JSON output example
+----
 [
 {
         "name": "ziv04we01haagg01vol01",
@@ -251,3 +294,4 @@ The JSON output example includes the list of volumes for the working environment
         "isFlexGroupVolume": false
     }
 ]
+----

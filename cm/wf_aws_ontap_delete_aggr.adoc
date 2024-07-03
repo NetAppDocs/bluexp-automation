@@ -5,7 +5,7 @@ keywords: aggregate, delete, working, environment, aws, workflows
 summary: 'You can delete an existing disk aggregate.'
 ---
 
-= Delete aggregate
+= Delete an aggregate
 :hardbreaks:
 :nofooter:
 :icons: font
