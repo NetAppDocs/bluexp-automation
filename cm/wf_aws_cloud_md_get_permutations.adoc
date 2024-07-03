@@ -23,7 +23,9 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get permutations for single node
 You can use this workflow to retrieve the configuration information for a single node working environment.
 
-=== 1. Get the permutations
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,29 +35,41 @@ You can use this workflow to retrieve the configuration information for a single
 |/occm/api/vsa/metadata/permutations
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/metadata/permutations" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-There are several optional query parameters you can use:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* region
-* version
-* license
-* instance_type
-* default_instance_type
-* feature
-* latest_only
-* ami
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `region` |Query |No |Identifies the region of the working environment.
+| `version` |Query |No |Identifies the AMazon resource name for the connection's role.
+| `license` |Query |No |Identifies the license associated with your working environment.
+| `instance_type` |Query |No |Identifies the Cloud Volumes ONTAP instance type.
+| `default_instance_type` |Query |No |Identifies the default Cloud Volumes ONTAP instance type.
+| `feature` |Query |No |Identifies the feature.
+| `latest_only` |Query |No |Identifies whether the latest instance is associated.
+| `ami` |Query |No |Identifies the Amazon machine image.
+|===
 
-Output::
-
+.JSON output example
 The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
    {
        "ontapVersion": "ONTAP-9.9.0X4.T1",
@@ -82,11 +96,15 @@ JSON output example::
       "upgradeableFrom": ["9.8","9.9.0"]
    }
 ]
+----
+====
 
 == Get permutations for high availability pair
 You can use this workflow to retrieve the configuration information for an HA working environment.
 
-=== 1. Get the permutations
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -96,29 +114,43 @@ You can use this workflow to retrieve the configuration information for an HA wo
 |/occm/api/aws/ha/metadata/permutations
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/metadata/permutations?latest_only=true" \
+--header "x-agent-id: <AGENT_ID>" \ 
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-There are several optional query parameters you can use:
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl examples for this step.
 
-* region
-* version
-* license
-* instance_type
-* default_instance_type
-* feature
-* latest_only
-* ami
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+| `region` |Query |No |Identifies the region of the working environment.
+| `version` |Query |No |Identifies the AMazon resource name for the connection's role.
+| `license` |Query |No |Identifies the license associated with your working environment.
+| `instance_type` |Query |No |Identifies the Cloud Volumes ONTAP instance type.
+| `default_instance_type` |Query |No |Identifies the default Cloud Volumes ONTAP instance type.
+| `feature` |Query |No |Identifies the feature.
+| `latest_only` |Query |No |Identifies whether the latest instance is associated.
+| `ami` |Query |No |Identifies the Amazon machine image.
+|===
 
-Output::
+
+.JSON output example
 
 The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 
-JSON output example::
-[source,json]
+.Example output
+[%collapsible]
+====
+----
 [
     {
         "ontapVersion": "ONTAP-9.9.0X6.T1.ha",
@@ -189,3 +221,5 @@ JSON output example::
         ]
     }
 ]
+----
+====

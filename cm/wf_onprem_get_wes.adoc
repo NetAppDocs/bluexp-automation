@@ -15,8 +15,10 @@ summary: "You can retrieve the on-premises working environments that are visible
 [.lead]
 You can retrieve the on-premises working environment details such as the public identifier, name, and type of the working environment, the storage VM name, the cluster properties, and more. These details can be used in the input body field while executing other on-prem workflows.
 
+.HTTP method and endpoint
 
-== 1. Get the working environments
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -26,15 +28,19 @@ You can retrieve the on-premises working environment details such as the public 
 |occm/api/onprem/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/working-environments/<ONPREM_WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/onprem/working-environments/<ONPREM_WORKING_ENV_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>"" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Output::
+.JSON output example
+
 The JSON output example includes on-premises working environment details.
 
-JSON output example::
-[source,json]
+----
 {
   "publicId": "OnPremWorkingEnvironment-xxxx",
   "tenantId": "Tenant-zzxx",
@@ -60,5 +66,6 @@ JSON output example::
   "complianceProperties": null,
   "monitoringProperties": null
 }
+----
 
 
