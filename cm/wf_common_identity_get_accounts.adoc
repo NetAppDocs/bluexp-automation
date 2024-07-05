@@ -15,7 +15,9 @@ summary: 'You must generate a bearer token to authenticate and access the BlueXP
 [.lead]
 You can perform this workflow to retrieve accounts.
 
-=== 1. Get accounts
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -25,21 +27,34 @@ You can perform this workflow to retrieve accounts.
 |/occm/api/accounts
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://netapp-cloud-account.auth0.com/occm/api/accounts' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request POST \
+--location  "https://netapp-cloud-account.auth0.com/occm/api/accounts" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Additional input parameters
 
-* (Optional) Query parameters:
-    `providerType` string
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`providerType` |Query |No |Identifies the provider type
+|===
+
+
+.JSON output example
 
 The JSON output example includes the list of occm accounts.
 
-JSON output example::
-[source,json]
+.Example output
+----
 {
     "awsAccounts": [
         {
@@ -64,3 +79,4 @@ JSON output example::
     "gcpStorageAccounts": [],
     "nssAccounts": []
 }
+----
