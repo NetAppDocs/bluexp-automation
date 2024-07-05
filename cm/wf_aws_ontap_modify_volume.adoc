@@ -5,7 +5,7 @@ keywords: cloud, manager, rest, api, modify, volume,
 summary: "You can modify the configuration of an existing volume."
 ---
 
-= Modify volume
+= Modify a volume
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -20,7 +20,7 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 * <<Modify volume for single node, Single Node>>
 * <<Modify volume for high availability pair, HA pair>>
 
-== Modify volume for single node
+== Modify a volume for single node
 You can use this workflow to modify the configuration of an existing volume for a single node working environment.
 
 === Step 1. Select the working environment
@@ -33,7 +33,7 @@ Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single
 
 === Step 3. Modify the volume
 
-You can issue the REST API call to modify the volume configurations.
+You can issue a REST API call to modify an existing volume.
 
 .HTTP method and endpoint
 
@@ -50,7 +50,7 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request PUT \
+curl --request PUT  \
 --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
@@ -59,7 +59,7 @@ curl --request PUT \
 
 .Additional input parameters
 
-The JSON input example includes the minimum list of input parameters.
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example.
 
 [cols="25,25, 25, 45"*,options="header"]
 |===
@@ -67,23 +67,43 @@ The JSON input example includes the minimum list of input parameters.
 |Type
 |Required
 |Description
-|<SVM_NAME> `(svmName)` |Path |Yes |Identifies the SVM
-|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
-| <VOLUME_NAME> `(volumeName)` |Path |Yes |Identifies the volume
+| <WORKING_ENV_ID> `(workingEnvironmentId)` |Path |Yes |Identifies the working environment.
+| <SVM_NAME> `(svmName)` |Path |Yes |Identifies the storage VM.
+| <VOLUME_NAME> `(volumeName)` |Path |Yes |Identifies the volume.
 |===
 
+
 .JSON input example
+
+The JSON input example includes the minimum list of input parameters.
+
+[NOTE]
+The `exportpolicyInfo -> policyType` parameter can have two values: 
+* When `policyType:none`, the rules parameter should be empty 
+* When `policyType:custom`, the rules parameter must have at least one rule
+
 [source,json]
 {
-  "exportPolicyInfo": {
-    "policyType": "custom",
-    "ips": [
-      "172.31.0.0/16"
-    ],
+ "exportPolicyInfo": {
+  "policyType": "custom",
+  "ips": [
+    "10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"
+  ],
+  "nfsVersion": [
+    "any"
+  ],
+  "rules": [
+   {
+    "index": 1,
+    "ruleAccessControl": "readwrite",
+    "ips": ["10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"],
     "nfsVersion": [
-      "nfs3"
-    ]
-  }
+      "any"
+     ],
+    "superUser": "True"
+    }
+  ]
+ }
 }
 
 .Output
@@ -103,7 +123,7 @@ Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-ava
 
 === Step 3. Modify the volume
 
-You can issue the REST API call.
+Ypu can issue a REST API call to modify an existing volume.
 
 .HTTP method and endpoint
 
@@ -119,16 +139,19 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --request PUT
---location  "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" 
---header "Content-Type: application/json" 
---header "x-agent-id: <AGENT_ID>" 
---header "Authorization: Bearer <ACCESS_TOKEN>" 
+curl --request PUT  \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
 --d @JSONinput
+
+
 
 .Additional input parameters
 
-The JSON input example includes the minimum list of input parameters.
+In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example.
+
 
 [cols="25,25, 25, 45"*,options="header"]
 |===
@@ -136,23 +159,42 @@ The JSON input example includes the minimum list of input parameters.
 |Type
 |Required
 |Description
-|<SVM_NAME> `(svmName)` |Path |Yes |Identifies the SVM
-|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
-| <VOLUME_NAME> `(volumeName)` |Path |Yes |Identifies the volume
+| <WORKING_ENV_ID> `(workingEnvironmentId)` |Path |Yes |Identifies the working environment.
+| <SVM_NAME> `(svmName)` |Path |Yes |Identifies the storage VM.
+| <VOLUME_NAME> `(volumeName)` |Yes |No |Identifies the volume.
 |===
 
 .JSON input example
+
+The JSON input example includes the minimum list of input parameters.
+
+[NOTE]
+The `exportpolicyInfo -> policyType` parameter can have two values: 
+* When `policyType:none`, the rules parameter should be empty 
+* When `policyType:custom`, the rules parameter must have at least one rule
+
 [source,json]
 {
-  "exportPolicyInfo": {
-    "policyType": "custom",
-    "ips": [
-      "172.31.0.0/16"
-    ],
+ "exportPolicyInfo": {
+  "policyType": "custom",
+  "ips": [
+    "10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"
+  ],
+  "nfsVersion": [
+    "any"
+  ],
+  "rules": [
+   {
+    "index": 1,
+    "ruleAccessControl": "readwrite",
+    "ips": ["10.XXX.XXX.XXX/24","10.yyy.yyy.yyy/21","10.zzz.zzz.zzz/21"],
     "nfsVersion": [
-      "nfs3"
-    ]
-  }
+      "any"
+     ],
+    "superUser": "True"
+    }
+  ]
+ }
 }
 
 .Output
