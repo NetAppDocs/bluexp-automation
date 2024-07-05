@@ -258,6 +258,8 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 
 === Step 2. Get the list of aggregates
 
+You can issue the rEST API call to retrieve a list of aggregates.
+
 [cols="25,75"*,options="header"]
 |===
 |HTTP method

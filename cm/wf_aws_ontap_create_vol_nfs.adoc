@@ -6,7 +6,7 @@ summary: 'You can use this workflow to create a volume accessed through NFS.'
 ---
 
 = Create a volume using NFS
-= Create a volume using NFS
+
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -15,7 +15,7 @@ summary: 'You can use this workflow to create a volume accessed through NFS.'
 
 [.lead]
 You can use this workflow to create a volume accessed through the NFS protocol.
-You can use this workflow to create a volume accessed through the NFS protocol.
+
 
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
@@ -58,12 +58,13 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single
 
 === Step 7. Create a volume
 
-Create a volume for a single node system.
+
+You can issue the REST API call to create the volume.
 
 .HTTP method and endpoint
 
 This REST API call uses the following method and endpoint.
-=== 7. Create a volume
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -83,13 +84,21 @@ curl --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes" \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --d @JSONinput
 
-.Input parameters
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters, including:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <AGGR_NAME> `(aggregateName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+|===
+
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
@@ -173,6 +182,13 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-a
 
 === Step 7. Create a volume
 
+You can issue the REST API call to create a volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
+
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
@@ -191,13 +207,21 @@ curl --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes" 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --d @JSONinput
 
-.Input parameters
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters, including:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <AGGR_NAME> `(aggregateName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+|===
+
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
