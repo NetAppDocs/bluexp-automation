@@ -2473,6 +2473,7 @@ The data definitions are used when making REST API calls.
 |cloudProviderName||true|string|
 |workingEnvironmentType||true|string|
 |userTags||true|Map[string,string]|
+|licensesInformation||false|<<LicenseInformation>> array|
 |hA||true|boolean|
 |===
 
@@ -2631,8 +2632,8 @@ The data definitions are used when making REST API calls.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyOs||true|boolean|
 |legacyInstance||true|boolean|
+|legacyOs||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -3205,8 +3206,8 @@ The data definitions are used when making REST API calls.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|snapmirrorLicenseExists||true|boolean|
 |aff||true|boolean|
+|snapmirrorLicenseExists||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3816,8 +3817,8 @@ The data definitions are used when making REST API calls.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|tieringTarget||true|boolean|
 |backupTarget||true|boolean|
+|tieringTarget||true|boolean|
 |===
 
 === S3BucketsSummary

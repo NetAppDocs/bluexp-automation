@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: cm/wf_onprem_discover_wes.html
-keywords: cloud, manager, rest, api, list, working, environment, occm
+keywords: bluexp, rest, api, list, working, environment, occm
 summary: "You can retrieve the on-premises working environments that are visible to the user currently signed in."
 ---
 
@@ -15,7 +15,9 @@ summary: "You can retrieve the on-premises working environments that are visible
 [.lead]
 You can discover the on-premises ONTAP clusters and add them to a working environment using the cluster name as the working environment name.
 
-== 1. Discover the working environments
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -25,11 +27,15 @@ You can discover the on-premises ONTAP clusters and add them to a working enviro
 |/occm/api/onprem/working-environments
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/onprem/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET
+--location "https://cloudmanager.cloud.netapp.com/occm/api/onprem/working-environments" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input body example::
+.JSON input example
 [source,json]
 {
   "clusterPassword": "password",
@@ -42,8 +48,12 @@ Input body example::
 }
 
 
-JSON output example::
-[source,json]
+.JSON output example
+
+The JSON output includes an example of on-prem working environments.
+
+.Example output
+----
 {
   "publicId": "OnPremWorkingEnvironment-i7by5xxx",
   "tenantId": "Tenant-dfxx5",
@@ -69,6 +79,7 @@ JSON output example::
   "complianceProperties": null,
   "monitoringProperties": null
 }
+----
 
 
 

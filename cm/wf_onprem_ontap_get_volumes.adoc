@@ -15,11 +15,17 @@ summary: "You can retrieve the list of volumes."
 [.lead]
 You can retrieve the list of volumes of an on-premises working environment.
 
-== 1. Select the working environment
+== Step 1. Select the working environment
 
 Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and choose the `publicId` for the `workingEnvironmentId` path parameter.
 
-== 2. Get the volumes
+== Step 2. Get the volumes
+
+You can issue a REST API call to retrieve the volumes.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -29,20 +35,30 @@ Perform the workflow link:wf_onprem_get_wes.html[Get working environments] and c
 |occm/api/onprem/volumes?workingEnvironmentId=<ONPREM_WORKING_ENV_ID>
 |===
 
-curl example::
+.Curl example
 [source,curl]
 curl --location --request GET ''https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes?workingEnvironmentId=<ONPREM_WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
-Input::
+.Additional input parameters
 
-Query parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment 
+|===
+
+
+.JSON output example
 
 The JSON output example includes the list of volumes for the working environment.
 
-JSON output example::
-[source,json]
+.Example output
+----
 [
   {
     "name": "vol1",
@@ -142,5 +158,5 @@ JSON output example::
     "isFlexGroupVolume": false
   }
 ]
-
+----
 

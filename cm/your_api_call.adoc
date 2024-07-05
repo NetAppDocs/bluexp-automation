@@ -18,19 +18,23 @@ You can issue a curl command to get started using a Cloud Volumes ONTAP REST API
 [NOTE]
 The following workflow example is very simple. The workflow samples later in this documentation use a more robust format. See link:workflow_processes.html[Workflow processes] to get started.
 
-== 1. Select the identifier
+== Step 1. Select the identifier
 
 Determine the identifier to use for the `x-agent-id` request header. See link:../platform/get_identifiers.html[Get required identifiers].
 
-== 2. Get the access token
+== Step 2. Get the access token
 
 Acquire an access token for the `Authorization` request header. See link:../platform/create_user_token.html[Create user token].
 
-
-curl example::
+.Curl example
 The following curl command retrieves information about the BlueXP server.
+
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' \
+--header 'Content-Type: application/json' \
+--header 'x-agent-id: <AGENT_ID>' \
+--header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 [TIP]
 ====
@@ -38,10 +42,10 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/oc
 * Replace <ACCESS_TOKEN> with the bearer access token.
 ====
 
-JSON output example::
+.JSON output example
 Information about the system is provided in the following JSON format.
 
-[source,json]
+----
 {
   "version": "string",
   "build": "string",
@@ -65,3 +69,4 @@ Information about the system is provided in the following JSON format.
   "usingDockerInfra": "boolean",
   "privateIp": "string"
 }
+----
