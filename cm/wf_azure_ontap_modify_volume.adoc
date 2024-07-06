@@ -5,7 +5,7 @@ keywords: cloud, manager, rest, api, modify, volume,
 summary: "You can modify the configuration of an existing volume."
 ---
 
-= Modify volume
+= Modify a volume
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -34,6 +34,12 @@ Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-single-
 
 === Step 3. Modify the volume
 
+You can issue the REST API call modify the volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
@@ -42,21 +48,40 @@ Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-single-
 |/occm/api/azure/vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request PUT \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)` string
-* <SVM_NAME> `(svmName)` string
-* <VOLUME_NAME> `(volumeName)` string
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Path |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|<VOLUME_NAME> `(volumeName)` |Path |Yes |Identifies the volume
+|===
 
-The JSON input example includes the minimum list of input parameters.
 
-JSON input example::
+[NOTE]
+====
+The `exportpolicyInfo -> policyType` parameter can have two values `none` and `custom`.
+
+** When `policyType:none`, the rules parameter must be empty.
+** When `policyType:custom`, the rules parameter must have at least one rule.
+====
+
+.JSON input example
 [source,json]
 {
   "volumeName": "vol5",
@@ -85,23 +110,30 @@ JSON input example::
   "workingEnvironmentId": "VsaWorkingEnvironment-IsDYFJf8"
 }
 
-Output::
+.Output
 
 None
 
 == Modify volume for high availability pair
 You can use this workflow to modify the volume configuration for an HA working environment.
 
-=== 1. Create the working environment
+=== Step 1. Create the working environment
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment to be used as the `workingEnvironmentId` path parameter.
 
-=== 2. Select the volume
+=== Step 2. Select the volume
 
 Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-high-availability-pair[Get volumes] and choose the `name` and the `svmName` values of the volume to modify and use them for the `volumeName` and `svmName` path parameters.
 
 
-=== 3. Modify the volume
+=== Step 3. Modify the volume
+
+You can issue the REST API call modify the volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -111,21 +143,40 @@ Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-high-av
 |/occm/api/azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request PUT \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)` string
-* <SVM_NAME> `(svmName)` string
-* <VOLUME_NAME> `(volumeName)` string
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Path |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|<VOLUME_NAME> `(volumeName)` |Path |Yes |Identifies the volume
+|===
 
-The JSON input example includes the minimum list of input parameters.
 
-JSON input example::
+[NOTE]
+====
+The `exportpolicyInfo -> policyType` parameter can have two values `none` and `custom`.
+
+** When `policyType:none`, the rules parameter must be empty.
+** When `policyType:custom`, the rules parameter must have at least one rule.
+====
+
+.JSON input example
 [source,json]
 {
   "volumeName": "vol2",
@@ -160,6 +211,6 @@ JSON input example::
 }
 
 
-Output::
+.Output
 
 None
