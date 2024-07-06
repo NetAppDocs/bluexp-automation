@@ -23,15 +23,21 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Delete volume for single node
 You can use this workflow to delete a volume for a single node working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` and `svmName` values of the working environment  for the `workingEnvironmentId` and `svmName` path parameters.
 
-=== 2. Select the volume
+=== Step 2. Select the volume
 
 Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single-node[Get volumes] and choose the `name` of the required volume for the `volumeName` path parameter.
 
-=== 3. Delete the volume
+=== Step 3. Delete the volume
+
+You can issue the REST API call to delete the volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -42,34 +48,53 @@ Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-a-single
 |===
 
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <VOLUME_NAME> `(volumeName)`
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)`|Path |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|<VOLUME_NAME> `(volumeName)`|Path |Yes |Identifies the volume
+|===
+
+.Output
 
 None
 
 == Delete volume for high availability pair
 You can use this workflow to delete a volume for an HA working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and `svmName` values of the working environment for the `workingEnvironmentId` and `svmName` path parameters.
 
-=== 2. Select the volume
+=== Step 2. Select the volume
 
 Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-availability-pair[Get volumes] and choose the `name` of teh required volume for `volumeName` path parameter.
 
-=== 3. Delete the volume
+=== Step 3. Delete the volume
+
+You can issue the REST API call to delete the volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -80,18 +105,30 @@ Perform the workflow link:wf_aws_ontap_get_volumes.html#get-volumes-for-high-ava
 |===
 
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <VOLUME_NAME> `(volumeName)`
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)`|Path |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|<VOLUME_NAME> `(volumeName)`|Path |Yes |Identifies the volume
+|===
+
+.Output
 
 None
