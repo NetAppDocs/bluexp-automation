@@ -29,16 +29,30 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 |/occm/api/replication/metadata/snapmirror-policies/{workingEnvironmentId}/{desinationWorkingEnvironmentId}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-policies/<WORKING_ENV_ID>/<DEST_WORKING_ENV_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-policies/<WORKING_ENV_ID>/<DEST_WORKING_ENV_ID>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `sourceworkingEnvironmentId`
-* <DEST_WORKING_ENV_ID> `destinationworkingEnvironmentId`
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|<DEST_WORKING_ENV_ID> `destinationworkingEnvironmentId`|Path |Yes |Identifies the destination working environment
+|===
+
+
 
 .Output
 

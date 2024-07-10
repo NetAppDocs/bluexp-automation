@@ -15,7 +15,10 @@ summary: You can retrieve all the SnapMirror relationship pairs.
 [.lead]
 You can retrieve all the SnapMirror relationship pairs.
 
-=== 1. Retrieve the relationships
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -25,20 +28,24 @@ You can retrieve all the SnapMirror relationship pairs.
 |/occm/api/replication/all-relationships
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/all-relationships' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET 
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/all-relationships" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Input parameters
 
 None
 
-Output::
+.Output
 
 An array of relationship pairs is returned as shown in the JSON output example.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 {
     "relationships": [
         {
@@ -51,3 +58,4 @@ JSON output example::
         }
     ]
 }
+----
