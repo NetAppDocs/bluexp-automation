@@ -15,15 +15,21 @@ summary: "You can retrieve the key for a specific NetApp Support Site account."
 [.lead]
 You can retrieve the key for a specific NetApp Support Site account.
 
-=== 1. Select the account
+== Step 1. Select the account
 
 Perform the workflow link:wf_common_identity_get_supported_srv.html[Get supported services] and choose the `accountId` value for the path parameter.
 
-=== 2. Select the NSS key to retrieve
+== Step 2. Select the NSS key to retrieve
 
 Perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and choose the `id` value for the `nssKeyId` path parameter.
 
-=== 3. Retrieve the NSS key
+== Step 3. Retrieve the NSS key
+
+You can issue the REST API call to retrieve the NSS key.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,26 +39,40 @@ Perform the workflow link:wf_common_identity_get_nss_keys.html[Get NSS keys] and
 |/ipa/account/{accountId}/nss-keys/{nssKeyId}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key/<NSS_KEY_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key/<NSS_KEY_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <ACCOUNT_ID> `(accountId)`
-* <NSS_KEY_ID> `(nssKeyId)`
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<ACCOUNT_ID> `(accountId)` |Path |Yes |Identifies the account
+|`<NSS_KEY_ID> `(nssKeyId)` |Path |Yes |Identifies the NSS key ID
+|===
+
+
+.JSON output example
 
 The NSS key and related information is returned as shown in the JSON output example.
 
-JSON output example::
-[source,json]
+.Example output
+----
 {
     "id": "d69a5214-7d61-486e-8750-8e1f68601c43",
     "username": "misterziv",
     "resources": [],
     "credentialType": "password"
 }
+----

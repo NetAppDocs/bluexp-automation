@@ -18,7 +18,7 @@ You can use this workflow to retrieve the status of all the SnapMirror replicati
 [NOTE]
 This workflow varies slightly depending on the cloud provider you are using.
 
-=== 1. Optionally select the tenant ID
+== Step 1. Optionally select the tenant ID
 
 Based on the cloud provider, you need to perform the corresponding workflow to retrieve the tenant ID.
 
@@ -39,7 +39,12 @@ Perform the Azure workflow link:wf_azure_cloud_get_wes.html[Get working environm
 Perform the Google Cloud workflow link:wf_gcp_cloud_get_wes.html[Get working environments] and choose the `tenantId` value.
 --
 ====
-=== 2. Get the status of the relationships
+
+== Step 2. Get the status of the relationships
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -49,20 +54,24 @@ Perform the Google Cloud workflow link:wf_gcp_cloud_get_wes.html[Get working env
 |/occm/api/replication/status
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/status' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location 
+--request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/status' 
+--header 'Content-Type: application/json' 
+--header 'x-agent-id: <AGENT_ID>' 
+--header 'Authorization: Bearer <ACCESS_TOKEN>'
 
-Input::
+.Input
 
 The query parameter `tenantId` is optional.
 
-Output::
+.Output
 
 The JSON output example includes the list of all the SnapMirror relationships with status.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "source": {
@@ -143,3 +152,5 @@ JSON output example::
         }
     }
 ]
+
+----

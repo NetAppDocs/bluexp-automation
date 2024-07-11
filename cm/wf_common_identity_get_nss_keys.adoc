@@ -15,11 +15,17 @@ summary: "You can retrieve all of the available NetApp Support Site credential k
 [.lead]
 You can retrieve all of the available NetApp Support Site credential keys.
 
-=== 1. Select the account to use
+== Step 1. Select the account to use
 
 Perform the workflow link:wf_common_identity_get_provider_accounts.html[Get cloud provider accounts] and choose the `accountId` value for the path parameter.
 
-=== 2. Retrieve the NSS keys
+== Step 2. Retrieve the NSS keys
+
+You can issue the REST API call to retrieve the NSS keys.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -29,21 +35,35 @@ Perform the workflow link:wf_common_identity_get_provider_accounts.html[Get clou
 |/ipa/account/{accountId}/nss-keys
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-keys?includeResources=true' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-keys?includeResources=true" \
+--header "Content-Type: application/json" \ 
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Additional input parameters
 
-* Path parameter <ACCOUNT_ID> `(accountId)`
-* Query parameter `includeResources` is optional
+The JSON input example includes the minimum list of parameters.
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<ACCOUNT_ID> `(accountId)` |Path |Yes |Identifies the account
+|`includeResources` |Query |No |Identifies whether to include the resources required
+|===
+
+
+.JSON output example
 
 The JSON output example includes a list of the NSS keys.
 
-JSON output example::
-[source,json]
+.Example output
+----
 [
     {
         "id": "d69a5214-7d61-486e-8750-8e1f68601c43",
@@ -58,3 +78,4 @@ JSON output example::
         "credentialType": "password"
     }
 ]
+----

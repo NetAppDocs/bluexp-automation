@@ -18,7 +18,9 @@ You can use this workflow to retrieve information about the Cloud Manager suppor
 [NOTE]
 This workflow describes how to use the REST API to retrieve the two ID values. You can also use the BlueXP web UI to get these values. See link:../platform/get_identifiers.html[Get required identifiers] for more information.
 
-=== 1. Get the supported services
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 This API returns information about the supported services.
 
@@ -30,20 +32,24 @@ This API returns information about the supported services.
 |/occm/api/occm/system/support-services
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/support-services' --header 'Content-Type: application/json' --header 'x-agent-Id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/occm/system/support-services" \
+--header "Content-Type: application/json" \
+--header "x-agent-Id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Input parameters
 
 None
 
-Output::
+.JSON Output example
 
 The JSON output example includes the supported services information. You can locate the `clientId` value under `auth0Information` and the `accountId` value under `tenancyServiceInformation`.
 
-JSON output example::
-[source,json]
+.Example output
+----
 {
     "asupEnabled": true,
     "cognitoEnabled": true,
@@ -167,3 +173,5 @@ JSON output example::
     },
     "useCompliancePrivateIpContainerMode": false
 }
+
+----
