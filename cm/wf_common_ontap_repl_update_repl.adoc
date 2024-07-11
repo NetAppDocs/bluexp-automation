@@ -15,11 +15,15 @@ summary: "You can use this workflow to update an existing SnapMirror replication
 [.lead]
 You can use this workflow to update an existing SnapMirror replication relationship.
 
-=== 1. Select the working environment and related values
+== Step 1. Select the working environment and related values
 
 Perform the workflow link:wf_common_ontap_repl_get_rel_status.html[Get relationships status] and choose the `workingEnvironment` and `svmName` and `volumeName` values for the path parameters. All values are for the destination.
 
-=== 2. Update the relationship
+== Step 2. Update the relationship
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -29,11 +33,16 @@ Perform the workflow link:wf_common_ontap_repl_get_rel_status.html[Get relations
 |/occm/api/replication/{workingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request PUT 'https://cloudmanager.cloud.netapp.com/occm/api/replication/<WORKING_ENV_ID/<SVM_NAME/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request PUT 
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/<WORKING_ENV_ID/<SVM_NAME/<VOLUME_NAME>" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
+--d @JSONinput
 
-Input::
+.Input
 
 Path parameters:
 
@@ -43,12 +52,12 @@ Path parameters:
 
 The JSON input example includes some of the parameters you can update.
 
-JSON input example::
+.JSON input example
 [source,json]
 {
   "maxTransferRate": 0
 }
 
-Output::
+.Output
 
 None

@@ -15,14 +15,20 @@ summary: "You can retrieve a list of tenants visible to the user currently signe
 [.lead]
 You can retrieve a list of tenants visible to the user currently signed in through the account workspace.
 
-=== 1. Get the account identifier
+== Step 1. Get the account identifier
 
 Perform the workflow link:wf_common_identity_get_supported_srv.html[Get supported services] to retrieve the account ID.
 
 [NOTE]
 You can also get the account identifier through the BlueXP web UI. See link:../platform/get_identifiers.html[Get required identifiers] for more information.
 
-=== 2. Get the account workspace
+== Step 2. Get the account workspace
+
+You can issue the REST API call to retrieve the account workspace.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -32,20 +38,23 @@ You can also get the account identifier through the BlueXP web UI. See link:../p
 |/tenancy/account/{account_id}/workspace
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET "https://cloudmanager.cloud.netapp.com/tenancy/account/<ACCOUNT_ID>/workspace" --header 'Content-Type: application/json' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/tenancy/account/<ACCOUNT_ID>/workspace" \
+--header "Content-Type: application/json" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Input parameters
 
 Path parameter with the account ID.
 
-Output::
+.JSON Output example
 
 The JSON output example shows the list of tenants.
 
-JSON output example::
-[source,json]
+.Example output
+----
 [
     {
         "workspacePublicId": "workspace-ced4x9X4",
@@ -53,3 +62,4 @@ JSON output example::
         "associatedAgents": []
     }
 ]
+----

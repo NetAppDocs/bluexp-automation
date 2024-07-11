@@ -15,7 +15,9 @@ summary: "You can retrieve a list of the BlueXP accounts available for the suppo
 [.lead]
 You can retrieve a list of the cloud provider accounts that have been added to BlueXP.
 
-=== 1. Get the cloud provider accounts
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -25,20 +27,20 @@ You can retrieve a list of the cloud provider accounts that have been added to B
 |/occm/api/accounts/cloud-providers
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/accounts/cloud-providers' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/accounts/cloud-providers" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
-
-None
-
-Output::
+.JSON output example
 
 The JSON output example shows the cloud provider accounts returned in separate named arrays.
 
-JSON output example::
-[source,json]
+.Example output
+----
 {
     "awsAccounts": [
         {
@@ -63,3 +65,4 @@ JSON output example::
     "gcpStorageAccounts": [],
     "nssAccounts": []
 }
+----

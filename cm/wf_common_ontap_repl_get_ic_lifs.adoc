@@ -18,7 +18,7 @@ You can use this workflow to retrieve the intercluster LIFs used in a cluster pe
 [NOTE]
 This workflow varies slightly depending on the cloud provider you are using.
 
-=== 1. Select the working environment
+== Step 1. Select the working environment
 
 Based on the cloud provider, you need to perform the corresponding workflow to retrieve the identifier of the working environment.
 
@@ -38,7 +38,14 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html[Get Google Cloud working env
 --
 ====
 
-=== 2. Get the intercluster LIFs
+== Step 2. Get the intercluster LIFs
+
+You can issue the REST API call to get the intercluster LIFs.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -48,23 +55,29 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html[Get Google Cloud working env
 |/occm/api/replication/intercluster-lifs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/interclusterlifs?workingEnvironmentId=<WORKING_ENV_ID>&peerWorkingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/interclusterlifs?workingEnvironmentId=<WORKING_ENV_ID>&peerWorkingEnvironmentId=<WORKING_ENV_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Query parameters:
 
 * <WORKING_ENV_ID> `(workingEnvironmentId)`
 * <WORKING_ENV_ID> `(peerWorkingEnvironmentId)`
 
-Output::
+.JSON Output example
 
 The JSON output example includes the list of LIFs.
 
-JSON output example::
-[source,json]
+.Example output
+----
 {
     "interClusterLifs": [
         {
@@ -89,3 +102,4 @@ JSON output example::
         }
     ]
 }
+----
