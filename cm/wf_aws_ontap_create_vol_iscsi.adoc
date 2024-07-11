@@ -33,19 +33,19 @@ There are two workflows available depending on whether a new or existing iGroup 
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-==== 1. Select the working environment
+==== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
-==== 2. Select the aggregate
+==== Step 2. Select the aggregate
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
 
-==== 3. Choose the size for the disk
+==== Step 3. Choose the size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-==== 4. Choose the iscasiInfo parameters
+==== Step 4. Choose the iscasiInfo parameters
 
 You must choose the following values for the REST API call:
 
@@ -58,11 +58,17 @@ You must choose the following values for the REST API call:
 ** windows_2008
 ** windows_gpt
 
-==== 5. Create the quote
+==== Step 5. Create the quote
 
-Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single-node[Create quote].This is a recommended step but is not mandatory.
+Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single-node[Create quote]. This is a recommended step but is not mandatory.
 
-==== 6. Create the volume
+==== Step 6. Create the volume
+
+You can issue the REST API call to create a volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -72,21 +78,34 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single
 |/occm/api/vsa/volumes
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes" \
+--header 'Content-Type: application/json' \
+--header 'x-agent-id: <AGENT_ID>' \
+--header 'Authorization: Bearer <ACCESS_TOKEN>' \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters, including:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <AGGR_NAME> `(aggregateName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+|===
+
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
-JSON input example::
+.JSON input example
 [source,json]
 {
   "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
@@ -114,7 +133,7 @@ JSON input example::
   "maxNumOfDisksApprovedToAdd": 0
 }
 
-Output::
+.Output
 
 None
 
@@ -123,27 +142,34 @@ None
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-==== 1. Select the working environment
+==== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
-==== 2. Select the aggregate
+==== Step 2. Select the aggregate
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` parameter.
 
-==== 3. Choose the size for the disk
+==== Step 3. Choose the size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-==== 4. Choose the iGroup
+==== Step 4. Choose the iGroup
 
 Perform the workflow link:wf_aws_ontap_get_igroups.html#get-igroups-for-single-node[Get iGroups] and choose the igroups for the `iscasiInfo` -> `igroups` value. Also select the `osType` value for the `iscasiInfo` -> `osName`.
 
-==== 5. Create the quote
+==== Step 5. Create the quote
 
 Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single-node[Create quote]. This is a recommended step but is not mandatory.
 
-==== 6. Create the volume
+==== Step 6. Create the volume
+
+You can issue the REST API call to create a volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -153,21 +179,34 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-single
 |/occm/api/vsa/volumes
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters, including:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <AGGR_NAME> `(aggregateName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+|===
+
 
 If an aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
-JSON input example::
+.JSON input example
 [source,json]
 {
   "workingEnvironmentId": "VsaWorkingEnvironment-UvFmWXoD",
@@ -189,7 +228,7 @@ JSON input example::
   "maxNumOfDisksApprovedToAdd": 0
 }
 
-Output::
+.Output
 
 None
 
@@ -206,19 +245,19 @@ There are two workflows available depending on whether a new or existing iGroup 
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-==== 1. Select the working environment
+==== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
-==== 2. Select the aggregate
+==== Step 2. Select the aggregate
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` parameter.
 
-==== 3. Choose the size for the disk
+==== Step 3. Choose the size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-==== 4. Choose the iscasiInfo parameters
+==== Step 4. Choose the iscasiInfo parameters
 
 You must choose the following values for the REST API call:
 
@@ -231,11 +270,17 @@ You must choose the following values for the REST API call:
 ** windows_2008
 ** windows_gpt
 
-==== 5. Create the quote
+==== Step 5. Create the quote
 
 Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote].This is a recommended step but is not mandatory.
 
-==== 6. Create the volume
+==== Step 6. Create the volume
+
+You can issue the REST API call to create a volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -245,21 +290,34 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-a
 |/occm/api/aws/ha/volumes
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters, including:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <AGGR_NAME> `(aggregateName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+|===
+
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
-JSON input example::
+.JSON input example
 [source,json]
 {
   "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
@@ -287,7 +345,7 @@ JSON input example::
   "maxNumOfDisksApprovedToAdd": 0
 }
 
-Output::
+.Output
 
 None
 
@@ -296,27 +354,33 @@ None
 [NOTE]
 If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provided on the REST API call, the response will fail with a suggested name for the aggregate and the number of disks needed to fulfill the request.
 
-==== 1. Select the working environment
+==== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
 
-==== 2. Select the aggregate
+==== Step 2. Select the aggregate
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` parameter.
 
-==== 3. Choose the size for the disk
+==== Step 3. Choose the size for the disk
 
 Choose the size value for the `size:size` parameter. The `size:unit` must be one of the following: `TB`, `GB`, `MB`, `KB`, or `Byte`.
 
-==== 4. Choose the iGroup
+==== Step 4. Choose the iGroup
 
 Perform the workflow link:wf_aws_ontap_get_igroups.html#get-igroups-for-high-availability-pair[Get iGroups] and choose the igroups for the `iscasiInfo` -> `igroups` value. Also select the `osType` value for the `iscasiInfo` -> `osName`.
 
-==== 5. Create the quote
+==== Step 5. Create the quote
 
 Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-availability-pair[Create quote]. This is a recommended step but is not mandatory.
 
-==== 6. Create the volume
+==== Step 6. Create the volume
+
+You can issue the REST API call to create a volume.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -326,21 +390,34 @@ Perform the workflow link:wf_aws_ontap_create_quote.html#create-quote-for-high-a
 |/occm/api/vsa/volumes
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters, including:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `(workingEnvironmentId)`
-* <SVM_NAME> `(svmName)`
-* <AGGR_NAME> `(aggregateName)`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
+|<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+|===
+
 
 If an aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
-JSON input example::
+.JSON input example
 [source,json]
 {
   "workingEnvironmentId": "VsaWorkingEnvironment-UvFmWXoD",
@@ -362,6 +439,6 @@ JSON input example::
   "maxNumOfDisksApprovedToAdd": 0
 }
 
-Output::
+.Output
 
 None

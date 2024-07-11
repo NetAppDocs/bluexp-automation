@@ -23,11 +23,18 @@ Choose the correct workflow depending on the type of the Cloud Volumes ONTAP dep
 == Delete CIFS server configuration for single node
 You can use this workflow to delete a CIFS server configuration for a single node system.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Delete the CIFS configurations
+=== Step 2. Delete the CIFS configurations
+
+You can issue the REST API call to delete CIFS configurations.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -37,15 +44,28 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for
 |/occm/api/vsa/working-environments/{workingEnvironmentId}/delete-cifs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
-* Optional JSON body
-+
+The JSON input example includes the minimum list of parameters.
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+.Input body example (Optional)
 
 [source,json]
 {
@@ -54,18 +74,24 @@ Input::
   "svmName": "string"
 }
 
-Output::
+.Output
 
 None.
 
 == Delete CIFS server configuration for high availability pair
 You can use this workflow to delete a CIFS server configuration for an HA working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Delete the CIFS configurations
+=== Step 2. Delete the CIFS configurations
+
+You can issue a REST API call to delete CIFS configurations.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -75,15 +101,28 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 |/occm/api/aws/ha/working-environments/{workingEnvironmentId}/delete-cifs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location 
+--request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/delete-cifs' 
+--header 'Content-Type: application/json' 
+--header 'x-agent-id: <AGENT_ID>' 
+--header 'Authorization: Bearer <ACCESS_TOKEN>'
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
-* Optional JSON body
-+
+The JSON input example includes the minimum list of parameters.
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+.Input body example (Optional)
 
 [source,json]
 {
@@ -92,6 +131,6 @@ Input::
   "svmName": "string"
 }
 
-Output::
+.Output
 
 None.

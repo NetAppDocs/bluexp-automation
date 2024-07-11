@@ -5,7 +5,7 @@ keywords: aggregate, delete, working, environment, aws, workflows
 summary: 'You can delete an existing disk aggregate.'
 ---
 
-= Delete aggregate
+= Delete an aggregate
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -21,15 +21,21 @@ You can delete an existing disk aggregate. Choose the workflow to use based on t
 == Delete aggregate for single node
 You can use this workflow to delete an aggregate for a single node working environment.
 
-=== 1. Select the working environment to use
+=== Step 1. Select the working environment to use
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
-=== 2. Select the aggregate to delete
+=== Step 2. Select the aggregate to delete
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
 
-=== 3. Delete the aggregate
+=== Step 3. Delete the aggregate
+
+You can issue a REST API call to delete an aggregate.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -39,33 +45,52 @@ Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-
 |/occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>"
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-<WORKING_ENV_ID> (`workingEnvironmentId`)
-<AGGR_NAME> (`aggregateName`)
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<AGGR_NAME> (`aggregateName`) |Query |No |Identifies the aggregate
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.Output
 
 None
 
 == Delete aggregate for high availability pair
 You can use this workflow to delete an aggregate for an HA working environment.
 
-=== 1. Select the working environment to use
+=== Step 1. Select the working environment to use
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
-=== 2. Select the aggregate to delete
+=== Step 2. Select the aggregate to delete
 
 Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the required for the `aggregateName` path parameter.
 
-=== 3. Delete the aggregate
+=== Step 3. Delete the aggregate
+
+You can issue a REST API call to delete an aggregate.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -75,17 +100,30 @@ Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-av
 |/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-<WORKING_ENV_ID> (`workingEnvironmentId`)
-<AGGR_NAME> (`aggregateName`)
 
-Output::
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<AGGR_NAME> (`aggregateName`) |Query |No |Identifies the aggregate
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.Output
 
 None
