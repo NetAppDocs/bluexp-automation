@@ -15,11 +15,17 @@ summary: "You can use this workflow to delete an existing SnapMirror replication
 [.lead]
 You can use this workflow to delete an existing SnapMirror replication relationship.
 
-=== 1. Select the working environment and related values
+== Step 1. Select the working environment and related values
 
 Perform the workflow link:wf_common_ontap_repl_get_rel_status.html[Get relationships status]. Choose the `workingEnvironmentId` and `svmName` and `volumeName` values for the path parameters. All values are for the destination.
 
-=== 2. Delete the relationship
+== Step 2. Delete the relationship
+
+You can issue the REST API call to delete the relationship.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -29,11 +35,17 @@ Perform the workflow link:wf_common_ontap_repl_get_rel_status.html[Get relations
 |/occm/api/replication/{destinationWorkingEnvironmentId}/{destinationSvmName}/{destinationVolumeName}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/replication/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 There are three path parameters, all of which apply to the destination:
 
@@ -41,6 +53,6 @@ There are three path parameters, all of which apply to the destination:
 * <SVM_NAME> `(destinationSvmName)`
 * <VOLUME_NAME> `(destinationVolumeName)`
 
-Output::
+.Output
 
 None

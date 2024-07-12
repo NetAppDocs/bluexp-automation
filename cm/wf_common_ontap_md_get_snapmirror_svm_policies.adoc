@@ -15,12 +15,12 @@ summary: "You can use this workflow to retrieve the SnapMirror policies based on
 [.lead]
 You can use this workflow to retrieve the SnapMirror policies (owned by cluster admin SVM) based on the source and destination Cloud Volume ONTAP instances.
 
-=== 1. Select the working environment to use
+== Step 1. Select the working environment to use
 
 
 Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] and choose the `publicId` values of the required source and destination path parameters. Choose the `svmName` of the destination working environment for the  `destinationSvmName` path parameter.
 
-=== 2. Get the SnapMirror policies
+== Step 2. Get the SnapMirror policies
 
 [cols="25,75"*,options="header"]
 |===
@@ -30,24 +30,36 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 |/occm/api/replication/metadata/snapmirror-svm-policies/{workingEnvironmentId}/{destinationSvmName}/{destinationworkingEnvironmentId}
 |===
 
-Curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-svm-policies/<WORKING_ENV_ID>/<DEST_SVM_NAME>/<DEST_WORKING_ENV_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-svm-policies/<WORKING_ENV_ID>/<DEST_SVM_NAME>/<DEST_WORKING_ENV_ID>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-Path parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <WORKING_ENV_ID> `sourceworkingEnvironmentId`
-* <DEST_SVM_NAME> `destinationSvmName`
-* <DEST_WORKING_ENV_ID> `destinationworkingEnvironmentId`
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<DEST_SVM_NAME> `destinationSvmName` |Path |Yes |Identifies the destination SVM name
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|<DEST_WORKING_ENV_ID> `destinationworkingEnvironmentId` |Path |Yes |Identifies the destination working environment
+|===
 
-Output::
+
+.JSON Output example
 
 The JSON output example includes the list of SnapMirror policies.
 
-JSON output example::
-[source,json]
+.Example output
+----
 [
     {
         "name": "MirrorAnd7YearsBackup",
@@ -124,3 +136,5 @@ JSON output example::
         "reason": null
     }
 ]
+
+----
