@@ -35,7 +35,12 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-stor
 *	Choose the `size` value of the desired disk from the `sizes` -> `size` field for the `size` field inside `diskSize` parameter in the JSON input.
 *	Choose the `unit` value of the desired disk from the `sizes` -> `size` field for the `unit` field inside `diskSize` parameter in the JSON input.
 
-=== 3. Create the aggregate
+=== Step 3. Create the aggregate
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -45,15 +50,21 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-stor
 |occm/api/azure/vsa/aggregates
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates" \ 
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters.
+The JSON input example includes the minimum list of parameters.
 
-JSON input example::
+
+.JSON input example
 [source,json]
 {
   "name": "aggr3",
@@ -66,18 +77,18 @@ JSON input example::
   "providerVolumeType": "Premium_LRS"
 }
 
-Output::
+.Output
 
 None
 
 == Create aggregate for high availability pair
 You can use this workflow to create an aggregate for an HA working environment.
 
-=== 1. Create the working environment
+=== Step 1. Create the working environment
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value for the `workingEnvironmentId` parameter in the JSON input.
 
-=== 2. Select the Azure Storage Account Types
+=== Step 2. Select the Azure Storage Account Types
 
 Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-storage-account-types-for-high-availability-pair[Get Azure Storage Account Types] workflow and choose the desired storage type:
 
@@ -85,7 +96,12 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-stor
 *	Choose the `size` value of the desired disk from the `sizes` -> `size` field for the `size` field inside `diskSize` parameter in the JSON input.
 *	Choose the `unit` value of the desired disk from the `sizes` -> `size` field for the `unit` field inside `diskSize` parameter in the JSON input.
 
-=== 3. Create the aggregate
+=== Step 3. Create the aggregate
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -95,15 +111,21 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-stor
 |occm/api/azure/ha/aggregates
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates" \
+--header "Content-Type: application/json' \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-The JSON input example includes the minimum list of input parameters.
+The JSON input example includes the minimum list of parameters.
 
-JSON input example::
+
+.JSON input example
 [source,json]
 {
   "providerVolumeType": "Premium_LRS",
@@ -119,6 +141,6 @@ JSON input example::
 }
 
 
-Output::
+.Output
 
 None
