@@ -23,15 +23,19 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Add disks to an aggregate for single node
 You can use this workflow to add disks to an aggregate for a single node working environment.
 
-=== 1. Create the working environment
+=== Step 1. Create the working environment
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
-=== 2. Create the aggregate
+=== Step 2. Create the aggregate
 
 Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-single-node[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
 
-=== 3. Add the disks to the aggregate
+=== Step 3. Add the disks to the aggregate
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -41,11 +45,18 @@ Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-s
 |/occm/api/azure/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/disks
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \ 
+--d @JSONinput
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 You must include the following path parameters:
 
@@ -54,13 +65,13 @@ You must include the following path parameters:
 
 Also, the JSON input example includes an input parameter as shown.
 
-JSON input example::
+.JSON input example
 [source, json]
 {
     "numberOfDisks": "1"
 }
 
-Output::
+.Output
 
 None
 
@@ -68,15 +79,20 @@ None
 You can use this workflow to add disks to an aggregate for HA working environment.
 
 
-=== 1. Create the working environment
+=== Step 1. Create the working environment
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value for the `workingEnvironmentId` path parameter.
 
-=== 2. Create the aggregate
+=== Step 2. Create the aggregate
 
 Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-high-availability-pair[Create aggregate] to create an aggregate with the name `aggr2` and choose `aggr2` for the `aggregateName` path parameter.
 
-=== 3. Add the disks to the aggregate
+=== Step 3. Add the disks to the aggregate
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -86,11 +102,18 @@ Perform the workflow link:wf_azure_ontap_create_aggr.html#create-aggregate-for-h
 |/occm/api/azure/ha/aggregates/{workingEnvironmentId}/{aggregateName}/disks
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>/disks" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 You must include the following path parameters:
 
@@ -99,12 +122,12 @@ You must include the following path parameters:
 
 Also, the JSON input example includes an input parameter as shown.
 
-JSON input example::
+.JSON input example
 [source, json]
 {
     "numberOfDisks": "2"
 }
 
-Output::
+.Output
 
 None
