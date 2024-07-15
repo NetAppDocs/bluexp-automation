@@ -23,11 +23,16 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Delete working environment for single node
 You can use this workflow to delete a single node working environment.
 
-=== 1. Create the working environment to use
+=== Step 1. Create the working environment to use
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Delete the working environment
+=== Step 2. Delete the working environment
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -37,11 +42,17 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-env
 |/occm/api/azure/vsa/working-environments/{workingEnvironmentId}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE \
+--location DELETE "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 * Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
 
@@ -55,18 +66,23 @@ If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but C
 +
 If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
 
-Output::
+.Output
 
 None
 
 == Delete working environment for high availability pair
 You can use this workflow to delete an HA working environment.
 
-=== 1. Create the working environment to use
+=== Step 1. Create the working environment to use
 
 Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure HA working environment] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Delete the working environment
+=== Step 2. Delete the working environment
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -76,11 +92,17 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-env
 |/occm/api/azure/ha/working-environments/{workingEnvironmentId}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request DELETE \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Path parameter <WORKING_ENV_ID> `(workingEnvironmentId)` string
 
@@ -94,6 +116,6 @@ If `true` the Cloud Volumes ONTAP instance in the cloud is not terminated, but C
 +
 If `true` the working environment is deleted even if it is part of one or more SnapMirror relationships (default is `false`).
 
-Output::
+.Output
 
 None

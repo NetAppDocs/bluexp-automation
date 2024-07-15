@@ -23,7 +23,9 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get permutations for single node
 You can use this workflow to retrieve the Cloud Volumes ONTAP configurations information for a single node working environment.
 
-=== 1. Get the permutations
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,11 +35,17 @@ You can use this workflow to retrieve the Cloud Volumes ONTAP configurations inf
 |/occm/api/azure/vsa/metadata/permutations
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/permutations" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 There are several optional query parameters you can use:
 
@@ -51,12 +59,12 @@ There are several optional query parameters you can use:
 * `marketplace_version` string
 * `marketplace_sku` string
 
-Output::
+.Output
 
 The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "ontapVersion": "ONTAP-9.9.0X5.T1.azure",
@@ -125,11 +133,14 @@ JSON output example::
         ]
     }
 ]
+----
 
 == Get permutations for high availability pair
 You can use this workflow to retrieve the  Cloud Volumes ONTAP configurations information for an HA working environment.
 
-=== 1. Get the permutations
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -143,7 +154,9 @@ curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 There are several optional query parameters you can use:
 
@@ -157,12 +170,12 @@ There are several optional query parameters you can use:
 * `marketplace_version` string
 * `marketplace_sku` string
 
-Output::
+.Output
 
 The JSON output example includes the list of Cloud Volumes ONTAP configurations.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "ontapVersion": "ONTAP-9.9.0X5.T1.azureha",
@@ -225,3 +238,4 @@ JSON output example::
         ]
     }
 ]
+----
