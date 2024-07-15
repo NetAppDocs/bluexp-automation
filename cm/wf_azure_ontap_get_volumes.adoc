@@ -20,13 +20,6 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 * <<Get volume for single node, Single Node>>
 * <<Get volume for high availability pair, HA pair>>
 
-== Get volume for single node
-You can use this workflow to retrieve volumes for a single node working environment.
-
-Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
-
-* <<Get volume for single node, Single Node>>
-* <<Get volume for high availability pair, HA pair>>
 
 == Get volume for single node
 You can use this workflow to retrieve volume for a single node working environment.

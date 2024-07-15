@@ -23,7 +23,9 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get Azure storage account types for single node
 You can perform this workflow to retrieve the Azure storage account types for a single node working environment.
 
-=== 1. Get the storage account types
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -266,16 +268,17 @@ curl example::
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/storage-account-types' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
-Input::
+.Input
 
 None
 
-Output::
+.Output
 
 The JSON output example includes the list of Azure  storage account types.
 
-JSON output example::
-[source, json]
+.JSON output example
+[%collapsible]
+----
 [{
         "diskType": "Premium",
         "availabilityTypes": ["Premium_LRS"],
@@ -477,3 +480,4 @@ JSON output example::
         ]
     }
 ]
+----

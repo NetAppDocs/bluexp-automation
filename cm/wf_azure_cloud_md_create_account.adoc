@@ -20,8 +20,9 @@ You can use this workflow to create an Azure cloud provider account. An Azure cl
 
 You must have Azure credentials.
 
+.HTTP method and endpoint
 
-=== 1. Get the account
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -31,22 +32,26 @@ You must have Azure credentials.
 |/occm/api/accounts?providerType=AZURE
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/accounts?providerType=AZURE' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/accounts?providerType=AZURE" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Input
 
 Query parameter (Optional):
 
 `providerType` string
 
-Output::
+.Output
 
 The JSON output provides an example of the cloud provider details.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 {
     "awsAccounts": [],
     "azureAccounts": [
@@ -69,3 +74,4 @@ JSON output example::
     "gcpStorageAccounts": [],
     "nssAccounts": []
 }
+----
