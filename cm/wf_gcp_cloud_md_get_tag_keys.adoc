@@ -23,13 +23,17 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get tag keys for single node
 You can use this workflow to retrieve the tag keys in a single node working environment.
 
-=== 1. Select the project
+=== Step 1. Select the project
 Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
 
-=== 2. Select the region
+=== Step 2. Select the region
 Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
 
-=== 3. Get the tag keys
+=== Step 3. Get the tag keys
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -39,11 +43,13 @@ Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Ge
 |/occm/api/gcp/vsa/metadata/tag-keys
 |===
 
-curl example::
+.Curl example
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/tag-keys?projectId=<PROJECT_ID>&zone=<ZONE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Query parameters:
 
@@ -51,12 +57,12 @@ Query parameters:
 * <ZONE> `zone` string
 
 
-Output::
+.Output
 
 The JSON output example includes the list of labels in the specified project and zone.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 [
     {
         "key": "working-environment-id",
@@ -114,14 +120,15 @@ JSON output example::
         ]
     }
 ]
+----
 
 == Get tag keys for high availability pair
 You can use this workflow to retrieve the tag keys in an HA working environment.
 
-=== 1. Select the project
+=== Step 1. Select the project
 Perform the workflow link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availability-pair[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
 
-=== 2. Select the region
+=== Step 2. Select the region
 Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availability-pair[Get regions] workflow and choose the `zone: name` value of the required region for the `zone` query parameter.
 
 === 3. Get the tag keys
@@ -134,11 +141,13 @@ Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availabil
 |/occm/api/gcp/ha/metadata/tag-keys
 |===
 
-curl example::
+.Curl example
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/tag-keys?projectId=<PROJECT_ID>&zone=<ZONE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Query parameters:
 
@@ -146,12 +155,12 @@ Query parameters:
 * <ZONE> `zone` string
 
 
-Output::
+.Output
 
 The JSON output example includes the  list of tag keys.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 [
     {
         "key": "working-environment-id",
@@ -209,3 +218,4 @@ JSON output example::
         ]
     }
 ]
+----
