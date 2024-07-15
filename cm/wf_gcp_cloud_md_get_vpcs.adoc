@@ -18,13 +18,17 @@ You can perform this workflow to retrieve the Google Cloud networks and subnetwo
 [NOTE]
 This workflow is applicable only for an HA working environment.
 
-=== 1. Select the project
+== Step 1. Select the project
 Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
 
-=== 2. Select the region
+== Step 2. Select the region
 Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choose the `region` value of the required region for the `region` query parameter.
 
-=== 3. Get the VPCs
+== Step 3. Get the VPCs
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -34,11 +38,18 @@ Perform the link:wf_gcp_cloud_md_get_regions.html[Get regions] workflow and choo
 |/occm/api/gcp/ha/metadata/vpcs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/vpcs?project=<PROJECT_ID>&region=<REGION>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/vpcs?project=<PROJECT_ID>&region=<REGION>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
+
 
 Query parameters:
 
@@ -46,12 +57,12 @@ Query parameters:
 * <REGION> `region` string
 
 
-Output::
+.Output
 
 The JSON output example includes the list of Google Cloud networks and subnetworks.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 [
     {
         "name": "default",
@@ -94,3 +105,4 @@ JSON output example::
         "isShared": false
     }
 ]
+----

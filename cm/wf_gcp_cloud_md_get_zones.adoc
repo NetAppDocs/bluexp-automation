@@ -17,10 +17,15 @@ You can perform this workflow to retrieve the Google Cloud regions and zones ove
 [NOTE]
 This workflow is applicable only for an HA working environment.
 
-=== 1. Select the project
+== Step 1. Select the project
 Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and choose `projectId` value of the required project for `projectId` query parameter.
 
-=== 2. Get the zones
+== Step 2. Get the zones
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -30,23 +35,30 @@ Perform the workflow link:wf_gcp_cloud_md_get_projects.html[Get projects] and ch
 |/occm/api/gcp/ha/metadata/zones
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/zones?project=<PROJECT_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/zones?project=<PROJECT_ID>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
+
 
 Query parameter:
 
 * <PROJECT_ID> `projectId` string
 
 
-Output::
+.Output
 
 The JSON output example includes the list of Google Cloud regions and zones.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 [
     {
         "displayName": "asia-east1",
@@ -81,3 +93,4 @@ JSON output example::
         ]
     }
 ]
+----
