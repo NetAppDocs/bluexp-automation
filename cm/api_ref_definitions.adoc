@@ -15,6 +15,9 @@ summary: The data definitions are used when making REST API calls.
 [.lead]
 The data definitions are used when making REST API calls.
 
+== Definitions
+This section describes existing data format definitions.
+
 === About
 [options="header"]
 |===
@@ -74,7 +77,7 @@ The data definitions are used when making REST API calls.
 |providerVolumeType|Provider volume type|false|string|
 |volumeInfo|volume Information|false|<<VolumeInfo>>|
 |currentInstanceType|Current instance type|false|string|
-|composite||true|boolean|
+|isComposite||true|boolean|
 |===
 
 === AddCapacityToEvAggregateRequest
@@ -132,7 +135,7 @@ The data definitions are used when making REST API calls.
 |snaplockType|Snaplock type|true|enum (non_snaplock,  compliance,  enterprise)|
 |evCompatibilityType|Elastic Volume Compatibility Type|true|enum (ev,  non_ev,  ineligible)|
 |iops|Aggregate IOPS|false|integer (int32)|
-|root||true|boolean|
+|isRoot||true|boolean|
 |===
 
 === AlertsAndNotificationServiceInformation
@@ -445,7 +448,7 @@ The data definitions are used when making REST API calls.
 |===
 |Name|Description|Required|Schema|Default
 |failureInfo||false|string|
-|subscribed||true|boolean|
+|isSubscribed||true|boolean|
 |===
 
 === AzureAccountRequest
@@ -524,7 +527,7 @@ The data definitions are used when making REST API calls.
 |size||true|<<Capacity>>|
 |description||true|string|
 |supportedOccmLicenses||true|string array|
-|default||true|boolean|
+|isDefault||true|boolean|
 |===
 
 === AzureDisksConstraints
@@ -566,7 +569,7 @@ The data definitions are used when making REST API calls.
 |availabilityZoneNode1||false|integer (int32)|
 |availabilityZoneNode2||false|integer (int32)|
 |enableHttps||true|boolean|
-|multiZone||true|boolean|
+|isMultiZone||true|boolean|
 |===
 
 === AzureHaProperties
@@ -722,7 +725,7 @@ The data definitions are used when making REST API calls.
 |===
 |Name|Description|Required|Schema|Default
 |failureInfo||false|string|
-|subscribed||true|boolean|
+|isSubscribed||true|boolean|
 |===
 
 === AzureVirtualNetworkCidrData
@@ -778,7 +781,7 @@ The data definitions are used when making REST API calls.
 |complianceProperties||false|<<CloudComplianceStatusResponse>>|
 |monitoringProperties||false|<<MonitoringStatusResponse>>|
 |licensesInformation||false|<<LicenseInformation>> array|
-|hA||true|boolean|
+|isHA||true|boolean|
 |===
 
 === BroadcastDomainInfo
@@ -1117,7 +1120,7 @@ The data definitions are used when making REST API calls.
 |dataBrokerProperties||false|<<DataBrokerProperties>>|
 |s3Location||false|string|
 |relationships||true|<<CloudSyncRelationship>> array|
-|synced||true|boolean|
+|isSynced||true|boolean|
 |===
 
 === CloudSyncRelationship
@@ -1167,7 +1170,7 @@ The data definitions are used when making REST API calls.
 |ontapVersion||true|string|
 |nodeModels||true|string array|
 |clusterIp||true|string|
-|admin||true|boolean|
+|isAdmin||true|boolean|
 |===
 
 === CommonDiskProperties
@@ -1619,7 +1622,7 @@ The data definitions are used when making REST API calls.
 |tierLevel|Tier Level|false|enum (normal,  ia,  ia-single,  intelligent,  glacier-ir)|
 |enableMonitoring|Enable monitoring|true|boolean|
 |enableServices|Enable services|false|string array|
-|ontapEncryptionDefined||true|boolean|
+|isOntapEncryptionDefined||true|boolean|
 |===
 
 === CronJobSchedule
@@ -1868,7 +1871,7 @@ The data definitions are used when making REST API calls.
 |size||true|<<Capacity>>|
 |supportedVolumeTypes||true|string array|
 |supportedOccmLicenses||true|string array|
-|default||true|boolean|
+|isDefault||true|boolean|
 |===
 
 === ElasticVolumeQuoteInfo
@@ -2327,7 +2330,7 @@ The data definitions are used when making REST API calls.
 |createTime||true|string|
 |parent||true|Map[string,string]|
 |subscriptionId||false|string|
-|default||true|boolean|
+|isDefault||true|boolean|
 |===
 
 === GcpProjectsResponse
@@ -2370,7 +2373,7 @@ The data definitions are used when making REST API calls.
 |projectId||true|string|
 |email||true|string|
 |displayName||true|string|
-|enabled||true|boolean|
+|isEnabled||true|boolean|
 |===
 
 === GcpServiceAccountsResponse
@@ -2442,7 +2445,7 @@ The data definitions are used when making REST API calls.
 |complianceProperties||false|<<CloudComplianceStatusResponse>>|
 |monitoringProperties||false|<<MonitoringStatusResponse>>|
 |licensesInformation||false|<<LicenseInformation>> array|
-|hA||true|boolean|
+|isHA||true|boolean|
 |===
 
 === GcpZoneResponse
@@ -2474,7 +2477,7 @@ The data definitions are used when making REST API calls.
 |workingEnvironmentType||true|string|
 |userTags||true|Map[string,string]|
 |licensesInformation||false|<<LicenseInformation>> array|
-|hA||true|boolean|
+|isHA||true|boolean|
 |===
 
 === GlobalManifest
@@ -2633,7 +2636,7 @@ The data definitions are used when making REST API calls.
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
 |legacyInstance||true|boolean|
-|legacyOs||true|boolean|
+|isLegacyOs||true|boolean|
 |===
 
 === InstanceProfileResponse
@@ -2665,8 +2668,8 @@ The data definitions are used when making REST API calls.
 |placementGroup|Placement Group|true|string|
 |keyPairName|Key Pair|true|string|
 |instanceProfileId|Instance profile ID|false|string|
-|vsaInstance||true|boolean|
-|oCCMInstance||true|boolean|
+|isOCCMInstance||true|boolean|
+|isVsaInstance||true|boolean|
 |===
 
 === InstanceTypeInfo
@@ -2676,7 +2679,7 @@ The data definitions are used when making REST API calls.
 |instanceType||true|string|
 |supportsEncryption||true|boolean|
 |supportedFeatures||true|string array|
-|default||true|boolean|
+|isDefault||true|boolean|
 |===
 
 === InstanceTypeRegionMapping
@@ -2710,7 +2713,7 @@ The data definitions are used when making REST API calls.
 |port||true|string|
 |node||true|string|
 |status||true|string|
-|peered||true|boolean|
+|isPeered||true|boolean|
 |===
 
 === InterfaceResponse
@@ -3174,8 +3177,8 @@ The data definitions are used when making REST API calls.
 |tieringRestriction||false|<<TieringRestriction>>|
 |availabilityState||false|string|
 |commonDiskProperties|Returning disk info in case all aggregate disks have same type, size and rpm|false|<<CommonDiskProperties>>|
-|inactiveDataReportingEnabled||true|boolean|
-|objectStoreAttachEligible||true|boolean|
+|isObjectStoreAttachEligible||true|boolean|
+|isInactiveDataReportingEnabled||true|boolean|
 |===
 
 === OnPremCapacityFeatures
@@ -3206,8 +3209,8 @@ The data definitions are used when making REST API calls.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
-|aff||true|boolean|
-|snapmirrorLicenseExists||true|boolean|
+|isSnapmirrorLicenseExists||true|boolean|
+|isAff||true|boolean|
 |===
 
 === OnPremVolumeCreateRequest
@@ -3334,8 +3337,8 @@ The data definitions are used when making REST API calls.
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
 |flashCache||true|boolean|
-|spaceReportingLogical||true|boolean|
-|keystoneSubscription||true|boolean|
+|isKeystoneSubscription||true|boolean|
+|isSpaceReportingLogical||true|boolean|
 |===
 
 === OntapEncryption
@@ -3632,7 +3635,7 @@ The data definitions are used when making REST API calls.
 |port|Port|true|string|
 |node|Node|true|string|
 |status|Status|true|string|
-|peered||true|boolean|
+|isPeered||true|boolean|
 |===
 
 === ReplicationInterClusterLifs
@@ -3817,8 +3820,8 @@ The data definitions are used when making REST API calls.
 |bucketName||true|string|
 |region||true|string|
 |tags||true|Map[string,string]|
-|backupTarget||true|boolean|
-|tieringTarget||true|boolean|
+|isBackupTarget||true|boolean|
+|isTieringTarget||true|boolean|
 |===
 
 === S3BucketsSummary
@@ -3838,7 +3841,7 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |numOfBuckets||true|integer (int32)|
 |numOfRegions||true|integer (int32)|
-|supportable||true|boolean|
+|isSupportable||true|boolean|
 |===
 
 === SaasMpAccountResponse
@@ -3940,8 +3943,8 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |needCertificate||true|boolean|
 |runningInDocker||true|boolean|
-|pendingConnectivitySet||true|boolean|
-|setup||true|boolean|
+|isPendingConnectivitySet||true|boolean|
+|isSetup||true|boolean|
 |===
 
 === SgwsCloudBackupSetupRequest
@@ -3987,8 +3990,8 @@ The data definitions are used when making REST API calls.
 |policyType||true|string|
 |rules||true|<<SnapMirrorRuleResponse>> array|
 |reason||false|string|
-|default||true|boolean|
-|supported||true|boolean|
+|isDefault||true|boolean|
+|isSupported||true|boolean|
 |===
 
 === SnapMirrorRuleResponse
@@ -4213,7 +4216,7 @@ The data definitions are used when making REST API calls.
 |elasticVolumeSupportedAndEnabled||true|boolean|
 |wormWithComposeSupported||true|boolean|
 |wormWithBackupSupported||true|boolean|
-|azureHaManagedDisksSupported||true|boolean|
+|isAzureHaManagedDisksSupported||true|boolean|
 |awsLocalZones||true|boolean|
 |azureFlashcacheSupported||true|boolean|
 |===
@@ -4307,7 +4310,7 @@ The data definitions are used when making REST API calls.
 |===
 |Name|Description|Required|Schema|Default
 |restrictionReason||false|string|
-|tieringRestricted||true|boolean|
+|isTieringRestricted||true|boolean|
 |===
 
 === TimePoint
@@ -4358,7 +4361,7 @@ The data definitions are used when making REST API calls.
 |Name|Description|Required|Schema|Default
 |name||true|string|
 |version||true|string|
-|current||true|boolean|
+|isCurrent||true|boolean|
 |===
 
 === UpdateRouteTablesRequest
@@ -4447,7 +4450,7 @@ The data definitions are used when making REST API calls.
 |password|User password|true|string|
 |ldapUserName|LDAP User Name|false|string|
 |notificationsOptIn|Email notifications opt-in|false|boolean|
-|ldap||true|boolean|
+|isLdap||true|boolean|
 |===
 
 === UserResponse
@@ -4466,7 +4469,7 @@ The data definitions are used when making REST API calls.
 |ldapUserName|LDAP User Name|true|string|
 |notificationsOptIn|Notification OptIn|true|boolean|
 |permissions|Permissions|true|string array|
-|ldap||true|boolean|
+|isLdap||true|boolean|
 |===
 
 === UserTagsResponse
@@ -4519,7 +4522,7 @@ The data definitions are used when making REST API calls.
 |usedSize|Volume used size|true|<<Capacity>>|
 |thinProvisioned|Is volume thin-provisioned|true|boolean|
 |rootVolume|Is volume the root volume of the SVM|true|boolean|
-|clone||true|boolean|
+|isClone||true|boolean|
 |===
 
 === VolumeCbsInfo
@@ -4550,7 +4553,7 @@ The data definitions are used when making REST API calls.
 |providerVolumeType||false|string|
 |volumeType||true|string|
 |disableReasonBackup||true|string array|
-|backupOn||true|boolean|
+|isBackupOn||true|boolean|
 |===
 
 === VolumeInfo
@@ -4583,7 +4586,7 @@ The data definitions are used when making REST API calls.
 |svmName||true|string|
 |targetAggregateName||true|string|
 |homeNode||false|string|
-|newTargetAggregate||true|boolean|
+|isNewTargetAggregate||true|boolean|
 |===
 
 === VolumeMoveRequest
@@ -4660,7 +4663,7 @@ The data definitions are used when making REST API calls.
 |minimumCoolingDays|Tiering minimum cooling days|true|integer (int32)|
 |targetName|ISCSI target IQN|true|string|
 |iscsiEnabled||true|boolean|
-|flexGroupVolume||true|boolean|
+|isFlexGroupVolume||true|boolean|
 |===
 
 === VolumeShareResponse
@@ -4874,7 +4877,7 @@ The data definitions are used when making REST API calls.
 |iops|Provisioned IOPS|false|integer (int32)|
 |throughput|Provisioned Throughput|false|integer (int32)|
 |tieringPolicy|Tiering policy|false|enum (none,  snapshot_only,  auto,  all)|
-|replicationFlow||true|boolean|
+|isReplicationFlow||true|boolean|
 |===
 
 === VsaVolumeQuoteResponse
@@ -4946,7 +4949,7 @@ The data definitions are used when making REST API calls.
 |complianceProperties||false|<<CloudComplianceStatusResponse>>|
 |monitoringProperties||false|<<MonitoringStatusResponse>>|
 |licensesInformation||false|<<LicenseInformation>> array|
-|hA||true|boolean|
+|isHA||true|boolean|
 |===
 
 === VscanFileOpRequest
