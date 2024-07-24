@@ -56,6 +56,7 @@ curl --request PUT \
 --header 'Authorization: Bearer <ACCESS_TOKEN>' \
 --d @JSONinput
 
+
 .Additional input parameters
 
 In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example.
@@ -71,17 +72,20 @@ In addition to the parameters common with all REST API calls, the following para
 | <VOLUME_NAME> `(volumeName)` |Path |Yes |Identifies the volume.
 |===
 
+
 .JSON input example
 
 The JSON input example includes the minimum list of input parameters.
 
 [NOTE]
+
 ====
 The `exportpolicyInfo -> policyType` parameter can have two values `none` and `custom`.
 
 ** When `policyType:none`, the rules parameter must be empty.
 ** When `policyType:custom`, the rules parameter must have at least one rule.
 ====
+
 
 [source,json]
 {
@@ -162,12 +166,14 @@ In addition to the parameters common with all REST API calls, the following para
 The JSON input example includes the minimum list of input parameters.
 
 [NOTE]
+
 ====
 The `exportpolicyInfo -> policyType` parameter can have two values `none` and `custom`.
 
 ** When `policyType:none`, the rules parameter must be empty.
 ** When `policyType:custom`, the rules parameter must have at least one rule.
 ====
+
 
 [source,json]
 {
