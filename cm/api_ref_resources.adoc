@@ -15,6 +15,8 @@ summary: There are many API calls available for each resource.
 [.lead]
 There are many API calls available for each resource.
 
+== Resources
+
 === Accounts
 ==== get aws cloud account id for the given creds.
 ----
@@ -9159,7 +9161,7 @@ GET /gcp/ha/metadata/vpcs
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#gcpconnectivityresponse[GcpConnectivityResponse] array
+|default|success|link:../cm/api_ref_definitions.html#gcpconnectivityresponse[GcpConnectivityResponse] array array
 |===
 
 ===== Consumes
