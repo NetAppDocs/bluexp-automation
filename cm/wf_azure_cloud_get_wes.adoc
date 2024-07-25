@@ -24,10 +24,14 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get working environment for single node
 You can use this workflow to retrieve the working environments' details of a single node system.
 
-=== 1. Create the working environment
+=== Step 1. Create the working environment
 Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-single-node[Create Azure single node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
 
-=== 2. Get the working environment
+=== Step 2. Get the working environment
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -37,11 +41,16 @@ Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-
 |/occm/api/azure/vsa/working-environments/{workingEnvironmentId}
 |===
 
-curl::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl  --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties" \ --header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Path parameters:
 
@@ -49,11 +58,11 @@ Path parameters:
 * (Optional) `fields` string
 
 
-Output::
+.Output
 The JSON output example includes details of a single node Azure working environment.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 {
     "publicId": "VsaWorkingEnvironment-zGQWVOyo",
     "name": "pradipm",
@@ -207,15 +216,20 @@ JSON output example::
     },
     "licensesInformation": null
 }
+----
 
 
 == Get working environment for high availability pair
 You can use this workflow to retrieve the working environments' details of an HA working environment.
 
-=== 1. Create an Azure HA working environment
+=== Step 1. Create an Azure HA working environment
 Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-for-high-availability-pair[Create Azure dual node working environment] workflow and select the `publicId` from the output for the `workingEnvironmentId` path parameter.
 
-=== 2. Get the working environment
+=== Step 2. Get the working environment
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -225,11 +239,17 @@ Perform the link:wf_azure_cloud_create_we_paygo.html#create-working-environment-
 |/occm/api/azure/ha/working-environments/{workingEnvironmentId}
 |===
 
-curl::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties" \ 
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Path parameters:
 
@@ -237,11 +257,11 @@ Path parameters:
 * (Optional) `fields` string
 
 
-Output::
+.Output
 The JSON output example includes details of a single node Azure working environment.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 {
     "publicId": "VsaWorkingEnvironment-Kms14Nkv",
     "name": "ShirleyHa2701",
@@ -1037,3 +1057,4 @@ JSON output example::
         "tenantUrl": null
     }
 }
+----

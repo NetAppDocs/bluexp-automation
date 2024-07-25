@@ -23,7 +23,10 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get Snapshot policies for single node
 You can use this workflow to retrieve the Snapshot policies in a single node working environment.
 
-=== 1. Get the snapshot policies
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -33,20 +36,24 @@ You can use this workflow to retrieve the Snapshot policies in a single node wor
 |/occm/api/gcp/vsa/metadata/default-snapshot-policies
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/default-snapshot-policies' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/default-snapshot-policies" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
 None
 
-Output::
+.Output
 
 The JSON output example includes the list of default snapshot policies available on the cluster.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 [
     {
         "name": "default",
@@ -72,11 +79,15 @@ JSON output example::
         "description": "Policy for no automatic snapshots."
     }
 ]
+----
 
 == Get Snapshot policies for high availability pair
 You can use this workflow to retrieve the Snapshot policies in an HA working environment.
 
-=== 1. Get the snapshot policies
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -86,20 +97,24 @@ You can use this workflow to retrieve the Snapshot policies in an HA working env
 |/occm/api/gcp/ha/metadata/default-snapshot-policies
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/default-snapshot-policies' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location  "https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/default-snapshot-policies" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
 None
 
-Output::
+.Output
 
 The JSON output example includes the list of default snapshot policies available on the cluster.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 [
     {
         "name": "default",
@@ -125,3 +140,4 @@ JSON output example::
         "description": "Policy for no automatic snapshots."
     }
 ]
+----

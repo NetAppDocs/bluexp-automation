@@ -18,7 +18,7 @@ You can use this workflow to retrieve the replication schedules used for a speci
 [NOTE]
 This workflow varies slightly depending on the cloud provider you are using.
 
-=== 1. Select the working environment
+== Step 1. Select the working environment
 
 Based on the cloud provider, you need to perform the corresponding workflow to retrieve the identifier of the working environment.
 
@@ -38,7 +38,11 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html[Get Google Cloud working env
 --
 ====
 
-=== 2. Get the schedules
+== Step 2. Get the schedules
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -48,20 +52,24 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html[Get Google Cloud working env
 |/occm/api/replication/schedules/{workingEnvironmentId}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/replication/schedules/<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id:<AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/schedules/<WORKING_ENV_ID>" 
+--header "Content-Type: application/json" 
+--header "x-agent-id:<AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Input
 
 Path parameter <WORKING_ENV_ID> `(workingEnvironment)`
 
-Output::
+.Output
 
 The JSON output example includes the list of replication schedules.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "name": "10min",
@@ -106,3 +114,4 @@ JSON output example::
         }
     }
 ]
+----

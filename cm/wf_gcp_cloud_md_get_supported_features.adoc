@@ -23,11 +23,15 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get supported features for single node
 You can use this workflow to retrieve the supported features in a single node working environment.
 
-=== 1. Select the permutations
+=== Step 1. Select the permutations
 
 Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-single-node[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported features` request.
 
-=== 2. Get the supported features
+=== Step 2. Get the supported features
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -37,11 +41,17 @@ Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutat
 |/occm/api/gcp/vsa/metadata/supported-features
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/supported-features?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/supported-features?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Query parameters:
 
@@ -51,23 +61,28 @@ Query parameters:
 * <INST_TYPE> `instanceType` string
 * <ENCRP_TYPE> `dataEncryptionType` string
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 {
     "wormSupportedVersion": true,
     "cbsSupportedVersion": true,
     "httpsStorageAccountSupportedVersion": false,
     "tieringWithServiceAccount": true
 }
+----
 
 == Get supported features for high availability pair
 You can use this workflow to retrieve the supported features in an HA working environment.
 
-=== 1. Select the permutations
+=== Step 1. Select the permutations
 
 Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutations-for-high-availability-pair[Get permutations] and choose the `ontapVersion`, `license: type`, `instanceType`, and `region: code` values of the required permutations for the query parameters of `supported features` request.
 
-=== 2. Get the supported features
+=== Step 2. Get the supported features
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -77,11 +92,17 @@ Perform the workflow link:wf_gcp_cloud_md_get_permutations.html#get-gcp-permutat
 |/occm/api/gcp/ha/metadata/supported-features
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/supported-features?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET \
+--location  "https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/supported-features?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Query parameters:
 
@@ -91,11 +112,12 @@ Query parameters:
 * <INST_TYPE> `instanceType` string
 * <ENCRP_TYPE> `dataEncryptionType` string
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 {
     "wormSupportedVersion": true,
     "cbsSupportedVersion": true,
     "httpsStorageAccountSupportedVersion": false,
     "tieringWithServiceAccount": true
 }
+----

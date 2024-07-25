@@ -23,11 +23,17 @@ Choose the correct workflow depending on the type of the Cloud Volumes ONTAP dep
 == Get CIFS server configuration for single node
 You can use this workflow to retrieve a CIFS server configuration for a single node system.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Get the CIFS configurations
+=== Step 2. Get the CIFS configurations
+
+You can issue the REST API call to get the CIFS configurations.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -37,21 +43,35 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for
 |/occm/api/vsa/working-environments/{workingEnvironmentId}/cifs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
-* Optional query parameter `svm`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> |Query |No |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+.Output
 
 The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP working environment.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "dnsDomain": "zivh.netapp.com",
@@ -64,15 +84,22 @@ JSON output example::
         "authenticationType": "domain"
     }
 ]
+----
 
 == Get CIFS server configuration for high availability pair
 You can use this workflow to retrieve a CIFS server configuration for an HA working environment.
 
-=== 1. Select the working environment
+=== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-=== 2. Get the CIFS configurations
+=== Step 2. Get the CIFS configurations
+
+You can issue the REST API call to get the CIFS configurations.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -82,21 +109,35 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 |/occm/api/aws/ha/working-environments/{workingEnvironmentId}/cifs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
-* Optional query parameter `svm`
+The JSON input example includes the minimum list of parameters.
 
-Output::
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<SVM_NAME> |Query |No |Identifies the SVM
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+.Output
 
 The JSON output example includes the CIFS configurations for an existing Cloud Volumes ONTAP working environment.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "dnsDomain": "zivh.netapp.com",
@@ -109,3 +150,4 @@ JSON output example::
         "authenticationType": "domain"
     }
 ]
+----

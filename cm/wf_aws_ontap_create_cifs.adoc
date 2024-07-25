@@ -31,13 +31,17 @@ Choose the workflow that is specific to your goal:
 === Set up a CIFS server in a workgroup
 You can configure a CIFS server in a workgroup when the Microsoft Active Directory domain infrastructure is not available.
 
-==== 1. Select the working environment
+==== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-==== 2. Create the CIFS configuration
+==== Step 2. Create the CIFS configuration
 
 Create the CIFS server configuration.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -47,15 +51,30 @@ Create the CIFS server configuration.
 |/occm/api/vsa/working-environments/{workingEnvironmentId}/cifs-workgroup
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs-workgroup' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST
+--location  "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs-workgroup" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
+The JSON input example includes the minimum list of parameters.
 
-JSON input example::
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+.JSON input example
 [source,json]
 {
   "serverName": "SMB_SERVER02",
@@ -63,20 +82,21 @@ JSON input example::
   "svmName": "svm_ziv01we01"
 }
 
-Output::
+.Output
 
 None.
 
 === Set up a CIFS server in an Active Directory domain
 You can create a CIFS server on the SVM and specify the Active Directory (AD) domain to which it belongs.
 
-==== 1. Select the working environment
+==== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-==== 2. Determine the Active Directory configuration
+==== Step 2. Determine the Active Directory configuration
 
 You need the following configuration parameters for an Active Directory server.
+
 
 [cols="35,65"*,options="header"]
 |===
@@ -98,9 +118,13 @@ You need the following configuration parameters for an Active Directory server.
 |The password for the authorized username.
 |===
 
-==== 3. Create the CIFS configuration
+==== Step 3. Create the CIFS configuration
 
 Create the CIFS server configuration.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -110,15 +134,30 @@ Create the CIFS server configuration.
 |/occm/api/vsa/working-environments/{workingEnvironmentId}/cifs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST 
+--location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs" \ 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
+The JSON input example includes the minimum list of parameters.
 
-JSON input example::
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+.JSON input example
 [source,json]
 {
   "dnsDomain": "zivh.netapp.com",
@@ -132,7 +171,7 @@ JSON input example::
   "activeDirectoryPassword": "password"
 }
 
-Output::
+.Output
 
 None.
 
@@ -147,13 +186,18 @@ Choose the workflow that is specific to your goal:
 === Set up a CIFS server in a workgroup (HA)
 You can configure a CIFS server in a workgroup when the Microsoft Active Directory domain infrastructure is not available.
 
-==== 1. Select the working environment
+==== Step 1. Select the working environment
 
 Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value of the working environment for the `workingEnvironmentId` path parameter.
 
-==== 2. Create the CIFS configuration
+==== Step 2. Create the CIFS configuration
 
 Create the CIFS server configuration.
+
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -163,15 +207,30 @@ Create the CIFS server configuration.
 |/occm/api/aws/ha/working-environments/{workingEnvironmentId}/cifs-workgroup
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs-workgroup' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST  
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs-workgroup"
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
+The JSON input example includes the minimum list of parameters.
 
-JSON input example::
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+.JSON input example::
 [source,json]
 {
   "serverName": "SMB_SERVER02",
@@ -179,7 +238,7 @@ JSON input example::
   "svmName": "svm_ziv01we01"
 }
 
-Output::
+.Output
 
 None.
 
@@ -218,6 +277,10 @@ You need the following configuration parameters for an Active Directory server.
 
 Create the CIFS server configuration.
 
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 [cols="25,75"*,options="header"]
 |===
 |HTTP method
@@ -226,15 +289,31 @@ Create the CIFS server configuration.
 |/occm/api/aws/ha/working-environments/{workingEnvironmentId}/cifs
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST
+--location  "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
+--d @JSONinput
 
-Input::
+.Additional input parameters
 
-* Path parameter <WORKING_ENV_ID> `workingEnvironmentId`
+The JSON input example includes the minimum list of parameters.
 
-JSON input example::
+
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|`workingEnvironmentId` <WORKING_ENV_ID> |Path |Yes |Identifies the working environment ID
+|===
+
+
+.JSON input example
 [source,json]
 {
   "dnsDomain": "zivh.netapp.com",
@@ -248,6 +327,6 @@ JSON input example::
   "activeDirectoryPassword": "password"
 }
 
-Output::
+.Output
 
 None.

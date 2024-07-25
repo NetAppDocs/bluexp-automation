@@ -25,7 +25,10 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get Azure regions for single node
 You can perform this workflow to retrieve the Azure regions for a single node working environment.
 
-=== 1. Get the list of regions
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -35,11 +38,17 @@ You can perform this workflow to retrieve the Azure regions for a single node wo
 |/occm/api/azure/vsa/metadata/regions
 |===
 
-Curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/regions?subscriptionId=<SUBSCRIPTION_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/regions?subscriptionId=<SUBSCRIPTION_ID>" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
 
 Query parameters (Optional):
 
@@ -48,12 +57,12 @@ Query parameters (Optional):
 * `cloudProviderAccountId`, string
 
 
-Output::
+.Output
 
 The JSON output provides an example of a list of Azure regions.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "displayName": "Central US",
@@ -76,12 +85,16 @@ JSON output example::
         "vnets": null
     }
 ]
+----
 
 
 == Get Azure regions for high availability pair
 You can perform this workflow to retrieve the Azure regions for an HA working environment.
 
-=== 1. Get the list of regions
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
@@ -91,11 +104,18 @@ You can perform this workflow to retrieve the Azure regions for an HA working en
 |/occm/api/azure/ha/metadata/regions
 |===
 
-Curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/regions?subscriptionId=<SUBSCRIPTION_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET 
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/regions?subscriptionId=<SUBSCRIPTION_ID>" 
+--header "Content-Type: application/json" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input::
+.Additional input parameters
+
+The JSON input example includes the minimum list of parameters.
+
 
 (Optional) Query parameters:
 
@@ -104,12 +124,12 @@ Input::
 * `cloudProviderAccountId`, string
 
 
-Output::
+.Output
 
 The JSON output provides an example of a list of Azure regions.
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 [
     {
         "displayName": "Central US",
@@ -132,3 +152,4 @@ JSON output example::
         "vnets": null
     }
 ]
+----

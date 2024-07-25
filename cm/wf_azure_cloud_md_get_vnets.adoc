@@ -25,7 +25,9 @@ Choose the workflow to use based on the type of Cloud Volumes ONTAP deployment:
 == Get Azure VNets for single node
 You can perform this workflow to retrieve the Azure VNets for a single node working environment.
 
-=== 1. Get the VNets
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -35,24 +37,36 @@ You can perform this workflow to retrieve the Azure VNets for a single node work
 |/occm/api/azure/vsa/metadata/vnets
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/vnets?region=<REGION>&subscriptionId=<SUBSCRIPTION_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --request GET 
+--location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/vnets?region=<REGION>&subscriptionId=<SUBSCRIPTION_ID>" 
+--header "x-agent-id: <AGENT_ID>" 
+--header "Authorization: Bearer <ACCESS_TOKEN>" 
+--header "Content-Type: application/json"
 
-Input::
+.Additional input parameters
 
-Query parameters:
+The JSON input example includes the minimum list of parameters.
 
-* <REGION> `region` string
-* <SUBSCRIPTION_ID> `subscriptionId` string
-* (Optional) `cloudProviderAccountId` string
+[cols="25,25, 25, 45"*,options="header"]
+|===
+|Parameter
+|Type
+|Required
+|Description
+|<REGION> `region` |Query |Yes |Identifies the region
+|<SUBSCRIPTION_ID> `subscriptionId` |Query |Yes |Identifies the subscription
+|`cloudProviderAccountId` |Query |No |Identifies the cloud provider account
+|===
 
-Output::
+
+.Output
 
 The JSON output example includes the list of Azure  storage account types.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 {
     "virtualNetworks": [
         {
@@ -142,11 +156,15 @@ JSON output example::
         }
     ]
 }
+----
+
 
 == Get Azure VNets for high availability pair
 You can perform this workflow to retrieve the Azure network extended information for an HA working environment.
 
-=== 1. Get the VNets
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -156,11 +174,11 @@ You can perform this workflow to retrieve the Azure network extended information
 |/occm/api/azure/ha/metadata/vnets
 |===
 
-curl example::
+.Curl example
 [source,curl]
 curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/vnets?region=<REGION>&subscriptionId=<SUBSCRIPTION_ID>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
-Input::
+.Input
 
 Query parameters:
 
@@ -168,12 +186,12 @@ Query parameters:
 * <SUBSCRIPTION_ID> `subscriptionId` string
 * (Optional) `cloudProviderAccountId` string
 
-Output::
+.Output
 
 The JSON output example includes the list of Azure  storage account types.
 
-JSON output example::
-[source, json]
+.JSON output example
+----
 {
     "virtualNetworks": [
         {
@@ -263,3 +281,4 @@ JSON output example::
         }
     ]
 }
+----

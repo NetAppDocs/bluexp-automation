@@ -15,11 +15,17 @@ summary: "All of the requests made to the BlueXP REST API are processed asynchro
 [.lead]
 All of the requests made to the BlueXP REST API are processed asynchronously except those using the HTTP GET method. Each of these asynchronous requests is assigned a unique identifier which is returned to the caller in the response. You can use the request ID to retrieve information about the background task including its status.
 
-=== 1. Get the request identifier
+== Step 1. Get the request identifier
 
 After issuing any REST API call, the associated request identifier is returned in the `X-Response_Id` header. You must extract this value and use it in the path variable in the next step.
 
-=== 2. Get the task
+== Step 2. Get the task
+
+You can issue the REST API call to retrieve the task.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -29,15 +35,19 @@ After issuing any REST API call, the associated request identifier is returned i
 |/occm/api/audit/activeTask/{request_id}
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/audit/activeTask/<REQUEST_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --request GET \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/audit/activeTask/<REQUEST_ID>" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>"
 
-Input parameters::
+.Input parameters
 
 Path parameter that contains the request identifier `<REQUEST_ID>` for the original task.
 
-Output::
+.Output
 
 The JSON output example includes the list of returned values. The `status` contains one of three values indicating the status of the task.
 
@@ -53,11 +63,12 @@ The JSON output example includes the list of returned values. The `status` conta
 |The asynchronous task completed but failed.
 |===
 
-JSON output example::
-[source,json]
+.JSON output example
+----
 {
     "status": 0,
     "closeTime": -2147483648,
     "actionName": "Create Vsa Working Environment",
     "error": null
 }
+----

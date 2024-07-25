@@ -18,7 +18,7 @@ You can use this workflow to create a new SnapMirror replication relationship to
 [NOTE]
 This workflow varies slightly depending on the cloud provider you are using.
 
-=== 1. Select the working environment
+== Step 1. Select the working environment
 Based on the cloud provider, you need to perform the corresponding workflow to retrieve the identifier of the working environment.
 
 [role="tabbed-block"]
@@ -37,19 +37,19 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get Google Cloud working env
 --
 ====
 
-=== 2. Select the LIFs
+== Step 2. Select the LIFs
 
 Perform the workflow link:wf_common_ontap_repl_get_ic_lifs.html[Get intercluster LIFs] and choose the `address` value for the source and destination.
 
-=== 3. Select the SnapMirror policy
+== Step 3. Select the SnapMirror policy
 
 Perform the workflow link:wf_common_ontap_md_get_snapmirror_policies.html[Get SnapMirror policies] and choose the `name` value for the required schedule.
 
-=== 4. Select the SnapMirror schedule
+== Step 4. Select the SnapMirror schedule
 
 Perform the workflow link:wf_common_ontap_repl_get_we_schedules.html[Get schedules] and choose the `name` value for the required policy.
 
-=== 5. Select the volume names and related storage parameters
+== Step 5. Select the volume names and related storage parameters
 
 Based on the cloud provider, you need to perform the corresponding workflow to retrieve the volume information.
 
@@ -69,7 +69,7 @@ Perform the Google Cloud workflow link:wf_gcp_ontap_get_volumes.html[Get Google 
 --
 ====
 
-=== 6. Create a quote
+== Step 6. Create a quote
 
 Based on the cloud provider, you need to perform a workflow to create a volume quote.
 
@@ -89,7 +89,13 @@ Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote] and choos
 --
 ====
 
-=== 7. Create the relationship
+== Step 7. Create the relationship
+
+You can issue the REST API call to create the relationship.
+
+.HTTP method and endpoint
+
+This REST API call uses the following method and endpoint.
 
 [cols="25,75"*,options="header"]
 |===
@@ -99,15 +105,21 @@ Perform the workflow link:wf_gcp_ontap_create_quote.html[Create quote] and choos
 |/occm/api/replication/vsa
 |===
 
-curl example::
+.Curl example
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/replication/vsa' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --request POST \
+--location "https://cloudmanager.cloud.netapp.com/occm/api/replication/vsa" \
+--header "Content-Type: application/json" \
+--header "x-agent-id: <AGENT_ID>" \
+--header "Authorization: Bearer <ACCESS_TOKEN>" \
+--d @JSONinput
 
-Input::
+.Additional input parameters
+
 
 The JSON input example includes the minimum list of input parameters. The `maxTransferRate` is maximum transfer rate limit in KB/s. Specify 0 to indicate no limit or an integer between `1024` and `2,147,482,624`.
 
-JSON input example::
+.JSON input example
 [source,json]
 {
   "replicationRequest": {
@@ -135,6 +147,6 @@ JSON input example::
   }
 }
 
-Output::
+.Output
 
 None
