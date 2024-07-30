@@ -84,7 +84,7 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Create a new folder resource (1)
+        title: Create a new folder resource in a parent folder
         category: Hierarchy
         filename: post-folders-folders.html
         subcategory: 
