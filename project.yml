@@ -1,5 +1,4 @@
 ---
-jekyll: bn-api-testing2
 settings:
   name: API
   harmony_integration: maestro
