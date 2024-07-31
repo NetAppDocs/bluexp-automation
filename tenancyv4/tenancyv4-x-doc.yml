@@ -2,7 +2,7 @@ paths:
   "/bindings":
     get:
       x-doc:
-        title: List all the binding resources in the collection
+        title: List all binding resources in the collection
         category: Binding
         filename: get-bindings.html
         subcategory: 
@@ -40,7 +40,7 @@ paths:
   "/folders":
     get:
       x-doc:
-        title: List all the folder resources in the collection
+        title: List all folder resources in the collection
         category: Hierarchy
         filename: get-folders.html
         subcategory: 
@@ -78,20 +78,20 @@ paths:
   "/folders/{folder_id}/folders":
     get:
       x-doc:
-        title: List all the folder resources 
+        title: List all folder resources 
         category: Hierarchy
         filename: get-folders-folders.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new folder resource in a parent folder
+        title: Create a new child folder resource in a parent folder
         category: Hierarchy
         filename: post-folders-folders.html
         subcategory: 
   "/folders/{folder_id}/folders/{childfolder_id}":
     delete:
       x-doc:
-        title: Removes a specific child folder from a parent folder
+        title: Remove a specific child folder from a parent folder
         category: Hierarchy
         filename: delete-folders-folders-.html
         subcategory: 
@@ -104,7 +104,7 @@ paths:
   "/folders/{folder_id}/projects":
     get:
       x-doc:
-        title: List all the project resources 
+        title: List all project resources 
         category: Hierarchy
         filename: get-folders-projects.html
         subcategory: 
@@ -142,7 +142,7 @@ paths:
   "/folders/{folder_id}/resourcegroups":
     get:
       x-doc:
-        title: List all the resource groups in the folder
+        title: List all resource groups in the folder
         category: Resource and Resourcegroup
         filename: get-folders-resourcegroups.html
         subcategory: 
@@ -168,7 +168,7 @@ paths:
   "/folders/{folder_id}/resources":
     get:
       x-doc:
-        title: List all the resources for a specific folder
+        title: List all resources for a specific folder
         category: Resource and Resourcegroup
         filename: get-folders-resources.html
         subcategory: 
@@ -194,7 +194,7 @@ paths:
   "/folders/{folder_id}/usergroups":
     get:
       x-doc:
-        title: List all the user groups in a folder
+        title: List all of the user groups in a folder
         category: User and Usergroup
         filename: get-folders-usergroups.html
         subcategory: 
@@ -220,7 +220,7 @@ paths:
   "/folders/{folder_id}/users":
     get:
       x-doc:
-        title: List all the user resources for a specific folder
+        title: List all user resources for a specific folder
         category: User and Usergroup
         filename: get-folders-users.html
         subcategory: 
@@ -239,14 +239,14 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a specific user belonging to a folder
+        title: Retrieve a specific user from a folder
         category: User and Usergroup
         filename: get-folders-users-.html
         subcategory: 
   "/organizations":
     get:
       x-doc:
-        title: List all the organizations resources in the collection
+        title: List all organization resources in the collection
         category: Hierarchy
         filename: get-organizations.html
         subcategory: 
@@ -284,26 +284,26 @@ paths:
   "/organizations/{organization_id}/folders":
     get:
       x-doc:
-        title: List all the folder resources under this organization
+        title: List all folder resources under an organization
         category: Hierarchy
         filename: get-organizations-folders.html
         subcategory: 
     post:
       x-doc:
-        title: Creates a new folder resource (2)
+        title: Create a new folder resource under an organization
         category: Hierarchy
         filename: post-organizations-folders.html
         subcategory: 
   "/organizations/{organization_id}/folders/{folder_id}":
     delete:
       x-doc:
-        title: Remove a specific folder from a organization
+        title: Remove a specific folder from an organization
         category: Hierarchy
         filename: delete-organizations-folders-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a specific folder belonging to an organization
+        title: Retrieve a specific folder from an organization
         category: Hierarchy
         filename: get-organizations-folders-.html
         subcategory: 
