@@ -1,3 +1,4 @@
+---
 paths:
   "/bindings":
     get:
@@ -78,7 +79,7 @@ paths:
   "/folders/{folder_id}/folders":
     get:
       x-doc:
-        title: List all folder resources 
+        title: List all folder resources
         category: Hierarchy
         filename: get-folders-folders.html
         subcategory: 
@@ -104,7 +105,7 @@ paths:
   "/folders/{folder_id}/projects":
     get:
       x-doc:
-        title: List all project resources 
+        title: List all project resources
         category: Hierarchy
         filename: get-folders-projects.html
         subcategory: 
@@ -322,7 +323,7 @@ paths:
   "/organizations/{organization_id}/partnership-with":
     get:
       x-doc:
-        title: List all the partner organizations 
+        title: List all the partner organizations
         category: Partnership
         filename: get-organizations-partnership-with.html
         subcategory: 
@@ -825,7 +826,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a specific resource group 
+        title: Retrieve a specific resource group
         category: Resource and Resourcegroup
         filename: get-resourcegroups-.html
         subcategory: 
@@ -844,7 +845,7 @@ paths:
   "/resourcegroups/{resourcegroup_id}/bindings":
     get:
       x-doc:
-        title: List all the bindings 
+        title: List all the bindings
         category: Binding
         filename: get-resourcegroups-bindings.html
         subcategory: 
@@ -883,39 +884,39 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Create a new resource 
+        title: Create a new resource
         category: Resource and Resourcegroup
         filename: post-resources.html
         subcategory: 
   "/resources/{resource_id}":
     delete:
       x-doc:
-        title: Delete a specific resource 
+        title: Delete a specific resource
         category: Resource and Resourcegroup
         filename: delete-resources-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a specific resource 
+        title: Retrieve a specific resource
         category: Resource and Resourcegroup
         filename: get-resources-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a resource 
+        title: Update a resource
         category: Resource and Resourcegroup
         filename: patch-resources-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a specific resource 
+        title: Modify a specific resource
         category: Resource and Resourcegroup
         filename: put-resources-.html
         subcategory: 
   "/resources/{resource_id}/bindings":
     get:
       x-doc:
-        title: List all the bindings in the collection 
+        title: List all the bindings in the collection
         category: Binding
         filename: get-resources-bindings.html
         subcategory: 
@@ -929,7 +930,7 @@ paths:
   "/resources/{resource_id}/users":
     get:
       x-doc:
-        title: List all the users 
+        title: List all the users
         category: User and Usergroup
         filename: get-resources-users.html
         subcategory: 
@@ -942,14 +943,14 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Create a new resource type 
+        title: Create a new resource type
         category: Resource and Resourcegroup
         filename: post-resourcetypes.html
         subcategory: 
   "/resourcetypes/{resourcetype_id}":
     get:
       x-doc:
-        title: Retrieve a specific resource type 
+        title: Retrieve a specific resource type
         category: Resource and Resourcegroup
         filename: get-resourcetypes-.html
         subcategory: 
@@ -1103,7 +1104,7 @@ paths:
   "/usergroups/{usergroup_id}/bindings":
     get:
       x-doc:
-        title: List all the binding in the collection 
+        title: List all the binding in the collection
         category: Binding
         filename: get-usergroups-bindings.html
         subcategory: 
@@ -1174,21 +1175,21 @@ paths:
   "/users/{user_id}/bindings":
     get:
       x-doc:
-        title: List all the binding in the collection 
+        title: List all the binding in the collection
         category: Binding
         filename: get-users-bindings.html
         subcategory: 
   "/users/{user_id}/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection 
+        title: List all the permission resources in the collection
         category: Permission
         filename: get-users-permissions.html
         subcategory: 
   "/users/{user_id}/permissions/{permission_id}/resources":
     get:
       x-doc:
-        title: List all the resources 
+        title: List all the resources
         category: Resource and Resourcegroup
         filename: get-users-permissions-resources.html
         subcategory: 
@@ -1209,15 +1210,14 @@ paths:
   "/users/{user_id}/resources/{resource_id}/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection 
-          the resource
+        title: List all the permission resources in the collection the resource
         category: Permission
         filename: get-users-resources-permissions.html
         subcategory: 
   "/users/{user_id}/resources/{resource_id}/permissions/{permission_id}":
     get:
       x-doc:
-        title: Retrieve a specific permission available on the resource 
+        title: Retrieve a specific permission available on the resource
         category: Permission
         filename: get-users-resources-permissions-.html
         subcategory: 
@@ -1234,4 +1234,67 @@ paths:
         title: List all the users that have a permission on a particular resource
         category: User and Usergroup
         filename: getresources-permissions-users.html
+        subcategory: 
+  "/folders/{folder_id}/roles/{role_id}/users":
+    post:
+      x-doc:
+        title: Associate a set of users to a folder with a specific role
+        category: User and Usergroup
+        filename: post-folders-roles-users.html
+        subcategory: 
+  "/folders/{folder_id}/roles/{role_id}/users/{user_id}":
+    delete:
+      x-doc:
+        title: Remove a specific user from a folder
+        category: User and Usergroup
+        filename: delete-folders-roles-users-.html
+        subcategory: 
+  "/organizations/{organization_id}/roles/{role_id}/users/{user_id}":
+    delete:
+      x-doc:
+        title: Remove a specific user from an organization
+        category: User and Usergroup
+        filename: delete-organizations-roles-users-.html
+        subcategory: 
+  "/projects/{project_id}/roles/{role_id}/users":
+    post:
+      x-doc:
+        title: Associate a set of users to a project with a specific role
+        category: User and Usergroup
+        filename: post-projects-roles-users.html
+        subcategory: 
+  "/projects/{project_id}/roles/{role_id}/users/{user_id}":
+    delete:
+      x-doc:
+        title: Removes a specific user from a project
+        category: User and Usergroup
+        filename: delete-projects-roles-users-.html
+        subcategory: 
+  "/ui/organizations/{organization_id}/uihierarchy":
+    get:
+      x-doc:
+        title: Full organization hierarchy summary
+        category: UI
+        filename: get-ui-organizations-uihierarchy.html
+        subcategory: 
+  "/ui/organizations/{organization_id}/uiresources":
+    get:
+      x-doc:
+        title: Lists scope/tags counts for a list of resources of an organization
+        category: UI
+        filename: get-ui-organizations-uiresources.html
+        subcategory: 
+  "/ui/organizations/{organization_id}/users/{user_id}/uipermissions":
+    get:
+      x-doc:
+        title: Lists permissions for user on all resources
+        category: UI
+        filename: get-ui-organizations-users-uipermissions.html
+        subcategory: 
+  "/ui/organizations/{organization_id}/users/{user_id}/uiroles":
+    get:
+      x-doc:
+        title: Lists roles for user on all hierarchy resources
+        category: UI
+        filename: get-ui-organizations-users-uiroles.html
         subcategory: 
