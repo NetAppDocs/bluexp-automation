@@ -91,7 +91,7 @@
       },
       "post": {
         "x-doc": {
-          "title": "Enable the Cloud Backup service",
+          "title": "Enable the BlueXP backup and recovery service",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html",
           "explorer": false
@@ -99,7 +99,7 @@
       },
       "put": {
         "x-doc": {
-          "title": "Modify the Cloud Backup service",
+          "title": "Modify the BlueXP backup and recovery service",
           "category": "Backup",
           "filename": "put-account-providers-cloudmanager_cbs-api-v1-backup-working-environment-.html",
           "explorer": false
@@ -127,7 +127,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v2/backup/working-environment/{workingEnvironmentId}": {
       "post": {
         "x-doc": {
-          "title": "Enable Cloud backup (v2)",
+          "title": "Enable BlueXP backup and recovery (v2)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html",
           "explorer": false
@@ -135,7 +135,7 @@
       },
       "put": {
         "x-doc": {
-          "title": "Modify Cloud backup service backup configuration",
+          "title": "Modify BlueXP backup and recovery service backup configuration",
           "category": "Backup",
           "filename": "put-account-providers-cloudmanager_cbs-api-v2-backup-working-environment-.html",
           "explorer": false
@@ -145,7 +145,7 @@
     "/account/{accountId}/providers/cloudmanager_cbs/api/v3/backup/working-environment/{workingEnvironmentId}": {
       "post": {
         "x-doc": {
-          "title": "Enable Cloud Backup (v3)",
+          "title": "Enable BlueXP backup and recovery (v3)",
           "category": "Backup",
           "filename": "post-account-providers-cloudmanager_cbs-api-v3-backup-working-environment-.html",
           "explorer": false
