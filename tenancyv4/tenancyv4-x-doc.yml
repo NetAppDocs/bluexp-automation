@@ -3,7 +3,7 @@ paths:
   "/bindings":
     get:
       x-doc:
-        title: List all binding resources in the collection
+        title: List all binding resources 
         category: Binding
         filename: get-bindings.html
         subcategory: 
@@ -41,7 +41,7 @@ paths:
   "/folders":
     get:
       x-doc:
-        title: List all folder resources in the collection
+        title: List all folder resources
         category: Hierarchy
         filename: get-folders.html
         subcategory: 
@@ -247,7 +247,7 @@ paths:
   "/organizations":
     get:
       x-doc:
-        title: List all organization resources in the collection
+        title: List all organization resources 
         category: Hierarchy
         filename: get-organizations.html
         subcategory: 
@@ -447,7 +447,7 @@ paths:
   "/organizations/{organization_id}/serviceAccounts":
     get:
       x-doc:
-        title: List all user resources in the collection
+        title: List all user resources 
         category: User and Usergroup
         filename: get-organizations-serviceaccounts.html
         subcategory: 
@@ -544,7 +544,7 @@ paths:
   "/partnerships":
     get:
       x-doc:
-        title: List all the partnership resources in the collection
+        title: List all the partnership resources 
         category: Partnership
         filename: get-partnerships.html
         subcategory: 
@@ -582,7 +582,7 @@ paths:
   "/partnershiptypes":
     get:
       x-doc:
-        title: List all partnership type resources in the collection
+        title: List all partnership type resources
         category: Resource and Resourcegroup
         filename: get-partnershiptypes.html
         subcategory: 
@@ -620,7 +620,7 @@ paths:
   "/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection
+        title: List all the permission resources
         category: Permission
         filename: get-permissions.html
         subcategory: 
@@ -658,14 +658,14 @@ paths:
   "/permissions/{permission_id}/bindings":
     get:
       x-doc:
-        title: List all bindings in the collection for a permission
+        title: List all binding resources for a permission 
         category: Binding
         filename: get-permissions-bindings.html
         subcategory: 
   "/projects":
     get:
       x-doc:
-        title: List all the project resources in the collection
+        title: List all the project resources 
         category: Hierarchy
         filename: get-projects.html
         subcategory: 
@@ -703,7 +703,7 @@ paths:
   "/projects/{project_id}/resourcegroups":
     get:
       x-doc:
-        title: List all resource groups in the collection
+        title: List all resource groups 
         category: Resource and Resourcegroup
         filename: get-projects-resourcegroups.html
         subcategory: 
@@ -807,7 +807,7 @@ paths:
   "/resourcegroups":
     get:
       x-doc:
-        title: List all resource groups in the collection 
+        title: List all resource groups 
         category: Resource and Resourcegroup
         filename: get-resourcegroups.html
         subcategory: 
@@ -845,7 +845,7 @@ paths:
   "/resourcegroups/{resourcegroup_id}/bindings":
     get:
       x-doc:
-        title: List all bindings for a resource group
+        title: List all binding resources for a resource group
         category: Binding
         filename: get-resourcegroups-bindings.html
         subcategory: 
@@ -878,7 +878,7 @@ paths:
   "/resources":
     get:
       x-doc:
-        title: List all resources in the collection
+        title: List all resources 
         category: Resource and Resourcegroup
         filename: get-resources.html
         subcategory: 
@@ -916,14 +916,14 @@ paths:
   "/resources/{resource_id}/bindings":
     get:
       x-doc:
-        title: List all bindings in the collection for a resource
+        title: List all binding resources for a resource 
         category: Binding
         filename: get-resources-bindings.html
         subcategory: 
   "/resources/{resource_id}/permissions":
     get:
       x-doc:
-        title: List all permission resources for a resource in the collection 
+        title: List all permission resources for a resource
         category: Permission
         filename: get-resources-permissions.html
         subcategory: 
@@ -937,7 +937,7 @@ paths:
   "/resourcetypes":
     get:
       x-doc:
-        title: List all resource type resources in the collection
+        title: List all resource type resources 
         category: Resource and Resourcegroup
         filename: get-resourcetypes.html
         subcategory: 
@@ -957,7 +957,7 @@ paths:
   "/roles":
     get:
       x-doc:
-        title: List all role resources in the collection
+        title: List all role resources
         category: Role
         filename: get-roles.html
         subcategory: 
@@ -995,14 +995,14 @@ paths:
   "/roles/{role_id}/bindings":
     get:
       x-doc:
-        title: List all bindings in the collection for a specific role
+        title: List all binding resources for a role  
         category: Binding
         filename: get-roles-bindings.html
         subcategory: 
   "/roles/{role_id}/permissions":
     get:
       x-doc:
-        title: List all permission resources in the collection
+        title: List all permission resources 
         category: Permission
         filename: get-roles-permissions.html
         subcategory: 
@@ -1028,7 +1028,7 @@ paths:
   "/tags":
     get:
       x-doc:
-        title: List all the tag resources in the collection
+        title: List all the tag resources 
         category: Tag
         filename: get-tags.html
         subcategory: 
@@ -1066,7 +1066,7 @@ paths:
   "/usergroups":
     get:
       x-doc:
-        title: List all user groups in the collection
+        title: List all user groups 
         category: User and Usergroup
         filename: get-usergroups.html
         subcategory: 
@@ -1104,7 +1104,7 @@ paths:
   "/usergroups/{usergroup_id}/bindings":
     get:
       x-doc:
-        title: List all bindings in the collection for a user group
+        title: List all binding resources for a user group 
         category: Binding
         filename: get-usergroups-bindings.html
         subcategory: 
@@ -1137,7 +1137,7 @@ paths:
   "/users":
     get:
       x-doc:
-        title: List all the user resources in the collection
+        title: List all the user resources 
         category: User and Usergroup
         filename: get-users.html
         subcategory: 
@@ -1175,14 +1175,14 @@ paths:
   "/users/{user_id}/bindings":
     get:
       x-doc:
-        title: List all bindings in the collection for a user
+        title: List all binding resources for a user
         category: Binding
         filename: get-users-bindings.html
         subcategory: 
   "/users/{user_id}/permissions":
     get:
       x-doc:
-        title: List all the permission resources in the collection
+        title: List all the permission resources 
         category: Permission
         filename: get-users-permissions.html
         subcategory: 
@@ -1210,7 +1210,7 @@ paths:
   "/users/{user_id}/resources/{resource_id}/permissions":
     get:
       x-doc:
-        title: List all permission resources for a resource in the collection 
+        title: List all permission resources for a resource 
         category: Permission
         filename: get-users-resources-permissions.html
         subcategory: 
@@ -1224,7 +1224,7 @@ paths:
   "/users/{user_id}/roles":
     get:
       x-doc:
-        title: List all the role resources in the collection (1**)
+        title: List all the role resources for a user 
         category: Role
         filename: get-users-roles.html
         subcategory: 
