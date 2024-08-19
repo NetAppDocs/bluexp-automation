@@ -105,26 +105,26 @@ paths:
   "/folders/{folder_id}/projects":
     get:
       x-doc:
-        title: List all project resources
+        title: List all project resources in a folder
         category: Hierarchy
         filename: get-folders-projects.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new project resource under a folder
+        title: Create a new project resource in a folder
         category: Hierarchy
         filename: post-folders-projects.html
         subcategory: 
   "/folders/{folder_id}/projects/{project_id}":
     delete:
       x-doc:
-        title: Remove a project from a folder
+        title: Remove a project resource from a folder
         category: Hierarchy
         filename: delete-folders-projects-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a project under a folder
+        title: Retrieve a project resource from a folder
         category: Hierarchy
         filename: get-folders-projects-.html
         subcategory: 
@@ -136,7 +136,7 @@ paths:
         subcategory: 
     put:
       x-doc:
-        title: Modify a project under a folder
+        title: Modify a project resource in a folder
         category: Hierarchy
         filename: put-folders-projects-.html
         subcategory: 
@@ -188,7 +188,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a resource belonging to a folder
+        title: Retrieve a resource from a folder
         category: Resource and Resourcegroup
         filename: get-folders-resources-.html
         subcategory: 
@@ -363,7 +363,7 @@ paths:
   "/organizations/{organization_id}/projects/{project_id}":
     delete:
       x-doc:
-        title: Remove a specific project from a organization
+        title: Remove a specific project from an organization
         category: Hierarchy
         filename: delete-organizations-projects-.html
         subcategory: 
@@ -375,13 +375,13 @@ paths:
         subcategory: 
     patch:
       x-doc:
-        title: Update a project resource from a organization partially
+        title: Update a project resource from an organization partially
         category: Hierarchy
         filename: patch-organizations-projects-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a project resource from a organization
+        title: Modify a project resource from an organization
         category: Hierarchy
         filename: put-organizations-projects-.html
         subcategory: 
@@ -414,7 +414,7 @@ paths:
   "/organizations/{organization_id}/resources":
     get:
       x-doc:
-        title: List all the resources for a organization
+        title: List all the resources for an organization
         category: Resource and Resourcegroup
         filename: get-organizations-resources.html
         subcategory: 
@@ -440,7 +440,7 @@ paths:
   "/organizations/{organization_id}/roles/{role_id}/users":
     post:
       x-doc:
-        title: Associate a user with an organization
+        title: Associate users in an organization with a role
         category: User and Usergroup
         filename: post-organizations-roles-users.html
         subcategory: 
@@ -498,7 +498,7 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Add user groups to a organization
+        title: Add user groups to an organization
         category: User and Usergroup
         filename: post-organizations-usergroups.html
         subcategory: 
@@ -524,14 +524,14 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Add users to a organization
+        title: Add users to an organization
         category: User and Usergroup
         filename: post-organizations-users.html
         subcategory: 
   "/organizations/{organization_id}/users/{user_id}":
     delete:
       x-doc:
-        title: Remove a user from a organization
+        title: Remove a user from an organization
         category: User and Usergroup
         filename: delete-organizations-users-.html
         subcategory: 
@@ -1111,7 +1111,7 @@ paths:
   "/usergroups/{usergroup_id}/users":
     get:
       x-doc:
-        title: List all user resources for a user
+        title: List all user resources for a user group
         category: User and Usergroup
         filename: get-usergroups-users.html
         subcategory: 
@@ -1231,14 +1231,14 @@ paths:
   resources/{resource_id}/permissions/{permission_id}/users:
     get:
       x-doc:
-        title: List all the users that have a permission on a particular resource
+        title: List all users that have a permission for a resource
         category: User and Usergroup
         filename: getresources-permissions-users.html
         subcategory: 
   "/folders/{folder_id}/roles/{role_id}/users":
     post:
       x-doc:
-        title: Associate a set of users to a folder with a role
+        title: Associate a set of users for a folder with a role
         category: User and Usergroup
         filename: post-folders-roles-users.html
         subcategory: 
