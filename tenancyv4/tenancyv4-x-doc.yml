@@ -3,89 +3,89 @@ paths:
   "/bindings":
     get:
       x-doc:
-        title: List all binding resources 
+        title: List all bindings 
         category: Binding
         filename: get-bindings.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new binding resource
+        title: Create a new binding 
         category: Binding
         filename: post-bindings.html
         subcategory: 
   "/bindings/{binding_id}":
     delete:
       x-doc:
-        title: Delete a binding resource
+        title: Delete a binding
         category: Binding
         filename: delete-bindings-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a binding resource
+        title: Retrieve a binding
         category: Binding
         filename: get-bindings-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a binding resource partially
+        title: Update a binding partially
         category: Binding
         filename: patch-bindings-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a binding resource
+        title: Modify a binding
         category: Binding
         filename: put-bindings-.html
         subcategory: 
   "/folders":
     get:
       x-doc:
-        title: List all folder resources
+        title: List all folders
         category: Hierarchy
         filename: get-folders.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new folder resource
+        title: Create a new folder 
         category: Hierarchy
         filename: post-folders.html
         subcategory: 
   "/folders/{folder_id}":
     delete:
       x-doc:
-        title: Delete a folder resource
+        title: Delete a folder 
         category: Hierarchy
         filename: delete-folders-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a folder resource
+        title: Retrieve a folder 
         category: Hierarchy
         filename: get-folders-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a folder resource partially
+        title: Update a folder partially
         category: Hierarchy
         filename: patch-folders-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a folder resource
+        title: Modify a folder
         category: Hierarchy
         filename: put-folders-.html
         subcategory: 
   "/folders/{folder_id}/folders":
     get:
       x-doc:
-        title: List all folder resources
+        title: List all folders
         category: Hierarchy
         filename: get-folders-folders.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new child folder resource in a parent folder
+        title: Create a new child folder in a parent folder
         category: Hierarchy
         filename: post-folders-folders.html
         subcategory: 
@@ -105,26 +105,26 @@ paths:
   "/folders/{folder_id}/projects":
     get:
       x-doc:
-        title: List all project resources in a folder
+        title: List all projects in a folder
         category: Hierarchy
         filename: get-folders-projects.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new project resource in a folder
+        title: Create a new project in a folder
         category: Hierarchy
         filename: post-folders-projects.html
         subcategory: 
   "/folders/{folder_id}/projects/{project_id}":
     delete:
       x-doc:
-        title: Remove a project resource from a folder
+        title: Remove a project from a folder
         category: Hierarchy
         filename: delete-folders-projects-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a project resource from a folder
+        title: Retrieve a project from a folder
         category: Hierarchy
         filename: get-folders-projects-.html
         subcategory: 
@@ -136,7 +136,7 @@ paths:
         subcategory: 
     put:
       x-doc:
-        title: Modify a project resource in a folder
+        title: Modify a project in a folder
         category: Hierarchy
         filename: put-folders-projects-.html
         subcategory: 
@@ -247,51 +247,51 @@ paths:
   "/organizations":
     get:
       x-doc:
-        title: List all organization resources 
+        title: List all organizations
         category: Hierarchy
         filename: get-organizations.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new organization resource
+        title: Create a new organization
         category: Hierarchy
         filename: post-organizations.html
         subcategory: 
   "/organizations/{organization_id}":
     delete:
       x-doc:
-        title: Delete an organization resource
+        title: Delete an organization 
         category: Hierarchy
         filename: delete-organizations-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve an organization resource
+        title: Retrieve an organization 
         category: Hierarchy
         filename: get-organizations-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update an organization resource partially
+        title: Update an organization partially
         category: Hierarchy
         filename: patch-organizations-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify an organization resource
+        title: Modify an organization 
         category: Hierarchy
         filename: put-organizations-.html
         subcategory: 
   "/organizations/{organization_id}/folders":
     get:
       x-doc:
-        title: List all folder resources under an organization
+        title: List all folders under an organization
         category: Hierarchy
         filename: get-organizations-folders.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new folder resource under an organization
+        title: Create a new folder under an organization
         category: Hierarchy
         filename: post-organizations-folders.html
         subcategory: 
@@ -316,14 +316,14 @@ paths:
         subcategory: 
     put:
       x-doc:
-        title: Modify a folder from an organization resource 
+        title: Modify a folder under an organization 
         category: Hierarchy
         filename: put-organizations-folders-.html
         subcategory: 
   "/organizations/{organization_id}/partnership-with":
     get:
       x-doc:
-        title: List all the partner organizations
+        title: List all partner organizations
         category: Partnership
         filename: get-organizations-partnership-with.html
         subcategory: 
@@ -350,38 +350,38 @@ paths:
   "/organizations/{organization_id}/projects":
     get:
       x-doc:
-        title: List all the project resources under an organization
+        title: List all the projects under an organization
         category: Hierarchy
         filename: get-organizations-projects.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new project resource under an organization
+        title: Create a new project under an organization
         category: Hierarchy
         filename: post-organizations-projects.html
         subcategory: 
   "/organizations/{organization_id}/projects/{project_id}":
     delete:
       x-doc:
-        title: Remove a specific project from an organization
+        title: Remove a project from an organization
         category: Hierarchy
         filename: delete-organizations-projects-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a specific project belonging to an organization
+        title: Retrieve a project belonging to an organization
         category: Hierarchy
         filename: get-organizations-projects-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a project resource from an organization partially
+        title: Update a project under an organization partially
         category: Hierarchy
         filename: patch-organizations-projects-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a project resource from an organization
+        title: Modify a project under an organization
         category: Hierarchy
         filename: put-organizations-projects-.html
         subcategory: 
@@ -447,38 +447,38 @@ paths:
   "/organizations/{organization_id}/serviceAccounts":
     get:
       x-doc:
-        title: List all user resources 
+        title: List all users
         category: User and Usergroup
         filename: get-organizations-serviceaccounts.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new service account resource
+        title: Create a new service account
         category: User and Usergroup
         filename: post-organizations-serviceaccounts.html
         subcategory: 
   "/organizations/{organization_id}/serviceAccounts/{serviceaccount_id}":
     delete:
       x-doc:
-        title: Delete a service account resource
+        title: Delete a service account 
         category: User and Usergroup
         filename: delete-organizations-serviceaccounts-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a service account resource
+        title: Retrieve a service account 
         category: User and Usergroup
         filename: get-organizations-serviceaccounts-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a account resource partially
+        title: Update a service account partially
         category: User and Usergroup
         filename: patch-organizations-serviceaccounts-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a service account resource
+        title: Modify a service account 
         category: User and Usergroup
         filename: put-organizations-serviceaccounts-.html
         subcategory: 
@@ -518,7 +518,7 @@ paths:
   "/organizations/{organization_id}/users":
     get:
       x-doc:
-        title: List all user resources for an organization
+        title: List all users for an organization
         category: User and Usergroup
         filename: get-organizations-users.html
         subcategory: 
@@ -582,45 +582,45 @@ paths:
   "/partnershiptypes":
     get:
       x-doc:
-        title: List all partnership type resources
+        title: List all partnership types
         category: Resource and Resourcegroup
         filename: get-partnershiptypes.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new partnership type resource
+        title: Create a new partnership type 
         category: Resource and Resourcegroup
         filename: post-partnershiptypes.html
         subcategory: 
   "/partnershiptypes/{partnershiptype_id}":
     delete:
       x-doc:
-        title: Delete a partnership type resource
+        title: Delete a partnership type 
         category: Resource and Resourcegroup
         filename: delete-partnershiptypes-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a partnership type resource
+        title: Retrieve a partnership type 
         category: Resource and Resourcegroup
         filename: get-partnershiptypes-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a partnership type resource partially
+        title: Update a partnership type partially
         category: Resource and Resourcegroup
         filename: patch-partnershiptypes-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a partnership type resource
+        title: Modify a partnership type 
         category: Resource and Resourcegroup
         filename: put-partnershiptypes-.html
         subcategory: 
   "/permissions":
     get:
       x-doc:
-        title: List all the permission resources
+        title: List all the permissions
         category: Permission
         filename: get-permissions.html
         subcategory: 
@@ -658,45 +658,45 @@ paths:
   "/permissions/{permission_id}/bindings":
     get:
       x-doc:
-        title: List all binding resources for a permission 
+        title: List all bindings for a permission 
         category: Binding
         filename: get-permissions-bindings.html
         subcategory: 
   "/projects":
     get:
       x-doc:
-        title: List all the project resources 
+        title: List all projects
         category: Hierarchy
         filename: get-projects.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new project resource
+        title: Create a new project 
         category: Hierarchy
         filename: post-projects.html
         subcategory: 
   "/projects/{project_id}":
     delete:
       x-doc:
-        title: Delete a project resource
+        title: Delete a project 
         category: Hierarchy
         filename: delete-projects-.html
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a project resource
+        title: Retrieve a project 
         category: Hierarchy
         filename: get-projects-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a project resource partially 
+        title: Update a project partially 
         category: Hierarchy
         filename: patch-projects-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a project resource
+        title: Modify a project
         category: Hierarchy
         filename: put-projects-.html
         subcategory: 
@@ -716,7 +716,7 @@ paths:
   "/projects/{project_id}/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
-        title: Remove a resource group resource from a project
+        title: Remove a resource group from a project
         category: Resource and Resourcegroup
         filename: delete-projects-resourcegroups-.html
         subcategory: 
@@ -781,7 +781,7 @@ paths:
   "/projects/{project_id}/users":
     get:
       x-doc:
-        title: List all user resources for a project
+        title: List all users for a project
         category: User and Usergroup
         filename: get-projects-users.html
         subcategory: 
@@ -845,7 +845,7 @@ paths:
   "/resourcegroups/{resourcegroup_id}/bindings":
     get:
       x-doc:
-        title: List all binding resources for a resource group
+        title: List all bindings for a resource group
         category: Binding
         filename: get-resourcegroups-bindings.html
         subcategory: 
@@ -916,7 +916,7 @@ paths:
   "/resources/{resource_id}/bindings":
     get:
       x-doc:
-        title: List all binding resources for a resource 
+        title: List all bindings for a resource 
         category: Binding
         filename: get-resources-bindings.html
         subcategory: 
@@ -937,7 +937,7 @@ paths:
   "/resourcetypes":
     get:
       x-doc:
-        title: List all resource type resources 
+        title: List all resource types 
         category: Resource and Resourcegroup
         filename: get-resourcetypes.html
         subcategory: 
@@ -995,7 +995,7 @@ paths:
   "/roles/{role_id}/bindings":
     get:
       x-doc:
-        title: List all binding resources for a role  
+        title: List all bindings for a role  
         category: Binding
         filename: get-roles-bindings.html
         subcategory: 
@@ -1104,14 +1104,14 @@ paths:
   "/usergroups/{usergroup_id}/bindings":
     get:
       x-doc:
-        title: List all binding resources for a user group 
+        title: List all bindings for a user group 
         category: Binding
         filename: get-usergroups-bindings.html
         subcategory: 
   "/usergroups/{usergroup_id}/users":
     get:
       x-doc:
-        title: List all user resources for a user group
+        title: List all users for a user group
         category: User and Usergroup
         filename: get-usergroups-users.html
         subcategory: 
@@ -1137,7 +1137,7 @@ paths:
   "/users":
     get:
       x-doc:
-        title: List all the user resources 
+        title: List all users
         category: User and Usergroup
         filename: get-users.html
         subcategory: 
@@ -1162,20 +1162,20 @@ paths:
         subcategory: 
     patch:
       x-doc:
-        title: Update a user resource partially
+        title: Update a user partially
         category: User and Usergroup
         filename: patch-users-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a user resource
+        title: Modify a user 
         category: User and Usergroup
         filename: put-users-.html
         subcategory: 
   "/users/{user_id}/bindings":
     get:
       x-doc:
-        title: List all binding resources for a user
+        title: List all bindings for a user
         category: Binding
         filename: get-users-bindings.html
         subcategory: 
@@ -1203,7 +1203,7 @@ paths:
   "/users/{user_id}/resources/{resource_id}":
     get:
       x-doc:
-        title: Check if a user has permission for a specific resource
+        title: Check if a user has permission for a resource
         category: Resource and Resourcegroup
         filename: get-users-resources-.html
         subcategory: 
