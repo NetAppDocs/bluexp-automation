@@ -72,7 +72,7 @@ paths:
         subcategory: 
     put:
       x-doc:
-        title: Modify a folder
+        title: Update a folder
         category: Hierarchy
         filename: put-folders-.html
         subcategory: 
@@ -85,7 +85,7 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Create a new child folder in a parent folder
+        title: Create a new child folder under a parent folder
         category: Hierarchy
         filename: post-folders-folders.html
         subcategory: 
@@ -98,7 +98,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a child folder from a parent folder
+        title: Retrieve a child folder under a parent folder
         category: Hierarchy
         filename: get-folders-folders-.html
         subcategory: 
@@ -111,7 +111,7 @@ paths:
         subcategory: 
     post:
       x-doc:
-        title: Create a new project in a folder
+        title: Create a new project under a folder
         category: Hierarchy
         filename: post-folders-projects.html
         subcategory: 
@@ -124,7 +124,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a project from a folder
+        title: Retrieve a project under a folder
         category: Hierarchy
         filename: get-folders-projects-.html
         subcategory: 
@@ -136,7 +136,7 @@ paths:
         subcategory: 
     put:
       x-doc:
-        title: Modify a project in a folder
+        title: Modify a project under a folder
         category: Hierarchy
         filename: put-folders-projects-.html
         subcategory: 
@@ -304,19 +304,19 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a folder from an organization
+        title: Retrieve a folder under an organization
         category: Hierarchy
         filename: get-organizations-folders-.html
         subcategory: 
     patch:
       x-doc:
-        title: Update a folder from an organization partially
+        title: Update a folder under an organization partially
         category: Hierarchy
         filename: patch-organizations-folders-.html
         subcategory: 
     put:
       x-doc:
-        title: Modify a folder under an organization 
+        title: Update a folder under an organization 
         category: Hierarchy
         filename: put-organizations-folders-.html
         subcategory: 
@@ -350,7 +350,7 @@ paths:
   "/organizations/{organization_id}/projects":
     get:
       x-doc:
-        title: List all the projects under an organization
+        title: List all projects under an organization
         category: Hierarchy
         filename: get-organizations-projects.html
         subcategory: 
@@ -369,7 +369,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a project belonging to an organization
+        title: Retrieve a project under an organization
         category: Hierarchy
         filename: get-organizations-projects-.html
         subcategory: 
@@ -388,7 +388,7 @@ paths:
   "/organizations/{organization_id}/resourcegroups":
     get:
       x-doc:
-        title: List all the resource groups in an organization
+        title: List all resource groups in an organization
         category: Resource and resourcegroup
         filename: get-organizations-resourcegroups.html
         subcategory: 
@@ -613,7 +613,7 @@ paths:
         subcategory: 
     put:
       x-doc:
-        title: Modify a partnership type 
+        title: Update a partnership type 
         category: Resource and resourcegroup
         filename: put-partnershiptypes-.html
         subcategory: 
