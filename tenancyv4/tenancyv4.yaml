@@ -1725,7 +1725,7 @@ components:
             type: string
             x-common: true
         query_filter:
-            description: Format of include query parameter
+            description: Format of filter query parameter
             pattern: ^(([0-9a-zA-Z]+(\[\*\])?)((\.[0-9a-zA-Z]+(\[\*\])?)+)? (eq|lt|gt|lte|gte|in) '([0-9a-zA-Z.,-_:@ {}\"])+')(,(\1))*$
             type: string
             x-common: true
@@ -4028,14 +4028,14 @@ components:
                 hints:
                     properties:
                         accept-post:
-                            description: Indicates details about what media types are accepted when creating a resource.
+                            description: Provides details about what media types are accepted when creating a resource.
                             type: object
                         accept-put:
                             description: Indicates details about what media types are accepted when updating a resource.
                             type: object
                         allow:
                             description: |-
-                                An array of which methods are can be used to interact with the link target.
+                                An array of methods that can be used to interact with the link target.
 
                                 Defined values for collections are:
 
@@ -4096,8 +4096,6 @@ components:
                     description: |-
                         Label of a link such that it can be used as a human-readable identifier (e.g., a menu entry)
 
-                        Defined values are:
-
                         Minimum length: 0
                         Maximum length: 1023
                     maxLength: 1023
@@ -4105,7 +4103,7 @@ components:
                     type: string
                 type:
                     description: |-
-                        The media type of target of the href.
+                        The media type of the target of the href.
 
                         This field is optional and should be included when there is a known media type for the target of the href.
 
@@ -4118,7 +4116,7 @@ components:
             type: object
             x-common: true
         type_bxp_links:
-            description: Array of link relationship associated with the resource or ID.
+            description: Array of link relationships associated with the resource or ID.
             items:
                 $ref: '#/components/schemas/type_bxp_link'
             type: array
@@ -4286,7 +4284,7 @@ components:
                         minLength: 1
                         type: string
                     type:
-                        description: Similar to problem detail. Link to a description of that state
+                        description: Represent a state detail
                         type: string
                 required:
                     - type
@@ -4297,7 +4295,7 @@ components:
             uniqueItems: true
             x-common: true
         type_bxp_state_transitions:
-            description: Array representing the state machine associated to this object
+            description: Array representing the state machine associated with this object
             items:
                 properties:
                     from:
@@ -4315,7 +4313,7 @@ components:
             uniqueItems: true
             x-common: true
         type_dns_1123:
-            description: Represent a DNS as defined in RFC 1123
+            description: Represent a Domain Name as defined in RFC 1123
             maxLength: 63
             minLength: 1
             pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
@@ -5572,251 +5570,14 @@ components:
             scheme: bearer
             type: http
 info:
-    description: "The Tenancy Service provides a centralized point to manage Customer and Partners information, from an organizational perspective and association with Users and Resources. \nThis service also provides endpoints to manage Authorization between the various actors (Users to Organizations and Users to Resources).\n\nWith the approriate permissions, a user can organize their company hierarchy in Folders (subdivision of a Company by any instances they may choose, like departments or site for example) and Projects (which is the equivalent of the previous Workspace concept).\n\nRoles are pre-defined in our system and include sets of permissions needed for management and view of the data. When using these APis, make sure you have the appropriate permissions to do so.\n\nAs more data-services onboard our service, more roles will become available and allow users to execute more tasks within BlueXP. A User can have multiple roles on the same organization or same set of resources.\nDo note that the APIs allow more actions than the UI at this time. UI will be augmented to give these additional features to users in later releases."
+    description: "The Tenancy Service provides a centralized point for managing Customer and Partner information from an organizational perspective, including associations with Users and Resources. \nThis service also offers endpoints to manage Authorization between various actors (Users to Organizations and Users to Resources). \n\nWith the appropriate permissions, a user can organize their company hierarchy into Folders (subdivisions of a Company by any criteria they choose, such as departments or sites) and Projects (equivalent to the previous Workspace concept). \n\nRoles are predefined in our system and include sets of permissions necessary for managing and viewing data. When using these APIs, ensure you have the appropriate permissions. \n\nAs more data services onboard our platform, additional roles will become available, allowing users to perform more tasks within BlueXP. A User can have multiple roles within the same organization or set of resources. \nNote that the APIs currently support more actions than the UI. The UI will be enhanced to provide these additional features to users in future releases."
     license:
         name: BlueXP License
     termsOfService: https://www.netapp.com/media/10784-cloud-data-services-terms.pdf
-    title: (public) Tenancy API
+    title: (documentation) Tenancy API
     version: "1.0"
 openapi: 3.0.3
 paths:
-    /bindings:
-        get:
-            description: Returns a JSON array of all matching resources in the collection.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.bindings+json:
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_list_response_body'
-                    description: List of all bindings
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the binding resources in the collection
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        post:
-            description: Indicates the desired values for the Binding API resource to be created.
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.binding+json:
-                        example:
-                            description: Assign StorageAdmin to users from Acme to all Acme Resources
-                            permissions:
-                                - internal:bxp:roleId: 58a705b9-5579-4290-8b84-3373da7563db
-                            principals:
-                                - internal:bxp:usergroupId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                            resources:
-                                - internal:bxp:resourcegroupId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                            type: application/vnd.netapp.bxp.binding
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/binding_1.0_post_request_body'
-                description: Indicates the desired values for the Binding API resource to be created.
-                required: true
-            responses:
-                "201":
-                    content:
-                        application/vnd.netapp.bxp.binding+json:
-                            example:
-                                description: Assign StorageAdmin to users from Acme to all Acme Resources
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                permissions:
-                                    - internal:bxp:roleId: 58a705b9-5579-4290-8b84-3373da7563db
-                                principals:
-                                    - internal:bxp:usergroupId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                resources:
-                                    - internal:bxp:resourcegroupId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                type: application/vnd.netapp.bxp.binding
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_post_response_body'
-                    description: Returns the newly created binding resource in the JSON response body.
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Creates a new binding resource
-            tags:
-                - Binding
-            x-permission: bxp:binding-create
-            x-persistence: true
-            x-scope: private,public
-    /bindings/{binding_id}:
-        delete:
-            description: Removes the specified Binding API resource.
-            responses:
-                "204":
-                    description: Indicates if the binding resource was deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific binding resource
-            tags:
-                - Binding
-            x-permission: bxp:binding-delete
-            x-persistence: true
-            x-scope: private,public
-        get:
-            description: Get information about a given Binding resource
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.binding+json:
-                            example:
-                                description: Assign StorageAdmin to users from Acme to all Acme Resources
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                permissions:
-                                    - internal:bxp:roleId: 58a705b9-5579-4290-8b84-3373da7563db
-                                principals:
-                                    - internal:bxp:usergroupId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                resources:
-                                    - internal:bxp:resourcegroupId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                tags:
-                                    - internal:bxp:organizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                type: application/vnd.netapp.bxp.binding
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_get_response_body'
-                    description: Returns the stored Binding API resource in the JSON response body.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific binding resource
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the binding resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: binding_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-        patch:
-            description: Update an Binding with partial information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.binding+json:
-                        example:
-                            description: Assign StorageAdmin to users from Acme to all Acme Resources
-                            type: application/vnd.netapp.bxp.binding
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/binding_1.0_patch_request_body'
-                description: Replaces the resource specified attributes in the request body with the values provided.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the binding resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Partially updates an binding resource
-            tags:
-                - Binding
-            x-permission: bxp:binding-modify
-            x-persistence: true
-            x-scope: private,public
-        put:
-            description: Replace a given Binding resource with a new information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.binding+json:
-                        example:
-                            description: Assign StorageAdmin to users from Acme to all Acme Resources
-                            id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                            permissions:
-                                - internal:bxp:roleId: 58a705b9-5579-4290-8b84-3373da7563db
-                            principals:
-                                - internal:bxp:usergroupId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                            resources:
-                                - internal:bxp:resourcegroupId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                            type: application/vnd.netapp.bxp.binding
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/binding_1.0_put_request_body'
-                description: Replaces the entire stored resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the binding resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific binding resource
-            tags:
-                - Binding
-            x-permission: bxp:binding-modify
-            x-persistence: true
-            x-scope: private,public
     /folders:
         get:
             description: Returns a JSON array of all matching resources in the collection.
@@ -5848,7 +5609,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
         post:
             description: Indicates the desired values for the Folder API resource to be created.
             requestBody:
@@ -5909,7 +5670,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-create
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
     /folders/{folder_id}:
         delete:
             description: Removes the specified Folder API resource.
@@ -5929,7 +5690,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-delete
             x-private-path: /resources/{folder_id}
-            x-scope: public
+            x-scope: documentation,public
         get:
             description: Get information about a given Folder resource
             parameters:
@@ -5967,7 +5728,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources/{folder_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the folder resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6009,7 +5770,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-modify
             x-private-path: /resources/{folder_id}
-            x-scope: public
+            x-scope: documentation,public
         put:
             description: Replace a given Folder resource with a new information
             requestBody:
@@ -6046,7 +5807,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-modify
             x-private-path: /resources/{folder_id}
-            x-scope: public
+            x-scope: documentation,public
     /folders/{folder_id}/folders:
         get:
             description: Returns a JSON array of all Folder resources under this Folder.
@@ -6086,7 +5847,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
         post:
             description: Indicates the desired values for the Folder API resource to be created under Parent Folder.
             requestBody:
@@ -6147,7 +5908,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-create
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
     /folders/{folder_id}/folders/{childfolder_id}:
         delete:
             description: Removes the specified child Folder from a parent Folder.
@@ -6167,7 +5928,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-delete
             x-persistence: false
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information of a given child Folder belongs to a parent Folder
             responses:
@@ -6206,7 +5967,7 @@ paths:
             x-permission: bxp:folder-read
             x-persistence: false
             x-private-path: /resources/{childfolder_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6264,7 +6025,7 @@ paths:
             x-permission: bxp:project-read
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the Folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6307,7 +6068,7 @@ paths:
                                 resourceType: project
                                 tags:
                                     - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                                 type: application/vnd.netapp.bxp.resource
                                 version: "1.0"
                             schema:
@@ -6335,7 +6096,7 @@ paths:
             x-permission: bxp:project-create
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
     /folders/{folder_id}/projects/{project_id}:
         delete:
             description: Removes the specified Project from a Folder.
@@ -6355,7 +6116,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:project-delete
             x-persistence: false
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information of a give Project belongs to a Folder
             responses:
@@ -6374,7 +6135,7 @@ paths:
                                 resourceType: project
                                 tags:
                                     - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                                 type: application/vnd.netapp.bxp.resource
                                 version: "1.0"
                             schema:
@@ -6394,7 +6155,7 @@ paths:
             x-permission: bxp:project-read
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6445,7 +6206,7 @@ paths:
             x-permission: bxp:project-modify
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: private,public
+            x-scope: documentation,private,public
         put:
             description: Replace a given Project resource belonging to a parent folder with a new information
             requestBody:
@@ -6457,7 +6218,7 @@ paths:
                             resourceType: project
                             tags:
                                 - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                             type: application/vnd.netapp.bxp.resource
                             version: "1.0"
                         schema:
@@ -6483,7 +6244,7 @@ paths:
             x-permission: bxp:project-modify
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: private,public
+            x-scope: documentation,private,public
     /folders/{folder_id}/resourcegroups:
         get:
             description: Returns a JSON array of all matching resourcegroups in a Folder.
@@ -6513,7 +6274,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the Folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6557,7 +6318,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /folders/{folder_id}/resourcegroups/{resourcegroup_id}:
         delete:
             description: Removes the specified Resourcegroup API resource from a Folder.
@@ -6577,7 +6338,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Resourcegroup belongs to a Folder
             responses:
@@ -6609,7 +6370,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6656,7 +6417,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: Folder ID to display Resources for
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6699,7 +6460,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /folders/{folder_id}/resources/{resource_id}:
         delete:
             description: Removes the specified Resource from a Folder.
@@ -6719,7 +6480,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Resource belongs to a Folder
             responses:
@@ -6752,7 +6513,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6770,54 +6531,6 @@ paths:
               schema:
                 format: uuid
                 type: string
-    /folders/{folder_id}/roles/{role_id}/users:
-        post:
-            description: Associate a set of Users to a given Folder with a specific Role
-            parameters:
-                - in: path
-                  name: folder_id
-                  required: true
-                  schema:
-                    type: string
-                - in: path
-                  name: role_id
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.userbulk+json:
-                        example:
-                            type: application/vnd.netapp.bxp.userbulk
-                            users:
-                                - aadId: a94ac68f-ea20-47aa-add8-8d41be0d8466
-                                  userId: e837c373-2ec4-47a8-b016-ba430ebce321
-                                - auth0Id: auth0|5a09551d0d9ef535b823bd3f
-                                  userId: f837c373-2ec4-47a8-b016-ba430ebce321
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/user_1.0_post_scope_object_bulk_id_request_body'
-                description: Indicates the users to be associated to a given Folder with a specific Role
-                required: true
-            responses:
-                "202":
-                    description: Indicates the users request was accepted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Associates a set of user to a folder with a specific role.
-            tags:
-                - User and Usergroup
-            x-permission: bxp:user-create
-            x-persistence: true
-            x-scope: private,public
     /folders/{folder_id}/roles/{role_id}/users/{user_id}:
         delete:
             description: Dissociate the specified User from a Folder.
@@ -6837,7 +6550,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6892,7 +6605,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6935,7 +6648,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /folders/{folder_id}/usergroups/{usergroup_id}:
         delete:
             description: Removes the specified Usergroup from a Folder.
@@ -6955,7 +6668,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Usergroup belongs to a Folder
             responses:
@@ -6987,7 +6700,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7035,7 +6748,7 @@ paths:
             x-permission: bxp:user-read
             x-persistence: true
             x-private-path: /resources/{folder_id}/users
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: Folder ID to display Users from
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7078,7 +6791,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /folders/{folder_id}/users/{user_id}:
         delete:
             description: Removes the specified User from a Folder.
@@ -7098,7 +6811,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given User belongs to a Folder
             responses:
@@ -7130,7 +6843,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7180,7 +6893,7 @@ paths:
             x-permission: bxp:organization-read
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
         post:
             description: Indicates the desired values for the Organization API resource to be created.
             requestBody:
@@ -7245,7 +6958,7 @@ paths:
             x-permission: bxp:organization-create
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
     /organizations/{organization_id}:
         delete:
             description: Removes the specified Organization API resource.
@@ -7266,7 +6979,7 @@ paths:
             x-permission: bxp:organization-delete
             x-persistence: false
             x-private-path: /resources/{organization_id}
-            x-scope: public
+            x-scope: documentation,public
         get:
             description: Get information about a given Organization
             parameters:
@@ -7315,7 +7028,7 @@ paths:
             x-permission: bxp:organization-read
             x-persistence: false
             x-private-path: /resources/{organization_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the organization resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7363,7 +7076,7 @@ paths:
             x-permission: bxp:organization-modify
             x-persistence: false
             x-private-path: /resources/{organization_id}
-            x-scope: public
+            x-scope: documentation,public
         put:
             description: Replace a given Organization resource with a new information
             requestBody:
@@ -7403,7 +7116,7 @@ paths:
             x-permission: bxp:organization-modify
             x-persistence: false
             x-private-path: /resources/{organization_id}
-            x-scope: public
+            x-scope: documentation,public
     /organizations/{organization_id}/folders:
         get:
             description: Returns a JSON array of all Folder resources under this Organization.
@@ -7443,7 +7156,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
         post:
             description: Indicates the desired values for the Folder API resource to be created under the Organization.
             requestBody:
@@ -7504,7 +7217,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-create
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
     /organizations/{organization_id}/folders/{folder_id}:
         delete:
             description: Removes the specified Folder from a Organization.
@@ -7524,7 +7237,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-delete
             x-persistence: false
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information of a give Folder belongs to a Organization
             responses:
@@ -7557,7 +7270,7 @@ paths:
             x-permission: bxp:folder-read
             x-persistence: false
             x-private-path: /resources/{folder_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7606,7 +7319,7 @@ paths:
             tags:
                 - Hierarchy
             x-permission: bxp:folder-modify
-            x-scope: private,public
+            x-scope: documentation,private,public
         put:
             description: Replace a given Folder resource belonging to a parent organization  with a new information
             requestBody:
@@ -7643,241 +7356,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:folder-modify
             x-private-path: /resources/{folder_id}
-            x-scope: private,public
-    /organizations/{organization_id}/partnership-with:
-        get:
-            description: Returns a JSON array of all Organizations this Organization is in a partnership with.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resources+json:
-                            example:
-                                items:
-                                    - id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      name: Pepsi
-                                      resourceType: partnership
-                                      tags:
-                                        - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:toOrganizationId: 999a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:partnershipType: reseller
-                                      type: application/vnd.netapp.bxp.resource
-                                      version: "1.0"
-                                    - id: af0aad46-af83-4a76-bb12-60453913d4bb
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      name: coca-cola
-                                      resourceType: partnership
-                                      tags:
-                                        - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:toOrganizationId: 999a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:partnershipType: reseller
-                                      type: application/vnd.netapp.bxp.resource
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List all the Organizations this Organization is in a partnership with
-                    headers:
-                        Location:
-                            description: Location of the organizations.
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: List all the Organizations this Organization is in a partnership with
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-read
-            x-persistence: false
-            x-scope: private,public
-        parameters:
-            - description: ID of the partner organization to get all orgnizations it partners with
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: organization_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-    /organizations/{organization_id}/partnerships:
-        get:
-            description: Returns a JSON array of all Partnerships for this Organization.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resources+json:
-                            example:
-                                items:
-                                    - id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      name: Pepsi
-                                      resourceType: partnership
-                                      tags:
-                                        - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:toOrganizationId: 999a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:partnershipType: reseller
-                                      type: application/vnd.netapp.bxp.resource
-                                      version: "1.0"
-                                    - id: af0aad46-af83-4a76-bb12-60453913d4bb
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      name: coca-cola
-                                      resourceType: partnership
-                                      tags:
-                                        - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:toOrganizationId: 999a3f38-d4fa-5b62-a391-a69029758d32
-                                        - internal:bxp:partnershipType: reseller
-                                      type: application/vnd.netapp.bxp.resource
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of partnerships of this organization.
-                    headers:
-                        Location:
-                            description: Location of the partnerships.
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: List all the partnership resources attached to this Organization
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-read
-            x-persistence: false
-            x-scope: private,public
-        parameters:
-            - description: ID of the organization resource to get all partners from
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: organization_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-    /organizations/{organization_id}/partnerships/{partnership_id}:
-        delete:
-            description: Removes the specified Partnership from the Organization Partnerships list.
-            responses:
-                "204":
-                    description: Indicates that the organization resource was succesfully deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Remove a partnership from the list of partnerships
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-delete
-            x-persistence: false
-            x-scope: private,public
-        get:
-            description: Get information about a given Partnership of an Organization
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resource+json:
-                            example:
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                name: Pepsi
-                                resourceType: partnership
-                                tags:
-                                    - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:toOrganizationId: 999a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:partnershipType: reseller
-                                type: application/vnd.netapp.bxp.resource
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Partnership resource in the JSON response body if it belongs to the Folder
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific partnership resource from an organization
-            tags:
-                - Partnership
-            x-permission: bxp:organization-read
-            x-persistence: false
-            x-scope: private,public
-        parameters:
-            - description: ID of the organization resource to get partner from
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: organization_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-            - description: ID of the partnership resource. A partnership include a type, and partner organization
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: partnership_id
-              required: true
-              schema:
-                format: uuid
-                type: string
+            x-scope: documentation,private,public
     /organizations/{organization_id}/projects:
         get:
             description: Returns a JSON array of all Project resources under this Organization.
@@ -7918,7 +7397,7 @@ paths:
             x-permission: bxp:project-read
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the Organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7961,7 +7440,7 @@ paths:
                                 resourceType: project
                                 tags:
                                     - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                                 type: application/vnd.netapp.bxp.resource
                                 version: "1.0"
                             schema:
@@ -7989,7 +7468,7 @@ paths:
             x-permission: bxp:project-create
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
     /organizations/{organization_id}/projects/{project_id}:
         delete:
             description: Removes the specified Project from a Organization.
@@ -8009,7 +7488,7 @@ paths:
                 - Hierarchy
             x-permission: bxp:project-delete
             x-persistence: false
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information of a give Project belongs to a Organization
             responses:
@@ -8028,7 +7507,7 @@ paths:
                                 resourceType: project
                                 tags:
                                     - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                                 type: application/vnd.netapp.bxp.resource
                                 version: "1.0"
                             schema:
@@ -8048,7 +7527,7 @@ paths:
             x-permission: bxp:project-read
             x-persistence: true
             x-private-path: /resources/{project_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the Project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8099,7 +7578,7 @@ paths:
             x-permission: bxp:project-modify
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: private,public
+            x-scope: documentation,private,public
         put:
             description: Replace a given Project resource belonging to a parent organization with a new information
             requestBody:
@@ -8111,7 +7590,7 @@ paths:
                             resourceType: project
                             tags:
                                 - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                             type: application/vnd.netapp.bxp.resource
                             version: "1.0"
                         schema:
@@ -8137,7 +7616,7 @@ paths:
             x-permission: bxp:project-modify
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: private,public
+            x-scope: documentation,private,public
     /organizations/{organization_id}/resourcegroups:
         get:
             description: Returns a JSON array of all matching resourcegroups in a Organization.
@@ -8167,7 +7646,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the Organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8211,7 +7690,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /organizations/{organization_id}/resourcegroups/{resourcegroup_id}:
         delete:
             description: Removes the specified Resourcegroup API resource from a Organization.
@@ -8231,7 +7710,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Resourcegroup belongs to a Organization
             responses:
@@ -8263,7 +7742,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8310,7 +7789,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: Organization ID to display Resources for
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8353,7 +7832,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /organizations/{organization_id}/resources/{resource_id}:
         delete:
             description: Removes the specified Resource from a Organization.
@@ -8373,7 +7852,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Resource belongs to a Organization
             responses:
@@ -8406,7 +7885,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8471,7 +7950,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /organizations/{organization_id}/roles/{role_id}/users/{user_id}:
         delete:
             description: Dissociate the specified User from an Organization.
@@ -8491,7 +7970,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8518,36 +7997,6 @@ paths:
                 format: uuid
                 type: string
     /organizations/{organization_id}/serviceAccounts:
-        get:
-            description: Returns a JSON array of all matching resources in the collection.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.users+json:
-                            schema:
-                                $ref: '#/components/schemas/user_1.0_list_response_body'
-                    description: List of all Service Accounts
-                    headers:
-                        Location:
-                            description: Location of the resource
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the user resources in the collection
-            tags:
-                - User and Usergroup
-            x-permission: bxp:serviceaccount-read
-            x-persistence: true
-            x-private-path: /users
-            x-scope: public
         post:
             description: Creates the specified Service Account API resource.
             requestBody:
@@ -8604,7 +8053,7 @@ paths:
             x-permission: bxp:serviceaccount-create
             x-persistence: false
             x-private-path: /users
-            x-scope: public
+            x-scope: documentation,public
     /organizations/{organization_id}/serviceAccounts/{serviceaccount_id}:
         delete:
             description: Removes the specified Service Account API resource.
@@ -8625,7 +8074,7 @@ paths:
             x-permission: bxp:serviceaccount-delete
             x-persistence: false
             x-private-path: /users/{serviceaccount_id}
-            x-scope: public
+            x-scope: documentation,public
         get:
             description: Get the specified Service Account API resource.
             responses:
@@ -8659,7 +8108,7 @@ paths:
             x-permission: bxp:serviceaccount-read
             x-persistence: false
             x-private-path: /users/{serviceaccount_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the service account resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8702,7 +8151,7 @@ paths:
             x-permission: bxp:serviceaccount-modify
             x-persistence: false
             x-private-path: /users/{serviceaccount_id}
-            x-scope: public
+            x-scope: documentation,public
         put:
             description: Replace a given Service Account resource with a new information
             requestBody:
@@ -8753,7 +8202,7 @@ paths:
             x-permission: bxp:serviceaccount-modify
             x-persistence: false
             x-private-path: /users/{serviceaccount_id}
-            x-scope: public
+            x-scope: documentation,public
     /organizations/{organization_id}/serviceAccounts/{serviceaccount_id}/clientSecret:
         post:
             description: Generate a new client secret for the Service Account
@@ -8794,7 +8243,7 @@ paths:
             x-permission: bxp:serviceaccount-clientsecret-create
             x-persistence: false
             x-private-path: /users/{serviceaccount_id}
-            x-scope: public
+            x-scope: documentation,public
     /organizations/{organization_id}/usergroups:
         get:
             description: Returns a JSON array of all matching usergroups in the Organization.
@@ -8824,7 +8273,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8867,7 +8316,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /organizations/{organization_id}/usergroups/{usergroup_id}:
         delete:
             description: Removes the specified Usergroup from a Organization.
@@ -8887,7 +8336,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Usergroup belongs to a Organization
             responses:
@@ -8919,7 +8368,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -8967,7 +8416,7 @@ paths:
             x-permission: bxp:user-read
             x-persistence: true
             x-private-path: /resources/{organization_id}/users
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: Organization ID to display Users from
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -9010,7 +8459,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /organizations/{organization_id}/users/{user_id}:
         delete:
             description: Removes the specified User from a Organization.
@@ -9030,7 +8479,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given User belongs to a Organization
             responses:
@@ -9062,7 +8511,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -9080,476 +8529,6 @@ paths:
               schema:
                 format: uuid
                 type: string
-    /partnerships:
-        get:
-            description: Returns a JSON array of all matching resources in the collection.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resources+json:
-                            schema:
-                                $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all partnerships
-                    headers:
-                        Location:
-                            description: Location of partnerships
-                            schema:
-                                format: uri
-                                type: string
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-            summary: List all the partnership resources in the collection
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-read
-            x-persistence: false
-            x-private-path: /resources
-            x-scope: public
-        post:
-            description: Indicates the desired values for the Partnership API resource to be created.
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.resource+json:
-                        example:
-                            name: netapp
-                            resourceType: partnership
-                            tags:
-                                - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:toOrganizationId: a1a6ddeb-2a15-4907-a801-9b9c3f40a7b7
-                                - internal:bxp:partnershipType: reseller
-                            type: application/vnd.netapp.bxp.resource
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Partnership API resource to be created.
-                required: true
-            responses:
-                "201":
-                    content:
-                        application/vnd.netapp.bxp.resource+json:
-                            example:
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                name: netapp
-                                resourceType: partnership
-                                tags:
-                                    - internal:bxp:partnershipId: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:toOrganizationId: a1a6ddeb-2a15-4907-a801-9b9c3f40a7b7
-                                    - internal:bxp:partnershipType: reseller
-                                type: application/vnd.netapp.bxp.resource
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resource_1.0_post_response_body'
-                    description: Returns the newly created partnership resource in the JSON response body.
-                    headers:
-                        Location:
-                            description: Location of the newly created partnership resource
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Creates a new partnership resource
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-create
-            x-persistence: false
-            x-private-path: /resources
-            x-scope: public
-    /partnerships/{partnership_id}:
-        delete:
-            description: Removes the specified Partnership API resource.
-            responses:
-                "204":
-                    description: Indicates if the partnership resource was deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific partnership resource
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-delete
-            x-persistence: false
-            x-private-path: /resources/{partnership_id}
-            x-scope: public
-        get:
-            description: Get information about a given Partnership
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resource+json:
-                            example:
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                name: netapp
-                                resourceType: partnership
-                                tags:
-                                    - internal:bxp:partnershipId: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:toOrganizationId: a1a6ddeb-2a15-4907-a801-9b9c3f40a7b7
-                                    - internal:bxp:partnershipType: reseller
-                                type: application/vnd.netapp.bxp.resource
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored partnership resource in the JSON response body.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific partnership resource
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-read
-            x-persistence: false
-            x-private-path: /resources/{partnership_id}
-            x-scope: public
-        parameters:
-            - description: ID of the partnership resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: partnership_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-        patch:
-            description: Update an Partnership with partial information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.resource+json:
-                        example:
-                            id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                            name: netapp
-                            tags:
-                                - internal:bxp:partnershipId: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:toOrganizationId: a1a6ddeb-2a15-4907-a801-9b9c3f40a7b7
-                                - internal:bxp:partnershipType: reseller
-                            type: application/vnd.netapp.bxp.resource
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/resource_1.0_patch_request_body'
-                description: Replaces the specified attributes in the request body with the values provided.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the partnership resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Partially updates an partnership resource
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-modify
-            x-persistence: false
-            x-private-path: /resources/{partnership_id}
-            x-scope: public
-        put:
-            description: Replace a given Partnership resource with a new information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.resource+json:
-                        example:
-                            id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                            name: netapp
-                            resourceType: partnership
-                            tags:
-                                - internal:bxp:partnershipId: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:fromOrganizationId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:toOrganizationId: a1a6ddeb-2a15-4907-a801-9b9c3f40a7b7
-                                - internal:bxp:partnershipType: reseller
-                            type: application/vnd.netapp.bxp.resource
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/resource_1.0_put_request_body'
-                description: Replaces the entire stored partnership resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the partnership resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific partnership resource
-            tags:
-                - Partnership
-            x-permission: bxp:partnership-modify
-            x-persistence: false
-            x-private-path: /resources/{partnership_id}
-            x-scope: public
-    /partnershiptypes:
-        get:
-            description: Returns a JSON array of all matching resources in the collection.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.partnershiptypes+json:
-                            schema:
-                                $ref: '#/components/schemas/partnershiptype_1.0_list_response_body'
-                    description: List of all partnershiptypes
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the partnershiptype resources in the collection
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:partnershiptype-read
-            x-persistence: true
-            x-scope: private,public
-        post:
-            description: Indicates the desired values for the PartnershipType API resource to be created.
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.partnershiptype+json:
-                        example:
-                            description: Added new partnershipType
-                            name: reseller
-                            type: application/vnd.netapp.bxp.partnershiptype
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/partnershiptype_1.0_post_request_body'
-                description: Indicates the desired values for the PartnershipType API resource to be created.
-                required: true
-            responses:
-                "201":
-                    content:
-                        application/vnd.netapp.bxp.partnershiptype+json:
-                            example:
-                                description: Added new partnershipType
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                name: reseller
-                                type: application/vnd.netapp.bxp.partnershiptype
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/partnershiptype_1.0_post_response_body'
-                    description: Returns the newly created partnershiptype resource in the JSON response body.
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Creates a new partnershiptype resource
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:partnershiptype-create
-            x-persistence: true
-            x-scope: private,public
-    /partnershiptypes/{partnershiptype_id}:
-        delete:
-            description: Removes the specified PartnershipType API resource.
-            responses:
-                "204":
-                    description: Indicates if the partnershiptype resource was deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific partnershiptype resource
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:partnershiptype-delete
-            x-persistence: true
-            x-scope: private,public
-        get:
-            description: Get information about a given PartnershipType resource
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.partnershiptype+json:
-                            example:
-                                description: Added new partnershipType
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                name: reseller
-                                type: application/vnd.netapp.bxp.partnershiptype
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/partnershiptype_1.0_get_response_body'
-                    description: Returns the stored PartnershipType API resource in the JSON response body.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific partnershiptype resource
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:partnershiptype-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the partnershiptype resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: partnershiptype_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-        patch:
-            description: Update an PartnershipType with partial information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.partnershiptype+json:
-                        example:
-                            description: Added new partnershipType
-                            name: reseller
-                            type: application/vnd.netapp.bxp.partnershiptype
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/partnershiptype_1.0_patch_request_body'
-                description: Replaces the specified attributes in the request body with the values provided.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the partnershiptype resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Partially updates an partnershiptype resource
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:partnershiptype-modify
-            x-persistence: true
-            x-scope: private,public
-        put:
-            description: Replace a given PartnershipType resource with a new information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.partnershiptype+json:
-                        example:
-                            description: Added new partnershipType
-                            name: reseller
-                            type: application/vnd.netapp.bxp.partnershiptype
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/partnershiptype_1.0_put_request_body'
-                description: Replaces the entire stored resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the partnershiptype resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific partnershiptype resource
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:partnershiptype-modify
-            x-persistence: true
-            x-scope: private,public
     /permissions:
         get:
             description: Returns a JSON array of all matching resources in the collection.
@@ -9605,83 +8584,8 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: private,public
-        post:
-            description: Indicates the desired values for the permission to be created.
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.permission+json:
-                        example:
-                            description: Added permission which allow user to read in aiq
-                            rule: aiq:system-read
-                            type: application/vnd.netapp.bxp.permission
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/permission_1.0_post_request_body'
-                description: Indicates the desired values for the permission to be created.
-                required: true
-            responses:
-                "201":
-                    content:
-                        application/vnd.netapp.bxp.permission+json:
-                            example:
-                                description: Added permission which allow user to read in aiq
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedby: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                rule: aiq:system-read
-                                serviceApplication: aiq
-                                type: application/vnd.netapp.bxp.permission
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/permission_1.0_post_response_body'
-                    description: Returns the newly created permission in the JSON response body.
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Creates a new permission
-            tags:
-                - Permission
-            x-permission: bxp:permission-create
-            x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /permissions/{permission_id}:
-        delete:
-            description: Removes the specified permission.
-            responses:
-                "204":
-                    description: Indicates if the permission was deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific permission
-            tags:
-                - Permission
-            x-permission: bxp:permission-delete
-            x-persistence: true
-            x-scope: private,public
         get:
             description: Get information about a given permission
             responses:
@@ -9717,132 +8621,9 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the permission
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: permission_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-        patch:
-            description: Update an Permission with partial information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.permission+json:
-                        example:
-                            description: Added permission which allow user to read in aiq
-                            rule: aiq:system-create
-                            type: application/vnd.netapp.bxp.permission
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/permission_1.0_patch_request_body'
-                description: Replaces the specified attributes in the request body with the values provided.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the permission was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Partially updates an permission
-            tags:
-                - Permission
-            x-permission: bxp:permission-modify
-            x-persistence: true
-            x-scope: private,public
-        put:
-            description: Replace a given permission with a new information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.permission+json:
-                        example:
-                            description: Added permission which allow user to read in aiq
-                            rule: aiq:system-read
-                            type: application/vnd.netapp.bxp.permission
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/permission_1.0_put_request_body'
-                description: Replaces the entire stored resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the permission was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific permission
-            tags:
-                - Permission
-            x-permission: bxp:permission-modify
-            x-persistence: true
-            x-scope: private,public
-    /permissions/{permission_id}/bindings:
-        get:
-            description: Returns a JSON array of all matching bindings in the collection where a specific permisison is referenced
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.bindings+json:
-                            example:
-                                items:
-                                    - description: Assign internal:bxp:readwrite permission to users from Acme to all Acme Resources
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      permissions:
-                                        - internal:bxp:permission: 58a705b9-5579-4290-8b84-3373da7563db
-                                      principals:
-                                        - internal:bxp:userId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                      resources:
-                                        - internal:bxp:resourceId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                      type: application/vnd.netapp.bxp.binding
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_list_response_body'
-                    description: List of all bindings
-                    headers:
-                        Location:
-                            description: Location of bindings where a specific permisison is referenced
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the binding in the collection where a specific permisison is referenced
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the Permission
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: permission_id
@@ -9882,7 +8663,7 @@ paths:
             x-permission: bxp:project-read
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
         post:
             description: Indicates the desired values for the Project API resource to be created.
             requestBody:
@@ -9916,7 +8697,7 @@ paths:
                                 resourceType: project
                                 tags:
                                     - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                                 type: application/vnd.netapp.bxp.resource
                                 version: "1.0"
                             schema:
@@ -9944,7 +8725,7 @@ paths:
             x-permission: bxp:project-create
             x-persistence: false
             x-private-path: /resources
-            x-scope: public
+            x-scope: documentation,public
     /projects/{project_id}:
         delete:
             description: Removes the specified Project API resource.
@@ -9965,7 +8746,7 @@ paths:
             x-permission: bxp:project-delete
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: public
+            x-scope: documentation,public
         get:
             description: Get information about a given Project resource
             parameters:
@@ -9992,7 +8773,7 @@ paths:
                                 resourceType: project
                                 tags:
                                     - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                    - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                                 type: application/vnd.netapp.bxp.resource
                                 version: "1.0"
                             schema:
@@ -10012,7 +8793,7 @@ paths:
             x-permission: bxp:project-read
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the project resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10055,7 +8836,7 @@ paths:
             x-permission: bxp:project-modify
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: public
+            x-scope: documentation,public
         put:
             description: Replace a given Project resource with a new information
             requestBody:
@@ -10067,7 +8848,7 @@ paths:
                             resourceType: project
                             tags:
                                 - internal:bxp:parentId: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f, 999a3f38-d4fa-5b62-a391-a69029758d32
+                                - internal:bxp:ancestors: 666a3f38-d4fa-5b62-a391-a69029758d32,777a3f38-d4fa-5b62-a391-a69029758d32,48edfd48-3fed-4ffd-9aff-303c7008df7f,999a3f38-d4fa-5b62-a391-a69029758d32
                             type: application/vnd.netapp.bxp.resource
                             version: "1.0"
                         schema:
@@ -10093,7 +8874,7 @@ paths:
             x-permission: bxp:project-modify
             x-persistence: false
             x-private-path: /resources/{project_id}
-            x-scope: public
+            x-scope: documentation,public
     /projects/{project_id}/resourcegroups:
         get:
             description: Returns a JSON array of all matching resourcegroups in a Project.
@@ -10123,7 +8904,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the Project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10166,7 +8947,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /projects/{project_id}/resourcegroups/{resourcegroup_id}:
         delete:
             description: Removes the specified Resourcegroup API resource from a Project.
@@ -10186,7 +8967,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Resourcegroup belongs to a Project
             responses:
@@ -10218,7 +8999,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10265,7 +9046,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: Project ID to display Resources for
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10309,7 +9090,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /projects/{project_id}/resources/{resource_id}:
         delete:
             description: Removes the specified Resource from a Project.
@@ -10329,7 +9110,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Resource belongs to a Project
             responses:
@@ -10362,7 +9143,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10380,54 +9161,6 @@ paths:
               schema:
                 format: uuid
                 type: string
-    /projects/{project_id}/roles/{role_id}/users:
-        post:
-            description: Associate a set of Users to a given Project with a specific Role
-            parameters:
-                - in: path
-                  name: project_id
-                  required: true
-                  schema:
-                    type: string
-                - in: path
-                  name: role_id
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.userbulk+json:
-                        example:
-                            type: application/vnd.netapp.bxp.userbulk
-                            users:
-                                - aadId: a94ac68f-ea20-47aa-add8-8d41be0d8466
-                                  userId: e837c373-2ec4-47a8-b016-ba430ebce321
-                                - auth0Id: auth0|5a09551d0d9ef535b823bd3f
-                                  userId: f837c373-2ec4-47a8-b016-ba430ebce321
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/user_1.0_post_scope_object_bulk_id_request_body'
-                description: Indicates the users to be associated to a given Project with a specific Role
-                required: true
-            responses:
-                "202":
-                    description: Indicates the users request was accepted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Associates a set of user to a project with a specific role.
-            tags:
-                - User and Usergroup
-            x-permission: bxp:user-create
-            x-persistence: true
-            x-scope: private,public
     /projects/{project_id}/roles/{role_id}/users/{user_id}:
         delete:
             description: Dissociate the specified User from a Project.
@@ -10447,7 +9180,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10502,7 +9235,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10545,7 +9278,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /projects/{project_id}/usergroups/{usergroup_id}:
         delete:
             description: Removes the specified Usergroup from a Project.
@@ -10565,7 +9298,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Usergroup belongs to a Project
             responses:
@@ -10597,7 +9330,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10645,7 +9378,7 @@ paths:
             x-permission: bxp:user-read
             x-persistence: true
             x-private-path: /resources/{project_id}/users
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: Project ID to display Users from
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10689,7 +9422,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /projects/{project_id}/users/{user_id}:
         delete:
             description: Removes the specified User from a Project.
@@ -10709,7 +9442,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given User belongs to a Project
             responses:
@@ -10741,7 +9474,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10788,7 +9521,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         post:
             description: Indicates the desired values for the Resourcegroup to be created.
             requestBody:
@@ -10843,7 +9576,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /resourcegroups/{resourcegroup_id}:
         delete:
             description: Deletes the specified Resourcegroup.
@@ -10863,7 +9596,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information about a given Resourcegroup
             responses:
@@ -10899,7 +9632,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the resourcegroup
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -10942,7 +9675,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-modify
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         put:
             description: Replace a given Resourcegroup with a new information
             requestBody:
@@ -10982,64 +9715,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-modify
             x-persistence: true
-            x-scope: private,public
-    /resourcegroups/{resourcegroup_id}/bindings:
-        get:
-            description: Returns a JSON array of all matching bindings in the collection where the specific resourcegroup is referenced.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.bindings+json:
-                            example:
-                                items:
-                                    - description: Assign StorageAdmin to user from Acme usergroup to all Acme Resources
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      permissions:
-                                        - internal:bxp:roleId: 58a705b9-5579-4290-8b84-3373da7563db
-                                      principals:
-                                        - internal:bxp:usergroupId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                      resources:
-                                        - internal:bxp:resourcegroupId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                      type: application/vnd.netapp.bxp.binding
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_list_response_body'
-                    description: List of all bindings
-                    headers:
-                        Location:
-                            description: Location of all bindings where the specific resourcegroup is referenced.
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the bindings in the collection where the specific resourcegroup is referenced.
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the Resourcegroup
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: resourcegroup_id
-              required: true
-              schema:
-                format: uuid
-                type: string
+            x-scope: documentation,private,public
     /resourcegroups/{resourcegroup_id}/resources:
         get:
             description: Returns a JSON array of all matching resources in this Resourcegroup.
@@ -11069,7 +9745,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the ResourceGroup
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -11113,7 +9789,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /resourcegroups/{resourcegroup_id}/resources/{resource_id}:
         delete:
             description: Removes the specified Resource from a ResourceGroup.
@@ -11133,7 +9809,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given Resource belongs to a ResourceGroup
             responses:
@@ -11166,7 +9842,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the ResourceGroup
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -11215,7 +9891,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         post:
             description: Indicates the desired values for the Resource API resource to be created.
             requestBody:
@@ -11278,7 +9954,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /resources/{resource_id}:
         delete:
             description: Removes the specified Resource API resource.
@@ -11298,7 +9974,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information about a given Resource
             parameters:
@@ -11345,7 +10021,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -11390,7 +10066,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-modify
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         put:
             description: Replace a given Resource resource with a new information
             requestBody:
@@ -11434,64 +10110,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-modify
             x-persistence: true
-            x-scope: private,public
-    /resources/{resource_id}/bindings:
-        get:
-            description: Returns a JSON array of all matching bindings in the collection where the specific resource is referenced.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.bindings+json:
-                            example:
-                                items:
-                                    - description: Assign internal:bxp:readwrite permission to users from Acme to all Acme Resources
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      permissions:
-                                        - internal:bxp:permissionId: 58a705b9-5579-4290-8b84-3373da7563db
-                                      principals:
-                                        - internal:bxp:userId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                      resources:
-                                        - internal:bxp:resourceId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                      type: application/vnd.netapp.bxp.binding
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_list_response_body'
-                    description: List of all bindings
-                    headers:
-                        Location:
-                            description: Location of all bindings where the specific resource is referenced.
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the bindings in the collection where the specific resource is referenced.
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the Resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: resource_id
-              required: true
-              schema:
-                format: uuid
-                type: string
+            x-scope: documentation,private,public
     /resources/{resource_id}/permissions:
         get:
             description: Returns a JSON array of all matching permissions available on the Resource
@@ -11547,12 +10166,59 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
+              required: true
+              schema:
+                format: uuid
+                type: string
+    /resources/{resource_id}/permissions/{permission_id}/users:
+        get:
+            description: Returns a JSON array of all matching User that have a permission on a particular resource.
+            parameters:
+                - $ref: '#/components/parameters/filter'
+                - $ref: '#/components/parameters/skip'
+                - $ref: '#/components/parameters/include'
+                - $ref: '#/components/parameters/limit'
+                - $ref: '#/components/parameters/order_by'
+                - $ref: '#/components/parameters/count'
+                - $ref: '#/components/parameters/continue'
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.users+json:
+                            schema:
+                                $ref: '#/components/schemas/user_1.0_list_response_body'
+                    description: List of Users that have the permission on the resource.
+                    headers:
+                        Location:
+                            description: Location of the collection
+                            schema:
+                                format: uri
+                                type: string
+            summary: List all the Users that have a permission on a particular resource.
+            tags:
+                - User and Usergroup
+            x-permission: bxp:user-read
+            x-persistence: true
+            x-scope: documentation,private,public
+        parameters:
+            - description: ID of the Resource
+              example: 666a3f38-d4fa-5b62-a391-a69029758d32
+              in: path
+              name: resource_id
+              required: true
+              schema:
+                format: uuid
+                type: string
+            - description: ID of the permission resource
+              example: 666a3f38-d4fa-5b62-a391-a69029758d32
+              in: path
+              name: permission_id
               required: true
               schema:
                 format: uuid
@@ -11586,144 +10252,12 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-    /resourcetypes:
-        get:
-            description: Returns a JSON array of all matching resources in the collection.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resourcetypes+json:
-                            schema:
-                                $ref: '#/components/schemas/resourcetype_1.0_list_response_body'
-                    description: List of all resourcetypes
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the resourcetype resources in the collection
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:resourcetype-read
-            x-persistence: true
-            x-scope: private,public
-        post:
-            description: Indicates the desired values for the ResourceType API resource to be created. You need to specify at least resourceClass, resourceType and description. If this Resource Class/Type is a translation for a legacy Class/Type, the legacyResourceClass and legacyResourceType fields should contain the legacy values associated.
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.resourcetype+json:
-                        example:
-                            description: Represent a Customer Organization
-                            resourceClass: hierarchy
-                            resourceType: organization
-                            type: application/vnd.netapp.bxp.resourcetype
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/resourcetype_1.0_post_request_body'
-                description: Indicates the desired values for the ResourceType API resource to be created.
-                required: true
-            responses:
-                "201":
-                    content:
-                        application/vnd.netapp.bxp.resourcetype+json:
-                            example:
-                                description: Represent a Customer Organization
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                resourceClass: hierarchy
-                                resourceType: organization
-                                type: application/vnd.netapp.bxp.resourcetype
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resourcetype_1.0_post_response_body'
-                    description: Returns the newly created resourcetype resource in the JSON response body.
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Creates a new resourcetype resource
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:resourcetype-create
-            x-persistence: true
-            x-scope: private,public
-    /resourcetypes/{resourcetype_id}:
-        get:
-            description: Get information about a given ResourceType resource (Resource Class/Resource Type combination). If this Resource Class/Type is a translation for a legacy Class/Type, the legacyResourceClass and legacyResourceType fields will contain the legacy values associated.
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resourcetype+json:
-                            example:
-                                description: Represent a Customer Organization
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                resourceClass: hierarchy
-                                resourceType: organization
-                                type: application/vnd.netapp.bxp.resourcetype
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resourcetype_1.0_get_response_body'
-                    description: Returns the stored ResourceType API resource in the JSON response body.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific resourcetype resource
-            tags:
-                - Resource and Resourcegroup
-            x-permission: bxp:resourcetype-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the resourcetype resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: resourcetype_id
               required: true
               schema:
                 format: uuid
@@ -11757,82 +10291,8 @@ paths:
                 - Role
             x-permission: bxp:role-read
             x-persistence: true
-            x-scope: private,public
-        post:
-            description: Indicates the desired values for the Role API resource to be created.
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.role+json:
-                        example:
-                            description: This role have alpha & beta permissions for NetApp Sales Territory
-                            name: StorageAdmin
-                            type: application/vnd.netapp.bxp.role
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/role_1.0_post_request_body'
-                description: Indicates the desired values for the Role API resource to be created.
-                required: true
-            responses:
-                "201":
-                    content:
-                        application/vnd.netapp.bxp.role+json:
-                            example:
-                                description: This role have alpha & beta permissions for NetApp Sales Territory
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                name: StorageAdmin
-                                type: application/vnd.netapp.bxp.role
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/role_1.0_post_response_body'
-                    description: Returns the newly created role resource in the JSON response body.
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Creates a new role resource
-            tags:
-                - Role
-            x-permission: bxp:role-create
-            x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /roles/{role_id}:
-        delete:
-            description: Removes the specified Role API resource.
-            responses:
-                "204":
-                    description: Indicates if the role resource was deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific role resource
-            tags:
-                - Role
-            x-permission: bxp:role-delete
-            x-persistence: true
-            x-scope: private,public
         get:
             description: Get information about a given Role resource
             responses:
@@ -11867,132 +10327,9 @@ paths:
                 - Role
             x-permission: bxp:role-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the role resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: role_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-        patch:
-            description: Update an Role with partial information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.role+json:
-                        example:
-                            example: This role have alpha & beta permissions for NetApp Sales Territory
-                            name: StorageViewer
-                            type: application/vnd.netapp.bxp.role
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/role_1.0_patch_request_body'
-                description: Replaces the resource specified attributes in the request body with the values provided.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the role resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Partially updates an role resource
-            tags:
-                - Role
-            x-permission: bxp:role-modify
-            x-persistence: true
-            x-scope: private,public
-        put:
-            description: Replace a given Role resource with a new information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.role+json:
-                        example:
-                            description: This role have alpha & beta permissions for NetApp Sales Territory
-                            name: StorageViewer
-                            type: application/vnd.netapp.bxp.role
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/role_1.0_put_request_body'
-                description: Replaces the entire stored resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the role resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific role resource
-            tags:
-                - Role
-            x-permission: bxp:role-modify
-            x-persistence: true
-            x-scope: private,public
-    /roles/{role_id}/bindings:
-        get:
-            description: Returns a JSON array of all matching bindings in the collection where a specific role is referenced
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.bindings+json:
-                            example:
-                                items:
-                                    - description: Assign StorageAdmin to users from Acme usergroup to all Acme Resources
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      permissions:
-                                        - internal:bxp:roleId: 58a705b9-5579-4290-8b84-3373da7563db
-                                      principals:
-                                        - internal:bxp:usergroupId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                      resources:
-                                        - internal:bxp:resourcegroupId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                      type: application/vnd.netapp.bxp.binding
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_list_response_body'
-                    description: List of all bindings
-                    headers:
-                        Location:
-                            description: Location of bindings where a specific role is referenced
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the binding in the collection where a specific role is referenced
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the Role
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: role_id
@@ -12059,7 +10396,7 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the role
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -12069,60 +10406,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-        post:
-            description: Indicates the desired values for the Permissions to be added to a Role
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.permissionbulk+json:
-                        example:
-                            permissions:
-                                - a94ac68f-ea20-47aa-add8-8d41be0d8466
-                                - b04ac68f-da27-578a-cee8-9e45bq0d8466
-                            type: application/vnd.netapp.bxp.permissionbulk
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/permission_1.0_post_bulk_id_request_body'
-                description: Indicates the desired values for the Permissions to be added to a Role.
-                required: true
-            responses:
-                "202":
-                    description: Indicates the permissions request was accepted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Add list of permissions to a role
-            tags:
-                - Permission
-            x-permission: bxp:permission-create
-            x-persistence: true
-            x-scope: private,public
     /roles/{role_id}/permissions/{permission_id}:
-        delete:
-            description: Removes the specified permission.
-            responses:
-                "204":
-                    description: Indicates if the permission was deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific permission
-            tags:
-                - Permission
-            x-permission: bxp:permission-delete
-            x-persistence: true
-            x-scope: private,public
         get:
             description: Get information about a given permission in a Role
             responses:
@@ -12160,7 +10444,7 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the permission
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -12174,495 +10458,6 @@ paths:
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: role_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-    /tags:
-        get:
-            description: Returns a JSON array of all matching resources in the collection.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.tags+json:
-                            example:
-                                items:
-                                    - description: This tag represents NetApp Sales Territory
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedby: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      name: internal:aiq:salesTerritory
-                                      type: application/vnd.netapp.bxp.tag
-                                      version: "1.0"
-                                    - description: This tag represents NetApp Support Territory
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedby: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      name: internal:aiq:supportTerritory
-                                      type: application/vnd.netapp.bxp.tag
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/tag_1.0_list_response_body'
-                    description: List of all tags
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the tag resources in the collection
-            tags:
-                - Tag
-            x-permission: bxp:tag-read
-            x-persistence: true
-            x-scope: private,public
-        post:
-            description: Indicates the desired values for the Tag API resource to be created.
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.tag+json:
-                        example:
-                            description: This tag represents NetApp Sales Territory
-                            name: internal:aiq:salesTerritory
-                            type: application/vnd.netapp.bxp.tag
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/tag_1.0_post_request_body'
-                description: Indicates the desired values for the Tag API resource to be created.
-                required: true
-            responses:
-                "201":
-                    content:
-                        application/vnd.netapp.bxp.tag+json:
-                            example:
-                                description: This tag represents NetApp Sales Territory
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedby: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                name: internal:aiq:salesTerritory
-                                type: application/vnd.netapp.bxp.tag
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/tag_1.0_post_response_body'
-                    description: Returns the newly created tag resource in the JSON response body.
-                    headers:
-                        Location:
-                            description: Location of the newly created resource
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Creates a new tag resource
-            tags:
-                - Tag
-            x-permission: bxp:tag-create
-            x-persistence: true
-            x-scope: private,public
-    /tags/{tag_id}:
-        delete:
-            description: Removes the specified Tag API resource.
-            responses:
-                "204":
-                    description: Indicates if the tag resource was deleted.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific tag resource
-            tags:
-                - Tag
-            x-permission: bxp:tag-delete
-            x-persistence: true
-            x-scope: private,public
-        get:
-            description: Get information about a given Tag resource
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.tag+json:
-                            example:
-                                description: This tag represents NetApp Sales Territory
-                                id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                metadata:
-                                    createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                    creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    labels: []
-                                    modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                    modifiedby: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                name: internal:aiq:salesTerritory
-                                type: application/vnd.netapp.bxp.tag
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/tag_1.0_get_response_body'
-                    description: Returns the stored Tag API resource in the JSON response body.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific tag resource
-            tags:
-                - Tag
-            x-permission: bxp:tag-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the tag resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: tag_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-        patch:
-            description: Update a Tag with partial information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.tag+json:
-                        example:
-                            name: internal:aiq:salesTerritory
-                            type: application/vnd.netapp.bxp.tag
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/tag_1.0_patch_request_body'
-                description: Replaces the specified attributes in the request body with the values provided.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the tag resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a Tag resource
-            tags:
-                - Tag
-            x-permission: bxp:tag-modify
-            x-persistence: true
-            x-scope: private,public
-        put:
-            description: Replace a given Tag resource with a new information
-            requestBody:
-                content:
-                    application/vnd.netapp.bxp.tag+json:
-                        example:
-                            description: This tag represents NetApp Sales Territory
-                            name: internal:aiq:salesTerritory
-                            type: application/vnd.netapp.bxp.tag
-                            version: "1.0"
-                        schema:
-                            $ref: '#/components/schemas/tag_1.0_put_request_body'
-                description: Replaces the entire stored resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
-                required: true
-            responses:
-                "204":
-                    description: Indicates if the tag resource was updated.
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-                "404":
-                    $ref: '#/components/responses/404NotFound'
-                "409":
-                    $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific tag resource
-            tags:
-                - Tag
-            x-permission: bxp:tag-modify
-            x-persistence: true
-            x-scope: private,public
-    /ui/organizations/{organization_id}/uihierarchy:
-        get:
-            description: UMFEX-112 - Get the hierarchy of an organization with User and resources counts
-            parameters:
-                - $ref: '#/components/parameters/filter'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.hierarchy-counts+json:
-                            example:
-                                count: 2
-                                items:
-                                    - ancestors: 000a3f38-d4fa-5b62-a391-a69029758d32,012a3f38-d4fa-5b62-a391-a69029758d32,666a3f38-d4fa-5b62-a391-a69029758d32
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      parentId: 012a3f38-d4fa-5b62-a391-a69029758d32
-                                      resourceClass: project
-                                      resourceCount: "2"
-                                      resourceType: hierarchy
-                                      userCount: "3"
-                                    - ancestors: 000a3f38-d4fa-5b62-a391-a69029758d32,012a3f38-d4fa-5b62-a391-a69029758d32
-                                      id: 012a3f38-d4fa-5b62-a391-a69029758d32
-                                      name: Cluster2
-                                      parentId: 000a3f38-d4fa-5b62-a391-a69029758d32
-                                      resourceClass: folder
-                                      resourceCount: "5"
-                                      resourceType: hierarchy
-                                      userCount: "6"
-                                type: application/vnd.netapp.bxp.resources-counts
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/hierarchycounts_1.0_list_response_body'
-                    description: Returns a JSON array of hierarchy elements with their counts of users and resources
-                    headers:
-                        Location:
-                            description: Location of the hierarchy
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-            summary: Full organization hierarchy summary
-            tags:
-                - UI
-            x-permission: bxp:resource-read
-            x-persistence: false
-            x-scope: private,uipublic
-        parameters:
-            - description: Organization Id to get user permissions for
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: organization_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-    /ui/organizations/{organization_id}/uiresources:
-        get:
-            description: UMFEX-114 - Get resources of an organization and their associated counts of scopes/tags
-            parameters:
-                - $ref: '#/components/parameters/filter'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.resources-counts+json:
-                            example:
-                                count: 2
-                                items:
-                                    - id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      name: Cluster1
-                                      resourceClass: ON_PREM
-                                      resourceType: ON_PREM
-                                      scopeCount: "5"
-                                      tagCount: "6"
-                                    - id: 012a3f38-d4fa-5b62-a391-a69029758d32
-                                      name: Cluster2
-                                      resourceClass: ON_PREM
-                                      resourceType: ON_PREM
-                                      scopeCount: "5"
-                                      tagCount: "6"
-                                type: application/vnd.netapp.bxp.resources-counts
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/resourcescounts_1.0_list_response_body'
-                    description: Returns a JSON array of resources with their counts of scope and tags.
-                    headers:
-                        Location:
-                            description: Location of the resources
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-            summary: Lists scope/tags counts for a list of resources of an organization
-            tags:
-                - UI
-            x-permission: bxp:resource-read
-            x-persistence: false
-            x-scope: private,uipublic
-        parameters:
-            - description: Organization Id to get user permissions for
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: organization_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-    /ui/organizations/{organization_id}/users/{user_id}/uipermissions:
-        get:
-            description: UMFEX-65 - Get permissions of the user on all resources in an organization
-            parameters:
-                - $ref: '#/components/parameters/filter'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.user-resources-permissions+json:
-                            example:
-                                count: 2
-                                items:
-                                    - id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      name: Cluster1
-                                      permissions:
-                                        - id: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                          rule: bxp:cluster-read
-                                        - id: 888a3f38-d4fa-5b62-a391-a69029758d32
-                                          rule: bxp:cluster-delete
-                                      resourceClass: ON_PREM
-                                      resourceType: ON_PREM
-                                    - id: 012a3f38-d4fa-5b62-a391-a69029758d32
-                                      name: Cluster2
-                                      permissions:
-                                        - id: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                          rule: bxp:cluster-read
-                                        - id: 888a3f38-d4fa-5b62-a391-a69029758d32
-                                          rule: bxp:cluster-delete
-                                      resourceClass: ON_PREM
-                                      resourceType: ON_PREM
-                                type: application/vnd.netapp.bxp.user-resources-permissions
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/userpermissions_1.0_list_response_body'
-                    description: Returns a JSON array of all permissions for all resources in an organization.
-                    headers:
-                        Location:
-                            description: Location of permissions
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-            summary: Lists permissions for user on all resources
-            tags:
-                - UI
-            x-permission: bxp:user-read
-            x-persistence: false
-            x-scope: private,uipublic
-        parameters:
-            - description: Organization Id to get user permissions for
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: organization_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-            - description: User Id to get permissions for
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: user_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-    /ui/organizations/{organization_id}/users/{user_id}/uiroles:
-        get:
-            description: UMFEX-65 - Get roles of the user on all resources in an organization
-            parameters:
-                - $ref: '#/components/parameters/filter'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.user-roles+json:
-                            example:
-                                count: 2
-                                items:
-                                    - id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      name: Cluster1
-                                      resourceClass: ON_PREM
-                                      resourceType: ON_PREM
-                                      roles:
-                                        - id: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                        - id: 888a3f38-d4fa-5b62-a391-a69029758d32
-                                    - id: 012a3f38-d4fa-5b62-a391-a69029758d32
-                                      name: Cluster2
-                                      permissions:
-                                        - id: 777a3f38-d4fa-5b62-a391-a69029758d32
-                                        - id: 888a3f38-d4fa-5b62-a391-a69029758d32
-                                      resourceClass: ON_PREM
-                                      resourceType: ON_PREM
-                                type: application/vnd.netapp.bxp.user-resources-permissions
-                                version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/userroles_1.0_list_response_body'
-                    description: Returns a JSON array of all roles for all hierarchy resources in an organization.
-                    headers:
-                        Location:
-                            description: Location of roles
-                            schema:
-                                format: uri
-                                type: string
-                "400":
-                    $ref: '#/components/responses/400BadRequest'
-                "401":
-                    $ref: '#/components/responses/401Unauthorized'
-                "403":
-                    $ref: '#/components/responses/403Forbidden'
-            summary: Lists roles for user on all hierarchy resources
-            tags:
-                - UI
-            x-permission: bxp:user-read
-            x-persistence: false
-            x-scope: private,uipublic
-        parameters:
-            - description: Organization Id to get user roles for
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: organization_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-            - description: User Id to get roles for
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: user_id
               required: true
               schema:
                 format: uuid
@@ -12696,7 +10491,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         post:
             description: Indicates the desired values for the Usergroup to be created.
             requestBody:
@@ -12753,7 +10548,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /usergroups/{usergroup_id}:
         delete:
             description: Removes the specified Usergroup.
@@ -12773,7 +10568,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information about a given Usergroup
             responses:
@@ -12809,7 +10604,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the Usergroup
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -12853,7 +10648,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-modify
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         put:
             description: Replace a given Usergroup with a new information
             requestBody:
@@ -12894,64 +10689,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:usergroup-modify
             x-persistence: true
-            x-scope: private,public
-    /usergroups/{usergroup_id}/bindings:
-        get:
-            description: Returns a JSON array of all matching bindings in the collection where specific usergroup is referenced.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.bindings+json:
-                            example:
-                                items:
-                                    - description: Assign StorageAdmin to users from Acme usergroup to all Acme Resources
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      permissions:
-                                        - internal:bxp:roleId: 58a705b9-5579-4290-8b84-3373da7563db
-                                      principals:
-                                        - internal:bxp:usergroupId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                      resources:
-                                        - internal:bxp:resourcegroupId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                      type: application/vnd.netapp.bxp.binding
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_list_response_body'
-                    description: List of all bindings
-                    headers:
-                        Location:
-                            description: Location of bindings where specific usergroup is referenced.
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the binding in the collection where specific usergroup is referenced.
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the Usergroup
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: usergroup_id
-              required: true
-              schema:
-                format: uuid
-                type: string
+            x-scope: documentation,private,public
     /usergroups/{usergroup_id}/users:
         get:
             description: Returns a JSON array of all matching Users in the User.
@@ -12981,7 +10719,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: public
+            x-scope: documentation,public
         parameters:
             - description: ID of the UserGroup
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13024,7 +10762,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /usergroups/{usergroup_id}/users/{user_id}:
         delete:
             description: Removes the specified User from a Usergroup.
@@ -13044,7 +10782,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information if a given User belongs to a Usergroup
             responses:
@@ -13077,7 +10815,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the usergroup
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13127,7 +10865,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         post:
             description: Indicates the desired values for the user to be created.
             requestBody:
@@ -13185,7 +10923,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-create
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
     /users/{user_id}:
         delete:
             description: Removes the specified user.
@@ -13205,7 +10943,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         get:
             description: Get information about a given user
             responses:
@@ -13244,7 +10982,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13289,7 +11027,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-modify
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         put:
             description: Replace a given user with a new information
             requestBody:
@@ -13352,64 +11090,7 @@ paths:
                 - User and Usergroup
             x-permission: bxp:user-modify
             x-persistence: true
-            x-scope: private,public
-    /users/{user_id}/bindings:
-        get:
-            description: Returns a JSON array of all matching bindings in the collection where specific user is referenced.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.bindings+json:
-                            example:
-                                items:
-                                    - description: Assign internal:bxp:readwrite permission to users from Acme to all Acme Resources
-                                      id: 666a3f38-d4fa-5b62-a391-a69029758d32
-                                      metadata:
-                                        createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        labels: []
-                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
-                                        modifiedBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
-                                      permissions:
-                                        - internal:bxp:permissionId: 58a705b9-5579-4290-8b84-3373da7563db
-                                      principals:
-                                        - internal:bxp:userId: 22f5dbf6-1cb0-495a-a5d3-c09c6393ef05
-                                      resources:
-                                        - internal:bxp:resourceId: c6879f0e-26fc-4c22-a499-c8ef3146f666
-                                      type: application/vnd.netapp.bxp.binding
-                                      version: "1.0"
-                            schema:
-                                $ref: '#/components/schemas/binding_1.0_list_response_body'
-                    description: List of all bindings
-                    headers:
-                        Location:
-                            description: Location of bindings where specific user is referenced.
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the binding in the collection where specific user is referenced.
-            tags:
-                - Binding
-            x-permission: bxp:binding-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the User
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: user_id
-              required: true
-              schema:
-                format: uuid
-                type: string
+            x-scope: documentation,private,public
     /users/{user_id}/permissions:
         get:
             description: Returns a JSON array of all matching permissions the User has
@@ -13465,7 +11146,7 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the User
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13504,7 +11185,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the User
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13551,7 +11232,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the User
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13600,7 +11281,7 @@ paths:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13673,7 +11354,7 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the User
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13727,7 +11408,7 @@ paths:
                 - Permission
             x-permission: bxp:permission-read
             x-persistence: true
-            x-scope: private,public
+            x-scope: documentation,private,public
         parameters:
             - description: ID of the User
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -13782,65 +11463,13 @@ paths:
                 - Role
             x-permission: bxp:role-read
             x-persistence: true
-            x-scope: private,public
-    resources/{resource_id}/permissions/{permission_id}/users:
-        get:
-            description: Returns a JSON array of all matching User that have a permission on a particular resource.
-            parameters:
-                - $ref: '#/components/parameters/filter'
-                - $ref: '#/components/parameters/skip'
-                - $ref: '#/components/parameters/include'
-                - $ref: '#/components/parameters/limit'
-                - $ref: '#/components/parameters/order_by'
-                - $ref: '#/components/parameters/count'
-                - $ref: '#/components/parameters/continue'
-            responses:
-                "200":
-                    content:
-                        application/vnd.netapp.bxp.users+json:
-                            schema:
-                                $ref: '#/components/schemas/user_1.0_list_response_body'
-                    description: List of Users that have the permission on the resource.
-                    headers:
-                        Location:
-                            description: Location of the collection
-                            schema:
-                                format: uri
-                                type: string
-            summary: List all the Users that have a permission on a particular resource.
-            tags:
-                - User and Usergroup
-            x-permission: bxp:user-read
-            x-persistence: true
-            x-scope: private,public
-        parameters:
-            - description: ID of the Resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: resource_id
-              required: true
-              schema:
-                format: uuid
-                type: string
-            - description: ID of the permission resource
-              example: 666a3f38-d4fa-5b62-a391-a69029758d32
-              in: path
-              name: permission_id
-              required: true
-              schema:
-                format: uuid
-                type: string
+            x-scope: documentation,private,public
 security:
     - bxp_api_token: []
     - bxp_bearer_auth: []
 servers:
     - url: '{{.Server}}'
 tags:
-    - description: |-
-        <B>Do not show on public documentation as a redesign is in progress</B>
-
-        The Partnership API represents partnerships between Companies and their partners and their various Partnership types (Corporate Reseller, Service Provider, ...)
-      name: Partnership
     - description: |-
         The Resource and ResourceGroup APIs provide allows management of Resources and groups of Resources, as well as ResourceTypes. ResourceTypes can only be managed by NetApp and represent the various types of resources we can store.
 
@@ -13863,33 +11492,11 @@ tags:
 
         A Hierarchy is composed multiple elements:
         <ul>
-        <li>(optional) a Parent Organization</li>
+        <li>a Parent Organization (optional)</li>
         <li>An Organization, which represent a purchaser of goods or services from NetApp</li>
-        <li>(optional)One or more level of folders. Folders can be used to represent City, department, region, deployment Environment....</li>
-        <li>One or more project. A project represent a Working space where you can enable data-services on your various resources</li>
+        <li>One or more level of folders. Folders can be used to represent City, department, region, deployment Environment.... (optional)</li>
+        <li>One or more projects. A project represent a Working space where you can enable data-services on your various resources</li>
         </ul>
       name: Hierarchy
     - description: "The User and UserGroup APIs allows creation of Users and groups of Users.\n\nA User represent a human user, a service account or an agent (representing a connector for example). \n\nA Usergroup is a set of Users who can be tracked together. We have implicit UserGroups (such as all the users belonging to a same organization or folder) and explicit ones when a user want to group users belonging to different element of his hierarchy."
       name: User and Usergroup
-    - description: |-
-        The Binding API provides the ability to create Associations between Principals (Users or UserGroups), Resources or ResourceGroups and Role(s). It is the central point of the Authorization System.
-
-        A Binding is composed of three parts:
-        <ul>
-        <li>principals: Contains tags specifying one or more users</li>
-        <li>resources: Contains tags specifying one or more resources</li>
-        <li>permissions: Contains tags specifying one or more permissions</li>
-        </ul>
-
-        The tags specified in each of these section are logically added to create a query (tag1 AND tag2...).
-      name: Binding
-    - description: |-
-        <B>Do not show on public documentation</B>
-
-        The UI APIs provides convenience APIs for the UI. They provide aggregated views of data to facilitate the UI processing and have no other purpose.
-      name: UI
-    - description: |-
-        <B>Do not show on public documentation</B>
-
-        The Tag APIs provides provide CRUD operation support for supported tags in our various objects. These APIs are only available to NetApp personnel.
-      name: Tag
