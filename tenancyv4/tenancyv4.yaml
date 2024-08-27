@@ -253,6 +253,9 @@ components:
             type: object
         binding_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -1007,6 +1010,9 @@ components:
             type: object
         partnershiptype_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -1382,6 +1388,9 @@ components:
             type: object
         permission_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -2357,6 +2366,9 @@ components:
             type: object
         resourcegroup_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -2887,6 +2899,9 @@ components:
             type: object
         resourcetype_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -3371,6 +3386,9 @@ components:
             type: object
         role_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -3725,6 +3743,9 @@ components:
             type: object
         tag_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -3996,6 +4017,32 @@ components:
             example: 666a3f38-d4fa-5b62-a391-a69029758d32
             format: uuid
             type: string
+            x-common: true
+        type_bxp_invalid_reason:
+            properties:
+                details:
+                    description: |
+                        The description of the invalid reasons. The possible values are:
+                        1. CERT_NOT_YET_VALID: The certificate is not yet valid.
+                        2. CERT_HOST_MISMATCH: The host name is not matching with CN or subject alt name.
+                        3. CERT_WEAK_ENCRYPTION_KEY_SIZE: The certificate has weak encryption key size.
+                        4. CERT_CHAIN_BROKEN: The certificate chain is broken.
+                        5. CERT_INVALID_SIGNATURE: The certificate has invalid si"gnature.
+                        6. OTHER: Any other invalid reason.
+                    example: Host name is not matching with CN or subject alt name
+                    type: string
+                error:
+                    description: The error enum for the invalid certificate
+                    enum:
+                        - CERT_NOT_YET_VALID
+                        - CERT_HOST_MISMATCH
+                        - CERT_WEAK_ENCRYPTION_KEY_SIZE
+                        - CERT_CHAIN_BROKEN
+                        - CERT_INVALID_SIGNATURE
+                        - OTHER
+                    example: CERT_HOST_MISMATCH
+                    type: string
+            type: object
             x-common: true
         type_bxp_label:
             description: Name/Value pair
@@ -4449,6 +4496,9 @@ components:
             type: object
         user_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -5032,6 +5082,9 @@ components:
             type: object
         usergroup_1.0_list_response_body:
             properties:
+                continue:
+                    format: uuid
+                    type: string
                 count:
                     type: int
                 items:
@@ -11477,15 +11530,9 @@ tags:
 
         A ResourceGroup is a set of Resources a user want to track together. We have implicit ResourceGroups (such as all the resources belonging to a same organization or folder) and explicit ones when a user want to group resources belonging to different element of his hierarchy.
       name: Resource and Resourcegroup
-    - description: |-
-        <B>Do not show on public documentation</B>
-
-        The Permission API provides access to internal collection of Permissions available. Permissions are low-level string of characters a user or service can key on to determine authorization.
+    - description: The Permission API provides access to internal collection of Permissions available. Permissions are low-level string of characters a user or service can key on to determine authorization.
       name: Permission
-    - description: |-
-        <B>Do not show on public documentation</B>
-
-        The Role API enables a user to create and view Roles, which are sets of Permissions. Roles allow association to users without having to associate individual permissions. Roles can represent actions or features, or more classicly level of access to a particular service.
+    - description: The Role API enables a user to create and view Roles, which are sets of Permissions. Roles allow association to users without having to associate individual permissions. Roles can represent actions or features, or more classicly level of access to a particular service.
       name: Role
     - description: |-
         The Hierarchy APIs allows the control of Organizations/Folders/Projects to represent accurately Customers and their dependencies.
