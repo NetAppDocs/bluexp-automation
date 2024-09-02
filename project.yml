@@ -1,5 +1,4 @@
 ---
-jekyll: incremental-patch 
 settings:
   name: API
   harmony_integration: maestro
