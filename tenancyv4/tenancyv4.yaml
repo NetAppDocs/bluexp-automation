@@ -2,7 +2,7 @@ components:
     parameters:
         continue:
             description: |-
-                Indicates the token to resume listing from.
+                Indicates the token from which to resume when listing a collection.
 
 
                 URL examples: "continue=[Continue Token from Collection Metadata]"
@@ -31,10 +31,10 @@ components:
                 Indicates which fields should be matched in order to return a resource when listing a collection.
 
 
-                Supported operators are:
+                Supported operators:
                 * eq - Equality
-                * lt/gt - Less than/Greater than
-                * lte/gte - Less than or equals to/Greater than or equals to
+                * lt/gt - Less than/greater than
+                * lte/gte - Less than or equal to/greater than or equal to
 
 
                 URL example: "filter=field%20eq%20%27value%27"
@@ -60,7 +60,7 @@ components:
                 $ref: '#/components/schemas/query_include'
         limit:
             description: |-
-                Indicates the maximum number of resources to return when listing a collection.
+                Specifies the maximum number of resources to return when listing a collection.
 
 
                 URL examples: "limit=2"
@@ -73,7 +73,7 @@ components:
                 $ref: '#/components/schemas/query_limit'
         order_by:
             description: |-
-                Indicates the sort order of resource when listing a collection.
+                Indicates the sort order of resources when listing a collection.
 
 
                 URL examples: "orderBy=name", "orderBy=name%20desc"
@@ -86,7 +86,7 @@ components:
                 $ref: '#/components/schemas/query_order_by'
         skip:
             description: |-
-                Indicates the number of resources to skip over when listing a collection.
+                Indicates the number of resources to skip when listing a collection.
 
 
                 URL examples: "skip=1"
@@ -158,7 +158,7 @@ components:
             properties:
                 description:
                     description: |-
-                        JSON string containing the description of this binding
+                        JSON string containing the description of the binding.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -204,14 +204,14 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users/usergroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing users and user groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources/resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -272,7 +272,7 @@ components:
             properties:
                 description:
                     description: |-
-                        JSON string containing the binding name (for example: "system", "volumes", ...)
+                        JSON string containing the binding name (for example: "system", "volumes", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -282,7 +282,7 @@ components:
                     minLength: 1
                     type: string
                 expiration_date:
-                    description: Datetime. Represent an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
+                    description: Datetime. Represents an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
                     format: date-time
                     type: string
                 id:
@@ -313,14 +313,14 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users/usergroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing users and user groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources/resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -359,7 +359,7 @@ components:
             properties:
                 description:
                     description: |-
-                        JSON string containing the binding name (for example: "Storage Admin access to Acme systems", ...)
+                        JSON string containing the binding name (for example: "Storage Admin access to Acme systems", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -392,14 +392,14 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users/usergroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing users and user groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources/resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -441,7 +441,7 @@ components:
             properties:
                 description:
                     description: |-
-                        JSON string containing the binding name (for example: "system", "volumes", ...)
+                        JSON string containing the binding name (for example: "system", "volumes", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -487,14 +487,14 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users/usergroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing users and user groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources/resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -549,7 +549,7 @@ components:
                     minLength: 1
                     type: string
                 expiration_date:
-                    description: Datetime. Represent an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
+                    description: Datetime. Represents an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
                     format: date-time
                     type: string
                 id:
@@ -580,14 +580,14 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users/usergroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing users and user groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources/resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -629,7 +629,7 @@ components:
             additionalProperties: false
             properties:
                 cacheField:
-                    description: JSON string containing the field to cache
+                    description: JSON string containing the field to cache.
                     example: rawId
                     type: string
                 id:
@@ -646,18 +646,18 @@ components:
                     type: array
                     uniqueItems: true
                 organizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 permissionRule:
-                    description: JSON string containing permission plain text representation
+                    description: JSON string containing permission plain text representation.
                     example: bxp:asset-read
                     type: string
                 resourceClass:
-                    description: JSON string containing Resource Class of the objects stored in the cache
+                    description: JSON string containing the Resource Class of the objects stored in the cache.
                     type: string
                 resourceType:
-                    description: JSON string containing Resource Type of the objects stored in the cache
+                    description: JSON string containing the Resource Type of the objects stored in the cache.
                     type: string
                 state:
                     description: "JSON string containing the state of this cache. \nDefined values are:\n* LOADED\n* LOADING\n* EVICTING"
@@ -681,7 +681,7 @@ components:
                     example: application/vnd.netapp.bxp.cache
                     type: string
                 userId:
-                    description: JSON string containing the id of the User
+                    description: JSON string containing the ID of the user.
                     format: uuid
                     type: string
                 version:
@@ -723,7 +723,7 @@ components:
             additionalProperties: false
             properties:
                 cacheField:
-                    description: JSON string containing the field to cache
+                    description: JSON string containing the field to cache.
                     example: rawId
                     type: string
                 id:
@@ -735,18 +735,18 @@ components:
                     format: uuid
                     type: string
                 organizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 permissionRule:
-                    description: JSON string containing permission plain text representation
+                    description: JSON string containing permission plain text representation.
                     example: bxp:asset-read
                     type: string
                 resourceClass:
-                    description: JSON string containing Resource Class of the objects stored in the cache
+                    description: JSON string containing the Resource Class of the objects stored in the cache.
                     type: string
                 resourceType:
-                    description: JSON string containing Resource Type of the objects stored in the cache
+                    description: JSON string containing the Resource Type of the objects stored in the cache.
                     type: string
                 ttl:
                     description: JSON string containing the Time-To-Live duration in ISO-8601 format.
@@ -762,7 +762,7 @@ components:
                     example: application/vnd.netapp.bxp.cache
                     type: string
                 userId:
-                    description: JSON string containing the id of the User
+                    description: JSON string containing the ID of the user.
                     format: uuid
                     type: string
                 version:
@@ -789,7 +789,7 @@ components:
             additionalProperties: false
             properties:
                 cacheField:
-                    description: JSON string containing the field to cache
+                    description: JSON string containing the field to cache.
                     example: rawId
                     type: string
                 id:
@@ -806,21 +806,21 @@ components:
                     type: array
                     uniqueItems: true
                 organizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 permissionRule:
-                    description: JSON string containing permission plain text representation
+                    description: JSON string containing permission plain text representation.
                     example: bxp:asset-read
                     type: string
                 resourceClass:
-                    description: JSON string containing Resource Class of the objects stored in the cache
+                    description: JSON string containing the Resource Class of the objects stored in the cache.
                     type: string
                 resourceType:
-                    description: JSON string containing Resource Type of the objects stored in the cache
+                    description: JSON string containing the Resource Type of the objects stored in the cache.
                     type: string
                 state:
-                    description: "JSON string containing the state of this cache. \nDefined values are:\n* LOADED\n* LOADING\n* EVICTING"
+                    description: "JSON string containing the state of the cache. \nDefined values are:\n* LOADED\n* LOADING\n* EVICTING"
                     enum:
                         - LOADED
                         - LOADING
@@ -841,7 +841,7 @@ components:
                     example: application/vnd.netapp.bxp.cache
                     type: string
                 userId:
-                    description: JSON string containing the id of the User
+                    description: JSON string containing the ID of the user.
                     format: uuid
                     type: string
                 version:
@@ -869,7 +869,7 @@ components:
             additionalProperties: false
             properties:
                 ancestors:
-                    description: Comma-separated list of IDs of the parent chain of that hierarchy element. Each Id is a uuid
+                    description: Comma-separated list of parent chain IDs of the hierarchy element. Each ID is a UUID.
                     example: 000a3f38-d4fa-5b62-a391-a69029758d32,012a3f38-d4fa-5b62-a391-a69029758d32,666a3f38-d4fa-5b62-a391-a69029758d32
                     type: string
                 id:
@@ -882,22 +882,22 @@ components:
                     type: string
                 parentId:
                     description: |-
-                        Globally unique identifier of the hierarchy element parent. Null if no parent (top of the hierarchy)
+                        Globally unique identifier of the hierarchy element parent. Null if no parent (top of the hierarchy) exists.
                         Defined values are:
                         * Conforms to the UUIDv4 Schema
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class of that hierarchy element. This should be "hierarchy".
+                    description: JSON string containing the resource class of the hierarchy element. This should be "hierarchy".
                     example: hierarchy
                     type: string
                 resourceCount:
-                    description: JSON string containing count of resources contained in that hierarchy element
+                    description: JSON string containing number of resources contained in the hierarchy element.
                     example: 3
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type of that hierarchy element. This should be one of "folder, organization, project"
+                    description: JSON string containing the resource type of the hierarchy element. This value can be "folder", "organization", or "project".
                     enum:
                         - organization
                         - folder
@@ -905,7 +905,7 @@ components:
                     example: project
                     type: string
                 userCount:
-                    description: JSON string containing count of users contained in that hierarchy element
+                    description: JSON string containing the number of users contained in the hierarchy element.
                     example: 2
                     type: string
             required:
@@ -936,7 +936,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new partnershipType
                     maxLength: 254
                     minLength: 1
@@ -968,7 +968,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the partnershiptype name (for example: "reseller", "distributor", ...)
+                        JSON string containing the partnership type name (for example: "reseller", "distributor", ...)
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -978,7 +978,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this partnershiptype.
+                    description: JSON array of tags (name/value pairs) representing metadata for the partnership type.
                     items:
                         additionalProperties:
                             type: string
@@ -1029,7 +1029,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new partnershipType
                     maxLength: 254
                     minLength: 1
@@ -1098,7 +1098,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new partnershipType
                     maxLength: 254
                     minLength: 1
@@ -1127,7 +1127,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this partnershiptype.
+                    description: JSON array of tags (name/value pairs) representing metadata for the partnershiptype.
                     items:
                         additionalProperties:
                             type: string
@@ -1349,13 +1349,13 @@ components:
                     minLength: 1
                     type: string
                 service_application:
-                    description: JSON string containing the serviceApplication associated with this permission
+                    description: JSON string containing the service application associated with the permission.
                     example: aiq
                     maxLength: 50
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this permission.
+                    description: JSON array of tags (name/value pairs) representing metadata for the permission.
                     items:
                         additionalProperties:
                             type: string
@@ -1409,7 +1409,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this permission Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the permission. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a permission which allow user to read in aiq
                     maxLength: 254
                     minLength: 1
@@ -1446,7 +1446,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this permission.
+                    description: JSON array of tags (name/value pairs) representing metadata for the permission.
                     items:
                         additionalProperties:
                             type: string
@@ -1477,7 +1477,7 @@ components:
         permission_1.0_post_bulk_id_request_body:
             properties:
                 permissions:
-                    description: JSON array of Permission UUIDs
+                    description: JSON array of permission UUIDs
                     items:
                         format: uuid
                         type: string
@@ -1510,7 +1510,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this permission Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the permission. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a permission which allow user to read in aiq
                     maxLength: 254
                     minLength: 1
@@ -1539,7 +1539,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this permission.
+                    description: JSON array of tags (name/value pairs) representing metadata for the permission.
                     items:
                         additionalProperties:
                             type: string
@@ -1572,7 +1572,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this permission Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the permission. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a permission which allow user to read in aiq
                     maxLength: 254
                     minLength: 1
@@ -1614,13 +1614,13 @@ components:
                     minLength: 1
                     type: string
                 serviceApplication:
-                    description: JSON string containing the serviceApplication associated with this permission
+                    description: JSON string containing the service application associated with the permission.
                     example: aiq
                     maxLength: 50
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this permission.
+                    description: JSON array of tags (name/value pairs) representing metadata for the permission.
                     items:
                         additionalProperties:
                             type: string
@@ -1657,7 +1657,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this permission Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the permission. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a permission which allow user to read in aiq
                     maxLength: 254
                     minLength: 1
@@ -1694,7 +1694,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this permission.
+                    description: JSON array of tags (name/value pairs) representing metadata for the permission.
                     items:
                         additionalProperties:
                             type: string
@@ -1724,37 +1724,37 @@ components:
                 - rule
             type: object
         query_continue:
-            description: Format of continue query parameter
+            description: Format of the continue query parameter
             pattern: ^([A-Za-z0-9+/]{4})*(([A-Za-z0-9+/]{2})==|([A-Za-z0-9+/]{3})=)?$
             type: string
             x-common: true
         query_count:
-            description: Format of count query parameter
+            description: Format of the count query parameter
             pattern: ^true$
             type: string
             x-common: true
         query_filter:
-            description: Format of filter query parameter
+            description: Format of the filter query parameter
             pattern: ^(([0-9a-zA-Z]+(\[\*\])?)((\.[0-9a-zA-Z]+(\[\*\])?)+)? (eq|lt|gt|lte|gte|in) '([0-9a-zA-Z.,-_:@ {}\"])+')(,(\1))*$
             type: string
             x-common: true
         query_include:
-            description: Format of include query parameter
+            description: Format of the include query parameter
             pattern: ^([0-9a-zA-Z]+)(,[0-9a-zA-Z]+)*$
             type: string
             x-common: true
         query_limit:
-            description: Format of limit query parameter
+            description: Format of the limit query parameter
             pattern: ^([1-9][0-9]*)$
             type: string
             x-common: true
         query_order_by:
-            description: Format of order_by query parameter
+            description: Format of the order_by query parameter
             pattern: ^(([0-9a-zA-Z]+)( desc)?)$
             type: string
             x-common: true
         query_skip:
-            description: Format of skip query parameter
+            description: Format of the skip query parameter
             pattern: ^([1-9][0-9]*)$
             type: string
             x-common: true
@@ -1762,7 +1762,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resource Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a new resource of ResourceType volume
                     maxLength: 254
                     minLength: 1
@@ -1786,7 +1786,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by the Legacy Tenancy service (V2).
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -1809,23 +1809,23 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 parentId:
-                    description: JSON string containing the id of the hierarchy
+                    description: JSON string containing the ID of the hierarchy.
                     format: uuid
                     type: string
                 rawId:
-                    description: JSON string containing the physical Id of that resource. It would be the Id as the system of records defined it (a UUID, a string or anything defined). For example the UUID of an ONTAP Cluster or the UUID of an App in Astra.
+                    description: JSON string containing the physical ID of the resource. It is the ID as defined by the system (a UUID, a string, or any other defined ID). For example, the UUID of an ONTAP cluster or the UUID of an application in Astra Control.
                     maxLength: 400
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
+                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for this resource.
@@ -1881,7 +1881,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resource Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of this resource. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a new resource of ResourceType volume
                     maxLength: 254
                     minLength: 1
@@ -1905,7 +1905,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by Legacy Tenancy service (V2).
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -1923,23 +1923,23 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 parentId:
-                    description: JSON string containing the id of the hierarchy
+                    description: JSON string containing the ID of the hierarchy.
                     format: uuid
                     type: string
                 rawId:
-                    description: JSON string containing the physical Id of that resource. It would be the Id as the system of records defined it (a UUID, a string or anything defined). For example the UUID of an ONTAP Cluster or the UUID of an App in Astra.
+                    description: JSON string containing the physical ID of the resource. It is the ID as defined by the system (a UUID, a string, or any other defined ID). For example, the UUID of an ONTAP cluster or the UUID of an application in Astra Control.
                     maxLength: 400
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
+                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for this resource.
@@ -1973,7 +1973,7 @@ components:
         resource_1.0_post_bulk_id_request_body:
             properties:
                 resources:
-                    description: JSON array of Resource UUIDs
+                    description: JSON array of resource UUIDs.
                     items:
                         format: uuid
                         type: string
@@ -2006,7 +2006,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resource Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a new resource of ResourceType volume
                     maxLength: 254
                     minLength: 1
@@ -2035,7 +2035,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 parentId:
@@ -2043,7 +2043,7 @@ components:
                     format: uuid
                     type: string
                 rawId:
-                    description: JSON string containing the physical Id of that resource. It would be the Id as the system of records defined it (a UUID, a string or anything defined). For example the UUID of an ONTAP Cluster or the UUID of an App in Astra.
+                    description: JSON string containing the physical ID of the resource. It is the ID as defined by the system (a UUID, a string, or any other defined ID). For example, the UUID of an ONTAP cluster or the UUID of an application in Astra Control..
                     maxLength: 400
                     minLength: 1
                     type: string
@@ -2051,7 +2051,7 @@ components:
                     description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for this resource.
@@ -2136,7 +2136,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 parentId:
@@ -2144,7 +2144,7 @@ components:
                     format: uuid
                     type: string
                 rawId:
-                    description: JSON string containing the physical Id of that resource. It would be the Id as the system of records defined it (a UUID, a string or anything defined). For example the UUID of an ONTAP Cluster or the UUID of an App in Astra.
+                    description: JSON string containing the physical ID of the resource. It is the ID as defined by the system (a UUID, a string, or any other defined ID). For example, the UUID of an ONTAP cluster or the UUID of an application in Astra Control.
                     maxLength: 400
                     minLength: 1
                     type: string
@@ -2152,7 +2152,7 @@ components:
                     description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for this resource.
@@ -2233,7 +2233,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 parentId:
@@ -2241,7 +2241,7 @@ components:
                     format: uuid
                     type: string
                 rawId:
-                    description: JSON string containing the physical Id of that resource. It would be the Id as the system of records defined it (a UUID, a string or anything defined). For example the UUID of an ONTAP Cluster or the UUID of an App in Astra.
+                    description: JSON string containing the physical ID of the resource. It is the ID as defined by the system (a UUID, a string, or any other defined ID). For example, the UUID of an ONTAP cluster or the UUID of an application in Astra Control.
                     maxLength: 400
                     minLength: 1
                     type: string
@@ -2249,7 +2249,7 @@ components:
                     description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for this resource.
@@ -2328,7 +2328,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -2385,7 +2385,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourcegroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource group Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This resourcegroup is part of NetApp sales group
                     maxLength: 254
                     minLength: 1
@@ -2422,12 +2422,12 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for this user group.
                     items:
                         additionalProperties:
                             type: string
@@ -2471,7 +2471,7 @@ components:
                                 type: string
                             name:
                                 description: |-
-                                    JSON string containing a name for the resourcegroup.
+                                    JSON string containing a name for the resource group.
                                     Defined values are:
                                     * Minimum length: 1
                                     * Maximum length: 300
@@ -2510,7 +2510,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourcegroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource group.Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This resourcegroup is part of NetApp sales group
                     maxLength: 254
                     minLength: 1
@@ -2529,7 +2529,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the resourcegroup.
+                        JSON string containing a name for the resource group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -2539,12 +2539,12 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for this user group.
                     items:
                         additionalProperties:
                             type: string
@@ -2578,7 +2578,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourcegroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource group. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This resourcegroup is part of NetApp sales group
                     maxLength: 254
                     minLength: 1
@@ -2610,7 +2610,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the resourcegroup.
+                        JSON string containing a name for the resource group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -2620,12 +2620,12 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user group.
                     items:
                         additionalProperties:
                             type: string
@@ -2661,7 +2661,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourcegroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource group. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This resourcegroup is part of NetApp sales group
                     maxLength: 254
                     minLength: 1
@@ -2688,7 +2688,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the resourcegroup.
+                        JSON string containing a name for the resource group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -2698,12 +2698,12 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user group.
                     items:
                         additionalProperties:
                             type: string
@@ -2754,19 +2754,19 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
                     example: ON_PREM
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the  service applications and the BlueXP identity and access management (IAM) system.
                     example: ON_PREM
                     type: string
                 scopeCount:
-                    description: JSON string containing the count of scopes (organizations, projects, folders) associated
+                    description: JSON string containing the number of associated scopes (organizations, projects, folders).
                     example: 3
                     type: string
                 tagCount:
-                    description: JSON string containing the count of tags associated
+                    description: JSON string containing the number of associated tags.
                     example: 4
                     type: string
             required:
@@ -2796,7 +2796,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourceType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource type. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This represents a CVO instance in AWS
                     maxLength: 254
                     minLength: 1
@@ -2821,8 +2821,8 @@ components:
                     type: string
                 legacyResourceClass:
                     description: |-
-                        JSON string containing the legacy resource class (for example: "ON_PREM", "CAPACITY_BASED_LICENSE", ...) associated with this new resource class/type record.
-                        If a resource class/type is new, the value for legacyResourceClass and legacyResourceType will be null
+                        JSON string containing the legacy resource class (for example: "ON_PREM", "CAPACITY_BASED_LICENSE", ...) associated with the new resource class or resource type record.
+                        If a resource class or type is new, the value for legacyResourceClass and legacyResourceType is null.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -2833,7 +2833,7 @@ components:
                     type: string
                 legacyResourceType:
                     description: |-
-                        JSON string containing the legacy resource type (for example: "ON_PREM", "AWS", ...) associated with this new resource class/type record.
+                        JSON string containing the legacy resource type (for example: "ON_PREM", "AWS", ...) associated with the new resource class or type record.
                         If a resource class/type is new, the value for legacyResourceClass and legacyResourceType will be null
                         Defined values are:
                         * Minimum length: 1
@@ -2918,7 +2918,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourceType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource type. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This represents a CVO instance in Azure
                     maxLength: 254
                     minLength: 1
@@ -2980,7 +2980,7 @@ components:
                     type: string
                 resourceType:
                     description: |-
-                        JSON string containing the resource type, under a resource class (for example: "capacity", "cluster", ...). This is case-sensitive and should be provided in lowercase.
+                        JSON string containing the resource type under a resource class (for example: "capacity", "cluster", ...). This is case-sensitive and should be provided in lowercase.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -3015,7 +3015,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourceType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource type. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This represent a CVO instance in AWS
                     maxLength: 254
                     minLength: 1
@@ -3107,7 +3107,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourceType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource type. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new resourceType
                     maxLength: 254
                     minLength: 1
@@ -3174,7 +3174,7 @@ components:
                     type: string
                 resourceType:
                     description: |-
-                        JSON string containing the resource type, under a resource class (for example: "capacity", "cluster", ...). This is case-sensitive and should be provided in lowercase.
+                        JSON string containing the resource type under a resource class (for example: "capacity", "cluster", ...). This is case-sensitive and should be provided in lowercase.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -3213,7 +3213,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this resourceType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the resource type. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This represents a CVO instance in Azure
                     maxLength: 254
                     minLength: 1
@@ -3275,7 +3275,7 @@ components:
                     type: string
                 resourceType:
                     description: |-
-                        JSON string containing the resource type, under a resource class (for example: "capacity", "cluster", ...). This is case-sensitive and should be provided in lowercase.
+                        JSON string containing the resource type under a resource class (for example: "capacity", "cluster", ...). This is case-sensitive and should be provided in lowercase.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -3312,7 +3312,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the role Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3405,7 +3405,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the role Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3474,7 +3474,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the role Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3534,7 +3534,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the role Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3612,7 +3612,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the role Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3681,7 +3681,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the tag Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3708,7 +3708,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the name of the tag
+                        JSON string containing the name of the tag.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -3764,7 +3764,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the tag Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3791,7 +3791,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing name of the tag
+                        JSON string containing the name of the tag.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -3826,7 +3826,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the tag Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3845,7 +3845,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing name of the tag
+                        JSON string containing the name of the tag.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 254
@@ -3881,7 +3881,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the tag Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3908,7 +3908,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing name of the tag
+                        JSON string containing name of the tag.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -3946,7 +3946,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the tag Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -3973,7 +3973,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing name of the tag
+                        JSON string containing the name of the tag.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -4006,13 +4006,13 @@ components:
                 - name
             type: object
         type_bxp_api_relative_uri:
-            description: String describing a relative URI
+            description: String describing a relative URI.
             pattern: ^(\/([-0-9a-zA-Z])+)+$
             type: string
             x-common: true
         type_bxp_identifier:
             description: |-
-                JSON string containing a Resource Id
+                JSON string containing a resource ID.
                 Defined values are: * Conforms to the UUIDv4 Schema
             example: 666a3f38-d4fa-5b62-a391-a69029758d32
             format: uuid
@@ -4024,15 +4024,15 @@ components:
                     description: |
                         The description of the invalid reasons. The possible values are:
                         1. CERT_NOT_YET_VALID: The certificate is not yet valid.
-                        2. CERT_HOST_MISMATCH: The host name is not matching with CN or subject alt name.
+                        2. CERT_HOST_MISMATCH: The host name does not match the CN or subject alt name.
                         3. CERT_WEAK_ENCRYPTION_KEY_SIZE: The certificate has weak encryption key size.
                         4. CERT_CHAIN_BROKEN: The certificate chain is broken.
-                        5. CERT_INVALID_SIGNATURE: The certificate has invalid si"gnature.
+                        5. CERT_INVALID_SIGNATURE: The certificate has an invalid signature.
                         6. OTHER: Any other invalid reason.
                     example: Host name is not matching with CN or subject alt name
                     type: string
                 error:
-                    description: The error enum for the invalid certificate
+                    description: The error enum value for the invalid certificate.
                     enum:
                         - CERT_NOT_YET_VALID
                         - CERT_HOST_MISMATCH
@@ -4045,7 +4045,7 @@ components:
             type: object
             x-common: true
         type_bxp_label:
-            description: Name/Value pair
+            description: Name/value pair
             example:
                 name: secure
                 value: "true"
@@ -4060,7 +4060,7 @@ components:
             type: object
             x-common: true
         type_bxp_labels:
-            description: JSON Array of Name/Value pairs
+            description: JSON Array of name/value pairs
             example:
                 - name: secure
                   value: "true"
@@ -4075,19 +4075,19 @@ components:
                 hints:
                     properties:
                         accept-post:
-                            description: Provides details about what media types are accepted when creating a resource.
+                            description: Provides details about which media types are accepted when creating a resource.
                             type: object
                         accept-put:
-                            description: Indicates details about what media types are accepted when updating a resource.
+                            description: Provides details about which media types are accepted when updating a resource.
                             type: object
                         allow:
                             description: |-
                                 An array of methods that can be used to interact with the link target.
 
-                                Defined values for collections are:
+                                Defined values for collections:
 
                                 "POST" - Indicates if new resources can be created in the collection.
-                                Defined values for resources are:
+                                Defined values for resources:
 
                                 "PUT" - Indicates if the resource can be modified
                                 "DELETE" - Indicates if the resource can be deleted
@@ -4100,7 +4100,7 @@ components:
                                 type: string
                             type: array
                         permissions:
-                            description: List of permissions needed to use this link.
+                            description: List of the permissions required to use the link.
                             items:
                                 pattern: ^([a-z]([a-zA-Z])*)(-[a-z]([a-zA-Z])*){1,2}$
                                 type: string
@@ -4119,7 +4119,7 @@ components:
                 href:
                     $ref: '#/components/schemas/type_bxp_api_relative_uri'
                 rel:
-                    description: The type of relation for the link. Values are defined in the IANA Link Relationships registry, or an extension relation type as specified in section 2.1.2 of RFC 8288.
+                    description: The type of relationship for the link. Values are defined in the IANA Link Relationships registry, or an extension relationship type as specified in section 2.1.2 of RFC 8288.
                     enum:
                         - self
                         - canonical
@@ -4141,7 +4141,7 @@ components:
                     type: object
                 title:
                     description: |-
-                        Label of a link such that it can be used as a human-readable identifier (e.g., a menu entry)
+                        Label of a link so that it can be used as a human-readable identifier (for example, a menu entry).
 
                         Minimum length: 0
                         Maximum length: 1023
@@ -4170,84 +4170,84 @@ components:
             uniqueItems: true
             x-common: true
         type_bxp_metadata:
-            description: Metadata associated to resource
+            description: Metadata associated with the resource.
             properties:
                 createdBy:
-                    description: UUID of the User who did create this resource
+                    description: UUID of the user who created the resource.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 creationTimestamp:
-                    description: Resource Creation date
+                    description: Resource creation date
                     example: "2022-10-06T20:58:16.305662Z"
                     format: date-time
                     type: string
                 labels:
-                    description: Array of name/value pairs representing additional information on that resource
+                    description: Array of name/value pairs representing additional information for the resource.
                     items:
                         $ref: '#/components/schemas/type_bxp_label'
                     type: array
                     uniqueItems: true
                 modificationTimestamp:
-                    description: Resource Modification date
+                    description: Resource modification date.
                     example: "2022-10-06T20:58:16.305662Z"
                     format: date-time
                     type: string
                 modifiedBy:
-                    description: UUID of the User who did modify this resource
+                    description: UUID of the user who modified the resource.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
             type: object
             x-common: true
         type_bxp_metadata_list:
-            description: Metadata associated to a list of resources
+            description: Metadata associated with a list of resources.
             properties:
                 count:
                     type: number
                 createdBy:
-                    description: UUID of the User who did create this resource
+                    description: UUID of the user who created the resource.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 creationTimestamp:
-                    description: Resource Creation date
+                    description: Resource creation date.
                     example: "2022-10-06T20:58:16.305662Z"
                     format: date-time
                     type: string
                 labels:
-                    description: Array of name/value pairs representing additional information on that resource
+                    description: Array of name/value pairs representing additional information for the resource.
                     items:
                         $ref: '#/components/schemas/type_bxp_label'
                     type: array
                     uniqueItems: true
                 modificationTimestamp:
-                    description: Resource Modification date
+                    description: Resource modification date.
                     example: "2022-10-06T20:58:16.305662Z"
                     format: date-time
                     type: string
                 modifiedBy:
-                    description: UUID of the User who did modify this resource
+                    description: UUID of the user who modified the resource.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
             type: object
             x-common: true
         type_bxp_metadata_update:
-            description: Metadata associated to an updated resource
+            description: Metadata associated with an updated resource
             properties:
                 createdBy:
-                    description: UUID of the User who did create this resource
+                    description: UUID of the user who created the resource.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 creationTimestamp:
-                    description: Resource Creation date
+                    description: Resource creation date
                     example: "2022-10-06T20:58:16.305662Z"
                     format: date-time
                     type: string
                 labels:
-                    description: Array of name/value pairs representing additional information on that resource
+                    description: Array of name/value pairs representing additional information for the resource.
                     items:
                         $ref: '#/components/schemas/type_bxp_label'
                     type: array
@@ -4258,7 +4258,7 @@ components:
                     format: date-time
                     type: string
                 modifiedBy:
-                    description: UUID of the User who did modify this resource
+                    description: UUID of the user who modified the resource.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4266,14 +4266,14 @@ components:
             x-common: true
         type_bxp_problem_detail:
             additionalProperties: true
-            description: Represent a Problem detail returned by an API in case of error
+            description: Represents a problem detail returned by an API if an error occurs.
             properties:
                 correlationId:
-                    description: Internal UUID representing the request or trace Id related
+                    description: Internal UUID representing the request or related trace ID.
                     format: uuid
                     type: string
                 detail:
-                    description: Detail about the problem
+                    description: Details about the problem.
                     enum:
                         - The resource specified in the request URI wasn't found.
                     type: string
@@ -4321,17 +4321,17 @@ components:
             items:
                 properties:
                     detail:
-                        description: Detailed explaination for this state
+                        description: Detailed description for the state
                         maxLength: 511
                         minLength: 1
                         type: string
                     title:
-                        description: Name of that state
+                        description: Name of the state
                         maxLength: 40
                         minLength: 1
                         type: string
                     type:
-                        description: Represent a state detail
+                        description: Represents a state detail
                         type: string
                 required:
                     - type
@@ -4342,7 +4342,7 @@ components:
             uniqueItems: true
             x-common: true
         type_bxp_state_transitions:
-            description: Array representing the state machine associated with this object
+            description: Array representing the state machine associated with the object
             items:
                 properties:
                     from:
@@ -4456,7 +4456,7 @@ components:
                     description: User Name
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -4557,7 +4557,7 @@ components:
                     description: User Name
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -4659,7 +4659,7 @@ components:
                     description: User Name
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -4749,7 +4749,7 @@ components:
                     description: User Name
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -4875,7 +4875,7 @@ components:
                     description: User Name
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -4961,7 +4961,7 @@ components:
                     description: User Name
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -5045,7 +5045,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -5138,7 +5138,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -5253,7 +5253,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -5333,7 +5333,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -5400,7 +5400,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the usergroup.
+                        JSON string containing a name for the user group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5410,7 +5410,7 @@ components:
                     minLength: 1
                     type: string
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
@@ -5623,7 +5623,7 @@ components:
             scheme: bearer
             type: http
 info:
-    description: "The Tenancy Service provides a centralized point for managing Customer and Partner information from an organizational perspective, including associations with Users and Resources. \nThis service also offers endpoints to manage Authorization between various actors (Users to Organizations and Users to Resources). \n\nWith the appropriate permissions, a user can organize their company hierarchy into Folders (subdivisions of a Company by any criteria they choose, such as departments or sites) and Projects (equivalent to the previous Workspace concept). \n\nRoles are predefined in our system and include sets of permissions necessary for managing and viewing data. When using these APIs, ensure you have the appropriate permissions. \n\nAs more data services onboard our platform, additional roles will become available, allowing users to perform more tasks within BlueXP. A User can have multiple roles within the same organization or set of resources. \nNote that the APIs currently support more actions than the UI. The UI will be enhanced to provide these additional features to users in future releases."
+    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information within an organization. \nIAM endpoints  enables your organization to control access to your resources. \n\nWith the appropriate permissions, a user can organize their company hierarchy into Folders (subdivisions of a Company by any criteria they choose, such as departments or sites) and Projects (equivalent to the previous Workspace concept). \n\nRoles are predefined and include sets of permissions required to manage and view data. You should verify you have the appropriate permissions when using these APIs. \n\nAs more data services onboard our platform, additional roles will become available, allowing users to perform more tasks within BlueXP. A user can have multiple roles within the same organization or set of resources. \nThe BlueXP IAM API endpoints currently support more actions than the UI."
     license:
         name: BlueXP License
     termsOfService: https://www.netapp.com/media/10784-cloud-data-services-terms.pdf
@@ -5633,7 +5633,7 @@ openapi: 3.0.3
 paths:
     /folders:
         get:
-            description: Returns a JSON array of all matching resources in the collection.
+            description: Lists all of the folders in the collection.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -5648,23 +5648,23 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all folders
+                    description: List of all the folders.
                     headers:
                         Location:
-                            description: Location of folders
+                            description: Location of the folders.
                             schema:
                                 format: uri
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: List all the folder resources in the collection
+            summary: Lists all of the folders in the collection
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources
             x-scope: documentation,public
         post:
-            description: Indicates the desired values for the Folder API resource to be created.
+            description: Creates a new folder with the desired values.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -5678,7 +5678,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Folder API resource to be created.
+                description: Creates a new folder with the desired values.
                 required: true
             responses:
                 "201":
@@ -5701,10 +5701,10 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_post_response_body'
-                    description: Returns the newly created folder resource in the JSON response body.
+                    description: Returns the new folder in the JSON response body.
                     headers:
                         Location:
-                            description: Location of the newly created folder resource
+                            description: Location of the new folder.
                             schema:
                                 format: uri
                                 type: string
@@ -5718,18 +5718,17 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new folder resource
-            tags:
+            summary: Creates a new folder
                 - Hierarchy
             x-permission: bxp:folder-create
             x-private-path: /resources
             x-scope: documentation,public
     /folders/{folder_id}:
         delete:
-            description: Removes the specified Folder API resource.
+            description: Deletes a specific folder.
             responses:
                 "204":
-                    description: Indicates if the folder resource was deleted.
+                    description: Indicates if the folder was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -5738,14 +5737,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific folder resource
+            summary: Deletes a specific folder 
             tags:
                 - Hierarchy
             x-permission: bxp:folder-delete
             x-private-path: /resources/{folder_id}
             x-scope: documentation,public
         get:
-            description: Get information about a given Folder resource
+            description: Retrieves information about a specific folder.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -5775,15 +5774,15 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Folder in the JSON response body.
-            summary: Retrieves a specific folder resource
+                    description: Returns the stored folder in the JSON response body.
+            summary: Retrieves a specific folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources/{folder_id}
             x-scope: documentation,public
         parameters:
-            - description: ID of the folder resource
+            - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -5792,7 +5791,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Update an Folder with partial information
+            description: Updates a folder with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -5807,7 +5806,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the folder resource was updated.
+                    description: Indicates if the folder was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -5818,14 +5817,14 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a folder resource
+            summary: Partially updates a folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-modify
             x-private-path: /resources/{folder_id}
             x-scope: documentation,public
         put:
-            description: Replace a given Folder resource with a new information
+            description: Updates a specific folder with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -5840,11 +5839,11 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_put_request_body'
-                description: Replaces the entire stored folder resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
+                description: Replaces the entire stored folder with the supplied JSON request body while preserving the key values that are not user-modifiable.
                 required: true
             responses:
                 "204":
-                    description: Indicates if the folder resource was updated.
+                    description: Indicates if the folder was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -5855,7 +5854,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific folder resource
+            summary: Modifies a specific folder 
             tags:
                 - Hierarchy
             x-permission: bxp:folder-modify
@@ -5863,9 +5862,9 @@ paths:
             x-scope: documentation,public
     /folders/{folder_id}/folders:
         get:
-            description: Returns a JSON array of all Folder resources under this Folder.
+            description: Lists all folders under a specific parent folder.
             parameters:
-                - description: ID of the Folder resource
+                - description: ID of the folder.
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
                   in: path
                   name: folder_id
@@ -5886,23 +5885,23 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all folder resources under a parent folder
+                    description: List of all the folders under a parent folder.
                     headers:
                         Location:
-                            description: Location of folder resources
+                            description: Location of the folders.
                             schema:
                                 format: uri
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: List all the folder resources under this folder
+            summary: Lists all of the folders under a specific parent folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources
             x-scope: documentation,public
         post:
-            description: Indicates the desired values for the Folder API resource to be created under Parent Folder.
+            description: Creates a new folder under a specific parent folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -5916,7 +5915,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Folder API resource to be created under parent folder.
+                description: Indicates the desired values for the folder to be created under a specific parent folder.
                 required: true
             responses:
                 "201":
@@ -5939,10 +5938,10 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_post_response_body'
-                    description: Returns the newly created folder resource in the JSON response body.
+                    description: Returns the newly created folder in the JSON response body.
                     headers:
                         Location:
-                            description: Location of the newly created folder resource
+                            description: Location of the newly created folder.
                             schema:
                                 format: uri
                                 type: string
@@ -5956,7 +5955,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new folder resource
+            summary: Creates a new folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-create
@@ -5964,10 +5963,10 @@ paths:
             x-scope: documentation,public
     /folders/{folder_id}/folders/{childfolder_id}:
         delete:
-            description: Removes the specified child Folder from a parent Folder.
+            description: Removes a specific child folder from a parent folder.
             responses:
                 "204":
-                    description: Indicates if the child Folder was removed from parent Folder.
+                    description: Indicates if the child folder was removed from the parent folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -5976,14 +5975,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific child Folder from a parent Folder
+            summary: Removes a specific child folder from a parent folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-delete
             x-persistence: false
             x-scope: documentation,private,public
         get:
-            description: Get information of a given child Folder belongs to a parent Folder
+            description: Retrieves information about a child folder under a parent folder.
             responses:
                 "200":
                     content:
@@ -6014,7 +6013,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific child Folder belonging to a parent Folder
+            summary: Retrieves a specific child folder belonging to a parent folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
@@ -6030,7 +6029,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the child Folder
+            - description: ID of the child folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: childfolder_id
@@ -6040,9 +6039,9 @@ paths:
                 type: string
     /folders/{folder_id}/projects:
         get:
-            description: Returns a JSON array of all Project resources under this Folder.
+            description: Returns a JSON array of all projects under a folder.
             parameters:
-                - description: ID of the folder resource
+                - description: ID of the folder
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
                   in: path
                   name: folder_id
@@ -6063,7 +6062,7 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all project resources under a parent folder
+                    description: List of all projects under a parent folder
                     headers:
                         Location:
                             description: Location of project resources
@@ -6072,7 +6071,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: List all the project resources under this folder
+            summary: List all project resources under the folder
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -6080,7 +6079,7 @@ paths:
             x-private-path: /resources
             x-scope: documentation,public
         parameters:
-            - description: ID of the Folder
+            - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -6089,7 +6088,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the desired values for the Project API resource to be created under the Folder.
+            description: Creates a project with the desired values under a folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -6103,7 +6102,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Project API resource to be created under a folder.
+                description: Creates a project with the desired values under a folder.
                 required: true
             responses:
                 "201":
@@ -6143,7 +6142,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new project resource
+            summary: Creates a new project 
             tags:
                 - Hierarchy
             x-permission: bxp:project-create
@@ -6152,10 +6151,10 @@ paths:
             x-scope: documentation,public
     /folders/{folder_id}/projects/{project_id}:
         delete:
-            description: Removes the specified Project from a Folder.
+            description: Removes the specified project from a folder.
             responses:
                 "204":
-                    description: Indicates if the Project was removed from a Folder.
+                    description: Indicates if the project was removed from a folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6171,7 +6170,7 @@ paths:
             x-persistence: false
             x-scope: documentation,private,public
         get:
-            description: Get information of a give Project belongs to a Folder
+            description: Retrieves information about a project belonging to a folder.
             responses:
                 "200":
                     content:
@@ -6193,7 +6192,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Project in the JSON response body.
+                    description: Returns the stored project in the JSON response body.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6202,7 +6201,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific Project belonging to a Folder
+            summary: Retrieves a project belonging to a folder
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -6227,7 +6226,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Update an Project belonging to a parent folder with partial information
+            description: Update a project belonging to a folder with partial information
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -6242,7 +6241,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the project resource was updated.
+                    description: Indicates if the project was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6253,7 +6252,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a project resource
+            summary: Partially updates a project 
             tags:
                 - Hierarchy
             x-permission: bxp:project-modify
@@ -6261,7 +6260,7 @@ paths:
             x-private-path: /resources/{project_id}
             x-scope: documentation,private,public
         put:
-            description: Replace a given Project resource belonging to a parent folder with a new information
+            description: Updates a project belonging to a parent folder with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -6280,7 +6279,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the project resource was updated.
+                    description: Indicates if the project was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6300,7 +6299,7 @@ paths:
             x-scope: documentation,private,public
     /folders/{folder_id}/resourcegroups:
         get:
-            description: Returns a JSON array of all matching resourcegroups in a Folder.
+            description: Returns a JSON array of all matching resource groups in a folder.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -6315,14 +6314,14 @@ paths:
                         application/vnd.netapp.bxp.resourcegroups+json:
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_list_response_body'
-                    description: List of all resourcegroups in a Folder
+                    description: List of all the resource groups in a folder
                     headers:
                         Location:
-                            description: Location of resourcegroups
+                            description: Location of the resource groups
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the resourcegroups in the Folder
+            summary: List all of the resource groups in the folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -6338,7 +6337,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the Resourcegroups to be added to a Folder.
+            description: Specifies the resource groups to be added to a folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resourcegroupbulk+json:
@@ -6351,11 +6350,11 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resourcegroup_1.0_post_bulk_id_request_body'
-                description: Indicates the Resourcegroups to be added.
+                description: Specifies the resource groups to be added.
                 required: true
             responses:
                 "202":
-                    description: Indicates the resourcegroups request was accepted.
+                    description: Indicates that the resource groups request was accepted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6366,7 +6365,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add resourcegroups to a Folder.
+            summary: Add resource groups to a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
@@ -6374,10 +6373,10 @@ paths:
             x-scope: documentation,private,public
     /folders/{folder_id}/resourcegroups/{resourcegroup_id}:
         delete:
-            description: Removes the specified Resourcegroup API resource from a Folder.
+            description: Removes the specified resource group from a folder.
             responses:
                 "204":
-                    description: Indicates if the resourcegroup resource was removed from a Folder.
+                    description: Indicates if the resource group was removed from a folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6386,20 +6385,20 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific resourcegroup resource from a Folder
+            summary: Removes a specific resource group from a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given Resourcegroup belongs to a Folder
+            description: Retrieves information if a specific resource group belongs to a folder.
             responses:
                 "200":
                     content:
                         application/vnd.netapp.bxp.resourcegroup+json:
                             example:
-                                description: This resourcegroup is part of NetApp sales group
+                                description: This resource group is part of NetApp sales group
                                 id: 666a3f38-d4fa-5b62-a391-a69029758d32
                                 metadata:
                                     createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
@@ -6415,17 +6414,17 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_get_response_body'
-                    description: Returns the stored Resourcegroup API resource in the JSON response body if it belongs to the Folder
+                    description: Returns the stored resource group in the JSON response body if it belongs to the folder.
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific resourcegroup resource belonging to a Folder
+            summary: Retrieves a specific resource group belonging to a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Folder
+            - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -6458,21 +6457,21 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of resources of an folder
+                    description: List of resources in a folder
                     headers:
                         Location:
                             description: Location of the collection
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the Resources for a given folder
+            summary: List all the resources for a specific folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: Folder ID to display Resources for
+            - description: The ID of the folder of which to display resources.
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -6481,7 +6480,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the resources to be added to a Folder.
+            description: Adds resources to a specific folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resourcebulk+json:
@@ -6493,7 +6492,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_bulk_id_request_body'
-                description: Indicates the resources to be added.
+                description: Indicates the resources to add to the folder.
                 required: true
             responses:
                 "202":
@@ -6508,7 +6507,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add resources to a Folder.
+            summary: Add resources to a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
@@ -6516,10 +6515,10 @@ paths:
             x-scope: documentation,private,public
     /folders/{folder_id}/resources/{resource_id}:
         delete:
-            description: Removes the specified Resource from a Folder.
+            description: Removes the specified resource from a folder.
             responses:
                 "204":
-                    description: Indicates if the Resource was removed from a Folder.
+                    description: Indicates if the resource was removed from a folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6528,14 +6527,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific Resource from a Folder
+            summary: Removes a specific resource from a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given Resource belongs to a Folder
+            description: Retrieve information if a specific resource belongs to a folder
             responses:
                 "200":
                     content:
@@ -6558,10 +6557,10 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Resource in the JSON response body if it belongs to the Folder
+                    description: Returns the stored resource in the JSON response body if it belongs to the folder.
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific Resource belonging to a Folder
+            summary: Retrieves a specific resource belonging to a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -6586,10 +6585,10 @@ paths:
                 type: string
     /folders/{folder_id}/roles/{role_id}/users/{user_id}:
         delete:
-            description: Dissociate the specified User from a Folder.
+            description: Removes a specified user from a folder.
             responses:
                 "204":
-                    description: Indicates if the User was removed from an Folder.
+                    description: Indicates if the user was removed from an folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6598,7 +6597,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific User from a Folder
+            summary: Removes a specified user from a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
@@ -6631,7 +6630,7 @@ paths:
                 type: string
     /folders/{folder_id}/usergroups:
         get:
-            description: Returns a JSON array of all matching usergroups in the Folder.
+            description: Lists all the user groups in a specified folder.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -6646,7 +6645,7 @@ paths:
                         application/vnd.netapp.bxp.usergroups+json:
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_list_response_body'
-                    description: List of all usergroups in the Folder
+                    description: Lists all the user groups in a specified folder
                     headers:
                         Location:
                             description: Location of usergroups
@@ -6669,7 +6668,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the Usergroups to be added to a Folder.
+            description: Adds user groups to the specified folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.usergroupbulk+json:
@@ -6681,7 +6680,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/usergroup_1.0_post_bulk_id_request_body'
-                description: Indicates the Usergroups to be added.
+                description: Adds user groups to the specified folder
                 required: true
             responses:
                 "202":
@@ -6696,7 +6695,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add Usergroups to a Folder.
+            summary: Add Usergroups to a Folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
@@ -6704,7 +6703,7 @@ paths:
             x-scope: documentation,private,public
     /folders/{folder_id}/usergroups/{usergroup_id}:
         delete:
-            description: Removes the specified Usergroup from a Folder.
+            description: Removes a specifc user group from the specified folder.
             responses:
                 "204":
                     description: Indicates if the Usergroup was removed from a Folder.
@@ -6716,14 +6715,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific Usergroup from a Folder
+            summary: Removes a specifc user group from the specified folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given Usergroup belongs to a Folder
+            description: Retrieve a specific user group from the specified folder. 
             responses:
                 "200":
                     content:
@@ -6748,7 +6747,7 @@ paths:
                     description: Returns the stored Usergroup in the JSON response body if it belongs to the Folder
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific Usergroup belonging to a Folder
+            summary: Retrieve a specific user group from the specified folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -6773,7 +6772,7 @@ paths:
                 type: string
     /folders/{folder_id}/users:
         get:
-            description: Returns a JSON array of all Users of this folder.
+            description: Lists all users associated with the specified folder.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -6795,7 +6794,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the user resources for a given Folder
+            summary: Lists all users associated with the specified folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -6812,7 +6811,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the users to be added to a Folder.
+            description: Adds users to the specified folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.userbulk+json:
@@ -6839,7 +6838,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add users to a Folder.
+            summary: Adds users to the specified folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -6847,7 +6846,7 @@ paths:
             x-scope: documentation,private,public
     /folders/{folder_id}/users/{user_id}:
         delete:
-            description: Removes the specified User from a Folder.
+            description: Removes a specific user from the specified folder.
             responses:
                 "204":
                     description: Indicates if the User was removed from a Folder.
@@ -6859,14 +6858,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific User from a Folder
+            summary: Removes a specific user from the specified folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given User belongs to a Folder
+            description: Retrieves a specific user from the specified folder.
             responses:
                 "200":
                     content:
@@ -6891,7 +6890,7 @@ paths:
                     description: Returns the stored User in the JSON response body if it belongs to the Folder
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific User belonging to a Folder
+            summary: Retrieves a specific user from the specified folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -7738,7 +7737,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add resourcegroups to a Organization.
+            summary: Add resourcegroups to a Organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
@@ -7958,7 +7957,7 @@ paths:
                 type: string
     /organizations/{organization_id}/roles/{role_id}/users:
         post:
-            description: Associate Users to a given Organization with a specific Role
+            description: Associate users with the specified organization and role.
             parameters:
                 - in: path
                   name: organization_id
@@ -7998,7 +7997,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Associates user to an organization
+            summary: Associate users with the specified organization and role
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -8006,7 +8005,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/roles/{role_id}/users/{user_id}:
         delete:
-            description: Dissociate the specified User from an Organization.
+            description: Disassociate the specified user from an organization.
             responses:
                 "204":
                     description: Indicates if the User was removed from an Organization.
@@ -8018,7 +8017,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific User from an Organization
+            summary: Disassociate the specified user from an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
@@ -8051,7 +8050,7 @@ paths:
                 type: string
     /organizations/{organization_id}/serviceAccounts:
         post:
-            description: Creates the specified Service Account API resource.
+            description: Creates a service account for an organization.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.user+json:
@@ -8100,7 +8099,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new service account resource
+            summary: Creates a service account for an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-create
@@ -8109,7 +8108,7 @@ paths:
             x-scope: documentation,public
     /organizations/{organization_id}/serviceAccounts/{serviceaccount_id}:
         delete:
-            description: Removes the specified Service Account API resource.
+            description: Deletes the specified service account for an organization.
             responses:
                 "204":
                     description: Indicates if the service account resource was deleted.
@@ -8121,7 +8120,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific service account resource
+            summary: Deletes the specified service account for an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-delete
@@ -8129,7 +8128,7 @@ paths:
             x-private-path: /users/{serviceaccount_id}
             x-scope: documentation,public
         get:
-            description: Get the specified Service Account API resource.
+            description: Retieves the specified service account for an organization.
             responses:
                 "200":
                     content:
@@ -8155,7 +8154,7 @@ paths:
                     description: Returns the stored User in the JSON response body if it belongs to the Usergroup
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Get a specific service account resource
+            summary: Retieves the specified service account for an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-read
@@ -8172,7 +8171,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Update a Service Account with partial information
+            description: Updates a service account for an organization with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.user+json:
@@ -8198,7 +8197,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates an service account resource
+            summary: Updates a service account for an organization with partial information
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-modify
@@ -8206,7 +8205,7 @@ paths:
             x-private-path: /users/{serviceaccount_id}
             x-scope: documentation,public
         put:
-            description: Replace a given Service Account resource with a new information
+            description: Updates a service account for an organization.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.user+json:
@@ -8249,7 +8248,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific service account resource
+            summary: Updates a service account for an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-modify
@@ -8258,7 +8257,7 @@ paths:
             x-scope: documentation,public
     /organizations/{organization_id}/serviceAccounts/{serviceaccount_id}/clientSecret:
         post:
-            description: Generate a new client secret for the Service Account
+            description: Creates a new client secret for the specified service account.
             responses:
                 "200":
                     content:
@@ -8290,7 +8289,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new client secret for service account
+            summary: Creates a new client secret for the specified service account
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-clientsecret-create
@@ -8299,7 +8298,7 @@ paths:
             x-scope: documentation,public
     /organizations/{organization_id}/usergroups:
         get:
-            description: Returns a JSON array of all matching usergroups in the Organization.
+            description: Lists all user groups for the specified organization.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8321,7 +8320,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the Usergroups in the Organization
+            summary: Lists all user groups for the specified organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -8337,7 +8336,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the Usergroups to be added to a Organization.
+            description: Adds user groups to the specified organization.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.usergroupbulk+json:
@@ -8364,7 +8363,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add Usergroups to a Organization.
+            summary: Adds user groups to the specified organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
@@ -8372,7 +8371,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/usergroups/{usergroup_id}:
         delete:
-            description: Removes the specified Usergroup from a Organization.
+            description: Removes a specific user group from the specifed organization.
             responses:
                 "204":
                     description: Indicates if the Usergroup was removed from a Organization.
@@ -8384,14 +8383,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific Usergroup from a Organization
+            summary: Removes a specific user group from the specifed organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given Usergroup belongs to a Organization
+            description: Retrieves a user group that belongs to the specified organization.
             responses:
                 "200":
                     content:
@@ -8416,7 +8415,7 @@ paths:
                     description: Returns the stored Usergroup in the JSON response body if it belongs to the Organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific Usergroup belonging to a Organization
+            summary: Retrieves a user group that belongs to the specified organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -8441,7 +8440,7 @@ paths:
                 type: string
     /organizations/{organization_id}/users:
         get:
-            description: Returns a JSON array of all Users of this company.
+            description: Lists all the users that belong to the specified organization.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8463,7 +8462,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the user resources for a given Organization
+            summary: Lists all the users that belong to the specified organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -8480,7 +8479,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the users to be added to a Organization.
+            description: Adds user to the specified organization.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.userbulk+json:
@@ -8507,7 +8506,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add users to a Organization.
+            summary: Adds user to the specified organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -8515,7 +8514,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/users/{user_id}:
         delete:
-            description: Removes the specified User from a Organization.
+            description: Removes a user from the specified organziation.
             responses:
                 "204":
                     description: Indicates if the User was removed from a Organization.
@@ -8527,14 +8526,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific User from a Organization
+            summary: Removes a user from the specified organziation
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given User belongs to a Organization
+            description: Retrieves a user that belongs to the specified organization.
             responses:
                 "200":
                     content:
@@ -8559,7 +8558,7 @@ paths:
                     description: Returns the stored User in the JSON response body if it belongs to the Organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific User belonging to a Organization
+            summary: Retrieves a user that belongs to the specified organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -8995,7 +8994,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add resourcegroups to a Project.
+            summary: Add resourcegroups to a Project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
@@ -9138,7 +9137,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add resources to a Project.
+            summary: Add resources to a Project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
@@ -9326,7 +9325,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add Usergroups to a Project.
+            summary: Add Usergroups to a Project
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
@@ -9470,7 +9469,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add users to a Project.
+            summary: Add users to a Project
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -10810,7 +10809,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add users to a Usergroup.
+            summary: Add users to a Usergroup
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -11524,26 +11523,26 @@ servers:
     - url: '{{.Server}}'
 tags:
     - description: |-
-        The Resource and ResourceGroup APIs provide allows management of Resources and groups of Resources, as well as ResourceTypes. ResourceTypes can only be managed by NetApp and represent the various types of resources we can store.
+        The resource and resource group endpoints enables management of resources and groups of resources, as well as resource types. Resource types can only be managed by NetApp and represent the various types of stored resources.
 
-        A Resource represents anything we want to track in Tenancy such as Cluster, Node, Working Environment and all elements of a Customer Hierarchy.
+        A resource represents any object that you want to manage in BlueXP identity and access management (IAM) such as a cluster, node, working environment, and all elements of a customer hierarchy.
 
-        A ResourceGroup is a set of Resources a user want to track together. We have implicit ResourceGroups (such as all the resources belonging to a same organization or folder) and explicit ones when a user want to group resources belonging to different element of his hierarchy.
+        A resource group is a set of resources. There are implicit resource groups (such as all resources belonging to a same organization or folder) and explicit resource groups, for example, if you want to group resources belonging to different elements of the hierarchy.
       name: Resource and Resourcegroup
     - description: The Permission API provides access to internal collection of Permissions available. Permissions are low-level string of characters a user or service can key on to determine authorization.
       name: Permission
     - description: The Role API enables a user to create and view Roles, which are sets of Permissions. Roles allow association to users without having to associate individual permissions. Roles can represent actions or features, or more classicly level of access to a particular service.
       name: Role
     - description: |-
-        The Hierarchy APIs allows the control of Organizations/Folders/Projects to represent accurately Customers and their dependencies.
+        The Hierarchy endpoints enables you to control the hierarch of organizations, folders, and projects to accurately represent customers and their dependencies.
 
-        A Hierarchy is composed multiple elements:
+        A Hierarchy is composed of multiple elements:
         <ul>
-        <li>a Parent Organization (optional)</li>
-        <li>An Organization, which represent a purchaser of goods or services from NetApp</li>
-        <li>One or more level of folders. Folders can be used to represent City, department, region, deployment Environment.... (optional)</li>
-        <li>One or more projects. A project represent a Working space where you can enable data-services on your various resources</li>
+        <li>A parent organization (optional)</li>
+        <li>An organization representing a purchaser of goods or services from NetApp</li>
+        <li>One or more folder levels. Folders can be used to represent the city, department, region, deployment environment, and so on. (optional)</li>
+        <li>One or more projects. A project represents a working space where you can enable data services on your various resources</li>
         </ul>
       name: Hierarchy
-    - description: "The User and UserGroup APIs allows creation of Users and groups of Users.\n\nA User represent a human user, a service account or an agent (representing a connector for example). \n\nA Usergroup is a set of Users who can be tracked together. We have implicit UserGroups (such as all the users belonging to a same organization or folder) and explicit ones when a user want to group users belonging to different element of his hierarchy."
+    - description: "The user and user group endpoints allow the creation of users and groups of users.\n\nA user represents a human user, a service account, or an agent (representing a connector for example). \n\nA user group is a set of users who can be managed together. We have implicit user groups (such as when all users belong to the same organization or folder) and explicit ones (for example, if you want to group users belonging to different elements of the hierarchy)."
       name: User and Usergroup
