@@ -18,13 +18,13 @@ indexpage:
           url: /platform/get_identifiers.html
     - title: Storage services 
       links:
-        - title: ONTAP management service - Cloud Volumes ONTAP  
+        - title: ONTAP management - Cloud Volumes ONTAP  
           url: /cm/overview.html#cloud-volumes-ontap-operations
-        - title: ONTAP management service - On-premises ONTAP
+        - title: ONTAP management - On-premises ONTAP
           url: /cm/overview.html#cloud-volumes-ontap-operations
         - title: Amazon FSx for NetApp ONTAP
           url: /fsx/overview.html
-    - title: ONTAP management service workflows
+    - title: ONTAP management workflows
       links:
         - title: Cloud Volumes ONTAP typical deployment
           url: /cm/cvo_deployment.html

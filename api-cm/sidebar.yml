@@ -1,5 +1,5 @@
 section: api-cm
-title: ONTAP management service
+title: ONTAP management 
 entries:
   - title: Get started
     entries:
@@ -269,7 +269,7 @@ entries:
              - title: Get aggregates
                url: /cm/wf_onprem_ontap_get_aggrs.html
    
-  - title: ONTAP management service common workflows
+  - title: ONTAP management common workflows
     entries:
     - title: Before you begin
       url: /cm/wf_common_before.html
