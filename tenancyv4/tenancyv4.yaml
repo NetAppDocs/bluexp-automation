@@ -5824,7 +5824,7 @@ paths:
             x-private-path: /resources/{folder_id}
             x-scope: documentation,public
         put:
-            description: Updates the specified folder with new information.
+            description: Replaces the specified folder with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -6151,7 +6151,7 @@ paths:
             x-scope: documentation,public
     /folders/{folder_id}/projects/{project_id}:
         delete:
-            description: Removes the specified project from a folder.
+            description: Removes a project from the specified folder.
             responses:
                 "204":
                     description: Indicates if the project was removed from a folder.
@@ -6163,7 +6163,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes the specified project from a folder
+            summary: Removes a project from the specified folder
             tags:
                 - Hierarchy
             x-permission: bxp:project-delete
@@ -6260,7 +6260,7 @@ paths:
             x-private-path: /resources/{project_id}
             x-scope: documentation,private,public
         put:
-            description: Updates a project in a folder with new information.
+            description: Replaces a project in a folder with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7130,7 +7130,7 @@ paths:
             x-private-path: /resources/{organization_id}
             x-scope: documentation,public
         put:
-            description: Updates the specified organization with new information.
+            description: Replaces the specified organization with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7341,7 +7341,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Updates a folder in the specified organization with partial information
+            description: Updates a folder in the specified organization with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7373,7 +7373,7 @@ paths:
             x-permission: bxp:folder-modify
             x-scope: documentation,private,public
         put:
-            description: Updates a folder in the specified organization with new information
+            description: Replaces a folder under the specified organization with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7542,7 +7542,7 @@ paths:
             x-persistence: false
             x-scope: documentation,private,public
         get:
-            description: Retrieves a project under the specifed organization. 
+            description: Retrieves a project in the specifed organization. 
             responses:
                 "200":
                     content:
@@ -7598,7 +7598,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Updates a project under an organization with partial information.
+            description: Updates a project in an organization with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7632,7 +7632,7 @@ paths:
             x-private-path: /resources/{project_id}
             x-scope: documentation,private,public
         put:
-            description: Updates a project under an organization with a new information
+            description: Replaces a project under an organization with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7671,7 +7671,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/resourcegroups:
         get:
-            description: Lists all the resource groups in the specified organization. 
+            description: Lists all of the resource groups in the specified organization. 
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8890,7 +8890,7 @@ paths:
             x-private-path: /resources/{project_id}
             x-scope: documentation,public
         put:
-            description: Updates the specified project with new information.
+            description: Replaces the specified project with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -9729,7 +9729,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         put:
-            description: Updates the specified resource group with new information.
+            description: Replaces the specified resource group with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resourcegroup+json:
@@ -10120,7 +10120,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         put:
-            description: Updates the specified resource with new information.
+            description: Replaces the specified resource with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -10702,7 +10702,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         put:
-            description: Updates a user group with new information.
+            description: Replaces a user group with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.usergroup+json:
@@ -11081,7 +11081,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         put:
-            description: Updates the specified user with new information.
+            description: Replaces the specified user with new information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.user+json:
@@ -11523,26 +11523,34 @@ servers:
     - url: '{{.Server}}'
 tags:
     - description: |-
-        The Resource and ResourceGroup APIs provide allows management of Resources and groups of Resources, as well as ResourceTypes. ResourceTypes can only be managed by NetApp and represent the various types of resources we can store.
+        The resource and resource group endpoints allow management of resources, groups of resources, and ResourceTypes. ResourceTypes can only be managed by NetApp and represent the various types of resources that are stored
 
-        A Resource represents anything we want to track in Tenancy such as Cluster, Node, Working Environment and all elements of a Customer Hierarchy.
+        A resource is a working environment that BlueXP already manages or an undiscovered resource that is associated with your organization (for example, an on-premises ONTAP cluster or StorageGRID system). BlueXP is aware of undiscovered resources based on your organization's telemetry data.
 
-        A ResourceGroup is a set of Resources a user want to track together. We have implicit ResourceGroups (such as all the resources belonging to a same organization or folder) and explicit ones when a user want to group resources belonging to different element of his hierarchy.
+        A resource group is a set of resources that you want to manage together. There are implicit resource groups (such as all resources belonging to the same organization or folder) and explicit groups, for example, if you want to group resources belonging to different elements of a hierarchy.
       name: Resource and Resourcegroup
-    - description: The Permission API provides access to internal collection of Permissions available. Permissions are low-level string of characters a user or service can key on to determine authorization.
+    - description: |-
+        The permission endpoints provide access to an internal collection of available permissions. Permissions are a low-level string of characters that a user or service can enter to determine authorization. 
+        
+        Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy. 
       name: Permission
-    - description: The Role API enables a user to create and view Roles, which are sets of Permissions. Roles allow association to users without having to associate individual permissions. Roles can represent actions or features, or more classicly level of access to a particular service.
+    - description: |-
+        The role endpoints enable you to create and view roles, which are sets of permissions. Roles can represent actions or features, or the access level that user has for a particular service. 
+
+        In BlueXP IAM, you don't grant permissions directly to users in an organization. 
+        Instead, you grant each user a role. A role contains a set of permissions that enables a user to perform specific actions at a specific level of the resource hierarchy. 
+        
+        BlueXP supports several predefined roles that you can assign to the users in your organization. Custom roles are not supported.
       name: Role
     - description: |-
-        The Hierarchy APIs allows the control of Organizations/Folders/Projects to represent accurately Customers and their dependencies.
+        The hierarchy endpoints enable you to manage organizations, folders, and projects to accurately represent customers and their dependencies.
 
-        A Hierarchy is composed multiple elements:
         <ul>
-        <li>a Parent Organization (optional)</li>
-        <li>An Organization, which represent a purchaser of goods or services from NetApp</li>
-        <li>One or more level of folders. Folders can be used to represent City, department, region, deployment Environment.... (optional)</li>
-        <li>One or more projects. A project represent a Working space where you can enable data-services on your various resources</li>
+        <li>The organization is the top of the hierarchy. Optionally, you can have a child organization under a parent organization. An organization represents a purchaser of goods or services from NetApp.</li>
+        <li>Folders are children of the organization or of another folder. Folders are optional and can represent a city, department, region, deployment environment, and so on.</li>
+        <li>Projects are children of the organization or of a folder. Projects represent a working space where you can enable data services on your various resources.</li>
+        <li>Resources are associated with one or more folders or projects.</li>
         </ul>
       name: Hierarchy
-    - description: "The User and UserGroup APIs allows creation of Users and groups of Users.\n\nA User represent a human user, a service account or an agent (representing a connector for example). \n\nA Usergroup is a set of Users who can be tracked together. We have implicit UserGroups (such as all the users belonging to a same organization or folder) and explicit ones when a user want to group users belonging to different element of his hierarchy."
+    - description: "The user and user group endpoints enable you to create and manage users and groups of users.\n\nA user represents a human user, a service account or an agent (for example, u user representing a connector). \n\nA user group is a set of users who can be managed as a group. There are implicit user groups (such as users belonging to the same organization or folder), and explicit ones, for example, if you want to manage users belonging to different elements of the hierarchy."
       name: User and Usergroup
