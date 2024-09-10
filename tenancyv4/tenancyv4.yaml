@@ -11530,9 +11530,9 @@ tags:
         A resource group is a set of resources that you can manage as a group. In BlueXP IAM, you can manaage implicit resource groups and explicit resource groups. In an implicit resource group, users belong to the same organization, project, or folder. In an explicit resource group, users can belong to different elements of a resource hierarchy.
       name: Resource and Resourcegroup
     - description: |-
-        The permission endpoints provide access to an internal collection of available permissions. Permissions are a low-level string of characters that a user or service can enter to determine authorization. 
+        The permission endpoints provide access to an internal collection of available permissions in BlueXP identity and access management (IAM). Permissions are a low-level string of characters that a user or service account can use to determine authorization. 
         
-        In BlueXP identity and access management (IAM), you can provide a user with permissions for the resources in the entire organization or in specific folders and projects. You can associate new user accounts and service accounts, manage roles, and more. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
+        A user can have permissions for the resources in the entire organization or in specific folders and projects. You can associate new user accounts and service accounts, manage roles, and more. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
       name: Permission
     - description: |-
         The role endpoints enable you to create and view roles, which are sets of permissions. 
@@ -11551,5 +11551,5 @@ tags:
         <li>Resources are associated with one or more folders or projects.</li>
         </ul>
       name: Hierarchy
-    - description: "The user and usergroup endpoints enable you to create and manage users and user groups.\n\nIn BlueXP identity and access management (IAM), a user represents a human user, a service account, or an agent. For example, you can create user that represents a Connector. \n\nA user group is a set of users that you can manage as a group. You can manaage implicit user groups and explicit groups in BlueXP IAM. In an implicit user group, users belong to the same organization, project, or folder. In an explicit user group, users can belong to different elements of the resource hierarchy."
+    - description: "The user and usergroup endpoints enable you to create and manage users and user groups.\n\nIn BlueXP identity and access management (IAM), a user represents a human user, a service account, or an agent. For example, you can create a user that represents a Connector. \n\nA user group is a set of users that you can manage as a group. You can manaage implicit user groups and explicit groups in BlueXP IAM. In an implicit user group, users belong to the same organization, project, or folder. In an explicit user group, users can belong to different elements of the resource hierarchy."
       name: User and Usergroup
