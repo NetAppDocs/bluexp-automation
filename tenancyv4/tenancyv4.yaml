@@ -5623,7 +5623,7 @@ components:
             scheme: bearer
             type: http
 info:
-    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information. \nIAM endpoints enable you to manage and control access to BlueXP resources. \n\nIf you're using BlueXP in standard mode, you no longer have a BlueXP account. Instead, you have a BlueXP organization that you manage using BlueXP IAM. \n\nBlueXP IAM uses predefined roles that include sets of permissions which are required to manage and view data. You can have multiple roles within the same organization or set of resources. \n\nWith the appropriate permissions, you can manage an organization hierarchy into folders (subdivisions of an organization using criteria such as department or region) and projects (a workspace in BlueXP).\n\n You should verify that you have the appropriate permissions when using the BlueXP IAM API endpoints.\nThe BlueXP IAM REST API currently supports more actions than what is available through the UI."
+    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information. \nBlueXP IAM endpoints enable you to manage and control access to BlueXP resources. \n\nIf you're using BlueXP in standard mode, you no longer have a BlueXP account. Instead, you have a BlueXP organization that you manage using BlueXP IAM. \n\nBlueXP IAM uses predefined roles that include sets of permissions which are required to manage and view data. You can have multiple roles within the same organization or set of resources. \n\nYou should verify that you have the appropriate permissions when using the BlueXP IAM API endpoints. With the appropriate permissions, you can manage an organization hierarchy into folders (subdivisions of an organization using criteria such as department or region) and projects (a workspace in BlueXP). After you organize your resources into folders and projects, you can grant granular access to resources by providing organization members with permissions to specific folders and projects. \n\n \nThe BlueXP IAM REST API currently supports more actions than what is available through the UI."
     license:
         name: BlueXP License
     termsOfService: https://www.netapp.com/media/10784-cloud-data-services-terms.pdf
@@ -11523,33 +11523,33 @@ servers:
     - url: '{{.Server}}'
 tags:
     - description: |-
-        The resource and resourcegroup endpoints allow management of BlueXP IAM resources, resource groups, and ResourceTypes. ResourceTypes represent the various types of resources that are store and can only be managed by NetApp.
+        The resource and resourcegroup endpoints enable management of BlueXP identity and access managment (IAM) resources, resource groups, and ResourceTypes. ResourceTypes represent the various types of resources that are stored in BlueXP IAM and can only be modified by NetApp.
 
-        A resource is a working environment that BlueXP already manages or an undiscovered resource that is associated with your organization (for example, an on-premises ONTAP cluster or StorageGRID system). BlueXP is aware of undiscovered resources based on your organization's telemetry data. 
+        A resource is a working environment that BlueXP already manages or an undiscovered resource that is associated with your organization (for example, an on-premises ONTAP cluster). BlueXP is aware of undiscovered resources based on your organization's telemetry data. 
 
-        A resource group is a set of resources that you can manage as a group.You can manaage implicit resource groups and explicit resource groups with BlueXP IAM. In an implicit resource group, users belong to the same organization, project, or folder. In an explicit resource group, users can belong to different elements of a resource hierarchy.
+        A resource group is a set of resources that you can manage as a group. In BlueXP IAM, you can manaage implicit resource groups and explicit resource groups. In an implicit resource group, users belong to the same organization, project, or folder. In an explicit resource group, users can belong to different elements of a resource hierarchy.
       name: Resource and Resourcegroup
     - description: |-
         The permission endpoints provide access to an internal collection of available permissions. Permissions are a low-level string of characters that a user or service can enter to determine authorization. 
         
-        In BlueXP IAM, you can provide a user with permissions for the resources in the entire organization or in specific folders and projects. You can associate new user accounts and service accounts, manage roles, and more. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
+        In BlueXP identity and access management (IAM), you can provide a user with permissions for the resources in the entire organization or in specific folders and projects. You can associate new user accounts and service accounts, manage roles, and more. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
       name: Permission
     - description: |-
         The role endpoints enable you to create and view roles, which are sets of permissions. 
 
-        In BlueXP IAM, you don't grant permissions directly to users in an organization. Instead, you grant each user a role. A role contains a set of permissions that enables a user to perform specific actions at a specific level of the resource hierarchy. Roles can represent actions or features, or the access level that user has for a particular service. 
+        In BlueXP identity and access management (IAM), you don't grant permissions directly to users in an organization. Instead, you grant each user a role. A role contains a set of permissions that enables a user to perform specific actions at a specific level of the resource hierarchy. Roles can represent actions or features, or the access level that user has for a particular service. 
         
         BlueXP IAM supports several predefined roles that you can assign to the users in your organization. Custom roles are not supported.
       name: Role
     - description: |-
-        The hierarchy endpoints enable you to manage organizations, folders, and projects to accurately represent customers and their dependencies.
+        The hierarchy endpoints enable you to accurately represent your organization's complete resource hierarchy using folders and projects in BlueXP identity and access management (IAM).
 
         <ul>
         <li>The organization is the top of the BlueXP IAM hierarchy. Optionally, you can have a child organization under a parent organization. An organization represents a purchaser of goods or services from NetApp.</li>
         <li>Folders are children of the organization or of another folder. Folders are optional in BlueXP IAM and can represent a city, department, region, deployment environment, and so on.</li>
-        <li>Projects are children of the organization or of a folder. Projects represent a working space in BlueXP IAM where you can enable data services on your various resources.</li>
+        <li>Projects are children of the organization or of a folder. Projects represent a working space in BlueXP that organization members can access to manage resources.</li>
         <li>Resources are associated with one or more folders or projects.</li>
         </ul>
       name: Hierarchy
-    - description: "The user and usergroup endpoints enable you to create and manage BlueXP IAM users and user groups.\n\nIn BlueXP IAM, a user represents a human user, a service account, or an agent. For example, a user can represent a Connector. \n\nA user group is a set of users that you can manage as a group. You can manaage implicit user groups and explicit groups in BlueXP IAM. In an implicit user group, users belong to the same organization, project, or folder. In an explicit user group, users can belong to different elements of a resource hierarchy."
+    - description: "The user and usergroup endpoints enable you to create and manage users and user groups.\n\nIn BlueXP identity and access management (IAM), a user represents a human user, a service account, or an agent. For example, you can create user that represents a Connector. \n\nA user group is a set of users that you can manage as a group. You can manaage implicit user groups and explicit groups in BlueXP IAM. In an implicit user group, users belong to the same organization, project, or folder. In an explicit user group, users can belong to different elements of the resource hierarchy."
       name: User and Usergroup
