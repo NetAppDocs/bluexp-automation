@@ -204,14 +204,14 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users and user groups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing users and usergroups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -320,7 +320,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -399,7 +399,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -494,7 +494,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -587,7 +587,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -3313,7 +3313,7 @@ components:
             properties:
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
-                    example: This role have alpha & beta permissions for NetApp Sales Territory
+                    example: This role has alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -3406,7 +3406,7 @@ components:
             properties:
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
-                    example: This role have alpha & beta permissions for NetApp Sales Territory
+                    example: This role has alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -3475,7 +3475,7 @@ components:
             properties:
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
-                    example: This role have alpha & beta permissions for NetApp Sales Territory
+                    example: This role has alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -3535,7 +3535,7 @@ components:
             properties:
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
-                    example: This role have alpha & beta permissions for NetApp Sales Territory
+                    example: This role has alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -3613,7 +3613,7 @@ components:
             properties:
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
-                    example: This role have alpha & beta permissions for NetApp Sales Territory
+                    example: This role has alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -5623,7 +5623,7 @@ components:
             scheme: bearer
             type: http
 info:
-    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information within an organization. \nIAM endpoints  enables your organization to control access to resources. \n\nWith the appropriate permissions, a user can organize their company hierarchy into Folders (subdivisions of a Company by any criteria they choose, such as departments or sites) and Projects (equivalent to the previous Workspace concept). \n\nRoles are predefined and include sets of permissions required to manage and view data. You should verify you have the appropriate permissions when using these APIs. \n\nAs more data services onboard our platform, additional roles will become available, allowing users to perform more tasks within BlueXP. A user can have multiple roles within the same organization or set of resources. \nThe BlueXP IAM API endpoints currently support more actions than the UI."
+    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information. \nIAM endpoints enable you to manage and control access to BlueXP resources. \n\nIf you're using BlueXP in standard mode, you no longer have a BlueXP account. Instead, you have a BlueXP organization that you manage using BlueXP IAM. \n\nBlueXP IAM uses predefined roles that include sets of permissions which are required to manage and view data. You can have multiple roles within the same organization or set of resources. \n\nWith the appropriate permissions, you can manage an organization hierarchy into folders (subdivisions of an organization using criteria such as department or region) and projects (a workspace in BlueXP).\n\n You should verify that you have the appropriate permissions when using the BlueXP IAM API endpoints.\nThe BlueXP IAM REST API currently supports more actions than what is available through the UI."
     license:
         name: BlueXP License
     termsOfService: https://www.netapp.com/media/10784-cloud-data-services-terms.pdf
@@ -5633,7 +5633,7 @@ openapi: 3.0.3
 paths:
     /folders:
         get:
-            description: Lists all of the folders in the collection.
+            description: Lists all folders in the collection.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -5648,7 +5648,7 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all the folders.
+                    description: List of all  folders.
                     headers:
                         Location:
                             description: Location of the folders.
@@ -5657,7 +5657,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: Lists all of the folders in the collection
+            summary: Lists all folders
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
@@ -5678,7 +5678,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Creates a new folder with the desired values.
+                description: Indicates the desired values for the Folder API resource to be created.
                 required: true
             responses:
                 "201":
@@ -5718,7 +5718,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new folder
+            summary: Create a new folder
                 - Hierarchy
             x-permission: bxp:folder-create
             x-private-path: /resources
@@ -5737,7 +5737,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes the specified folder
+            summary: Deletes a specific folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-delete
@@ -5775,7 +5775,7 @@ paths:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
                     description: Returns the stored folder in the JSON response body.
-            summary: Retrieves the specified folder
+            summary: Retrieves a specific folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
@@ -5817,7 +5817,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Updates the specified folder with partial information
+            summary: Partially updates a folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-modify
@@ -5854,7 +5854,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Updates the specified folder with new information
+            summary: Modifies a specific folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-modify
@@ -5885,7 +5885,7 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all the folders under a parent folder.
+                    description: List of all folders under a parent folder.
                     headers:
                         Location:
                             description: Location of the folders.
@@ -5894,14 +5894,14 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: Lists all folders within the specified parent folder
+            summary: Lists all folders under the specified parent folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources
             x-scope: documentation,public
         post:
-            description: Creates a new folder within the specified parent folder.
+            description: Creates a new folder under the specified parent folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -5955,7 +5955,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new folder within the specified parent folder
+            summary: Creates a new folder under a parent folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-create
@@ -5975,14 +5975,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes the specified child folder from a parent folder
+            summary: Removes a child folder from a parent folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-delete
             x-persistence: false
             x-scope: documentation,private,public
         get:
-            description: Retrieves a child folder within the specified parent folder.
+            description: Retrieves a child folder under the specified parent folder.
             responses:
                 "200":
                     content:
@@ -6013,7 +6013,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a child folder within the specified parent folder
+            summary: Retrieve a child folder under a parent folder
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
@@ -6039,7 +6039,7 @@ paths:
                 type: string
     /folders/{folder_id}/projects:
         get:
-            description: Lists all of the projects in the specified folder.
+            description: Lists all projects under the specified folder.
             parameters:
                 - description: ID of the folder
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6071,7 +6071,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: Lists all of the projects in the specified folder
+            summary: Lists all projects under a folder
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -6102,7 +6102,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description:  Creates a project in the specified folder.
+                description:  Creates a project under the specified folder.
                 required: true
             responses:
                 "201":
@@ -6142,7 +6142,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a project in the specified folder
+            summary: Creates a project under a folder
             tags:
                 - Hierarchy
             x-permission: bxp:project-create
@@ -6163,14 +6163,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a project from the specified folder
+            summary: Removes a project from a folder
             tags:
                 - Hierarchy
             x-permission: bxp:project-delete
             x-persistence: false
             x-scope: documentation,private,public
         get:
-            description: Retrieves a project in a specified folder.
+            description: Retrieves a project under the specified folder.
             responses:
                 "200":
                     content:
@@ -6201,7 +6201,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves the specified project in a folder
+            summary: Retrieves a project under a folder
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -6226,7 +6226,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Updates a project in a folder with partial information.
+            description: Updates a project under a folder with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -6299,7 +6299,7 @@ paths:
             x-scope: documentation,private,public
     /folders/{folder_id}/resourcegroups:
         get:
-            description: Lists all of the resource groups in the specified folder.
+            description: Lists all resource groups in the specified folder.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -6314,14 +6314,14 @@ paths:
                         application/vnd.netapp.bxp.resourcegroups+json:
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_list_response_body'
-                    description: List of all the resource groups in a folder
+                    description: List of all resource groups in a folder
                     headers:
                         Location:
                             description: Location of the resource groups
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the resource groups in the specified folder
+            summary: Lists all resource groups under a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -6354,7 +6354,7 @@ paths:
                 required: true
             responses:
                 "202":
-                    description: Indicates that the resource groups request was accepted.
+                    description: Indicates that the resourcegroups request was accepted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6365,7 +6365,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Adds resource groups to the specified folder
+            summary: Add resource groups to a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
@@ -6385,7 +6385,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a resource group from the specified folder
+            summary: Removes a resource group from a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
@@ -6414,10 +6414,10 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_get_response_body'
-                    description: Returns the stored resource group in the JSON response body if it belongs to the folder.
+                    description: Returns the stored resourcegroup in the JSON response body if it belongs to the folder.
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a resource group in the specified folder
+            summary: Retrieves a resource group under a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -6442,7 +6442,7 @@ paths:
                 type: string
     /folders/{folder_id}/resources:
         get:
-            description: Lists all resources in the specified folder.
+            description: Lists all resources under the specified folder.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -6464,14 +6464,14 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all resources in the specified folder
+            summary: Lists all resources under a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: The ID of the folder of which to display resources.
+            - description: The ID of the folder that contains the resources.
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -6507,7 +6507,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add resources to to the specified folder
+            summary: Add resources to to a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
@@ -6527,14 +6527,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a resource from the specified folder
+            summary: Removes a resource from a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Retrieves a resource in the specified folder.
+            description: Retrieves a resource under the specified folder.
             responses:
                 "200":
                     content:
@@ -6560,7 +6560,7 @@ paths:
                     description: Returns the stored resource in the JSON response body if it belongs to the folder.
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a resource in the specified folder
+            summary: Retrieves a resource under a folder
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -6585,7 +6585,7 @@ paths:
                 type: string
     /folders/{folder_id}/roles/{role_id}/users/{user_id}:
         delete:
-            description: Removes a user from the specified folder.
+            description: Removea a user from the specified folder.
             responses:
                 "204":
                     description: Indicates if the user was removed from an folder.
@@ -6597,7 +6597,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specified user from a folder
+            summary: Remove a  user from a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
@@ -6630,7 +6630,7 @@ paths:
                 type: string
     /folders/{folder_id}/usergroups:
         get:
-            description: Lists all the user groups in the specified folder.
+            description: Lists all user groups in the specified folder.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -6645,14 +6645,14 @@ paths:
                         application/vnd.netapp.bxp.usergroups+json:
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_list_response_body'
-                    description: Lists all the user groups in a specified folder
+                    description: List of all user groups in the folder
                     headers:
                         Location:
                             description: Location of usergroups
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all the user groups in the specified folder
+            summary: Lists all user groups in a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -6680,7 +6680,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/usergroup_1.0_post_bulk_id_request_body'
-                description: Adds user groups to the specified folder
+                description: Indicates the usergroups to be added.
                 required: true
             responses:
                 "202":
@@ -6695,7 +6695,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Adds user groups to the specified folder
+            summary: Adds user groups to a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
@@ -6706,7 +6706,7 @@ paths:
             description: Removes a user group from the specified folder.
             responses:
                 "204":
-                    description: Indicates if the Usergroup was removed from a Folder.
+                    description: Indicates if the usergroup was removed from a folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6715,7 +6715,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a user group from the specified folder
+            summary: Removes a user group from a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
@@ -6747,7 +6747,7 @@ paths:
                     description: Returns the stored Usergroup in the JSON response body if it belongs to the Folder
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a user group from the specified folder
+            summary: Retrieve a user group from a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -6794,7 +6794,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all users associated with the specified folder
+            summary: List all users associated with a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -6838,7 +6838,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Adds users to the specified folder
+            summary: Add users to a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -6858,7 +6858,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a user from the specified folder
+            summary: Removes a user from a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
@@ -6890,7 +6890,7 @@ paths:
                     description: Returns the stored User in the JSON response body if it belongs to the Folder
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a user associated with the specified folder
+            summary: Retrieves a user associated with a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -6939,7 +6939,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: List all the organizations in the collection
+            summary: List all organizations
             tags:
                 - Hierarchy
             x-permission: bxp:organization-read
@@ -7004,7 +7004,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new organization 
+            summary: Create a new organization 
             tags:
                 - Hierarchy
             x-permission: bxp:organization-create
@@ -7025,7 +7025,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes the specified organization
+            summary: Delete an organization
             tags:
                 - Hierarchy
             x-permission: bxp:organization-delete
@@ -7074,7 +7074,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves the specified organziation
+            summary: Retrieves an organziation
             tags:
                 - Hierarchy
             x-permission: bxp:organization-read
@@ -7122,7 +7122,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Updates the specified organization with partial information
+            summary: Partially updates an organization
             tags:
                 - Hierarchy
             x-permission: bxp:organization-modify
@@ -7162,7 +7162,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific organization 
+            summary: Modify a specific organization 
             tags:
                 - Hierarchy
             x-permission: bxp:organization-modify
@@ -7171,7 +7171,7 @@ paths:
             x-scope: documentation,public
     /organizations/{organization_id}/folders:
         get:
-            description: Lists all folders within the specified organization.
+            description: Lists all folders under the specified organization.
             parameters:
                 - description: ID of the Organization resource
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7203,14 +7203,14 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: Lists all folders within the specified organization
+            summary: List all folders under an organization
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
             x-private-path: /resources
             x-scope: documentation,public
         post:
-            description: Creates a new folder within the specified organization.
+            description: Creates a new folder under the specified organization.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7264,7 +7264,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new folder within the specified organization
+            summary: Creates a new folder under an organization
             tags:
                 - Hierarchy
             x-permission: bxp:folder-create
@@ -7275,7 +7275,7 @@ paths:
             description: Removes a folder from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the Folder was removed from a Organization.
+                    description: Indicates if the folder was removed from an organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7284,14 +7284,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a folder from the specified organization
+            summary: Removes a folder from an organization
             tags:
                 - Hierarchy
             x-permission: bxp:folder-delete
             x-persistence: false
             x-scope: documentation,private,public
         get:
-            description: Retrieves a folder in the specified organization
+            description: Retrieves a folder under the specified organization.
             responses:
                 "200":
                     content:
@@ -7316,7 +7316,7 @@ paths:
                     description: Returns the stored Folders in the JSON response body if it belongs to the organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a folder in the specified organization
+            summary: Retrieve a folder under an organization
             tags:
                 - Hierarchy
             x-permission: bxp:folder-read
@@ -7341,7 +7341,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Updates a folder in the specified organization with partial information.
+            description: Updates a folder under the specified organization with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7411,7 +7411,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/projects:
         get:
-            description: Lists all projects associated with the specified organization.
+            description: Lists all projects under the specified organization.
             parameters:
                 - description: ID of the folder resource
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -7443,7 +7443,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: Lists all projects associated with the specified organization
+            summary: Lists all projects under the specified organization
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -7514,7 +7514,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new project under the specified organization
+            summary: Creates a new project under an organization
             tags:
                 - Hierarchy
             x-permission: bxp:project-create
@@ -7526,7 +7526,7 @@ paths:
             description: Removes a project from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the Project was removed from a Organization.
+                    description: Indicates if the project was removed from an organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7535,14 +7535,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a project from the specified organization
+            summary: Remove a project from an organization
             tags:
                 - Hierarchy
             x-permission: bxp:project-delete
             x-persistence: false
             x-scope: documentation,private,public
         get:
-            description: Retrieves a project in the specifed organization. 
+            description: Retrieves a project under the specified organization. 
             responses:
                 "200":
                     content:
@@ -7573,7 +7573,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a project under the specifed organization
+            summary: Retrieve a project under an organization
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -7598,7 +7598,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Updates a project in an organization with partial information.
+            description: Updates a project under the specified organization with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -7624,7 +7624,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a project 
+            summary: Partially update a project 
             tags:
                 - Hierarchy
             x-permission: bxp:project-modify
@@ -7662,7 +7662,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific project
+            summary: Modify a specific project
             tags:
                 - Hierarchy
             x-permission: bxp:project-modify
@@ -7671,7 +7671,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/resourcegroups:
         get:
-            description: Lists all of the resource groups in the specified organization. 
+            description: Lists all resource groups under the specified organization. 
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -7693,7 +7693,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all the resource groups in the specified organization
+            summary: Lists all resource groups under an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -7737,7 +7737,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Adds resource groups the specified organization
+            summary: Adds resource groups to an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
@@ -7757,14 +7757,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a resource group from the specified organization
+            summary: Removes a resource group from an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Retrieves a resource group in the specified organization.
+            description: Retrieves a resource group under the specified organization.
             responses:
                 "200":
                     content:
@@ -7789,7 +7789,7 @@ paths:
                     description: Returns the stored Resourcegroup API resource in the JSON response body if it belongs to the Organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a resource group in the specified organization
+            summary: Retrieves a resource group under an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -7814,7 +7814,7 @@ paths:
                 type: string
     /organizations/{organization_id}/resources:
         get:
-            description: Lists all of the resources in the specified organization.
+            description: Lists all resources under the specified organization.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -7836,14 +7836,14 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the resources in the specified organization
+            summary: List all resources under an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: Organization ID to display Resources for
+            - description: The organization ID to display resources for
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7890,7 +7890,7 @@ paths:
             description: Removes a resource from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the Resource was removed from a Organization.
+                    description: Indicates if the resource was removed from an organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7899,14 +7899,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a resource from the specified organization
+            summary: Removes a resource from an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Retrieves a resource for the specified organization.
+            description: Retrieves a resource under the specified organization.
             responses:
                 "200":
                     content:
@@ -7932,7 +7932,7 @@ paths:
                     description: Returns the stored Resource in the JSON response body if it belongs to the Organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a resource for the specified organization
+            summary: Retrieves a resource under an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -7957,7 +7957,7 @@ paths:
                 type: string
     /organizations/{organization_id}/roles/{role_id}/users:
         post:
-            description: Associates users with a role in the specified organization 
+            description: Associates users with a role under the specified organization.
             parameters:
                 - in: path5
                   name: organization_id
@@ -7982,7 +7982,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/user_1.0_post_scope_object_bulk_id_request_body'
-                description: Indicates the desired values to associate multiple Users to a given Organization with a specific Role
+                description: Indicates the desired values to associate multiple users with an organization with a specific role
                 required: true
             responses:
                 "202":
@@ -7997,7 +7997,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Associate users with the specified organization and role
+            summary: Associate users with an organization and a role
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -8005,7 +8005,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/roles/{role_id}/users/{user_id}:
         delete:
-            description: Disassociates a user from the specified organization.
+            description: Removes a user from the specified organization.
             responses:
                 "204":
                     description: Indicates if the User was removed from an Organization.
@@ -8017,7 +8017,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Disassociate a user from an organization
+            summary: Removes a user from an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
@@ -8050,7 +8050,7 @@ paths:
                 type: string
     /organizations/{organization_id}/serviceAccounts:
         post:
-            description: Creates a service account for an organization.
+            description: Creates a service account under an organization.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.user+json:
@@ -8099,7 +8099,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a service account for an organization
+            summary: Create a service account under an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-create
@@ -8108,7 +8108,7 @@ paths:
             x-scope: documentation,public
     /organizations/{organization_id}/serviceAccounts/{serviceaccount_id}:
         delete:
-            description: Deletes a service account for an organization.
+            description: Deletes a service account under an organization.
             responses:
                 "204":
                     description: Indicates if the service account resource was deleted.
@@ -8120,7 +8120,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes a service account for an organization
+            summary: Delete a service account under an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-delete
@@ -8128,7 +8128,7 @@ paths:
             x-private-path: /users/{serviceaccount_id}
             x-scope: documentation,public
         get:
-            description: Retrieves a service account for an organization.
+            description: Retrieves a service account under an organization.
             responses:
                 "200":
                     content:
@@ -8154,7 +8154,7 @@ paths:
                     description: Returns the stored User in the JSON response body if it belongs to the Usergroup
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retieves a service account for an organization
+            summary: Retrieve a service account for an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-read
@@ -8171,7 +8171,7 @@ paths:
                 format: uuid
                 type: string
         patch:
-            description: Updates a service account for an organization with partial information.
+            description: Updates a service account under an organization with partial information.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.user+json:
@@ -8197,7 +8197,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Updates a service account for an organization with partial information
+            summary: Partially update a service account
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-modify
@@ -8205,7 +8205,7 @@ paths:
             x-private-path: /users/{serviceaccount_id}
             x-scope: documentation,public
         put:
-            description: Updates a service account for an organization.
+            description: Updates a service account under an organization.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.user+json:
@@ -8248,7 +8248,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Updates a service account for an organization
+            summary: Updates a service account under an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-modify
@@ -8289,7 +8289,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new client secret for the specified service account
+            summary: Create a new client secret for a service account
             tags:
                 - User and Usergroup
             x-permission: bxp:serviceaccount-clientsecret-create
@@ -8298,7 +8298,7 @@ paths:
             x-scope: documentation,public
     /organizations/{organization_id}/usergroups:
         get:
-            description: Lists all user groups in the specified organization.
+            description: Lists all user groups under the specified organization.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8320,7 +8320,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all user groups for the specified organization
+            summary: Lists all user groups under an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -8363,7 +8363,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Adds user groups to the specified organization
+            summary: Adds user groups to an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
@@ -8371,7 +8371,7 @@ paths:
             x-scope: documentation,private,public
     /organizations/{organization_id}/usergroups/{usergroup_id}:
         delete:
-            description: Removes a specific user group from the specifed organization.
+            description: Removes a user group from the specified organization.
             responses:
                 "204":
                     description: Indicates if the Usergroup was removed from a Organization.
@@ -8383,14 +8383,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific user group from the specifed organization
+            summary: Removes a user group from an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Retrieves a user group in the specified organization.
+            description: Retrieves a user group under the specified organization.
             responses:
                 "200":
                     content:
@@ -8415,7 +8415,7 @@ paths:
                     description: Returns the stored Usergroup in the JSON response body if it belongs to the Organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a user group in the specified organization
+            summary: Retrieves a user group under an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -8440,7 +8440,7 @@ paths:
                 type: string
     /organizations/{organization_id}/users:
         get:
-            description: Lists all of the users in the specified organization.
+            description: Lists all users under the specified organization.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8462,7 +8462,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the users in the specified organization
+            summary: Lists all users under an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -8506,7 +8506,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Adds users to the specified organization
+            summary: Adds users to an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -8526,14 +8526,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a user from the specified organziation
+            summary: Removes a user from an  organziation
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Retrieves a user in the specified organization.
+            description: Retrieves a user under the specified organization.
             responses:
                 "200":
                     content:
@@ -8558,7 +8558,7 @@ paths:
                     description: Returns the stored User in the JSON response body if it belongs to the Organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a user in the specified organization
+            summary: Retrieve a user under an organization
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -8583,7 +8583,7 @@ paths:
                 type: string
     /permissions:
         get:
-            description: Lists all of the permissions in the collection.
+            description: Lists all permissions.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8631,7 +8631,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the permissions in the collection
+            summary: List all permissions 
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -8668,7 +8668,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves the specified permission
+            summary: Retrieve a permission
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -8685,7 +8685,7 @@ paths:
                 type: string
     /projects:
         get:
-            description: Lists all projects in the collection.
+            description: Lists all projects.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8709,7 +8709,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: List all the project resources in the collection
+            summary: List all projects
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -8771,7 +8771,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new project
+            summary: Create a new project
             tags:
                 - Hierarchy
             x-permission: bxp:project-create
@@ -8792,7 +8792,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes the specified project
+            summary: Deletes a project
             tags:
                 - Hierarchy
             x-permission: bxp:project-delete
@@ -8882,7 +8882,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a project 
+            summary: Partially update a project 
             tags:
                 - Hierarchy
             x-permission: bxp:project-modify
@@ -8929,7 +8929,7 @@ paths:
             x-scope: documentation,public
     /projects/{project_id}/resourcegroups:
         get:
-            description: Lists all of the resource groups in the specified project.
+            description: Lists all resource groups under the specified project.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -8951,7 +8951,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all of the resource groups in in the specified project
+            summary: List all resource groups in in the specified project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -9014,14 +9014,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a resource group from the specified project
+            summary: Removes a resource group from a project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Retrieves a resource group in the specified project.
+            description: Retrieves a resource group under the specified project.
             responses:
                 "200":
                     content:
@@ -9046,7 +9046,7 @@ paths:
                     description: Returns the stored Resourcegroup API resource in the JSON response body if it belongs to the Project
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a resource group in the specified projectt
+            summary: Retrieves a resource group under a project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -9071,7 +9071,7 @@ paths:
                 type: string
     /projects/{project_id}/resources:
         get:
-            description: Lists all of the resources in the specified project.
+            description: Lists all resources in the specified project.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -9086,14 +9086,14 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of resources of an project
+                    description: List of resources in a project
                     headers:
                         Location:
                             description: Location of the collection
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the resources in the specified project
+            summary: Lists all resources in the a project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -9137,7 +9137,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Adds resources to the specified project
+            summary: Add resources to a project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
@@ -9148,7 +9148,7 @@ paths:
             description: Removes a resource from the specified project.
             responses:
                 "204":
-                    description: Indicates if the Resource was removed from a Project.
+                    description: Indicates if the resource was removed from a project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9157,7 +9157,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific Resource from a Project
+            summary: Removes a resource from a project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
@@ -9190,7 +9190,7 @@ paths:
                     description: Returns the stored Resource in the JSON response body if it belongs to the Project
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a resource in a specified project
+            summary: Retrieve a resource in a project
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -9218,7 +9218,7 @@ paths:
             description: Removes a user from the specified project.
             responses:
                 "204":
-                    description: Indicates if the User was removed from an Project.
+                    description: Indicates if the user was removed from a project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9227,7 +9227,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a user from the specified project
+            summary: Removes a user from a project
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
@@ -9260,7 +9260,7 @@ paths:
                 type: string
     /projects/{project_id}/usergroups:
         get:
-            description: Returns a JSON array of all matching usergroups in the Project.
+            description: Lists all user groups in the specified project.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -9275,14 +9275,14 @@ paths:
                         application/vnd.netapp.bxp.usergroups+json:
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_list_response_body'
-                    description: List of all usergroups in the Project
+                    description: List of all user groups in the project.
                     headers:
                         Location:
                             description: Location of usergroups
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the Usergroups in the Project
+            summary: Lists all user groups in a project
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -9298,7 +9298,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the Usergroups to be added to a Project.
+            description: Adds user groups to the specified project.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.usergroupbulk+json:
@@ -9310,7 +9310,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/usergroup_1.0_post_bulk_id_request_body'
-                description: Indicates the Usergroups to be added.
+                description: Indicates the user groups to be added.
                 required: true
             responses:
                 "202":
@@ -9325,7 +9325,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add Usergroups to a Project
+            summary: Add user groups to a project
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-create
@@ -9333,10 +9333,10 @@ paths:
             x-scope: documentation,private,public
     /projects/{project_id}/usergroups/{usergroup_id}:
         delete:
-            description: Removes the specified Usergroup from a Project.
+            description: Removes a user group from the specified project.
             responses:
                 "204":
-                    description: Indicates if the Usergroup was removed from a Project.
+                    description: Indicates if the user group was removed from a project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9345,14 +9345,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific Usergroup from a Project
+            summary: Remove a specific user group from a project
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given Usergroup belongs to a Project
+            description: Retrieve a user group under the specified project.
             responses:
                 "200":
                     content:
@@ -9377,7 +9377,7 @@ paths:
                     description: Returns the stored Usergroup in the JSON response body if it belongs to the Project
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific Usergroup belonging to a Project
+            summary: Retrieve a user group under a project
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -9402,7 +9402,7 @@ paths:
                 type: string
     /projects/{project_id}/users:
         get:
-            description: Returns a JSON array of all Users of this project.
+            description: Returns a JSON array of all users of this project.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -9424,7 +9424,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the user resources for a given Project
+            summary: List all users for a project
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -9441,7 +9441,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Indicates the users to be added to a Project.
+            description: Adds users to the specified project.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.userbulk+json:
@@ -9469,7 +9469,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add users to a Project
+            summary: Add users to a project
             tags:
                 - User and Usergroup
             x-permission: bxp:user-create
@@ -9477,7 +9477,7 @@ paths:
             x-scope: documentation,private,public
     /projects/{project_id}/users/{user_id}:
         delete:
-            description: Removes the specified User from a Project.
+            description: Removes a user from the specified project.
             responses:
                 "204":
                     description: Indicates if the User was removed from a Project.
@@ -9489,14 +9489,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a specific User from a Project
+            summary: Remove a user from a project
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Get information if a given User belongs to a Project
+            description: Retrieves a user under the specified project
             responses:
                 "200":
                     content:
@@ -9521,7 +9521,7 @@ paths:
                     description: Returns the stored User in the JSON response body if it belongs to the Project
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific User belonging to a Project
+            summary: Retrieve a user belonging to a project
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -9546,7 +9546,7 @@ paths:
                 type: string
     /resourcegroups:
         get:
-            description: Lists all of the resource groups in the collection.
+            description: Lists all resource groups in the collection.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -9568,7 +9568,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the of the resource groups in the collection
+            summary: List all resource groups
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -9623,7 +9623,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new resource group
+            summary: Create a new resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-create
@@ -9762,7 +9762,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Updates the specified resource group with new information
+            summary: Modify a resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-modify
@@ -9792,7 +9792,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all resources associated with a resource group
+            summary: List all resources for a resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -9836,7 +9836,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Add resources to a resource group.
+            summary: Add resources to a resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
@@ -9856,7 +9856,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes a resource from the specified resource group
+            summary: Deletes a resource from a resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
@@ -9889,7 +9889,7 @@ paths:
                     description: Returns the stored Resource in the JSON response body if it belongs to the ResourceGroup
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a resource in the specified resource group
+            summary: Retrieve a resource in a resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -9914,7 +9914,7 @@ paths:
                 type: string
     /resources:
         get:
-            description: Lists all of the resources in the collection.
+            description: Lists all resources.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -9938,7 +9938,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: List all of the resources in the collection
+            summary: List all resources
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -9984,7 +9984,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_post_response_body'
-                    description: Returns the newly created resource resource in the JSON response body.
+                    description: Returns the newly created resource in the JSON response body.
                     headers:
                         Location:
                             description: Location of the newly created resource
@@ -10001,7 +10001,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new resource
+            summary: Create a new resource
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-create
@@ -10012,7 +10012,7 @@ paths:
             description: Deletes the specified resource.
             responses:
                 "204":
-                    description: Indicates if the resource resource was deleted.
+                    description: Indicates if the resource was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10021,7 +10021,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific resource 
+            summary: Delete a specific resource 
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-delete
@@ -10068,7 +10068,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific resource 
+            summary: Retrieve a specific resource 
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -10102,7 +10102,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resource resource was updated.
+                    description: Indicates if the resource was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10113,7 +10113,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a resource 
+            summary: Partially update a resource 
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-modify
@@ -10146,7 +10146,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resource resource was updated.
+                    description: Indicates if the resource was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10165,7 +10165,7 @@ paths:
             x-scope: documentation,private,public
     /resources/{resource_id}/permissions:
         get:
-            description: Lists all of the permissions available on the specified resource.
+            description: Lists all permissions available on the specified resource.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -10213,7 +10213,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the permissions available on the specified resource
+            summary: Lists all permissions available on the specified resource
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -10252,7 +10252,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all users with a specific permission for the specified resource
+            summary: List all users with a permission for a resource
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -10277,7 +10277,7 @@ paths:
                 type: string
     /resources/{resource_id}/users:
         get:
-            description: Lists all of the users with permissions for the specified resource.
+            description: Lists all users with permissions for the specified resource.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -10299,7 +10299,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the users with permissions for the specified resource.
+            summary: Lists all users with permissions for the specified resource.
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -10316,7 +10316,7 @@ paths:
                 type: string
     /roles:
         get:
-            description: Lists all of the roles in the collection.
+            description: Lists all roles.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -10338,7 +10338,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all of the roles in the collection
+            summary: List all roles 
             tags:
                 - Role
             x-permission: bxp:role-read
@@ -10352,7 +10352,7 @@ paths:
                     content:
                         application/vnd.netapp.bxp.role+json:
                             example:
-                                description: This role have alpha & beta permissions for NetApp Sales Territory
+                                description: This role has alpha & beta permissions for NetApp Sales Territory
                                 id: 666a3f38-d4fa-5b62-a391-a69029758d32
                                 metadata:
                                     createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
@@ -10391,7 +10391,7 @@ paths:
                 type: string
     /roles/{role_id}/permissions:
         get:
-            description: Lists all of the permissions for the specified role.
+            description: Lists all permissions for the specified role.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -10443,7 +10443,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the permissions for the specified role
+            summary: Lists all permissions for the specified role
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -10491,7 +10491,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a permission for the specified role
+            summary: Retrieve a permission for a role
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -10516,7 +10516,7 @@ paths:
                 type: string
     /usergroups:
         get:
-            description: Lists all of the user groups in the collection.
+            description: Lists all user groups in the collection.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -10538,7 +10538,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the user groups in the collection
+            summary: Lists all user groups in the collection
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-read
@@ -10744,7 +10744,7 @@ paths:
             x-scope: documentation,private,public
     /usergroups/{usergroup_id}/users:
         get:
-            description: Lists all of the users for the specified user group.
+            description: Lists all users for the specified user group.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -10766,7 +10766,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the users for the specified user group
+            summary: Lists all users for the specified user group
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -10887,7 +10887,7 @@ paths:
                 type: string
     /users:
         get:
-            description: Lists all of the users in the collection.
+            description: Lists all users in the collection.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -11145,7 +11145,7 @@ paths:
             x-scope: documentation,private,public
     /users/{user_id}/permissions:
         get:
-            description: Lists all of the permissions for the specified user.
+            description: Lists all permissions for the specified user.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -11193,7 +11193,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the permissions for the specified user
+            summary: List all permissions for a user
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -11210,7 +11210,7 @@ paths:
                 type: string
     /users/{user_id}/permissions/{permission_id}/resources:
         get:
-            description: Lists all of the resources for a user with a specified permission.
+            description: Lists all resources for a user with a specified permission.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -11232,7 +11232,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the resources for a user with a specified permission
+            summary: Lists all resources for a user with a permission
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -11279,7 +11279,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all resources for the specified user
+            summary: Lists all resources for a user
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -11328,7 +11328,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Check if a user has permission for a specified resource
+            summary: Check if a user has permission for a resource
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-read
@@ -11353,7 +11353,7 @@ paths:
                 type: string
     /users/{user_id}/resources/{resource_id}/permissions:
         get:
-            description: Lists all of the permissions that a user has for the specified resource.
+            description: Lists all permissions a user has for the specified resource.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -11401,7 +11401,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all of the permissions that a user has for the specified resource
+            summary: Lists all permissions a user has for a resource
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -11455,7 +11455,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a permission on a resource for the specified user.
+            summary: Retrieve a permission on a resource for a user
             tags:
                 - Permission
             x-permission: bxp:permission-read
@@ -11488,7 +11488,7 @@ paths:
                 type: string
     /users/{user_id}/roles:
         get:
-            description: Lists all of the roles for the specified user.
+            description: Lists all roles for the specified user.
             parameters:
                 - $ref: '#/components/parameters/filter'
                 - $ref: '#/components/parameters/skip'
@@ -11510,7 +11510,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: List all the role resources in the collection
+            summary: Lists all roles
             tags:
                 - Role
             x-permission: bxp:role-read
@@ -11523,22 +11523,21 @@ servers:
     - url: '{{.Server}}'
 tags:
     - description: |-
-        The resource and resource group endpoints allow management of resources, groups of resources, and ResourceTypes. ResourceTypes can only be managed by NetApp and represent the various types of resources that are stored
+        The resource and resourcegroup endpoints allow management of resources, groups of resources, and ResourceTypes. ResourceTypes can only be managed by NetApp and represent the various types of resources that are stored.
 
-        A resource is a working environment that BlueXP already manages or an undiscovered resource that is associated with your organization (for example, an on-premises ONTAP cluster or StorageGRID system). BlueXP is aware of undiscovered resources based on your organization's telemetry data.
+        A resource is a working environment that BlueXP already manages or an undiscovered resource that is associated with your organization (for example, an on-premises ONTAP cluster or StorageGRID system). BlueXP is aware of undiscovered resources based on your organization's telemetry data. 
 
-        A resource group is a set of resources that you want to manage together. There are implicit resource groups (such as all resources belonging to the same organization or folder) and explicit groups, for example, if you want to group resources belonging to different elements of a hierarchy.
+        A resourcegroup is a set of resources that you can manage as a group. You can manage implicit resource groups (such as all resources belonging to the same organization or folder) and explicit groups, for example, if you want to group resources belonging to different elements of a resource hierarchy.
       name: Resource and Resourcegroup
     - description: |-
         The permission endpoints provide access to an internal collection of available permissions. Permissions are a low-level string of characters that a user or service can enter to determine authorization. 
         
-        Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy. 
+        You can provide a user with permissions for the resources in the entire organization or in specific folders and projects. You can associate new user accounts and service accounts, manage roles, and more. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
       name: Permission
     - description: |-
-        The role endpoints enable you to create and view roles, which are sets of permissions. Roles can represent actions or features, or the access level that user has for a particular service. 
+        The role endpoints enable you to create and view roles, which are sets of permissions. 
 
-        In BlueXP IAM, you don't grant permissions directly to users in an organization. 
-        Instead, you grant each user a role. A role contains a set of permissions that enables a user to perform specific actions at a specific level of the resource hierarchy. 
+        In BlueXP IAM, you don't grant permissions directly to users in an organization. Instead, you grant each user a role. A role contains a set of permissions that enables a user to perform specific actions at a specific level of the resource hierarchy. Roles can represent actions or features, or the access level that user has for a particular service. 
         
         BlueXP supports several predefined roles that you can assign to the users in your organization. Custom roles are not supported.
       name: Role
@@ -11552,5 +11551,5 @@ tags:
         <li>Resources are associated with one or more folders or projects.</li>
         </ul>
       name: Hierarchy
-    - description: "The user and user group endpoints enable you to create and manage users and groups of users.\n\nA user represents a human user, a service account or an agent (for example, u user representing a connector). \n\nA user group is a set of users who can be managed as a group. There are implicit user groups (such as users belonging to the same organization or folder), and explicit ones, for example, if you want to manage users belonging to different elements of the hierarchy."
+    - description: "The user and usergroup endpoints enable you to create and manage users and groups of users.\n\nA user represents a human user, a service account or an agent. For example, a user can represent a Connector. \n\nA usergroup is a set of users that you can manage as a group. You can manage implicit user groups (such as users belonging to the same organization or folder), and explicit ones, for example, if you want to group users belonging to different elements of a resource hierarchy."
       name: User and Usergroup
