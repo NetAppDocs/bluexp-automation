@@ -11523,7 +11523,7 @@ servers:
     - url: '{{.Server}}'
 tags:
     - description: |-
-        The resource and resourcegroup endpoints enable management of BlueXP identity and access managment (IAM) resources, resource groups, and ResourceTypes. ResourceTypes represent the various types of resources that are stored in BlueXP IAM and can only be modified by NetApp.
+        The resource and resourcegroup endpoints enable management of BlueXP identity and access management (IAM) resources, resource groups, and ResourceTypes. ResourceTypes represent the various types of resources that are stored in BlueXP IAM and can only be modified by NetApp.
 
         A resource is a working environment that BlueXP already manages or an undiscovered resource that is associated with your organization (for example, an on-premises ONTAP cluster). BlueXP is aware of undiscovered resources based on your organization's telemetry data. 
 
@@ -11532,7 +11532,7 @@ tags:
     - description: |-
         The permission endpoints provide access to an internal collection of available permissions in BlueXP identity and access management (IAM). Permissions are a low-level string of characters that a user or service account can use to determine authorization. 
         
-        A user can have permissions for the resources in the entire organization or in specific folders and projects. You can associate new user accounts and service accounts, manage roles, and more. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
+        A user can have permissions for the resources in the entire organization or in specific folders and projects. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
       name: Permission
     - description: |-
         The role endpoints enable you to create and view roles, which are sets of permissions. 
