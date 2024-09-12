@@ -60,7 +60,7 @@ components:
                 $ref: '#/components/schemas/query_include'
         limit:
             description: |-
-                Specifies the maximum number of resources to return when listing a collection.
+                Indicates the maximum number of resources to return when listing a collection.
 
 
                 URL examples: "limit=2"
@@ -204,7 +204,7 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users and usergroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing users and usergroup metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -5648,7 +5648,7 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all  folders.
+                    description: List of all folders.
                     headers:
                         Location:
                             description: Location of the folders.
@@ -5862,7 +5862,7 @@ paths:
             x-scope: documentation,public
     /folders/{folder_id}/folders:
         get:
-            description: Lists all folders within the specified parent folder.
+            description: Lists all folders under the specified parent folder.
             parameters:
                 - description: ID of the folder.
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
@@ -6354,7 +6354,7 @@ paths:
                 required: true
             responses:
                 "202":
-                    description: Indicates that the resourcegroups request was accepted.
+                    description: Indicates that the resourcegroup request was accepted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6715,7 +6715,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a user group from a folder
+            summary: Remove a user group from a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-delete
@@ -6762,7 +6762,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the usergroup
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -6802,7 +6802,7 @@ paths:
             x-private-path: /resources/{folder_id}/users
             x-scope: documentation,public
         parameters:
-            - description: Folder ID to display Users from
+            - description: Folder ID of which to display users
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -7074,7 +7074,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves an organziation
+            summary: Retrieve an organziation
             tags:
                 - Hierarchy
             x-permission: bxp:organization-read
@@ -7082,7 +7082,7 @@ paths:
             x-private-path: /resources/{organization_id}
             x-scope: documentation,public
         parameters:
-            - description: ID of the organization resource
+            - description: ID of the organization 
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7284,7 +7284,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Removes a folder from an organization
+            summary: Remove a folder from an organization
             tags:
                 - Hierarchy
             x-permission: bxp:folder-delete
@@ -7332,7 +7332,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the Organization
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7443,7 +7443,7 @@ paths:
                                 type: string
                 "401":
                     $ref: '#/components/responses/401Unauthorized'
-            summary: Lists all projects under the specified organization
+            summary: List all projects under the specified organization
             tags:
                 - Hierarchy
             x-permission: bxp:project-read
@@ -7514,7 +7514,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Creates a new project under an organization
+            summary: Create a new project under an organization
             tags:
                 - Hierarchy
             x-permission: bxp:project-create
@@ -7526,7 +7526,7 @@ paths:
             description: Removes a project from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the project was removed from an organization.
+                    description: Indicates if the Project was removed from a Organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7693,7 +7693,7 @@ paths:
                             schema:
                                 format: uri
                                 type: string
-            summary: Lists all resource groups under an organization
+            summary: List all resource groups under an organization
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
@@ -9053,7 +9053,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Project
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9061,7 +9061,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resourcegroup
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -9197,7 +9197,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Project
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9218,7 +9218,7 @@ paths:
             description: Removes a user from the specified project.
             responses:
                 "204":
-                    description: Indicates if the user was removed from a project.
+                    description: Indicates if the User was removed from an Project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9234,7 +9234,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Project
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9336,7 +9336,7 @@ paths:
             description: Removes a user group from the specified project.
             responses:
                 "204":
-                    description: Indicates if the user group was removed from a project.
+                    description: Indicates if the Usergroup was removed from a Project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9384,7 +9384,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Project
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9392,7 +9392,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the usergroup
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -9432,7 +9432,7 @@ paths:
             x-private-path: /resources/{project_id}/users
             x-scope: documentation,public
         parameters:
-            - description: Project ID to display Users from
+            - description: Project ID of the project of which to display users.
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9496,7 +9496,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         get:
-            description: Retrieves a user under the specified project
+            description: Retrieves a user under the specified project.
             responses:
                 "200":
                     content:
@@ -9528,7 +9528,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Project
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9643,7 +9643,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Deletes a specific resource group
+            summary: Delete a specific resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-delete
@@ -9679,14 +9679,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific resource group
+            summary: Retrieve a specific resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-read
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resourcegroup
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -9722,7 +9722,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a resource group
+            summary: Partially update a resource group
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resourcegroup-modify
@@ -9799,7 +9799,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the ResourceGroup
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -9896,7 +9896,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the ResourceGroup
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -10012,7 +10012,7 @@ paths:
             description: Deletes the specified resource.
             responses:
                 "204":
-                    description: Indicates if the resource was deleted.
+                    description: Indicates if the resource resource was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10102,7 +10102,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resource was updated.
+                    description: Indicates if the resource resource was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10146,7 +10146,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resource was updated.
+                    description: Indicates if the resource resource was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10157,7 +10157,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific resource 
+            summary: Modify a specific resource 
             tags:
                 - Resource and Resourcegroup
             x-permission: bxp:resource-modify
@@ -10259,7 +10259,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Resource
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -10352,7 +10352,7 @@ paths:
                     content:
                         application/vnd.netapp.bxp.role+json:
                             example:
-                                description: This role has alpha & beta permissions for NetApp Sales Territory
+                                description: This role have alpha & beta permissions for NetApp Sales Territory
                                 id: 666a3f38-d4fa-5b62-a391-a69029758d32
                                 metadata:
                                     createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
@@ -10658,7 +10658,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Usergroup
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -10695,7 +10695,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Updates a user group with partial information
+            summary: Update a user group with partial information
             tags:
                 - User and Usergroup
             x-permission: bxp:usergroup-modify
@@ -10773,7 +10773,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the UserGroup
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -10869,7 +10869,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the usergroup
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -11029,7 +11029,7 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Retrieves a specific user
+            summary: Retrieve a specific user
             tags:
                 - User and Usergroup
             x-permission: bxp:user-read
@@ -11200,7 +11200,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the User
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11239,7 +11239,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the User
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11286,7 +11286,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the User
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11408,7 +11408,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the User
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11462,7 +11462,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the User
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11478,7 +11478,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the Permission
+            - description: ID of the permission
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: permission_id
