@@ -2,7 +2,7 @@ components:
     parameters:
         continue:
             description: |-
-                Indicates the token to resume from, when listing a collection.
+                Indicates the token to resume from when listing a collection.
 
 
                 URL examples: "continue=[Continue Token from Collection Metadata]"
@@ -1786,7 +1786,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by the BlueXP accounts (tenancy) service.
+                    description: Unique identifier as understood by the Accounts (tenancy) service.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -1822,7 +1822,7 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support.
+                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP IAM system.
@@ -1905,7 +1905,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service.
+                    description: Unique identifier as understood by the Accounts (tenancy) service.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -1936,7 +1936,7 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support.
+                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
@@ -2048,7 +2048,7 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
+                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
@@ -2113,7 +2113,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
+                    description: Unique identifier as understood by the Accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -2149,7 +2149,7 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
+                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
@@ -2215,7 +2215,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
+                    description: Unique identifier as understood by the Accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -2246,7 +2246,7 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
+                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
@@ -4170,7 +4170,7 @@ components:
             uniqueItems: true
             x-common: true
         type_bxp_metadata:
-            description: Metadata associated with the resource.
+            description: Metadata associated with the resource
             properties:
                 createdBy:
                     description: UUID of the user who created the resource.
@@ -4360,7 +4360,7 @@ components:
             uniqueItems: true
             x-common: true
         type_dns_1123:
-            description: Represent a Domain Name as defined in RFC 1123
+            description: Represents a Domain Name as defined in RFC 1123
             maxLength: 63
             minLength: 1
             pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
@@ -4371,7 +4371,7 @@ components:
             type: object
             x-common: true
         type_json_schema:
-            description: Represent a JSON Schema
+            description: Represents a JSON Schema
             properties:
                 $schema:
                     enum:
@@ -4401,7 +4401,7 @@ components:
             type: object
             x-common: true
         type_swver:
-            description: Represent a software version in the format Major.Minor.Patch
+            description: Represents a software version in the format Major.Minor.Patch
             pattern: ^([0-9]+)\.([0-9]+)\.([0-9]+)(\-[a-zA-Z0-9-]+)*$
             type: string
             x-common: true
@@ -4409,15 +4409,15 @@ components:
             additionalProperties: false
             properties:
                 aadId:
-                    description: User AAD Id
+                    description: User AAD ID
                     example: 8cb0fe27-484b-4226-a19b-9d8811f6fb6a
                     type: string
                 auth0Id:
-                    description: User auth0 Id
+                    description: User auth0 ID
                     example: KBX6WeLgdwlmGyte01rm6Mvc7J-vYwyXHLL5jjtRltM
                     type: string
                 description:
-                    description: 'JSON string containing the description of the user Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user. Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This user is part of NetApp Sales Territory
                     maxLength: 300
                     minLength: 1
@@ -4441,7 +4441,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
+                    description: Unique identifier as understood by the Accounts (tenancy) service.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4453,14 +4453,14 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
-                    description: User Name
+                    description: User name
                     type: string
                 ownerOrganizationId:
                     description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this user.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user.
                     items:
                         additionalProperties:
                             type: string
@@ -4476,7 +4476,7 @@ components:
                     example: application/vnd.netapp.bxp.user
                     type: string
                 userType:
-                    description: Type of User
+                    description: Type of user
                     example: serviceAccount
                     type: string
                 version:
@@ -4515,15 +4515,15 @@ components:
             additionalProperties: false
             properties:
                 aadId:
-                    description: User AAD Id
+                    description: User AAD ID
                     example: 8cb0fe27-484b-4226-a19b-9d8811f6fb6a
                     type: string
                 auth0Id:
-                    description: User auth0 Id
+                    description: User auth0 ID
                     example: KBX6WeLgdwlmGyte01rm6Mvc7J-vYwyXHLL5jjtRltM
                     type: string
                 description:
-                    description: 'JSON string containing the description of the user Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user. Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This user is part of NetApp Sales Territory
                     maxLength: 300
                     minLength: 1
@@ -4547,7 +4547,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
+                    description: Unique identifier as understood by the Accounts (tenancy) service.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4561,7 +4561,7 @@ components:
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this user.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user.
                     items:
                         additionalProperties:
                             type: string
@@ -4601,7 +4601,7 @@ components:
                     example: application/vnd.netapp.bxp.userbulk
                     type: string
                 users:
-                    description: JSON array of User UUIDs
+                    description: JSON array of user UUIDs.
                     items:
                         format: uuid
                         type: string
@@ -4624,15 +4624,15 @@ components:
             additionalProperties: false
             properties:
                 aadId:
-                    description: User AAD Id
+                    description: User AAD ID
                     example: 8cb0fe27-484b-4226-a19b-9d8811f6fb6a
                     type: string
                 auth0Id:
-                    description: User auth0 Id
+                    description: User auth0 ID
                     example: KBX6WeLgdwlmGyte01rm6Mvc7J-vYwyXHLL5jjtRltM
                     type: string
                 description:
-                    description: 'JSON string containing the description of the user Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user. Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This user is part of NetApp Sales Territory
                     maxLength: 300
                     minLength: 1
@@ -4663,7 +4663,7 @@ components:
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this user.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user.
                     items:
                         additionalProperties:
                             type: string
@@ -4679,7 +4679,7 @@ components:
                     example: application/vnd.netapp.bxp.user
                     type: string
                 userType:
-                    description: Type of User
+                    description: Type of user
                     example: serviceAccount
                     type: string
                 version:
@@ -4699,18 +4699,18 @@ components:
         user_1.0_post_response_body:
             properties:
                 aadId:
-                    description: User AAD Id
+                    description: User AAD ID
                     example: 8cb0fe27-484b-4226-a19b-9d8811f6fb6a
                     type: string
                 auth0ClientSecret:
                     description: Auth0 Client Secret
                     type: string
                 auth0Id:
-                    description: User auth0 Id
+                    description: User auth0 ID
                     example: KBX6WeLgdwlmGyte01rm6Mvc7J-vYwyXHLL5jjtRltM
                     type: string
                 description:
-                    description: 'JSON string containing the description of the user Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user. Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This user is part of NetApp Sales Territory
                     maxLength: 300
                     minLength: 1
@@ -4734,7 +4734,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
+                    description: Unique identifier as understood by the Accounts (tenancy) service.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4746,14 +4746,14 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
-                    description: User Name
+                    description: User name
                     type: string
                 ownerOrganizationId:
                     description: JSON string containing the ID of the organization.
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this user.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user.
                     items:
                         additionalProperties:
                             type: string
@@ -4769,7 +4769,7 @@ components:
                     example: application/vnd.netapp.bxp.user
                     type: string
                 userType:
-                    description: Type of User
+                    description: Type of user
                     example: serviceAccount
                     type: string
                 version:
@@ -4799,7 +4799,7 @@ components:
                     example: application/vnd.netapp.bxp.userbulk
                     type: string
                 users:
-                    description: JSON array of Users
+                    description: JSON array of users
                     items:
                         properties:
                             aadId:
@@ -4833,15 +4833,15 @@ components:
             additionalProperties: false
             properties:
                 aadId:
-                    description: User AAD Id
+                    description: User AAD ID
                     example: 8cb0fe27-484b-4226-a19b-9d8811f6fb6a
                     type: string
                 auth0Id:
-                    description: User auth0 Id
+                    description: User auth0 ID
                     example: KBX6WeLgdwlmGyte01rm6Mvc7J-vYwyXHLL5jjtRltM
                     type: string
                 description:
-                    description: 'JSON string containing the description of the user Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user. Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This user is part of NetApp Sales Territory
                     maxLength: 300
                     minLength: 1
@@ -4865,14 +4865,14 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
+                    description: Unique identifier as understood by the Accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
-                    description: User Name
+                    description: User name
                     type: string
                 ownerOrganizationId:
                     description: JSON string containing the ID of the organization.
@@ -4911,18 +4911,18 @@ components:
         user_1.0_put_response_body:
             properties:
                 aadId:
-                    description: User AAD Id
+                    description: User AAD ID
                     example: 8cb0fe27-484b-4226-a19b-9d8811f6fb6a
                     type: string
                 auth0ClientSecret:
                     description: Auth0 Client Secret
                     type: string
                 auth0Id:
-                    description: User auth0 Id
+                    description: User auth0 ID
                     example: KBX6WeLgdwlmGyte01rm6Mvc7J-vYwyXHLL5jjtRltM
                     type: string
                 description:
-                    description: 'JSON string containing the description of the user Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user. Defined values are: * Minimum length: 1 * Maximum length: 300 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This user is part of NetApp Sales Territory
                     maxLength: 300
                     minLength: 1
@@ -4946,7 +4946,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
+                    description: Unique identifier as understood by the Accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -5003,7 +5003,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the usergroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user group. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This usergroup is part of NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -5035,7 +5035,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the usergroup.
+                        JSON string containing a name for the user group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5049,7 +5049,7 @@ components:
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user group.
                     items:
                         additionalProperties:
                             type: string
@@ -5101,7 +5101,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the usergroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user group. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This usergroup is part of NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -5128,7 +5128,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the usergroup.
+                        JSON string containing a name for the user group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5142,7 +5142,7 @@ components:
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user group.
                     items:
                         additionalProperties:
                             type: string
@@ -5194,7 +5194,7 @@ components:
                                 type: string
                             name:
                                 description: |-
-                                    JSON string containing a name for the usergroup.
+                                    JSON string containing a name for the user group.
                                     Defined values are:
                                     * Minimum length: 1
                                     * Maximum length: 300
@@ -5224,7 +5224,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the usergroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user group. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This usergroup is part of NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -5243,7 +5243,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the usergroup.
+                        JSON string containing a name for the user group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5257,7 +5257,7 @@ components:
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user group.
                     items:
                         additionalProperties:
                             type: string
@@ -5323,7 +5323,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing a name for the usergroup.
+                        JSON string containing a name for the user group.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5337,7 +5337,7 @@ components:
                     format: uuid
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for this usergroup.
+                    description: JSON array of tags (name/value pairs) representing metadata for the user group.
                     items:
                         additionalProperties:
                             type: string
@@ -5373,7 +5373,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the usergroup Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the user group. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This usergroup is part of NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
@@ -5455,7 +5455,7 @@ components:
                     type: string
                 legacyId:
                     description: |-
-                        JSON string containing the v2 public Id (if available) or a copy of the current Id if the public Id doesn't exist.
+                        JSON string containing the Accounts (tenancy)  public ID (if available) or a copy of the current ID if the public ID doesn't exist.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5476,7 +5476,7 @@ components:
                     minLength: 1
                     type: string
                 permissions:
-                    description: JSON array of permissions. Contains all the permissions the User has on this particular resource.
+                    description: JSON array of permissions. Contains all permissions the user has on a particular resource.
                     items:
                         properties:
                             id:
@@ -5506,11 +5506,11 @@ components:
                     type: array
                     uniqueItems: true
                 resourceClass:
-                    description: JSON string containing the resource class. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the IAM service.
                     example: ON_PREM
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM service.
                     example: ON_PREM
                     type: string
             required:
@@ -5547,7 +5547,7 @@ components:
                     type: string
                 legacyId:
                     description: |-
-                        JSON string containing the v2 public Id (if available) or a copy of the current Id if the public Id doesn't exist.
+                        JSON string containing the Accounts (tenancy) public ID (if available) or a copy of the current ID if the public ID doesn't exist.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5568,15 +5568,15 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the IAM service.
                     example: ON_PREM
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource type, which should be in the resourcetypes collection. These resource types are defined by the service Applications (and this Tenancy system itself)
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the IAM service.
                     example: ON_PREM
                     type: string
                 roles:
-                    description: JSON array of roles. Contains all the roles the User has on this particular hierarchy.
+                    description: JSON array of roles. Contains all roles the user is assigned in a particular hierarchy.
                     items:
                         properties:
                             id:
