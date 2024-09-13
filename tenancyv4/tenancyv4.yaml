@@ -2,7 +2,7 @@ components:
     parameters:
         continue:
             description: |-
-                Indicates the token from which to resume when listing a collection.
+                Indicates the token to resume from, when listing a collection.
 
 
                 URL examples: "continue=[Continue Token from Collection Metadata]"
@@ -1786,7 +1786,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by the Legacy Tenancy service (V2).
+                    description: Unique identifier as understood by the BlueXP accounts (tenancy) service.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -1825,7 +1825,7 @@ components:
                     description: JSON string containing the resource class. This field is for tenancy v2 compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for this resource.
@@ -1905,7 +1905,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2).
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service.
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -2051,7 +2051,7 @@ components:
                     description: JSON string containing the resource class. This field is for tenancy v2 compatibility support
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resourcetypes collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP identity and access management (IAM) system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for this resource.
@@ -2113,7 +2113,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -2215,7 +2215,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4441,7 +4441,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4547,7 +4547,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4734,7 +4734,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4865,7 +4865,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -4946,7 +4946,7 @@ components:
                     example: "true"
                     type: string
                 legacyId:
-                    description: Unique identifier as understood by Legacy Tenancy service (V2)
+                    description: Unique identifier as understood by BlueXP accounts (tenancy) service
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
@@ -5678,7 +5678,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Folder API resource to be created.
+                description: Indicates the desired values for the folder that is to be created.
                 required: true
             responses:
                 "201":
@@ -5915,7 +5915,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the folder to be created under a specific parent folder.
+                description: Indicates the desired values for the folder that is to be created under a specific parent folder.
                 required: true
             responses:
                 "201":
@@ -6088,7 +6088,7 @@ paths:
                 format: uuid
                 type: string
         post:
-            description: Creates a project in the specified folder.
+            description: Creates a project under the specified folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -6102,7 +6102,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description:  Creates a project under the specified folder.
+                description:  Indicates the desired values for the project to be created under a folder.
                 required: true
             responses:
                 "201":
@@ -6154,7 +6154,7 @@ paths:
             description: Removes a project from the specified folder.
             responses:
                 "204":
-                    description: Indicates if the project was removed from a folder.
+                    description: Indicates if the project was removed from the folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6252,7 +6252,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Partially updates a project 
+            summary: Partially update a project 
             tags:
                 - Hierarchy
             x-permission: bxp:project-modify
@@ -6290,7 +6290,7 @@ paths:
                     $ref: '#/components/responses/404NotFound'
                 "409":
                     $ref: '#/components/responses/409Conflict'
-            summary: Modifies a specific project 
+            summary: Modify a specific project 
             tags:
                 - Hierarchy
             x-permission: bxp:project-modify
@@ -6328,7 +6328,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the Folder
+            - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -6350,7 +6350,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resourcegroup_1.0_post_bulk_id_request_body'
-                description: Specifies the resource groups to be added.
+                description: Indicates the resource groups to be added.
                 required: true
             responses:
                 "202":
@@ -6414,7 +6414,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_get_response_body'
-                    description: Returns the stored resourcegroup in the JSON response body if it belongs to the folder.
+                    description: Returns the stored resource group in the JSON response body if it belongs to the folder.
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieves a resource group under a folder
@@ -6432,7 +6432,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resourcegroup
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -6588,7 +6588,7 @@ paths:
             description: Removea a user from the specified folder.
             responses:
                 "204":
-                    description: Indicates if the user was removed from an folder.
+                    description: Indicates if a user was removed from a folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6597,14 +6597,14 @@ paths:
                     $ref: '#/components/responses/403Forbidden'
                 "404":
                     $ref: '#/components/responses/404NotFound'
-            summary: Remove a  user from a folder
+            summary: Remove a user from a folder
             tags:
                 - User and Usergroup
             x-permission: bxp:user-delete
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the Folder
+            - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -6648,7 +6648,7 @@ paths:
                     description: List of all user groups in the folder
                     headers:
                         Location:
-                            description: Location of usergroups
+                            description: Location of user groups
                             schema:
                                 format: uri
                                 type: string
@@ -6680,7 +6680,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/usergroup_1.0_post_bulk_id_request_body'
-                description: Indicates the usergroups to be added.
+                description: Indicates the user groups to be added.
                 required: true
             responses:
                 "202":
@@ -6706,7 +6706,7 @@ paths:
             description: Removes a user group from the specified folder.
             responses:
                 "204":
-                    description: Indicates if the usergroup was removed from a folder.
+                    description: Indicates if the user group was removed from the folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6849,7 +6849,7 @@ paths:
             description: Removes a user from the specified folder.
             responses:
                 "204":
-                    description: Indicates if the User was removed from a Folder.
+                    description: Indicates if the user was removed from the folder.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -6962,7 +6962,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Organization API resource to be created.
+                description: Indicates the desired values for the organization to be created.
                 required: true
             responses:
                 "201":
@@ -7016,7 +7016,7 @@ paths:
             description: Deletes the specified organization.
             responses:
                 "204":
-                    description: Indicates if the organization resource was deleted.
+                    description: Indicates if the organization was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7111,7 +7111,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the organization resource was updated.
+                    description: Indicates if the organization was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7151,7 +7151,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the organization resource was updated.
+                    description: Indicates if the organization was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7224,7 +7224,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Folder API resource to be created under an organization.
+                description: Indicates the desired values for the folder to be created under an organization.
                 required: true
             responses:
                 "201":
@@ -7356,7 +7356,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the folder resource was updated.
+                    description: Indicates if the folder was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7392,7 +7392,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the folder resource was updated.
+                    description: Indicates if the folder was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7474,7 +7474,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Project API resource to be created under an organization.
+                description: Specifies the desired values for the project to be created under an organization.
                 required: true
             responses:
                 "201":
@@ -7526,7 +7526,7 @@ paths:
             description: Removes a project from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the Project was removed from a Organization.
+                    description: Indicates if the project was removed from the organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7613,7 +7613,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the project resource was updated.
+                    description: Indicates if the project was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7651,7 +7651,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the project resource was updated.
+                    description: Indicates if the project was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7722,7 +7722,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resourcegroup_1.0_post_bulk_id_request_body'
-                description: Indicates the Resourcegroups to be added.
+                description: Indicates the resource groups to be added.
                 required: true
             responses:
                 "202":
@@ -7748,7 +7748,7 @@ paths:
             description: Removes a resource group from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the resourcegroup resource was removed from a Organization.
+                    description: Indicates if the resource group was removed from the organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7890,7 +7890,7 @@ paths:
             description: Removes a resource from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the resource was removed from an organization.
+                    description: Indicates if the resource was removed from the organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7982,7 +7982,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/user_1.0_post_scope_object_bulk_id_request_body'
-                description: Indicates the desired values to associate multiple users with an organization with a specific role
+                description: Indicates the desired values to associate multiple users with a specific role under an organization.
                 required: true
             responses:
                 "202":
@@ -8008,7 +8008,7 @@ paths:
             description: Removes a user from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the User was removed from an Organization.
+                    description: Indicates if the user was removed from the organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8060,7 +8060,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/user_1.0_post_request_body'
-                description: Indicates the desired values for the Service Account API resource to be created.
+                description: Indicates the desired values for the service account to be created.
                 required: true
             responses:
                 "201":
@@ -8111,7 +8111,7 @@ paths:
             description: Deletes a service account under an organization.
             responses:
                 "204":
-                    description: Indicates if the service account resource was deleted.
+                    description: Indicates if the service account was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8237,7 +8237,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/user_1.0_put_response_body'
-                    description: Indicates if the service account resource was updated.
+                    description: Indicates if the service account was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8348,7 +8348,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/usergroup_1.0_post_bulk_id_request_body'
-                description: Indicates the Usergroups to be added.
+                description: Indicates the user groups to be added.
                 required: true
             responses:
                 "202":
@@ -8374,7 +8374,7 @@ paths:
             description: Removes a user group from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the Usergroup was removed from a Organization.
+                    description: Indicates if the user group was removed from the organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8470,7 +8470,7 @@ paths:
             x-private-path: /resources/{organization_id}/users
             x-scope: documentation,public
         parameters:
-            - description: Organization ID to display Users from
+            - description: The organization ID used to display users. 
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
