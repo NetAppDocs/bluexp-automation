@@ -28,7 +28,7 @@ components:
                 $ref: '#/components/schemas/query_count'
         filter:
             description: |-
-                Indicates which fields should be matched in order to return a resource when listing a collection.
+                Specifies which fields should be matched in order to return a resource when listing a collection.
 
 
                 Supported operators:
@@ -47,7 +47,7 @@ components:
                 $ref: '#/components/schemas/query_filter'
         include:
             description: |-
-                Indicates which fields should be returned when listing a collection.
+                Specifies which fields should be returned when listing a collection.
 
 
                 URL examples: "include=id", "include=id,name"
@@ -60,7 +60,7 @@ components:
                 $ref: '#/components/schemas/query_include'
         limit:
             description: |-
-                Indicates the maximum number of resources to return when listing a collection.
+                Specifies the maximum number of resources to return when listing a collection.
 
 
                 URL examples: "limit=2"
@@ -86,7 +86,7 @@ components:
                 $ref: '#/components/schemas/query_order_by'
         skip:
             description: |-
-                Indicates the number of resources to skip when listing a collection.
+                Specifies the number of resources to skip when listing a collection.
 
 
                 URL examples: "skip=1"
@@ -204,14 +204,14 @@ components:
                         type: object
                     type: array
                 principals:
-                    description: JSON array of tags (name/value pairs) representing users and usergroup metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing user and usergroup metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resource and resourcegroup metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -539,7 +539,7 @@ components:
             properties:
                 description:
                     description: |-
-                        JSON string containing the binding name (for example: "system", "volumes", ...)
+                        JSON string containing the binding name (for example: "system", "volumes", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -1056,7 +1056,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the partnershiptype name (for example: "reseller", "distributor", ...)
+                        JSON string containing the partnershiptype name (for example: "reseller", "distributor", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -7526,7 +7526,7 @@ paths:
             description: Removes a project from the specified organization.
             responses:
                 "204":
-                    description: Indicates if the project was removed from the organization.
+                    description: Indicates if the project was removed from an organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8517,7 +8517,7 @@ paths:
             description: Removes a user from the specified organziation.
             responses:
                 "204":
-                    description: Indicates if the User was removed from a Organization.
+                    description: Indicates if the user was removed from an organization.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8731,7 +8731,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Project API resource to be created.
+                description: Indicates the desired values for the project to be created.
                 required: true
             responses:
                 "201":
@@ -8783,7 +8783,7 @@ paths:
             description: Deletes the specified project.
             responses:
                 "204":
-                    description: Indicates if the project resource was deleted.
+                    description: Indicates if the project was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8871,7 +8871,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the project resource was updated.
+                    description: Indicates if the project was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8909,7 +8909,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the project resource was updated.
+                    description: Indicates if the project was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8979,7 +8979,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resourcegroup_1.0_post_bulk_id_request_body'
-                description: Indicates the Resourcegroups to be added.
+                description: Indicates the resource groups to be added.
                 required: true
             responses:
                 "202":
@@ -9005,7 +9005,7 @@ paths:
             description: Removes a resource group from the specified project.
             responses:
                 "204":
-                    description: Indicates if the resourcegroup resource was removed from a Project.
+                    description: Indicates if the resource group was removed from a project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9218,7 +9218,7 @@ paths:
             description: Removes a user from the specified project.
             responses:
                 "204":
-                    description: Indicates if the User was removed from an Project.
+                    description: Indicates if the user was removed from a project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9336,7 +9336,7 @@ paths:
             description: Removes a user group from the specified project.
             responses:
                 "204":
-                    description: Indicates if the Usergroup was removed from a Project.
+                    description: Indicates if the user group was removed from a project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9480,7 +9480,7 @@ paths:
             description: Removes a user from the specified project.
             responses:
                 "204":
-                    description: Indicates if the User was removed from a Project.
+                    description: Indicates if the user was removed from a project.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9586,7 +9586,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resourcegroup_1.0_post_request_body'
-                description: Indicates the desired values for the Resourcegroup to be created.
+                description: Indicates the desired values for the resource group to be created.
                 required: true
             responses:
                 "201":
@@ -9634,7 +9634,7 @@ paths:
             description: Deletes the specified resource group.
             responses:
                 "204":
-                    description: Indicates if the resourcegroup resource was deleted.
+                    description: Indicates if the resource group was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9711,7 +9711,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resourcegroup resource was updated.
+                    description: Indicates if the resource group was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9751,7 +9751,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resourcegroup resource was updated.
+                    description: Indicates if the resource group was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9847,7 +9847,7 @@ paths:
             description: Deletes a resource from the specified resource group.
             responses:
                 "204":
-                    description: Indicates if the Resource was removed from a ResourceGroup.
+                    description: Indicates if the resource was removed from a resource group.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9960,7 +9960,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/resource_1.0_post_request_body'
-                description: Indicates the desired values for the Resource API resource to be created.
+                description: Indicates the desired values for the resource to be created.
                 required: true
             responses:
                 "201":
@@ -10012,7 +10012,7 @@ paths:
             description: Deletes the specified resource.
             responses:
                 "204":
-                    description: Indicates if the resource resource was deleted.
+                    description: Indicates if the resource was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10102,7 +10102,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resource resource was updated.
+                    description: Indicates if the resource was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10146,7 +10146,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the resource resource was updated.
+                    description: Indicates if the resource was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10557,7 +10557,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/usergroup_1.0_post_request_body'
-                description: Indicates the desired values for the Usergroup to be created.
+                description: Indicates the desired values for the user group to be created.
                 required: true
             responses:
                 "201":
@@ -10606,7 +10606,7 @@ paths:
             description: Deletes the specified user group.
             responses:
                 "204":
-                    description: Indicates if the Usergroup was deleted.
+                    description: Indicates if the user group was deleted.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10684,7 +10684,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the Usergroup was updated.
+                    description: Indicates if the user group was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10725,7 +10725,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the Usergroup was updated.
+                    description: Indicates if the user group was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10820,7 +10820,7 @@ paths:
             description: Removes a user from the specified user group.
             responses:
                 "204":
-                    description: Indicates if the User was removed from a Usergroup.
+                    description: Indicates if the user was removed from a user group.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
