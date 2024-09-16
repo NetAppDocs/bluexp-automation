@@ -320,7 +320,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -399,7 +399,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -494,7 +494,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -587,7 +587,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resources and resourcegroups metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resources and resource groups metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -968,7 +968,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the partnership type name (for example: "reseller", "distributor", ...)
+                        JSON string containing the partnership type name (for example: "reseller", "distributor", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -1029,7 +1029,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the partnership type. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new partnershipType
                     maxLength: 254
                     minLength: 1
@@ -1056,7 +1056,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the partnershiptype name (for example: "reseller", "distributor", ...).
+                        JSON string containing the partnership type name (for example: "reseller", "distributor", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -1098,7 +1098,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of the partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the partnership type.Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new partnershipType
                     maxLength: 254
                     minLength: 1
@@ -1117,7 +1117,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the partnershiptype name (for example: "reseller", "distributor", ...)
+                        JSON string containing the partnership type name (for example: "reseller", "distributor", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -1127,7 +1127,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for the partnershiptype.
+                    description: JSON array of tags (name/value pairs) representing metadata for the partnership type.
                     items:
                         additionalProperties:
                             type: string
@@ -1160,7 +1160,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of this partnership type.Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new partnershipType
                     maxLength: 254
                     minLength: 1
@@ -1192,7 +1192,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the partnershiptype name (for example: "reseller", "distributor", ...)
+                        JSON string containing the partnership type name (for example: "reseller", "distributor", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -1202,7 +1202,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for the partnershiptype.
+                    description: JSON array of tags (name/value pairs) representing metadata for the partnership type.
                     items:
                         additionalProperties:
                             type: string
@@ -1237,7 +1237,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this partnershipType Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of the partnership type. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added new partnershipType
                     maxLength: 254
                     minLength: 1
@@ -1264,7 +1264,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
                     description: |-
-                        JSON string containing the partnershiptype name (for example: "reseller", "distributor", ...)
+                        JSON string containing the partnership type name (for example: "reseller", "distributor", ...).
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -1274,7 +1274,7 @@ components:
                     minLength: 1
                     type: string
                 tags:
-                    description: JSON array of tags (name/value pairs) representing metadata for the partnershiptype.
+                    description: JSON array of tags (name/value pairs) representing metadata for the partnership type.
                     items:
                         additionalProperties:
                             type: string
@@ -1307,7 +1307,7 @@ components:
             additionalProperties: false
             properties:
                 description:
-                    description: 'JSON string containing the description of this permission Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of this permission. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a permission which allow user to read in aiq
                     maxLength: 254
                     minLength: 1
@@ -1339,7 +1339,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 rule:
                     description: |-
-                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]]
+                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]].
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -1436,7 +1436,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 rule:
                     description: |-
-                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]]
+                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]].
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -1529,7 +1529,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 rule:
                     description: |-
-                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]]
+                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]].
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 254
@@ -1684,7 +1684,7 @@ components:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 rule:
                     description: |-
-                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]]
+                        JSON string containing the permission in the format [serviceApplication]:[resourceType]-[action][-[modifier]].
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 63
@@ -2048,7 +2048,7 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support
+                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
@@ -2154,7 +2154,7 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support
+                    description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
@@ -2196,7 +2196,7 @@ components:
         resource_1.0_put_request_body:
             properties:
                 description:
-                    description: 'JSON string containing the description of this resource Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
+                    description: 'JSON string containing the description of this resource. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: Added a new resource of ResourceType volume
                     maxLength: 254
                     minLength: 1
@@ -4300,17 +4300,17 @@ components:
                     type: array
                     uniqueItems: true
                 status:
-                    description: HTTP error code related to the problem.
+                    description: HTTP error code related to the problem
                     enum:
                         - "404"
                     type: string
                 title:
-                    description: Title description of the problem.
+                    description: Title description of the problem
                     enum:
                         - Resource not found
                     type: string
                 type:
-                    description: Content-type of this object.
+                    description: Content-type of this object
                     enum:
                         - https://bluexp.netapp.io/problems/1
                     type: string
@@ -4322,21 +4322,21 @@ components:
             type: object
             x-common: true
         type_bxp_state_details:
-            description: Array of all possible states and their detailed description.
+            description: Array of all possible states and their detailed description
             items:
                 properties:
                     detail:
-                        description: Detailed description for the state.
+                        description: Detailed description for the state
                         maxLength: 511
                         minLength: 1
                         type: string
                     title:
-                        description: Name of the state.
+                        description: Name of the state
                         maxLength: 40
                         minLength: 1
                         type: string
                     type:
-                        description: Represents a state detail.
+                        description: Represents a state detail
                         type: string
                 required:
                     - type
@@ -4347,7 +4347,7 @@ components:
             uniqueItems: true
             x-common: true
         type_bxp_state_transitions:
-            description: Array representing the state machine associated with the object.
+            description: Array representing the state machine associated with the object
             items:
                 properties:
                     from:
@@ -4365,7 +4365,7 @@ components:
             uniqueItems: true
             x-common: true
         type_dns_1123:
-            description: Represents a Domain Name as defined in RFC 1123.
+            description: Represents a Domain Name as defined in RFC 1123
             maxLength: 63
             minLength: 1
             pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
@@ -4376,7 +4376,7 @@ components:
             type: object
             x-common: true
         type_json_schema:
-            description: Represents a JSON Schema.
+            description: Represents a JSON Schema
             properties:
                 $schema:
                     enum:
@@ -4559,7 +4559,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
-                    description: User Name
+                    description: User name
                     type: string
                 ownerOrganizationId:
                     description: JSON string containing the ID of the organization.
@@ -4606,7 +4606,7 @@ components:
                     example: application/vnd.netapp.bxp.userbulk
                     type: string
                 users:
-                    description: JSON array of user UUIDs.
+                    description: JSON array of user UUIDs
                     items:
                         format: uuid
                         type: string
@@ -4661,7 +4661,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 name:
-                    description: User Name
+                    description: User name
                     type: string
                 ownerOrganizationId:
                     description: JSON string containing the ID of the organization.
@@ -4986,7 +4986,7 @@ components:
                     example: application/vnd.netapp.bxp.user
                     type: string
                 userType:
-                    description: Type of User
+                    description: Type of user
                     example: serviceAccount
                     type: string
                 version:
@@ -5628,7 +5628,7 @@ components:
             scheme: bearer
             type: http
 info:
-    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information. \nBlueXP IAM endpoints enable you to manage and control access to BlueXP resources. \n\nIf you're using BlueXP in standard mode, you no longer have a BlueXP account. Instead, you have a BlueXP organization that you manage using BlueXP IAM. \nThe following five components are defined within the BlueXP IAM service.\n<ul>\n<li>hierarchy</li>\n<li>permission</li>\n<li>resource and resourcegroup</li>\n<li>role</li>\n<li>user and usergroup</li>\n</ul>\n\nBlueXP IAM uses predefined roles that include sets of permissions which are required to manage and view data. You can have multiple roles within the same organization or set of resources. \n\nYou should verify that you have the appropriate permissions when using the BlueXP IAM API endpoints. With the appropriate permissions, you can manage an organization hierarchy into folders (subdivisions of an organization using criteria such as department or region) and projects (a workspace in BlueXP). After you organize your resources into folders and projects, you can grant granular access to resources by providing organization members with permissions to specific folders and projects. \n\n \nThe BlueXP IAM REST API currently supports more actions than what is available through the UI."
+    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information. \nBlueXP IAM endpoints enable you to manage and control access to BlueXP resources. \n\nIf you're using BlueXP in standard mode, you no longer have a BlueXP account. Instead, you have a BlueXP organization that you manage using BlueXP IAM. \n\nThe following five components are defined within the BlueXP IAM service.\n<ul>\n<li>hierarchy</li>\n<li>permission</li>\n<li>resource and resourcegroup</li>\n<li>role</li>\n<li>user and usergroup</li>\n</ul>\n\nBlueXP IAM uses predefined roles that include sets of permissions which are required to manage and view data. You can have multiple roles within the same organization or set of resources. \n\nYou should verify that you have the appropriate permissions when using the BlueXP IAM API endpoints. With the appropriate permissions, you can manage an organization hierarchy modeled as folders (subdivisions of an organization using criteria such as department or region) and projects (a workspace in BlueXP). After organizing your resources into folders and projects, you can grant granular access to resources by providing organization members with permissions to specific folders and projects. \n\n \nThe actions available through the BlueXP IAM REST API are a superset of what's available through the web UI."
     license:
         name: BlueXP License
     termsOfService: https://www.netapp.com/media/10784-cloud-data-services-terms.pdf
@@ -5669,7 +5669,7 @@ paths:
             x-private-path: /resources
             x-scope: documentation,public
         post:
-            description: Creates a new folder with the desired values.
+            description: Creates a new folder.
             requestBody:
                 content:
                     application/vnd.netapp.bxp.resource+json:
@@ -5869,7 +5869,7 @@ paths:
         get:
             description: Lists all folders under the specified parent folder.
             parameters:
-                - description: ID of the folder.
+                - description: ID of the folder
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
                   in: path
                   name: folder_id
@@ -6214,7 +6214,7 @@ paths:
             x-private-path: /resources/{project_id}
             x-scope: documentation,public
         parameters:
-            - description: ID of the folder.
+            - description: ID of the folder
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: folder_id
@@ -6222,7 +6222,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -6590,7 +6590,7 @@ paths:
                 type: string
     /folders/{folder_id}/roles/{role_id}/users/{user_id}:
         delete:
-            description: Removea a user from the specified folder.
+            description: Removes a user from the specified folder.
             responses:
                 "204":
                     description: Indicates if a user was removed from a folder.
@@ -7318,7 +7318,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Folders in the JSON response body if it belongs to the organization
+                    description: Returns the stored folders in the JSON response body if they belong to the organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a folder under an organization
@@ -7418,7 +7418,7 @@ paths:
         get:
             description: Lists all projects under the specified organization.
             parameters:
-                - description: ID of the folder.
+                - description: ID of the folder
                   example: 666a3f38-d4fa-5b62-a391-a69029758d32
                   in: path
                   name: folder_id
@@ -7439,7 +7439,7 @@ paths:
                         application/vnd.netapp.bxp.resources+json:
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_list_response_body'
-                    description: List of all project resources under an organization
+                    description: List of all projects under an organization
                     headers:
                         Location:
                             description: Location of projects under the organization
@@ -7456,7 +7456,7 @@ paths:
             x-private-path: /resources
             x-scope: documentation,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7569,7 +7569,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Project in the JSON response body.
+                    description: Returns the stored project in the JSON response body.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -7586,7 +7586,7 @@ paths:
             x-private-path: /resources/{project_id}
             x-scope: documentation,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -7594,7 +7594,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7691,10 +7691,10 @@ paths:
                         application/vnd.netapp.bxp.resourcegroups+json:
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_list_response_body'
-                    description: List of all resourcegroups in a Organization
+                    description: List of all resource groups in an organization
                     headers:
                         Location:
-                            description: Location of the resourcegroups
+                            description: Location of the resource groups
                             schema:
                                 format: uri
                                 type: string
@@ -7705,7 +7705,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7801,7 +7801,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7809,7 +7809,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resource group.
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -7848,7 +7848,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: The organization ID to display resources for
+            - description: The organization ID used to display resources.
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7934,7 +7934,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Resource in the JSON response body if it belongs to the Organization
+                    description: Returns the stored resource in the JSON response body if it belongs to the organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a resource under an organization
@@ -7944,7 +7944,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -7952,7 +7952,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -8029,7 +8029,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -8037,7 +8037,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -8045,7 +8045,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the role.
+            - description: ID of the role
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: role_id
@@ -8167,7 +8167,7 @@ paths:
             x-private-path: /users/{serviceaccount_id}
             x-scope: documentation,public
         parameters:
-            - description: ID of the service account.
+            - description: ID of the service account
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: serviceaccount_id
@@ -8191,7 +8191,7 @@ paths:
                 required: true
             responses:
                 "204":
-                    description: Indicates if the service account resource was updated.
+                    description: Indicates if the service account was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8221,7 +8221,7 @@ paths:
                             version: "1.0"
                         schema:
                             $ref: '#/components/schemas/user_1.0_put_request_body'
-                description: Replaces the entire stored service account resource with the supplied JSON request body while preserving the key values that are not user-modifiable.
+                description: Replaces the entire stored service account with the supplied JSON request body while preserving the key values that are not user-modifiable.
                 required: true
             responses:
                 "200":
@@ -8283,7 +8283,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/user_1.0_put_response_body'
-                    description: Indicates if the service account resource was updated.
+                    description: Indicates if the service account was updated.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8318,10 +8318,10 @@ paths:
                         application/vnd.netapp.bxp.usergroups+json:
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_list_response_body'
-                    description: List of all usergroups in the Organization
+                    description: List of all user groups in the organization
                     headers:
                         Location:
-                            description: Location of usergroups
+                            description: Location of user groups
                             schema:
                                 format: uri
                                 type: string
@@ -8332,7 +8332,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -8417,7 +8417,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_get_response_body'
-                    description: Returns the stored Usergroup in the JSON response body if it belongs to the Organization
+                    description: Returns the stored user group in the JSON response body if it belongs to the organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a user group under an organization
@@ -8427,7 +8427,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -8435,7 +8435,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user group.
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -8560,7 +8560,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/user_1.0_get_response_body'
-                    description: Returns the stored User in the JSON response body if it belongs to the Organization
+                    description: Returns the stored user in the JSON response body if it belongs to the organization
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a user under an organization
@@ -8570,7 +8570,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the organization.
+            - description: ID of the organization
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: organization_id
@@ -8578,7 +8578,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -8680,7 +8680,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the permission.
+            - description: ID of the permission
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: permission_id
@@ -8835,7 +8835,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Resource in the JSON response body.
+                    description: Returns the stored resource in the JSON response body.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -8852,7 +8852,7 @@ paths:
             x-private-path: /resources/{project_id}
             x-scope: documentation,public
         parameters:
-            - description: ID of the project resource.
+            - description: ID of the project 
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -8963,7 +8963,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9048,7 +9048,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_get_response_body'
-                    description: Returns the stored Resourcegroup API resource in the JSON response body if it belongs to the Project
+                    description: Returns the stored resource group in the JSON response body if it belongs to the project
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a resource group under a project
@@ -9058,7 +9058,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9066,7 +9066,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resource group.
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -9105,7 +9105,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: Project ID to display Resources for
+            - description: Project ID used to display resources.
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9192,7 +9192,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Resource in the JSON response body if it belongs to the Project
+                    description: Returns the stored resource in the JSON response body if it belongs to the project
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a resource in a project
@@ -9202,7 +9202,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9210,7 +9210,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -9239,7 +9239,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9247,7 +9247,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -9255,7 +9255,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the role.
+            - description: ID of the role
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: role_id
@@ -9294,7 +9294,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9379,7 +9379,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_get_response_body'
-                    description: Returns the stored Usergroup in the JSON response body if it belongs to the Project
+                    description: Returns the stored user group in the JSON response body if it belongs to the project
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a user group under a project
@@ -9389,7 +9389,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9397,7 +9397,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user group.
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -9437,7 +9437,7 @@ paths:
             x-private-path: /resources/{project_id}/users
             x-scope: documentation,public
         parameters:
-            - description: Project ID of the project of which to display users.
+            - description: The ID of the project used to display users.
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9523,7 +9523,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/user_1.0_get_response_body'
-                    description: Returns the stored User in the JSON response body if it belongs to the Project
+                    description: Returns the stored user in the JSON response body if it belongs to the project
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a user belonging to a project
@@ -9533,7 +9533,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the project.
+            - description: ID of the project
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: project_id
@@ -9541,7 +9541,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -9566,10 +9566,10 @@ paths:
                         application/vnd.netapp.bxp.resourcegroups+json:
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_list_response_body'
-                    description: List of all resourcegroups
+                    description: List of all resource groups
                     headers:
                         Location:
-                            description: Location of resourcegroups
+                            description: Location of resource groups
                             schema:
                                 format: uri
                                 type: string
@@ -9611,10 +9611,10 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_post_response_body'
-                    description: Returns the newly created resourcegroup in the JSON response body.
+                    description: Returns the newly created resource group in the JSON response body.
                     headers:
                         Location:
-                            description: Location of the newly created resourcegroup
+                            description: Location of the newly created resource group
                             schema:
                                 format: uri
                                 type: string
@@ -9675,7 +9675,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resourcegroup_1.0_get_response_body'
-                    description: Returns the stored Resourcegroup API resource in the JSON response body.
+                    description: Returns the stored resource group in the JSON response body.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -9691,7 +9691,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resource group.
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -9804,7 +9804,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the resource group.
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -9901,7 +9901,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resource group.
+            - description: ID of the resource group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resourcegroup_id
@@ -9909,7 +9909,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -10064,7 +10064,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/resource_1.0_get_response_body'
-                    description: Returns the stored Resource in the JSON response body.
+                    description: Returns the stored resource in the JSON response body.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10080,7 +10080,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -10225,7 +10225,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -10250,7 +10250,7 @@ paths:
                         application/vnd.netapp.bxp.users+json:
                             schema:
                                 $ref: '#/components/schemas/user_1.0_list_response_body'
-                    description: List of Users that have the permission on the resource.
+                    description: List of users that have the permission on the resource.
                     headers:
                         Location:
                             description: Location of the collection
@@ -10264,7 +10264,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -10272,7 +10272,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the permission resource.
+            - description: ID of the permission 
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: permission_id
@@ -10311,7 +10311,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -10357,7 +10357,7 @@ paths:
                     content:
                         application/vnd.netapp.bxp.role+json:
                             example:
-                                description: This role have alpha & beta permissions for NetApp Sales Territory
+                                description: This role has alpha & beta permissions for NetApp Sales Territory
                                 id: 666a3f38-d4fa-5b62-a391-a69029758d32
                                 metadata:
                                     createdBy: 8f84cf09-8036-51e4-b579-bd30cb07b269
@@ -10370,7 +10370,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/role_1.0_get_response_body'
-                    description: Returns the stored Role API resource in the JSON response body.
+                    description: Returns the stored role in the JSON response body.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10386,7 +10386,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the role.
+            - description: ID of the role
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: role_id
@@ -10455,7 +10455,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the role.
+            - description: ID of the role
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: role_id
@@ -10487,7 +10487,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/permission_1.0_get_response_body'
-                    description: Returns the stored Permission in the JSON response body.
+                    description: Returns the stored permission in the JSON response body.
                 "400":
                     $ref: '#/components/responses/400BadRequest'
                 "401":
@@ -10503,7 +10503,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the permission.
+            - description: ID of the permission
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: permission_id
@@ -10511,7 +10511,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the role.
+            - description: ID of the role
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: role_id
@@ -10536,7 +10536,7 @@ paths:
                         application/vnd.netapp.bxp.usergroups+json:
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_list_response_body'
-                    description: List of all usergroups
+                    description: List of all user groups
                     headers:
                         Location:
                             description: Location of usergroups
@@ -10663,7 +10663,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the user group.
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -10778,7 +10778,7 @@ paths:
             x-persistence: true
             x-scope: documentation,public
         parameters:
-            - description: ID of the user group.
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -10874,7 +10874,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the user group.
+            - description: ID of the user group
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: usergroup_id
@@ -10882,7 +10882,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11041,7 +11041,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11205,7 +11205,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11252,7 +11252,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the permission.
+            - description: ID of the permission
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: permission_id
@@ -11291,7 +11291,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11340,7 +11340,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -11348,7 +11348,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11413,7 +11413,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11421,7 +11421,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -11467,7 +11467,7 @@ paths:
             x-persistence: true
             x-scope: documentation,private,public
         parameters:
-            - description: ID of the user.
+            - description: ID of the user
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: user_id
@@ -11475,7 +11475,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the resource.
+            - description: ID of the resource
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: resource_id
@@ -11483,7 +11483,7 @@ paths:
               schema:
                 format: uuid
                 type: string
-            - description: ID of the permission.
+            - description: ID of the permission
               example: 666a3f38-d4fa-5b62-a391-a69029758d32
               in: path
               name: permission_id
@@ -11528,29 +11528,31 @@ servers:
     - url: '{{.Server}}'
 tags:
     - description: |-
-        The resource and resourcegroup endpoints enable management of BlueXP identity and access management (IAM) resources, resource groups, and ResourceTypes. ResourceTypes represent the various types of resources that are stored in BlueXP IAM and can only be modified by NetApp.
+        The resource and resourcegroup endpoints enable management of BlueXP identity and access management (IAM) ResourceTypes, resources, and resource groups. 
+        
+        ResourceTypes represent the various types of resources that are stored in BlueXP IAM and can only be modified by NetApp.
 
         A resource is a working environment that BlueXP already manages or an undiscovered resource that is associated with your organization (for example, an on-premises ONTAP cluster). BlueXP is aware of undiscovered resources based on your organization's telemetry data. 
 
         A resource group is a set of resources that you can manage as a group. In BlueXP IAM, you can manage implicit resource groups and explicit resource groups. In an implicit resource group, resources belong to the same organization, project, or folder. In an explicit resource group, resources can belong to different elements of a resource hierarchy.
       name: Resource and Resourcegroup
     - description: |-
-        The permission endpoints provide access to an internal collection of available permissions in BlueXP identity and access management (IAM). Permissions are a low-level string of characters that a user or service account can use to determine authorization. 
+        The permission endpoints provide access to an internal collection of available permissions in BlueXP identity and access management (IAM). Permissions are defined as a low-level string of characters that a user or service account can use to determine authorization. 
         
         A user can have permissions for the resources in the entire organization or in specific folders and projects. Permissions prevent or allow a user to perform specific actions at a specific level of the resource hierarchy.
       name: Permission
     - description: |-
         The role endpoints enable you to create and view roles, which are sets of permissions. 
 
-        In BlueXP identity and access management (IAM), you don't grant permissions directly to users in an organization. Instead, you grant each user a role. A role contains a set of permissions that enables a user to perform specific actions at a specific level of the resource hierarchy. Roles can represent actions or features, or the access level that user has for a particular service. 
+        In BlueXP identity and access management (IAM), you don't assign permissions directly to users in an organization. Instead, you assign each user a role. A role contains a set of permissions that enables a user to perform specific actions at a specific level of the resource hierarchy. Roles can represent actions or features, or the access level that user has for a particular service. 
         
         BlueXP IAM supports several predefined roles that you can assign to the users in your organization. Custom roles are not supported.
       name: Role
     - description: |-
-        The hierarchy endpoints enable you to accurately represent your organization's complete resource hierarchy using folders and projects in BlueXP identity and access management (IAM).
+        The hierarchy endpoints enable you to accurately represent your organization's complete resource hierarchy using folders and projects.
 
         <ul>
-        <li>The organization is the top of the BlueXP IAM hierarchy. Optionally, you can have a child organization under a parent organization. An organization represents a purchaser of goods or services from NetApp.</li>
+        <li>The organization is the top of the BlueXP IAM hierarchy. Optionally, you can also have a child organization under a parent organization. An organization represents a purchaser of goods or services from NetApp.</li>
         <li>Folders are children of the organization or of another folder. Folders are optional in BlueXP IAM and can represent a city, department, region, deployment environment, and so on.</li>
         <li>Projects are children of the organization or of a folder. Projects represent a working space in BlueXP that organization members can access to manage resources.</li>
         <li>Resources are associated with one or more folders or projects.</li>
