@@ -168,7 +168,7 @@ components:
                     minLength: 1
                     type: string
                 expiration_date:
-                    description: Datetime. Represent an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
+                    description: Date and time. Represents an expiration date for the binding's temporary assignment to Principals/Roles/Resources.
                     format: date-time
                     type: string
                 id:
@@ -211,7 +211,7 @@ components:
                         type: object
                     type: array
                 resources:
-                    description: JSON array of tags (name/value pairs) representing resource and resourcegroup metadata to add to this binding.
+                    description: JSON array of tags (name/value pairs) representing resource and resource group metadata to add to this binding.
                     items:
                         additionalProperties:
                             type: string
@@ -282,7 +282,7 @@ components:
                     minLength: 1
                     type: string
                 expiration_date:
-                    description: Datetime. Represents an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
+                    description: Date and time. Represents an expiration date for the binding's temporary assignment to Principals/Roles/Resources.
                     format: date-time
                     type: string
                 id:
@@ -369,7 +369,7 @@ components:
                     minLength: 1
                     type: string
                 expiration_date:
-                    description: Datetime. Represent an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
+                    description: Date and time. Represents an expiration date for the binding's temporary assignment to Principals/Roles/Resources.
                     format: date-time
                     type: string
                 isSystem:
@@ -451,7 +451,7 @@ components:
                     minLength: 1
                     type: string
                 expiration_date:
-                    description: Datetime. Represent an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
+                    description: Date and time. Represents an expiration date for the binding's temporary assignment to Principals/Roles/Resources.
                     format: date-time
                     type: string
                 id:
@@ -549,7 +549,7 @@ components:
                     minLength: 1
                     type: string
                 expiration_date:
-                    description: Datetime. Represents an expiration date for this Binding for temporary assignment of Principals/Roles/Resources Binding.
+                    description: Date and time. Represents an expiration date for the binding's temporary assignment to Principals/Roles/Resources.
                     format: date-time
                     type: string
                 id:
@@ -1825,7 +1825,7 @@ components:
                     description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
@@ -1939,7 +1939,7 @@ components:
                     description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
@@ -2051,7 +2051,7 @@ components:
                     description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
@@ -2157,7 +2157,7 @@ components:
                     description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
@@ -2254,7 +2254,7 @@ components:
                     description: JSON string containing the resource class. This field is for Accounts (tenancy) compatibility support.
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
@@ -2759,11 +2759,11 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM system.
+                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     example: ON_PREM
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the  service applications and the IAM system.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the  service applications and the BlueXP IAM system.
                     example: ON_PREM
                     type: string
                 scopeCount:
@@ -4274,7 +4274,7 @@ components:
             description: Represents a problem detail returned by an API if an error occurs.
             properties:
                 correlationId:
-                    description: Internal UUID representing the request or related trace ID.
+                    description: Internal UUID representing the request or related trace ID
                     format: uuid
                     type: string
                 detail:
@@ -5511,11 +5511,11 @@ components:
                     type: array
                     uniqueItems: true
                 resourceClass:
-                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the IAM service.
+                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the BlueXP IAM service.
                     example: ON_PREM
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the IAM service.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM service.
                     example: ON_PREM
                     type: string
             required:
@@ -5573,11 +5573,11 @@ components:
                     minLength: 1
                     type: string
                 resourceClass:
-                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the IAM service.
+                    description: JSON string containing the resource class. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the BlueXP IAM service.
                     example: ON_PREM
                     type: string
                 resourceType:
-                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the IAM service.
+                    description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by service applications and the BlueXP IAM service.
                     example: ON_PREM
                     type: string
                 roles:
@@ -6749,7 +6749,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/usergroup_1.0_get_response_body'
-                    description: Returns the stored Usergroup in the JSON response body if it belongs to the Folder
+                    description: Returns the stored user group in the JSON response body if it belongs to the folder
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a user group from a folder
@@ -8156,7 +8156,7 @@ paths:
                                 version: "1.0"
                             schema:
                                 $ref: '#/components/schemas/user_1.0_get_response_body'
-                    description: Returns the stored User in the JSON response body if it belongs to the Usergroup
+                    description: Returns the stored user in the JSON response body if it belongs to the user group
                 "404":
                     $ref: '#/components/responses/404NotFound'
             summary: Retrieve a service account for an organization
