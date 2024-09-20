@@ -9161,7 +9161,7 @@ GET /gcp/ha/metadata/vpcs
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#gcpconnectivityresponse[GcpConnectivityResponse] array array
+|default|success|link:../cm/api_ref_definitions.html#gcpconnectivityresponse[GcpConnectivityResponse] array
 |===
 
 ===== Consumes
