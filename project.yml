@@ -18,14 +18,14 @@ sidebar:
     - section: workflows
     - section: api-cm
     - section: audit
+    - section: fsx
+    - section: tenancy
     - section: cbs
     - section: copysync
     - section: credential
     - section: dw
-    - section: fsx
     - section: ipa
     - section: mr
-    - section: tenancy
     - section: tenancyv4
     - section: automate
     - section: support
