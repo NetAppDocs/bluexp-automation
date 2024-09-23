@@ -25,8 +25,8 @@ sidebar:
     - section: credential
     - section: dw
     - section: ipa
-    - section: mr
     - section: tenancyv4
+    - section: mr
     - section: automate
     - section: support
     - title: Legal notices
