@@ -79,13 +79,13 @@ paths:
   "/folders/{folder_id}/folders":
     get:
       x-doc:
-        title: List all folders
+        title: List all folders under a parent folder
         category: Hierarchy
         filename: get-folders-folders.html
         subcategory: 
     post:
       x-doc:
-        title: Create a new child folder under a parent folder
+        title: Create a child folder under a parent folder
         category: Hierarchy
         filename: post-folders-folders.html
         subcategory: 
@@ -105,7 +105,7 @@ paths:
   "/folders/{folder_id}/projects":
     get:
       x-doc:
-        title: List all projects in a folder
+        title: List all projects under a folder
         category: Hierarchy
         filename: get-folders-projects.html
         subcategory: 
