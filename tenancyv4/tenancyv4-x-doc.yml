@@ -162,7 +162,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a resource group from a folder
+        title: Retrieve a resource group in a folder
         category: Resource and resourcegroup
         filename: get-folders-resourcegroups-.html
         subcategory: 
@@ -214,7 +214,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a user group from a folder
+        title: Retrieve a user group in a folder
         category: User and usergroup
         filename: get-folders-usergroups-.html
         subcategory: 
@@ -414,7 +414,7 @@ paths:
   "/organizations/{organization_id}/resources":
     get:
       x-doc:
-        title: List all the resources under an organization
+        title: List all resources under an organization
         category: Resource and resourcegroup
         filename: get-organizations-resources.html
         subcategory: 
@@ -620,7 +620,7 @@ paths:
   "/permissions":
     get:
       x-doc:
-        title: List all the permissions
+        title: List all permissions
         category: Permission
         filename: get-permissions.html
         subcategory: 
@@ -1130,7 +1130,7 @@ paths:
         subcategory: 
     get:
       x-doc:
-        title: Retrieve a user belonging to a user group
+        title: Retrieve a user in a user group
         category: User and usergroup
         filename: get-usergroups-users-.html
         subcategory: 
@@ -1182,14 +1182,14 @@ paths:
   "/users/{user_id}/permissions":
     get:
       x-doc:
-        title: List all the permissions for a user
+        title: List all permissions for a user
         category: Permission
         filename: get-users-permissions.html
         subcategory: 
   "/users/{user_id}/permissions/{permission_id}/resources":
     get:
       x-doc:
-        title: List all resources
+        title: List all resources for a user with a permission
         category: Resource and resourcegroup
         filename: get-users-permissions-resources.html
         subcategory: 
