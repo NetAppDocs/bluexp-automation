@@ -17,9 +17,9 @@ sidebar:
     - section: platform
     - section: workflows
     - section: api-cm
-    - section: audit
-    - section: fsx
     - section: tenancy
+    - section: fsx
+    - section: audit
     - section: cbs
     - section: copysync
     - section: credential
