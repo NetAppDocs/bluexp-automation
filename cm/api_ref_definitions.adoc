@@ -171,6 +171,7 @@ This section describes existing data format definitions.
 |default||true|boolean|
 |saasSubscriptionId||false|string|
 |highAvailabilityEnabled||false|boolean|
+|vMOrchestratorZonalMultiFDEnabled||false|boolean|
 |===
 
 === AssumeRole
@@ -582,6 +583,7 @@ This section describes existing data format definitions.
 |node2Info||true|<<AzureHaNodeInfo>>|
 |multiZone||true|boolean|
 |applicationSecurityGroupName||false|string|
+|azureHaDeploymentType||false|string|
 |===
 
 === AzureKey
@@ -654,6 +656,7 @@ This section describes existing data format definitions.
 |displayName||true|string|
 |name||true|string|
 |vnets||false|<<AzureNetworkExtendedResponse>>|
+|supportsZonesAndPssdV2||false|boolean|
 |===
 
 === AzureResourceGroupByRegionResponse
@@ -3209,6 +3212,8 @@ This section describes existing data format definitions.
 |lifs||true|<<LifResponse>> array|
 |aggregateCount||true|integer (int32)|
 |volumeCount||true|integer (int32)|
+|sanOptimized||true|boolean|
+|disaggregated||true|boolean|
 |isSnapmirrorLicenseExists||true|boolean|
 |isAff||true|boolean|
 |===
@@ -4219,6 +4224,7 @@ This section describes existing data format definitions.
 |isAzureHaManagedDisksSupported||true|boolean|
 |awsLocalZones||true|boolean|
 |azureFlashcacheSupported||true|boolean|
+|isAzureZonalSupported||true|boolean|
 |===
 
 === Svm
