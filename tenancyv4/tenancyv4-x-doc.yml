@@ -7,12 +7,14 @@ paths:
         category: Binding
         filename: get-bindings.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new binding 
         category: Binding
         filename: post-bindings.html
         subcategory: 
+        api_explorer: false
   "/bindings/{binding_id}":
     delete:
       x-doc:
@@ -20,24 +22,28 @@ paths:
         category: Binding
         filename: delete-bindings-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a binding
         category: Binding
         filename: get-bindings-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a binding partially
         category: Binding
         filename: patch-bindings-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a binding
         category: Binding
         filename: put-bindings-.html
         subcategory: 
+        api_explorer: false
   "/folders":
     get:
       x-doc:
@@ -45,12 +51,14 @@ paths:
         category: Hierarchy
         filename: get-folders.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new folder 
         category: Hierarchy
         filename: post-folders.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}":
     delete:
       x-doc:
@@ -58,24 +66,28 @@ paths:
         category: Hierarchy
         filename: delete-folders-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a folder 
         category: Hierarchy
         filename: get-folders-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a folder partially
         category: Hierarchy
         filename: patch-folders-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Update a folder
         category: Hierarchy
         filename: put-folders-.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/folders":
     get:
       x-doc:
@@ -83,12 +95,14 @@ paths:
         category: Hierarchy
         filename: get-folders-folders.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a child folder under a parent folder
         category: Hierarchy
         filename: post-folders-folders.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/folders/{childfolder_id}":
     delete:
       x-doc:
@@ -96,12 +110,14 @@ paths:
         category: Hierarchy
         filename: delete-folders-folders-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a child folder under a parent folder
         category: Hierarchy
         filename: get-folders-folders-.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/projects":
     get:
       x-doc:
@@ -109,12 +125,14 @@ paths:
         category: Hierarchy
         filename: get-folders-projects.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new project under a folder
         category: Hierarchy
         filename: post-folders-projects.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/projects/{project_id}":
     delete:
       x-doc:
@@ -122,24 +140,28 @@ paths:
         category: Hierarchy
         filename: delete-folders-projects-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a project under a folder
         category: Hierarchy
         filename: get-folders-projects-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a project under a folder partially
         category: Hierarchy
         filename: patch-folders-projects-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a project under a folder
         category: Hierarchy
         filename: put-folders-projects-.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/resourcegroups":
     get:
       x-doc:
@@ -147,12 +169,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-folders-resourcegroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add resource groups to a folder
         category: Resource and resourcegroup
         filename: post-folders-resourcegroups.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
@@ -160,12 +184,14 @@ paths:
         category: Resource and resourcegroup
         filename: delete-folders-resourcegroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource group in a folder
         category: Resource and resourcegroup
         filename: get-folders-resourcegroups-.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/resources":
     get:
       x-doc:
@@ -173,12 +199,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-folders-resources.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add resources to a folder
         category: Resource and resourcegroup
         filename: post-folders-resources.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/resources/{resource_id}":
     delete:
       x-doc:
@@ -186,12 +214,14 @@ paths:
         category: Resource and resourcegroup
         filename: delete-folders-resources-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource under a folder
         category: Resource and resourcegroup
         filename: get-folders-resources-.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/usergroups":
     get:
       x-doc:
@@ -199,12 +229,14 @@ paths:
         category: User and usergroup
         filename: get-folders-usergroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add user groups to a folder
         category: User and usergroup
         filename: post-folders-usergroups.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/usergroups/{usergroup_id}":
     delete:
       x-doc:
@@ -212,12 +244,14 @@ paths:
         category: User and usergroup
         filename: delete-folders-usergroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user group in a folder
         category: User and usergroup
         filename: get-folders-usergroups-.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/users":
     get:
       x-doc:
@@ -225,12 +259,14 @@ paths:
         category: User and usergroup
         filename: get-folders-users.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add users to a folder
         category: User and usergroup
         filename: post-folders-users.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/users/{user_id}":
     delete:
       x-doc:
@@ -238,12 +274,14 @@ paths:
         category: User and usergroup
         filename: delete-folders-users-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user associated with a folder
         category: User and usergroup
         filename: get-folders-users-.html
         subcategory: 
+        api_explorer: false
   "/organizations":
     get:
       x-doc:
@@ -251,12 +289,14 @@ paths:
         category: Hierarchy
         filename: get-organizations.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new organization
         category: Hierarchy
         filename: post-organizations.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}":
     delete:
       x-doc:
@@ -264,24 +304,28 @@ paths:
         category: Hierarchy
         filename: delete-organizations-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve an organization 
         category: Hierarchy
         filename: get-organizations-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update an organization partially
         category: Hierarchy
         filename: patch-organizations-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify an organization 
         category: Hierarchy
         filename: put-organizations-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/folders":
     get:
       x-doc:
@@ -289,12 +333,14 @@ paths:
         category: Hierarchy
         filename: get-organizations-folders.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new folder under an organization
         category: Hierarchy
         filename: post-organizations-folders.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/folders/{folder_id}":
     delete:
       x-doc:
@@ -302,24 +348,28 @@ paths:
         category: Hierarchy
         filename: delete-organizations-folders-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a folder under an organization
         category: Hierarchy
         filename: get-organizations-folders-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a folder under an organization partially
         category: Hierarchy
         filename: patch-organizations-folders-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Update a folder under an organization 
         category: Hierarchy
         filename: put-organizations-folders-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/partnership-with":
     get:
       x-doc:
@@ -327,6 +377,7 @@ paths:
         category: Partnership
         filename: get-organizations-partnership-with.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/partnerships":
     get:
       x-doc:
@@ -334,6 +385,7 @@ paths:
         category: Partnership
         filename: get-organizations-partnerships.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/partnerships/{partnership_id}":
     delete:
       x-doc:
@@ -341,12 +393,14 @@ paths:
         category: Partnership
         filename: delete-organizations-partnerships-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a partnership resource from an organization
         category: Partnership
         filename: get-organizations-partnerships-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/projects":
     get:
       x-doc:
@@ -354,12 +408,14 @@ paths:
         category: Hierarchy
         filename: get-organizations-projects.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new project under an organization
         category: Hierarchy
         filename: post-organizations-projects.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/projects/{project_id}":
     delete:
       x-doc:
@@ -367,24 +423,28 @@ paths:
         category: Hierarchy
         filename: delete-organizations-projects-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a project under an organization
         category: Hierarchy
         filename: get-organizations-projects-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a project under an organization partially
         category: Hierarchy
         filename: patch-organizations-projects-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a project under an organization
         category: Hierarchy
         filename: put-organizations-projects-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/resourcegroups":
     get:
       x-doc:
@@ -392,12 +452,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-organizations-resourcegroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add resource groups to an organization
         category: Resource and resourcegroup
         filename: post-organizations-resourcegroups.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
@@ -405,12 +467,14 @@ paths:
         category: Resource and resourcegroup
         filename: delete-organizations-resourcegroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource group under an organization
         category: Resource and resourcegroup
         filename: get-organizations-resourcegroups-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/resources":
     get:
       x-doc:
@@ -418,12 +482,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-organizations-resources.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add resources to an organization
         category: Resource and resourcegroup
         filename: post-organizations-resources.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/resources/{resource_id}":
     delete:
       x-doc:
@@ -431,12 +497,14 @@ paths:
         category: Resource and resourcegroup
         filename: delete-organizations-resources-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource under an organization
         category: Resource and resourcegroup
         filename: get-organizations-resources-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/roles/{role_id}/users":
     post:
       x-doc:
@@ -444,6 +512,7 @@ paths:
         category: User and usergroup
         filename: post-organizations-roles-users.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/serviceAccounts":
     get:
       x-doc:
@@ -451,12 +520,14 @@ paths:
         category: User and usergroup
         filename: get-organizations-serviceaccounts.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new service account
         category: User and usergroup
         filename: post-organizations-serviceaccounts.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/serviceAccounts/{serviceaccount_id}":
     delete:
       x-doc:
@@ -464,24 +535,28 @@ paths:
         category: User and usergroup
         filename: delete-organizations-serviceaccounts-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a service account 
         category: User and usergroup
         filename: get-organizations-serviceaccounts-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a service account partially
         category: User and usergroup
         filename: patch-organizations-serviceaccounts-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a service account 
         category: User and usergroup
         filename: put-organizations-serviceaccounts-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/serviceAccounts/{serviceaccount_id}/clientSecret":
     post:
       x-doc:
@@ -489,6 +564,7 @@ paths:
         category: User and usergroup
         filename: post-organizations-serviceaccounts-clientsecret.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/usergroups":
     get:
       x-doc:
@@ -496,12 +572,14 @@ paths:
         category: User and usergroup
         filename: get-organizations-usergroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add user groups to an organization
         category: User and usergroup
         filename: post-organizations-usergroups.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/usergroups/{usergroup_id}":
     delete:
       x-doc:
@@ -509,12 +587,14 @@ paths:
         category: User and usergroup
         filename: delete-organizations-usergroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user group under an organization
         category: User and usergroup
         filename: get-organizations-usergroups-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/users":
     get:
       x-doc:
@@ -522,12 +602,14 @@ paths:
         category: User and usergroup
         filename: get-organizations-users.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add users to an organization
         category: User and usergroup
         filename: post-organizations-users.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/users/{user_id}":
     delete:
       x-doc:
@@ -535,12 +617,14 @@ paths:
         category: User and usergroup
         filename: delete-organizations-users-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user under an organization
         category: User and usergroup
         filename: get-organizations-users-.html
         subcategory: 
+        api_explorer: false
   "/partnerships":
     get:
       x-doc:
@@ -548,12 +632,14 @@ paths:
         category: Partnership
         filename: get-partnerships.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new partnership resource
         category: Partnership
         filename: post-partnerships.html
         subcategory: 
+        api_explorer: false
   "/partnerships/{partnership_id}":
     delete:
       x-doc:
@@ -561,24 +647,28 @@ paths:
         category: Partnership
         filename: delete-partnerships-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a partnership resource
         category: Partnership
         filename: get-partnerships-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a partnership resource partially
         category: Partnership
         filename: patch-partnerships-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a specific partnership resource
         category: Partnership
         filename: put-partnerships-.html
         subcategory: 
+        api_explorer: false
   "/partnershiptypes":
     get:
       x-doc:
@@ -586,12 +676,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-partnershiptypes.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new partnership type 
         category: Resource and resourcegroup
         filename: post-partnershiptypes.html
         subcategory: 
+        api_explorer: false
   "/partnershiptypes/{partnershiptype_id}":
     delete:
       x-doc:
@@ -599,24 +691,28 @@ paths:
         category: Resource and resourcegroup
         filename: delete-partnershiptypes-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a partnership type 
         category: Resource and resourcegroup
         filename: get-partnershiptypes-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a partnership type partially
         category: Resource and resourcegroup
         filename: patch-partnershiptypes-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Update a partnership type 
         category: Resource and resourcegroup
         filename: put-partnershiptypes-.html
         subcategory: 
+        api_explorer: false
   "/permissions":
     get:
       x-doc:
@@ -624,12 +720,14 @@ paths:
         category: Permission
         filename: get-permissions.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new permission
         category: Permission
         filename: post-permissions.html
         subcategory: 
+        api_explorer: false
   "/permissions/{permission_id}":
     delete:
       x-doc:
@@ -637,24 +735,28 @@ paths:
         category: Permission
         filename: delete-permissions-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a permission
         category: Permission
         filename: get-permissions-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a permission partially
         category: Permission
         filename: patch-permissions-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a permission 
         category: Permission
         filename: put-permissions-.html
         subcategory: 
+        api_explorer: false
   "/permissions/{permission_id}/bindings":
     get:
       x-doc:
@@ -662,6 +764,7 @@ paths:
         category: Binding
         filename: get-permissions-bindings.html
         subcategory: 
+        api_explorer: false
   "/projects":
     get:
       x-doc:
@@ -669,12 +772,14 @@ paths:
         category: Hierarchy
         filename: get-projects.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new project 
         category: Hierarchy
         filename: post-projects.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}":
     delete:
       x-doc:
@@ -682,24 +787,28 @@ paths:
         category: Hierarchy
         filename: delete-projects-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a project 
         category: Hierarchy
         filename: get-projects-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a project partially 
         category: Hierarchy
         filename: patch-projects-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a project
         category: Hierarchy
         filename: put-projects-.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/resourcegroups":
     get:
       x-doc:
@@ -707,12 +816,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-projects-resourcegroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add resource groups to a project
         category: Resource and resourcegroup
         filename: post-projects-resourcegroups.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
@@ -720,12 +831,14 @@ paths:
         category: Resource and resourcegroup
         filename: delete-projects-resourcegroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource group under a project
         category: Resource and resourcegroup
         filename: get-projects-resourcegroups-.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/resources":
     get:
       x-doc:
@@ -733,12 +846,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-projects-resources.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add resources to a project
         category: Resource and resourcegroup
         filename: post-projects-resources.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/resources/{resource_id}":
     delete:
       x-doc:
@@ -746,12 +861,14 @@ paths:
         category: Resource and resourcegroup
         filename: delete-projects-resources-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource in a project
         category: Resource and resourcegroup
         filename: get-projects-resources-.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/usergroups":
     get:
       x-doc:
@@ -759,12 +876,14 @@ paths:
         category: User and usergroup
         filename: get-projects-usergroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add user groups to a project
         category: User and usergroup
         filename: post-projects-usergroups.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/usergroups/{usergroup_id}":
     delete:
       x-doc:
@@ -772,12 +891,14 @@ paths:
         category: User and usergroup
         filename: delete-projects-usergroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user group under a project
         category: User and usergroup
         filename: get-projects-usergroups-.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/users":
     get:
       x-doc:
@@ -785,12 +906,14 @@ paths:
         category: User and usergroup
         filename: get-projects-users.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add users to a project
         category: User and usergroup
         filename: post-projects-users.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/users/{user_id}":
     delete:
       x-doc:
@@ -798,12 +921,14 @@ paths:
         category: User and usergroup
         filename: delete-projects-users-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user under a project
         category: User and usergroup
         filename: get-projects-users-.html
         subcategory: 
+        api_explorer: false
   "/resourcegroups":
     get:
       x-doc:
@@ -811,12 +936,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-resourcegroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new resource group
         category: Resource and resourcegroup
         filename: post-resourcegroups.html
         subcategory: 
+        api_explorer: false
   "/resourcegroups/{resourcegroup_id}":
     delete:
       x-doc:
@@ -824,24 +951,28 @@ paths:
         category: Resource and resourcegroup
         filename: delete-resourcegroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource group
         category: Resource and resourcegroup
         filename: get-resourcegroups-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a resource group
         category: Resource and resourcegroup
         filename: patch-resourcegroups-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a resource group 
         category: Resource and resourcegroup
         filename: put-resourcegroups-.html
         subcategory: 
+        api_explorer: false
   "/resourcegroups/{resourcegroup_id}/bindings":
     get:
       x-doc:
@@ -849,6 +980,7 @@ paths:
         category: Binding
         filename: get-resourcegroups-bindings.html
         subcategory: 
+        api_explorer: false
   "/resourcegroups/{resourcegroup_id}/resources":
     get:
       x-doc:
@@ -856,12 +988,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-resourcegroups-resources.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add resources to a resource group
         category: Resource and resourcegroup
         filename: post-resourcegroups-resources.html
         subcategory: 
+        api_explorer: false
   "/resourcegroups/{resourcegroup_id}/resources/{resource_id}":
     delete:
       x-doc:
@@ -869,12 +1003,14 @@ paths:
         category: Resource and resourcegroup
         filename: delete-resourcegroups-resources-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource in a resource group
         category: Resource and resourcegroup
         filename: get-resourcegroups-resources-.html
         subcategory: 
+        api_explorer: false
   "/resources":
     get:
       x-doc:
@@ -882,12 +1018,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-resources.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new resource
         category: Resource and resourcegroup
         filename: post-resources.html
         subcategory: 
+        api_explorer: false
   "/resources/{resource_id}":
     delete:
       x-doc:
@@ -895,24 +1033,28 @@ paths:
         category: Resource and resourcegroup
         filename: delete-resources-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a resource
         category: Resource and resourcegroup
         filename: get-resources-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a resource
         category: Resource and resourcegroup
         filename: patch-resources-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a resource
         category: Resource and resourcegroup
         filename: put-resources-.html
         subcategory: 
+        api_explorer: false
   "/resources/{resource_id}/bindings":
     get:
       x-doc:
@@ -920,6 +1062,7 @@ paths:
         category: Binding
         filename: get-resources-bindings.html
         subcategory: 
+        api_explorer: false
   "/resources/{resource_id}/permissions":
     get:
       x-doc:
@@ -927,6 +1070,7 @@ paths:
         category: Permission
         filename: get-resources-permissions.html
         subcategory: 
+        api_explorer: false
   "/resources/{resource_id}/users":
     get:
       x-doc:
@@ -934,6 +1078,7 @@ paths:
         category: User and usergroup
         filename: get-resources-users.html
         subcategory: 
+        api_explorer: false
   "/resourcetypes":
     get:
       x-doc:
@@ -941,12 +1086,14 @@ paths:
         category: Resource and resourcegroup
         filename: get-resourcetypes.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new resource type
         category: Resource and resourcegroup
         filename: post-resourcetypes.html
         subcategory: 
+        api_explorer: false
   "/resourcetypes/{resourcetype_id}":
     get:
       x-doc:
@@ -954,6 +1101,7 @@ paths:
         category: Resource and resourcegroup
         filename: get-resourcetypes-.html
         subcategory: 
+        api_explorer: false
   "/roles":
     get:
       x-doc:
@@ -961,12 +1109,14 @@ paths:
         category: Role
         filename: get-roles.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new role 
         category: Role
         filename: post-roles.html
         subcategory: 
+        api_explorer: false
   "/roles/{role_id}":
     delete:
       x-doc:
@@ -974,24 +1124,28 @@ paths:
         category: Role
         filename: delete-roles-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a role 
         category: Role
         filename: get-roles-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a role resource partially
         category: Role
         filename: patch-roles-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a role resource
         category: Role
         filename: put-roles-.html
         subcategory: 
+        api_explorer: false
   "/roles/{role_id}/bindings":
     get:
       x-doc:
@@ -999,6 +1153,7 @@ paths:
         category: Binding
         filename: get-roles-bindings.html
         subcategory: 
+        api_explorer: false
   "/roles/{role_id}/permissions":
     get:
       x-doc:
@@ -1006,12 +1161,14 @@ paths:
         category: Permission
         filename: get-roles-permissions.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add a list of permissions to a role
         category: Permission
         filename: post-roles-permissions.html
         subcategory: 
+        api_explorer: false
   "/roles/{role_id}/permissions/{permission_id}":
     delete:
       x-doc:
@@ -1019,12 +1176,14 @@ paths:
         category: Permission
         filename: delete-roles-permissions-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a permission for a role
         category: Permission
         filename: get-roles-permissions-.html
         subcategory: 
+        api_explorer: false
   "/tags":
     get:
       x-doc:
@@ -1032,12 +1191,14 @@ paths:
         category: Tag
         filename: get-tags.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new tag resource
         category: Tag
         filename: post-tags.html
         subcategory: 
+        api_explorer: false
   "/tags/{tag_id}":
     delete:
       x-doc:
@@ -1045,24 +1206,28 @@ paths:
         category: Tag
         filename: delete-tags-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a tag resource
         category: Tag
         filename: get-tags-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a tag resource partially
         category: Tag
         filename: patch-tags-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a tag resource
         category: Tag
         filename: put-tags-.html
         subcategory: 
+        api_explorer: false
   "/usergroups":
     get:
       x-doc:
@@ -1070,12 +1235,14 @@ paths:
         category: User and usergroup
         filename: get-usergroups.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new user group
         category: User and usergroup
         filename: post-usergroups.html
         subcategory: 
+        api_explorer: false
   "/usergroups/{usergroup_id}":
     delete:
       x-doc:
@@ -1083,24 +1250,28 @@ paths:
         category: User and usergroup
         filename: delete-usergroups-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user group
         category: User and usergroup
         filename: get-usergroups-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a user group partially
         category: User and usergroup
         filename: patch-usergroups-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a user group
         category: User and usergroup
         filename: put-usergroups-.html
         subcategory: 
+        api_explorer: false
   "/usergroups/{usergroup_id}/bindings":
     get:
       x-doc:
@@ -1108,6 +1279,7 @@ paths:
         category: Binding
         filename: get-usergroups-bindings.html
         subcategory: 
+        api_explorer: false
   "/usergroups/{usergroup_id}/users":
     get:
       x-doc:
@@ -1115,12 +1287,14 @@ paths:
         category: User and usergroup
         filename: get-usergroups-users.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Add users to a user group
         category: User and usergroup
         filename: post-usergroups-users.html
         subcategory: 
+        api_explorer: false
   "/usergroups/{usergroup_id}/users/{user_id}":
     delete:
       x-doc:
@@ -1128,12 +1302,14 @@ paths:
         category: User and usergroup
         filename: delete-usergroups-users-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user in a user group
         category: User and usergroup
         filename: get-usergroups-users-.html
         subcategory: 
+        api_explorer: false
   "/users":
     get:
       x-doc:
@@ -1141,12 +1317,14 @@ paths:
         category: User and usergroup
         filename: get-users.html
         subcategory: 
+        api_explorer: false
     post:
       x-doc:
         title: Create a new user
         category: User and usergroup
         filename: post-users.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}":
     delete:
       x-doc:
@@ -1154,24 +1332,28 @@ paths:
         category: User and usergroup
         filename: delete-users-.html
         subcategory: 
+        api_explorer: false
     get:
       x-doc:
         title: Retrieve a user
         category: User and usergroup
         filename: get-users-.html
         subcategory: 
+        api_explorer: false
     patch:
       x-doc:
         title: Update a user partially
         category: User and usergroup
         filename: patch-users-.html
         subcategory: 
+        api_explorer: false
     put:
       x-doc:
         title: Modify a user 
         category: User and usergroup
         filename: put-users-.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/bindings":
     get:
       x-doc:
@@ -1179,6 +1361,7 @@ paths:
         category: Binding
         filename: get-users-bindings.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/permissions":
     get:
       x-doc:
@@ -1186,6 +1369,7 @@ paths:
         category: Permission
         filename: get-users-permissions.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/permissions/{permission_id}/resources":
     get:
       x-doc:
@@ -1193,6 +1377,7 @@ paths:
         category: Resource and resourcegroup
         filename: get-users-permissions-resources.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/resources":
     get:
       x-doc:
@@ -1200,6 +1385,7 @@ paths:
         category: Resource and resourcegroup
         filename: get-users-resources.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/resources/{resource_id}":
     get:
       x-doc:
@@ -1207,6 +1393,7 @@ paths:
         category: Resource and resourcegroup
         filename: get-users-resources-.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/resources/{resource_id}/permissions":
     get:
       x-doc:
@@ -1214,6 +1401,7 @@ paths:
         category: Permission
         filename: get-users-resources-permissions.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/resources/{resource_id}/permissions/{permission_id}":
     get:
       x-doc:
@@ -1221,6 +1409,7 @@ paths:
         category: Permission
         filename: get-users-resources-permissions-.html
         subcategory: 
+        api_explorer: false
   "/users/{user_id}/roles":
     get:
       x-doc:
@@ -1228,6 +1417,7 @@ paths:
         category: Role
         filename: get-users-roles.html
         subcategory: 
+        api_explorer: false
   resources/{resource_id}/permissions/{permission_id}/users:
     get:
       x-doc:
@@ -1235,6 +1425,7 @@ paths:
         category: User and usergroup
         filename: getresources-permissions-users.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/roles/{role_id}/users":
     post:
       x-doc:
@@ -1242,6 +1433,7 @@ paths:
         category: User and usergroup
         filename: post-folders-roles-users.html
         subcategory: 
+        api_explorer: false
   "/folders/{folder_id}/roles/{role_id}/users/{user_id}":
     delete:
       x-doc:
@@ -1249,6 +1441,7 @@ paths:
         category: User and usergroup
         filename: delete-folders-roles-users-.html
         subcategory: 
+        api_explorer: false
   "/organizations/{organization_id}/roles/{role_id}/users/{user_id}":
     delete:
       x-doc:
@@ -1256,6 +1449,7 @@ paths:
         category: User and usergroup
         filename: delete-organizations-roles-users-.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/roles/{role_id}/users":
     post:
       x-doc:
@@ -1263,6 +1457,7 @@ paths:
         category: User and usergroup
         filename: post-projects-roles-users.html
         subcategory: 
+        api_explorer: false
   "/projects/{project_id}/roles/{role_id}/users/{user_id}":
     delete:
       x-doc:
@@ -1270,6 +1465,7 @@ paths:
         category: User and usergroup
         filename: delete-projects-roles-users-.html
         subcategory: 
+        api_explorer: false
   "/ui/organizations/{organization_id}/uihierarchy":
     get:
       x-doc:
@@ -1277,6 +1473,7 @@ paths:
         category: UI
         filename: get-ui-organizations-uihierarchy.html
         subcategory: 
+        api_explorer: false
   "/ui/organizations/{organization_id}/uiresources":
     get:
       x-doc:
@@ -1284,6 +1481,7 @@ paths:
         category: UI
         filename: get-ui-organizations-uiresources.html
         subcategory: 
+        api_explorer: false
   "/ui/organizations/{organization_id}/users/{user_id}/uipermissions":
     get:
       x-doc:
@@ -1291,6 +1489,7 @@ paths:
         category: UI
         filename: get-ui-organizations-users-uipermissions.html
         subcategory: 
+        api_explorer: false
   "/ui/organizations/{organization_id}/users/{user_id}/uiroles":
     get:
       x-doc:
@@ -1298,3 +1497,4 @@ paths:
         category: UI
         filename: get-ui-organizations-users-uiroles.html
         subcategory: 
+        api_explorer: false
