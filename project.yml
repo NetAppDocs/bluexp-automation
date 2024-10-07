@@ -17,15 +17,16 @@ sidebar:
     - section: platform
     - section: workflows
     - section: api-cm
+    - section: tenancy
+    - section: fsx
     - section: audit
     - section: cbs
     - section: copysync
     - section: credential
     - section: dw
-    - section: fsx
     - section: ipa
+    - section: tenancyv4
     - section: mr
-    - section: tenancy
     - section: automate
     - section: support
     - title: Legal notices
