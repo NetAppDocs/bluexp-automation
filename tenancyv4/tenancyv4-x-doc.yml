@@ -1413,7 +1413,7 @@ paths:
   "/users/{user_id}/roles":
     get:
       x-doc:
-        title: List all the role for  a user 
+        title: List all the roles for a user 
         category: Role
         filename: get-users-roles.html
         subcategory: 
