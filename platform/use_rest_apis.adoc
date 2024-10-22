@@ -64,7 +64,7 @@ Depending on the REST API call, you may need a user token, a service token, or b
 
 === 3. Create the required request headers
 
-You need to create several HTTP request headers and include them with each API call. See the applicable API reference to understand which headers should be used. The most common headers are described below. Also see link:../cm/your_api_call.html[Your first API call] for an example.
+You need to create several HTTP request headers and include them with each API call. See the applicable API reference to understand which headers should be used. The most common headers are described below. See link:../cm/your_api_call.html[Your first API call] for an example.
 
 Authorization::
 This header typically contains the user bearer access token.
