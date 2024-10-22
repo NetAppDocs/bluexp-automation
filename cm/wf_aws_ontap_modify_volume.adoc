@@ -73,17 +73,22 @@ In addition to the parameters common with all REST API calls, the following para
 |===
 
 
+=======
+
+
 .JSON input example
 
 The JSON input example includes the minimum list of input parameters.
 
 [NOTE]
+
 ====
 The `exportpolicyInfo -> policyType` parameter can have two values `none` and `custom`.
 
 ** When `policyType:none`, the rules parameter must be empty.
 ** When `policyType:custom`, the rules parameter must have at least one rule.
 ====
+
 
 [source,json]
 {
@@ -151,9 +156,11 @@ curl --request PUT  \
 
 
 
+
 .Additional input parameters
 
 In addition to the parameters common with all REST API calls, the following parameters are also used in the curl example.
+
 
 
 [cols="25,25, 25, 45"*,options="header"]
@@ -172,12 +179,14 @@ In addition to the parameters common with all REST API calls, the following para
 The JSON input example includes the minimum list of input parameters.
 
 [NOTE]
+
 ====
 The `exportpolicyInfo -> policyType` parameter can have two values `none` and `custom`.
 
 ** When `policyType:none`, the rules parameter must be empty.
 ** When `policyType:custom`, the rules parameter must have at least one rule.
 ====
+
 
 [source,json]
 {
