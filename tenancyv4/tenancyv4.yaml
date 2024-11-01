@@ -197,7 +197,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -390,7 +390,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -490,7 +490,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -588,7 +588,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the id of the Organization
+                    description: JSON string containing the ID of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -5490,7 +5490,7 @@ components:
                     type: string
                 legacyId:
                     description: |-
-                        JSON string containing the id as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
+                        JSON string containing the ID as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5582,7 +5582,7 @@ components:
                     type: string
                 legacyId:
                     description: |-
-                        JSON string containing the id as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
+                        JSON string containing the ID as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -11043,5 +11043,5 @@ tags:
         <li>Resources are associated with one or more folders or projects.</li>
         </ul>
       name: Hierarchy
-    - description: The user and usergroup endpoints enable you to create and manage users and user groups.\n\nIn BlueXP identity and access management (IAM), a user represents a human user, a service account, or an agent. For example, you can create a user that represents a Connector. \n\nA user group is a set of users that you can manage as a group. In BlueXP IAM, you can manage implicit user groups and explicit user groups. In an implicit user group, users belong to the same organization, project, or folder. In an explicit user group, users can belong to different elements of the resource hierarchy.
+    - description: "The user and usergroup endpoints enable you to create and manage users and user groups.\n\nIn BlueXP identity and access management (IAM), a user represents a human user, a service account, or an agent. For example, you can create a user that represents a Connector. \n\nA user group is a set of users that you can manage as a group. In BlueXP IAM, you can manage implicit user groups and explicit user groups. In an implicit user group, users belong to the same organization, project, or folder. In an explicit user group, users can belong to different elements of the resource hierarchy."
       name: User and Usergroup
