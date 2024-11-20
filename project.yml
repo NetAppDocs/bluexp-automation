@@ -4,7 +4,7 @@ settings:
   harmony_integration: maestro
   platform: cloud
   internal:
-    pdf_enabled: true
+    pdf_enabled: false
     api_enabled: true
   prod:
     pdf_enabled: false
