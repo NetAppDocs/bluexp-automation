@@ -1079,6 +1079,14 @@ paths:
         filename: get-resources-users.html
         subcategory: 
         explorer: false
+  "/resources/{resource_id}/permissions/{permission_id}/users":
+    get:
+      x-doc:
+        title: List all users with a specific permission for a resource
+        category: User and usergroup
+        filename: get-resources-permissions-users.html
+        subcategory: 
+        explorer: false
   "/resourcetypes":
     get:
       x-doc:
@@ -1496,5 +1504,13 @@ paths:
         title: Lists roles for user on all hierarchy resources
         category: UI
         filename: get-ui-organizations-users-uiroles.html
+        subcategory: 
+        explorer: false
+  "/organizations/{organization_id}/organizations/{childorganization_id}":
+    delete:
+      x-doc:
+        title: Remove a child organization from a parent organization
+        category: Hierarchy
+        filename: delete-organizations-organizations-.html
         subcategory: 
         explorer: false
