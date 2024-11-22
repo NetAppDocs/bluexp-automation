@@ -197,7 +197,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the ID of the Organization
+                    description: JSON string containing the id of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -390,7 +390,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the ID of the Organization
+                    description: JSON string containing the id of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -490,7 +490,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the ID of the Organization
+                    description: JSON string containing the id of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -588,7 +588,7 @@ components:
                 metadata:
                     $ref: '#/components/schemas/type_bxp_metadata'
                 ownerOrganizationId:
-                    description: JSON string containing the ID of the Organization
+                    description: JSON string containing the id of the Organization
                     format: uuid
                     type: string
                 permissions:
@@ -1847,6 +1847,13 @@ components:
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
+                state:
+                    description: "Represents the state of the resource. State of the resource can be reconciling, which indicates the resource is currently undergoing a reconciliation process \nor available, which indicates the resources is currently available.\nDefined values are:\n* \"reconciling\"\n* \"available\""
+                    enum:
+                        - reconciling
+                        - available
+                    example: reconciling
+                    type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
                     items:
@@ -1965,6 +1972,13 @@ components:
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
+                    type: string
+                state:
+                    description: "Represents the state of the resource. State of the resource can be reconciling, which indicates the resource is currently undergoing a reconciliation process \nor available, which indicates the resources is currently available.\nDefined values are:\n* \"reconciling\"\n* \"available\""
+                    enum:
+                        - reconciling
+                        - available
+                    example: reconciling
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
@@ -2184,6 +2198,13 @@ components:
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
                     type: string
+                state:
+                    description: "Represents the state of the resource. State of the resource can be reconciling, which indicates the resource is currently undergoing a reconciliation process \nor available, which indicates the resources is currently available.\nDefined values are:\n* \"reconciling\"\n* \"available\""
+                    enum:
+                        - reconciling
+                        - available
+                    example: reconciling
+                    type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
                     items:
@@ -2285,6 +2306,13 @@ components:
                     type: string
                 resourceType:
                     description: JSON string containing the resource type. This should be one of the allowed resource types, which should be in the resource types collection. These resource types are defined by the service applications and the BlueXP IAM system.
+                    type: string
+                state:
+                    description: "Represents the state of the resource. State of the resource can be reconciling, which indicates the resource is currently undergoing a reconciliation process \nor available, which indicates the resources is currently available.\nDefined values are:\n* \"reconciling\"\n* \"available\""
+                    enum:
+                        - reconciling
+                        - available
+                    example: reconciling
                     type: string
                 tags:
                     description: JSON array of tags (name/value pairs) representing metadata for the resource.
@@ -3346,6 +3374,14 @@ components:
         role_1.0_get_response_body:
             additionalProperties: false
             properties:
+                category:
+                    description: Specifies the classification of the role.
+                    enum:
+                        - IAM
+                        - ONTAP-MEDIATOR
+                        - SNAPCENTER
+                    example: IAM
+                    type: string
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
@@ -3360,9 +3396,39 @@ components:
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
+                isAgentRole:
+                    description: |-
+                        Specifies if the role can be used for a Agent.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isServiceAccountRole:
+                    description: |-
+                        Specifies if the role can be used for a Service Account.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
                 isSystem:
                     description: |-
                         Specifies if an object is system generated.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isUserRole:
+                    description: |-
+                        Specifies if the role can be used for a User.
                         Defined values are:
                         * "true"
                     enum:
@@ -3439,6 +3505,14 @@ components:
         role_1.0_patch_request_body:
             additionalProperties: false
             properties:
+                category:
+                    description: Specifies the classification of the role.
+                    enum:
+                        - IAM
+                        - ONTAP-MEDIATOR
+                        - SNAPCENTER
+                    example: IAM
+                    type: string
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
@@ -3453,9 +3527,39 @@ components:
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
+                isAgentRole:
+                    description: |-
+                        Specifies if the role can be used for a Agent.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isServiceAccountRole:
+                    description: |-
+                        Specifies if the role can be used for a Service Account.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
                 isSystem:
                     description: |-
                         Specifies if an object is system generated.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isUserRole:
+                    description: |-
+                        Specifies if the role can be used for a User.
                         Defined values are:
                         * "true"
                     enum:
@@ -3508,15 +3612,53 @@ components:
         role_1.0_post_request_body:
             additionalProperties: false
             properties:
+                category:
+                    description: Specifies the classification of the role.
+                    enum:
+                        - IAM
+                        - ONTAP-MEDIATOR
+                        - SNAPCENTER
+                    example: IAM
+                    type: string
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
                     maxLength: 254
                     minLength: 1
                     type: string
+                isAgentRole:
+                    description: |-
+                        Specifies if the role can be used for a Agent.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isServiceAccountRole:
+                    description: |-
+                        Specifies if the role can be used for a Service Account.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
                 isSystem:
                     description: |-
                         Specifies if an object is system generated.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isUserRole:
+                    description: |-
+                        Specifies if the role can be used for a User.
                         Defined values are:
                         * "true"
                     enum:
@@ -3568,6 +3710,14 @@ components:
         role_1.0_post_response_body:
             additionalProperties: false
             properties:
+                category:
+                    description: Specifies the classification of the role.
+                    enum:
+                        - IAM
+                        - ONTAP-MEDIATOR
+                        - SNAPCENTER
+                    example: IAM
+                    type: string
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
@@ -3582,9 +3732,39 @@ components:
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
+                isAgentRole:
+                    description: |-
+                        Specifies if the role can be used for a Agent.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isServiceAccountRole:
+                    description: |-
+                        Specifies if the role can be used for a Service Account.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
                 isSystem:
                     description: |-
                         Specifies if an object is system generated.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isUserRole:
+                    description: |-
+                        Specifies if the role can be used for a User.
                         Defined values are:
                         * "true"
                     enum:
@@ -3646,6 +3826,14 @@ components:
         role_1.0_put_request_body:
             additionalProperties: false
             properties:
+                category:
+                    description: Specifies the classification of the role.
+                    enum:
+                        - IAM
+                        - ONTAP-MEDIATOR
+                        - SNAPCENTER
+                    example: IAM
+                    type: string
                 description:
                     description: 'JSON string containing the description of the role. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This role have alpha & beta permissions for NetApp Sales Territory
@@ -3660,9 +3848,39 @@ components:
                     example: 666a3f38-d4fa-5b62-a391-a69029758d32
                     format: uuid
                     type: string
+                isAgentRole:
+                    description: |-
+                        Specifies if the role can be used for a Agent.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isServiceAccountRole:
+                    description: |-
+                        Specifies if the role can be used for a Service Account.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
                 isSystem:
                     description: |-
                         Specifies if an object is system generated.
+                        Defined values are:
+                        * "true"
+                    enum:
+                        - "true"
+                        - "false"
+                    example: "true"
+                    type: string
+                isUserRole:
+                    description: |-
+                        Specifies if the role can be used for a User.
                         Defined values are:
                         * "true"
                     enum:
@@ -3715,6 +3933,11 @@ components:
         tag_1.0_get_response_body:
             additionalProperties: false
             properties:
+                collections:
+                    description: Array of collections this tag can appear in
+                    items:
+                        type: string
+                    type: array
                 description:
                     description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
@@ -3749,6 +3972,12 @@ components:
                         * Maximum length: 63
                         * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.
                     example: internal:aiq:salesTerritory
+                    maxLength: 254
+                    minLength: 1
+                    type: string
+                service:
+                    description: Service owning the tag
+                    example: This Service represents NetApp Sales Territory tag
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -3798,6 +4027,11 @@ components:
         tag_1.0_patch_request_body:
             additionalProperties: false
             properties:
+                collections:
+                    description: Array of collections this tag can appear in
+                    items:
+                        type: string
+                    type: array
                 description:
                     description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
@@ -3835,6 +4069,12 @@ components:
                     maxLength: 254
                     minLength: 1
                     type: string
+                service:
+                    description: Service owning the tag
+                    example: This Service represents NetApp Sales Territory tag
+                    maxLength: 254
+                    minLength: 1
+                    type: string
                 type:
                     description: |-
                         Media type of the resource.
@@ -3860,6 +4100,11 @@ components:
         tag_1.0_post_request_body:
             additionalProperties: false
             properties:
+                collections:
+                    description: Array of collections this tag can appear in
+                    items:
+                        type: string
+                    type: array
                 description:
                     description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
@@ -3889,6 +4134,12 @@ components:
                     maxLength: 254
                     minLength: 1
                     type: string
+                service:
+                    description: Service owning the tag
+                    example: This Service represents NetApp Sales Territory tag
+                    maxLength: 254
+                    minLength: 1
+                    type: string
                 type:
                     description: |-
                         Media type of the resource.
@@ -3915,6 +4166,11 @@ components:
         tag_1.0_post_response_body:
             additionalProperties: false
             properties:
+                collections:
+                    description: Array of collections this tag can appear in
+                    items:
+                        type: string
+                    type: array
                 description:
                     description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
@@ -3949,6 +4205,12 @@ components:
                         * Maximum length: 63
                         * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.
                     example: internal:aiq:salesTerritory
+                    maxLength: 254
+                    minLength: 1
+                    type: string
+                service:
+                    description: Service owning the tag
+                    example: This Service represents NetApp Sales Territory tag
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -3980,6 +4242,11 @@ components:
         tag_1.0_put_request_body:
             additionalProperties: false
             properties:
+                collections:
+                    description: Array of collections this tag can appear in
+                    items:
+                        type: string
+                    type: array
                 description:
                     description: 'JSON string containing the description of the tag. Defined values are: * Minimum length: 1 * Maximum length: 254 * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.'
                     example: This tag represents NetApp Sales Territory
@@ -4014,6 +4281,12 @@ components:
                         * Maximum length: 63
                         * This string is internally validated to prevent XSS, Unicode, directory traversal, and SQL-injection attacks.
                     example: internal:aiq:salesTerritory
+                    maxLength: 254
+                    minLength: 1
+                    type: string
+                service:
+                    description: Service owning the tag
+                    example: This Service represents NetApp Sales Territory tag
                     maxLength: 254
                     minLength: 1
                     type: string
@@ -5490,7 +5763,7 @@ components:
                     type: string
                 legacyId:
                     description: |-
-                        JSON string containing the ID as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
+                        JSON string containing the id as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5582,7 +5855,7 @@ components:
                     type: string
                 legacyId:
                     description: |-
-                        JSON string containing the ID as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
+                        JSON string containing the id as understood by the previous version of this service or a copy of the current ID if the public ID doesn't exist.
                         Defined values are:
                         * Minimum length: 1
                         * Maximum length: 300
@@ -5658,7 +5931,7 @@ components:
             scheme: bearer
             type: http
 info:
-    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information. \nBlueXP IAM endpoints enable you to manage and control access to BlueXP resources.\n\nIf you're using BlueXP in standard mode, you no longer have a BlueXP account. Instead, you have a BlueXP organization that you manage using BlueXP IAM. \n\nThe following five components are defined within the BlueXP IAM service.\n<ul>\\n<li>hierarchy</li>\n<li>permission</li>\n<li>resource and resourcegroup</li>\n<li>role</li>\\n<li>user and usergroup</li>\n</ul>\n\nBlueXP IAM uses predefined roles that include sets of permissions which are required to manage and view data. You can have multiple roles within the same organization or set of resources.\nYou should verify that you have the appropriate permissions when using the BlueXP IAM API endpoints. With the appropriate permissions, you can manage an organization hierarchy modeled as folders (subdivisions of an organization using criteria such as department or region) and projects (a workspace in BlueXP). After organizing your resources into folders and projects, you can grant granular access to resources by providing organization members with permissions to specific folders and projects.\n\n\nThe actions available through the BlueXP IAM REST API are a superset of what's available through the web UI.\n<p><strong>Note</strong>: Before using the API reference documentation, review the \n<a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/overview.html\">Get started</a> section for the BlueXP APIs. For more information about the security tokens and identifiers you'll need when using the API, review the <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/get_identifiers.html\">Common workflows and tasks </a> section.</p>\n</details>\n<hr />\n   <details>\n<summary>REST implementation</summary>\n<h3>HTTP methods</h3>\n<table>\n<thead>\n<tr>\n<th>Method</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>POST</code></td>\n<td>Create an object instance</td>\n</tr>\n<tr>\n<td><code>GET</code></td>\n<td>Retrieve an object instance or collection</td>\n</tr>\n<tr>\n<td><code>PATCH</code></td>\n<td>Update an existing object</td>\n</tr>\n<tr>\n<td><code>DELETE</code></td>\n<td>Remove an existing object</td>\n</tr>\n</tbody>\n</table>\n<h3>Request headers</h3>\n<table>\n<thead>\n<tr>\n<th>Request Header</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>Authorization</code></td>\n<td>Required. Contains a JWT access token</td>\n</tr>\n<tr>\n<td><code>X-service-request-id</code></td>\n<td>Used to tag a request with application-specific keys for improved supportability</td>\n</tr>\n<tr>\n<td><code>X-agent-id</code></td>\n<td>Contains the BlueXP Connector ID and can be included depending on the call</td>\n</tr>\n<tr>\n<td><code>X-tenancy-account-id</code></td>\n<td>Contains the account identifier and can be included depending on the call</td>\n</tr>\n</tbody>\n</table>\n<h3>Query parameters</h3>\n<p>You can use query parameters with endpoints in the following components:</p>\n<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Query Parameter</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Resource</td>\n<td>account (required)</br>resourceType</br>workspace</br>resourceClass</br>resourceId</td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<h3>Response headers</h3>\n<p>This API uses the standard HTTP response headers common with all BlueXP APIs. See <a href=\"https://docs.netapp.com/us-en/cloud-manager-automation/platform/http_details.html\">REST implementation</a> for more information.</p>\n<h3>HTTP status codes</h3>\n<table>\n<thead>\n<tr>\n<th>HTTP Status Code</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>200</code></td>\n<td>OK: Returned for successful operation completion</td>\n</tr>\n<tr>\n<td><code>400</code></td>\n<td>Bad Request: Returned if the input is malformed and could not be parsed</td>\n</tr>\n<tr>\n<td><code>401</code></td>\n<td>Unauthorized: Returned if user authentication failed or the token has expired</td>\n</tr>\n<tr>\n<td><code>403</code></td>\n<td>Forbidden: Returned for authorization errors depending on the resource and token</td>\n</tr>\n</tbody>\n</table>\n</details>\n<hr />\n   <details>\n<summary>Error handling</summary>\n<p>There are three processes involved with error handling and processing.</p>\n<ul>\n<li>The error is logged for supportability</li>\n<li>The error is also returned to the caller for any specific handling</li>\n<li>The database connection is rolled back</li>\n</ul>\n</details>\n"
+    description: "The BlueXP identity and access management (IAM) service provides a centralized point for managing customer and partner information. \nBlueXP IAM endpoints enable you to manage and control access to BlueXP resources.\n\nIf you're using BlueXP in standard mode, you no longer have a BlueXP account. Instead, you have a BlueXP organization that you manage using BlueXP IAM. \n\nThe following five components are defined within the BlueXP IAM service.\n<ul><li>hierarchy</li>\n<li>permission</li>\n<li>resource and resourcegroup</li>\n<li>role</li><li>user and usergroup</li>\n</ul>\n\nBlueXP IAM uses predefined roles that include sets of permissions which are required to manage and view data. You can have multiple roles within the same organization or set of resources.\nYou should verify that you have the appropriate permissions when using the BlueXP IAM API endpoints. With the appropriate permissions, you can manage an organization hierarchy modeled as folders (subdivisions of an organization using criteria such as department or region) and projects (a workspace in BlueXP). After organizing your resources into folders and projects, you can grant granular access to resources by providing organization members with permissions to specific folders and projects.\n\n\nThe actions available through the BlueXP IAM REST API are a superset of what's available through the web UI."
     license:
         name: BlueXP License
     termsOfService: https://www.netapp.com/media/10784-cloud-data-services-terms.pdf
