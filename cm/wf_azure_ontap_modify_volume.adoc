@@ -34,11 +34,13 @@ Perform the workflow link:wf_azure_ontap_get_volumes.html#get-volume-for-single-
 
 === Step 3. Modify the volume
 
+
 You can issue the REST API call modify the volume.
 
 .HTTP method and endpoint
 
 This REST API call uses the following method and endpoint.
+
 
 [cols="25,75"*,options="header"]
 |===
