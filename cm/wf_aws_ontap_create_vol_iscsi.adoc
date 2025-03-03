@@ -107,31 +107,71 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 
 .JSON input example
 [source,json]
-{
-  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
-  "svmName": "svm_zivaws02we01",
-  "aggregateName": "aggr1",
-  "name": "zivaws02we01vol01Iscsi",
-  "size": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "iscsiInfo": {
-    "igroupCreationRequest": {
-        "igroupName": "zivIgroup",
-        "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216",
-            "iqn.1994-05.com.redhat:96de86823426"
-        ]
-    },
-    "osName": "linux"
-  },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0
-}
+{ 
+
+    "workingEnvironmentId": "VsaWorkingEnvironment-Z1bEUQE6", 
+
+    "svmName": "svm_testcvosn", 
+
+    "aggregateName": "aggr1", 
+
+    "name": "mysql_data_volume", 
+
+    "size": { 
+
+        "size": "1", 
+
+        "unit": "GB" 
+
+    }, 
+
+    "snapshotPolicyName": "default", 
+
+    "iscsiInfo": { 
+
+          "igroupCreationRequest": { 
+
+               "igroupName": "myIgroup", 
+
+                "initiators": [ 
+
+                       "iqn.1994-05.com.redhat:96de86825216", 
+
+                        "iqn.1994-05.com.redhat:96de86823426" 
+
+                  ] 
+
+          }, 
+
+         "osName": "linux" 
+
+    }, 
+
+    "enableThinProvisioning": true, 
+
+    "enableCompression": true, 
+
+    "enableDeduplication": true, 
+
+    "maxNumOfDisksApprovedToAdd": 0, 
+
+    "evCapacityApprovedToAdd": null, 
+
+    "verifyNameUniqueness": true, 
+
+    "providerVolumeType": "gp3", 
+
+    "iops": 3000, 
+
+    "throughput": 250, 
+
+    "capacityTier": "S3", 
+
+    "tieringPolicy": "auto", 
+
+    "minimumCoolingDays": 31 
+
+} 
 
 .Output
 
@@ -319,31 +359,71 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 
 .JSON input example
 [source,json]
-{
-  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
-  "svmName": "svm_zivaws02we01",
-  "aggregateName": "aggr1",
-  "name": "zivaws02we01vol01Iscsi",
-  "size": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "iscsiInfo": {
-    "igroupCreationRequest": {
-        "igroupName": "zivIgroup",
-        "initiators": [
-            "iqn.1994-05.com.redhat:96de86825216",
-            "iqn.1994-05.com.redhat:96de86823426"
-        ]
-    },
-    "osName": "linux"
-  },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0
-}
+{ 
+
+    "workingEnvironmentId": "VsaWorkingEnvironment-ogAu9i3S", 
+
+    "svmName": "svm_testcvoha", 
+
+    "aggregateName": "aggr1", 
+
+    "name": "volume_iscsi", 
+
+    "size": { 
+
+        "size": "1", 
+
+        "unit": "GB" 
+
+    }, 
+
+    "snapshotPolicyName": "default", 
+
+    "iscsiInfo": { 
+
+    "igroupCreationRequest": { 
+
+        "igroupName": "myIgroup", 
+
+        "initiators": [ 
+
+            "iqn.1994-05.com.redhat:96de86825216", 
+
+            "iqn.1994-05.com.redhat:96de86823426" 
+
+        ] 
+
+    }, 
+
+    "osName": "linux" 
+
+    }, 
+
+    "enableThinProvisioning": true, 
+
+    "enableCompression": true, 
+
+    "enableDeduplication": true, 
+
+    "maxNumOfDisksApprovedToAdd": 0, 
+
+    "evCapacityApprovedToAdd": null, 
+
+    "verifyNameUniqueness": true, 
+
+    "providerVolumeType": "gp3", 
+
+    "iops": 3000, 
+
+    "throughput": 250, 
+
+    "capacityTier": "S3", 
+
+    "tieringPolicy": "auto", 
+
+    "minimumCoolingDays": 31 
+
+} 
 
 .Output
 

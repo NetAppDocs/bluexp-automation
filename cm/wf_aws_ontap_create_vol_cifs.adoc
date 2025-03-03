@@ -212,7 +212,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST
---location "https://api.bluexp.netapp.com/occm/api/aws/ha/volumes?createAggregateIfNotFound=false" 
+--location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes" 
 --header "Content-Type: application/json" 
 --header "x-agent-id: <AGENT_ID>" 
 --header "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -237,69 +237,32 @@ If an aggregate name does not exist, you can set the `createAggregateIfNotFound`
 
 .JSON input example
 [source,json]
-{ 
+{
+  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
+  "svmName": "svm_zivaws02we01",
+  "aggregateName": "aggr1",
+  "name": "zivaws02we02vol02Cifs",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "shareInfo": {
+    "accessControl": {
+        "permission": "full_control",
+        "users": [
+            "Everyone"
+        ],
+        "users": "Everyone;"
+    },
+    "shareName": "zivaws02we01vol02Cifs_share"
+  },
+  "snapshotPolicyName": "default",
+  "enableThinProvisioning": true,
+  "enableCompression": true,
+  "enableDeduplication": true,
+  "maxNumOfDisksApprovedToAdd": 0
+}
 
-    "workingEnvironmentId": "VsaWorkingEnvironment-ogAu9i3S", 
-
-    "svmName": "svm_testcvoha", 
-
-    "aggregateName": "aggr1", 
-
-    "name": "volume_cifs", 
-
-    "size": { 
-
-        "size": "1", 
-
-        "unit": "GB" 
-
-    }, 
-
-    "snapshotPolicyName": "default", 
-
-    "shareInfo": { 
-
-        "shareName": "volume_cifs_share", 
-
-        "accessControl": { 
-
-            "permission": "full_control", 
-
-            "users": [ 
-
-                "Everyone" 
-
-            ] 
-
-        } 
-
-    }, 
-
-    "enableThinProvisioning": true, 
-
-    "enableCompression": true, 
-
-    "enableDeduplication": true, 
-
-    "maxNumOfDisksApprovedToAdd": 0, 
-
-    "evCapacityApprovedToAdd": null, 
-
-    "verifyNameUniqueness": true, 
-
-    "providerVolumeType": "gp3", 
-
-    "iops": 3000, 
-
-    "throughput": 250, 
-
-    "capacityTier": "S3", 
-
-    "tieringPolicy": "auto", 
-
-    "minimumCoolingDays": 31 
-
-} 
 .Output
 
 None
