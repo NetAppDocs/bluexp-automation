@@ -30,7 +30,7 @@ You can use this workflow to create a volume using NFS for a single node system.
 
 === Step 1. Select a working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.  From the `capacityFeatures` field in the response, you can choose the value of `s3` for the `capacityTier` parameter. 
 
 === Step 2. Select an aggregate
 
@@ -97,6 +97,11 @@ The JSON input example includes the minimum list of parameters.
 |<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
 |`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
 |<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+| `providerVolumeType`  | - |- | Specifies the provider volume type.
+| `iops` | - | - | Specifies the input/output operations per second.
+| `throughput` | -| | Specifies the throughput.
+
+   
 |===
 
 
