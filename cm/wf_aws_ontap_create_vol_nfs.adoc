@@ -249,7 +249,7 @@ This REST API call uses the following method and endpoint.
 .Curl example: Create a volume
 
 [source,curl]
-curl --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes" \
+curl --location "https://api.bluexp.netapp.com/occm/api/aws/ha/volumes?createAggregateIfNotFound=false" \
 --request POST \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
@@ -277,42 +277,85 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 .JSON input example
 
 [source,json]
-{
-  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
-  "svmName": "svm_zivgcp01we02",
-  "aggregateName": "ziv01agg01",
-  "name": "zivagg01vol01",
-  "size": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0,
-  "exportPolicyInfo": {
-    "name": "rule",
-    "policyType": "custom",
-    "ips": ["x.0.0.0"],
-    "nfsVersion": [
-      "nfs3",
-      "nfs4"
-   ],
-    "rules": [
-      {
-        "index": 1,
-        "ruleAccessControl": "readwrite",
-        "ips":  ["1.2.3.4"],
-        "nfsVersion": [
-          "nfs3",
-          "nfs4"
-          ],
-        "superUser": True    
-      }
-    ]
-  }
-}
+{ 
+
+    "workingEnvironmentId": "VsaWorkingEnvironment-ogAu9i3S", 
+
+    "svmName": "svm_testcvoha", 
+
+    "aggregateName": "aggr1", 
+
+    "name": "oracle_log_volume", 
+
+    "size": { 
+
+        "size": "1", 
+
+        "unit": "GB" 
+
+    }, 
+
+    "snapshotPolicyName": "default", 
+
+    "exportPolicyInfo": { 
+
+        "policyType": "custom", 
+
+        "rules": [ 
+
+            { 
+
+                "index": 1, 
+
+                "ruleAccessControl": "readwrite", 
+
+                "ips": [ 
+
+                    "10.20.0.0/16" 
+
+                ], 
+
+                "nfsVersion": [ 
+
+                    "nfs3", 
+
+                    "nfs4" 
+
+                ], 
+
+                "superUser": true 
+
+            } 
+
+        ] 
+
+    }, 
+
+    "enableThinProvisioning": true, 
+
+    "enableCompression": true, 
+
+    "enableDeduplication": true, 
+
+    "maxNumOfDisksApprovedToAdd": 0, 
+
+    "evCapacityApprovedToAdd": null, 
+
+    "verifyNameUniqueness": true, 
+
+    "providerVolumeType": "gp3", 
+
+    "iops": 3000, 
+
+    "throughput": 250, 
+
+    "capacityTier": "S3", 
+
+    "tieringPolicy": "auto", 
+
+    "minimumCoolingDays": 31 
+
+} 
 
 .JSON output example
 
