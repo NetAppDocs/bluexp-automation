@@ -35,11 +35,11 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === Step 2. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name) parameters.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name) parameters. From the `capacityFeatures` field in the response, choose the value of `s3` for the `capacityTier` parameter. 
 
 === Step 3. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of `diskType` for the `providerVolumeType` parameter, the value of `iops` for the `iops` parameter, and the value of `throughput` for the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -146,11 +146,11 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === Step 2. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name) parameters.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name) parameters. From the `capacityFeatures` field in the response, choose the value of `s3` for the `capacityTier` parameter. 
 
 === Step 3. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of `diskType` for the `providerVolumeType` parameter, the value of `iops` for the `iops` parameter, and the value of `throughput` for the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
