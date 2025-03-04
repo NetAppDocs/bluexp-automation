@@ -97,9 +97,7 @@ The JSON input example includes the minimum list of parameters.
 |<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
 |`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
 |<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
-| `providerVolumeType`  | - |- | Specifies the provider volume type.
-| `providerVolumes.iops` | - | - | Specifies the input/output operations per second.
-| `providerVolumes.throughput` | -| | Specifies the throughput.
+
 
    
 |===
@@ -111,83 +109,44 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 
 [source,json]
 { 
-
     "workingEnvironmentId": "VsaWorkingEnvironment-Z1bEUQE6", 
-
     "svmName": "svm_testcvosn", 
-
     "aggregateName": "aggr1", 
-
     "name": "mysql_data_volume", 
-
     "size": { 
-
         "size": "1", 
-
         "unit": "GB" 
-
     }, 
-
     "snapshotPolicyName": "default", 
-
     "exportPolicyInfo": { 
-
         "policyType": "custom", 
-
         "rules": [ 
-
             { 
-
                 "index": 1, 
-
                 "ruleAccessControl": "readwrite", 
-
                 "ips": [ 
-
                     "10.20.0.0/16" 
-
                 ], 
-
                 "nfsVersion": [ 
-
                     "nfs3", 
-
                     "nfs4" 
-
                 ], 
-
                 "superUser": true 
-
             } 
-
         ] 
-
     }, 
-
     "enableThinProvisioning": true, 
-
     "enableCompression": true, 
-
     "enableDeduplication": true, 
-
     "maxNumOfDisksApprovedToAdd": 0, 
-
     "evCapacityApprovedToAdd": null, 
-
     "verifyNameUniqueness": true, 
-
     "providerVolumeType": "gp3", 
-
     "iops": 3000, 
-
     "throughput": 250, 
-
     "capacityTier": "S3", 
-
     "tieringPolicy": "auto", 
-
     "minimumCoolingDays": 31 
-
 } 
 
  
@@ -278,83 +237,44 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 
 [source,json]
 { 
-
     "workingEnvironmentId": "VsaWorkingEnvironment-ogAu9i3S", 
-
     "svmName": "svm_testcvoha", 
-
     "aggregateName": "aggr1", 
-
     "name": "oracle_log_volume", 
-
     "size": { 
-
         "size": "1", 
-
         "unit": "GB" 
-
     }, 
-
     "snapshotPolicyName": "default", 
-
     "exportPolicyInfo": { 
-
         "policyType": "custom", 
-
         "rules": [ 
-
             { 
-
                 "index": 1, 
-
                 "ruleAccessControl": "readwrite", 
-
                 "ips": [ 
-
                     "10.20.0.0/16" 
-
                 ], 
-
                 "nfsVersion": [ 
-
                     "nfs3", 
-
                     "nfs4" 
-
                 ], 
-
                 "superUser": true 
-
             } 
-
         ] 
-
     }, 
-
     "enableThinProvisioning": true, 
-
     "enableCompression": true, 
-
     "enableDeduplication": true, 
-
     "maxNumOfDisksApprovedToAdd": 0, 
-
     "evCapacityApprovedToAdd": null, 
-
     "verifyNameUniqueness": true, 
-
     "providerVolumeType": "gp3", 
-
     "iops": 3000, 
-
     "throughput": 250, 
-
     "capacityTier": "S3", 
-
     "tieringPolicy": "auto", 
-
     "minimumCoolingDays": 31 
-
 } 
 
 .JSON output example
