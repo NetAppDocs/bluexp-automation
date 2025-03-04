@@ -34,7 +34,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for
 
 === Step 2. Select an aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter. From the `providerVolumes` field in the response, you must also choose the value of `diskType` for the `providerVolumeType` parameter, the value of `iops` for the `providerVolumes.iops` parameter, and the value of `throughput` for the `providerVolumes.throughput` parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter. From the `providerVolumes` field in the response, you must also choose the value of `diskType` for the `providerVolumeType` parameter, the value of `iops` for the `iops` parameter, and the value of `throughput` for the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
