@@ -19,7 +19,7 @@ There are many API calls available for each resource.
 === Accounts
 ==== Updates an existing Azure account. 
 
-CAUTION: This operation is deprecated.
+CAUTION: This operation is deprecated. 
 
 ----
 PUT /accounts/azure/{cloudProviderAccountId}
@@ -51,7 +51,7 @@ PUT /accounts/azure/{cloudProviderAccountId}
 
 ==== Retrieves an Azure account by public Id. 
 
-CAUTION: This operation is deprecated.
+CAUTION: This operation is deprecated. 
 
 ----
 GET /accounts/azure/{cloudProviderAccountId}
@@ -139,7 +139,7 @@ POST /accounts/aws/validate-creds
 
 * application/json
 
-==== Updates an existing Gcp storage account.  
+==== Updates an existing Gcp storage account. 
 
 CAUTION: This operation is deprecated.
 
@@ -171,7 +171,7 @@ PUT /accounts/gcp/{cloudProviderAccountId}
 
 * application/json
 
-==== Retrieve Gcp Storage account by public Id.  
+==== Retrieve Gcp Storage account by public Id. 
 
 CAUTION: This operation is deprecated.
 
@@ -317,7 +317,7 @@ GET /accounts/nss/{cloudProviderAccountId}
 
 * application/json
 
-==== Deletes an existing account. It is not possible to delete an account that has working environments attached to it.
+==== Deletes an existing account. It is not possible to delete an account that has working environments attached to it. 
 
 CAUTION: This operation is deprecated.
 
@@ -347,7 +347,7 @@ DELETE /accounts/{cloudProviderAccountId}
 
 * application/json
 
-==== Validate gcp account request.
+==== Validate gcp account request. 
 
 CAUTION: This operation is deprecated.
 
@@ -406,7 +406,7 @@ PUT /accounts/nss/set-vsa-list/{cloudProviderAccountId}
 
 * application/json
 
-==== Validate an Azure account request. 
+==== Validate an Azure account request.
 
 CAUTION: This operation is deprecated.
 
@@ -502,6 +502,7 @@ GET /accounts/aws/{cloudProviderAccountId}
 
 CAUTION: This operation is deprecated.
 
+----
 POST /accounts/azure
 ----
 
