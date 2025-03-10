@@ -17,7 +17,10 @@ There are many API calls available for each resource.
 
 == Resources
 === Accounts
-==== Updates an existing Azure account. Deprecated, please see release notes.
+==== Updates an existing Azure account. 
+
+CAUTION: This operation is deprecated.
+
 ----
 PUT /accounts/azure/{cloudProviderAccountId}
 ----
@@ -46,7 +49,10 @@ PUT /accounts/azure/{cloudProviderAccountId}
 
 * application/json
 
-==== Retrieves an Azure account by public Id. Deprecated, please see release notes.
+==== Retrieves an Azure account by public Id. 
+
+CAUTION: This operation is deprecated.
+
 ----
 GET /accounts/azure/{cloudProviderAccountId}
 ----
@@ -73,7 +79,10 @@ GET /accounts/azure/{cloudProviderAccountId}
 
 * application/json
 
-==== Creates an AWS account. Deprecated, please see release notes.
+==== Creates an AWS account. 
+
+CAUTION: This operation is deprecated.
+
 ----
 POST /accounts/aws
 ----
@@ -100,7 +109,10 @@ POST /accounts/aws
 
 * application/json
 
-==== get aws cloud account id for the given creds. Deprecated, please see release notes.
+==== get aws cloud account id for the given creds. 
+
+CAUTION: This operation is deprecated.
+
 ----
 POST /accounts/aws/validate-creds
 ----
@@ -127,7 +139,10 @@ POST /accounts/aws/validate-creds
 
 * application/json
 
-==== Updates an existing Gcp storage account. Deprecated, please see release notes.
+==== Updates an existing Gcp storage account.  
+
+CAUTION: This operation is deprecated.
+
 ----
 PUT /accounts/gcp/{cloudProviderAccountId}
 ----
@@ -156,7 +171,10 @@ PUT /accounts/gcp/{cloudProviderAccountId}
 
 * application/json
 
-==== Retrieve Gcp Storage account by public Id. Deprecated, please see release notes.
+==== Retrieve Gcp Storage account by public Id.  
+
+CAUTION: This operation is deprecated.
+
 ----
 GET /accounts/gcp/{cloudProviderAccountId}
 ----
@@ -183,7 +201,10 @@ GET /accounts/gcp/{cloudProviderAccountId}
 
 * application/json
 
-==== Retrieves accounts. Deprecated, please see release notes.
+==== Retrieves accounts. 
+
+CAUTION: This operation is deprecated.
+
 ----
 GET /accounts
 ----
@@ -210,7 +231,10 @@ GET /accounts
 
 * application/json
 
-==== Create a Gcp Storage account. Deprecated, please see release notes.
+==== Create a Gcp Storage account. 
+
+CAUTION: This operation is deprecated.
+
 ----
 POST /accounts/gcp
 ----
@@ -293,7 +317,10 @@ GET /accounts/nss/{cloudProviderAccountId}
 
 * application/json
 
-==== Deletes an existing account. It is not possible to delete an account that has working environments attached to it. Deprecated, please see release notes.
+==== Deletes an existing account. It is not possible to delete an account that has working environments attached to it.
+
+CAUTION: This operation is deprecated.
+
 ----
 DELETE /accounts/{cloudProviderAccountId}
 ----
@@ -320,7 +347,10 @@ DELETE /accounts/{cloudProviderAccountId}
 
 * application/json
 
-==== Validate gcp account request. Deprecated, please see release notes.
+==== Validate gcp account request.
+
+CAUTION: This operation is deprecated.
+
 ----
 POST /accounts/gcp/validate-creds
 ----
@@ -376,7 +406,10 @@ PUT /accounts/nss/set-vsa-list/{cloudProviderAccountId}
 
 * application/json
 
-==== Validate an Azure account request. Deprecated, please see release notes.
+==== Validate an Azure account request. 
+
+CAUTION: This operation is deprecated.
+
 ----
 POST /accounts/azure/validate-creds
 ----
@@ -403,7 +436,10 @@ POST /accounts/azure/validate-creds
 
 * application/json
 
-==== Updates an existing AWS account. Deprecated, please see release notes.
+==== Updates an existing AWS account. 
+
+CAUTION: This operation is deprecated.
+
 ----
 PUT /accounts/aws/{cloudProviderAccountId}
 ----
@@ -432,7 +468,10 @@ PUT /accounts/aws/{cloudProviderAccountId}
 
 * application/json
 
-==== Retrieves an AWS account by public Id. Deprecated, please see release notes.
+==== Retrieves an AWS account by public Id. 
+
+CAUTION: This operation is deprecated.
+
 ----
 GET /accounts/aws/{cloudProviderAccountId}
 ----
@@ -459,8 +498,10 @@ GET /accounts/aws/{cloudProviderAccountId}
 
 * application/json
 
-==== Creates an Azure account. Deprecated, please see release notes.
-----
+==== Creates an Azure account. 
+
+CAUTION: This operation is deprecated.
+
 POST /accounts/azure
 ----
 
@@ -513,7 +554,10 @@ POST /accounts/nss
 
 * application/json
 
-==== Retrieves all accounts that are only for cloud (AWS, AZURE, GCP). Deprecated, please see release notes.
+==== Retrieves all accounts that are only for cloud (AWS, AZURE, GCP).
+
+CAUTION: This operation is deprecated.
+
 ----
 GET /accounts/cloud-providers
 ----
