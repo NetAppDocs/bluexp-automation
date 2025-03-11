@@ -100,6 +100,9 @@ The JSON input example includes the minimum list of parameters.
 |<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
 |`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
 |<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+| `providerVolumeType`  | Query |Yes | Specifies the provider volume type.
+| `iops` | Query | Yes| Specifies the input/output operations per second.
+| `throughput` | Query| Yes | Specifies the throughput.
 |===
 
 
@@ -255,11 +258,11 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 ==== Step 1. Select the working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter. From the `capacityFeatures` field in the response, choose the value of `s3` for the `capacityTier` parameter. 
 
 ==== Step 2. Select the aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` parameter. From the `providerVolumes` field in the response, you must also choose the value of `diskType` for the `providerVolumeType` parameter, the value of `iops` for the `iops` parameter, and the value of `throughput` for the `throughput` parameter.
 
 ==== Step 3. Choose the size for the disk
 
