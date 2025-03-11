@@ -127,7 +127,6 @@ If an aggregate name does not exist, you can set the `createAggregateIfNotFound`
     "capacityTier": "S3", 
     "tieringPolicy": "auto", 
     "minimumCoolingDays": 31 
-
 } 
 
 .Output

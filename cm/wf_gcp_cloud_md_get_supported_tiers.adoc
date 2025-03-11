@@ -44,7 +44,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/supported-capacity-tiers?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>" \ 
+--location "https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/supported-capacity-tiers?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>" \ 
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
@@ -121,7 +121,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/supported-capacity-tiers?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>" \ 
+--location "https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/supported-capacity-tiers?region=<REGION>&ontapVersion=<ONTAP_VERSION>&dataEncryptionType=<ENCRP_TYPE>&licenseType=<LICENSE_TYPE>&instanceType=<INST_TYPE>" \ 
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"

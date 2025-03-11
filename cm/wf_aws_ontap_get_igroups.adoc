@@ -47,7 +47,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>" \ 
+--location "https://api.bluexp.netapp.com/occm/api/vsa/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>" \ 
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
@@ -121,7 +121,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location  "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>" \
+--location  "https://api.bluexp.netapp.com/occm/api/aws/ha/volumes/igroups/<WORKING_ENV_ID>/<SVM_NAME>" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"

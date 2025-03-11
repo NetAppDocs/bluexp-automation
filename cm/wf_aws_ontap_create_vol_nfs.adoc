@@ -228,6 +228,9 @@ The JSON input example includes the minimum list of parameters.
 |<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
 |`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
 |<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+| `providerVolumeType`  | - |Yes | Specifies the provider volume type.
+| `iops` | - | Yes| Specifies the input/output operations per second.
+| `throughput` | -| Yes | Specifies the throughput.
 |===
 
 

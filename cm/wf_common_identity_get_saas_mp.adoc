@@ -37,7 +37,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/occm/saas-mp-service/account" \
+--location "https://api.bluexp.netapp.com/occm/api/occm/saas-mp-service/account" \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>"

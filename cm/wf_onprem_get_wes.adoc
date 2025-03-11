@@ -31,7 +31,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/onprem/working-environments/<ONPREM_WORKING_ENV_ID>" \
+--location "https://api.bluexp.netapp.com/occm/api/onprem/working-environments/<ONPREM_WORKING_ENV_ID>" \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>"" \
 --header "Authorization: Bearer <ACCESS_TOKEN>"

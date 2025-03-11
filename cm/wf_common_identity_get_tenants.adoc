@@ -41,7 +41,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/tenancy/account/<ACCOUNT_ID>/workspace" \
+--location "https://api.bluexp.netapp.com/tenancy/account/<ACCOUNT_ID>/workspace" \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer <ACCESS_TOKEN>"
 
