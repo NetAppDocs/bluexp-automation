@@ -41,7 +41,7 @@ Perform the link:wf_gcp_cloud_md_get_projects.html#get-projects-for-single-node[
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/gcp-encryption-keys?region=<REGION>&project=<PROJECT>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/gcp-encryption-keys?region=<REGION>&project=<PROJECT>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -92,7 +92,7 @@ Perform the link:wf_gcp_cloud_md_get_projects.html#get-projects-for-high-availab
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/gcp-encryption-keys?region=<REGION>&project=<PROJECT>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/gcp-encryption-keys?region=<REGION>&project=<PROJECT>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

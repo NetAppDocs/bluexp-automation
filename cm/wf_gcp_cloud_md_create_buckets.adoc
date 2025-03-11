@@ -41,7 +41,7 @@ Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-single-node[Ge
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/create-bucket' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/create-bucket' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d JSONinput
 
 
 JSON input example::
@@ -78,7 +78,7 @@ Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availabil
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/create-bucket' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/create-bucket' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json' --d JSONinput
 
 
 JSON input example::

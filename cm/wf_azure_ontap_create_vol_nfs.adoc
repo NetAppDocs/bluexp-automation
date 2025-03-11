@@ -31,7 +31,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-env
 
 Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser` parameters.
 
-==== 3. Select the aggregate
+=== 3. Select the aggregate
 
 Perform the workflow link:wf_azure_ontap_get_aggrs.html[Get aggregates]. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of `null` for the `iops` parameter, and the value of `null` for the `throughput` parameter.
 
@@ -102,7 +102,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-env
 
 Choose values for the `exportPolicyInfo->rules->ruleAccessControl` and `exportPolicyInfo->rules->superUser` parameters.
 
-==== 3. Select the aggregate
+=== 3. Select the aggregate
 
 Perform the workflow link:wf_azure_ontap_get_aggrs.html[Get aggregates]. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of `null` for the `iops` parameter, and the value of `null` for the `throughput` parameter.
 

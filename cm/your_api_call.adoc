@@ -31,7 +31,7 @@ The following curl command retrieves information about the BlueXP server.
 
 [source,curl]
 curl --request GET \
---location 'https://cloudmanager.cloud.netapp.com/occm/api/occm/system/about' \
+--location 'https://api.bluexp.netapp.com/occm/api/occm/system/about' \
 --header 'Content-Type: application/json' \
 --header 'x-agent-id: <AGENT_ID>' \
 --header 'Authorization: Bearer <ACCESS_TOKEN>'

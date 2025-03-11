@@ -45,7 +45,7 @@ This REST API call uses the following method and endpoint.
 
 .Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/tag-keys?projectId=<PROJECT_ID>&zone=<ZONE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/tag-keys?projectId=<PROJECT_ID>&zone=<ZONE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 .Additional input parameters
 
@@ -143,7 +143,7 @@ Perform the link:wf_gcp_cloud_md_get_regions.html#get-regions-for-high-availabil
 
 .Curl example
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/tag-keys?projectId=<PROJECT_ID>&zone=<ZONE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/tag-keys?projectId=<PROJECT_ID>&zone=<ZONE>' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 .Additional input parameters
 
