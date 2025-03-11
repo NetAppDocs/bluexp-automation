@@ -55,8 +55,18 @@ The JSON input example includes the minimum list of input parameters.
 
 JSON input example::
 [source,json]
-{ "workingEnvironmentId": "VsaWorkingEnvironment-4b3YXODB", "svmName": "svm_pradipmprodcvosn", "aggregateName": "aggr2", "name": "azure_sn_volume_nfs", "size": { "size": "1", "unit": "GB" }, "snapshotPolicyName": "default", "exportPolicyInfo": { 
-    "policyType": "custom", 
+   {
+  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+  "svmName": "svm_zivgcp01we02",
+  "aggregateName": "ziv01agg01",
+  "name": "zivagg01vol01",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "snapshotPolicyName": "default",
+  "exportPolicyInfo": { 
+  "policyType": "custom", 
     "rules": [ 
         { 
             "index": 1, 
@@ -126,7 +136,16 @@ The JSON input example includes the minimum list of input parameters.
 
 JSON input example::
 [source,json]
-{ "workingEnvironmentId": "VsaWorkingEnvironment-tEyHUrzV", "svmName": "svm_pradipmcvoha", "aggregateName": "aggr1", "name": "volume_ha_nfs", "size": { "size": "1", "unit": "GB" }, "snapshotPolicyName": "default","exportPolicyInfo": { 
+ "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
+  "svmName": "svm_zivgcp01we02",
+  "aggregateName": "ziv01agg01",
+  "name": "zivagg01vol01",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "snapshotPolicyName": "default",
+  "exportPolicyInfo": { 
     "policyType": "custom", 
     "rules": [ 
         { 
