@@ -64,7 +64,7 @@ Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-a-si
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/vsa/volumes?createAggregateIfNotFound=true' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -79,30 +79,39 @@ If an aggregate name does not exist, you can set the `createAggregateIfNotFound`
 JSON input example::
 [source,json]
 {
-  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
-  "svmName": "svm_zivaws02we01",
+  "workingEnvironmentId": "VsaWorkingEnvironment-4b3YXODB",
+  "svmName": "svm_name",
   "aggregateName": "aggr1",
-  "name": "zivaws02we02vol02Cifs",
+  "name": "volume_cifs",
   "size": {
-    "size": 100,
+    "size": 1,
     "unit": "GB"
-  },
-  "shareInfo": {
-    "accessControl": {
-        "permission": "full_control",
-        "users": [
-            "Everyone"
-        ],
-        "users": "Everyone;"
+ },
+    "snapshotPolicyName": "default",
+     "shareInfo": {
+        "shareName": "volume_cifs_share",
+        "accessControl": {
+            "permission": "full_control",
+            "users": [
+                "Everyone"
+            ]
+        }
     },
-    "shareName": "zivaws02we01vol02Cifs_share"
-  },
-  "snapshotPolicyName": "default",
   "enableThinProvisioning": true,
   "enableCompression": true,
   "enableDeduplication": true,
   "maxNumOfDisksApprovedToAdd": 0
-}
+  "evCapacityApprovedToAdd": null, 
+  "verifyNameUniqueness": true, 
+  "providerVolumeType": "StandardSSD_LRS", 
+  "iops": null, 
+  "throughput": null, 
+  "capacityTier": "Blob", 
+  "tieringPolicy": "auto", 
+  "minimumCoolingDays": 31 
+  } 
+
+
 
 Output::
 
@@ -120,11 +129,11 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name). From the `capacityFeatures` field in the response, choose the value of `"Blob"` for the `capacityTier` parameter.
 
 === 3. Select the aggregate
 
-Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of `null` for the `iops` parameter, and the value of `null` for the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -149,7 +158,7 @@ Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-high
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/ha/volumes?createAggregateIfNotFound=true' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -163,31 +172,39 @@ If an aggregate name does not exist, you can set the `createAggregateIfNotFound`
 
 JSON input example::
 [source,json]
+[source,json]
 {
-  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
-  "svmName": "svm_zivaws02we01",
+  "workingEnvironmentId": "VsaWorkingEnvironment-4b3YXODB",
+  "svmName": "svm_name",
   "aggregateName": "aggr1",
-  "name": "zivaws02we02vol02Cifs",
+  "name": "volume_ha_cifs",
   "size": {
-    "size": 100,
+    "size": 1,
     "unit": "GB"
-  },
-  "shareInfo": {
-    "accessControl": {
-        "permission": "full_control",
-        "users": [
-            "Everyone"
-        ],
-        "users": "Everyone;"
+ },
+    "snapshotPolicyName": "default",
+     "shareInfo": {
+        "shareName": "volume_cifs_share",
+        "accessControl": {
+            "permission": "full_control",
+            "users": [
+                "Everyone"
+            ]
+        }
     },
-    "shareName": "zivaws02we01vol02Cifs_share"
-  },
-  "snapshotPolicyName": "default",
   "enableThinProvisioning": true,
   "enableCompression": true,
   "enableDeduplication": true,
   "maxNumOfDisksApprovedToAdd": 0
-}
+  "evCapacityApprovedToAdd": null, 
+  "verifyNameUniqueness": true, 
+  "providerVolumeType": "Premium_LRS", 
+  "iops": null, 
+  "throughput": null, 
+  "capacityTier": "Blob", 
+  "tieringPolicy": "auto", 
+  "minimumCoolingDays": 31 
+  } 
 
 Output::
 
