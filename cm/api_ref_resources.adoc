@@ -16,9 +16,103 @@ summary: There are many API calls available for each resource.
 There are many API calls available for each resource.
 
 == Resources
-
 === Accounts
-==== get aws cloud account id for the given creds.
+==== Updates an existing Azure account. 
+
+CAUTION: This operation is deprecated. 
+
+----
+PUT /accounts/azure/{cloudProviderAccountId}
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|cloudProviderAccountId|Public Id of Azure account|true|string|
+|BodyParameter|body||false|link:../cm/api_ref_definitions.html#azureaccountrequest[AzureAccountRequest]|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|success|link:../cm/api_ref_definitions.html#azureaccountresponse[AzureAccountResponse]
+|404|Azure Account with the given account id does not exist|No Content
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Retrieves an Azure account by public Id. 
+
+CAUTION: This operation is deprecated. 
+
+----
+GET /accounts/azure/{cloudProviderAccountId}
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|cloudProviderAccountId|Public Id of Azure account|true|string|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#azureaccountresponse[AzureAccountResponse]
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Creates an AWS account. 
+
+CAUTION: This operation is deprecated.
+
+----
+POST /accounts/aws
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|BodyParameter|body||true|link:../cm/api_ref_definitions.html#awsaccountrequest[AwsAccountRequest]|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#awsaccountresponse[AwsAccountResponse]
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== get aws cloud account id for the given creds. 
+
+CAUTION: This operation is deprecated.
+
 ----
 POST /accounts/aws/validate-creds
 ----
@@ -45,88 +139,10 @@ POST /accounts/aws/validate-creds
 
 * application/json
 
-==== Deletes an existing account. It is not possible to delete an account that has working environments attached to it.
-----
-DELETE /accounts/{cloudProviderAccountId}
-----
+==== Updates an existing Gcp storage account. 
 
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|PathParameter|cloudProviderAccountId|Public Id of the account to be deleted|true|string|
-|===
+CAUTION: This operation is deprecated.
 
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|404|Account with the given account id does not exist|No Content
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves accounts.
-----
-GET /accounts
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|QueryParameter|providerType||false|enum (AWS, AZURE, GCP, NSS)|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#cloudprovideraccountresponse[CloudProviderAccountResponse]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== validate gcp account request.
-----
-POST /accounts/gcp/validate-creds
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|BodyParameter|body||true|link:../cm/api_ref_definitions.html#gcpstorageaccountrequest[GcpStorageAccountRequest]|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|string
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Updates an existing Gcp storage account.
 ----
 PUT /accounts/gcp/{cloudProviderAccountId}
 ----
@@ -155,7 +171,10 @@ PUT /accounts/gcp/{cloudProviderAccountId}
 
 * application/json
 
-==== Retrieve Gcp Storage account by public Id.
+==== Retrieve Gcp Storage account by public Id. 
+
+CAUTION: This operation is deprecated.
+
 ----
 GET /accounts/gcp/{cloudProviderAccountId}
 ----
@@ -182,23 +201,26 @@ GET /accounts/gcp/{cloudProviderAccountId}
 
 * application/json
 
-==== Creates an AWS account.
+==== Retrieves accounts. 
+
+CAUTION: This operation is deprecated.
+
 ----
-POST /accounts/aws
+GET /accounts
 ----
 
 ===== Parameters
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|BodyParameter|body||true|link:../cm/api_ref_definitions.html#awsaccountrequest[AwsAccountRequest]|
+|QueryParameter|providerType||false|enum (AWS, AZURE, GCP, NSS)|
 |===
 
 ===== Responses
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#awsaccountresponse[AwsAccountResponse]
+|default|success|link:../cm/api_ref_definitions.html#cloudprovideraccountresponse[CloudProviderAccountResponse]
 |===
 
 ===== Consumes
@@ -209,23 +231,26 @@ POST /accounts/aws
 
 * application/json
 
-==== Retrieves all accounts that are only for cloud (AWS, AZURE, GCP).
+==== Create a Gcp Storage account. 
+
+CAUTION: This operation is deprecated.
+
 ----
-GET /accounts/cloud-providers
+POST /accounts/gcp
 ----
 
 ===== Parameters
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|QueryParameter|providerType||false|enum (AWS, AZURE, GCP)|
+|BodyParameter|body||true|link:../cm/api_ref_definitions.html#gcpstorageaccountrequest[GcpStorageAccountRequest]|
 |===
 
 ===== Responses
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#cloudprovideraccountresponse[CloudProviderAccountResponse]
+|default|success|link:../cm/api_ref_definitions.html#gcpaccountresponse[GcpAccountResponse]
 |===
 
 ===== Consumes
@@ -292,23 +317,56 @@ GET /accounts/nss/{cloudProviderAccountId}
 
 * application/json
 
-==== Creates an Azure account.
+==== Deletes an existing account. It is not possible to delete an account that has working environments attached to it. 
+
+CAUTION: This operation is deprecated.
+
 ----
-POST /accounts/azure
+DELETE /accounts/{cloudProviderAccountId}
 ----
 
 ===== Parameters
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|BodyParameter|body||true|link:../cm/api_ref_definitions.html#azureaccountrequest[AzureAccountRequest]|
+|PathParameter|cloudProviderAccountId|Public Id of the account to be deleted|true|string|
 |===
 
 ===== Responses
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#azureaccountresponse[AzureAccountResponse]
+|404|Account with the given account id does not exist|No Content
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Validate gcp account request. 
+
+CAUTION: This operation is deprecated.
+
+----
+POST /accounts/gcp/validate-creds
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|BodyParameter|body||true|link:../cm/api_ref_definitions.html#gcpstorageaccountrequest[GcpStorageAccountRequest]|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|string
 |===
 
 ===== Consumes
@@ -348,7 +406,40 @@ PUT /accounts/nss/set-vsa-list/{cloudProviderAccountId}
 
 * application/json
 
-==== Updates an existing AWS account.
+==== Validate an Azure account request.
+
+CAUTION: This operation is deprecated.
+
+----
+POST /accounts/azure/validate-creds
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|BodyParameter|body||true|link:../cm/api_ref_definitions.html#azureaccountrequest[AzureAccountRequest]|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#associatedsubscription[AssociatedSubscription] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Updates an existing AWS account. 
+
+CAUTION: This operation is deprecated.
+
 ----
 PUT /accounts/aws/{cloudProviderAccountId}
 ----
@@ -377,7 +468,10 @@ PUT /accounts/aws/{cloudProviderAccountId}
 
 * application/json
 
-==== Retrieves an AWS account by public Id.
+==== Retrieves an AWS account by public Id. 
+
+CAUTION: This operation is deprecated.
+
 ----
 GET /accounts/aws/{cloudProviderAccountId}
 ----
@@ -404,45 +498,19 @@ GET /accounts/aws/{cloudProviderAccountId}
 
 * application/json
 
-==== Updates an existing Azure account.
+==== Creates an Azure account. 
+
+CAUTION: This operation is deprecated.
+
 ----
-PUT /accounts/azure/{cloudProviderAccountId}
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|PathParameter|cloudProviderAccountId|Public Id of Azure account|true|string|
-|BodyParameter|body||false|link:../cm/api_ref_definitions.html#azureaccountrequest[AzureAccountRequest]|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|200|success|link:../cm/api_ref_definitions.html#azureaccountresponse[AzureAccountResponse]
-|404|Azure Account with the given account id does not exist|No Content
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Retrieves an Azure account by public Id.
-----
-GET /accounts/azure/{cloudProviderAccountId}
+POST /accounts/azure
 ----
 
 ===== Parameters
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|PathParameter|cloudProviderAccountId|Public Id of Azure account|true|string|
+|BodyParameter|body||true|link:../cm/api_ref_definitions.html#azureaccountrequest[AzureAccountRequest]|
 |===
 
 ===== Responses
@@ -487,50 +555,26 @@ POST /accounts/nss
 
 * application/json
 
-==== Create a Gcp Storage account.
+==== Retrieves all accounts that are only for cloud (AWS, AZURE, GCP).
+
+CAUTION: This operation is deprecated.
+
 ----
-POST /accounts/gcp
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|BodyParameter|body||true|link:../cm/api_ref_definitions.html#gcpstorageaccountrequest[GcpStorageAccountRequest]|
-|===
-
-===== Responses
-[options="header"]
-|===
-|HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#gcpaccountresponse[GcpAccountResponse]
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Validate an Azure account request.
-----
-POST /accounts/azure/validate-creds
+GET /accounts/cloud-providers
 ----
 
 ===== Parameters
 [options="header"]
 |===
 |Type|Name|Description|Required|Schema|Default
-|BodyParameter|body||true|link:../cm/api_ref_definitions.html#azureaccountrequest[AzureAccountRequest]|
+|QueryParameter|providerType||false|enum (AWS, AZURE, GCP)|
 |===
 
 ===== Responses
 [options="header"]
 |===
 |HTTP Code|Description|Schema
-|default|success|link:../cm/api_ref_definitions.html#associatedsubscription[AssociatedSubscription] array
+|default|success|link:../cm/api_ref_definitions.html#cloudprovideraccountresponse[CloudProviderAccountResponse]
 |===
 
 ===== Consumes
@@ -2074,6 +2118,27 @@ PUT /aws/ha/working-environments/{workingEnvironmentId}/disable-fpolicy
 
 * application/json
 
+==== Enable Snaplock to an existing Cloud Volumes ONTAP working environment
+----
+PUT /aws/ha/working-environments/{workingEnvironmentId}/enable-worm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Worm Enable request|true|link:../cm/api_ref_definitions.html#wormrequest[WormRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Updates mediator of the specified Cloud Volumes ONTAP with the given version.Operation may only be performed on working environments whose status is: ON, DEGRADED.
 ----
 POST /aws/ha/working-environments/{workingEnvironmentId}/update-mediator
@@ -2160,6 +2225,26 @@ GET /aws/ha/working-environments/{workingEnvironmentId}/create-request-parameter
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#createrequestparametersresponse[CreateRequestParametersResponse]
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Validate pre-req for conversion of an existing Cloud Volumes ONTAP working environment
+----
+GET /aws/ha/working-environments/{workingEnvironmentId}/validate-byol-to-capacity
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
 |===
 
 ===== Consumes
@@ -4711,27 +4796,6 @@ GET /azure/ha/working-environments/{workingEnvironmentId}/ontap-saving
 
 * application/json
 
-==== Modify the svm name of the Cloud Volumes ONTAP
-----
-PUT /azure/ha/working-environments/{workingEnvironmentId}/svm
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
-|BodyParameter|body|Svm name modification request|true|link:../cm/api_ref_definitions.html#svmnamemodificationrequest[SvmNameModificationRequest]|
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
 ==== Returns true if a resource group with that name already exists, false otherwise
 ----
 GET /azure/ha/working-environments/resource-group-exists/{resourceGroupName}
@@ -5001,6 +5065,47 @@ POST /azure/ha/working-environments/{workingEnvironmentId}/enable-capacity-tieri
 
 * application/json
 
+==== Validate pre-req for conversion of an existing Cloud Volumes ONTAP working environment
+----
+GET /azure/ha/working-environments/{workingEnvironmentId}/validate-byol-to-capacity
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Enable Snaplock to an existing Cloud Volumes ONTAP working environment
+----
+PUT /azure/ha/working-environments/{workingEnvironmentId}/enable-worm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Worm Enable request|true|link:../cm/api_ref_definitions.html#wormrequest[WormRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Setup NTP server
 ----
 POST /azure/ha/working-environments/{workingEnvironmentId}/ntp
@@ -5085,6 +5190,27 @@ PUT /azure/ha/working-environments/{workingEnvironmentId}/vscan-file-op
 
 * application/json
 
+==== Deletes an SVM.Operation may only be performed on working environments whose status is: ON.
+----
+DELETE /azure/ha/working-environments/{workingEnvironmentId}/svm/{svmName}
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Delete FPolicy for ransomeware files
 ----
 DELETE /azure/ha/working-environments/{workingEnvironmentId}/fpolicy
@@ -5142,6 +5268,48 @@ GET /azure/ha/working-environments/{workingEnvironmentId}/ontap-available-images
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#updatelocalimage[UpdateLocalImage] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Creates a new SVM.Operation may only be performed on working environments whose status is: ON.
+----
+POST /azure/ha/working-environments/{workingEnvironmentId}/svm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|BodyParameter|body|Create SVM request|true|link:../cm/api_ref_definitions.html#createazuresvmrequest[CreateAzureSvmRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Modify the svm name of the Cloud Volumes ONTAP
+----
+PUT /azure/ha/working-environments/{workingEnvironmentId}/svm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Svm name modification request|true|link:../cm/api_ref_definitions.html#svmnamemodificationrequest[SvmNameModificationRequest]|
 |===
 
 ===== Consumes
@@ -7054,6 +7222,27 @@ GET /azure/vsa/working-environments
 
 * application/json
 
+==== Enable Snaplock to an existing Cloud Volumes ONTAP working environment
+----
+PUT /azure/vsa/working-environments/{workingEnvironmentId}/enable-worm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Worm Enable request|true|link:../cm/api_ref_definitions.html#wormrequest[WormRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Delete CIFS Configuration of an existing Cloud Volumes ONTAP working environment
 ----
 POST /azure/vsa/working-environments/{workingEnvironmentId}/delete-cifs
@@ -7426,6 +7615,26 @@ GET /azure/vsa/working-environments/{workingEnvironmentId}/occm-provided-upgrade
 
 * application/json
 
+==== Validate pre-req for conversion of an existing Cloud Volumes ONTAP working environment
+----
+GET /azure/vsa/working-environments/{workingEnvironmentId}/validate-byol-to-capacity
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Activate snapshot policy assignment to all not protected rw volumes
 ----
 PUT /azure/vsa/working-environments/{workingEnvironmentId}/activate-snapshot-policy
@@ -7457,27 +7666,6 @@ PUT /azure/vsa/working-environments/{workingEnvironmentId}/byol-to-capacity
 |Type|Name|Description|Required|Schema|Default
 |PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
 |BodyParameter|body|Conversion request|true|link:../cm/api_ref_definitions.html#licenseconversionrequest[LicenseConversionRequest]|
-|===
-
-===== Consumes
-
-* application/json
-
-===== Produces
-
-* application/json
-
-==== Modify the svm name of the Cloud Volumes ONTAP
-----
-PUT /azure/vsa/working-environments/{workingEnvironmentId}/svm
-----
-
-===== Parameters
-[options="header"]
-|===
-|Type|Name|Description|Required|Schema|Default
-|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
-|BodyParameter|body|Svm name modification request|true|link:../cm/api_ref_definitions.html#svmnamemodificationrequest[SvmNameModificationRequest]|
 |===
 
 ===== Consumes
@@ -7649,6 +7837,27 @@ GET /azure/vsa/working-environments/{workingEnvironmentId}/extra-capacity-licens
 
 * application/json
 
+==== Deletes an SVM.Operation may only be performed on working environments whose status is: ON.
+----
+DELETE /azure/vsa/working-environments/{workingEnvironmentId}/svm/{svmName}
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Updates default vscan file operation profile. Profile on existing CIFS shares will change only on writes-only mode
 ----
 PUT /azure/vsa/working-environments/{workingEnvironmentId}/vscan-file-op
@@ -7729,6 +7938,48 @@ GET /azure/vsa/working-environments/{workingEnvironmentId}/schedules
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#vsaschedule[VsaSchedule] array
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Creates a new SVM.Operation may only be performed on working environments whose status is: ON.
+----
+POST /azure/vsa/working-environments/{workingEnvironmentId}/svm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|BodyParameter|body|Create SVM request|true|link:../cm/api_ref_definitions.html#createazuresvmrequest[CreateAzureSvmRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Modify the svm name of the Cloud Volumes ONTAP
+----
+PUT /azure/vsa/working-environments/{workingEnvironmentId}/svm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Svm name modification request|true|link:../cm/api_ref_definitions.html#svmnamemodificationrequest[SvmNameModificationRequest]|
 |===
 
 ===== Consumes
@@ -10179,6 +10430,27 @@ POST /gcp/ha/working-environments/{workingEnvironmentId}/start
 
 * application/json
 
+==== Enable Snaplock to an existing Cloud Volumes ONTAP working environment
+----
+PUT /gcp/ha/working-environments/{workingEnvironmentId}/enable-worm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Worm Enable request|true|link:../cm/api_ref_definitions.html#wormrequest[WormRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Setup NTP server
 ----
 POST /gcp/ha/working-environments/{workingEnvironmentId}/ntp
@@ -10924,6 +11196,26 @@ GET /gcp/ha/working-environments/{workingEnvironmentId}/cifs-locks-exist
 |===
 |HTTP Code|Description|Schema
 |default|success|boolean
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Validate pre-req for conversion of an existing Cloud Volumes ONTAP working environment
+----
+GET /gcp/ha/working-environments/{workingEnvironmentId}/validate-byol-to-capacity
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
 |===
 
 ===== Consumes
@@ -12474,6 +12766,26 @@ POST /gcp/vsa/working-environments/{workingEnvironmentId}/stop
 
 * application/json
 
+==== Validate pre-req for conversion of an existing Cloud Volumes ONTAP working environment
+----
+GET /gcp/vsa/working-environments/{workingEnvironmentId}/validate-byol-to-capacity
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Disable FPolicy for ransomeware files
 ----
 PUT /gcp/vsa/working-environments/{workingEnvironmentId}/disable-fpolicy
@@ -12863,6 +13175,27 @@ PUT /gcp/vsa/working-environments/{workingEnvironmentId}/writing-speed
 |Type|Name|Description|Required|Schema|Default
 |PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
 |BodyParameter|body|Writing speed request|true|link:../cm/api_ref_definitions.html#writingspeedrequest[WritingSpeedRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Enable Snaplock to an existing Cloud Volumes ONTAP working environment
+----
+PUT /gcp/vsa/working-environments/{workingEnvironmentId}/enable-worm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Worm Enable request|true|link:../cm/api_ref_definitions.html#wormrequest[WormRequest]|
 |===
 
 ===== Consumes
@@ -18130,6 +18463,26 @@ DELETE /vsa/working-environments/{workingEnvironmentId}/fpolicy
 
 * application/json
 
+==== Validate pre-req for conversion of an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON.
+----
+GET /vsa/working-environments/{workingEnvironmentId}/validate-byol-to-capacity
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Manually triggers subscription sync for all Cloud Volumes ONTAP working environments.Operation may only be performed on working environments whose status is: ON.
 ----
 POST /vsa/working-environments/sync-subscription
@@ -18160,6 +18513,27 @@ POST /vsa/working-environments/{workingEnvironmentId}/upload-license-file
 ===== Consumes
 
 * multipart/form-data
+
+===== Produces
+
+* application/json
+
+==== Enable Snaplock to an existing Cloud Volumes ONTAP working environment.Operation may only be performed on working environments whose status is: ON.
+----
+PUT /vsa/working-environments/{workingEnvironmentId}/enable-worm
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId|Public Id of working environment|true|string|
+|BodyParameter|body|Worm Enable request|true|link:../cm/api_ref_definitions.html#wormrequest[WormRequest]|
+|===
+
+===== Consumes
+
+* application/json
 
 ===== Produces
 
