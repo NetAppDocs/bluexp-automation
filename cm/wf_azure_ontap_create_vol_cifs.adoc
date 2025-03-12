@@ -35,11 +35,11 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_azure_ontap_get_cifs.html#get-cifs-server-configuration-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_azure_ontap_get_cifs.html#get-cifs-server-configuration-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name). From the `capacityFeatures` field in the response, choose the value of `Blob` for the `capacityTier` parameter.
 
 === 3. Select the aggregate
 
-Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of `null` for the `iops` parameter, and the value of `null` for the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
