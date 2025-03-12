@@ -78,6 +78,7 @@ This section describes existing data format definitions.
 |volumeInfo|volume Information|false|<<VolumeInfo>>|
 |currentInstanceType|Current instance type|false|string|
 |isComposite||true|boolean|
+|isCapacityBased||true|boolean|
 |===
 
 === AddCapacityToEvAggregateRequest
@@ -948,7 +949,7 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|level|Change tier level|true|enum (normal,  ia,  ia-single,  intelligent,  cool,  nearline,  coldline,  standard,  glacier-ir)|
+|level|Change tier level|true|enum (normal,  ia,  ia-single,  intelligent,  cool,  cold,  nearline,  coldline,  standard,  glacier-ir)|
 |===
 
 === ChangeVolumeTierRequest
@@ -1255,6 +1256,7 @@ This section describes existing data format definitions.
 |s3EbsRatio||true|integer (int32)|
 |ebsSizeToPiopsRatio||true|integer (int32)|
 |autoOntapUpgrade||true|boolean|
+|sysMgrUserCred||true|boolean|
 |overrideCifsLocks||true|boolean|
 |usePrivateLink||true|boolean|
 |directApiTraffic||true|boolean|
@@ -1284,6 +1286,7 @@ This section describes existing data format definitions.
 |cotRollback||false|boolean|
 |s3EbsRatio||false|integer (int32)|
 |autoOntapUpgrade||false|boolean|
+|sysMgrUserCred||false|boolean|
 |overrideCifsLocks||false|boolean|
 |usePrivateLink||false|boolean|
 |directApiTraffic||false|boolean|
@@ -1425,10 +1428,11 @@ This section describes existing data format definitions.
 |enableCompliance|Enable compliance|true|boolean|
 |storageAccountPrefix|Storage Account prefix|false|string|
 |backupVolumesToCbs|Automatically backup all volumes to cloud|false|boolean|
-|tierLevel|Tier Level|false|enum (normal,  cool)|
+|tierLevel|Tier Level|false|enum (normal,  cool,  cold)|
 |availabilityZone|Availability Zone|false|integer (int32)|
 |azureEncryptionParameters|Parameters required if using azure encryption with custom key|false|<<AzureEncryption>>|
 |enableServices|Enable services|false|string array|
+|storageAccountNetworkAccess|Storage Account Public Network Access|false|enum (Disabled,  Enabled,  SecuredByPerimeter)|
 |===
 
 === CreateBlobContainerRequest
@@ -2638,7 +2642,7 @@ This section describes existing data format definitions.
 |china|China|true|boolean|
 |instanceType|instanceType|false|string|
 |darkSite|is dark site|true|boolean|
-|legacyInstance||true|boolean|
+|isLegacyInstance||true|boolean|
 |isLegacyOs||true|boolean|
 |===
 
@@ -2822,6 +2826,8 @@ This section describes existing data format definitions.
 |===
 |Name|Description|Required|Schema|Default
 |capacityPackageName|Capacity Based Package|true|enum (Professional,  Essential,  Edge,  Optimized)|
+|sendAsup||true|boolean|
+|deleteByNodeByolLicense||true|boolean|
 |===
 
 === LicenseFileContent
@@ -4223,7 +4229,7 @@ This section describes existing data format definitions.
 |wormWithBackupSupported||true|boolean|
 |isAzureHaManagedDisksSupported||true|boolean|
 |awsLocalZones||true|boolean|
-|azureFlashcacheSupported||true|boolean|
+|isAzureFlashcacheSupported||true|boolean|
 |isAzureZonalSupported||true|boolean|
 |===
 
