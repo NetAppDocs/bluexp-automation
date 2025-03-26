@@ -38,7 +38,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/metadata/permutations" \
+--location "https://api.bluexp.netapp.com/occm/api/azure/vsa/metadata/permutations" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
@@ -152,7 +152,7 @@ This REST API call uses the following method and endpoint.
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/azure/ha/metadata/permutations' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 .Additional input parameters
 

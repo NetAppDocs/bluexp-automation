@@ -35,11 +35,11 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.  From the `capacityFeatures` field in the response, choose the value of `"Blob"` for the `capacityTier` parameter.
 
 ==== 2. Select the aggregate
 
-Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of `null` for the `iops` parameter, and the value of `null` for the `throughput` parameter.
 
 ==== 3. Choose the size for the disk
 
@@ -74,7 +74,7 @@ Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-a-si
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -83,6 +83,7 @@ The JSON input example includes the minimum list of input parameters, including:
 * <WORKING_ENV_ID> `(workingEnvironmentId)` string
 * <SVM_NAME> `(svmName)` string
 * <AGGR_NAME> `(aggregateName)` string
+* 
 
 If aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
@@ -92,11 +93,12 @@ JSON input example::
   "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
   "svmName": "svm_zivaws02we01",
   "aggregateName": "aggr1",
-  "name": "zivaws02we01vol01Iscsi",
+  "name": "volume_ha_iscsi",
   "size": {
     "size": 100,
     "unit": "GB"
   },
+  "snapshotPolicyName": "default",
   "iscsiInfo": {
     "igroupCreationRequest": {
         "igroupName": "zivIgroup",
@@ -107,11 +109,19 @@ JSON input example::
     },
     "osName": "linux"
   },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0
+  "enableThinProvisioning": true, 
+  "enableCompression": true, 
+  "enableDeduplication": true, 
+  "maxNumOfDisksApprovedToAdd": 0, 
+  "evCapacityApprovedToAdd": null, 
+  "verifyNameUniqueness": true, 
+  "providerVolumeType": "Premium_LRS", 
+  "iops": null, 
+  "throughput": null, 
+  "capacityTier": "Blob", 
+  "tieringPolicy": "auto", 
+  "minimumCoolingDays": 31, 
+  "volumeTags": [] 
 }
 
 Output::
@@ -155,7 +165,7 @@ Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-a-si
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -167,7 +177,7 @@ The JSON input example includes the minimum list of input parameters, including:
 
 If an aggregate name does not exist, you can set the `createAggregateIfNotFound` query parameter to `true` which allows the aggregate not-found condition.
 
-JSON input exmaple::
+JSON input example::
 [source,json]
 {
   "workingEnvironmentId": "VsaWorkingEnvironment-UvFmWXoD",
@@ -209,11 +219,11 @@ If the properties `aggregateName` and `maxNumOfDisksApprovedToAdd` are not provi
 
 ==== 1. Select the working environment
 
-Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter.
+Perform the workflow link:wf_azure_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` parameter and the `svmName` value for the `svmName` parameter. From the `capacityFeatures` field in the response, choose the value of `Blob` for the `capacityTier` parameter.
 
 ==== 2. Select the aggregate
 
-Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_azure_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of `null` for the `iops` parameter, and the value of `null` for the `throughput` parameter.
 
 ==== 3. Choose the size for the disk
 
@@ -248,7 +258,7 @@ Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-high
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/ha/volumes?createAggregateIfNotFound=false' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -263,34 +273,38 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 JSON input example::
 [source,json]
 {
-   "workingEnvironmentId":"VsaWorkingEnvironment-1m76JaRt",
-   "svmName":"svm_ranukazure12",
-   "snapshotPolicyName":"default",
-   "name":"ranukvoliscsi",
-   "iops":null,
-   "throughput":null,
-   "providerVolumeType":"Premium_LRS",
-   "capacityTier":"Blob",
-   "tieringPolicy":"auto",
-   "verifyNameUniqueness":true,
-   "iscsiInfo":{
-      "igroupCreationRequest":{
-         "igroupName":"ig1",
-         "initiators":[
-            "iqn.1991-05.com.microsoft:pradipm02-pc"
-         ]
-      },
-      "osName":"windows"
-   },
-   "size":{
-      "size":200,
-      "unit":"GB"
-   },
-   "enableThinProvisioning":true,
-   "enableDeduplication":true,
-   "enableCompression":true,
-   "maxNumOfDisksApprovedToAdd":0,
-   "aggregateName":"aggr1"
+  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
+  "svmName": "svm_name",
+  "aggregateName": "aggr1",
+  "name": "volume_ha_iscsi",
+  "size": {
+    "size": 100,
+    "unit": "GB"
+  },
+  "snapshotPolicyName": "default",
+  "iscsiInfo": {
+    "igroupCreationRequest": {
+        "igroupName": "myIgroup",
+        "initiators": [
+            "iqn.1994-05.com.redhat:00xx00000000",
+            "iqn.1994-05.com.redhat:00xx00000000"
+        ]
+    },
+    "osName": "linux"
+  },
+  "enableThinProvisioning": true, 
+  "enableCompression": true, 
+  "enableDeduplication": true, 
+  "maxNumOfDisksApprovedToAdd": 0, 
+  "evCapacityApprovedToAdd": null, 
+  "verifyNameUniqueness": true, 
+  "providerVolumeType": "Premium_LRS", 
+  "iops": null, 
+  "throughput": null, 
+  "capacityTier": "Blob", 
+  "tieringPolicy": "auto", 
+  "minimumCoolingDays": 31, 
+  "volumeTags": [] 
 }
 
 Output::
@@ -334,7 +348,7 @@ Perform the workflow link:wf_azure_ontap_create_quote.html#create-quote-for-high
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

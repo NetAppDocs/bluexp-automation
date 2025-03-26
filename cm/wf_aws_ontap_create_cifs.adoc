@@ -54,7 +54,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST
---location  "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs-workgroup" 
+--location  "https://api.bluexp.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs-workgroup" 
 --header "Content-Type: application/json" 
 --header "x-agent-id: <AGENT_ID>" 
 --header "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -137,7 +137,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST 
---location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs" \ 
+--location "https://api.bluexp.netapp.com/occm/api/vsa/working-environments/<WORKING_ENV_ID>/cifs" \ 
 --header "Content-Type: application/json" 
 --header "x-agent-id: <AGENT_ID>" 
 --header "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -210,7 +210,7 @@ The JSON input example includes the minimum list of parameters.
 .Curl example
 [source,curl]
 curl --request POST  
---location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs-workgroup"
+--location "https://api.bluexp.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs-workgroup"
 --header "Content-Type: application/json" 
 --header "x-agent-id: <AGENT_ID>" 
 --header "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -292,7 +292,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST
---location  "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs" 
+--location  "https://api.bluexp.netapp.com/occm/api/aws/ha/working-environments/<WORKING_ENV_ID>/cifs" 
 --header "Content-Type: application/json" 
 --header "x-agent-id: <AGENT_ID>" 
 --header "Authorization: Bearer <ACCESS_TOKEN>" 

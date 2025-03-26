@@ -35,7 +35,7 @@ You can use this workflow to retrieve the Google Cloud regions in a single node 
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -166,7 +166,7 @@ You can use this workflow to retrieve the Google Cloud regions in an HA working 
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/regions' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

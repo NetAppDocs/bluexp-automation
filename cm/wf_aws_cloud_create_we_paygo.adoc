@@ -99,7 +99,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST \
---location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/working-environments" \
+--location "https://api.bluexp.netapp.com/occm/api/vsa/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json" \
@@ -343,7 +343,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST \
---location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/working-environments" \
+--location "https://api.bluexp.netapp.com/occm/api/aws/ha/working-environments" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json" \

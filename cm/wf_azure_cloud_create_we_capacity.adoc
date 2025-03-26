@@ -119,7 +119,7 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-stor
 curl example::
 [source,curl]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>'  --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/vsa/working-environments' --header 'x-agent-id: <AGENT_ID>'  --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
 ----
 
 
@@ -291,7 +291,7 @@ Perform the link:wf_azure_cloud_md_get_storage_account_types.html#get-azure-stor
 curl example::
 [source,curl]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments' --header 'x-agent-id: <AGENT_ID>'  --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/azure/ha/working-environments' --header 'x-agent-id: <AGENT_ID>'  --header 'Authorization: Bearer <ACCESS_TOKEN>' ---header 'Content-Type: application/json' --d @JSONinput
 ----
 
 Input::

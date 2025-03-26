@@ -35,7 +35,7 @@ You can use this workflow to retrieve the possible permutations for a single nod
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 
@@ -136,7 +136,7 @@ You can use this workflow to retrieve the possible permutations for an HA workin
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/permutations?latest_only=true' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --header 'Content-Type: application/json'
 
 Input::
 

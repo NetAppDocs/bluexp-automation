@@ -35,11 +35,11 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-single-node[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name). From the `capacityFeatures` field in the response, choose the value of the `capacityTier` parameter.
 
 === 3. Select the aggregate
 
-Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of the `iops` parameter, and the value of the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -64,7 +64,7 @@ Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-single
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -78,31 +78,38 @@ If an aggregate name does not exist, you can set the `createAggregateIfNotFound`
 
 JSON input example::
 [source,json]
-{
-  "workingEnvironmentId": "VsaWorkingEnvironment-SfpVUZSc",
-  "svmName": "svm_zivaws02we01",
-  "aggregateName": "aggr1",
-  "name": "zivaws02we02vol02Cifs",
-  "size": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "shareInfo": {
-    "accessControl": {
-        "permission": "full_control",
-        "users": [
-            "Everyone"
-        ],
-        "users": "Everyone;"
-    },
-    "shareName": "zivaws02we01vol02Cifs_share"
-  },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0
-}
+{ 
+"workingEnvironmentId": "vsaworkingenvironment-u5lqmxrf", 
+"svmName": "svm_pradipmcvosn", 
+"aggregateName": "aggr1", 
+"name": "gcp_vol_cifs", 
+"size": { 
+    "size": "1", 
+    "unit": "GB" 
+}, 
+"snapshotPolicyName": "default", 
+"shareInfo": {   
+    "shareName": " gcp_vol_cifs _share",   
+    "accessControl": {   
+        "permission": "full_control",   
+        "users": [   
+            "Everyone"   
+        ]   
+    } 
+},   
+"enableThinProvisioning": true, 
+"enableCompression": true, 
+"enableDeduplication": true, 
+"maxNumOfDisksApprovedToAdd": 0, 
+"evCapacityApprovedToAdd": null, 
+"verifyNameUniqueness": true, 
+"providerVolumeType": "pd-ssd", 
+"iops": null, 
+"throughput": null, 
+"capacityTier": "cloudStorage", 
+"tieringPolicy": "auto", 
+"minimumCoolingDays": 31 
+} 
 
 Output::
 
@@ -123,11 +130,11 @@ A CIFS server configuration must be defined for your working environment. You ca
 
 === 2. Select the working environment
 
-Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name).
+Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-high-availability-pair[Get working environments] and choose the `publicId` value for the `workingEnvironmentId` (working environment) and the `svmName` (SVM name). From the `capacityFeatures` field in the response, choose the value of the `capacityTier` parameter.
 
 === 3. Select the aggregate
 
-Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value.
+Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` for the `aggregateName` value. From the `providerVolumes` field in the response, you must also choose the value of the `providerVolumeType` parameter, the value of the `iops` parameter, and the value of the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -152,7 +159,7 @@ Perform the workflow link:wf_gcp_ontap_create_quote.html#create-quote-for-high-a
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/ha/volumes' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

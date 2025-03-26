@@ -44,7 +44,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request PUT
---location "https://cloudmanager.cloud.netapp.com/occm/api/onprem/volumes/<ONPREM_WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
+--location "https://api.bluexp.netapp.com/occm/api/onprem/volumes/<ONPREM_WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>" \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \

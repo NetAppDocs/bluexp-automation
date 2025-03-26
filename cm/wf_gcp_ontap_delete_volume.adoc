@@ -44,7 +44,7 @@ Perform the workflow link:wf_gcp_ontap_get_volumes.html#get-volumes-for-single-n
 
 curl example::
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request DELETE 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -82,7 +82,7 @@ Perform the workflow link:wf_gcp_ontap_get_volumes.html#get-volumes-for-high-ava
 
 curl example::
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request DELETE 'https://api.bluexp.netapp.com/occm/api/gcp/ha/volumes/<WORKING_ENV_ID>/<SVM_NAME>/<VOLUME_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
