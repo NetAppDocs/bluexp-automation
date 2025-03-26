@@ -35,7 +35,7 @@ You can use this workflow to retrieve the minimum number of IPs for a single nod
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/network-requirements' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/network-requirements' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -68,7 +68,7 @@ You can use this workflow to retrieve the minimum number of IPs for an HA Cloud 
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/network-requirements' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/network-requirements' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

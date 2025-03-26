@@ -40,7 +40,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-env
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/azure/vsa/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -158,7 +158,7 @@ Perform the workflow link:wf_azure_cloud_create_we_paygo.html#create-working-env
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/azure/ha/volumes?workingEnvironmentId=<WORKING_ENV_ID>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

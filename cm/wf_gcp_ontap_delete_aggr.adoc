@@ -43,7 +43,7 @@ Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-single-
 
 curl example::
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request DELETE 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -78,7 +78,7 @@ Perform the workflow link:wf_gcp_ontap_get_aggrs.html#get-aggregates-for-high-av
 
 curl example::
 [source,curl]
-curl --location --request DELETE 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request DELETE 'https://api.bluexp.netapp.com/occm/api/gcp/ha/aggregates/<WORKING_ENV_ID>/<AGGR_NAME>' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

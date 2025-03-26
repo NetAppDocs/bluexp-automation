@@ -39,7 +39,7 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -76,7 +76,7 @@ Perform the workflow link:wf_gcp_cloud_get_wes.html#get-working-environment-for-
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/ha/working-environments/<WORKING_ENV_ID>/delete-cifs' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

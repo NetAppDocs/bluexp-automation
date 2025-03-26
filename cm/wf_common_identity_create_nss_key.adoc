@@ -39,7 +39,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key" \
+--location "https://api.bluexp.netapp.com/ipa/account/<ACCOUNT_ID>/nss-key" \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>"

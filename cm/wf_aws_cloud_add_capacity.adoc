@@ -51,7 +51,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST \
---location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity" \
+--location "https://api.bluexp.netapp.com/occm/api/vsa/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json" \
@@ -103,7 +103,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request POST \
---location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity" \
+--location "https://api.bluexp.netapp.com/occm/api/aws/ha/aggregates/{workingEnvironmentId}/{aggregateName}/add-capacity" \
 --header "x-agent-id: <AGENT_ID>" \ 
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json" \

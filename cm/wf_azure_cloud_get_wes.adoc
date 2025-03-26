@@ -44,7 +44,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl  --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties" \ --header "Content-Type: application/json" \
+--location "https://api.bluexp.netapp.com/occm/api/azure/vsa/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties" \ --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>"
 
@@ -242,7 +242,7 @@ This REST API call uses the following method and endpoint.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties" \ 
+--location "https://api.bluexp.netapp.com/occm/api/azure/ha/working-environments/<WORKING_ENV_ID>?fields=status,ontapClusterProperties.fields(upgradeVersions,nodes),reservedSize,saasProperties,complianceProperties,monitoringProperties,providerProperties" \ 
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>"

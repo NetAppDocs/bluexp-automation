@@ -30,11 +30,11 @@ You can use this workflow to create a volume using NFS for a single node system.
 
 === Step 1. Select a working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-single-node[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.  From the `capacityFeatures` field in the response, choose the value of `s3` for the `capacityTier` parameter. 
 
 === Step 2. Select an aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-single-node[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter. From the `providerVolumes` field in the response, you must also choose the value of `diskType` for the `providerVolumeType` parameter, the value of `iops` for the `iops` parameter, and the value of `throughput` for the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -77,7 +77,7 @@ This REST API call uses the following method and endpoint.
 .Curl example: Create a volume
 
 [source,curl]
-curl --location "https://cloudmanager.cloud.netapp.com/occm/api/vsa/volumes" \
+curl --location "https://api.bluexp.netapp.com/occm/api/vsa/volumes?createAggregateIfNotFound=false" \
 --request POST \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
@@ -97,6 +97,11 @@ The JSON input example includes the minimum list of parameters.
 |<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
 |`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
 |<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+| `providerVolumeType`  | Query |Yes | Specifies the provider volume type.
+| `iops` | Query | Yes| Specifies the input/output operations per second.
+| `throughput` | Query| Yes | Specifies the throughput.
+
+   
 |===
 
 
@@ -105,43 +110,48 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 .JSON input example
 
 [source,json]
-{
-  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
-  "svmName": "svm_zivgcp01we02",
-  "aggregateName": "ziv01agg01",
-  "name": "zivagg01vol01",
-  "size": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0,
-  "exportPolicyInfo": {
-    "name": "rule",
-    "policyType": "custom",
-    "ips": ["x.0.0.0"],
-    "nfsVersion": [
-      "nfs3",
-      "nfs4"
-      ],
-    "rules": [
-      {
-        "index": 1,
-        "ruleAccessControl": "readwrite",
-        "ips":  ["1.2.3.4"],
-        "nfsVersion": [
-          "nfs3",
-          "nfs4"
-          ],
-        "superUser": True       
-      }
-    ]
-  }
-}
+{ 
+    "workingEnvironmentId": "VsaWorkingEnvironment-Z1bEUQE6", 
+    "svmName": "svm_testcvosn", 
+    "aggregateName": "aggr1", 
+    "name": "mysql_data_volume", 
+    "size": { 
+        "size": "1", 
+        "unit": "GB" 
+    }, 
+    "snapshotPolicyName": "default", 
+    "exportPolicyInfo": { 
+        "policyType": "custom", 
+        "rules": [ 
+            { 
+                "index": 1, 
+                "ruleAccessControl": "readwrite", 
+                "ips": [ 
+                    "10.20.0.0/16" 
+                ], 
+                "nfsVersion": [ 
+                    "nfs3", 
+                    "nfs4" 
+                ], 
+                "superUser": true 
+            } 
+        ] 
+    }, 
+    "enableThinProvisioning": true, 
+    "enableCompression": true, 
+    "enableDeduplication": true, 
+    "maxNumOfDisksApprovedToAdd": 0, 
+    "evCapacityApprovedToAdd": null, 
+    "verifyNameUniqueness": true, 
+    "providerVolumeType": "gp3", 
+    "iops": 3000, 
+    "throughput": 250, 
+    "capacityTier": "S3", 
+    "tieringPolicy": "auto", 
+    "minimumCoolingDays": 31 
+} 
 
+ 
 
 .JSON output example
 
@@ -153,12 +163,12 @@ You can use this workflow to create volume using NFS for an HA working environme
 
 === Step 1. Select a working environment
 
-Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters.
+Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environments-for-high-availability-pair[Get working environments] and choose the `publicId` and the `svmName` values for the `workingEnvironmentId`  and the `svmName` parameters. From the `capacityFeatures` field in the response, choose the value of `s3` for the `capacityTier` parameter. 
 
 
 === Step 2. Select an aggregate
 
-Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.
+Perform the workflow link:wf_aws_ontap_get_aggrs.html#get-aggregates-for-high-availability-pair[Get aggregates] and choose the `name` value of the aggregate for the `name` parameter.  From the `providerVolumes` field in the response, you must also choose the value of `diskType` for the `providerVolumeType` parameter, the value of `iops` for the `iops` parameter, and the value of `throughput` for the `throughput` parameter.
 
 [NOTE]
 If aggregate name does not exist and the `createAggregateIfNotFound` query parameter is set `true`, the create volume request is allowed if the named aggregate is not found.
@@ -200,7 +210,7 @@ This REST API call uses the following method and endpoint.
 .Curl example: Create a volume
 
 [source,curl]
-curl --location "https://cloudmanager.cloud.netapp.com/occm/api/aws/ha/volumes" \
+curl --location "https://api.bluexp.netapp.com/occm/api/aws/ha/volumes?createAggregateIfNotFound=false" \
 --request POST \
 --header "Content-Type: application/json" \
 --header "x-agent-id: <AGENT_ID>" \
@@ -220,6 +230,9 @@ The JSON input example includes the minimum list of parameters.
 |<SVM_NAME> `(svmName)` |Query |Yes |Identifies the SVM
 |`workingEnvironmentId` <WORKING_ENV_ID> |Query |Yes |Identifies the working environment ID
 |<AGGR_NAME> `(aggregateName)` |Query |Yes |Identifies the aggregate
+| `providerVolumeType`  | Query |Yes | Specifies the provider volume type.
+| `iops` | Query | Yes| Specifies the input/output operations per second.
+| `throughput` | Query| Yes | Specifies the throughput.
 |===
 
 
@@ -228,42 +241,46 @@ If aggregate name does not exist, you can set the `createAggregateIfNotFound` qu
 .JSON input example
 
 [source,json]
-{
-  "workingEnvironmentId": "vsaworkingenvironment-sfrf3wvj",
-  "svmName": "svm_zivgcp01we02",
-  "aggregateName": "ziv01agg01",
-  "name": "zivagg01vol01",
-  "size": {
-    "size": 100,
-    "unit": "GB"
-  },
-  "snapshotPolicyName": "default",
-  "enableThinProvisioning": true,
-  "enableCompression": true,
-  "enableDeduplication": true,
-  "maxNumOfDisksApprovedToAdd": 0,
-  "exportPolicyInfo": {
-    "name": "rule",
-    "policyType": "custom",
-    "ips": ["x.0.0.0"],
-    "nfsVersion": [
-      "nfs3",
-      "nfs4"
-   ],
-    "rules": [
-      {
-        "index": 1,
-        "ruleAccessControl": "readwrite",
-        "ips":  ["1.2.3.4"],
-        "nfsVersion": [
-          "nfs3",
-          "nfs4"
-          ],
-        "superUser": True    
-      }
-    ]
-  }
-}
+{ 
+    "workingEnvironmentId": "VsaWorkingEnvironment-ogAu9i3S", 
+    "svmName": "svm_testcvoha", 
+    "aggregateName": "aggr1", 
+    "name": "oracle_log_volume", 
+    "size": { 
+        "size": "1", 
+        "unit": "GB" 
+    }, 
+    "snapshotPolicyName": "default", 
+    "exportPolicyInfo": { 
+        "policyType": "custom", 
+        "rules": [ 
+            { 
+                "index": 1, 
+                "ruleAccessControl": "readwrite", 
+                "ips": [ 
+                    "10.20.0.0/16" 
+                ], 
+                "nfsVersion": [ 
+                    "nfs3", 
+                    "nfs4" 
+                ], 
+                "superUser": true 
+            } 
+        ] 
+    }, 
+    "enableThinProvisioning": true, 
+    "enableCompression": true, 
+    "enableDeduplication": true, 
+    "maxNumOfDisksApprovedToAdd": 0, 
+    "evCapacityApprovedToAdd": null, 
+    "verifyNameUniqueness": true, 
+    "providerVolumeType": "gp3", 
+    "iops": 3000, 
+    "throughput": 250, 
+    "capacityTier": "S3", 
+    "tieringPolicy": "auto", 
+    "minimumCoolingDays": 31 
+} 
 
 .JSON output example
 

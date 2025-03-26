@@ -35,7 +35,7 @@ You can use this workflow to retrieve Google Cloud disk types for a single node 
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/metadata/gcp-disk-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/metadata/gcp-disk-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -104,7 +104,7 @@ You can use this workflow to retrieve Google Cloud disk types for an HA working 
 
 curl example::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/metadata/gcp-disk-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/ha/metadata/gcp-disk-types' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

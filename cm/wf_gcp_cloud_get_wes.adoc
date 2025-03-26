@@ -35,7 +35,7 @@ You can use this workflow to retrieve the Cloud Volumes ONTAP system related det
 
 curl::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 
@@ -134,7 +134,7 @@ You can use this workflow to retrieve the Cloud Volumes ONTAP system related det
 
 curl::
 [source,curl]
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
+curl --location --request GET 'https://api.bluexp.netapp.com/occm/api/gcp/ha/working-environments' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID>' --header 'Authorization: Bearer <ACCESS_TOKEN>'
 
 Input::
 

@@ -35,7 +35,7 @@ This API returns information about the supported services.
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/occm/system/support-services" \
+--location "https://api.bluexp.netapp.com/occm/api/occm/system/support-services" \
 --header "Content-Type: application/json" \
 --header "x-agent-Id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>"
@@ -74,15 +74,15 @@ The JSON output example includes the supported services information. You can loc
     "intercomAppId": "brf2h510",
     "tenancyServiceInformation": {
         "accountId": "account-xxx1234",
-        "url": "https://cloudmanager.cloud.netapp.com/tenancy",
+        "url": "https://api.bluexp.netapp.com/tenancy",
         "accountWidgetUrl": "https://services.cloud.netapp.com/accountWidgetLoader.js",
-        "agentsMgmtUrl": "https://cloudmanager.cloud.netapp.com/agents-mgmt",
-        "forwarderUrlOverride": "https://cloudmanager.cloud.netapp.com"
+        "agentsMgmtUrl": "https://api.bluexp.netapp.com/agents-mgmt",
+        "forwarderUrlOverride": "https://api.bluexp.netapp.com"
     },
     "saasMpServiceInformation": {
         "productUrlAws": "http://aws.amazon.com/marketplace/pp/B086BQCW8P",
         "productUrlGcp": "https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager",
-        "url": "https://cloudmanager.cloud.netapp.com/saas-mp",
+        "url": "https://api.bluexp.netapp.com/saas-mp",
         "productUrlAzure": "https://portal.azure.com/#create/netapp.test-cloud-manager"
     },
     "cvsInformation": "https://services.cloud.netapp.com",
@@ -95,7 +95,7 @@ The JSON output example includes the supported services information. You can loc
     },
     "complianceEnabled": false,
     "ipaServiceInformation": {
-        "url": "https://cloudmanager.cloud.netapp.com/ipa"
+        "url": "https://api.bluexp.netapp.com/ipa"
     },
     "servicesInformation": {
         "compliance": {
@@ -114,7 +114,7 @@ The JSON output example includes the supported services information. You can loc
             "enabled": false,
             "govSupported": true,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/monitoring/index.html",
-            "apiUrl": "https://cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://api.bluexp.netapp.com"
         },
         "astra": {
             "enabled": true,
@@ -125,7 +125,7 @@ The JSON output example includes the supported services information. You can loc
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_gfc/index.html",
             "dashboardUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_gfc/index.html",
             "enabled": false,
-            "apiUrl": "https://cloudmanager.cloud.netapp.com",
+            "apiUrl": "https://api.bluexp.netapp.com",
             "govSupported": false
         },
         "cloudTiering": {
@@ -139,19 +139,19 @@ The JSON output example includes the supported services information. You can loc
             "enabled": false,
             "govSupported": false,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_snapcenter/index.html",
-            "apiUrl": "https://cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://api.bluexp.netapp.com"
         },
         "k8s": {
             "enabled": false,
             "govSupported": false,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_k8s/index.html",
-            "apiUrl": "https://cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://api.bluexp.netapp.com"
         },
         "spot": {
             "enabled": true,
             "govSupported": false,
             "iframeUrl": "https://dev-components.cloudmanager.netapp.com/cloudmanager_spot/index.html",
-            "apiUrl": "https://cloudmanager.cloud.netapp.com"
+            "apiUrl": "https://api.bluexp.netapp.com"
         },
         "sfr": {
             "enabled": false,

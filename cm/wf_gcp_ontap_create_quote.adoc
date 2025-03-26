@@ -45,7 +45,7 @@ Perform the link:wf_gcp_cloud_md_get_disk_types.html#get-gcp-disk-types-for-sing
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/vsa/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/vsa/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 
@@ -109,7 +109,7 @@ Perform the link:wf_gcp_cloud_md_get_disk_types.html#get-gcp-disk-types-for-high
 
 curl example::
 [source,curl]
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/occm/api/gcp/ha/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
+curl --location --request POST 'https://api.bluexp.netapp.com/occm/api/gcp/ha/volumes/quote' --header 'Content-Type: application/json' --header 'x-agent-id: <AGENT_ID> --header 'Authorization: Bearer <ACCESS_TOKEN>' --d @JSONinput
 
 Input::
 

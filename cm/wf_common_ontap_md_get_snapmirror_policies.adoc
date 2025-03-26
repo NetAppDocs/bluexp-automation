@@ -32,7 +32,7 @@ Perform the workflow link:wf_aws_cloud_get_wes.html[Get working environments] an
 .Curl example
 [source,curl]
 curl --request GET \
---location "https://cloudmanager.cloud.netapp.com/occm/api/replication/metadata/snapmirror-policies/<WORKING_ENV_ID>/<DEST_WORKING_ENV_ID>" \
+--location "https://api.bluexp.netapp.com/occm/api/replication/metadata/snapmirror-policies/<WORKING_ENV_ID>/<DEST_WORKING_ENV_ID>" \
 --header "x-agent-id: <AGENT_ID>" \
 --header "Authorization: Bearer <ACCESS_TOKEN>" \
 --header "Content-Type: application/json"
