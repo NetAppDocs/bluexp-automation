@@ -40,17 +40,21 @@ indexpage:
           url: /cm/wf_common_before.html
     - title: Platform services
       links:
+       - title: Accounts (tenancy)
+         url: /tenancy/overview.html
        - title: Audit
          url: /audit/overview.html
-       - title: BlueXP digital wallet
+       - title: Backup and recovery
+         url: /cbs/overview.html
+       - title: Copy and sync
+         url: /copysync/overview.html
+       - title: Credentials
+         url: /credential/overview.html
+       - title: Digital wallet
          url: /dw/overview.html
        - title: IPA
          url: /ipa/overview.html
-       - title: Accounts (tenancy)
-         url: /tenancy/overview.html
-       - title: Credentials
-         url: /credential/overview.html
-       - title: BlueXP identity and access management (IAM)
+       - title: Identity and access management (IAM)
          url: /tenancyv4/overview.html
     - title: More resources
       links:
