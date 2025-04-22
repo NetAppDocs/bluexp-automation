@@ -1387,6 +1387,15 @@ This section describes existing data format definitions.
 |ontapEncryptionDefined||true|boolean|
 |===
 
+=== CreateAzureSvmRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|svmName||true|string|
+|svmPassword|Optional password for SVM vsadmin user|false|string|
+|mgmtLif|Create management lif for SVM|true|boolean|
+|===
+
 === CreateAzureVSAWorkingEnvironmentRequest
 [options="header"]
 |===
@@ -1584,6 +1593,7 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |svmName||true|string|
 |svmPassword|Optional password for SVM vsadmin user|false|string|
+|mgmtLif|Create management lif for SVM|true|boolean|
 |===
 
 === CreateVSAWorkingEnvironmentRequest
