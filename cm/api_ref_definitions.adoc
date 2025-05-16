@@ -1772,6 +1772,7 @@ This section describes existing data format definitions.
 |recoverable||true|boolean|
 |byol||true|boolean|
 |registered||true|boolean|
+|isDirectMarketplace||true|boolean|
 |===
 
 === DiscoveredAzureVSAResponse
@@ -2080,9 +2081,10 @@ This section describes existing data format definitions.
 [options="header"]
 |===
 |Name|Description|Required|Schema|Default
-|clusterFloatingIP||true|string|
-|dataFloatingIP||true|string|
-|dataFloatingIP2||true|string|
+|clusterFloatingIP||false|string|
+|dataFloatingIP||false|string|
+|dataFloatingIP2||false|string|
+|svmFloatingIP||false|string|
 |===
 
 === AwsHaFloatingIpValidationData:FloatingIps
@@ -2182,6 +2184,8 @@ This section describes existing data format definitions.
 |name||true|string|
 |location||true|string|
 |storageClass||true|string|
+|kmsKeyName||true|string|
+|labels||true|Map[string,string]|
 |===
 
 === GcpCloudBackupSetupRequest
@@ -4237,7 +4241,7 @@ This section describes existing data format definitions.
 |elasticVolumeSupportedAndEnabled||true|boolean|
 |wormWithComposeSupported||true|boolean|
 |wormWithBackupSupported||true|boolean|
-|isAzureHaManagedDisksSupported||true|boolean|
+|azureHaManagedDisksSupported||true|boolean|
 |awsLocalZones||true|boolean|
 |isAzureFlashcacheSupported||true|boolean|
 |isAzureZonalSupported||true|boolean|
