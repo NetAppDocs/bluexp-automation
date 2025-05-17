@@ -1,5 +1,4 @@
 ---
-jekyll: jquery-update
 settings:
   name: API
   harmony_integration: maestro
