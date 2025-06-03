@@ -3,7 +3,7 @@ paths:
   "/organizations/{organization_id}/domains":
     get:
       x-doc:
-        title: List domains
+        title: List domains 
         category: Domain
         filename: get-organizations-domains.html
         subcategory: 
@@ -78,3 +78,4 @@ paths:
         category: Unmigrated Connection
         filename: patch-unmigratedconnections-.html
         subcategory: 
+
