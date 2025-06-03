@@ -1,0 +1,2740 @@
+components:
+    parameters:
+        continue:
+            description: |-
+                Indicates the token to resume from when listing a collection.
+
+
+                URL examples: "continue=[Continue Token from Collection Metadata]"
+
+
+                OpenAPI examples: "[Continue Token from Collection Metadata]"
+            in: query
+            name: continue
+            schema:
+                $ref: '#/components/schemas/query_continue'
+        count:
+            description: |-
+                Indicates if the total number of resources should be returned in the response object.
+
+
+                URL examples: "count=true"
+
+
+                OpenAPI examples: "true"
+            in: query
+            name: count
+            schema:
+                $ref: '#/components/schemas/query_count'
+        filter:
+            description: |-
+                Specifies which fields should be matched in order to return a resource when listing a collection.
+
+
+                Supported operators:
+                * eq - Equality
+                * lt/gt - Less than/greater than
+                * lte/gte - Less than or equal to/greater than or equal to
+
+
+                URL example: "filter=field%20eq%20%27value%27"
+
+
+                OpenAPI examples: "field eq 'value'"
+            in: query
+            name: filter
+            schema:
+                $ref: '#/components/schemas/query_filter'
+        include:
+            description: |-
+                Specifies which fields should be returned when listing a collection.
+
+
+                URL examples: "include=id", "include=id,name"
+
+
+                OpenAPI examples: "id"
+            in: query
+            name: include
+            schema:
+                $ref: '#/components/schemas/query_include'
+        limit:
+            description: |-
+                Specifies the maximum number of resources to return when listing a collection.
+
+
+                URL examples: "limit=2"
+
+
+                OpenAPI examples: "2"
+            in: query
+            name: limit
+            schema:
+                $ref: '#/components/schemas/query_limit'
+        order_by:
+            description: |-
+                Indicates the sort order of resources when listing a collection.
+
+
+                URL examples: "orderBy=name", "orderBy=name%20desc"
+
+
+                OpenAPI examples: "name desc"
+            in: query
+            name: orderBy
+            schema:
+                $ref: '#/components/schemas/query_order_by'
+        organization_id:
+            description: Identifier for an organization.
+            in: path
+            name: organization_id
+            required: true
+            schema:
+                format: uuid
+                type: string
+        skip:
+            description: |-
+                Specifies the number of resources to skip when listing a collection.
+
+
+                URL examples: "skip=1"
+
+
+                OpenAPI examples: "1"
+            in: query
+            name: skip
+            schema:
+                $ref: '#/components/schemas/query_skip'
+    responses:
+        400BadRequest:
+            content:
+                application/vnd.netapp.bxp.problem+json:
+                    example:
+                        detail: The supplied query parameters are invalid.
+                        status: "400"
+                        title: Invalid query parameters
+                        type: https://bluexp.netapp.io/problems/1
+                    schema:
+                        $ref: '#/components/schemas/type_bxp_problem_detail'
+            description: Bad Request
+        401Unauthorized:
+            content:
+                application/vnd.netapp.bxp.problem+json:
+                    example:
+                        detail: The request is missing the required bearer token.
+                        status: "401"
+                        title: Missing bearer token
+                        type: https://bluexp.netapp.io/problems/1
+                    schema:
+                        $ref: '#/components/schemas/type_bxp_problem_detail'
+            description: Unauthorized
+        403Forbidden:
+            content:
+                application/vnd.netapp.bxp.problem+json:
+                    example:
+                        detail: The requested operation isn't permitted.
+                        status: "403"
+                        title: Operation not permitted
+                        type: https://bluexp.netapp.io/problems/11
+                    schema:
+                        $ref: '#/components/schemas/type_bxp_problem_detail'
+            description: Forbidden
+        404NotFound:
+            content:
+                application/vnd.netapp.bxp.problem+json:
+                    example:
+                        detail: The collection specified in the request URI wasn't found.
+                        status: "404"
+                        title: Collection not found
+                        type: https://bluexp.netapp.io/problems/2
+                    schema:
+                        $ref: '#/components/schemas/type_bxp_problem_detail'
+            description: Not Found
+        409Conflict:
+            content:
+                application/vnd.netapp.bxp.problem+json:
+                    example:
+                        detail: The request body JSON contains a field that conflicts with an idempotent value.
+                        status: "409"
+                        title: JSON resource conflict
+                        type: https://bluexp.netapp.io/problems/10
+                    schema:
+                        $ref: '#/components/schemas/type_bxp_problem_detail'
+            description: Conflict
+    schemas:
+        connection_1.0_get_response_body:
+            properties:
+                domains:
+                    description: Array of email domain names that are associated with the connection.
+                    example:
+                        - example.com
+                        - example2.com
+                    items:
+                        type: string
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                id:
+                    description: The ID of the Auth0 connection.
+                    example: con_jxQFVfPHKSdiwoxs
+                    type: string
+                name:
+                    description: The name of the Auth0 connection.
+                    example: fed-example-com-waad
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.connection
+                    example: application/vnd.netapp.bxp.connection
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            type: object
+        connection_1.0_list_response_body:
+            properties:
+                count:
+                    description: Total number of resources in the collection that match the query.
+                    example: 1
+                    format: int64
+                    minimum: 0
+                    type: integer
+                items:
+                    items:
+                        $ref: '#/components/schemas/connection_1.0_get_response_body'
+                    type: array
+                    uniqueItems: true
+            required:
+                - items
+            type: object
+        connection_1.0_patch_request_body:
+            additionalProperties: false
+            properties:
+                stateDesired:
+                    description: |-
+                        The desired state of the connection. Defined values are:
+                        * "SYNCED" - The connection is synced with Auth0.
+                    enum:
+                        - SYNCED
+                    example: SYNCED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.connection
+                    example: application/vnd.netapp.bxp.connection
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            required:
+                - type
+                - version
+                - stateDesired
+            type: object
+        connection_1.0_patch_response_body:
+            properties:
+                domains:
+                    description: Array of email domain names that are associated with the connection.
+                    example:
+                        - example.com
+                        - example2.com
+                    items:
+                        type: string
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                id:
+                    description: The ID of the Auth0 connection.
+                    example: con_jxQFVfPHKSdiwoxs
+                    type: string
+                name:
+                    description: The name of the Auth0 connection.
+                    example: fed-example-com-waad
+                    type: string
+                state:
+                    description: |-
+                        The state of the connection. Defined values are:
+                        * "SYNCED" - The connection is synced with Auth0.
+                    enum:
+                        - SYNCED
+                    example: SYNCED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.connection
+                    example: application/vnd.netapp.bxp.connection
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            type: object
+        domain_1.0_get_response_body:
+            properties:
+                code:
+                    description: The unique verification code for this domain.
+                    example: BlueXP133ad2ea-99de-4ada-9be4-876d4d53923e
+                    type: string
+                federations:
+                    description: The list of federations that use this domain.
+                    example:
+                        - id: 4336388b-2992-43af-81de-ba9284b7dc36
+                          name: Example Co. AD FS
+                        - id: 645eae30-ea32-4542-af58-1d9012fed81a
+                          name: Example Co. SAML
+                    items:
+                        properties:
+                            id:
+                                description: Globally unique identifier of the resource conforming to the UUIDv4 schema.
+                                example: 4336388b-2992-43af-81de-ba9284b7dc36
+                                format: uuid
+                                type: string
+                            name:
+                                description: The name of the federation.
+                                example: Example Co.
+                                type: string
+                        type: object
+                    type: array
+                    uniqueItems: true
+                id:
+                    description: Globally unique identifier of the resource conforming to the UUIDv4 schema.
+                    example: 4336388b-2992-43af-81de-ba9284b7dc36
+                    format: uuid
+                    type: string
+                metadata:
+                    $ref: '#/components/schemas/type_bxp_metadata'
+                name:
+                    description: The domain name.
+                    example: example.com
+                    type: string
+                organizationId:
+                    description: Identifier for an organization.
+                    example: 9b0ee210-70a0-4158-b025-0decde66e4de
+                    format: uuid
+                    type: string
+                resourceId:
+                    description: Identifier for the resource.
+                    example: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                    format: uuid
+                    type: string
+                state:
+                    description: |-
+                        The state of the domain.
+                        Defined values are:
+                        * "UNVERIFIED" - Ownership of the domain has not been verified.
+                        * "VERIFIED" - Ownership of the domain has been verified using a DNS TXT record with the verification code.
+                    enum:
+                        - UNVERIFIED
+                        - VERIFIED
+                    example: VERIFIED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.domain
+                    example: application/vnd.netapp.bxp.domain
+                    type: string
+                verificationTimestamp:
+                    description: The date that the domain was verified.
+                    example: "2024-11-18T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            type: object
+        domain_1.0_list_response_body:
+            properties:
+                count:
+                    description: Total number of resources in the collection that match the query.
+                    example: 1
+                    format: int64
+                    minimum: 0
+                    type: integer
+                items:
+                    items:
+                        $ref: '#/components/schemas/domain_1.0_get_response_body'
+                    type: array
+                    uniqueItems: true
+            required:
+                - items
+            type: object
+        domain_1.0_patch_request_body:
+            additionalProperties: false
+            properties:
+                stateDesired:
+                    description: The desired state of the domain.
+                    enum:
+                        - VERIFIED
+                    example: VERIFIED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.domain
+                    example: application/vnd.netapp.bxp.domain
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            required:
+                - type
+                - version
+                - stateDesired
+            type: object
+        domain_1.0_post_request_body:
+            additionalProperties: false
+            properties:
+                name:
+                    description: The domain name.
+                    example: example.com
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.domain
+                    example: application/vnd.netapp.bxp.domain
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            required:
+                - type
+                - version
+                - name
+            type: object
+        federation_1.0_adfs_request_options:
+            description: "Active Directory Federation Services (AD FS) configuration options when `providerType=ADFS`. \nEither `metadataUrl` or `metadataFile` must be provided."
+            properties:
+                metadataFile:
+                    description: JSON escaped contents of the Federation metadata XML file.
+                    example: |-
+                        <?xml version="1.0"?>
+                        <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"...
+                    type: string
+                metadataUrl:
+                    description: AD FS server URL for the Federation metadata XML file.
+                    example: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                    type: string
+            type: object
+        federation_1.0_adfs_response_options:
+            description: Active Directory Federation Services (AD FS) configuration options when `providerType=ADFS`.
+            properties:
+                metadataUrl:
+                    description: AD FS server URL for the Federation metadata XML file.
+                    example: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                    type: string
+                signingCertificateFingerprint:
+                    description: The SHA-1 fingerprint of the X.509 signing certificate if the metadata XML file was provided.
+                    example: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                    type: string
+            type: object
+        federation_1.0_entraid_patch_request_options:
+            description: Microsoft Entra ID (formerly Azure Active Directory) configuration options when `providerType=ENTRAID`.
+            properties:
+                clientId:
+                    description: Entra ID client ID.
+                    example: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                    type: string
+                clientSecret:
+                    description: Entra ID client secret.
+                    example: qPz:*1SAcqLjpP=QzMeeHD=[mWcF5u
+                    type: string
+                tenantDomain:
+                    description: Entra ID domain.
+                    example: example.onmicrosoft.com
+                    type: string
+            type: object
+        federation_1.0_entraid_post_request_options:
+            description: Microsoft Entra ID (formerly Azure Active Directory) configuration options when `providerType=ENTRAID`.
+            properties:
+                clientId:
+                    description: Entra ID client ID.
+                    example: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                    type: string
+                clientSecret:
+                    description: Entra ID client secret.
+                    example: qPz:*1SAcqLjpP=QzMeeHD=[mWcF5u
+                    type: string
+                tenantDomain:
+                    description: Entra ID domain.
+                    example: example.onmicrosoft.com
+                    type: string
+            required:
+                - clientId
+                - clientSecret
+                - tenantDomain
+            type: object
+        federation_1.0_entraid_response_options:
+            description: Microsoft Entra ID (formerly Azure Active Directory) configuration options when `providerType=ENTRAID`.
+            properties:
+                clientId:
+                    description: Entra ID client ID.
+                    example: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                    type: string
+                clientSecretMasked:
+                    description: Partially masked Entra ID client secret.
+                    example: qPz*******
+                    type: string
+                tenantDomain:
+                    description: Entra ID domain.
+                    example: example.onmicrosoft.com
+                    type: string
+            type: object
+        federation_1.0_get_response_body:
+            properties:
+                adfsOptions:
+                    $ref: '#/components/schemas/federation_1.0_adfs_response_options'
+                auth0Id:
+                    description: The ID of the connection in Auth0.
+                    example: con_jxQFVfPHKSdiwoxs
+                    type: string
+                auth0Name:
+                    description: The name of the connection in Auth0.
+                    example: fed-example-com-waad
+                    type: string
+                domains:
+                    description: Array of email domain names that are associated with the federation.
+                    example:
+                        - example.com
+                        - example2.com
+                    items:
+                        type: string
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                entraIdOptions:
+                    $ref: '#/components/schemas/federation_1.0_entraid_response_options'
+                expirationNotificationPeriod:
+                    description: |-
+                        The time period when expiration notifications are generated. Defined values are:
+                        * "P7D" - Notifications are sent daily 7 days before expiration.
+                        * "P30D" - Notifications are sent weekly 30 days before expiration. Notifications are sent daily 7 days before expiration.
+                    enum:
+                        - P7D
+                        - P30D
+                    example: P30D
+                    type: string
+                expirationTimestamp:
+                    description: |-
+                        The date that the credentials or certificate expires. When a certificate is provided, the value is set to
+                        the certificate's expiration timestamp.
+                    example: "2024-11-18T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                id:
+                    description: Globally unique identifier of the resource conforming to the UUIDv4 schema.
+                    example: 4336388b-2992-43af-81de-ba9284b7dc36
+                    format: uuid
+                    type: string
+                metadata:
+                    $ref: '#/components/schemas/type_bxp_metadata'
+                name:
+                    description: The name of the federation.
+                    example: Example Co.
+                    type: string
+                organizationId:
+                    description: Identifier for an organization.
+                    example: 9b0ee210-70a0-4158-b025-0decde66e4de
+                    format: uuid
+                    type: string
+                pingFederateOptions:
+                    $ref: '#/components/schemas/federation_1.0_pingfederate_response_options'
+                providerType:
+                    description: |-
+                        The type of the identity provider. Defined values are:
+                        * "ADFS" - Active Directory Federation Services
+                        * "ENTRAID" - Microsoft Entra ID (formerly Azure Active Directory)
+                        * "PINGFEDERATE" - PingFederate
+                        * "SAML" - Security Assertion Markup Language 2.0
+                    enum:
+                        - ADFS
+                        - ENTRAID
+                        - PINGFEDERATE
+                        - SAML
+                    example: ENTRAID
+                    type: string
+                resourceId:
+                    description: Identifier for the resource.
+                    example: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                    format: uuid
+                    type: string
+                samlOptions:
+                    $ref: '#/components/schemas/federation_1.0_saml_response_options'
+                state:
+                    description: |-
+                        The state of the federation. Defined values are:
+                        * "DRAFT" - The federation is partially configured.
+                        * "CREATED" - The federation is configured but not tested.
+                        * "TESTED" - The federation has been successfully tested.
+                        * "ENABLED" - The federation is enabled.
+                        * "DISABLED" - The federation is disabled.
+                    enum:
+                        - DRAFT
+                        - CREATED
+                        - TESTED
+                        - ENABLED
+                        - DISABLED
+                    example: ENABLED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.federation
+                    example: application/vnd.netapp.bxp.federation
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            type: object
+        federation_1.0_list_response_body:
+            properties:
+                count:
+                    description: Total number of resources in the collection that match the query.
+                    example: 1
+                    format: int64
+                    minimum: 0
+                    type: integer
+                items:
+                    items:
+                        $ref: '#/components/schemas/federation_1.0_get_response_body'
+                    type: array
+                    uniqueItems: true
+            required:
+                - items
+            type: object
+        federation_1.0_patch_request_body:
+            additionalProperties: false
+            properties:
+                adfsOptions:
+                    $ref: '#/components/schemas/federation_1.0_adfs_request_options'
+                domains:
+                    description: "Array of email domain names that are associated with the federation. \n<br/>All previously configured domains must be included in the request body when updating the `domains` \nfield or they will be removed. Previously configured domains do not need to be in a `VERIFIED` state.\n<br/>\nIf a domain matches the user's email address or is an Entra ID `*.onmicrosoft.com` tenant domain, then it\ndoes not need to be in a `VERIFIED` state. All other domains must be added to the domains\ncollection and in a `VERIFIED` state."
+                    example:
+                        - example.com
+                        - example2.com
+                    items:
+                        type: string
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                entraIdOptions:
+                    $ref: '#/components/schemas/federation_1.0_entraid_patch_request_options'
+                expirationNotificationPeriod:
+                    description: |-
+                        The time period when expiration notifications are generated. Defined values are:
+                        * "P7D" - Notifications are sent daily 7 days before expiration.
+                        * "P30D" - Notifications are sent weekly 30 days before expiration. Notifications are sent daily 7 days before expiration.
+                    enum:
+                        - P7D
+                        - P30D
+                    example: P30D
+                    type: string
+                expirationTimestamp:
+                    description: "The date that the credentials expire. This is only applicable when `providerType=ENTRAID`. When a \ncertificate is provided for other provider types, the value is set to the certificate's expiration timestamp."
+                    example: "2024-11-18T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                name:
+                    description: The name of the federation.
+                    example: Example Co.
+                    type: string
+                pingFederateOptions:
+                    $ref: '#/components/schemas/federation_1.0_pingfederate_patch_request_options'
+                providerType:
+                    description: |-
+                        The type of the identity provider. Defined values are:
+                        * "ADFS" - Active Directory Federation Services
+                        * "ENTRAID" - Microsoft Entra ID (formerly Azure Active Directory)
+                        * "PINGFEDERATE" - PingFederate
+                        * "SAML" - Security Assertion Markup Language 2.0
+                    enum:
+                        - ADFS
+                        - ENTRAID
+                        - PINGFEDERATE
+                        - SAML
+                    example: ENTRAID
+                    type: string
+                samlOptions:
+                    $ref: '#/components/schemas/federation_1.0_saml_patch_request_options'
+                stateDesired:
+                    description: |-
+                        The desired state of the federation. Defined values are:
+                        * "DRAFT" - The federation is partially configured.
+                        * "CREATED" - The federation is configured but not tested.
+                        * "TESTED" - The federation has been successfully tested.
+                        * "ENABLED" - The federation is enabled.
+                        * "DISABLED" - The federation is disabled.
+                    enum:
+                        - DRAFT
+                        - CREATED
+                        - TESTED
+                        - ENABLED
+                        - DISABLED
+                    example: ENABLED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.federation
+                    example: application/vnd.netapp.bxp.federation
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            required:
+                - type
+                - version
+            type: object
+        federation_1.0_pingfederate_patch_request_options:
+            description: PingFederate configuration options when `providerType=PINGFEDERATE`.
+            properties:
+                serverUrl:
+                    description: PingFederate server URL.
+                    example: https://example.com/saml/signin
+                    type: string
+                signingCertificate:
+                    description: X.509 Signing certificate in PEM or CER format converted to a string with escaped new-line characters (`\n`).
+                    example: |-
+                        -----BEGIN CERTIFICATE-----
+                        MIIC+jCCAeKgAwIBAgIJM...
+                    type: string
+            type: object
+        federation_1.0_pingfederate_post_request_options:
+            description: PingFederate configuration options when `providerType=PINGFEDERATE`.
+            properties:
+                serverUrl:
+                    description: PingFederate server URL.
+                    example: https://example.com/saml/signin
+                    type: string
+                signingCertificate:
+                    description: X.509 signing certificate in PEM or CER format converted to a string with escaped new-line characters (`\n`).
+                    example: |-
+                        -----BEGIN CERTIFICATE-----
+                        MIIC+jCCAeKgAwIBAgIJM...
+                    type: string
+            required:
+                - serverUrl
+                - signingCertificate
+            type: object
+        federation_1.0_pingfederate_response_options:
+            description: PingFederate configuration options when `providerType=PINGFEDERATE`.
+            properties:
+                serverUrl:
+                    description: PingFederate server URL.
+                    example: https://example.com/saml/signin
+                    type: string
+                signingCertificateFingerprint:
+                    description: The SHA-1 fingerprint of the X.509 Signing certificate.
+                    example: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                    type: string
+            type: object
+        federation_1.0_post_request_body:
+            additionalProperties: false
+            properties:
+                adfsOptions:
+                    $ref: '#/components/schemas/federation_1.0_adfs_request_options'
+                domains:
+                    description: "Array of email domain names that are associated with the federation.\n<br/>\nIf a domain matches the user's email address or is an Entra ID `*.onmicrosoft.com` tenant domain, then it \ndoes not need to be in a `VERIFIED` state. All other domains must be added to the domains \ncollection and in a `VERIFIED` state."
+                    example:
+                        - example.com
+                        - example2.com
+                    items:
+                        type: string
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                entraIdOptions:
+                    $ref: '#/components/schemas/federation_1.0_entraid_post_request_options'
+                expirationNotificationPeriod:
+                    description: |-
+                        The time period when expiration notifications are generated. Defined values are:
+                        * "P7D" - Notifications are sent daily 7 days before expiration.
+                        * "P30D" - Notifications are sent weekly 30 days before expiration. Notifications are sent daily 7 days before expiration.
+                    enum:
+                        - P7D
+                        - P30D
+                    example: P30D
+                    type: string
+                expirationTimestamp:
+                    description: "The date that the credentials expire. This is only applicable when `providerType=ENTRAID`. When a \ncertificate is provided for other provider types, the value is set to the certificate's expiration timestamp."
+                    example: "2024-11-18T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                name:
+                    description: The name of the federation.
+                    example: Example Co.
+                    type: string
+                pingFederateOptions:
+                    $ref: '#/components/schemas/federation_1.0_pingfederate_post_request_options'
+                providerType:
+                    description: |-
+                        The type of the identity provider. Defined values are:
+                        * "ADFS" - Active Directory Federation Services
+                        * "ENTRAID" - Microsoft Entra ID (formerly Azure Active Directory)
+                        * "PINGFEDERATE" - PingFederate
+                        * "SAML" - Security Assertion Markup Language 2.0
+                    enum:
+                        - ADFS
+                        - ENTRAID
+                        - PINGFEDERATE
+                        - SAML
+                    example: ENTRAID
+                    type: string
+                samlOptions:
+                    $ref: '#/components/schemas/federation_1.0_saml_post_request_options'
+                state:
+                    description: |-
+                        The state of the federation. Defined values are:
+                        * "DRAFT" - The federation is partially configured.
+                        * "CREATED" - The federation is configured but not tested.
+                    enum:
+                        - DRAFT
+                        - CREATED
+                    example: CREATED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.federation
+                    example: application/vnd.netapp.bxp.federation
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            required:
+                - type
+                - version
+                - name
+                - state
+                - domains
+            type: object
+        federation_1.0_saml_patch_request_options:
+            description: SAML configuration options when `providerType=SAML`.
+            properties:
+                signInUrl:
+                    description: SAML single login URL.
+                    example: https://example.com/saml/signin
+                    type: string
+                signOutUrl:
+                    description: SAML single logout URL.
+                    example: https://example.com/saml/signout
+                    type: string
+                signingCertificate:
+                    description: X.509 signing certificate in PEM or CER format converted to a string with escaped new-line characters (`\n`).
+                    example: |-
+                        -----BEGIN CERTIFICATE-----
+                        MIIC+jCCAeKgAwIBAgIJM...
+                    type: string
+            type: object
+        federation_1.0_saml_post_request_options:
+            description: SAML configuration options when `providerType=SAML`.
+            properties:
+                signInUrl:
+                    description: SAML single login URL.
+                    example: https://example.com/saml/signin
+                    type: string
+                signOutUrl:
+                    description: SAML single logout URL.
+                    example: https://example.com/saml/signout
+                    type: string
+                signingCertificate:
+                    description: X.509 signing certificate in PEM or CER format converted to a string with escaped new-line characters (`\n`).
+                    example: |-
+                        -----BEGIN CERTIFICATE-----
+                        MIIC+jCCAeKgAwIBAgIJM...
+                    type: string
+            required:
+                - signInUrl
+                - signingCertificate
+            type: object
+        federation_1.0_saml_response_options:
+            description: SAML configuration options when `providerType=SAML`.
+            properties:
+                signInUrl:
+                    description: SAML single login URL.
+                    example: https://example.com/saml/signin
+                    type: string
+                signOutUrl:
+                    description: SAML single logout URL.
+                    example: https://example.com/saml/signout
+                    type: string
+                signingCertificateFingerprint:
+                    description: The SHA-1 fingerprint of the X.509 Signing certificate.
+                    example: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                    type: string
+            type: object
+        query_continue:
+            description: Format of the continue query parameter.
+            pattern: ^([A-Za-z0-9+/]{4})*(([A-Za-z0-9+/]{2})==|([A-Za-z0-9+/]{3})=)?$
+            type: string
+            x-common: true
+        query_count:
+            description: Format of the count query parameter.
+            pattern: ^true$
+            type: string
+            x-common: true
+        query_filter:
+            description: Format of the filter query parameter.
+            pattern: ^(([0-9a-zA-Z]+(\[\*\])?)((\.[0-9a-zA-Z]+(\[\*\])?)+)? (eq|lt|gt|lte|gte|in) '([0-9a-zA-Z.,-_:@ {}\"])+')(,(\1))*$
+            type: string
+            x-common: true
+        query_include:
+            description: Format of the include query parameter.
+            pattern: ^([0-9a-zA-Z]+)(,[0-9a-zA-Z]+)*$
+            type: string
+            x-common: true
+        query_limit:
+            description: Format of the limit query parameter.
+            pattern: ^([1-9][0-9]*)$
+            type: string
+            x-common: true
+        query_order_by:
+            description: Format of the order_by query parameter.
+            pattern: ^(([0-9a-zA-Z]+)( desc)?)$
+            type: string
+            x-common: true
+        query_skip:
+            description: Format of the skip query parameter.
+            pattern: ^([1-9][0-9]*)$
+            type: string
+            x-common: true
+        type_bxp_api_relative_uri:
+            description: String describing a relative URI.
+            pattern: ^(\/([-0-9a-zA-Z])+)+$
+            type: string
+            x-common: true
+        type_bxp_identifier:
+            description: |-
+                JSON string containing a Resource ID.
+                Defined values are: * Conforms to the UUIDv4 Schema
+            example: 666a3f38-d4fa-5b62-a391-a69029758d32
+            format: uuid
+            type: string
+            x-common: true
+        type_bxp_invalid_reason:
+            properties:
+                details:
+                    description: |
+                        The description of the invalid reasons. The possible values are:
+                        1. CERT_NOT_YET_VALID: The certificate is not yet valid.
+                        2. CERT_HOST_MISMATCH: The host name does not match the CN or subject alt name.
+                        3. CERT_WEAK_ENCRYPTION_KEY_SIZE: The certificate has weak encryption key size.
+                        4. CERT_CHAIN_BROKEN: The certificate chain is broken.
+                        5. CERT_INVALID_SIGNATURE: The certificate has an invalid signature.
+                        6. OTHER: Any other invalid reason.
+                    example: Host name is not matching with CN or subject alt name
+                    type: string
+                error:
+                    description: The error enum value for the invalid certificate.
+                    enum:
+                        - CERT_NOT_YET_VALID
+                        - CERT_HOST_MISMATCH
+                        - CERT_WEAK_ENCRYPTION_KEY_SIZE
+                        - CERT_CHAIN_BROKEN
+                        - CERT_INVALID_SIGNATURE
+                        - OTHER
+                    example: CERT_HOST_MISMATCH
+                    type: string
+            type: object
+            x-common: true
+        type_bxp_label:
+            description: Name/value pair.
+            example:
+                name: secure
+                value: "true"
+            properties:
+                name:
+                    type: string
+                value:
+                    type: string
+            required:
+                - name
+                - value
+            type: object
+            x-common: true
+        type_bxp_labels:
+            description: JSON Array of Name/value pairs.
+            example:
+                - name: secure
+                  value: "true"
+            items:
+                $ref: '#/components/schemas/type_bxp_label'
+            type: array
+            uniqueItems: true
+            x-common: true
+        type_bxp_link:
+            description: Link relationship
+            properties:
+                hints:
+                    properties:
+                        accept-post:
+                            description: Provides details about which media types are accepted when creating a resource.
+                            type: object
+                        accept-put:
+                            description: Indicates details about what media types are accepted when updating a resource.
+                            type: object
+                        allow:
+                            description: |-
+                                An array of methods that can be used to interact with the link target.
+
+                                Defined values for collections:
+
+                                "POST" - Indicates if new resources can be created in the collection.
+                                Defined values for resources:
+
+                                "PUT" - Indicates if the resource can be modified
+                                "DELETE" - Indicates if the resource can be deleted
+                            items:
+                                enum:
+                                    - POST
+                                    - GET
+                                    - PUT
+                                    - DELETE
+                                type: string
+                            type: array
+                        permissions:
+                            description: List of the permissions required to use the link.
+                            items:
+                                pattern: ^([a-z]([a-zA-Z])*)(-[a-z]([a-zA-Z])*){1,2}$
+                                type: string
+                            type: array
+                        status:
+                            description: |-
+                                Indicates if the target of the link is deprecated.
+
+                                Defined values are:
+
+                                "deprecated"
+                            enum:
+                                - deprecated
+                            type: string
+                    type: object
+                href:
+                    $ref: '#/components/schemas/type_bxp_api_relative_uri'
+                rel:
+                    description: The type of relationship for the link. Values are defined in the IANA Link Relationships registry, or an extension relationship type as specified in section 2.1.2 of RFC 8288.
+                    enum:
+                        - self
+                        - canonical
+                        - collection
+                        - up
+                        - related
+                        - service-doc
+                        - service-desc
+                    type: string
+                targetSchema:
+                    description: |-
+                        Link to a JSON schema that can be used to validate the target of the link (response body).
+
+                        The preferred format is a $ref link to an external schema.
+
+                        This field is optional and should only be included when there is a known schema for the target of the href.
+
+                        See https://json-schema.org/draft/2019-09/json-schema-hypermedia.html#rfc.section.9.2 for more details.
+                    type: object
+                title:
+                    description: |-
+                        Label of a link such that it can be used as a human-readable identifier (e.g., a menu entry).
+
+                        Minimum length: 0
+                        Maximum length: 1023
+                    maxLength: 1023
+                    minLength: 1
+                    type: string
+                type:
+                    description: |-
+                        The media type of the target of the href.
+
+                        This field is optional and should be included when there is a known media type for the target of the href.
+
+                        See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link for more details.
+                    pattern: ^((application\/vnd\.netapp(\.(([a-z])([a-zA-Z0-9]){0,30})){1,3})(-v(([0-9]){1,3}))?)$
+                    type: string
+            required:
+                - rel
+                - href
+            type: object
+            x-common: true
+        type_bxp_links:
+            description: Array of link relationships associated with the resource or ID.
+            items:
+                $ref: '#/components/schemas/type_bxp_link'
+            type: array
+            uniqueItems: true
+            x-common: true
+        type_bxp_metadata:
+            description: Metadata associated with the resource.
+            properties:
+                createdBy:
+                    description: UUID of the user who created the resource.
+                    example: 666a3f38-d4fa-5b62-a391-a69029758d32
+                    format: uuid
+                    type: string
+                creationTimestamp:
+                    description: Resource creation date.
+                    example: "2022-10-06T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                labels:
+                    description: Array of name/value pairs representing additional information for the resource.
+                    items:
+                        $ref: '#/components/schemas/type_bxp_label'
+                    type: array
+                    uniqueItems: true
+                modificationTimestamp:
+                    description: Resource modification date.
+                    example: "2022-10-06T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                modifiedBy:
+                    description: UUID of the user who modified the resource.
+                    example: 666a3f38-d4fa-5b62-a391-a69029758d32
+                    format: uuid
+                    type: string
+            type: object
+            x-common: true
+        type_bxp_metadata_list:
+            description: Metadata associated with a list of resources.
+            properties:
+                count:
+                    type: number
+                createdBy:
+                    description: UUID of the user who created the resource.
+                    example: 666a3f38-d4fa-5b62-a391-a69029758d32
+                    format: uuid
+                    type: string
+                creationTimestamp:
+                    description: Resource creation date.
+                    example: "2022-10-06T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                labels:
+                    description: Array of name/value pairs representing additional information for the resource.
+                    items:
+                        $ref: '#/components/schemas/type_bxp_label'
+                    type: array
+                    uniqueItems: true
+                modificationTimestamp:
+                    description: Resource modification date.
+                    example: "2022-10-06T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                modifiedBy:
+                    description: UUID of the user who modified the resource.
+                    example: 666a3f38-d4fa-5b62-a391-a69029758d32
+                    format: uuid
+                    type: string
+            type: object
+            x-common: true
+        type_bxp_metadata_update:
+            description: Metadata associated to an updated resource.
+            properties:
+                createdBy:
+                    description: UUID of the user who created the resource.
+                    example: 666a3f38-d4fa-5b62-a391-a69029758d32
+                    format: uuid
+                    type: string
+                creationTimestamp:
+                    description: Resource creation date.
+                    example: "2022-10-06T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                labels:
+                    description: Array of name/value pairs representing additional information for the resource.
+                    items:
+                        $ref: '#/components/schemas/type_bxp_label'
+                    type: array
+                    uniqueItems: true
+                modificationTimestamp:
+                    description: Resource modification date.
+                    example: "2022-10-06T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                modifiedBy:
+                    description: UUID of the user who modified the resource.
+                    example: 666a3f38-d4fa-5b62-a391-a69029758d32
+                    format: uuid
+                    type: string
+            type: object
+            x-common: true
+        type_bxp_problem_detail:
+            additionalProperties: true
+            description: Represents a problem detail returned by an API in case of error.
+            properties:
+                correlationId:
+                    description: Internal UUID representing the request or trace ID related.
+                    format: uuid
+                    type: string
+                detail:
+                    description: Details about the problem.
+                    enum:
+                        - The resource specified in the request URI wasn't found.
+                    type: string
+                invalidParams:
+                    description: List of invalid parameters.
+                    items:
+                        properties:
+                            name:
+                                description: Name of the invalid parameter.
+                                type: string
+                            reason:
+                                description: Reason why the parameter is invalid.
+                                type: string
+                        required:
+                            - name
+                            - reason
+                        type: object
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                status:
+                    description: HTTP error code related to the problem.
+                    enum:
+                        - "404"
+                    type: string
+                title:
+                    description: Title description of the problem.
+                    enum:
+                        - Resource not found
+                    type: string
+                type:
+                    description: Content-type of the object.
+                    enum:
+                        - https://bluexp.netapp.io/problems/1
+                    type: string
+            required:
+                - type
+                - title
+                - description
+                - status
+            type: object
+            x-common: true
+        type_bxp_state_details:
+            description: Array of all possible states and their detailed description.
+            items:
+                properties:
+                    detail:
+                        description: Detailed description for the state.
+                        maxLength: 511
+                        minLength: 1
+                        type: string
+                    title:
+                        description: Name of the state.
+                        maxLength: 40
+                        minLength: 1
+                        type: string
+                    type:
+                        description: Represents a state detail.
+                        type: string
+                required:
+                    - type
+                    - title
+                    - detail
+                type: object
+            type: array
+            uniqueItems: true
+            x-common: true
+        type_bxp_state_transitions:
+            description: Array representing the state machine associated with the object.
+            items:
+                properties:
+                    from:
+                        type: string
+                    to:
+                        items:
+                            type: string
+                        type: array
+                        uniqueItems: true
+                required:
+                    - from
+                    - to
+                type: object
+            type: array
+            uniqueItems: true
+            x-common: true
+        type_dns_1123:
+            description: Represents a Domain Name as defined in RFC 1123.
+            maxLength: 63
+            minLength: 1
+            pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+            type: string
+            x-common: true
+        type_json:
+            description: JSON Representation.
+            type: object
+            x-common: true
+        type_json_schema:
+            description: Represents a JSON Schema.
+            properties:
+                $schema:
+                    enum:
+                        - http://json-schema.org/draft-07/schema#
+                    type: string
+                additionalProperties:
+                    enum:
+                        - false
+                    type: boolean
+                properties:
+                    type: object
+                required:
+                    items:
+                        type: string
+                    type: array
+                    uniqueItems: true
+                type:
+                    enum:
+                        - object
+                    type: string
+            required:
+                - $schema
+                - type
+                - properties
+                - additionalProperties
+                - required
+            type: object
+            x-common: true
+        type_swver:
+            description: Represents a software version in the format Major.Minor.Patch .
+            pattern: ^([0-9]+)\.([0-9]+)\.([0-9]+)(\-[a-zA-Z0-9-]+)*$
+            type: string
+            x-common: true
+        unmigratedconnection_1.0_adfs_response_options:
+            description: Active Directory Federation Services (AD FS) configuration options when `providerType=ADFS`.
+            properties:
+                metadataFileProvided:
+                    description: Indicates whether the connection uses the Federation metadata XML file or the server URL.
+                    example: true
+                    type: boolean
+                metadataUrl:
+                    description: AD FS server URL for the Federation metadata XML file.
+                    example: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                    type: string
+                signInUrl:
+                    description: AD FS single login URL extracted from the Federation metadata XML file.
+                    example: https://example.com/adfs/ls/
+                    type: string
+            type: object
+        unmigratedconnection_1.0_entraid_response_options:
+            description: Microsoft Entra ID (formerly Azure Active Directory) configuration options when `providerType=ENTRAID`.
+            properties:
+                clientId:
+                    description: Entra ID client ID.
+                    example: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                    type: string
+                tenantDomain:
+                    description: Entra ID domain.
+                    example: example.onmicrosoft.com
+                    type: string
+            type: object
+        unmigratedconnection_1.0_get_response_body:
+            properties:
+                adfsOptions:
+                    $ref: '#/components/schemas/unmigratedconnection_1.0_adfs_response_options'
+                creatorUsers:
+                    description: Array of Auth0 user IDs that can manage the connection in Cloud Central.
+                    example:
+                        - auth0|680f8f5e279840afb355ab00
+                        - auth0|680f8f5e279840afb355ab11
+                    items:
+                        type: string
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                domains:
+                    description: Array of domain names that are associated with the connection.
+                    example:
+                        - example.com
+                        - example2.com
+                    items:
+                        type: string
+                    minItems: 1
+                    type: array
+                    uniqueItems: true
+                emailDomain:
+                    description: The primary email domain associated with the connection.
+                    example: example.com
+                    type: string
+                entraIdOptions:
+                    $ref: '#/components/schemas/unmigratedconnection_1.0_entraid_response_options'
+                id:
+                    description: The ID of the connection in Auth0.
+                    example: con_jxQFVfPHKSdiwoxs
+                    type: string
+                name:
+                    description: The name of the connection in Auth0.
+                    example: fed-example-com-waad
+                    type: string
+                pingFederateOptions:
+                    $ref: '#/components/schemas/unmigratedconnection_1.0_pingfederate_response_options'
+                providerType:
+                    description: |-
+                        The type of the identity provider. Defined values are:
+                        * "ADFS" - Active Directory Federation Services
+                        * "ENTRAID" - Microsoft Entra ID (formerly Azure Active Directory)
+                        * "PINGFEDERATE" - PingFederate
+                        * "SAML" - Security Assertion Markup Language 2.0
+                    enum:
+                        - ADFS
+                        - ENTRAID
+                        - PINGFEDERATE
+                        - SAML
+                    example: ENTRAID
+                    type: string
+                samlOptions:
+                    $ref: '#/components/schemas/unmigratedconnection_1.0_saml_response_options'
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.unmigratedconnection
+                    example: application/vnd.netapp.bxp.unmigratedconnection
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            type: object
+        unmigratedconnection_1.0_list_response_body:
+            properties:
+                items:
+                    items:
+                        $ref: '#/components/schemas/unmigratedconnection_1.0_get_response_body'
+                    type: array
+                    uniqueItems: true
+            required:
+                - items
+            type: object
+        unmigratedconnection_1.0_patch_request_body:
+            additionalProperties: false
+            properties:
+                expirationNotificationPeriod:
+                    description: |-
+                        The time period when expiration notifications are generated. Defined values are:
+                        * "P7D" - Notifications are sent daily 7 days before expiration.
+                        * "P30D" - Notifications are sent weekly 30 days before expiration. Notifications are sent daily 7 days before expiration.
+                    enum:
+                        - P7D
+                        - P30D
+                    example: P30D
+                    type: string
+                expirationTimestamp:
+                    description: "The date that the credentials expire. This is only applicable when `providerType=ENTRAID`. When a \ncertificate is provided for other provider types, the value is set to the certificate's expiration timestamp."
+                    example: "2024-11-18T20:58:16.305662Z"
+                    format: date-time
+                    type: string
+                name:
+                    description: The name of the federation.
+                    example: Example Co.
+                    type: string
+                organizationId:
+                    description: Identifier for an organization.
+                    example: 9b0ee210-70a0-4158-b025-0decde66e4de
+                    format: uuid
+                    type: string
+                stateDesired:
+                    description: The desired state of the connection.
+                    enum:
+                        - IMPORTED
+                    example: IMPORTED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.unmigratedconnection
+                    example: application/vnd.netapp.bxp.unmigratedconnection
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            required:
+                - type
+                - version
+                - name
+                - organizationId
+                - stateDesired
+            type: object
+        unmigratedconnection_1.0_patch_response_body:
+            properties:
+                federationId:
+                    description: Identifier of the federation that was created.
+                    example: 4336388b-2992-43af-81de-ba9284b7dc36
+                    format: uuid
+                    type: string
+                id:
+                    description: The ID of the connection in Auth0.
+                    example: con_jxQFVfPHKSdiwoxs
+                    type: string
+                organizationId:
+                    description: Identifier for an organization.
+                    example: 9b0ee210-70a0-4158-b025-0decde66e4de
+                    format: uuid
+                    type: string
+                state:
+                    description: The current state of the connection.
+                    enum:
+                        - IMPORTED
+                    example: IMPORTED
+                    type: string
+                type:
+                    description: Media type of the resource.
+                    enum:
+                        - application/vnd.netapp.bxp.unmigratedconnection
+                    example: application/vnd.netapp.bxp.unmigratedconnection
+                    type: string
+                version:
+                    description: Version of the resource.
+                    enum:
+                        - "1.0"
+                    example: "1.0"
+                    type: string
+            type: object
+        unmigratedconnection_1.0_pingfederate_response_options:
+            description: PingFederate configuration options when `providerType=PINGFEDERATE`.
+            properties:
+                serverUrl:
+                    description: PingFederate server URL.
+                    example: https://example.com/saml/signin
+                    type: string
+            type: object
+        unmigratedconnection_1.0_saml_response_options:
+            description: SAML configuration options when `providerType=SAML`.
+            properties:
+                signInUrl:
+                    description: SAML single login URL.
+                    example: https://example.com/saml/signin
+                    type: string
+            type: object
+    securitySchemes:
+        bxp_bearer_auth:
+            scheme: bearer
+            type: http
+info:
+    description: "The BlueXP federation service manages identity federation between BlueXP and customer identity providers. \nIdentity federation enables single sign-on with BlueXP so that your corporate users can log in using their credentials. \n\nThe federation service endpoints also allow a user to configure their notification settings so that they're notified \nbefore their identity provider credentials or certificates expire.\n\nThe following components are defined within the BlueXP federation service:\n<ul>\n<li>domain</li>\n<li>federation</li>\n<li>unmigrated connection</li>\n</ul>\n\nTo configure a federation, all domains that don't match the user's email address must be verified. \nDomain verification includes:\n<ol>\n<li>Adding a domain to BlueXP and receiving a unique code.</li>\n<li>Creating a DNS TXT record for the domain using the code.</li>\n<li>Verifying the domain in BlueXP.</li>\n</ol>\n\nThe federation service replaces the functionality provided through Cloud Central Federation Setup. Federations \nconfigured through Cloud Central are \"unmigrated connections\". The unmigrated connection endpoints enable you to \nnon-disruptively import a connection into a BlueXP organization and manage it through the federation service. \nAfter you import a connection, it cannot be managed through Cloud Central Federation Setup."
+    license:
+        name: BlueXP License
+    termsOfService: https://www.netapp.com/media/10784-cloud-data-services-terms.pdf
+    title: (public) Federation API
+    version: "1.0"
+openapi: 3.0.3
+paths:
+    /organizations/{organization_id}/domains:
+        get:
+            description: Lists all domains.
+            parameters:
+                - $ref: '#/components/parameters/filter'
+                - $ref: '#/components/parameters/skip'
+                - $ref: '#/components/parameters/include'
+                - $ref: '#/components/parameters/limit'
+                - $ref: '#/components/parameters/order_by'
+                - $ref: '#/components/parameters/count'
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.domains+json:
+                            schema:
+                                $ref: '#/components/schemas/domain_1.0_list_response_body'
+                    description: List of domains.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+            summary: List domains.
+            tags:
+                - Domain
+            x-permission: bxp:domain-read
+            x-persistence: true
+            x-scope: documentation,private,public
+        parameters:
+            - $ref: '#/components/parameters/organization_id'
+        post:
+            description: Creates a new domain.
+            requestBody:
+                content:
+                    application/vnd.netapp.bxp.domain+json:
+                        schema:
+                            $ref: '#/components/schemas/domain_1.0_post_request_body'
+                description: Create a new domain.
+                required: true
+            responses:
+                "201":
+                    content:
+                        application/vnd.netapp.bxp.domain+json:
+                            schema:
+                                $ref: '#/components/schemas/domain_1.0_get_response_body'
+                    description: Returns the newly created domain in the JSON response body.
+                    headers:
+                        Location:
+                            description: Location of the newly created resource.
+                            schema:
+                                format: uri
+                                type: string
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+                "409":
+                    $ref: '#/components/responses/409Conflict'
+            summary: Create a new domain.
+            tags:
+                - Domain
+            x-permission: bxp:domain-create
+            x-persistence: true
+            x-scope: documentation,private,public
+    /organizations/{organization_id}/domains/{domain_id}:
+        delete:
+            description: Deletes the specified domain.
+            responses:
+                "204":
+                    description: Indicates whether the domain was deleted.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+            summary: Delete a domain.
+            tags:
+                - Domain
+            x-permission: bxp:domain-delete
+            x-persistence: true
+            x-scope: documentation,private,public
+        get:
+            description: Retrieves the specified domain.
+            parameters:
+                - $ref: '#/components/parameters/include'
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.domain+json:
+                            schema:
+                                $ref: '#/components/schemas/domain_1.0_get_response_body'
+                    description: Returns the stored domain in the JSON response body.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+            summary: Retrieve a domain.
+            tags:
+                - Domain
+            x-permission: bxp:domain-read
+            x-persistence: true
+            x-scope: documentation,private,public
+        parameters:
+            - $ref: '#/components/parameters/organization_id'
+            - description: ID of the domain.
+              example: 4336388b-2992-43af-81de-ba9284b7dc36
+              in: path
+              name: domain_id
+              required: true
+              schema:
+                format: uuid
+                type: string
+        patch:
+            description: Updates the specified domain.
+            requestBody:
+                content:
+                    application/vnd.netapp.bxp.domain+json:
+                        schema:
+                            $ref: '#/components/schemas/domain_1.0_patch_request_body'
+                description: Replaces the specified attributes in the request body with the values provided.
+                required: true
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.domain+json:
+                            schema:
+                                $ref: '#/components/schemas/domain_1.0_get_response_body'
+                    description: Returns the updated domain in the JSON response body.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+            summary: Update a domain.
+            tags:
+                - Domain
+            x-permission: bxp:domain-modify
+            x-persistence: true
+            x-scope: documentation,private,public
+    /organizations/{organization_id}/federations:
+        get:
+            description: Lists all federations.
+            parameters:
+                - $ref: '#/components/parameters/filter'
+                - $ref: '#/components/parameters/skip'
+                - $ref: '#/components/parameters/include'
+                - $ref: '#/components/parameters/limit'
+                - $ref: '#/components/parameters/order_by'
+                - $ref: '#/components/parameters/count'
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.federations+json:
+                            example:
+                                count: 5
+                                items:
+                                    - adfsOptions:
+                                        metadataUrl: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                                      auth0Id: con_jxQFVfPHKSdiwoxs
+                                      auth0Name: fed-example-com-adfs
+                                      domains:
+                                        - example.com
+                                        - example2.com
+                                      expirationNotificationPeriod: P30D
+                                      id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                      metadata:
+                                        createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                      name: AD FS Federation with Metadata URL
+                                      organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                      providerType: ADFS
+                                      resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                      state: ENABLED
+                                      type: application/vnd.netapp.bxp.federation
+                                      version: "1.0"
+                                    - adfsOptions:
+                                        signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                      auth0Id: con_jxQFVfPHKSdiwoxs
+                                      auth0Name: fed-example-com-adfs
+                                      domains:
+                                        - example.com
+                                        - example2.com
+                                      expirationNotificationPeriod: P30D
+                                      expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                      id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                      metadata:
+                                        createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                      name: AD FS Federation with Metadata File
+                                      organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                      providerType: ADFS
+                                      resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                      state: ENABLED
+                                      type: application/vnd.netapp.bxp.federation
+                                      version: "1.0"
+                                    - auth0Id: con_jxQFVfPHKSdiwoxs
+                                      auth0Name: fed-example-com-waad
+                                      domains:
+                                        - example.com
+                                        - example2.com
+                                      entraIdOptions:
+                                        clientId: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                                        clientSecretMasked: qPz*******
+                                        tenantDomain: example.onmicrosoft.com
+                                      expirationNotificationPeriod: P30D
+                                      expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                      id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                      metadata:
+                                        createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                      name: Entra ID Federation
+                                      organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                      providerType: ENTRAID
+                                      resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                      state: ENABLED
+                                      type: application/vnd.netapp.bxp.federation
+                                      version: "1.0"
+                                    - auth0Id: con_jxQFVfPHKSdiwoxs
+                                      auth0Name: fed-example-com-pingfederate
+                                      domains:
+                                        - example.com
+                                        - example2.com
+                                      expirationNotificationPeriod: P30D
+                                      expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                      id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                      metadata:
+                                        createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                      name: PingFederate Federation
+                                      organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                      pingFederateOptions:
+                                        serverUrl: https://example.com/saml/signin
+                                        signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                      providerType: PINGFEDERATE
+                                      resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                      state: ENABLED
+                                      type: application/vnd.netapp.bxp.federation
+                                      version: "1.0"
+                                    - auth0Id: con_jxQFVfPHKSdiwoxs
+                                      auth0Name: fed-example-com-samlp
+                                      domains:
+                                        - example.com
+                                        - example2.com
+                                      expirationNotificationPeriod: P30D
+                                      expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                      id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                      metadata:
+                                        createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                        modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                      name: SAML Federation
+                                      organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                      providerType: SAML
+                                      resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                      samlOptions:
+                                        signInUrl: https://example.com/saml/signin
+                                        signOutUrl: https://example.com/saml/signout
+                                        signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                      state: ENABLED
+                                      type: application/vnd.netapp.bxp.federation
+                                      version: "1.0"
+                            schema:
+                                $ref: '#/components/schemas/federation_1.0_list_response_body'
+                    description: List of federations.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+            summary: List federations.
+            tags:
+                - Federation
+            x-permission: bxp:federation-read
+            x-persistence: true
+            x-scope: documentation,private,public
+        parameters:
+            - $ref: '#/components/parameters/organization_id'
+        post:
+            description: Creates a new federation.
+            requestBody:
+                content:
+                    application/vnd.netapp.bxp.federation+json:
+                        examples:
+                            AD FS Provider with Metadata File:
+                                value:
+                                    adfsOptions:
+                                        metadataFile: |-
+                                            <?xml version="1.0"?>
+                                            <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"...
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: AD FS Federation
+                                    providerType: ADFS
+                                    state: CREATED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            AD FS Provider with Metadata URL:
+                                value:
+                                    adfsOptions:
+                                        metadataUrl: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: AD FS Federation
+                                    providerType: ADFS
+                                    state: CREATED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            DRAFT Federation:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    name: Draft Federation
+                                    state: DRAFT
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            Entra ID Provider:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    entraIdOptions:
+                                        clientId: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                                        clientSecret: qPz:*1SAcqLjpP=QzMeeHD=[mWcF5u
+                                        tenantDomain: example.onmicrosoft.com
+                                    expirationNotificationPeriod: P30D
+                                    expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                    name: Entra ID Federation
+                                    providerType: ENTRAID
+                                    state: CREATED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            PingFederate Provider:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: PingFederate Federation
+                                    pingFederateOptions:
+                                        serverUrl: https://example.com/saml/signin
+                                        signingCertificate: |-
+                                            -----BEGIN CERTIFICATE-----
+                                            MIIC+jCCAeKgAwIBAgIJM...
+                                    providerType: PINGFEDERATE
+                                    state: CREATED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            SAML Provider:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: SAML Federation
+                                    providerType: SAML
+                                    samlOptions:
+                                        signInUrl: https://example.com/saml/signin
+                                        signOutUrl: https://example.com/saml/signout
+                                        signingCertificate: |-
+                                            -----BEGIN CERTIFICATE-----
+                                            MIIC+jCCAeKgAwIBAgIJM...
+                                    state: CREATED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                        schema:
+                            $ref: '#/components/schemas/federation_1.0_post_request_body'
+                description: Create a new federation.
+                required: true
+            responses:
+                "201":
+                    content:
+                        application/vnd.netapp.bxp.federation+json:
+                            examples:
+                                AD FS Provider with Metadata File:
+                                    value:
+                                        adfsOptions:
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-adfs
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: AD FS Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ADFS
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: CREATED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                AD FS Provider with Metadata URL:
+                                    value:
+                                        adfsOptions:
+                                            metadataUrl: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-adfs
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: AD FS Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ADFS
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: CREATED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                DRAFT Federation:
+                                    value:
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: Draft Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: DRAFT
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                Entra ID Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-waad
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        entraIdOptions:
+                                            clientId: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                                            clientSecretMasked: qPz*******
+                                            tenantDomain: example.onmicrosoft.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: Entra ID Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ENTRAID
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: CREATED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                PingFederate Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-pingfederate
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: PingFederate Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        pingFederateOptions:
+                                            serverUrl: https://example.com/saml/signin
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        providerType: PINGFEDERATE
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: CREATED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                SAML Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-samlp
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: SAML Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: SAML
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        samlOptions:
+                                            signInUrl: https://example.com/saml/signin
+                                            signOutUrl: https://example.com/saml/signout
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        state: CREATED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                            schema:
+                                $ref: '#/components/schemas/federation_1.0_get_response_body'
+                    description: Returns the newly created federation in the JSON response body.
+                    headers:
+                        Location:
+                            description: Location of the newly created resource.
+                            schema:
+                                format: uri
+                                type: string
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+                "409":
+                    $ref: '#/components/responses/409Conflict'
+            summary: Create a new federation.
+            tags:
+                - Federation
+            x-permission: bxp:federation-create
+            x-persistence: true
+            x-scope: documentation,private,public
+    /organizations/{organization_id}/federations/{federation_id}:
+        delete:
+            description: Deletes the specified federation.
+            responses:
+                "204":
+                    description: Indicates if the federation was deleted.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+            summary: Delete a federation.
+            tags:
+                - Federation
+            x-permission: bxp:federation-delete
+            x-persistence: true
+            x-scope: documentation,private,public
+        get:
+            description: Retrieves the specified federation.
+            parameters:
+                - $ref: '#/components/parameters/include'
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.federation+json:
+                            examples:
+                                AD FS Provider with Metadata File:
+                                    value:
+                                        adfsOptions:
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-adfs
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: AD FS Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ADFS
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                AD FS Provider with Metadata URL:
+                                    value:
+                                        adfsOptions:
+                                            metadataUrl: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-adfs
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: AD FS Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ADFS
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                Entra ID Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-waad
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        entraIdOptions:
+                                            clientId: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                                            clientSecretMasked: qPz*******
+                                            tenantDomain: example.onmicrosoft.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: Entra ID Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ENTRAID
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                PingFederate Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-pingfederate
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: PingFederate Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        pingFederateOptions:
+                                            serverUrl: https://example.com/saml/signin
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        providerType: PINGFEDERATE
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                SAML Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-samlp
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: SAML Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: SAML
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        samlOptions:
+                                            signInUrl: https://example.com/saml/signin
+                                            signOutUrl: https://example.com/saml/signout
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                            schema:
+                                $ref: '#/components/schemas/federation_1.0_get_response_body'
+                    description: Returns the stored federation in the JSON response body.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+            summary: Retrieve a federation.
+            tags:
+                - Federation
+            x-permission: bxp:federation-read
+            x-persistence: true
+            x-scope: documentation,private,public
+        parameters:
+            - $ref: '#/components/parameters/organization_id'
+            - description: ID of the federation.
+              example: 645eae30-ea32-4542-af58-1d9012fed81a
+              in: path
+              name: federation_id
+              required: true
+              schema:
+                format: uuid
+                type: string
+        patch:
+            description: Updates the specified federation.
+            requestBody:
+                content:
+                    application/vnd.netapp.bxp.federation+json:
+                        examples:
+                            AD FS Provider with Metadata File:
+                                value:
+                                    adfsOptions:
+                                        metadataFile: |-
+                                            <?xml version="1.0"?>
+                                            <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"...
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: AD FS Federation
+                                    providerType: ADFS
+                                    stateDesired: ENABLED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            AD FS Provider with Metadata URL:
+                                value:
+                                    adfsOptions:
+                                        metadataUrl: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: AD FS Federation
+                                    providerType: ADFS
+                                    stateDesired: ENABLED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            DRAFT Federation:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    name: Draft Federation
+                                    stateDesired: DRAFT
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            Entra ID Provider:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    entraIdOptions:
+                                        clientId: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                                        clientSecret: qPz:*1SAcqLjpP=QzMeeHD=[mWcF5u
+                                        tenantDomain: example.onmicrosoft.com
+                                    expirationNotificationPeriod: P30D
+                                    expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                    name: Entra ID Federation
+                                    providerType: ENTRAID
+                                    stateDesired: ENABLED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            PingFederate Provider:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: PingFederate Federation
+                                    pingFederateOptions:
+                                        serverUrl: https://example.com/saml/signin
+                                        signingCertificate: |-
+                                            -----BEGIN CERTIFICATE-----
+                                            MIIC+jCCAeKgAwIBAgIJM...
+                                    providerType: PINGFEDERATE
+                                    stateDesired: ENABLED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                            SAML Provider:
+                                value:
+                                    domains:
+                                        - example.com
+                                        - example2.com
+                                    expirationNotificationPeriod: P30D
+                                    name: SAML Federation
+                                    providerType: SAML
+                                    samlOptions:
+                                        signInUrl: https://example.com/saml/signin
+                                        signOutUrl: https://example.com/saml/signout
+                                        signingCertificate: |-
+                                            -----BEGIN CERTIFICATE-----
+                                            MIIC+jCCAeKgAwIBAgIJM...
+                                    stateDesired: ENABLED
+                                    type: application/vnd.netapp.bxp.federation
+                                    version: "1.0"
+                        schema:
+                            $ref: '#/components/schemas/federation_1.0_patch_request_body'
+                description: Replaces the specified attributes in the request body with the values provided.
+                required: true
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.federation+json:
+                            examples:
+                                AD FS Provider with Metadata File:
+                                    value:
+                                        adfsOptions:
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-adfs
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: AD FS Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ADFS
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                AD FS Provider with Metadata URL:
+                                    value:
+                                        adfsOptions:
+                                            metadataUrl: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-adfs
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: AD FS Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ADFS
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                DRAFT Federation:
+                                    value:
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: Draft Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: DRAFT
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                Entra ID Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-waad
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        entraIdOptions:
+                                            clientId: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                                            clientSecretMasked: qPz*******
+                                            tenantDomain: example.onmicrosoft.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: Entra ID Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: ENTRAID
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                PingFederate Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-pingfederate
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: PingFederate Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        pingFederateOptions:
+                                            serverUrl: https://example.com/saml/signin
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        providerType: PINGFEDERATE
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                                SAML Provider:
+                                    value:
+                                        auth0Id: con_jxQFVfPHKSdiwoxs
+                                        auth0Name: fed-example-com-samlp
+                                        domains:
+                                            - example.com
+                                            - example2.com
+                                        expirationNotificationPeriod: P30D
+                                        expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                                        id: 645eae30-ea32-4542-af58-1d9012fed81a
+                                        metadata:
+                                            createdBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                            creationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modificationTimestamp: "2022-10-06T20:58:16.305662Z"
+                                            modifiedBy: 666a3f38-d4fa-5b62-a391-a69029758d32
+                                        name: SAML Federation
+                                        organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                        providerType: SAML
+                                        resourceId: 862b6f03-58ac-479b-9ca5-5cb4429d8996
+                                        samlOptions:
+                                            signInUrl: https://example.com/saml/signin
+                                            signOutUrl: https://example.com/saml/signout
+                                            signingCertificateFingerprint: 33:0E:66:6A:D0:89:EA:78:10:7D:5A:35:FF:C5:51:E9:3A:CB:47:A8
+                                        state: ENABLED
+                                        type: application/vnd.netapp.bxp.federation
+                                        version: "1.0"
+                            schema:
+                                $ref: '#/components/schemas/federation_1.0_get_response_body'
+                    description: Returns the updated federation in the JSON response body.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+            summary: Update a federation.
+            tags:
+                - Federation
+            x-permission: bxp:federation-modify
+            x-persistence: true
+            x-scope: documentation,private,public
+    /unmigratedconnections:
+        get:
+            description: |-
+                Lists connections managed through Cloud Central that a user can import into BlueXP.
+                Connections must be enabled in Cloud Central to be eligible for import.
+                Only connections that the user has permission to manage in Cloud Central will be returned.
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.unmigratedconnections+json:
+                            examples:
+                                AD FS Provider with Metadata File:
+                                    value:
+                                        items:
+                                            - adfsOptions:
+                                                metadataFileProvided: true
+                                                signInUrl: https://example.com/adfs/ls/
+                                              creatorUsers:
+                                                - auth0|680f8f5e279840afb355ab00
+                                                - auth0|680f8f5e279840afb355ab11
+                                              domains:
+                                                - example.com
+                                                - example2.com
+                                              emailDomain: example.com
+                                              id: con_jxQFVfPHKSdiwoxs
+                                              name: fed-example-com-adfs
+                                              providerType: ADFS
+                                              type: application/vnd.netapp.bxp.unmigratedconnection
+                                              version: "1.0"
+                                AD FS Provider with Metadata URL:
+                                    value:
+                                        items:
+                                            - adfsOptions:
+                                                metadataFileProvided: false
+                                                metadataUrl: https://example.com/FederationMetadata/2007-06/FederationMetadata.xml
+                                              creatorUsers:
+                                                - auth0|680f8f5e279840afb355ab00
+                                                - auth0|680f8f5e279840afb355ab11
+                                              domains:
+                                                - example.com
+                                                - example2.com
+                                              emailDomain: example.com
+                                              id: con_jxQFVfPHKSdiwoxs
+                                              name: fed-example-com-adfs
+                                              providerType: ADFS
+                                              type: application/vnd.netapp.bxp.unmigratedconnection
+                                              version: "1.0"
+                                Entra ID Provider:
+                                    value:
+                                        items:
+                                            - creatorUsers:
+                                                - auth0|680f8f5e279840afb355ab00
+                                                - auth0|680f8f5e279840afb355ab11
+                                              domains:
+                                                - example.com
+                                                - example2.com
+                                              emailDomain: example.com
+                                              entraIdOptions:
+                                                clientId: 94e2a45c-64e6-48d1-a31e-1eee0ded5c2a
+                                                tenantDomain: example.onmicrosoft.com
+                                              id: con_jxQFVfPHKSdiwoxs
+                                              name: fed-example-com-waad
+                                              providerType: ENTRAID
+                                              type: application/vnd.netapp.bxp.unmigratedconnection
+                                              version: "1.0"
+                                PingFederate Provider:
+                                    value:
+                                        items:
+                                            - creatorUsers:
+                                                - auth0|680f8f5e279840afb355ab00
+                                                - auth0|680f8f5e279840afb355ab11
+                                              domains:
+                                                - example.com
+                                                - example2.com
+                                              emailDomain: example.com
+                                              id: con_jxQFVfPHKSdiwoxs
+                                              name: fed-example-com-pingfederate
+                                              pingFederateOptions:
+                                                serverUrl: https://example.com/saml/signin
+                                              providerType: PINGFEDERATE
+                                              type: application/vnd.netapp.bxp.unmigratedconnection
+                                              version: "1.0"
+                                SAML Provider:
+                                    value:
+                                        items:
+                                            - creatorUsers:
+                                                - auth0|680f8f5e279840afb355ab00
+                                                - auth0|680f8f5e279840afb355ab11
+                                              domains:
+                                                - example.com
+                                                - example2.com
+                                              emailDomain: example.com
+                                              id: con_jxQFVfPHKSdiwoxs
+                                              name: fed-example-com-samlp
+                                              providerType: SAML
+                                              samlOptions:
+                                                signInUrl: https://example.com/saml/signin
+                                              type: application/vnd.netapp.bxp.unmigratedconnection
+                                              version: "1.0"
+                            schema:
+                                $ref: '#/components/schemas/unmigratedconnection_1.0_list_response_body'
+                    description: List of unmigrated connections.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+            summary: List unmigrated connections.
+            tags:
+                - Unmigrated Connection
+            x-permission: bxp:federation-read
+            x-persistence: false
+            x-scope: documentation,private,public
+    /unmigratedconnections/{connection_id}:
+        parameters:
+            - description: ID of the Auth0 connection.
+              example: con_jxQFVfPHKSdiwoxs
+              in: path
+              name: connection_id
+              required: true
+              schema:
+                type: string
+        patch:
+            description: Imports the connection into BlueXP.
+            requestBody:
+                content:
+                    application/vnd.netapp.bxp.unmigratedconnection+json:
+                        example:
+                            expirationNotificationPeriod: P30D
+                            expirationTimestamp: "2024-11-18T20:58:16.305662Z"
+                            name: Imported Federation
+                            organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                            stateDesired: IMPORTED
+                            type: application/vnd.netapp.bxp.unmigratedconnection
+                            version: "1.0"
+                        schema:
+                            $ref: '#/components/schemas/unmigratedconnection_1.0_patch_request_body'
+                description: Imports the connection into BlueXP and creates a federation using the specified attributes in the request body provided.
+                required: true
+            responses:
+                "200":
+                    content:
+                        application/vnd.netapp.bxp.unmigratedconnection+json:
+                            example:
+                                federationId: 645eae30-ea32-4542-af58-1d9012fed81a
+                                id: con_jxQFVfPHKSdiwoxs
+                                organizationId: 9b0ee210-70a0-4158-b025-0decde66e4de
+                                state: IMPORTED
+                                type: application/vnd.netapp.bxp.unmigratedconnection
+                                version: "1.0"
+                            schema:
+                                $ref: '#/components/schemas/unmigratedconnection_1.0_patch_response_body'
+                    description: Returns the imported federation reference.
+                "400":
+                    $ref: '#/components/responses/400BadRequest'
+                "401":
+                    $ref: '#/components/responses/401Unauthorized'
+                "403":
+                    $ref: '#/components/responses/403Forbidden'
+                "404":
+                    $ref: '#/components/responses/404NotFound'
+            summary: Import the connection.
+            tags:
+                - Unmigrated Connection
+            x-permission: bxp:federation-create
+            x-persistence: true
+            x-scope: documentation,private,public
+security:
+    - bxp_bearer_auth: []
+servers:
+    - url: '{{.Server}}'
+tags:
+    - description: The domain endpoints enable users to verify ownership of a domain name.
+      name: Domain
+    - description: The federation endpoints enable users to create and manage federation connections with identity providers.
+      name: Federation
+    - description: The unmigrated connection endpoints enable users to import connections from Cloud Central into BlueXP.
+      name: Unmigrated Connection
