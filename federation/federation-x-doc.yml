@@ -47,7 +47,7 @@ paths:
         explorer: false
     post:
       x-doc:
-        title: Create a federation
+        title: Create a federation 
         category: Federation
         filename: post-organizations-federations.html
         subcategory: 
