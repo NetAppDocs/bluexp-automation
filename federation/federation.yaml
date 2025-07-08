@@ -974,8 +974,10 @@ components:
                 value: "true"
             properties:
                 name:
+                    description: Name of the label.
                     type: string
                 value:
+                    description: Value of the label.
                     type: string
             required:
                 - name
