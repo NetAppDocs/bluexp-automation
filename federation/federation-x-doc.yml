@@ -1,0 +1,93 @@
+---
+paths:
+  "/organizations/{organization_id}/domains":
+    get:
+      x-doc:
+        title: List domains 
+        category: Domain
+        filename: get-organizations-domains.html
+        subcategory: 
+        explorer: false
+    post:
+      x-doc:
+        title: Create a domain
+        category: Domain
+        filename: post-organizations-domains.html
+        subcategory: 
+        explorer: false
+  "/organizations/{organization_id}/domains/{domain_id}":
+    delete:
+      x-doc:
+        title: Delete a domain
+        category: Domain
+        filename: delete-organizations-domains-.html
+        subcategory: 
+        explorer: false
+    get:
+      x-doc:
+        title: Retrieve a domain
+        category: Domain
+        filename: get-organizations-domains-.html
+        subcategory: 
+        explorer: false
+    patch:
+      x-doc:
+        title: Update a domain
+        category: Domain
+        filename: patch-organizations-domains-.html
+        subcategory: 
+        explorer: false
+  "/organizations/{organization_id}/federations":
+    get:
+      x-doc:
+        title: List federations
+        category: Federation
+        filename: get-organizations-federations.html
+        subcategory: 
+        explorer: false
+    post:
+      x-doc:
+        title: Create a federation 
+        category: Federation
+        filename: post-organizations-federations.html
+        subcategory: 
+        explorer: false
+  "/organizations/{organization_id}/federations/{federation_id}":
+    delete:
+      x-doc:
+        title: Delete a federation
+        category: Federation
+        filename: delete-organizations-federations-.html
+        subcategory: 
+        explorer: false
+    get:
+      x-doc:
+        title: Retrieve a federation
+        category: Federation
+        filename: get-organizations-federations-.html
+        subcategory: 
+        explorer: false
+    patch:
+      x-doc:
+        title: Update a federation
+        category: Federation
+        filename: patch-organizations-federations-.html
+        subcategory: 
+        explorer: false
+  "/unmigratedconnections":
+    get:
+      x-doc:
+        title: List unmigrated connections
+        category: Unmigrated Connection
+        filename: get-unmigratedconnections.html
+        subcategory: 
+        explorer: false
+  "/unmigratedconnections/{connection_id}":
+    patch:
+      x-doc:
+        title: Import a connection
+        category: Unmigrated Connection
+        filename: patch-unmigratedconnections-.html
+        subcategory: 
+        explorer: false
+

@@ -23,6 +23,7 @@ sidebar:
     - section: copysync
     - section: credential
     - section: dw
+    - section: federation
     - section: ipa
     - section: tenancyv4
     - section: automate
