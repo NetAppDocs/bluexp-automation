@@ -52,8 +52,6 @@ indexpage:
          url: /credential/overview.html
        - title: Digital wallet
          url: /dw/overview.html
-       - title: Federation
-         url: /federation/overview.html
        - title: IPA
          url: /ipa/overview.html
        - title: Identity and access management (IAM)
