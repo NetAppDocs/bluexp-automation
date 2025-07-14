@@ -5,8 +5,6 @@ settings:
   internal:
     pdf_enabled: false
     api_enabled: true
-    api_preserve_adoc: true
-    api_input: dw,federation,tenancyv4
   prod:
     pdf_enabled: false
     api_enabled: true
