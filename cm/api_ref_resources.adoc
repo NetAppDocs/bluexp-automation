@@ -3943,6 +3943,52 @@ GET /azure/ha/metadata/instance-types-not-supporting-acceleration-and-capacity-t
 * application/json
 
 === Azure-ha:volumes
+==== Remove Avs on volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
+----
+DELETE /azure/ha/volumes/{workingEnvironmentId}/storage-vms/{svmName}/volumes/{volumeName}/remove-avs
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|string|
+|BodyParameter|body|Remove Avs on volume request|true|link:../cm/api_ref_definitions.html#avsonvolumerequest[AvsOnVolumeRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Setup Avs on volume.Operation may only be performed on working environments whose status is: ON, DEGRADED.
+----
+PUT /azure/ha/volumes/{workingEnvironmentId}/storage-vms/{svmName}/volumes/{volumeName}/setup-avs
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|svmName||true|string|
+|PathParameter|volumeName||true|ref|
+|BodyParameter|body|Setup Avs on volume request|true|link:../cm/api_ref_definitions.html#avsonvolumerequest[AvsOnVolumeRequest]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Deletes snapshot manually.Operation can only be performed on working environments whose status is: ON, DEGRADED.
 ----
 DELETE /azure/ha/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/snapshot
@@ -4600,6 +4646,33 @@ POST /azure/ha/working-environments/{workingEnvironmentId}/upload-licenses
 |Type|Name|Description|Required|Schema|Default
 |PathParameter|workingEnvironmentId|Public ID of working environment|true|string|
 |BodyParameter|body|license file content request|true|link:../cm/api_ref_definitions.html#licensefilecontent[LicenseFileContent]|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Get Avs private cloud for the existing subscription
+----
+GET /azure/ha/working-environments/{workingEnvironmentId}/avs-private-clouds
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#avsprivatecloud[AvsPrivateCloud]
 |===
 
 ===== Consumes
@@ -5318,6 +5391,35 @@ PUT /azure/ha/working-environments/{workingEnvironmentId}/activate-fpolicy
 |===
 |Type|Name|Description|Required|Schema|Default
 |PathParameter|workingEnvironmentId||true|string|
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Get Avs private cloud clusters for the existing subscription
+----
+GET /azure/ha/working-environments/{workingEnvironmentId}/resourceGroups/{resourceGroupName}/avs-private-clouds/{privateCloudName}/clusters
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|resourceGroupName|private cloud resource group name|true|string|
+|PathParameter|privateCloudName|private cloud name|true|string|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#avsprivatecloudcluster[AvsPrivateCloudCluster]
 |===
 
 ===== Consumes
@@ -6865,6 +6967,33 @@ POST /azure/vsa/working-environments/{workingEnvironmentId}/extra-capacity-licen
 
 * application/json
 
+==== Get Avs private cloud for the existing subscription
+----
+GET /azure/vsa/working-environments/{workingEnvironmentId}/avs-private-clouds
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#avsprivatecloud[AvsPrivateCloud]
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
 ==== Stops a specific Cloud Volumes ONTAP instance
 ----
 POST /azure/vsa/working-environments/{workingEnvironmentId}/stop
@@ -7064,6 +7193,35 @@ POST /azure/vsa/working-environments/{workingEnvironmentId}/support-registration
 |===
 |HTTP Code|Description|Schema
 |default|success|link:../cm/api_ref_definitions.html#supportregistrationresponse[SupportRegistrationResponse]
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* application/json
+
+==== Get Avs private cloud clusters for the existing subscription
+----
+GET /azure/vsa/working-environments/{workingEnvironmentId}/resourceGroups/{resourceGroupName}/avs-private-clouds/{privateCloudName}/clusters
+----
+
+===== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|workingEnvironmentId||true|string|
+|PathParameter|resourceGroupName|private cloud resource group name|true|string|
+|PathParameter|privateCloudName|private cloud name|true|string|
+|===
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|default|success|link:../cm/api_ref_definitions.html#avsprivatecloudcluster[AvsPrivateCloudCluster]
 |===
 
 ===== Consumes
