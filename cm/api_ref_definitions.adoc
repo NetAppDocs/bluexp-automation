@@ -36,6 +36,7 @@ This section describes existing data format definitions.
 |demoMode||true|boolean|
 |usingDockerInfra||true|boolean|
 |privateIp||true|string|
+|legacySM||true|boolean|
 |===
 
 === AccountWorkingEnvironmentResponse
@@ -284,6 +285,76 @@ This section describes existing data format definitions.
 |Name|Description|Required|Schema|Default
 |availableIps||true|integer (int32)|
 |===
+
+=== AvsOnVolumeRequest
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|privateCloudName|Avs Private Cloud Name|true|string|
+|clusterName|Private Cloud Cluster Name|true|string|
+|resourceGroup|Private Cloud Cluster Name|true|string|
+|===
+
+=== AvsPrivateCloud
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|id||true|string|
+|name||true|string|
+|location||true|string|
+|zones||true|string array|
+|tags||true|Map[string,string]|
+|properties||true|<<AvsPrivateCloudProperties>>|
+|===
+
+=== AvsPrivateCloudCluster
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|id||true|string|
+|name||true|string|
+|tags||true|Map[string,string]|
+|properties||true|<<AvsPrivateCloudClusterProperties>>|
+|===
+
+=== AvsPrivateCloudClusterProperties
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|clusterId||true|string|
+|clusterSize||true|string|
+|provisioningState||true|string|
+|vsanDatastoreName||true|string|
+|hosts||true|string array|
+|===
+
+=== AvsPrivateCloudEndpoints
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|vcenterIp||true|string|
+|===
+
+=== AvsPrivateCloudManagCluster
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|clusterId||true|string|
+|displayName||false|string|
+|clusterSize||true|string|
+|provisioningState||true|string|
+|vsanDatastoreName||true|string|
+|===
+
+=== AvsPrivateCloudProperties
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|provisioningState||true|string|
+|endpoints||true|<<AvsPrivateCloudEndpoints>>|
+|managementCluster||true|<<AvsPrivateCloudManagCluster>>|
+|===
+
 
 === AwsAccessKeys
 [options="header"]
@@ -1394,6 +1465,7 @@ This section describes existing data format definitions.
 |svmName||true|string|
 |svmPassword|Optional password for SVM vsadmin user|false|string|
 |mgmtLif|Create management lif for SVM|true|boolean|
+|rootVolumeAggregate|Root volume aggregate name|false|string|
 |===
 
 === CreateAzureVSAWorkingEnvironmentRequest
@@ -1594,6 +1666,7 @@ This section describes existing data format definitions.
 |svmName||true|string|
 |svmPassword|Optional password for SVM vsadmin user|false|string|
 |mgmtLif|Create management lif for SVM|true|boolean|
+|rootVolumeAggregate|Aggregate name for svm root volume|false|string|
 |===
 
 === CreateVSAWorkingEnvironmentRequest
@@ -3438,6 +3511,22 @@ This section describes existing data format definitions.
 |password||true|string|
 |===
 
+=== Pattern
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|pattern||false|string|
+|flags||false|integer (int32)|
+|===
+
+=== PatternMessage
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|regex||false|<<Regex>>|
+|message||false|string|
+|===
+
 === PolicySchedule
 [options="header"]
 |===
@@ -3622,6 +3711,14 @@ This section describes existing data format definitions.
 |tenantId||true|string|
 |cloudProviderAccount|Cloud Provider Account|false|string|
 |nssAccountId|Nss Account|false|string|
+|===
+
+=== Regex
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|pattern||false|<<Pattern>>|
+|scala$util$matching$Regex$$groupNames||false|string array|
 |===
 
 === Region

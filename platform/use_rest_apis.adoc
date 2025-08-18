@@ -23,7 +23,7 @@ There are several things you should consider before performing a BlueXP REST API
 
 A BlueXP account is required to access the platform. The system prompts you to create an account when you attempt to sign in to the BlueXP web UI.
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html[Learn about BlueXP accounts^]. 
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-sign-up-saas.html[Learn about BlueXP accounts^]. 
 
 == Access token usage scenarios
 
