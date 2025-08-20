@@ -121,6 +121,7 @@ An array of aggregates for the indicated working environment is returned as show
             {
                 "id": "xx",
                 "name": "vxx",
+
                 "size": {
                     "size": 256,
                     "unit": "GB"
@@ -169,6 +170,58 @@ An array of aggregates for the indicated working environment is returned as show
             {
                 "id": "xx",
                 "name": "xx",
+
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+
+                "device": "/xx/xxx",
+
+                "instanceId": "xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+
+            },
+            {
+                "id": "xx",
+                "name": "xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "xx",
+                "instanceId": "xx3",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "xx",
+                "name": "xx",
+                "size": {
+                    "size": 256,
+                    "unit": "GB"
+                },
+                "state": "in-use",
+                "device": "xx",
+                "instanceId": "xx",
+                "diskType": "gp3",
+                "encrypted": true,
+                "iops": 3000,
+                "throughput": 250,
+                "instance2Id": null
+            },
+            {
+                "id": "xx",
+                "name": "xx",
                 "size": {
                     "size": 256,
                     "unit": "GB"
@@ -181,6 +234,7 @@ An array of aggregates for the indicated working environment is returned as show
                 "iops": 3000,
                 "throughput": 250,
                 "instance2Id": null
+
             }
         ],
         "disks": [
@@ -258,7 +312,9 @@ Perform the workflow link:wf_aws_cloud_get_wes.html#get-working-environment-for-
 
 === Step 2. Get the list of aggregates
 
+
 You can issue the rEST API call to retrieve a list of aggregates.
+
 
 [cols="25,75"*,options="header"]
 |===
