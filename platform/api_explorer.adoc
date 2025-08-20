@@ -21,7 +21,7 @@ NOTE: You can access the API Explorer by clicking *Try it out* on any of the API
 There are several things you should consider before using the API Explorer.
 
 .Prerequisites
-You need to have a NetApp BlueXP account. Refer to link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-sign-up-saas.html[Learn about BlueXP accounts^] for more information.
+You need to have a NetApp BlueXP account. Refer to link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-sign-up-saas.html[Sign up or log in to BlueXP^] for more information.
 
 There might be additional requirements depending on the API call. You might need to obtain the following identifiers from the link:https://console.bluexp.netapp.com/working-environments?view=clouds[BlueXP SaaS interface^]:
 
